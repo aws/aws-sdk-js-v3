@@ -4008,10 +4008,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_Rule = (input: Rule, context: __SerdeContext): any => {
   return take(input, {
     CheckExpression: [],
-    ColumnSelectors: (_) => _json(_),
+    ColumnSelectors: _json,
     Disabled: [],
     Name: [],
-    SubstitutionMap: (_) => _json(_),
+    SubstitutionMap: _json,
     Threshold: (_) => se_Threshold(_, context),
   });
 };
@@ -4054,7 +4054,7 @@ const se_Threshold = (input: Threshold, context: __SerdeContext): any => {
   return take(input, {
     Type: [],
     Unit: [],
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 

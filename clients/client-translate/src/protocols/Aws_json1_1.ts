@@ -1610,10 +1610,10 @@ const se_CreateParallelDataRequest = (input: CreateParallelDataRequest, context:
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
-    EncryptionKey: (_) => _json(_),
+    EncryptionKey: _json,
     Name: [],
-    ParallelDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    ParallelDataConfig: _json,
+    Tags: _json,
   });
 };
 
@@ -1635,10 +1635,10 @@ const se_CreateParallelDataRequest = (input: CreateParallelDataRequest, context:
 const se_ImportTerminologyRequest = (input: ImportTerminologyRequest, context: __SerdeContext): any => {
   return take(input, {
     Description: [],
-    EncryptionKey: (_) => _json(_),
+    EncryptionKey: _json,
     MergeStrategy: [],
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     TerminologyData: (_) => se_TerminologyData(_, context),
   });
 };
@@ -1677,14 +1677,14 @@ const se_StartTextTranslationJobRequest = (input: StartTextTranslationJobRequest
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
-    OutputDataConfig: (_) => _json(_),
-    ParallelDataNames: (_) => _json(_),
-    Settings: (_) => _json(_),
+    OutputDataConfig: _json,
+    ParallelDataNames: _json,
+    Settings: _json,
     SourceLanguageCode: [],
-    TargetLanguageCodes: (_) => _json(_),
-    TerminologyNames: (_) => _json(_),
+    TargetLanguageCodes: _json,
+    TerminologyNames: _json,
   });
 };
 
@@ -1706,7 +1706,7 @@ const se_StartTextTranslationJobRequest = (input: StartTextTranslationJobRequest
 const se_TerminologyData = (input: TerminologyData, context: __SerdeContext): any => {
   return take(input, {
     Directionality: [],
-    File: (_) => context.base64Encoder(_),
+    File: context.base64Encoder,
     Format: [],
   });
 };
@@ -1737,7 +1737,7 @@ const se_UpdateParallelDataRequest = (input: UpdateParallelDataRequest, context:
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     Name: [],
-    ParallelDataConfig: (_) => _json(_),
+    ParallelDataConfig: _json,
   });
 };
 

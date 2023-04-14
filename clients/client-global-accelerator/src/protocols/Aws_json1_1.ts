@@ -3913,9 +3913,9 @@ const se_CreateAcceleratorRequest = (input: CreateAcceleratorRequest, context: _
     Enabled: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
     IpAddressType: [],
-    IpAddresses: (_) => _json(_),
+    IpAddresses: _json,
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3930,9 +3930,9 @@ const se_CreateCustomRoutingAcceleratorRequest = (
     Enabled: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
     IpAddressType: [],
-    IpAddresses: (_) => _json(_),
+    IpAddresses: _json,
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3944,7 +3944,7 @@ const se_CreateCustomRoutingEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    DestinationConfigurations: (_) => _json(_),
+    DestinationConfigurations: _json,
     EndpointGroupRegion: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
     ListenerArn: [],
@@ -3961,7 +3961,7 @@ const se_CreateCustomRoutingListenerRequest = (
   return take(input, {
     AcceleratorArn: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
-    PortRanges: (_) => _json(_),
+    PortRanges: _json,
   });
 };
 
@@ -3970,7 +3970,7 @@ const se_CreateCustomRoutingListenerRequest = (
  */
 const se_CreateEndpointGroupRequest = (input: CreateEndpointGroupRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndpointConfigurations: (_) => _json(_),
+    EndpointConfigurations: _json,
     EndpointGroupRegion: [],
     HealthCheckIntervalSeconds: [],
     HealthCheckPath: [],
@@ -3978,9 +3978,9 @@ const se_CreateEndpointGroupRequest = (input: CreateEndpointGroupRequest, contex
     HealthCheckProtocol: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
     ListenerArn: [],
-    PortOverrides: (_) => _json(_),
+    PortOverrides: _json,
     ThresholdCount: [],
-    TrafficDialPercentage: (_) => __serializeFloat(_),
+    TrafficDialPercentage: __serializeFloat,
   });
 };
 
@@ -3992,7 +3992,7 @@ const se_CreateListenerRequest = (input: CreateListenerRequest, context: __Serde
     AcceleratorArn: [],
     ClientAffinity: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
-    PortRanges: (_) => _json(_),
+    PortRanges: _json,
     Protocol: [],
   });
 };
@@ -4114,15 +4114,15 @@ const se_CreateListenerRequest = (input: CreateListenerRequest, context: __Serde
  */
 const se_UpdateEndpointGroupRequest = (input: UpdateEndpointGroupRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndpointConfigurations: (_) => _json(_),
+    EndpointConfigurations: _json,
     EndpointGroupArn: [],
     HealthCheckIntervalSeconds: [],
     HealthCheckPath: [],
     HealthCheckPort: [],
     HealthCheckProtocol: [],
-    PortOverrides: (_) => _json(_),
+    PortOverrides: _json,
     ThresholdCount: [],
-    TrafficDialPercentage: (_) => __serializeFloat(_),
+    TrafficDialPercentage: __serializeFloat,
   });
 };
 

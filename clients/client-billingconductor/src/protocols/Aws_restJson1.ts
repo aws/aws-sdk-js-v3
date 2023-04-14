@@ -3241,7 +3241,7 @@ const se_CustomLineItemChargeDetails = (input: CustomLineItemChargeDetails, cont
  */
 const se_CustomLineItemFlatChargeDetails = (input: CustomLineItemFlatChargeDetails, context: __SerdeContext): any => {
   return take(input, {
-    ChargeValue: (_) => __serializeFloat(_),
+    ChargeValue: __serializeFloat,
   });
 };
 
@@ -3255,8 +3255,8 @@ const se_CustomLineItemPercentageChargeDetails = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    AssociatedValues: (_) => _json(_),
-    PercentageValue: (_) => __serializeFloat(_),
+    AssociatedValues: _json,
+    PercentageValue: __serializeFloat,
   });
 };
 
@@ -3309,7 +3309,7 @@ const se_UpdateCustomLineItemFlatChargeDetails = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ChargeValue: (_) => __serializeFloat(_),
+    ChargeValue: __serializeFloat,
   });
 };
 
@@ -3321,7 +3321,7 @@ const se_UpdateCustomLineItemPercentageChargeDetails = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    PercentageValue: (_) => __serializeFloat(_),
+    PercentageValue: __serializeFloat,
   });
 };
 

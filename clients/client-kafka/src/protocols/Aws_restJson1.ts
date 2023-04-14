@@ -3662,10 +3662,10 @@ const se_BrokerLogs = (input: BrokerLogs, context: __SerdeContext): any => {
 const se_BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, context: __SerdeContext): any => {
   return take(input, {
     brokerAZDistribution: [, , `BrokerAZDistribution`],
-    clientSubnets: [, (_) => _json(_), `ClientSubnets`],
+    clientSubnets: [, _json, `ClientSubnets`],
     connectivityInfo: [, (_) => se_ConnectivityInfo(_, context), `ConnectivityInfo`],
     instanceType: [, , `InstanceType`],
-    securityGroups: [, (_) => _json(_), `SecurityGroups`],
+    securityGroups: [, _json, `SecurityGroups`],
     storageInfo: [, (_) => se_StorageInfo(_, context), `StorageInfo`],
   });
 };
@@ -3923,7 +3923,7 @@ const se_StorageInfo = (input: StorageInfo, context: __SerdeContext): any => {
  */
 const se_Tls = (input: Tls, context: __SerdeContext): any => {
   return take(input, {
-    certificateAuthorityArnList: [, (_) => _json(_), `CertificateAuthorityArnList`],
+    certificateAuthorityArnList: [, _json, `CertificateAuthorityArnList`],
     enabled: [, , `Enabled`],
   });
 };
@@ -3942,8 +3942,8 @@ const se_Unauthenticated = (input: Unauthenticated, context: __SerdeContext): an
  */
 const se_VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
   return take(input, {
-    securityGroupIds: [, (_) => _json(_), `SecurityGroupIds`],
-    subnetIds: [, (_) => _json(_), `SubnetIds`],
+    securityGroupIds: [, _json, `SecurityGroupIds`],
+    subnetIds: [, _json, `SubnetIds`],
   });
 };
 

@@ -1703,7 +1703,7 @@ const se_NotifyMigrationTaskStateRequest = (input: NotifyMigrationTaskStateReque
     MigrationTaskName: [],
     NextUpdateSeconds: [],
     ProgressUpdateStream: [],
-    Task: (_) => _json(_),
+    Task: _json,
     UpdateDateTime: (_) => Math.round(_.getTime() / 1000),
   });
 };

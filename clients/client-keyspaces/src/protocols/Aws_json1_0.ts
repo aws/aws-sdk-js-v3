@@ -1149,13 +1149,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_RestoreTableRequest = (input: RestoreTableRequest, context: __SerdeContext): any => {
   return take(input, {
-    capacitySpecificationOverride: (_) => _json(_),
-    encryptionSpecificationOverride: (_) => _json(_),
-    pointInTimeRecoveryOverride: (_) => _json(_),
+    capacitySpecificationOverride: _json,
+    encryptionSpecificationOverride: _json,
+    pointInTimeRecoveryOverride: _json,
     restoreTimestamp: (_) => Math.round(_.getTime() / 1000),
     sourceKeyspaceName: [],
     sourceTableName: [],
-    tagsOverride: (_) => _json(_),
+    tagsOverride: _json,
     targetKeyspaceName: [],
     targetTableName: [],
   });

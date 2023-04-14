@@ -446,10 +446,10 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
  */
 const se_BoundingBox = (input: BoundingBox, context: __SerdeContext): any => {
   return take(input, {
-    Height: (_) => __serializeFloat(_),
-    Left: (_) => __serializeFloat(_),
-    Top: (_) => __serializeFloat(_),
-    Width: (_) => __serializeFloat(_),
+    Height: __serializeFloat,
+    Left: __serializeFloat,
+    Top: __serializeFloat,
+    Width: __serializeFloat,
   });
 };
 
@@ -487,7 +487,7 @@ const se_FaceMovementAndLightClientChallenge = (
 ): any => {
   return take(input, {
     ChallengeId: [],
-    ColorDisplayed: (_) => _json(_),
+    ColorDisplayed: _json,
     InitialFace: (_) => se_InitialFace(_, context),
     TargetFace: (_) => se_TargetFace(_, context),
     VideoEndTimestamp: [],
@@ -524,7 +524,7 @@ const se_TargetFace = (input: TargetFace, context: __SerdeContext): any => {
 const se_VideoEvent = (input: VideoEvent, context: __SerdeContext): any => {
   return take(input, {
     TimestampMillis: [],
-    VideoChunk: (_) => context.base64Encoder(_),
+    VideoChunk: context.base64Encoder,
   });
 };
 

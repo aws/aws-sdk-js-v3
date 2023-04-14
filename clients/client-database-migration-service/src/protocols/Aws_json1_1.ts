@@ -5231,7 +5231,7 @@ const se_CreateReplicationTaskMessage = (input: CreateReplicationTaskMessage, co
     ResourceIdentifier: [],
     SourceEndpointArn: [],
     TableMappings: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     TargetEndpointArn: [],
     TaskData: [],
   });
@@ -5280,8 +5280,8 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
   return take(input, {
     Duration: [],
     EndTime: (_) => Math.round(_.getTime() / 1000),
-    EventCategories: (_) => _json(_),
-    Filters: (_) => _json(_),
+    EventCategories: _json,
+    Filters: _json,
     Marker: [],
     MaxRecords: [],
     SourceIdentifier: [],
@@ -5359,8 +5359,8 @@ const se_ImportCertificateMessage = (input: ImportCertificateMessage, context: _
   return take(input, {
     CertificateIdentifier: [],
     CertificatePem: [],
-    CertificateWallet: (_) => context.base64Encoder(_),
-    Tags: (_) => _json(_),
+    CertificateWallet: context.base64Encoder,
+    Tags: _json,
   });
 };
 

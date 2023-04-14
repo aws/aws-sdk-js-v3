@@ -4962,8 +4962,8 @@ const se_DefaultImportClientBrandingAttributes = (
 ): any => {
   return take(input, {
     ForgotPasswordLink: [],
-    LoginMessage: (_) => _json(_),
-    Logo: (_) => context.base64Encoder(_),
+    LoginMessage: _json,
+    Logo: context.base64Encoder,
     SupportEmail: [],
     SupportLink: [],
   });
@@ -5053,10 +5053,10 @@ const se_IosImportClientBrandingAttributes = (
 ): any => {
   return take(input, {
     ForgotPasswordLink: [],
-    LoginMessage: (_) => _json(_),
-    Logo: (_) => context.base64Encoder(_),
-    Logo2x: (_) => context.base64Encoder(_),
-    Logo3x: (_) => context.base64Encoder(_),
+    LoginMessage: _json,
+    Logo: context.base64Encoder,
+    Logo2x: context.base64Encoder,
+    Logo3x: context.base64Encoder,
     SupportEmail: [],
     SupportLink: [],
   });

@@ -19086,7 +19086,7 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
  */
 const se_AutoMLDataSplitConfig = (input: AutoMLDataSplitConfig, context: __SerdeContext): any => {
   return take(input, {
-    ValidationFraction: (_) => __serializeFloat(_),
+    ValidationFraction: __serializeFloat,
   });
 };
 
@@ -19101,11 +19101,11 @@ const se_AutoMLDataSplitConfig = (input: AutoMLDataSplitConfig, context: __Serde
  */
 const se_AutoMLJobConfig = (input: AutoMLJobConfig, context: __SerdeContext): any => {
   return take(input, {
-    CandidateGenerationConfig: (_) => _json(_),
-    CompletionCriteria: (_) => _json(_),
+    CandidateGenerationConfig: _json,
+    CompletionCriteria: _json,
     DataSplitConfig: (_) => se_AutoMLDataSplitConfig(_, context),
     Mode: [],
-    SecurityConfig: (_) => _json(_),
+    SecurityConfig: _json,
   });
 };
 
@@ -19133,13 +19133,13 @@ const se_AutoMLJobConfig = (input: AutoMLJobConfig, context: __SerdeContext): an
 const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeContext): any => {
   return take(input, {
     DataCapturedDestinationS3Uri: [],
-    DatasetFormat: (_) => _json(_),
+    DatasetFormat: _json,
     EndTimeOffset: [],
     FeaturesAttribute: [],
     InferenceAttribute: [],
     LocalPath: [],
     ProbabilityAttribute: [],
-    ProbabilityThresholdAttribute: (_) => __serializeFloat(_),
+    ProbabilityThresholdAttribute: __serializeFloat,
     S3DataDistributionType: [],
     S3InputMode: [],
     StartTimeOffset: [],
@@ -19255,14 +19255,14 @@ const se_CreateAutoMLJobRequest = (input: CreateAutoMLJobRequest, context: __Ser
   return take(input, {
     AutoMLJobConfig: (_) => se_AutoMLJobConfig(_, context),
     AutoMLJobName: [],
-    AutoMLJobObjective: (_) => _json(_),
+    AutoMLJobObjective: _json,
     GenerateCandidateDefinitionsOnly: [],
-    InputDataConfig: (_) => _json(_),
-    ModelDeployConfig: (_) => _json(_),
-    OutputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
+    ModelDeployConfig: _json,
+    OutputDataConfig: _json,
     ProblemType: [],
     RoleArn: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -19271,16 +19271,16 @@ const se_CreateAutoMLJobRequest = (input: CreateAutoMLJobRequest, context: __Ser
  */
 const se_CreateAutoMLJobV2Request = (input: CreateAutoMLJobV2Request, context: __SerdeContext): any => {
   return take(input, {
-    AutoMLJobInputDataConfig: (_) => _json(_),
+    AutoMLJobInputDataConfig: _json,
     AutoMLJobName: [],
-    AutoMLJobObjective: (_) => _json(_),
-    AutoMLProblemTypeConfig: (_) => _json(_),
+    AutoMLJobObjective: _json,
+    AutoMLProblemTypeConfig: _json,
     DataSplitConfig: (_) => se_AutoMLDataSplitConfig(_, context),
-    ModelDeployConfig: (_) => _json(_),
-    OutputDataConfig: (_) => _json(_),
+    ModelDeployConfig: _json,
+    OutputDataConfig: _json,
     RoleArn: [],
-    SecurityConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    SecurityConfig: _json,
+    Tags: _json,
   });
 };
 
@@ -19298,16 +19298,16 @@ const se_CreateDataQualityJobDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    DataQualityAppSpecification: (_) => _json(_),
-    DataQualityBaselineConfig: (_) => _json(_),
+    DataQualityAppSpecification: _json,
+    DataQualityBaselineConfig: _json,
     DataQualityJobInput: (_) => se_DataQualityJobInput(_, context),
-    DataQualityJobOutputConfig: (_) => _json(_),
+    DataQualityJobOutputConfig: _json,
     JobDefinitionName: [],
-    JobResources: (_) => _json(_),
-    NetworkConfig: (_) => _json(_),
+    JobResources: _json,
+    NetworkConfig: _json,
     RoleArn: [],
-    StoppingCondition: (_) => _json(_),
-    Tags: (_) => _json(_),
+    StoppingCondition: _json,
+    Tags: _json,
   });
 };
 
@@ -19326,14 +19326,14 @@ const se_CreateDataQualityJobDefinitionRequest = (
  */
 const se_CreateEndpointConfigInput = (input: CreateEndpointConfigInput, context: __SerdeContext): any => {
   return take(input, {
-    AsyncInferenceConfig: (_) => _json(_),
-    DataCaptureConfig: (_) => _json(_),
+    AsyncInferenceConfig: _json,
+    DataCaptureConfig: _json,
     EndpointConfigName: [],
-    ExplainerConfig: (_) => _json(_),
+    ExplainerConfig: _json,
     KmsKeyId: [],
     ProductionVariants: (_) => se_ProductionVariantList(_, context),
     ShadowProductionVariants: (_) => se_ProductionVariantList(_, context),
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -19350,11 +19350,11 @@ const se_CreateFlowDefinitionRequest = (input: CreateFlowDefinitionRequest, cont
   return take(input, {
     FlowDefinitionName: [],
     HumanLoopActivationConfig: (_) => se_HumanLoopActivationConfig(_, context),
-    HumanLoopConfig: (_) => _json(_),
-    HumanLoopRequestSource: (_) => _json(_),
-    OutputConfig: (_) => _json(_),
+    HumanLoopConfig: _json,
+    HumanLoopRequestSource: _json,
+    OutputConfig: _json,
     RoleArn: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -19372,10 +19372,10 @@ const se_CreateHyperParameterTuningJobRequest = (
   return take(input, {
     HyperParameterTuningJobConfig: (_) => se_HyperParameterTuningJobConfig(_, context),
     HyperParameterTuningJobName: [],
-    Tags: (_) => _json(_),
-    TrainingJobDefinition: (_) => _json(_),
-    TrainingJobDefinitions: (_) => _json(_),
-    WarmStartConfig: (_) => _json(_),
+    Tags: _json,
+    TrainingJobDefinition: _json,
+    TrainingJobDefinitions: _json,
+    WarmStartConfig: _json,
   });
 };
 
@@ -19386,7 +19386,7 @@ const se_CreateHyperParameterTuningJobRequest = (
  */
 const se_CreateImageVersionRequest = (input: CreateImageVersionRequest, context: __SerdeContext): any => {
   return take(input, {
-    Aliases: (_) => _json(_),
+    Aliases: _json,
     BaseImage: [],
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     Horovod: [],
@@ -19405,16 +19405,16 @@ const se_CreateImageVersionRequest = (input: CreateImageVersionRequest, context:
  */
 const se_CreateInferenceExperimentRequest = (input: CreateInferenceExperimentRequest, context: __SerdeContext): any => {
   return take(input, {
-    DataStorageConfig: (_) => _json(_),
+    DataStorageConfig: _json,
     Description: [],
     EndpointName: [],
     KmsKey: [],
-    ModelVariants: (_) => _json(_),
+    ModelVariants: _json,
     Name: [],
     RoleArn: [],
     Schedule: (_) => se_InferenceExperimentSchedule(_, context),
-    ShadowModeConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    ShadowModeConfig: _json,
+    Tags: _json,
     Type: [],
   });
 };
@@ -19432,15 +19432,15 @@ const se_CreateModelBiasJobDefinitionRequest = (
 ): any => {
   return take(input, {
     JobDefinitionName: [],
-    JobResources: (_) => _json(_),
-    ModelBiasAppSpecification: (_) => _json(_),
-    ModelBiasBaselineConfig: (_) => _json(_),
+    JobResources: _json,
+    ModelBiasAppSpecification: _json,
+    ModelBiasBaselineConfig: _json,
     ModelBiasJobInput: (_) => se_ModelBiasJobInput(_, context),
-    ModelBiasJobOutputConfig: (_) => _json(_),
-    NetworkConfig: (_) => _json(_),
+    ModelBiasJobOutputConfig: _json,
+    NetworkConfig: _json,
     RoleArn: [],
-    StoppingCondition: (_) => _json(_),
-    Tags: (_) => _json(_),
+    StoppingCondition: _json,
+    Tags: _json,
   });
 };
 
@@ -19457,15 +19457,15 @@ const se_CreateModelExplainabilityJobDefinitionRequest = (
 ): any => {
   return take(input, {
     JobDefinitionName: [],
-    JobResources: (_) => _json(_),
-    ModelExplainabilityAppSpecification: (_) => _json(_),
-    ModelExplainabilityBaselineConfig: (_) => _json(_),
+    JobResources: _json,
+    ModelExplainabilityAppSpecification: _json,
+    ModelExplainabilityBaselineConfig: _json,
     ModelExplainabilityJobInput: (_) => se_ModelExplainabilityJobInput(_, context),
-    ModelExplainabilityJobOutputConfig: (_) => _json(_),
-    NetworkConfig: (_) => _json(_),
+    ModelExplainabilityJobOutputConfig: _json,
+    NetworkConfig: _json,
     RoleArn: [],
-    StoppingCondition: (_) => _json(_),
-    Tags: (_) => _json(_),
+    StoppingCondition: _json,
+    Tags: _json,
   });
 };
 
@@ -19478,24 +19478,24 @@ const se_CreateModelExplainabilityJobDefinitionRequest = (
  */
 const se_CreateModelPackageInput = (input: CreateModelPackageInput, context: __SerdeContext): any => {
   return take(input, {
-    AdditionalInferenceSpecifications: (_) => _json(_),
+    AdditionalInferenceSpecifications: _json,
     CertifyForMarketplace: [],
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
-    CustomerMetadataProperties: (_) => _json(_),
+    CustomerMetadataProperties: _json,
     Domain: [],
-    DriftCheckBaselines: (_) => _json(_),
-    InferenceSpecification: (_) => _json(_),
-    MetadataProperties: (_) => _json(_),
+    DriftCheckBaselines: _json,
+    InferenceSpecification: _json,
+    MetadataProperties: _json,
     ModelApprovalStatus: [],
-    ModelMetrics: (_) => _json(_),
+    ModelMetrics: _json,
     ModelPackageDescription: [],
     ModelPackageGroupName: [],
     ModelPackageName: [],
     SamplePayloadUrl: [],
-    SourceAlgorithmSpecification: (_) => _json(_),
-    Tags: (_) => _json(_),
+    SourceAlgorithmSpecification: _json,
+    Tags: _json,
     Task: [],
-    ValidationSpecification: (_) => _json(_),
+    ValidationSpecification: _json,
   });
 };
 
@@ -19508,15 +19508,15 @@ const se_CreateModelQualityJobDefinitionRequest = (
 ): any => {
   return take(input, {
     JobDefinitionName: [],
-    JobResources: (_) => _json(_),
-    ModelQualityAppSpecification: (_) => _json(_),
-    ModelQualityBaselineConfig: (_) => _json(_),
+    JobResources: _json,
+    ModelQualityAppSpecification: _json,
+    ModelQualityBaselineConfig: _json,
     ModelQualityJobInput: (_) => se_ModelQualityJobInput(_, context),
-    ModelQualityJobOutputConfig: (_) => _json(_),
-    NetworkConfig: (_) => _json(_),
+    ModelQualityJobOutputConfig: _json,
+    NetworkConfig: _json,
     RoleArn: [],
-    StoppingCondition: (_) => _json(_),
-    Tags: (_) => _json(_),
+    StoppingCondition: _json,
+    Tags: _json,
   });
 };
 
@@ -19527,7 +19527,7 @@ const se_CreateMonitoringScheduleRequest = (input: CreateMonitoringScheduleReque
   return take(input, {
     MonitoringScheduleConfig: (_) => se_MonitoringScheduleConfig(_, context),
     MonitoringScheduleName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -19541,14 +19541,14 @@ const se_CreateMonitoringScheduleRequest = (input: CreateMonitoringScheduleReque
 const se_CreatePipelineRequest = (input: CreatePipelineRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    ParallelismConfiguration: (_) => _json(_),
+    ParallelismConfiguration: _json,
     PipelineDefinition: [],
-    PipelineDefinitionS3Location: (_) => _json(_),
+    PipelineDefinitionS3Location: _json,
     PipelineDescription: [],
     PipelineDisplayName: [],
     PipelineName: [],
     RoleArn: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -19575,13 +19575,13 @@ const se_CreateTrialComponentRequest = (input: CreateTrialComponentRequest, cont
   return take(input, {
     DisplayName: [],
     EndTime: (_) => Math.round(_.getTime() / 1000),
-    InputArtifacts: (_) => _json(_),
-    MetadataProperties: (_) => _json(_),
-    OutputArtifacts: (_) => _json(_),
+    InputArtifacts: _json,
+    MetadataProperties: _json,
+    OutputArtifacts: _json,
     Parameters: (_) => se_TrialComponentParameters(_, context),
     StartTime: (_) => Math.round(_.getTime() / 1000),
-    Status: (_) => _json(_),
-    Tags: (_) => _json(_),
+    Status: _json,
+    Tags: _json,
     TrialComponentName: [],
   });
 };
@@ -19864,7 +19864,7 @@ const se_DeletePipelineRequest = (input: DeletePipelineRequest, context: __Serde
 const se_DesiredWeightAndCapacity = (input: DesiredWeightAndCapacity, context: __SerdeContext): any => {
   return take(input, {
     DesiredInstanceCount: [],
-    DesiredWeight: (_) => __serializeFloat(_),
+    DesiredWeight: __serializeFloat,
     VariantName: [],
   });
 };
@@ -19931,7 +19931,7 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
     InferenceAttribute: [],
     LocalPath: [],
     ProbabilityAttribute: [],
-    ProbabilityThresholdAttribute: (_) => __serializeFloat(_),
+    ProbabilityThresholdAttribute: __serializeFloat,
     S3DataDistributionType: [],
     S3InputMode: [],
     StartTimeOffset: [],
@@ -20012,7 +20012,7 @@ const se_HumanLoopActivationConditionsConfig = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    HumanLoopActivationConditions: (_) => __LazyJsonString.fromObject(_),
+    HumanLoopActivationConditions: __LazyJsonString.fromObject,
   });
 };
 
@@ -20056,12 +20056,12 @@ const se_HumanLoopActivationConfig = (input: HumanLoopActivationConfig, context:
  */
 const se_HyperParameterTuningJobConfig = (input: HyperParameterTuningJobConfig, context: __SerdeContext): any => {
   return take(input, {
-    HyperParameterTuningJobObjective: (_) => _json(_),
-    ParameterRanges: (_) => _json(_),
+    HyperParameterTuningJobObjective: _json,
+    ParameterRanges: _json,
     RandomSeed: [],
-    ResourceLimits: (_) => _json(_),
+    ResourceLimits: _json,
     Strategy: [],
-    StrategyConfig: (_) => _json(_),
+    StrategyConfig: _json,
     TrainingJobEarlyStoppingType: [],
     TuningJobCompletionCriteria: (_) => se_TuningJobCompletionCriteria(_, context),
   });
@@ -21158,7 +21158,7 @@ const se_ModelBiasJobInput = (input: ModelBiasJobInput, context: __SerdeContext)
   return take(input, {
     BatchTransformInput: (_) => se_BatchTransformInput(_, context),
     EndpointInput: (_) => se_EndpointInput(_, context),
-    GroundTruthS3Input: (_) => _json(_),
+    GroundTruthS3Input: _json,
   });
 };
 
@@ -21227,7 +21227,7 @@ const se_ModelQualityJobInput = (input: ModelQualityJobInput, context: __SerdeCo
   return take(input, {
     BatchTransformInput: (_) => se_BatchTransformInput(_, context),
     EndpointInput: (_) => se_EndpointInput(_, context),
-    GroundTruthS3Input: (_) => _json(_),
+    GroundTruthS3Input: _json,
   });
 };
 
@@ -21281,15 +21281,15 @@ const se_MonitoringInputs = (input: MonitoringInput[], context: __SerdeContext):
  */
 const se_MonitoringJobDefinition = (input: MonitoringJobDefinition, context: __SerdeContext): any => {
   return take(input, {
-    BaselineConfig: (_) => _json(_),
-    Environment: (_) => _json(_),
-    MonitoringAppSpecification: (_) => _json(_),
+    BaselineConfig: _json,
+    Environment: _json,
+    MonitoringAppSpecification: _json,
     MonitoringInputs: (_) => se_MonitoringInputs(_, context),
-    MonitoringOutputConfig: (_) => _json(_),
-    MonitoringResources: (_) => _json(_),
-    NetworkConfig: (_) => _json(_),
+    MonitoringOutputConfig: _json,
+    MonitoringResources: _json,
+    NetworkConfig: _json,
     RoleArn: [],
-    StoppingCondition: (_) => _json(_),
+    StoppingCondition: _json,
   });
 };
 
@@ -21317,7 +21317,7 @@ const se_MonitoringScheduleConfig = (input: MonitoringScheduleConfig, context: _
     MonitoringJobDefinition: (_) => se_MonitoringJobDefinition(_, context),
     MonitoringJobDefinitionName: [],
     MonitoringType: [],
-    ScheduleConfig: (_) => _json(_),
+    ScheduleConfig: _json,
   });
 };
 
@@ -21418,14 +21418,14 @@ const se_ProductionVariant = (input: ProductionVariant, context: __SerdeContext)
   return take(input, {
     AcceleratorType: [],
     ContainerStartupHealthCheckTimeoutInSeconds: [],
-    CoreDumpConfig: (_) => _json(_),
+    CoreDumpConfig: _json,
     EnableSSMAccess: [],
     InitialInstanceCount: [],
-    InitialVariantWeight: (_) => __serializeFloat(_),
+    InitialVariantWeight: __serializeFloat,
     InstanceType: [],
     ModelDataDownloadTimeoutInSeconds: [],
     ModelName: [],
-    ServerlessConfig: (_) => _json(_),
+    ServerlessConfig: _json,
     VariantName: [],
     VolumeSizeInGB: [],
   });
@@ -21473,11 +21473,11 @@ const se_QueryFilters = (input: QueryFilters, context: __SerdeContext): any => {
   return take(input, {
     CreatedAfter: (_) => Math.round(_.getTime() / 1000),
     CreatedBefore: (_) => Math.round(_.getTime() / 1000),
-    LineageTypes: (_) => _json(_),
+    LineageTypes: _json,
     ModifiedAfter: (_) => Math.round(_.getTime() / 1000),
     ModifiedBefore: (_) => Math.round(_.getTime() / 1000),
-    Properties: (_) => _json(_),
-    Types: (_) => _json(_),
+    Properties: _json,
+    Types: _json,
   });
 };
 
@@ -21492,7 +21492,7 @@ const se_QueryLineageRequest = (input: QueryLineageRequest, context: __SerdeCont
     MaxDepth: [],
     MaxResults: [],
     NextToken: [],
-    StartArns: (_) => _json(_),
+    StartArns: _json,
   });
 };
 
@@ -21560,7 +21560,7 @@ const se_QueryLineageRequest = (input: QueryLineageRequest, context: __SerdeCont
 const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    ParallelismConfiguration: (_) => _json(_),
+    ParallelismConfiguration: _json,
     PipelineExecutionArn: [],
   });
 };
@@ -21590,8 +21590,8 @@ const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, 
  */
 const se_SearchExpression = (input: SearchExpression, context: __SerdeContext): any => {
   return take(input, {
-    Filters: (_) => _json(_),
-    NestedFilters: (_) => _json(_),
+    Filters: _json,
+    NestedFilters: _json,
     Operator: [],
     SubExpressions: (_) => se_SearchExpressionList(_, context),
   });
@@ -21648,7 +21648,7 @@ const se_SendPipelineExecutionStepSuccessRequest = (
   return take(input, {
     CallbackToken: [],
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    OutputParameters: (_) => _json(_),
+    OutputParameters: _json,
   });
 };
 
@@ -21690,11 +21690,11 @@ const se_SendPipelineExecutionStepSuccessRequest = (
 const se_StartPipelineExecutionRequest = (input: StartPipelineExecutionRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    ParallelismConfiguration: (_) => _json(_),
+    ParallelismConfiguration: _json,
     PipelineExecutionDescription: [],
     PipelineExecutionDisplayName: [],
     PipelineName: [],
-    PipelineParameters: (_) => _json(_),
+    PipelineParameters: _json,
   });
 };
 
@@ -21832,9 +21832,9 @@ const se_TrialComponentParameterValue = (input: TrialComponentParameterValue, co
  */
 const se_TuningJobCompletionCriteria = (input: TuningJobCompletionCriteria, context: __SerdeContext): any => {
   return take(input, {
-    BestObjectiveNotImproving: (_) => _json(_),
-    ConvergenceDetected: (_) => _json(_),
-    TargetObjectiveMetricValue: (_) => __serializeFloat(_),
+    BestObjectiveNotImproving: _json,
+    ConvergenceDetected: _json,
+    TargetObjectiveMetricValue: __serializeFloat,
   });
 };
 
@@ -21890,12 +21890,12 @@ const se_UpdateEndpointWeightsAndCapacitiesInput = (
  */
 const se_UpdateInferenceExperimentRequest = (input: UpdateInferenceExperimentRequest, context: __SerdeContext): any => {
   return take(input, {
-    DataStorageConfig: (_) => _json(_),
+    DataStorageConfig: _json,
     Description: [],
-    ModelVariants: (_) => _json(_),
+    ModelVariants: _json,
     Name: [],
     Schedule: (_) => se_InferenceExperimentSchedule(_, context),
-    ShadowModeConfig: (_) => _json(_),
+    ShadowModeConfig: _json,
   });
 };
 
@@ -21936,14 +21936,14 @@ const se_UpdateTrialComponentRequest = (input: UpdateTrialComponentRequest, cont
   return take(input, {
     DisplayName: [],
     EndTime: (_) => Math.round(_.getTime() / 1000),
-    InputArtifacts: (_) => _json(_),
-    InputArtifactsToRemove: (_) => _json(_),
-    OutputArtifacts: (_) => _json(_),
-    OutputArtifactsToRemove: (_) => _json(_),
+    InputArtifacts: _json,
+    InputArtifactsToRemove: _json,
+    OutputArtifacts: _json,
+    OutputArtifactsToRemove: _json,
     Parameters: (_) => se_TrialComponentParameters(_, context),
-    ParametersToRemove: (_) => _json(_),
+    ParametersToRemove: _json,
     StartTime: (_) => Math.round(_.getTime() / 1000),
-    Status: (_) => _json(_),
+    Status: _json,
     TrialComponentName: [],
   });
 };

@@ -2183,7 +2183,7 @@ const se_UpdateMLModelInput = (input: UpdateMLModelInput, context: __SerdeContex
   return take(input, {
     MLModelId: [],
     MLModelName: [],
-    ScoreThreshold: (_) => __serializeFloat(_),
+    ScoreThreshold: __serializeFloat,
   });
 };
 

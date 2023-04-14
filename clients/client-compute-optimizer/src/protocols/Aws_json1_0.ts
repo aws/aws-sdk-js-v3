@@ -2063,7 +2063,7 @@ const se_GetEC2RecommendationProjectedMetricsRequest = (
     endTime: (_) => Math.round(_.getTime() / 1000),
     instanceArn: [],
     period: [],
-    recommendationPreferences: (_) => _json(_),
+    recommendationPreferences: _json,
     startTime: (_) => Math.round(_.getTime() / 1000),
     stat: [],
   });

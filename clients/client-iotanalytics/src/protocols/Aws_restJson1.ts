@@ -3352,7 +3352,7 @@ const se_ContainerDatasetAction = (input: ContainerDatasetAction, context: __Ser
   return take(input, {
     executionRoleArn: [],
     image: [],
-    resourceConfiguration: (_) => _json(_),
+    resourceConfiguration: _json,
     variables: (_) => se_Variables(_, context),
   });
 };
@@ -3368,7 +3368,7 @@ const se_DatasetAction = (input: DatasetAction, context: __SerdeContext): any =>
   return take(input, {
     actionName: [],
     containerAction: (_) => se_ContainerDatasetAction(_, context),
-    queryAction: (_) => _json(_),
+    queryAction: _json,
   });
 };
 
@@ -3443,7 +3443,7 @@ const se_DatasetActions = (input: DatasetAction[], context: __SerdeContext): any
 const se_Message = (input: Message, context: __SerdeContext): any => {
   return take(input, {
     messageId: [],
-    payload: (_) => context.base64Encoder(_),
+    payload: context.base64Encoder,
   });
 };
 
@@ -3520,10 +3520,10 @@ const se_Messages = (input: Message[], context: __SerdeContext): any => {
  */
 const se_Variable = (input: Variable, context: __SerdeContext): any => {
   return take(input, {
-    datasetContentVersionValue: (_) => _json(_),
-    doubleValue: (_) => __serializeFloat(_),
+    datasetContentVersionValue: _json,
+    doubleValue: __serializeFloat,
     name: [],
-    outputFileUriValue: (_) => _json(_),
+    outputFileUriValue: _json,
     stringValue: [],
   });
 };

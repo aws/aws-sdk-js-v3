@@ -3584,8 +3584,8 @@ const de_UnrecognizedClientExceptionRes = async (
  */
 const se_MetricTransformation = (input: MetricTransformation, context: __SerdeContext): any => {
   return take(input, {
-    defaultValue: (_) => __serializeFloat(_),
-    dimensions: (_) => _json(_),
+    defaultValue: __serializeFloat,
+    dimensions: _json,
     metricName: [],
     metricNamespace: [],
     metricValue: [],

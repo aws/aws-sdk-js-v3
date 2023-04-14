@@ -3004,7 +3004,7 @@ const se_ServerGroupReplicationConfigurations = (
  */
 const se_ServerReplicationConfiguration = (input: ServerReplicationConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    server: (_) => _json(_),
+    server: _json,
     serverReplicationParameters: (_) => se_ServerReplicationParameters(_, context),
   });
 };

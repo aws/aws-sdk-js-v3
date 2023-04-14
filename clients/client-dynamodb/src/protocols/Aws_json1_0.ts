@@ -4571,7 +4571,7 @@ const se_AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = (
     DisableScaleIn: [],
     ScaleInCooldown: [],
     ScaleOutCooldown: [],
-    TargetValue: (_) => __serializeFloat(_),
+    TargetValue: __serializeFloat,
   });
 };
 
@@ -4670,7 +4670,7 @@ const se_Condition = (input: Condition, context: __SerdeContext): any => {
 const se_ConditionCheck = (input: ConditionCheck, context: __SerdeContext): any => {
   return take(input, {
     ConditionExpression: [],
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     ExpressionAttributeValues: (_) => se_ExpressionAttributeValueMap(_, context),
     Key: (_) => se_Key(_, context),
     ReturnValuesOnConditionCheckFailure: [],
@@ -4700,7 +4700,7 @@ const se_ConditionCheck = (input: ConditionCheck, context: __SerdeContext): any 
 const se_Delete = (input: Delete, context: __SerdeContext): any => {
   return take(input, {
     ConditionExpression: [],
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     ExpressionAttributeValues: (_) => se_ExpressionAttributeValueMap(_, context),
     Key: (_) => se_Key(_, context),
     ReturnValuesOnConditionCheckFailure: [],
@@ -4720,7 +4720,7 @@ const se_DeleteItemInput = (input: DeleteItemInput, context: __SerdeContext): an
     ConditionExpression: [],
     ConditionalOperator: [],
     Expected: (_) => se_ExpectedAttributeMap(_, context),
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     ExpressionAttributeValues: (_) => se_ExpressionAttributeValueMap(_, context),
     Key: (_) => se_Key(_, context),
     ReturnConsumedCapacity: [],
@@ -4871,7 +4871,7 @@ const se_FilterConditionMap = (input: Record<string, Condition>, context: __Serd
  */
 const se_Get = (input: Get, context: __SerdeContext): any => {
   return take(input, {
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     Key: (_) => se_Key(_, context),
     ProjectionExpression: [],
     TableName: [],
@@ -4883,9 +4883,9 @@ const se_Get = (input: Get, context: __SerdeContext): any => {
  */
 const se_GetItemInput = (input: GetItemInput, context: __SerdeContext): any => {
   return take(input, {
-    AttributesToGet: (_) => _json(_),
+    AttributesToGet: _json,
     ConsistentRead: [],
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     Key: (_) => se_Key(_, context),
     ProjectionExpression: [],
     ReturnConsumedCapacity: [],
@@ -4964,9 +4964,9 @@ const se_ImportTableInput = (input: ImportTableInput, context: __SerdeContext): 
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     InputCompressionType: [],
     InputFormat: [],
-    InputFormatOptions: (_) => _json(_),
-    S3BucketSource: (_) => _json(_),
-    TableCreationParameters: (_) => _json(_),
+    InputFormatOptions: _json,
+    S3BucketSource: _json,
+    TableCreationParameters: _json,
   });
 };
 
@@ -5014,9 +5014,9 @@ const se_KeyList = (input: Record<string, AttributeValue>[], context: __SerdeCon
  */
 const se_KeysAndAttributes = (input: KeysAndAttributes, context: __SerdeContext): any => {
   return take(input, {
-    AttributesToGet: (_) => _json(_),
+    AttributesToGet: _json,
     ConsistentRead: [],
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     Keys: (_) => se_KeyList(_, context),
     ProjectionExpression: [],
   });
@@ -5143,7 +5143,7 @@ const se_PreparedStatementParameters = (input: AttributeValue[], context: __Serd
 const se_Put = (input: Put, context: __SerdeContext): any => {
   return take(input, {
     ConditionExpression: [],
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     ExpressionAttributeValues: (_) => se_ExpressionAttributeValueMap(_, context),
     Item: (_) => se_PutItemInputAttributeMap(_, context),
     ReturnValuesOnConditionCheckFailure: [],
@@ -5159,7 +5159,7 @@ const se_PutItemInput = (input: PutItemInput, context: __SerdeContext): any => {
     ConditionExpression: [],
     ConditionalOperator: [],
     Expected: (_) => se_ExpectedAttributeMap(_, context),
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     ExpressionAttributeValues: (_) => se_ExpressionAttributeValueMap(_, context),
     Item: (_) => se_PutItemInputAttributeMap(_, context),
     ReturnConsumedCapacity: [],
@@ -5196,11 +5196,11 @@ const se_PutRequest = (input: PutRequest, context: __SerdeContext): any => {
  */
 const se_QueryInput = (input: QueryInput, context: __SerdeContext): any => {
   return take(input, {
-    AttributesToGet: (_) => _json(_),
+    AttributesToGet: _json,
     ConditionalOperator: [],
     ConsistentRead: [],
     ExclusiveStartKey: (_) => se_Key(_, context),
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     ExpressionAttributeValues: (_) => se_ExpressionAttributeValueMap(_, context),
     FilterExpression: [],
     IndexName: [],
@@ -5341,11 +5341,11 @@ const se_ReplicaSettingsUpdateList = (input: ReplicaSettingsUpdate[], context: _
 const se_RestoreTableToPointInTimeInput = (input: RestoreTableToPointInTimeInput, context: __SerdeContext): any => {
   return take(input, {
     BillingModeOverride: [],
-    GlobalSecondaryIndexOverride: (_) => _json(_),
-    LocalSecondaryIndexOverride: (_) => _json(_),
-    ProvisionedThroughputOverride: (_) => _json(_),
+    GlobalSecondaryIndexOverride: _json,
+    LocalSecondaryIndexOverride: _json,
+    ProvisionedThroughputOverride: _json,
     RestoreDateTime: (_) => Math.round(_.getTime() / 1000),
-    SSESpecificationOverride: (_) => _json(_),
+    SSESpecificationOverride: _json,
     SourceTableArn: [],
     SourceTableName: [],
     TargetTableName: [],
@@ -5360,11 +5360,11 @@ const se_RestoreTableToPointInTimeInput = (input: RestoreTableToPointInTimeInput
  */
 const se_ScanInput = (input: ScanInput, context: __SerdeContext): any => {
   return take(input, {
-    AttributesToGet: (_) => _json(_),
+    AttributesToGet: _json,
     ConditionalOperator: [],
     ConsistentRead: [],
     ExclusiveStartKey: (_) => se_Key(_, context),
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     ExpressionAttributeValues: (_) => se_ExpressionAttributeValueMap(_, context),
     FilterExpression: [],
     IndexName: [],
@@ -5470,7 +5470,7 @@ const se_TransactWriteItemsInput = (input: TransactWriteItemsInput, context: __S
 const se_Update = (input: Update, context: __SerdeContext): any => {
   return take(input, {
     ConditionExpression: [],
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     ExpressionAttributeValues: (_) => se_ExpressionAttributeValueMap(_, context),
     Key: (_) => se_Key(_, context),
     ReturnValuesOnConditionCheckFailure: [],
@@ -5511,7 +5511,7 @@ const se_UpdateItemInput = (input: UpdateItemInput, context: __SerdeContext): an
     ConditionExpression: [],
     ConditionalOperator: [],
     Expected: (_) => se_ExpectedAttributeMap(_, context),
-    ExpressionAttributeNames: (_) => _json(_),
+    ExpressionAttributeNames: _json,
     ExpressionAttributeValues: (_) => se_ExpressionAttributeValueMap(_, context),
     Key: (_) => se_Key(_, context),
     ReturnConsumedCapacity: [],

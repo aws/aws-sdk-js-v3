@@ -7396,8 +7396,8 @@ const se_BotLocaleImportSpecification = (input: BotLocaleImportSpecification, co
     botId: [],
     botVersion: [],
     localeId: [],
-    nluIntentConfidenceThreshold: (_) => __serializeFloat(_),
-    voiceSettings: (_) => _json(_),
+    nluIntentConfidenceThreshold: __serializeFloat,
+    voiceSettings: _json,
   });
 };
 
@@ -7436,10 +7436,10 @@ const se_BotLocaleImportSpecification = (input: BotLocaleImportSpecification, co
  */
 const se_ConditionalBranch = (input: ConditionalBranch, context: __SerdeContext): any => {
   return take(input, {
-    condition: (_) => _json(_),
+    condition: _json,
     name: [],
     nextStep: (_) => se_DialogState(_, context),
-    response: (_) => _json(_),
+    response: _json,
   });
 };
 
@@ -7501,7 +7501,7 @@ const se_DateRangeFilter = (input: DateRangeFilter, context: __SerdeContext): an
 const se_DefaultConditionalBranch = (input: DefaultConditionalBranch, context: __SerdeContext): any => {
   return take(input, {
     nextStep: (_) => se_DialogState(_, context),
-    response: (_) => _json(_),
+    response: _json,
   });
 };
 
@@ -7528,9 +7528,9 @@ const se_DialogCodeHookInvocationSetting = (input: DialogCodeHookInvocationSetti
  */
 const se_DialogState = (input: DialogState, context: __SerdeContext): any => {
   return take(input, {
-    dialogAction: (_) => _json(_),
+    dialogAction: _json,
     intent: (_) => se_IntentOverride(_, context),
-    sessionAttributes: (_) => _json(_),
+    sessionAttributes: _json,
   });
 };
 
@@ -7559,7 +7559,7 @@ const se_FulfillmentCodeHookSettings = (input: FulfillmentCodeHookSettings, cont
   return take(input, {
     active: [],
     enabled: [],
-    fulfillmentUpdatesSpecification: (_) => _json(_),
+    fulfillmentUpdatesSpecification: _json,
     postFulfillmentStatusSpecification: (_) => se_PostFulfillmentStatusSpecification(_, context),
   });
 };
@@ -7585,9 +7585,9 @@ const se_FulfillmentCodeHookSettings = (input: FulfillmentCodeHookSettings, cont
  */
 const se_ImportResourceSpecification = (input: ImportResourceSpecification, context: __SerdeContext): any => {
   return take(input, {
-    botImportSpecification: (_) => _json(_),
+    botImportSpecification: _json,
     botLocaleImportSpecification: (_) => se_BotLocaleImportSpecification(_, context),
-    customVocabularyImportSpecification: (_) => _json(_),
+    customVocabularyImportSpecification: _json,
   });
 };
 
@@ -7600,7 +7600,7 @@ const se_InitialResponseSetting = (input: InitialResponseSetting, context: __Ser
   return take(input, {
     codeHook: (_) => se_DialogCodeHookInvocationSetting(_, context),
     conditional: (_) => se_ConditionalSpecification(_, context),
-    initialResponse: (_) => _json(_),
+    initialResponse: _json,
     nextStep: (_) => se_DialogState(_, context),
   });
 };
@@ -7615,7 +7615,7 @@ const se_InitialResponseSetting = (input: InitialResponseSetting, context: __Ser
 const se_IntentClosingSetting = (input: IntentClosingSetting, context: __SerdeContext): any => {
   return take(input, {
     active: [],
-    closingResponse: (_) => _json(_),
+    closingResponse: _json,
     conditional: (_) => se_ConditionalSpecification(_, context),
     nextStep: (_) => se_DialogState(_, context),
   });
@@ -7630,15 +7630,15 @@ const se_IntentConfirmationSetting = (input: IntentConfirmationSetting, context:
     codeHook: (_) => se_DialogCodeHookInvocationSetting(_, context),
     confirmationConditional: (_) => se_ConditionalSpecification(_, context),
     confirmationNextStep: (_) => se_DialogState(_, context),
-    confirmationResponse: (_) => _json(_),
+    confirmationResponse: _json,
     declinationConditional: (_) => se_ConditionalSpecification(_, context),
     declinationNextStep: (_) => se_DialogState(_, context),
-    declinationResponse: (_) => _json(_),
-    elicitationCodeHook: (_) => _json(_),
+    declinationResponse: _json,
+    elicitationCodeHook: _json,
     failureConditional: (_) => se_ConditionalSpecification(_, context),
     failureNextStep: (_) => se_DialogState(_, context),
-    failureResponse: (_) => _json(_),
-    promptSpecification: (_) => _json(_),
+    failureResponse: _json,
+    promptSpecification: _json,
   });
 };
 
@@ -7707,13 +7707,13 @@ const se_PostDialogCodeHookInvocationSpecification = (
   return take(input, {
     failureConditional: (_) => se_ConditionalSpecification(_, context),
     failureNextStep: (_) => se_DialogState(_, context),
-    failureResponse: (_) => _json(_),
+    failureResponse: _json,
     successConditional: (_) => se_ConditionalSpecification(_, context),
     successNextStep: (_) => se_DialogState(_, context),
-    successResponse: (_) => _json(_),
+    successResponse: _json,
     timeoutConditional: (_) => se_ConditionalSpecification(_, context),
     timeoutNextStep: (_) => se_DialogState(_, context),
-    timeoutResponse: (_) => _json(_),
+    timeoutResponse: _json,
   });
 };
 
@@ -7727,13 +7727,13 @@ const se_PostFulfillmentStatusSpecification = (
   return take(input, {
     failureConditional: (_) => se_ConditionalSpecification(_, context),
     failureNextStep: (_) => se_DialogState(_, context),
-    failureResponse: (_) => _json(_),
+    failureResponse: _json,
     successConditional: (_) => se_ConditionalSpecification(_, context),
     successNextStep: (_) => se_DialogState(_, context),
-    successResponse: (_) => _json(_),
+    successResponse: _json,
     timeoutConditional: (_) => se_ConditionalSpecification(_, context),
     timeoutNextStep: (_) => se_DialogState(_, context),
-    timeoutResponse: (_) => _json(_),
+    timeoutResponse: _json,
   });
 };
 
@@ -7759,7 +7759,7 @@ const se_PostFulfillmentStatusSpecification = (
 const se_S3BucketTranscriptSource = (input: S3BucketTranscriptSource, context: __SerdeContext): any => {
   return take(input, {
     kmsKeyArn: [],
-    pathFormat: (_) => _json(_),
+    pathFormat: _json,
     s3BucketName: [],
     transcriptFilter: (_) => se_TranscriptFilter(_, context),
     transcriptFormat: [],
@@ -7781,12 +7781,12 @@ const se_SlotCaptureSetting = (input: SlotCaptureSetting, context: __SerdeContex
   return take(input, {
     captureConditional: (_) => se_ConditionalSpecification(_, context),
     captureNextStep: (_) => se_DialogState(_, context),
-    captureResponse: (_) => _json(_),
+    captureResponse: _json,
     codeHook: (_) => se_DialogCodeHookInvocationSetting(_, context),
-    elicitationCodeHook: (_) => _json(_),
+    elicitationCodeHook: _json,
     failureConditional: (_) => se_ConditionalSpecification(_, context),
     failureNextStep: (_) => se_DialogState(_, context),
-    failureResponse: (_) => _json(_),
+    failureResponse: _json,
   });
 };
 
@@ -7823,12 +7823,12 @@ const se_SlotCaptureSetting = (input: SlotCaptureSetting, context: __SerdeContex
  */
 const se_SlotValueElicitationSetting = (input: SlotValueElicitationSetting, context: __SerdeContext): any => {
   return take(input, {
-    defaultValueSpecification: (_) => _json(_),
-    promptSpecification: (_) => _json(_),
-    sampleUtterances: (_) => _json(_),
+    defaultValueSpecification: _json,
+    promptSpecification: _json,
+    sampleUtterances: _json,
     slotCaptureSetting: (_) => se_SlotCaptureSetting(_, context),
     slotConstraint: [],
-    waitAndContinueSpecification: (_) => _json(_),
+    waitAndContinueSpecification: _json,
   });
 };
 
@@ -7838,7 +7838,7 @@ const se_SlotValueElicitationSetting = (input: SlotValueElicitationSetting, cont
 const se_SlotValueOverride = (input: SlotValueOverride, context: __SerdeContext): any => {
   return take(input, {
     shape: [],
-    value: (_) => _json(_),
+    value: _json,
     values: (_) => se_SlotValues(_, context),
   });
 };
@@ -7877,7 +7877,7 @@ const se_SlotValues = (input: SlotValueOverride[], context: __SerdeContext): any
 const se_Specifications = (input: Specifications, context: __SerdeContext): any => {
   return take(input, {
     slotTypeId: [],
-    valueElicitationSetting: (_) => _json(_),
+    valueElicitationSetting: _json,
   });
 };
 

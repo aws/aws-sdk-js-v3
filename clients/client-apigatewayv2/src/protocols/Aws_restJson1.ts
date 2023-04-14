@@ -6709,10 +6709,10 @@ const se_AccessLogSettings = (input: AccessLogSettings, context: __SerdeContext)
 const se_Cors = (input: Cors, context: __SerdeContext): any => {
   return take(input, {
     allowCredentials: [, , `AllowCredentials`],
-    allowHeaders: [, (_) => _json(_), `AllowHeaders`],
-    allowMethods: [, (_) => _json(_), `AllowMethods`],
-    allowOrigins: [, (_) => _json(_), `AllowOrigins`],
-    exposeHeaders: [, (_) => _json(_), `ExposeHeaders`],
+    allowHeaders: [, _json, `AllowHeaders`],
+    allowMethods: [, _json, `AllowMethods`],
+    allowOrigins: [, _json, `AllowOrigins`],
+    exposeHeaders: [, _json, `ExposeHeaders`],
     maxAge: [, , `MaxAge`],
   });
 };
@@ -6761,7 +6761,7 @@ const se_DomainNameConfigurations = (input: DomainNameConfiguration[], context: 
  */
 const se_JWTConfiguration = (input: JWTConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    audience: [, (_) => _json(_), `Audience`],
+    audience: [, _json, `Audience`],
     issuer: [, , `Issuer`],
   });
 };
@@ -6811,7 +6811,7 @@ const se_RouteSettings = (input: RouteSettings, context: __SerdeContext): any =>
     detailedMetricsEnabled: [, , `DetailedMetricsEnabled`],
     loggingLevel: [, , `LoggingLevel`],
     throttlingBurstLimit: [, , `ThrottlingBurstLimit`],
-    throttlingRateLimit: [, (_) => __serializeFloat(_), `ThrottlingRateLimit`],
+    throttlingRateLimit: [, __serializeFloat, `ThrottlingRateLimit`],
   });
 };
 

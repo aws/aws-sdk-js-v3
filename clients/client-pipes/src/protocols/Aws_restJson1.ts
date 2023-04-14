@@ -1199,7 +1199,7 @@ const se_PipeSourceKinesisStreamParameters = (
 ): any => {
   return take(input, {
     BatchSize: [],
-    DeadLetterConfig: (_) => _json(_),
+    DeadLetterConfig: _json,
     MaximumBatchingWindowInSeconds: [],
     MaximumRecordAgeInSeconds: [],
     MaximumRetryAttempts: [],
@@ -1217,14 +1217,14 @@ const se_PipeSourceKinesisStreamParameters = (
  */
 const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeContext): any => {
   return take(input, {
-    ActiveMQBrokerParameters: (_) => _json(_),
-    DynamoDBStreamParameters: (_) => _json(_),
-    FilterCriteria: (_) => _json(_),
+    ActiveMQBrokerParameters: _json,
+    DynamoDBStreamParameters: _json,
+    FilterCriteria: _json,
     KinesisStreamParameters: (_) => se_PipeSourceKinesisStreamParameters(_, context),
-    ManagedStreamingKafkaParameters: (_) => _json(_),
-    RabbitMQBrokerParameters: (_) => _json(_),
-    SelfManagedKafkaParameters: (_) => _json(_),
-    SqsQueueParameters: (_) => _json(_),
+    ManagedStreamingKafkaParameters: _json,
+    RabbitMQBrokerParameters: _json,
+    SelfManagedKafkaParameters: _json,
+    SqsQueueParameters: _json,
   });
 };
 

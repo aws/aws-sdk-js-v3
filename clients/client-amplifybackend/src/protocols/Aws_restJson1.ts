@@ -3165,7 +3165,7 @@ const se_BackendAPIAppSyncAuthSettings = (input: BackendAPIAppSyncAuthSettings, 
   return take(input, {
     cognitoUserPoolId: [, , `CognitoUserPoolId`],
     description: [, , `Description`],
-    expirationTime: [, (_) => __serializeFloat(_), `ExpirationTime`],
+    expirationTime: [, __serializeFloat, `ExpirationTime`],
     openIDAuthTTL: [, , `OpenIDAuthTTL`],
     openIDClientId: [, , `OpenIDClientId`],
     openIDIatTTL: [, , `OpenIDIatTTL`],
@@ -3234,8 +3234,8 @@ const se_BackendAuthSocialProviderConfig = (input: BackendAuthSocialProviderConf
  */
 const se_BackendStoragePermissions = (input: BackendStoragePermissions, context: __SerdeContext): any => {
   return take(input, {
-    authenticated: [, (_) => _json(_), `Authenticated`],
-    unAuthenticated: [, (_) => _json(_), `UnAuthenticated`],
+    authenticated: [, _json, `Authenticated`],
+    unAuthenticated: [, _json, `UnAuthenticated`],
   });
 };
 
@@ -3283,9 +3283,9 @@ const se_CreateBackendAuthOAuthConfig = (input: CreateBackendAuthOAuthConfig, co
   return take(input, {
     domainPrefix: [, , `DomainPrefix`],
     oAuthGrantType: [, , `OAuthGrantType`],
-    oAuthScopes: [, (_) => _json(_), `OAuthScopes`],
-    redirectSignInURIs: [, (_) => _json(_), `RedirectSignInURIs`],
-    redirectSignOutURIs: [, (_) => _json(_), `RedirectSignOutURIs`],
+    oAuthScopes: [, _json, `OAuthScopes`],
+    redirectSignInURIs: [, _json, `RedirectSignInURIs`],
+    redirectSignOutURIs: [, _json, `RedirectSignOutURIs`],
     socialProviderSettings: [, (_) => se_SocialProviderSettings(_, context), `SocialProviderSettings`],
   });
 };
@@ -3298,8 +3298,8 @@ const se_CreateBackendAuthPasswordPolicyConfig = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    additionalConstraints: [, (_) => _json(_), `AdditionalConstraints`],
-    minimumLength: [, (_) => __serializeFloat(_), `MinimumLength`],
+    additionalConstraints: [, _json, `AdditionalConstraints`],
+    minimumLength: [, __serializeFloat, `MinimumLength`],
   });
 };
 
@@ -3324,7 +3324,7 @@ const se_CreateBackendAuthUserPoolConfig = (input: CreateBackendAuthUserPoolConf
     mfa: [, (_) => se_CreateBackendAuthMFAConfig(_, context), `Mfa`],
     oAuth: [, (_) => se_CreateBackendAuthOAuthConfig(_, context), `OAuth`],
     passwordPolicy: [, (_) => se_CreateBackendAuthPasswordPolicyConfig(_, context), `PasswordPolicy`],
-    requiredSignUpAttributes: [, (_) => _json(_), `RequiredSignUpAttributes`],
+    requiredSignUpAttributes: [, _json, `RequiredSignUpAttributes`],
     signInMethod: [, , `SignInMethod`],
     userPoolName: [, , `UserPoolName`],
     verificationMessage: [, (_) => se_CreateBackendAuthVerificationMessageConfig(_, context), `VerificationMessage`],
@@ -3413,7 +3413,7 @@ const se_LoginAuthConfigReqObj = (input: LoginAuthConfigReqObj, context: __Serde
  */
 const se_Settings = (input: Settings, context: __SerdeContext): any => {
   return take(input, {
-    mfaTypes: [, (_) => _json(_), `MfaTypes`],
+    mfaTypes: [, _json, `MfaTypes`],
     smsMessage: [, , `SmsMessage`],
   });
 };
@@ -3482,9 +3482,9 @@ const se_UpdateBackendAuthOAuthConfig = (input: UpdateBackendAuthOAuthConfig, co
   return take(input, {
     domainPrefix: [, , `DomainPrefix`],
     oAuthGrantType: [, , `OAuthGrantType`],
-    oAuthScopes: [, (_) => _json(_), `OAuthScopes`],
-    redirectSignInURIs: [, (_) => _json(_), `RedirectSignInURIs`],
-    redirectSignOutURIs: [, (_) => _json(_), `RedirectSignOutURIs`],
+    oAuthScopes: [, _json, `OAuthScopes`],
+    redirectSignInURIs: [, _json, `RedirectSignInURIs`],
+    redirectSignOutURIs: [, _json, `RedirectSignOutURIs`],
     socialProviderSettings: [, (_) => se_SocialProviderSettings(_, context), `SocialProviderSettings`],
   });
 };
@@ -3497,8 +3497,8 @@ const se_UpdateBackendAuthPasswordPolicyConfig = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    additionalConstraints: [, (_) => _json(_), `AdditionalConstraints`],
-    minimumLength: [, (_) => __serializeFloat(_), `MinimumLength`],
+    additionalConstraints: [, _json, `AdditionalConstraints`],
+    minimumLength: [, __serializeFloat, `MinimumLength`],
   });
 };
 

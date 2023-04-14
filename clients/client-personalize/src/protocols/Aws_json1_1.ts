@@ -4768,8 +4768,8 @@ const de_TooManyTagsExceptionRes = async (
  */
 const se_ContinuousHyperParameterRange = (input: ContinuousHyperParameterRange, context: __SerdeContext): any => {
   return take(input, {
-    maxValue: (_) => __serializeFloat(_),
-    minValue: (_) => __serializeFloat(_),
+    maxValue: __serializeFloat,
+    minValue: __serializeFloat,
     name: [],
   });
 };
@@ -4821,7 +4821,7 @@ const se_CreateSolutionRequest = (input: CreateSolutionRequest, context: __Serde
     performHPO: [],
     recipeArn: [],
     solutionConfig: (_) => se_SolutionConfig(_, context),
-    tags: (_) => _json(_),
+    tags: _json,
   });
 };
 
@@ -4893,8 +4893,8 @@ const se_CreateSolutionRequest = (input: CreateSolutionRequest, context: __Serde
 const se_HPOConfig = (input: HPOConfig, context: __SerdeContext): any => {
   return take(input, {
     algorithmHyperParameterRanges: (_) => se_HyperParameterRanges(_, context),
-    hpoObjective: (_) => _json(_),
-    hpoResourceConfig: (_) => _json(_),
+    hpoObjective: _json,
+    hpoResourceConfig: _json,
   });
 };
 
@@ -4907,9 +4907,9 @@ const se_HPOConfig = (input: HPOConfig, context: __SerdeContext): any => {
  */
 const se_HyperParameterRanges = (input: HyperParameterRanges, context: __SerdeContext): any => {
   return take(input, {
-    categoricalHyperParameterRanges: (_) => _json(_),
+    categoricalHyperParameterRanges: _json,
     continuousHyperParameterRanges: (_) => se_ContinuousHyperParameterRanges(_, context),
-    integerHyperParameterRanges: (_) => _json(_),
+    integerHyperParameterRanges: _json,
   });
 };
 
@@ -4972,12 +4972,12 @@ const se_HyperParameterRanges = (input: HyperParameterRanges, context: __SerdeCo
  */
 const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any => {
   return take(input, {
-    algorithmHyperParameters: (_) => _json(_),
-    autoMLConfig: (_) => _json(_),
+    algorithmHyperParameters: _json,
+    autoMLConfig: _json,
     eventValueThreshold: [],
-    featureTransformationParameters: (_) => _json(_),
+    featureTransformationParameters: _json,
     hpoConfig: (_) => se_HPOConfig(_, context),
-    optimizationObjective: (_) => _json(_),
+    optimizationObjective: _json,
   });
 };
 

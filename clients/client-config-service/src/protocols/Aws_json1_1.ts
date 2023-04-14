@@ -7718,7 +7718,7 @@ const se_PutRemediationExceptionsRequest = (input: PutRemediationExceptionsReque
     ConfigRuleName: [],
     ExpirationTime: (_) => Math.round(_.getTime() / 1000),
     Message: [],
-    ResourceKeys: (_) => _json(_),
+    ResourceKeys: _json,
   });
 };
 

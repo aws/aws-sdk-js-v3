@@ -4854,16 +4854,16 @@ const se_DateRangeType = (input: DateRangeType, context: __SerdeContext): any =>
  */
 const se_Filters = (input: Filters, context: __SerdeContext): any => {
   return take(input, {
-    AncestorIds: (_) => _json(_),
-    ContentCategories: (_) => _json(_),
+    AncestorIds: _json,
+    ContentCategories: _json,
     CreatedRange: (_) => se_DateRangeType(_, context),
-    Labels: (_) => _json(_),
+    Labels: _json,
     ModifiedRange: (_) => se_DateRangeType(_, context),
-    Principals: (_) => _json(_),
-    ResourceTypes: (_) => _json(_),
-    SearchCollectionTypes: (_) => _json(_),
-    SizeRange: (_) => _json(_),
-    TextLocales: (_) => _json(_),
+    Principals: _json,
+    ResourceTypes: _json,
+    SearchCollectionTypes: _json,
+    SizeRange: _json,
+    TextLocales: _json,
   });
 };
 

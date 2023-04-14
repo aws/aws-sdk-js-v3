@@ -2101,8 +2101,8 @@ const se_AreaOfInterestGeometry = (input: AreaOfInterestGeometry, context: __Ser
  */
 const se_EoCloudCoverInput = (input: EoCloudCoverInput, context: __SerdeContext): any => {
   return take(input, {
-    LowerBound: (_) => __serializeFloat(_),
-    UpperBound: (_) => __serializeFloat(_),
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
   });
 };
 
@@ -2119,7 +2119,7 @@ const se_EoCloudCoverInput = (input: EoCloudCoverInput, context: __SerdeContext)
  */
 const se_InputConfigInput = (input: InputConfigInput, context: __SerdeContext): any => {
   return take(input, {
-    DataSourceConfig: (_) => _json(_),
+    DataSourceConfig: _json,
     PreviousEarthObservationJobArn: [],
     RasterDataCollectionQuery: (_) => se_RasterDataCollectionQueryInput(_, context),
   });
@@ -2150,8 +2150,8 @@ const se_JobConfigInput = (input: JobConfigInput, context: __SerdeContext): any 
  */
 const se_LandsatCloudCoverLandInput = (input: LandsatCloudCoverLandInput, context: __SerdeContext): any => {
   return take(input, {
-    LowerBound: (_) => __serializeFloat(_),
-    UpperBound: (_) => __serializeFloat(_),
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
   });
 };
 
@@ -2312,7 +2312,7 @@ const se_RasterDataCollectionQueryWithBandFilterInput = (
 ): any => {
   return take(input, {
     AreaOfInterest: (_) => se_AreaOfInterest(_, context),
-    BandFilter: (_) => _json(_),
+    BandFilter: _json,
     PropertyFilters: (_) => se_PropertyFilters(_, context),
     TimeRangeFilter: (_) => se_TimeRangeFilterInput(_, context),
   });
@@ -2325,7 +2325,7 @@ const se_ResamplingConfigInput = (input: ResamplingConfigInput, context: __Serde
   return take(input, {
     AlgorithmName: [],
     OutputResolution: (_) => se_OutputResolutionResamplingInput(_, context),
-    TargetBands: (_) => _json(_),
+    TargetBands: _json,
   });
 };
 
@@ -2339,7 +2339,7 @@ const se_ResamplingConfigInput = (input: ResamplingConfigInput, context: __Serde
 const se_StackConfigInput = (input: StackConfigInput, context: __SerdeContext): any => {
   return take(input, {
     OutputResolution: (_) => se_OutputResolutionStackInput(_, context),
-    TargetBands: (_) => _json(_),
+    TargetBands: _json,
   });
 };
 
@@ -2367,7 +2367,7 @@ const se_TimeRangeFilterInput = (input: TimeRangeFilterInput, context: __SerdeCo
 const se_UserDefined = (input: UserDefined, context: __SerdeContext): any => {
   return take(input, {
     Unit: [],
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -2384,8 +2384,8 @@ const se_UserDefined = (input: UserDefined, context: __SerdeContext): any => {
  */
 const se_ViewOffNadirInput = (input: ViewOffNadirInput, context: __SerdeContext): any => {
   return take(input, {
-    LowerBound: (_) => __serializeFloat(_),
-    UpperBound: (_) => __serializeFloat(_),
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
   });
 };
 
@@ -2394,8 +2394,8 @@ const se_ViewOffNadirInput = (input: ViewOffNadirInput, context: __SerdeContext)
  */
 const se_ViewSunAzimuthInput = (input: ViewSunAzimuthInput, context: __SerdeContext): any => {
   return take(input, {
-    LowerBound: (_) => __serializeFloat(_),
-    UpperBound: (_) => __serializeFloat(_),
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
   });
 };
 
@@ -2404,8 +2404,8 @@ const se_ViewSunAzimuthInput = (input: ViewSunAzimuthInput, context: __SerdeCont
  */
 const se_ViewSunElevationInput = (input: ViewSunElevationInput, context: __SerdeContext): any => {
   return take(input, {
-    LowerBound: (_) => __serializeFloat(_),
-    UpperBound: (_) => __serializeFloat(_),
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
   });
 };
 

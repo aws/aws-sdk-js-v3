@@ -5329,7 +5329,7 @@ const se_AddMediaStreamRequest = (input: AddMediaStreamRequest, context: __Serde
  */
 const se_AddOutputRequest = (input: AddOutputRequest, context: __SerdeContext): any => {
   return take(input, {
-    cidrAllowList: [, (_) => _json(_), `CidrAllowList`],
+    cidrAllowList: [, _json, `CidrAllowList`],
     description: [, , `Description`],
     destination: [, , `Destination`],
     encryption: [, (_) => se_Encryption(_, context), `Encryption`],
@@ -5367,7 +5367,7 @@ const se_DestinationConfigurationRequest = (input: DestinationConfigurationReque
  */
 const se_EncodingParametersRequest = (input: EncodingParametersRequest, context: __SerdeContext): any => {
   return take(input, {
-    compressionFactor: [, (_) => __serializeFloat(_), `CompressionFactor`],
+    compressionFactor: [, __serializeFloat, `CompressionFactor`],
     encoderProfile: [, , `EncoderProfile`],
   });
 };
@@ -5436,7 +5436,7 @@ const se_GrantEntitlementRequest = (input: GrantEntitlementRequest, context: __S
     encryption: [, (_) => se_Encryption(_, context), `Encryption`],
     entitlementStatus: [, , `EntitlementStatus`],
     name: [, , `Name`],
-    subscribers: [, (_) => _json(_), `Subscribers`],
+    subscribers: [, _json, `Subscribers`],
   });
 };
 
@@ -5676,7 +5676,7 @@ const se_VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeCont
     name: [, , `Name`],
     networkInterfaceType: [, , `NetworkInterfaceType`],
     roleArn: [, , `RoleArn`],
-    securityGroupIds: [, (_) => _json(_), `SecurityGroupIds`],
+    securityGroupIds: [, _json, `SecurityGroupIds`],
     subnetId: [, , `SubnetId`],
   });
 };

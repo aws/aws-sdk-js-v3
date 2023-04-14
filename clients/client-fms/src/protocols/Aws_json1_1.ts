@@ -2821,13 +2821,13 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const se_AppsListData = (input: AppsListData, context: __SerdeContext): any => {
   return take(input, {
-    AppsList: (_) => _json(_),
+    AppsList: _json,
     CreateTime: (_) => Math.round(_.getTime() / 1000),
     LastUpdateTime: (_) => Math.round(_.getTime() / 1000),
     ListId: [],
     ListName: [],
     ListUpdateToken: [],
-    PreviousAppsList: (_) => _json(_),
+    PreviousAppsList: _json,
   });
 };
 
@@ -2935,8 +2935,8 @@ const se_ProtocolsListData = (input: ProtocolsListData, context: __SerdeContext)
     ListId: [],
     ListName: [],
     ListUpdateToken: [],
-    PreviousProtocolsList: (_) => _json(_),
-    ProtocolsList: (_) => _json(_),
+    PreviousProtocolsList: _json,
+    ProtocolsList: _json,
   });
 };
 
@@ -2946,7 +2946,7 @@ const se_ProtocolsListData = (input: ProtocolsListData, context: __SerdeContext)
 const se_PutAppsListRequest = (input: PutAppsListRequest, context: __SerdeContext): any => {
   return take(input, {
     AppsList: (_) => se_AppsListData(_, context),
-    TagList: (_) => _json(_),
+    TagList: _json,
   });
 };
 
@@ -2960,7 +2960,7 @@ const se_PutAppsListRequest = (input: PutAppsListRequest, context: __SerdeContex
 const se_PutProtocolsListRequest = (input: PutProtocolsListRequest, context: __SerdeContext): any => {
   return take(input, {
     ProtocolsList: (_) => se_ProtocolsListData(_, context),
-    TagList: (_) => _json(_),
+    TagList: _json,
   });
 };
 
@@ -2970,7 +2970,7 @@ const se_PutProtocolsListRequest = (input: PutProtocolsListRequest, context: __S
 const se_PutResourceSetRequest = (input: PutResourceSetRequest, context: __SerdeContext): any => {
   return take(input, {
     ResourceSet: (_) => se_ResourceSet(_, context),
-    TagList: (_) => _json(_),
+    TagList: _json,
   });
 };
 
@@ -2983,7 +2983,7 @@ const se_ResourceSet = (input: ResourceSet, context: __SerdeContext): any => {
     Id: [],
     LastUpdateTime: (_) => Math.round(_.getTime() / 1000),
     Name: [],
-    ResourceTypeList: (_) => _json(_),
+    ResourceTypeList: _json,
     UpdateToken: [],
   });
 };

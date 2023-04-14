@@ -1648,10 +1648,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_CreateBatchLoadTaskRequest = (input: CreateBatchLoadTaskRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
-    DataModelConfiguration: (_) => _json(_),
-    DataSourceConfiguration: (_) => _json(_),
+    DataModelConfiguration: _json,
+    DataSourceConfiguration: _json,
     RecordVersion: [],
-    ReportConfiguration: (_) => _json(_),
+    ReportConfiguration: _json,
     TargetDatabaseName: [],
     TargetTableName: [],
   });

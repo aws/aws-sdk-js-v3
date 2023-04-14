@@ -5861,8 +5861,8 @@ const de_VideoTooLargeExceptionRes = async (
  */
 const se_BlackFrame = (input: BlackFrame, context: __SerdeContext): any => {
   return take(input, {
-    MaxPixelThreshold: (_) => __serializeFloat(_),
-    MinCoveragePercentage: (_) => __serializeFloat(_),
+    MaxPixelThreshold: __serializeFloat,
+    MinCoveragePercentage: __serializeFloat,
   });
 };
 
@@ -5871,10 +5871,10 @@ const se_BlackFrame = (input: BlackFrame, context: __SerdeContext): any => {
  */
 const se_BoundingBox = (input: BoundingBox, context: __SerdeContext): any => {
   return take(input, {
-    Height: (_) => __serializeFloat(_),
-    Left: (_) => __serializeFloat(_),
-    Top: (_) => __serializeFloat(_),
-    Width: (_) => __serializeFloat(_),
+    Height: __serializeFloat,
+    Left: __serializeFloat,
+    Top: __serializeFloat,
+    Width: __serializeFloat,
   });
 };
 
@@ -5884,7 +5884,7 @@ const se_BoundingBox = (input: BoundingBox, context: __SerdeContext): any => {
 const se_CompareFacesRequest = (input: CompareFacesRequest, context: __SerdeContext): any => {
   return take(input, {
     QualityFilter: [],
-    SimilarityThreshold: (_) => __serializeFloat(_),
+    SimilarityThreshold: __serializeFloat,
     SourceImage: (_) => se_Image(_, context),
     TargetImage: (_) => se_Image(_, context),
   });
@@ -5897,8 +5897,8 @@ const se_CompareFacesRequest = (input: CompareFacesRequest, context: __SerdeCont
  */
 const se_ConnectedHomeSettings = (input: ConnectedHomeSettings, context: __SerdeContext): any => {
   return take(input, {
-    Labels: (_) => _json(_),
-    MinConfidence: (_) => __serializeFloat(_),
+    Labels: _json,
+    MinConfidence: __serializeFloat,
   });
 };
 
@@ -5907,8 +5907,8 @@ const se_ConnectedHomeSettings = (input: ConnectedHomeSettings, context: __Serde
  */
 const se_ConnectedHomeSettingsForUpdate = (input: ConnectedHomeSettingsForUpdate, context: __SerdeContext): any => {
   return take(input, {
-    Labels: (_) => _json(_),
-    MinConfidence: (_) => __serializeFloat(_),
+    Labels: _json,
+    MinConfidence: __serializeFloat,
   });
 };
 
@@ -5933,16 +5933,16 @@ const se_ConnectedHomeSettingsForUpdate = (input: ConnectedHomeSettingsForUpdate
  */
 const se_CreateStreamProcessorRequest = (input: CreateStreamProcessorRequest, context: __SerdeContext): any => {
   return take(input, {
-    DataSharingPreference: (_) => _json(_),
-    Input: (_) => _json(_),
+    DataSharingPreference: _json,
+    Input: _json,
     KmsKeyId: [],
     Name: [],
-    NotificationChannel: (_) => _json(_),
-    Output: (_) => _json(_),
+    NotificationChannel: _json,
+    Output: _json,
     RegionsOfInterest: (_) => se_RegionsOfInterest(_, context),
     RoleArn: [],
     Settings: (_) => se_StreamProcessorSettings(_, context),
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -5951,7 +5951,7 @@ const se_CreateStreamProcessorRequest = (input: CreateStreamProcessorRequest, co
  */
 const se_DatasetChanges = (input: DatasetChanges, context: __SerdeContext): any => {
   return take(input, {
-    GroundTruth: (_) => context.base64Encoder(_),
+    GroundTruth: context.base64Encoder,
   });
 };
 
@@ -5990,7 +5990,7 @@ const se_DetectCustomLabelsRequest = (input: DetectCustomLabelsRequest, context:
   return take(input, {
     Image: (_) => se_Image(_, context),
     MaxResults: [],
-    MinConfidence: (_) => __serializeFloat(_),
+    MinConfidence: __serializeFloat,
     ProjectVersionArn: [],
   });
 };
@@ -6000,7 +6000,7 @@ const se_DetectCustomLabelsRequest = (input: DetectCustomLabelsRequest, context:
  */
 const se_DetectFacesRequest = (input: DetectFacesRequest, context: __SerdeContext): any => {
   return take(input, {
-    Attributes: (_) => _json(_),
+    Attributes: _json,
     Image: (_) => se_Image(_, context),
   });
 };
@@ -6010,9 +6010,9 @@ const se_DetectFacesRequest = (input: DetectFacesRequest, context: __SerdeContex
  */
 const se_DetectionFilter = (input: DetectionFilter, context: __SerdeContext): any => {
   return take(input, {
-    MinBoundingBoxHeight: (_) => __serializeFloat(_),
-    MinBoundingBoxWidth: (_) => __serializeFloat(_),
-    MinConfidence: (_) => __serializeFloat(_),
+    MinBoundingBoxHeight: __serializeFloat,
+    MinBoundingBoxWidth: __serializeFloat,
+    MinConfidence: __serializeFloat,
   });
 };
 
@@ -6025,11 +6025,11 @@ const se_DetectionFilter = (input: DetectionFilter, context: __SerdeContext): an
  */
 const se_DetectLabelsRequest = (input: DetectLabelsRequest, context: __SerdeContext): any => {
   return take(input, {
-    Features: (_) => _json(_),
+    Features: _json,
     Image: (_) => se_Image(_, context),
     MaxLabels: [],
-    MinConfidence: (_) => __serializeFloat(_),
-    Settings: (_) => _json(_),
+    MinConfidence: __serializeFloat,
+    Settings: _json,
   });
 };
 
@@ -6040,9 +6040,9 @@ const se_DetectLabelsRequest = (input: DetectLabelsRequest, context: __SerdeCont
  */
 const se_DetectModerationLabelsRequest = (input: DetectModerationLabelsRequest, context: __SerdeContext): any => {
   return take(input, {
-    HumanLoopConfig: (_) => _json(_),
+    HumanLoopConfig: _json,
     Image: (_) => se_Image(_, context),
-    MinConfidence: (_) => __serializeFloat(_),
+    MinConfidence: __serializeFloat,
   });
 };
 
@@ -6090,7 +6090,7 @@ const se_DetectTextRequest = (input: DetectTextRequest, context: __SerdeContext)
 const se_FaceSearchSettings = (input: FaceSearchSettings, context: __SerdeContext): any => {
   return take(input, {
     CollectionId: [],
-    FaceMatchThreshold: (_) => __serializeFloat(_),
+    FaceMatchThreshold: __serializeFloat,
   });
 };
 
@@ -6129,8 +6129,8 @@ const se_FaceSearchSettings = (input: FaceSearchSettings, context: __SerdeContex
  */
 const se_Image = (input: Image, context: __SerdeContext): any => {
   return take(input, {
-    Bytes: (_) => context.base64Encoder(_),
-    S3Object: (_) => _json(_),
+    Bytes: context.base64Encoder,
+    S3Object: _json,
   });
 };
 
@@ -6140,7 +6140,7 @@ const se_Image = (input: Image, context: __SerdeContext): any => {
 const se_IndexFacesRequest = (input: IndexFacesRequest, context: __SerdeContext): any => {
   return take(input, {
     CollectionId: [],
-    DetectionAttributes: (_) => _json(_),
+    DetectionAttributes: _json,
     ExternalImageId: [],
     Image: (_) => se_Image(_, context),
     MaxFaces: [],
@@ -6183,8 +6183,8 @@ const se_IndexFacesRequest = (input: IndexFacesRequest, context: __SerdeContext)
  */
 const se_Point = (input: Point, context: __SerdeContext): any => {
   return take(input, {
-    X: (_) => __serializeFloat(_),
-    Y: (_) => __serializeFloat(_),
+    X: __serializeFloat,
+    Y: __serializeFloat,
   });
 };
 
@@ -6209,8 +6209,8 @@ const se_ProtectiveEquipmentSummarizationAttributes = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    MinConfidence: (_) => __serializeFloat(_),
-    RequiredEquipmentTypes: (_) => _json(_),
+    MinConfidence: __serializeFloat,
+    RequiredEquipmentTypes: _json,
   });
 };
 
@@ -6258,7 +6258,7 @@ const se_RegionsOfInterest = (input: RegionOfInterest[], context: __SerdeContext
 const se_SearchFacesByImageRequest = (input: SearchFacesByImageRequest, context: __SerdeContext): any => {
   return take(input, {
     CollectionId: [],
-    FaceMatchThreshold: (_) => __serializeFloat(_),
+    FaceMatchThreshold: __serializeFloat,
     Image: (_) => se_Image(_, context),
     MaxFaces: [],
     QualityFilter: [],
@@ -6272,7 +6272,7 @@ const se_SearchFacesRequest = (input: SearchFacesRequest, context: __SerdeContex
   return take(input, {
     CollectionId: [],
     FaceId: [],
-    FaceMatchThreshold: (_) => __serializeFloat(_),
+    FaceMatchThreshold: __serializeFloat,
     MaxFaces: [],
   });
 };
@@ -6288,9 +6288,9 @@ const se_StartContentModerationRequest = (input: StartContentModerationRequest, 
   return take(input, {
     ClientRequestToken: [],
     JobTag: [],
-    MinConfidence: (_) => __serializeFloat(_),
-    NotificationChannel: (_) => _json(_),
-    Video: (_) => _json(_),
+    MinConfidence: __serializeFloat,
+    NotificationChannel: _json,
+    Video: _json,
   });
 };
 
@@ -6303,10 +6303,10 @@ const se_StartFaceSearchRequest = (input: StartFaceSearchRequest, context: __Ser
   return take(input, {
     ClientRequestToken: [],
     CollectionId: [],
-    FaceMatchThreshold: (_) => __serializeFloat(_),
+    FaceMatchThreshold: __serializeFloat,
     JobTag: [],
-    NotificationChannel: (_) => _json(_),
-    Video: (_) => _json(_),
+    NotificationChannel: _json,
+    Video: _json,
   });
 };
 
@@ -6316,12 +6316,12 @@ const se_StartFaceSearchRequest = (input: StartFaceSearchRequest, context: __Ser
 const se_StartLabelDetectionRequest = (input: StartLabelDetectionRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: [],
-    Features: (_) => _json(_),
+    Features: _json,
     JobTag: [],
-    MinConfidence: (_) => __serializeFloat(_),
-    NotificationChannel: (_) => _json(_),
-    Settings: (_) => _json(_),
-    Video: (_) => _json(_),
+    MinConfidence: __serializeFloat,
+    NotificationChannel: _json,
+    Settings: _json,
+    Video: _json,
   });
 };
 
@@ -6347,9 +6347,9 @@ const se_StartSegmentDetectionRequest = (input: StartSegmentDetectionRequest, co
     ClientRequestToken: [],
     Filters: (_) => se_StartSegmentDetectionFilters(_, context),
     JobTag: [],
-    NotificationChannel: (_) => _json(_),
-    SegmentTypes: (_) => _json(_),
-    Video: (_) => _json(_),
+    NotificationChannel: _json,
+    SegmentTypes: _json,
+    Video: _json,
   });
 };
 
@@ -6358,7 +6358,7 @@ const se_StartSegmentDetectionRequest = (input: StartSegmentDetectionRequest, co
  */
 const se_StartShotDetectionFilter = (input: StartShotDetectionFilter, context: __SerdeContext): any => {
   return take(input, {
-    MinSegmentConfidence: (_) => __serializeFloat(_),
+    MinSegmentConfidence: __serializeFloat,
   });
 };
 
@@ -6370,7 +6370,7 @@ const se_StartShotDetectionFilter = (input: StartShotDetectionFilter, context: _
 const se_StartTechnicalCueDetectionFilter = (input: StartTechnicalCueDetectionFilter, context: __SerdeContext): any => {
   return take(input, {
     BlackFrame: (_) => se_BlackFrame(_, context),
-    MinSegmentConfidence: (_) => __serializeFloat(_),
+    MinSegmentConfidence: __serializeFloat,
   });
 };
 
@@ -6392,8 +6392,8 @@ const se_StartTextDetectionRequest = (input: StartTextDetectionRequest, context:
     ClientRequestToken: [],
     Filters: (_) => se_StartTextDetectionFilters(_, context),
     JobTag: [],
-    NotificationChannel: (_) => _json(_),
-    Video: (_) => _json(_),
+    NotificationChannel: _json,
+    Video: _json,
   });
 };
 
@@ -6461,9 +6461,9 @@ const se_UpdateDatasetEntriesRequest = (input: UpdateDatasetEntriesRequest, cont
  */
 const se_UpdateStreamProcessorRequest = (input: UpdateStreamProcessorRequest, context: __SerdeContext): any => {
   return take(input, {
-    DataSharingPreferenceForUpdate: (_) => _json(_),
+    DataSharingPreferenceForUpdate: _json,
     Name: [],
-    ParametersToDelete: (_) => _json(_),
+    ParametersToDelete: _json,
     RegionsOfInterestForUpdate: (_) => se_RegionsOfInterest(_, context),
     SettingsForUpdate: (_) => se_StreamProcessorSettingsForUpdate(_, context),
   });

@@ -1818,7 +1818,7 @@ const se_DashPackage = (input: DashPackage, context: __SerdeContext): any => {
     encryption: [, (_) => se_DashEncryption(_, context), `Encryption`],
     includeEncoderConfigurationInSegments: [, , `IncludeEncoderConfigurationInSegments`],
     includeIframeOnlyStream: [, , `IncludeIframeOnlyStream`],
-    periodTriggers: [, (_) => _json(_), `PeriodTriggers`],
+    periodTriggers: [, _json, `PeriodTriggers`],
     segmentDurationSeconds: [, , `SegmentDurationSeconds`],
     segmentTemplateFormat: [, , `SegmentTemplateFormat`],
   });
@@ -1922,7 +1922,7 @@ const se_SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): 
       `EncryptionContractConfiguration`,
     ],
     roleArn: [, , `RoleArn`],
-    systemIds: [, (_) => _json(_), `SystemIds`],
+    systemIds: [, _json, `SystemIds`],
     url: [, , `Url`],
   });
 };

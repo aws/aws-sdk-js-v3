@@ -3102,9 +3102,9 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, context: __SerdeContext): any => {
   return take(input, {
-    maxLineCoveragePercentage: (_) => __serializeFloat(_),
+    maxLineCoveragePercentage: __serializeFloat,
     maxResults: [],
-    minLineCoveragePercentage: (_) => __serializeFloat(_),
+    minLineCoveragePercentage: __serializeFloat,
     nextToken: [],
     reportArn: [],
     sortBy: [],

@@ -3164,7 +3164,7 @@ const se_Resource = (input: Resource, context: __SerdeContext): any => {
   return take(input, {
     componentId: [, , `ComponentId`],
     dnsTargetResource: [, (_) => se_DNSTargetResource(_, context), `DnsTargetResource`],
-    readinessScopes: [, (_) => _json(_), `ReadinessScopes`],
+    readinessScopes: [, _json, `ReadinessScopes`],
     resourceArn: [, , `ResourceArn`],
   });
 };

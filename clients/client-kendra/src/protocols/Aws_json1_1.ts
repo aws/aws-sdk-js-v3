@@ -5443,10 +5443,10 @@ const se_CreateAccessControlConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    AccessControlList: (_) => _json(_),
+    AccessControlList: _json,
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
-    HierarchicalAccessControlList: (_) => _json(_),
+    HierarchicalAccessControlList: _json,
     IndexId: [],
     Name: [],
   });
@@ -5466,9 +5466,9 @@ const se_CreateDataSourceRequest = (input: CreateDataSourceRequest, context: __S
     Name: [],
     RoleArn: [],
     Schedule: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     Type: [],
-    VpcConfiguration: (_) => _json(_),
+    VpcConfiguration: _json,
   });
 };
 
@@ -5478,7 +5478,7 @@ const se_CreateDataSourceRequest = (input: CreateDataSourceRequest, context: __S
 const se_CreateExperienceRequest = (input: CreateExperienceRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
-    Configuration: (_) => _json(_),
+    Configuration: _json,
     Description: [],
     IndexId: [],
     Name: [],
@@ -5498,8 +5498,8 @@ const se_CreateFaqRequest = (input: CreateFaqRequest, context: __SerdeContext): 
     LanguageCode: [],
     Name: [],
     RoleArn: [],
-    S3Path: (_) => _json(_),
-    Tags: (_) => _json(_),
+    S3Path: _json,
+    Tags: _json,
   });
 };
 
@@ -5515,11 +5515,11 @@ const se_CreateIndexRequest = (input: CreateIndexRequest, context: __SerdeContex
     Edition: [],
     Name: [],
     RoleArn: [],
-    ServerSideEncryptionConfiguration: (_) => _json(_),
-    Tags: (_) => _json(_),
+    ServerSideEncryptionConfiguration: _json,
+    Tags: _json,
     UserContextPolicy: [],
-    UserGroupResolutionConfiguration: (_) => _json(_),
-    UserTokenConfigurations: (_) => _json(_),
+    UserGroupResolutionConfiguration: _json,
+    UserTokenConfigurations: _json,
   });
 };
 
@@ -5536,8 +5536,8 @@ const se_CreateQuerySuggestionsBlockListRequest = (
     IndexId: [],
     Name: [],
     RoleArn: [],
-    SourceS3Path: (_) => _json(_),
-    Tags: (_) => _json(_),
+    SourceS3Path: _json,
+    Tags: _json,
   });
 };
 
@@ -5551,8 +5551,8 @@ const se_CreateThesaurusRequest = (input: CreateThesaurusRequest, context: __Ser
     IndexId: [],
     Name: [],
     RoleArn: [],
-    SourceS3Path: (_) => _json(_),
-    Tags: (_) => _json(_),
+    SourceS3Path: _json,
+    Tags: _json,
   });
 };
 
@@ -5578,24 +5578,24 @@ const se_CustomDocumentEnrichmentConfiguration = (
  */
 const se_DataSourceConfiguration = (input: DataSourceConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    AlfrescoConfiguration: (_) => _json(_),
-    BoxConfiguration: (_) => _json(_),
-    ConfluenceConfiguration: (_) => _json(_),
-    DatabaseConfiguration: (_) => _json(_),
-    FsxConfiguration: (_) => _json(_),
-    GitHubConfiguration: (_) => _json(_),
-    GoogleDriveConfiguration: (_) => _json(_),
-    JiraConfiguration: (_) => _json(_),
-    OneDriveConfiguration: (_) => _json(_),
-    QuipConfiguration: (_) => _json(_),
-    S3Configuration: (_) => _json(_),
-    SalesforceConfiguration: (_) => _json(_),
-    ServiceNowConfiguration: (_) => _json(_),
-    SharePointConfiguration: (_) => _json(_),
-    SlackConfiguration: (_) => _json(_),
+    AlfrescoConfiguration: _json,
+    BoxConfiguration: _json,
+    ConfluenceConfiguration: _json,
+    DatabaseConfiguration: _json,
+    FsxConfiguration: _json,
+    GitHubConfiguration: _json,
+    GoogleDriveConfiguration: _json,
+    JiraConfiguration: _json,
+    OneDriveConfiguration: _json,
+    QuipConfiguration: _json,
+    S3Configuration: _json,
+    SalesforceConfiguration: _json,
+    ServiceNowConfiguration: _json,
+    SharePointConfiguration: _json,
+    SlackConfiguration: _json,
     TemplateConfiguration: (_) => se_TemplateConfiguration(_, context),
     WebCrawlerConfiguration: (_) => se_WebCrawlerConfiguration(_, context),
-    WorkDocsConfiguration: (_) => _json(_),
+    WorkDocsConfiguration: _json,
   });
 };
 
@@ -5663,13 +5663,13 @@ const se_DataSourceConfiguration = (input: DataSourceConfiguration, context: __S
 const se_Document = (input: Document, context: __SerdeContext): any => {
   return take(input, {
     AccessControlConfigurationId: [],
-    AccessControlList: (_) => _json(_),
+    AccessControlList: _json,
     Attributes: (_) => se_DocumentAttributeList(_, context),
-    Blob: (_) => context.base64Encoder(_),
+    Blob: context.base64Encoder,
     ContentType: [],
-    HierarchicalAccessControlList: (_) => _json(_),
+    HierarchicalAccessControlList: _json,
     Id: [],
-    S3Path: (_) => _json(_),
+    S3Path: _json,
     Title: [],
   });
 };
@@ -5728,7 +5728,7 @@ const se_DocumentAttributeValue = (input: DocumentAttributeValue, context: __Ser
   return take(input, {
     DateValue: (_) => Math.round(_.getTime() / 1000),
     LongValue: [],
-    StringListValue: (_) => _json(_),
+    StringListValue: _json,
     StringValue: [],
   });
 };
@@ -5972,17 +5972,17 @@ const se_ListDataSourceSyncJobsRequest = (input: ListDataSourceSyncJobsRequest, 
 const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
   return take(input, {
     AttributeFilter: (_) => se_AttributeFilter(_, context),
-    DocumentRelevanceOverrideConfigurations: (_) => _json(_),
+    DocumentRelevanceOverrideConfigurations: _json,
     Facets: (_) => se_FacetList(_, context),
     IndexId: [],
     PageNumber: [],
     PageSize: [],
     QueryResultTypeFilter: [],
     QueryText: [],
-    RequestedDocumentAttributes: (_) => _json(_),
-    SortingConfiguration: (_) => _json(_),
-    SpellCorrectionConfiguration: (_) => _json(_),
-    UserContext: (_) => _json(_),
+    RequestedDocumentAttributes: _json,
+    SortingConfiguration: _json,
+    SpellCorrectionConfiguration: _json,
+    UserContext: _json,
     VisitorId: [],
   });
 };
@@ -6075,7 +6075,7 @@ const se_SubmitFeedbackRequest = (input: SubmitFeedbackRequest, context: __Serde
     ClickFeedbackItems: (_) => se_ClickFeedbackList(_, context),
     IndexId: [],
     QueryId: [],
-    RelevanceFeedbackItems: (_) => _json(_),
+    RelevanceFeedbackItems: _json,
   });
 };
 
@@ -6133,7 +6133,7 @@ const se_UpdateDataSourceRequest = (input: UpdateDataSourceRequest, context: __S
     Name: [],
     RoleArn: [],
     Schedule: [],
-    VpcConfiguration: (_) => _json(_),
+    VpcConfiguration: _json,
   });
 };
 
@@ -6168,15 +6168,15 @@ const se_UpdateDataSourceRequest = (input: UpdateDataSourceRequest, context: __S
  */
 const se_WebCrawlerConfiguration = (input: WebCrawlerConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    AuthenticationConfiguration: (_) => _json(_),
+    AuthenticationConfiguration: _json,
     CrawlDepth: [],
-    MaxContentSizePerPageInMegaBytes: (_) => __serializeFloat(_),
+    MaxContentSizePerPageInMegaBytes: __serializeFloat,
     MaxLinksPerPage: [],
     MaxUrlsPerMinuteCrawlRate: [],
-    ProxyConfiguration: (_) => _json(_),
-    UrlExclusionPatterns: (_) => _json(_),
-    UrlInclusionPatterns: (_) => _json(_),
-    Urls: (_) => _json(_),
+    ProxyConfiguration: _json,
+    UrlExclusionPatterns: _json,
+    UrlInclusionPatterns: _json,
+    Urls: _json,
   });
 };
 

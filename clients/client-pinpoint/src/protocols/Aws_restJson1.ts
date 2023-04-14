@@ -12160,17 +12160,17 @@ const de_TooManyRequestsExceptionRes = async (
  */
 const se_Activity = (input: Activity, context: __SerdeContext): any => {
   return take(input, {
-    CUSTOM: (_) => _json(_),
+    CUSTOM: _json,
     ConditionalSplit: (_) => se_ConditionalSplitActivity(_, context),
-    ContactCenter: (_) => _json(_),
+    ContactCenter: _json,
     Description: [],
-    EMAIL: (_) => _json(_),
-    Holdout: (_) => _json(_),
+    EMAIL: _json,
+    Holdout: _json,
     MultiCondition: (_) => se_MultiConditionalSplitActivity(_, context),
-    PUSH: (_) => _json(_),
-    RandomSplit: (_) => _json(_),
-    SMS: (_) => _json(_),
-    Wait: (_) => _json(_),
+    PUSH: _json,
+    RandomSplit: _json,
+    SMS: _json,
+    Wait: _json,
   });
 };
 
@@ -12242,7 +12242,7 @@ const se_Condition = (input: Condition, context: __SerdeContext): any => {
 const se_ConditionalSplitActivity = (input: ConditionalSplitActivity, context: __SerdeContext): any => {
   return take(input, {
     Condition: (_) => se_Condition(_, context),
-    EvaluationWaitTime: (_) => _json(_),
+    EvaluationWaitTime: _json,
     FalseActivity: [],
     TrueActivity: [],
   });
@@ -12256,7 +12256,7 @@ const se_ConditionalSplitActivity = (input: ConditionalSplitActivity, context: _
 const se_CreateApplicationRequest = (input: CreateApplicationRequest, context: __SerdeContext): any => {
   return take(input, {
     Name: [],
-    tags: [, (_) => _json(_), `tags`],
+    tags: [, _json, `tags`],
   });
 };
 
@@ -12279,15 +12279,15 @@ const se_CreateApplicationRequest = (input: CreateApplicationRequest, context: _
  */
 const se_DirectMessageConfiguration = (input: DirectMessageConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    ADMMessage: (_) => _json(_),
-    APNSMessage: (_) => _json(_),
-    BaiduMessage: (_) => _json(_),
-    DefaultMessage: (_) => _json(_),
-    DefaultPushNotificationMessage: (_) => _json(_),
+    ADMMessage: _json,
+    APNSMessage: _json,
+    BaiduMessage: _json,
+    DefaultMessage: _json,
+    DefaultPushNotificationMessage: _json,
     EmailMessage: (_) => se_EmailMessage(_, context),
-    GCMMessage: (_) => _json(_),
-    SMSMessage: (_) => _json(_),
-    VoiceMessage: (_) => _json(_),
+    GCMMessage: _json,
+    SMSMessage: _json,
+    VoiceMessage: _json,
   });
 };
 
@@ -12302,9 +12302,9 @@ const se_EmailMessage = (input: EmailMessage, context: __SerdeContext): any => {
     FeedbackForwardingAddress: [],
     FromAddress: [],
     RawEmail: (_) => se_RawEmail(_, context),
-    ReplyToAddresses: (_) => _json(_),
-    SimpleEmail: (_) => _json(_),
-    Substitutions: (_) => _json(_),
+    ReplyToAddresses: _json,
+    SimpleEmail: _json,
+    Substitutions: _json,
   });
 };
 
@@ -12321,7 +12321,7 @@ const se_EmailTemplateRequest = (input: EmailTemplateRequest, context: __SerdeCo
     Subject: [],
     TemplateDescription: [],
     TextPart: [],
-    tags: [, (_) => _json(_), `tags`],
+    tags: [, _json, `tags`],
   });
 };
 
@@ -12331,9 +12331,9 @@ const se_EmailTemplateRequest = (input: EmailTemplateRequest, context: __SerdeCo
 const se_EndpointBatchItem = (input: EndpointBatchItem, context: __SerdeContext): any => {
   return take(input, {
     Address: [],
-    Attributes: (_) => _json(_),
+    Attributes: _json,
     ChannelType: [],
-    Demographic: (_) => _json(_),
+    Demographic: _json,
     EffectiveDate: [],
     EndpointStatus: [],
     Id: [],
@@ -12341,7 +12341,7 @@ const se_EndpointBatchItem = (input: EndpointBatchItem, context: __SerdeContext)
     Metrics: (_) => se_MapOf__double(_, context),
     OptOut: [],
     RequestId: [],
-    User: (_) => _json(_),
+    User: _json,
   });
 };
 
@@ -12363,8 +12363,8 @@ const se_EndpointLocation = (input: EndpointLocation, context: __SerdeContext): 
   return take(input, {
     City: [],
     Country: [],
-    Latitude: (_) => __serializeFloat(_),
-    Longitude: (_) => __serializeFloat(_),
+    Latitude: __serializeFloat,
+    Longitude: __serializeFloat,
     PostalCode: [],
     Region: [],
   });
@@ -12376,16 +12376,16 @@ const se_EndpointLocation = (input: EndpointLocation, context: __SerdeContext): 
 const se_EndpointRequest = (input: EndpointRequest, context: __SerdeContext): any => {
   return take(input, {
     Address: [],
-    Attributes: (_) => _json(_),
+    Attributes: _json,
     ChannelType: [],
-    Demographic: (_) => _json(_),
+    Demographic: _json,
     EffectiveDate: [],
     EndpointStatus: [],
     Location: (_) => se_EndpointLocation(_, context),
     Metrics: (_) => se_MapOf__double(_, context),
     OptOut: [],
     RequestId: [],
-    User: (_) => _json(_),
+    User: _json,
   });
 };
 
@@ -12401,12 +12401,12 @@ const se_Event = (input: Event, context: __SerdeContext): any => {
     AppPackageName: [],
     AppTitle: [],
     AppVersionCode: [],
-    Attributes: (_) => _json(_),
+    Attributes: _json,
     ClientSdkVersion: [],
     EventType: [],
     Metrics: (_) => se_MapOf__double(_, context),
     SdkName: [],
-    Session: (_) => _json(_),
+    Session: _json,
     Timestamp: [],
   });
 };
@@ -12426,8 +12426,8 @@ const se_EventCondition = (input: EventCondition, context: __SerdeContext): any 
  */
 const se_EventDimensions = (input: EventDimensions, context: __SerdeContext): any => {
   return take(input, {
-    Attributes: (_) => _json(_),
-    EventType: (_) => _json(_),
+    Attributes: _json,
+    EventType: _json,
     Metrics: (_) => se_MapOfMetricDimension(_, context),
   });
 };
@@ -12482,8 +12482,8 @@ const se_EventStartCondition = (input: EventStartCondition, context: __SerdeCont
  */
 const se_GPSCoordinates = (input: GPSCoordinates, context: __SerdeContext): any => {
   return take(input, {
-    Latitude: (_) => __serializeFloat(_),
-    Longitude: (_) => __serializeFloat(_),
+    Latitude: __serializeFloat,
+    Longitude: __serializeFloat,
   });
 };
 
@@ -12493,7 +12493,7 @@ const se_GPSCoordinates = (input: GPSCoordinates, context: __SerdeContext): any 
 const se_GPSPointDimension = (input: GPSPointDimension, context: __SerdeContext): any => {
   return take(input, {
     Coordinates: (_) => se_GPSCoordinates(_, context),
-    RangeInKilometers: (_) => __serializeFloat(_),
+    RangeInKilometers: __serializeFloat,
   });
 };
 
@@ -12514,11 +12514,11 @@ const se_GPSPointDimension = (input: GPSPointDimension, context: __SerdeContext)
  */
 const se_InAppTemplateRequest = (input: InAppTemplateRequest, context: __SerdeContext): any => {
   return take(input, {
-    Content: (_) => _json(_),
-    CustomConfig: (_) => _json(_),
+    Content: _json,
+    CustomConfig: _json,
     Layout: [],
     TemplateDescription: [],
-    tags: [, (_) => _json(_), `tags`],
+    tags: [, _json, `tags`],
   });
 };
 
@@ -12713,11 +12713,11 @@ const se_MapOfMetricDimension = (input: Record<string, MetricDimension>, context
  */
 const se_MessageRequest = (input: MessageRequest, context: __SerdeContext): any => {
   return take(input, {
-    Addresses: (_) => _json(_),
-    Context: (_) => _json(_),
-    Endpoints: (_) => _json(_),
+    Addresses: _json,
+    Context: _json,
+    Endpoints: _json,
     MessageConfiguration: (_) => se_DirectMessageConfiguration(_, context),
-    TemplateConfiguration: (_) => _json(_),
+    TemplateConfiguration: _json,
     TraceId: [],
   });
 };
@@ -12728,7 +12728,7 @@ const se_MessageRequest = (input: MessageRequest, context: __SerdeContext): any 
 const se_MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   return take(input, {
     ComparisonOperator: [],
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -12749,7 +12749,7 @@ const se_MultiConditionalSplitActivity = (input: MultiConditionalSplitActivity, 
   return take(input, {
     Branches: (_) => se_ListOfMultiConditionalBranch(_, context),
     DefaultActivity: [],
-    EvaluationWaitTime: (_) => _json(_),
+    EvaluationWaitTime: _json,
   });
 };
 
@@ -12767,16 +12767,16 @@ const se_MultiConditionalSplitActivity = (input: MultiConditionalSplitActivity, 
 const se_PublicEndpoint = (input: PublicEndpoint, context: __SerdeContext): any => {
   return take(input, {
     Address: [],
-    Attributes: (_) => _json(_),
+    Attributes: _json,
     ChannelType: [],
-    Demographic: (_) => _json(_),
+    Demographic: _json,
     EffectiveDate: [],
     EndpointStatus: [],
     Location: (_) => se_EndpointLocation(_, context),
     Metrics: (_) => se_MapOf__double(_, context),
     OptOut: [],
     RequestId: [],
-    User: (_) => _json(_),
+    User: _json,
   });
 };
 
@@ -12787,15 +12787,15 @@ const se_PublicEndpoint = (input: PublicEndpoint, context: __SerdeContext): any 
  */
 const se_PushNotificationTemplateRequest = (input: PushNotificationTemplateRequest, context: __SerdeContext): any => {
   return take(input, {
-    ADM: (_) => _json(_),
-    APNS: (_) => _json(_),
-    Baidu: (_) => _json(_),
-    Default: (_) => _json(_),
+    ADM: _json,
+    APNS: _json,
+    Baidu: _json,
+    Default: _json,
     DefaultSubstitutions: [],
-    GCM: (_) => _json(_),
+    GCM: _json,
     RecommenderId: [],
     TemplateDescription: [],
-    tags: [, (_) => _json(_), `tags`],
+    tags: [, _json, `tags`],
   });
 };
 
@@ -12810,7 +12810,7 @@ const se_PushNotificationTemplateRequest = (input: PushNotificationTemplateReque
  */
 const se_RawEmail = (input: RawEmail, context: __SerdeContext): any => {
   return take(input, {
-    Data: (_) => context.base64Encoder(_),
+    Data: context.base64Encoder,
   });
 };
 
@@ -12825,7 +12825,7 @@ const se_Schedule = (input: Schedule, context: __SerdeContext): any => {
     EventFilter: (_) => se_CampaignEventFilter(_, context),
     Frequency: [],
     IsLocalTime: [],
-    QuietTime: (_) => _json(_),
+    QuietTime: _json,
     StartTime: [],
     Timezone: [],
   });
@@ -12842,12 +12842,12 @@ const se_Schedule = (input: Schedule, context: __SerdeContext): any => {
  */
 const se_SegmentDimensions = (input: SegmentDimensions, context: __SerdeContext): any => {
   return take(input, {
-    Attributes: (_) => _json(_),
-    Behavior: (_) => _json(_),
-    Demographic: (_) => _json(_),
+    Attributes: _json,
+    Behavior: _json,
+    Demographic: _json,
     Location: (_) => se_SegmentLocation(_, context),
     Metrics: (_) => se_MapOfMetricDimension(_, context),
-    UserAttributes: (_) => _json(_),
+    UserAttributes: _json,
   });
 };
 
@@ -12857,7 +12857,7 @@ const se_SegmentDimensions = (input: SegmentDimensions, context: __SerdeContext)
 const se_SegmentGroup = (input: SegmentGroup, context: __SerdeContext): any => {
   return take(input, {
     Dimensions: (_) => se_ListOfSegmentDimensions(_, context),
-    SourceSegments: (_) => _json(_),
+    SourceSegments: _json,
     SourceType: [],
     Type: [],
   });
@@ -12878,7 +12878,7 @@ const se_SegmentGroupList = (input: SegmentGroupList, context: __SerdeContext): 
  */
 const se_SegmentLocation = (input: SegmentLocation, context: __SerdeContext): any => {
   return take(input, {
-    Country: (_) => _json(_),
+    Country: _json,
     GPSPoint: (_) => se_GPSPointDimension(_, context),
   });
 };
@@ -12892,11 +12892,11 @@ const se_SegmentLocation = (input: SegmentLocation, context: __SerdeContext): an
  */
 const se_SendUsersMessageRequest = (input: SendUsersMessageRequest, context: __SerdeContext): any => {
   return take(input, {
-    Context: (_) => _json(_),
+    Context: _json,
     MessageConfiguration: (_) => se_DirectMessageConfiguration(_, context),
-    TemplateConfiguration: (_) => _json(_),
+    TemplateConfiguration: _json,
     TraceId: [],
-    Users: (_) => _json(_),
+    Users: _json,
   });
 };
 
@@ -12910,7 +12910,7 @@ const se_SendUsersMessageRequest = (input: SendUsersMessageRequest, context: __S
 const se_SimpleCondition = (input: SimpleCondition, context: __SerdeContext): any => {
   return take(input, {
     EventCondition: (_) => se_EventCondition(_, context),
-    SegmentCondition: (_) => _json(_),
+    SegmentCondition: _json,
     segmentDimensions: [, (_) => se_SegmentDimensions(_, context), `SegmentDimensions`],
   });
 };
@@ -12934,7 +12934,7 @@ const se_SMSTemplateRequest = (input: SMSTemplateRequest, context: __SerdeContex
     DefaultSubstitutions: [],
     RecommenderId: [],
     TemplateDescription: [],
-    tags: [, (_) => _json(_), `tags`],
+    tags: [, _json, `tags`],
   });
 };
 
@@ -12945,7 +12945,7 @@ const se_StartCondition = (input: StartCondition, context: __SerdeContext): any 
   return take(input, {
     Description: [],
     EventStartCondition: (_) => se_EventStartCondition(_, context),
-    SegmentStartCondition: (_) => _json(_),
+    SegmentStartCondition: _json,
   });
 };
 
@@ -12954,7 +12954,7 @@ const se_StartCondition = (input: StartCondition, context: __SerdeContext): any 
  */
 const se_TagsModel = (input: TagsModel, context: __SerdeContext): any => {
   return take(input, {
-    tags: [, (_) => _json(_), `tags`],
+    tags: [, _json, `tags`],
   });
 };
 
@@ -12984,7 +12984,7 @@ const se_VoiceTemplateRequest = (input: VoiceTemplateRequest, context: __SerdeCo
     LanguageCode: [],
     TemplateDescription: [],
     VoiceId: [],
-    tags: [, (_) => _json(_), `tags`],
+    tags: [, _json, `tags`],
   });
 };
 
@@ -13000,22 +13000,22 @@ const se_VoiceTemplateRequest = (input: VoiceTemplateRequest, context: __SerdeCo
 const se_WriteCampaignRequest = (input: WriteCampaignRequest, context: __SerdeContext): any => {
   return take(input, {
     AdditionalTreatments: (_) => se_ListOfWriteTreatmentResource(_, context),
-    CustomDeliveryConfiguration: (_) => _json(_),
+    CustomDeliveryConfiguration: _json,
     Description: [],
     HoldoutPercent: [],
-    Hook: (_) => _json(_),
+    Hook: _json,
     IsPaused: [],
-    Limits: (_) => _json(_),
-    MessageConfiguration: (_) => _json(_),
+    Limits: _json,
+    MessageConfiguration: _json,
     Name: [],
     Priority: [],
     Schedule: (_) => se_Schedule(_, context),
     SegmentId: [],
     SegmentVersion: [],
-    TemplateConfiguration: (_) => _json(_),
+    TemplateConfiguration: _json,
     TreatmentDescription: [],
     TreatmentName: [],
-    tags: [, (_) => _json(_), `tags`],
+    tags: [, _json, `tags`],
   });
 };
 
@@ -13027,15 +13027,15 @@ const se_WriteCampaignRequest = (input: WriteCampaignRequest, context: __SerdeCo
 const se_WriteJourneyRequest = (input: WriteJourneyRequest, context: __SerdeContext): any => {
   return take(input, {
     Activities: (_) => se_MapOfActivity(_, context),
-    ClosedDays: (_) => _json(_),
+    ClosedDays: _json,
     CreationDate: [],
-    JourneyChannelSettings: (_) => _json(_),
+    JourneyChannelSettings: _json,
     LastModifiedDate: [],
-    Limits: (_) => _json(_),
+    Limits: _json,
     LocalTime: [],
     Name: [],
-    OpenHours: (_) => _json(_),
-    QuietTime: (_) => _json(_),
+    OpenHours: _json,
+    QuietTime: _json,
     RefreshFrequency: [],
     RefreshOnSegmentUpdate: [],
     Schedule: (_) => se_JourneySchedule(_, context),
@@ -13055,7 +13055,7 @@ const se_WriteSegmentRequest = (input: WriteSegmentRequest, context: __SerdeCont
     Dimensions: (_) => se_SegmentDimensions(_, context),
     Name: [],
     SegmentGroups: (_) => se_SegmentGroupList(_, context),
-    tags: [, (_) => _json(_), `tags`],
+    tags: [, _json, `tags`],
   });
 };
 
@@ -13064,11 +13064,11 @@ const se_WriteSegmentRequest = (input: WriteSegmentRequest, context: __SerdeCont
  */
 const se_WriteTreatmentResource = (input: WriteTreatmentResource, context: __SerdeContext): any => {
   return take(input, {
-    CustomDeliveryConfiguration: (_) => _json(_),
-    MessageConfiguration: (_) => _json(_),
+    CustomDeliveryConfiguration: _json,
+    MessageConfiguration: _json,
     Schedule: (_) => se_Schedule(_, context),
     SizePercent: [],
-    TemplateConfiguration: (_) => _json(_),
+    TemplateConfiguration: _json,
     TreatmentDescription: [],
     TreatmentName: [],
   });

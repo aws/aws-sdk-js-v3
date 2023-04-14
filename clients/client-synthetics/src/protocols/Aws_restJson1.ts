@@ -2064,7 +2064,7 @@ const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): an
     S3Bucket: [],
     S3Key: [],
     S3Version: [],
-    ZipFile: (_) => context.base64Encoder(_),
+    ZipFile: context.base64Encoder,
   });
 };
 

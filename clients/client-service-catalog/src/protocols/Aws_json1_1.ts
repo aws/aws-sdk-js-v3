@@ -6299,10 +6299,10 @@ const de_TagOptionNotMigratedExceptionRes = async (
 const se_CopyProductInput = (input: CopyProductInput, context: __SerdeContext): any => {
   return take(input, {
     AcceptLanguage: [],
-    CopyOptions: (_) => _json(_),
+    CopyOptions: _json,
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
     SourceProductArn: [],
-    SourceProvisioningArtifactIdentifiers: (_) => _json(_),
+    SourceProvisioningArtifactIdentifiers: _json,
     TargetProductId: [],
     TargetProductName: [],
   });
@@ -6333,7 +6333,7 @@ const se_CreatePortfolioInput = (input: CreatePortfolioInput, context: __SerdeCo
     DisplayName: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
     ProviderName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -6351,12 +6351,12 @@ const se_CreateProductInput = (input: CreateProductInput, context: __SerdeContex
     Name: [],
     Owner: [],
     ProductType: [],
-    ProvisioningArtifactParameters: (_) => _json(_),
-    SourceConnection: (_) => _json(_),
+    ProvisioningArtifactParameters: _json,
+    SourceConnection: _json,
     SupportDescription: [],
     SupportEmail: [],
     SupportUrl: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -6370,15 +6370,15 @@ const se_CreateProvisionedProductPlanInput = (
   return take(input, {
     AcceptLanguage: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
-    NotificationArns: (_) => _json(_),
+    NotificationArns: _json,
     PathId: [],
     PlanName: [],
     PlanType: [],
     ProductId: [],
     ProvisionedProductName: [],
     ProvisioningArtifactId: [],
-    ProvisioningParameters: (_) => _json(_),
-    Tags: (_) => _json(_),
+    ProvisioningParameters: _json,
+    Tags: _json,
   });
 };
 
@@ -6389,7 +6389,7 @@ const se_CreateProvisioningArtifactInput = (input: CreateProvisioningArtifactInp
   return take(input, {
     AcceptLanguage: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
-    Parameters: (_) => _json(_),
+    Parameters: _json,
     ProductId: [],
   });
 };
@@ -6400,7 +6400,7 @@ const se_CreateProvisioningArtifactInput = (input: CreateProvisioningArtifactInp
 const se_CreateServiceActionInput = (input: CreateServiceActionInput, context: __SerdeContext): any => {
   return take(input, {
     AcceptLanguage: [],
-    Definition: (_) => _json(_),
+    Definition: _json,
     DefinitionType: [],
     Description: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
@@ -6498,7 +6498,7 @@ const se_ExecuteProvisionedProductServiceActionInput = (
   return take(input, {
     AcceptLanguage: [],
     ExecuteToken: (_) => _ ?? generateIdempotencyToken(),
-    Parameters: (_) => _json(_),
+    Parameters: _json,
     ProvisionedProductId: [],
     ServiceActionId: [],
   });
@@ -6578,9 +6578,9 @@ const se_NotifyProvisionProductEngineWorkflowResultInput = (
   return take(input, {
     FailureReason: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
-    Outputs: (_) => _json(_),
+    Outputs: _json,
     RecordId: [],
-    ResourceIdentifier: (_) => _json(_),
+    ResourceIdentifier: _json,
     Status: [],
     WorkflowToken: [],
   });
@@ -6612,7 +6612,7 @@ const se_NotifyUpdateProvisionedProductEngineWorkflowResultInput = (
   return take(input, {
     FailureReason: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
-    Outputs: (_) => _json(_),
+    Outputs: _json,
     RecordId: [],
     Status: [],
     WorkflowToken: [],
@@ -6649,7 +6649,7 @@ const se_NotifyUpdateProvisionedProductEngineWorkflowResultInput = (
 const se_ProvisionProductInput = (input: ProvisionProductInput, context: __SerdeContext): any => {
   return take(input, {
     AcceptLanguage: [],
-    NotificationArns: (_) => _json(_),
+    NotificationArns: _json,
     PathId: [],
     PathName: [],
     ProductId: [],
@@ -6658,9 +6658,9 @@ const se_ProvisionProductInput = (input: ProvisionProductInput, context: __Serde
     ProvisionedProductName: [],
     ProvisioningArtifactId: [],
     ProvisioningArtifactName: [],
-    ProvisioningParameters: (_) => _json(_),
-    ProvisioningPreferences: (_) => _json(_),
-    Tags: (_) => _json(_),
+    ProvisioningParameters: _json,
+    ProvisioningPreferences: _json,
+    Tags: _json,
   });
 };
 
@@ -6740,9 +6740,9 @@ const se_UpdateProvisionedProductInput = (input: UpdateProvisionedProductInput, 
     ProvisionedProductName: [],
     ProvisioningArtifactId: [],
     ProvisioningArtifactName: [],
-    ProvisioningParameters: (_) => _json(_),
-    ProvisioningPreferences: (_) => _json(_),
-    Tags: (_) => _json(_),
+    ProvisioningParameters: _json,
+    ProvisioningPreferences: _json,
+    Tags: _json,
     UpdateToken: (_) => _ ?? generateIdempotencyToken(),
   });
 };
@@ -6758,7 +6758,7 @@ const se_UpdateProvisionedProductPropertiesInput = (
     AcceptLanguage: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
     ProvisionedProductId: [],
-    ProvisionedProductProperties: (_) => _json(_),
+    ProvisionedProductProperties: _json,
   });
 };
 

@@ -2304,10 +2304,10 @@ const se_ComponentConditionProperty = (input: ComponentConditionProperty, contex
  */
 const se_ComponentDataConfiguration = (input: ComponentDataConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    identifiers: (_) => _json(_),
+    identifiers: _json,
     model: [],
     predicate: (_) => se_Predicate(_, context),
-    sort: (_) => _json(_),
+    sort: _json,
   });
 };
 
@@ -2357,9 +2357,9 @@ const se_ComponentProperties = (input: Record<string, ComponentProperty>, contex
  */
 const se_ComponentProperty = (input: ComponentProperty, context: __SerdeContext): any => {
   return take(input, {
-    bindingProperties: (_) => _json(_),
-    bindings: (_) => _json(_),
-    collectionBindingProperties: (_) => _json(_),
+    bindingProperties: _json,
+    bindings: _json,
+    collectionBindingProperties: _json,
     componentName: [],
     concat: (_) => se_ComponentPropertyList(_, context),
     condition: (_) => se_ComponentConditionProperty(_, context),
@@ -2405,12 +2405,12 @@ const se_CreateComponentData = (input: CreateComponentData, context: __SerdeCont
     componentType: [],
     events: (_) => se_ComponentEvents(_, context),
     name: [],
-    overrides: (_) => _json(_),
+    overrides: _json,
     properties: (_) => se_ComponentProperties(_, context),
     schemaVersion: [],
     sourceId: [],
-    tags: (_) => _json(_),
-    variants: (_) => _json(_),
+    tags: _json,
+    variants: _json,
   });
 };
 
@@ -2419,16 +2419,16 @@ const se_CreateComponentData = (input: CreateComponentData, context: __SerdeCont
  */
 const se_CreateFormData = (input: CreateFormData, context: __SerdeContext): any => {
   return take(input, {
-    cta: (_) => _json(_),
-    dataType: (_) => _json(_),
+    cta: _json,
+    dataType: _json,
     fields: (_) => se_FieldsMap(_, context),
     formActionType: [],
     labelDecorator: [],
     name: [],
     schemaVersion: [],
-    sectionalElements: (_) => _json(_),
-    style: (_) => _json(_),
-    tags: (_) => _json(_),
+    sectionalElements: _json,
+    style: _json,
+    tags: _json,
   });
 };
 
@@ -2439,7 +2439,7 @@ const se_CreateThemeData = (input: CreateThemeData, context: __SerdeContext): an
   return take(input, {
     name: [],
     overrides: (_) => se_ThemeValuesList(_, context),
-    tags: (_) => _json(_),
+    tags: _json,
     values: (_) => se_ThemeValuesList(_, context),
   });
 };
@@ -2454,8 +2454,8 @@ const se_FieldConfig = (input: FieldConfig, context: __SerdeContext): any => {
     excluded: [],
     inputType: (_) => se_FieldInputConfig(_, context),
     label: [],
-    position: (_) => _json(_),
-    validations: (_) => _json(_),
+    position: _json,
+    validations: _json,
   });
 };
 
@@ -2468,15 +2468,15 @@ const se_FieldInputConfig = (input: FieldInputConfig, context: __SerdeContext): 
     defaultCountryCode: [],
     defaultValue: [],
     descriptiveText: [],
-    fileUploaderConfig: (_) => _json(_),
+    fileUploaderConfig: _json,
     isArray: [],
-    maxValue: (_) => __serializeFloat(_),
-    minValue: (_) => __serializeFloat(_),
+    maxValue: __serializeFloat,
+    minValue: __serializeFloat,
     name: [],
     placeholder: [],
     readOnly: [],
     required: [],
-    step: (_) => __serializeFloat(_),
+    step: __serializeFloat,
     type: [],
     value: [],
     valueMappings: (_) => se_ValueMappings(_, context),
@@ -2523,7 +2523,7 @@ const se_FieldsMap = (input: Record<string, FieldConfig>, context: __SerdeContex
  */
 const se_FormInputValueProperty = (input: FormInputValueProperty, context: __SerdeContext): any => {
   return take(input, {
-    bindingProperties: (_) => _json(_),
+    bindingProperties: _json,
     concat: (_) => se_FormInputValuePropertyList(_, context),
     value: [],
   });
@@ -2645,11 +2645,11 @@ const se_UpdateComponentData = (input: UpdateComponentData, context: __SerdeCont
     events: (_) => se_ComponentEvents(_, context),
     id: [],
     name: [],
-    overrides: (_) => _json(_),
+    overrides: _json,
     properties: (_) => se_ComponentProperties(_, context),
     schemaVersion: [],
     sourceId: [],
-    variants: (_) => _json(_),
+    variants: _json,
   });
 };
 
@@ -2658,15 +2658,15 @@ const se_UpdateComponentData = (input: UpdateComponentData, context: __SerdeCont
  */
 const se_UpdateFormData = (input: UpdateFormData, context: __SerdeContext): any => {
   return take(input, {
-    cta: (_) => _json(_),
-    dataType: (_) => _json(_),
+    cta: _json,
+    dataType: _json,
     fields: (_) => se_FieldsMap(_, context),
     formActionType: [],
     labelDecorator: [],
     name: [],
     schemaVersion: [],
-    sectionalElements: (_) => _json(_),
-    style: (_) => _json(_),
+    sectionalElements: _json,
+    style: _json,
   });
 };
 
@@ -2710,7 +2710,7 @@ const se_ValueMappingList = (input: ValueMapping[], context: __SerdeContext): an
  */
 const se_ValueMappings = (input: ValueMappings, context: __SerdeContext): any => {
   return take(input, {
-    bindingProperties: (_) => _json(_),
+    bindingProperties: _json,
     values: (_) => se_ValueMappingList(_, context),
   });
 };

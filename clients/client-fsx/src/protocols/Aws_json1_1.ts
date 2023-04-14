@@ -3762,7 +3762,7 @@ const se_AssociateFileSystemAliasesRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Aliases: (_) => _json(_),
+    Aliases: _json,
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     FileSystemId: [],
   });
@@ -3788,7 +3788,7 @@ const se_CopyBackupRequest = (input: CopyBackupRequest, context: __SerdeContext)
     KmsKeyId: [],
     SourceBackupId: [],
     SourceRegion: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3799,7 +3799,7 @@ const se_CreateBackupRequest = (input: CreateBackupRequest, context: __SerdeCont
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     FileSystemId: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     VolumeId: [],
   });
 };
@@ -3818,8 +3818,8 @@ const se_CreateDataRepositoryAssociationRequest = (
     FileSystemId: [],
     FileSystemPath: [],
     ImportedFileChunkSize: [],
-    S3: (_) => _json(_),
-    Tags: (_) => _json(_),
+    S3: _json,
+    Tags: _json,
   });
 };
 
@@ -3831,9 +3831,9 @@ const se_CreateDataRepositoryTaskRequest = (input: CreateDataRepositoryTaskReque
     CapacityToRelease: [],
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     FileSystemId: [],
-    Paths: (_) => _json(_),
-    Report: (_) => _json(_),
-    Tags: (_) => _json(_),
+    Paths: _json,
+    Report: _json,
+    Tags: _json,
     Type: [],
   });
 };
@@ -3849,15 +3849,15 @@ const se_CreateFileCacheRequest = (input: CreateFileCacheRequest, context: __Ser
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     CopyTagsToDataRepositoryAssociations: [],
-    DataRepositoryAssociations: (_) => _json(_),
+    DataRepositoryAssociations: _json,
     FileCacheType: [],
     FileCacheTypeVersion: [],
     KmsKeyId: [],
-    LustreConfiguration: (_) => _json(_),
-    SecurityGroupIds: (_) => _json(_),
+    LustreConfiguration: _json,
+    SecurityGroupIds: _json,
     StorageCapacity: [],
-    SubnetIds: (_) => _json(_),
-    Tags: (_) => _json(_),
+    SubnetIds: _json,
+    Tags: _json,
   });
 };
 
@@ -3873,14 +3873,14 @@ const se_CreateFileSystemFromBackupRequest = (
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     FileSystemTypeVersion: [],
     KmsKeyId: [],
-    LustreConfiguration: (_) => _json(_),
-    OpenZFSConfiguration: (_) => _json(_),
-    SecurityGroupIds: (_) => _json(_),
+    LustreConfiguration: _json,
+    OpenZFSConfiguration: _json,
+    SecurityGroupIds: _json,
     StorageCapacity: [],
     StorageType: [],
-    SubnetIds: (_) => _json(_),
-    Tags: (_) => _json(_),
-    WindowsConfiguration: (_) => _json(_),
+    SubnetIds: _json,
+    Tags: _json,
+    WindowsConfiguration: _json,
   });
 };
 
@@ -3899,15 +3899,15 @@ const se_CreateFileSystemRequest = (input: CreateFileSystemRequest, context: __S
     FileSystemType: [],
     FileSystemTypeVersion: [],
     KmsKeyId: [],
-    LustreConfiguration: (_) => _json(_),
-    OntapConfiguration: (_) => _json(_),
-    OpenZFSConfiguration: (_) => _json(_),
-    SecurityGroupIds: (_) => _json(_),
+    LustreConfiguration: _json,
+    OntapConfiguration: _json,
+    OpenZFSConfiguration: _json,
+    SecurityGroupIds: _json,
     StorageCapacity: [],
     StorageType: [],
-    SubnetIds: (_) => _json(_),
-    Tags: (_) => _json(_),
-    WindowsConfiguration: (_) => _json(_),
+    SubnetIds: _json,
+    Tags: _json,
+    WindowsConfiguration: _json,
   });
 };
 
@@ -3926,7 +3926,7 @@ const se_CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __Serde
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     VolumeId: [],
   });
 };
@@ -3939,13 +3939,13 @@ const se_CreateStorageVirtualMachineRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ActiveDirectoryConfiguration: (_) => _json(_),
+    ActiveDirectoryConfiguration: _json,
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     FileSystemId: [],
     Name: [],
     RootVolumeSecurityStyle: [],
     SvmAdminPassword: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3959,8 +3959,8 @@ const se_CreateVolumeFromBackupRequest = (input: CreateVolumeFromBackupRequest, 
     BackupId: [],
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     Name: [],
-    OntapConfiguration: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OntapConfiguration: _json,
+    Tags: _json,
   });
 };
 
@@ -3971,9 +3971,9 @@ const se_CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeCont
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     Name: [],
-    OntapConfiguration: (_) => _json(_),
-    OpenZFSConfiguration: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OntapConfiguration: _json,
+    OpenZFSConfiguration: _json,
+    Tags: _json,
     VolumeType: [],
   });
 };
@@ -4035,9 +4035,9 @@ const se_DeleteFileSystemRequest = (input: DeleteFileSystemRequest, context: __S
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     FileSystemId: [],
-    LustreConfiguration: (_) => _json(_),
-    OpenZFSConfiguration: (_) => _json(_),
-    WindowsConfiguration: (_) => _json(_),
+    LustreConfiguration: _json,
+    OpenZFSConfiguration: _json,
+    WindowsConfiguration: _json,
   });
 };
 
@@ -4078,8 +4078,8 @@ const se_DeleteStorageVirtualMachineRequest = (
 const se_DeleteVolumeRequest = (input: DeleteVolumeRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    OntapConfiguration: (_) => _json(_),
-    OpenZFSConfiguration: (_) => _json(_),
+    OntapConfiguration: _json,
+    OpenZFSConfiguration: _json,
     VolumeId: [],
   });
 };
@@ -4120,7 +4120,7 @@ const se_DisassociateFileSystemAliasesRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Aliases: (_) => _json(_),
+    Aliases: _json,
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     FileSystemId: [],
   });
@@ -4195,7 +4195,7 @@ const se_ReleaseFileSystemNfsV3LocksRequest = (
 const se_RestoreVolumeFromSnapshotRequest = (input: RestoreVolumeFromSnapshotRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    Options: (_) => _json(_),
+    Options: _json,
     SnapshotId: [],
     VolumeId: [],
   });
@@ -4256,7 +4256,7 @@ const se_UpdateDataRepositoryAssociationRequest = (
     AssociationId: [],
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     ImportedFileChunkSize: [],
-    S3: (_) => _json(_),
+    S3: _json,
   });
 };
 
@@ -4269,7 +4269,7 @@ const se_UpdateFileCacheRequest = (input: UpdateFileCacheRequest, context: __Ser
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     FileCacheId: [],
-    LustreConfiguration: (_) => _json(_),
+    LustreConfiguration: _json,
   });
 };
 
@@ -4286,11 +4286,11 @@ const se_UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __S
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     FileSystemId: [],
-    LustreConfiguration: (_) => _json(_),
-    OntapConfiguration: (_) => _json(_),
-    OpenZFSConfiguration: (_) => _json(_),
+    LustreConfiguration: _json,
+    OntapConfiguration: _json,
+    OpenZFSConfiguration: _json,
     StorageCapacity: [],
-    WindowsConfiguration: (_) => _json(_),
+    WindowsConfiguration: _json,
   });
 };
 
@@ -4319,7 +4319,7 @@ const se_UpdateStorageVirtualMachineRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ActiveDirectoryConfiguration: (_) => _json(_),
+    ActiveDirectoryConfiguration: _json,
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     StorageVirtualMachineId: [],
     SvmAdminPassword: [],
@@ -4335,8 +4335,8 @@ const se_UpdateVolumeRequest = (input: UpdateVolumeRequest, context: __SerdeCont
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     Name: [],
-    OntapConfiguration: (_) => _json(_),
-    OpenZFSConfiguration: (_) => _json(_),
+    OntapConfiguration: _json,
+    OpenZFSConfiguration: _json,
     VolumeId: [],
   });
 };

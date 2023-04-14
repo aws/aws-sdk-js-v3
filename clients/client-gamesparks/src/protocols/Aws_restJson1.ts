@@ -3153,7 +3153,7 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
  */
 const se_ImportGameConfigurationSource = (input: ImportGameConfigurationSource, context: __SerdeContext): any => {
   return take(input, {
-    File: (_) => context.base64Encoder(_),
+    File: context.base64Encoder,
   });
 };
 

@@ -2811,7 +2811,7 @@ const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext)
     accessRole: [],
     endTime: (_) => _.toISOString().split(".")[0] + "Z",
     startTime: (_) => _.toISOString().split(".")[0] + "Z",
-    trails: (_) => _json(_),
+    trails: _json,
   });
 };
 

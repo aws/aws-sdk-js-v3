@@ -2219,7 +2219,7 @@ const se_EncryptionOptions = (input: EncryptionOptions, context: __SerdeContext)
  */
 const se_LdapServerMetadataInput = (input: LdapServerMetadataInput, context: __SerdeContext): any => {
   return take(input, {
-    hosts: [, (_) => _json(_), `Hosts`],
+    hosts: [, _json, `Hosts`],
     roleBase: [, , `RoleBase`],
     roleName: [, , `RoleName`],
     roleSearchMatching: [, , `RoleSearchMatching`],
@@ -2249,7 +2249,7 @@ const se_Logs = (input: Logs, context: __SerdeContext): any => {
 const se_User = (input: User, context: __SerdeContext): any => {
   return take(input, {
     consoleAccess: [, , `ConsoleAccess`],
-    groups: [, (_) => _json(_), `Groups`],
+    groups: [, _json, `Groups`],
     password: [, , `Password`],
     username: [, , `Username`],
   });

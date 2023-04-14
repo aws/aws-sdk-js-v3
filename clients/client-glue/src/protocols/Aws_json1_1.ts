@@ -15605,7 +15605,7 @@ const de_VersionMismatchExceptionRes = async (
  */
 const se_ApplyMapping = (input: ApplyMapping, context: __SerdeContext): any => {
   return take(input, {
-    Inputs: (_) => _json(_),
+    Inputs: _json,
     Mapping: (_) => se_Mappings(_, context),
     Name: [],
   });
@@ -15689,7 +15689,7 @@ const se_BatchUpdatePartitionRequest = (input: BatchUpdatePartitionRequest, cont
 const se_BatchUpdatePartitionRequestEntry = (input: BatchUpdatePartitionRequestEntry, context: __SerdeContext): any => {
   return take(input, {
     PartitionInput: (_) => se_PartitionInput(_, context),
-    PartitionValueList: (_) => _json(_),
+    PartitionValueList: _json,
   });
 };
 
@@ -15712,7 +15712,7 @@ const se_BatchUpdatePartitionRequestEntryList = (
  */
 const se_BinaryColumnStatisticsData = (input: BinaryColumnStatisticsData, context: __SerdeContext): any => {
   return take(input, {
-    AverageLength: (_) => __serializeFloat(_),
+    AverageLength: __serializeFloat,
     MaximumLength: [],
     NumberOfNulls: [],
   });
@@ -15763,69 +15763,69 @@ const se_BinaryColumnStatisticsData = (input: BinaryColumnStatisticsData, contex
  */
 const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: __SerdeContext): any => {
   return take(input, {
-    Aggregate: (_) => _json(_),
+    Aggregate: _json,
     ApplyMapping: (_) => se_ApplyMapping(_, context),
-    AthenaConnectorSource: (_) => _json(_),
-    CatalogDeltaSource: (_) => _json(_),
-    CatalogHudiSource: (_) => _json(_),
-    CatalogKafkaSource: (_) => _json(_),
-    CatalogKinesisSource: (_) => _json(_),
-    CatalogSource: (_) => _json(_),
-    CatalogTarget: (_) => _json(_),
-    CustomCode: (_) => _json(_),
-    DirectJDBCSource: (_) => _json(_),
-    DirectKafkaSource: (_) => _json(_),
-    DirectKinesisSource: (_) => _json(_),
-    DropDuplicates: (_) => _json(_),
-    DropFields: (_) => _json(_),
-    DropNullFields: (_) => _json(_),
-    DynamicTransform: (_) => _json(_),
-    DynamoDBCatalogSource: (_) => _json(_),
-    EvaluateDataQuality: (_) => _json(_),
-    FillMissingValues: (_) => _json(_),
-    Filter: (_) => _json(_),
-    GovernedCatalogSource: (_) => _json(_),
-    GovernedCatalogTarget: (_) => _json(_),
-    JDBCConnectorSource: (_) => _json(_),
-    JDBCConnectorTarget: (_) => _json(_),
-    Join: (_) => _json(_),
-    Merge: (_) => _json(_),
-    MicrosoftSQLServerCatalogSource: (_) => _json(_),
-    MicrosoftSQLServerCatalogTarget: (_) => _json(_),
-    MySQLCatalogSource: (_) => _json(_),
-    MySQLCatalogTarget: (_) => _json(_),
-    OracleSQLCatalogSource: (_) => _json(_),
-    OracleSQLCatalogTarget: (_) => _json(_),
+    AthenaConnectorSource: _json,
+    CatalogDeltaSource: _json,
+    CatalogHudiSource: _json,
+    CatalogKafkaSource: _json,
+    CatalogKinesisSource: _json,
+    CatalogSource: _json,
+    CatalogTarget: _json,
+    CustomCode: _json,
+    DirectJDBCSource: _json,
+    DirectKafkaSource: _json,
+    DirectKinesisSource: _json,
+    DropDuplicates: _json,
+    DropFields: _json,
+    DropNullFields: _json,
+    DynamicTransform: _json,
+    DynamoDBCatalogSource: _json,
+    EvaluateDataQuality: _json,
+    FillMissingValues: _json,
+    Filter: _json,
+    GovernedCatalogSource: _json,
+    GovernedCatalogTarget: _json,
+    JDBCConnectorSource: _json,
+    JDBCConnectorTarget: _json,
+    Join: _json,
+    Merge: _json,
+    MicrosoftSQLServerCatalogSource: _json,
+    MicrosoftSQLServerCatalogTarget: _json,
+    MySQLCatalogSource: _json,
+    MySQLCatalogTarget: _json,
+    OracleSQLCatalogSource: _json,
+    OracleSQLCatalogTarget: _json,
     PIIDetection: (_) => se_PIIDetection(_, context),
-    PostgreSQLCatalogSource: (_) => _json(_),
-    PostgreSQLCatalogTarget: (_) => _json(_),
-    RedshiftSource: (_) => _json(_),
-    RedshiftTarget: (_) => _json(_),
-    RelationalCatalogSource: (_) => _json(_),
-    RenameField: (_) => _json(_),
-    S3CatalogDeltaSource: (_) => _json(_),
-    S3CatalogHudiSource: (_) => _json(_),
-    S3CatalogSource: (_) => _json(_),
-    S3CatalogTarget: (_) => _json(_),
-    S3CsvSource: (_) => _json(_),
-    S3DeltaCatalogTarget: (_) => _json(_),
-    S3DeltaDirectTarget: (_) => _json(_),
-    S3DeltaSource: (_) => _json(_),
-    S3DirectTarget: (_) => _json(_),
-    S3GlueParquetTarget: (_) => _json(_),
-    S3HudiCatalogTarget: (_) => _json(_),
-    S3HudiDirectTarget: (_) => _json(_),
-    S3HudiSource: (_) => _json(_),
-    S3JsonSource: (_) => _json(_),
-    S3ParquetSource: (_) => _json(_),
-    SelectFields: (_) => _json(_),
-    SelectFromCollection: (_) => _json(_),
-    SparkConnectorSource: (_) => _json(_),
-    SparkConnectorTarget: (_) => _json(_),
-    SparkSQL: (_) => _json(_),
+    PostgreSQLCatalogSource: _json,
+    PostgreSQLCatalogTarget: _json,
+    RedshiftSource: _json,
+    RedshiftTarget: _json,
+    RelationalCatalogSource: _json,
+    RenameField: _json,
+    S3CatalogDeltaSource: _json,
+    S3CatalogHudiSource: _json,
+    S3CatalogSource: _json,
+    S3CatalogTarget: _json,
+    S3CsvSource: _json,
+    S3DeltaCatalogTarget: _json,
+    S3DeltaDirectTarget: _json,
+    S3DeltaSource: _json,
+    S3DirectTarget: _json,
+    S3GlueParquetTarget: _json,
+    S3HudiCatalogTarget: _json,
+    S3HudiDirectTarget: _json,
+    S3HudiSource: _json,
+    S3JsonSource: _json,
+    S3ParquetSource: _json,
+    SelectFields: _json,
+    SelectFromCollection: _json,
+    SparkConnectorSource: _json,
+    SparkConnectorTarget: _json,
+    SparkSQL: _json,
     Spigot: (_) => se_Spigot(_, context),
-    SplitFields: (_) => _json(_),
-    Union: (_) => _json(_),
+    SplitFields: _json,
+    Union: _json,
   });
 };
 
@@ -15875,11 +15875,11 @@ const se_ColumnStatistics = (input: ColumnStatistics, context: __SerdeContext): 
 const se_ColumnStatisticsData = (input: ColumnStatisticsData, context: __SerdeContext): any => {
   return take(input, {
     BinaryColumnStatisticsData: (_) => se_BinaryColumnStatisticsData(_, context),
-    BooleanColumnStatisticsData: (_) => _json(_),
+    BooleanColumnStatisticsData: _json,
     DateColumnStatisticsData: (_) => se_DateColumnStatisticsData(_, context),
     DecimalColumnStatisticsData: (_) => se_DecimalColumnStatisticsData(_, context),
     DoubleColumnStatisticsData: (_) => se_DoubleColumnStatisticsData(_, context),
-    LongColumnStatisticsData: (_) => _json(_),
+    LongColumnStatisticsData: _json,
     StringColumnStatisticsData: (_) => se_StringColumnStatisticsData(_, context),
     Type: [],
   });
@@ -15908,12 +15908,12 @@ const se_ColumnStatisticsData = (input: ColumnStatisticsData, context: __SerdeCo
  */
 const se_CrawlerTargets = (input: CrawlerTargets, context: __SerdeContext): any => {
   return take(input, {
-    CatalogTargets: (_) => _json(_),
-    DeltaTargets: (_) => _json(_),
+    CatalogTargets: _json,
+    DeltaTargets: _json,
     DynamoDBTargets: (_) => se_DynamoDBTargetList(_, context),
-    JdbcTargets: (_) => _json(_),
-    MongoDBTargets: (_) => _json(_),
-    S3Targets: (_) => _json(_),
+    JdbcTargets: _json,
+    MongoDBTargets: _json,
+    S3Targets: _json,
   });
 };
 
@@ -15932,20 +15932,20 @@ const se_CrawlerTargets = (input: CrawlerTargets, context: __SerdeContext): any 
  */
 const se_CreateCrawlerRequest = (input: CreateCrawlerRequest, context: __SerdeContext): any => {
   return take(input, {
-    Classifiers: (_) => _json(_),
+    Classifiers: _json,
     Configuration: [],
     CrawlerSecurityConfiguration: [],
     DatabaseName: [],
     Description: [],
-    LakeFormationConfiguration: (_) => _json(_),
-    LineageConfiguration: (_) => _json(_),
+    LakeFormationConfiguration: _json,
+    LineageConfiguration: _json,
     Name: [],
-    RecrawlPolicy: (_) => _json(_),
+    RecrawlPolicy: _json,
     Role: [],
     Schedule: [],
-    SchemaChangePolicy: (_) => _json(_),
+    SchemaChangePolicy: _json,
     TablePrefix: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     Targets: (_) => se_CrawlerTargets(_, context),
   });
 };
@@ -15969,24 +15969,24 @@ const se_CreateJobRequest = (input: CreateJobRequest, context: __SerdeContext): 
   return take(input, {
     AllocatedCapacity: [],
     CodeGenConfigurationNodes: (_) => se_CodeGenConfigurationNodes(_, context),
-    Command: (_) => _json(_),
-    Connections: (_) => _json(_),
-    DefaultArguments: (_) => _json(_),
+    Command: _json,
+    Connections: _json,
+    DefaultArguments: _json,
     Description: [],
     ExecutionClass: [],
-    ExecutionProperty: (_) => _json(_),
+    ExecutionProperty: _json,
     GlueVersion: [],
     LogUri: [],
-    MaxCapacity: (_) => __serializeFloat(_),
+    MaxCapacity: __serializeFloat,
     MaxRetries: [],
     Name: [],
-    NonOverridableArguments: (_) => _json(_),
-    NotificationProperty: (_) => _json(_),
+    NonOverridableArguments: _json,
+    NotificationProperty: _json,
     NumberOfWorkers: [],
     Role: [],
     SecurityConfiguration: [],
-    SourceControlDetails: (_) => _json(_),
-    Tags: (_) => _json(_),
+    SourceControlDetails: _json,
+    Tags: _json,
     Timeout: [],
     WorkerType: [],
   });
@@ -16001,16 +16001,16 @@ const se_CreateMLTransformRequest = (input: CreateMLTransformRequest, context: _
   return take(input, {
     Description: [],
     GlueVersion: [],
-    InputRecordTables: (_) => _json(_),
-    MaxCapacity: (_) => __serializeFloat(_),
+    InputRecordTables: _json,
+    MaxCapacity: __serializeFloat,
     MaxRetries: [],
     Name: [],
     NumberOfWorkers: [],
     Parameters: (_) => se_TransformParameters(_, context),
     Role: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     Timeout: [],
-    TransformEncryption: (_) => _json(_),
+    TransformEncryption: _json,
     WorkerType: [],
   });
 };
@@ -16042,19 +16042,19 @@ const se_CreatePartitionRequest = (input: CreatePartitionRequest, context: __Ser
  */
 const se_CreateSessionRequest = (input: CreateSessionRequest, context: __SerdeContext): any => {
   return take(input, {
-    Command: (_) => _json(_),
-    Connections: (_) => _json(_),
-    DefaultArguments: (_) => _json(_),
+    Command: _json,
+    Connections: _json,
+    DefaultArguments: _json,
     Description: [],
     GlueVersion: [],
     Id: [],
     IdleTimeout: [],
-    MaxCapacity: (_) => __serializeFloat(_),
+    MaxCapacity: __serializeFloat,
     NumberOfWorkers: [],
     RequestOrigin: [],
     Role: [],
     SecurityConfiguration: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     Timeout: [],
     WorkerType: [],
   });
@@ -16067,7 +16067,7 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
   return take(input, {
     CatalogId: [],
     DatabaseName: [],
-    PartitionIndexes: (_) => _json(_),
+    PartitionIndexes: _json,
     TableInput: (_) => se_TableInput(_, context),
     TransactionId: [],
   });
@@ -16108,7 +16108,7 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
  */
 const se_DataQualityResultFilterCriteria = (input: DataQualityResultFilterCriteria, context: __SerdeContext): any => {
   return take(input, {
-    DataSource: (_) => _json(_),
+    DataSource: _json,
     JobName: [],
     JobRunId: [],
     StartedAfter: (_) => Math.round(_.getTime() / 1000),
@@ -16126,7 +16126,7 @@ const se_DataQualityRuleRecommendationRunFilter = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    DataSource: (_) => _json(_),
+    DataSource: _json,
     StartedAfter: (_) => Math.round(_.getTime() / 1000),
     StartedBefore: (_) => Math.round(_.getTime() / 1000),
   });
@@ -16140,7 +16140,7 @@ const se_DataQualityRulesetEvaluationRunFilter = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    DataSource: (_) => _json(_),
+    DataSource: _json,
     StartedAfter: (_) => Math.round(_.getTime() / 1000),
     StartedBefore: (_) => Math.round(_.getTime() / 1000),
   });
@@ -16157,7 +16157,7 @@ const se_DataQualityRulesetFilterCriteria = (input: DataQualityRulesetFilterCrit
     LastModifiedAfter: (_) => Math.round(_.getTime() / 1000),
     LastModifiedBefore: (_) => Math.round(_.getTime() / 1000),
     Name: [],
-    TargetTable: (_) => _json(_),
+    TargetTable: _json,
   });
 };
 
@@ -16197,7 +16197,7 @@ const se_DecimalColumnStatisticsData = (input: DecimalColumnStatisticsData, cont
 const se_DecimalNumber = (input: DecimalNumber, context: __SerdeContext): any => {
   return take(input, {
     Scale: [],
-    UnscaledValue: (_) => context.base64Encoder(_),
+    UnscaledValue: context.base64Encoder,
   });
 };
 
@@ -16274,8 +16274,8 @@ const se_DecimalNumber = (input: DecimalNumber, context: __SerdeContext): any =>
  */
 const se_DoubleColumnStatisticsData = (input: DoubleColumnStatisticsData, context: __SerdeContext): any => {
   return take(input, {
-    MaximumValue: (_) => __serializeFloat(_),
-    MinimumValue: (_) => __serializeFloat(_),
+    MaximumValue: __serializeFloat,
+    MinimumValue: __serializeFloat,
     NumberOfDistinctValues: [],
     NumberOfNulls: [],
   });
@@ -16302,7 +16302,7 @@ const se_DynamoDBTarget = (input: DynamoDBTarget, context: __SerdeContext): any 
   return take(input, {
     Path: [],
     scanAll: [],
-    scanRate: (_) => __serializeFloat(_),
+    scanRate: __serializeFloat,
   });
 };
 
@@ -16352,9 +16352,9 @@ const se_DynamoDBTargetList = (input: DynamoDBTarget[], context: __SerdeContext)
  */
 const se_FindMatchesParameters = (input: FindMatchesParameters, context: __SerdeContext): any => {
   return take(input, {
-    AccuracyCostTradeoff: (_) => __serializeFloat(_),
+    AccuracyCostTradeoff: __serializeFloat,
     EnforceProvidedLabels: [],
-    PrecisionRecallTradeoff: (_) => __serializeFloat(_),
+    PrecisionRecallTradeoff: __serializeFloat,
     PrimaryKeyColumnName: [],
   });
 };
@@ -16435,7 +16435,7 @@ const se_GetMLTaskRunsRequest = (input: GetMLTaskRunsRequest, context: __SerdeCo
     Filter: (_) => se_TaskRunFilterCriteria(_, context),
     MaxResults: [],
     NextToken: [],
-    Sort: (_) => _json(_),
+    Sort: _json,
     TransformId: [],
   });
 };
@@ -16450,7 +16450,7 @@ const se_GetMLTransformsRequest = (input: GetMLTransformsRequest, context: __Ser
     Filter: (_) => se_TransformFilterCriteria(_, context),
     MaxResults: [],
     NextToken: [],
-    Sort: (_) => _json(_),
+    Sort: _json,
   });
 };
 
@@ -16470,7 +16470,7 @@ const se_GetPartitionsRequest = (input: GetPartitionsRequest, context: __SerdeCo
     MaxResults: [],
     NextToken: [],
     QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
-    Segment: (_) => _json(_),
+    Segment: _json,
     TableName: [],
     TransactionId: [],
   });
@@ -16603,22 +16603,22 @@ const se_JobUpdate = (input: JobUpdate, context: __SerdeContext): any => {
   return take(input, {
     AllocatedCapacity: [],
     CodeGenConfigurationNodes: (_) => se_CodeGenConfigurationNodes(_, context),
-    Command: (_) => _json(_),
-    Connections: (_) => _json(_),
-    DefaultArguments: (_) => _json(_),
+    Command: _json,
+    Connections: _json,
+    DefaultArguments: _json,
     Description: [],
     ExecutionClass: [],
-    ExecutionProperty: (_) => _json(_),
+    ExecutionProperty: _json,
     GlueVersion: [],
     LogUri: [],
-    MaxCapacity: (_) => __serializeFloat(_),
+    MaxCapacity: __serializeFloat,
     MaxRetries: [],
-    NonOverridableArguments: (_) => _json(_),
-    NotificationProperty: (_) => _json(_),
+    NonOverridableArguments: _json,
+    NotificationProperty: _json,
     NumberOfWorkers: [],
     Role: [],
     SecurityConfiguration: [],
-    SourceControlDetails: (_) => _json(_),
+    SourceControlDetails: _json,
     Timeout: [],
     WorkerType: [],
   });
@@ -16699,7 +16699,7 @@ const se_ListDataQualityRulesetsRequest = (input: ListDataQualityRulesetsRequest
     Filter: (_) => se_DataQualityRulesetFilterCriteria(_, context),
     MaxResults: [],
     NextToken: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -16715,8 +16715,8 @@ const se_ListMLTransformsRequest = (input: ListMLTransformsRequest, context: __S
     Filter: (_) => se_TransformFilterCriteria(_, context),
     MaxResults: [],
     NextToken: [],
-    Sort: (_) => _json(_),
-    Tags: (_) => _json(_),
+    Sort: _json,
+    Tags: _json,
   });
 };
 
@@ -16751,7 +16751,7 @@ const se_Mapping = (input: Mapping, context: __SerdeContext): any => {
   return take(input, {
     Children: (_) => se_Mappings(_, context),
     Dropped: [],
-    FromPath: (_) => _json(_),
+    FromPath: _json,
     FromType: [],
     ToKey: [],
     ToType: [],
@@ -16836,9 +16836,9 @@ const se_PartitionInput = (input: PartitionInput, context: __SerdeContext): any 
   return take(input, {
     LastAccessTime: (_) => Math.round(_.getTime() / 1000),
     LastAnalyzedTime: (_) => Math.round(_.getTime() / 1000),
-    Parameters: (_) => _json(_),
-    StorageDescriptor: (_) => _json(_),
-    Values: (_) => _json(_),
+    Parameters: _json,
+    StorageDescriptor: _json,
+    Values: _json,
   });
 };
 
@@ -16868,14 +16868,14 @@ const se_PartitionInputList = (input: PartitionInput[], context: __SerdeContext)
  */
 const se_PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
   return take(input, {
-    EntityTypesToDetect: (_) => _json(_),
-    Inputs: (_) => _json(_),
+    EntityTypesToDetect: _json,
+    Inputs: _json,
     MaskValue: [],
     Name: [],
     OutputColumnName: [],
     PiiType: [],
-    SampleFraction: (_) => __serializeFloat(_),
-    ThresholdFraction: (_) => __serializeFloat(_),
+    SampleFraction: __serializeFloat,
+    ThresholdFraction: __serializeFloat,
   });
 };
 
@@ -17018,10 +17018,10 @@ const se_PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
  */
 const se_Spigot = (input: Spigot, context: __SerdeContext): any => {
   return take(input, {
-    Inputs: (_) => _json(_),
+    Inputs: _json,
     Name: [],
     Path: [],
-    Prob: (_) => __serializeFloat(_),
+    Prob: __serializeFloat,
     Topk: [],
   });
 };
@@ -17052,12 +17052,12 @@ const se_Spigot = (input: Spigot, context: __SerdeContext): any => {
 const se_StartJobRunRequest = (input: StartJobRunRequest, context: __SerdeContext): any => {
   return take(input, {
     AllocatedCapacity: [],
-    Arguments: (_) => _json(_),
+    Arguments: _json,
     ExecutionClass: [],
     JobName: [],
     JobRunId: [],
-    MaxCapacity: (_) => __serializeFloat(_),
-    NotificationProperty: (_) => _json(_),
+    MaxCapacity: __serializeFloat,
+    NotificationProperty: _json,
     NumberOfWorkers: [],
     SecurityConfiguration: [],
     Timeout: [],
@@ -17092,7 +17092,7 @@ const se_StartJobRunRequest = (input: StartJobRunRequest, context: __SerdeContex
  */
 const se_StringColumnStatisticsData = (input: StringColumnStatisticsData, context: __SerdeContext): any => {
   return take(input, {
-    AverageLength: (_) => __serializeFloat(_),
+    AverageLength: __serializeFloat,
     MaximumLength: [],
     NumberOfDistinctValues: [],
     NumberOfNulls: [],
@@ -17113,12 +17113,12 @@ const se_TableInput = (input: TableInput, context: __SerdeContext): any => {
     LastAnalyzedTime: (_) => Math.round(_.getTime() / 1000),
     Name: [],
     Owner: [],
-    Parameters: (_) => _json(_),
-    PartitionKeys: (_) => _json(_),
+    Parameters: _json,
+    PartitionKeys: _json,
     Retention: [],
-    StorageDescriptor: (_) => _json(_),
+    StorageDescriptor: _json,
     TableType: [],
-    TargetTable: (_) => _json(_),
+    TargetTable: _json,
     ViewExpandedText: [],
     ViewOriginalText: [],
   });
@@ -17161,7 +17161,7 @@ const se_TransformFilterCriteria = (input: TransformFilterCriteria, context: __S
     LastModifiedAfter: (_) => Math.round(_.getTime() / 1000),
     LastModifiedBefore: (_) => Math.round(_.getTime() / 1000),
     Name: [],
-    Schema: (_) => _json(_),
+    Schema: _json,
     Status: [],
     TransformType: [],
   });
@@ -17206,7 +17206,7 @@ const se_UpdateColumnStatisticsForPartitionRequest = (
     CatalogId: [],
     ColumnStatisticsList: (_) => se_UpdateColumnStatisticsList(_, context),
     DatabaseName: [],
-    PartitionValues: (_) => _json(_),
+    PartitionValues: _json,
     TableName: [],
   });
 };
@@ -17244,18 +17244,18 @@ const se_UpdateColumnStatisticsList = (input: ColumnStatistics[], context: __Ser
  */
 const se_UpdateCrawlerRequest = (input: UpdateCrawlerRequest, context: __SerdeContext): any => {
   return take(input, {
-    Classifiers: (_) => _json(_),
+    Classifiers: _json,
     Configuration: [],
     CrawlerSecurityConfiguration: [],
     DatabaseName: [],
     Description: [],
-    LakeFormationConfiguration: (_) => _json(_),
-    LineageConfiguration: (_) => _json(_),
+    LakeFormationConfiguration: _json,
+    LineageConfiguration: _json,
     Name: [],
-    RecrawlPolicy: (_) => _json(_),
+    RecrawlPolicy: _json,
     Role: [],
     Schedule: [],
-    SchemaChangePolicy: (_) => _json(_),
+    SchemaChangePolicy: _json,
     TablePrefix: [],
     Targets: (_) => se_CrawlerTargets(_, context),
   });
@@ -17294,7 +17294,7 @@ const se_UpdateMLTransformRequest = (input: UpdateMLTransformRequest, context: _
   return take(input, {
     Description: [],
     GlueVersion: [],
-    MaxCapacity: (_) => __serializeFloat(_),
+    MaxCapacity: __serializeFloat,
     MaxRetries: [],
     Name: [],
     NumberOfWorkers: [],
@@ -17314,7 +17314,7 @@ const se_UpdatePartitionRequest = (input: UpdatePartitionRequest, context: __Ser
     CatalogId: [],
     DatabaseName: [],
     PartitionInput: (_) => se_PartitionInput(_, context),
-    PartitionValueList: (_) => _json(_),
+    PartitionValueList: _json,
     TableName: [],
   });
 };

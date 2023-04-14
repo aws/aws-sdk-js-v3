@@ -4119,10 +4119,10 @@ const se_AndStatement = (input: AndStatement, context: __SerdeContext): any => {
  */
 const se_ByteMatchStatement = (input: ByteMatchStatement, context: __SerdeContext): any => {
   return take(input, {
-    FieldToMatch: (_) => _json(_),
+    FieldToMatch: _json,
     PositionalConstraint: [],
-    SearchString: (_) => context.base64Encoder(_),
-    TextTransformations: (_) => _json(_),
+    SearchString: context.base64Encoder,
+    TextTransformations: _json,
   });
 };
 
@@ -4168,13 +4168,13 @@ const se_CheckCapacityRequest = (input: CheckCapacityRequest, context: __SerdeCo
 const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __SerdeContext): any => {
   return take(input, {
     Capacity: [],
-    CustomResponseBodies: (_) => _json(_),
+    CustomResponseBodies: _json,
     Description: [],
     Name: [],
     Rules: (_) => se_Rules(_, context),
     Scope: [],
-    Tags: (_) => _json(_),
-    VisibilityConfig: (_) => _json(_),
+    Tags: _json,
+    VisibilityConfig: _json,
   });
 };
 
@@ -4183,18 +4183,18 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
  */
 const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeContext): any => {
   return take(input, {
-    AssociationConfig: (_) => _json(_),
-    CaptchaConfig: (_) => _json(_),
-    ChallengeConfig: (_) => _json(_),
-    CustomResponseBodies: (_) => _json(_),
-    DefaultAction: (_) => _json(_),
+    AssociationConfig: _json,
+    CaptchaConfig: _json,
+    ChallengeConfig: _json,
+    CustomResponseBodies: _json,
+    DefaultAction: _json,
     Description: [],
     Name: [],
     Rules: (_) => se_Rules(_, context),
     Scope: [],
-    Tags: (_) => _json(_),
-    TokenDomains: (_) => _json(_),
-    VisibilityConfig: (_) => _json(_),
+    Tags: _json,
+    TokenDomains: _json,
+    VisibilityConfig: _json,
   });
 };
 
@@ -4344,10 +4344,10 @@ const se_GetSampledRequestsRequest = (input: GetSampledRequestsRequest, context:
  */
 const se_ManagedRuleGroupStatement = (input: ManagedRuleGroupStatement, context: __SerdeContext): any => {
   return take(input, {
-    ExcludedRules: (_) => _json(_),
-    ManagedRuleGroupConfigs: (_) => _json(_),
+    ExcludedRules: _json,
+    ManagedRuleGroupConfigs: _json,
     Name: [],
-    RuleActionOverrides: (_) => _json(_),
+    RuleActionOverrides: _json,
     ScopeDownStatement: (_) => se_Statement(_, context),
     VendorName: [],
     Version: [],
@@ -4394,7 +4394,7 @@ const se_OrStatement = (input: OrStatement, context: __SerdeContext): any => {
 const se_RateBasedStatement = (input: RateBasedStatement, context: __SerdeContext): any => {
   return take(input, {
     AggregateKeyType: [],
-    ForwardedIPConfig: (_) => _json(_),
+    ForwardedIPConfig: _json,
     Limit: [],
     ScopeDownStatement: (_) => se_Statement(_, context),
   });
@@ -4447,15 +4447,15 @@ const se_RateBasedStatement = (input: RateBasedStatement, context: __SerdeContex
  */
 const se_Rule = (input: Rule, context: __SerdeContext): any => {
   return take(input, {
-    Action: (_) => _json(_),
-    CaptchaConfig: (_) => _json(_),
-    ChallengeConfig: (_) => _json(_),
+    Action: _json,
+    CaptchaConfig: _json,
+    ChallengeConfig: _json,
     Name: [],
-    OverrideAction: (_) => _json(_),
+    OverrideAction: _json,
     Priority: [],
-    RuleLabels: (_) => _json(_),
+    RuleLabels: _json,
     Statement: (_) => se_Statement(_, context),
-    VisibilityConfig: (_) => _json(_),
+    VisibilityConfig: _json,
   });
 };
 
@@ -4493,19 +4493,19 @@ const se_Statement = (input: Statement, context: __SerdeContext): any => {
   return take(input, {
     AndStatement: (_) => se_AndStatement(_, context),
     ByteMatchStatement: (_) => se_ByteMatchStatement(_, context),
-    GeoMatchStatement: (_) => _json(_),
-    IPSetReferenceStatement: (_) => _json(_),
-    LabelMatchStatement: (_) => _json(_),
+    GeoMatchStatement: _json,
+    IPSetReferenceStatement: _json,
+    LabelMatchStatement: _json,
     ManagedRuleGroupStatement: (_) => se_ManagedRuleGroupStatement(_, context),
     NotStatement: (_) => se_NotStatement(_, context),
     OrStatement: (_) => se_OrStatement(_, context),
     RateBasedStatement: (_) => se_RateBasedStatement(_, context),
-    RegexMatchStatement: (_) => _json(_),
-    RegexPatternSetReferenceStatement: (_) => _json(_),
-    RuleGroupReferenceStatement: (_) => _json(_),
-    SizeConstraintStatement: (_) => _json(_),
-    SqliMatchStatement: (_) => _json(_),
-    XssMatchStatement: (_) => _json(_),
+    RegexMatchStatement: _json,
+    RegexPatternSetReferenceStatement: _json,
+    RuleGroupReferenceStatement: _json,
+    SizeConstraintStatement: _json,
+    SqliMatchStatement: _json,
+    XssMatchStatement: _json,
   });
 };
 
@@ -4572,14 +4572,14 @@ const se_UpdateManagedRuleSetVersionExpiryDateRequest = (
  */
 const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __SerdeContext): any => {
   return take(input, {
-    CustomResponseBodies: (_) => _json(_),
+    CustomResponseBodies: _json,
     Description: [],
     Id: [],
     LockToken: [],
     Name: [],
     Rules: (_) => se_Rules(_, context),
     Scope: [],
-    VisibilityConfig: (_) => _json(_),
+    VisibilityConfig: _json,
   });
 };
 
@@ -4588,19 +4588,19 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
  */
 const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeContext): any => {
   return take(input, {
-    AssociationConfig: (_) => _json(_),
-    CaptchaConfig: (_) => _json(_),
-    ChallengeConfig: (_) => _json(_),
-    CustomResponseBodies: (_) => _json(_),
-    DefaultAction: (_) => _json(_),
+    AssociationConfig: _json,
+    CaptchaConfig: _json,
+    ChallengeConfig: _json,
+    CustomResponseBodies: _json,
+    DefaultAction: _json,
     Description: [],
     Id: [],
     LockToken: [],
     Name: [],
     Rules: (_) => se_Rules(_, context),
     Scope: [],
-    TokenDomains: (_) => _json(_),
-    VisibilityConfig: (_) => _json(_),
+    TokenDomains: _json,
+    VisibilityConfig: _json,
   });
 };
 

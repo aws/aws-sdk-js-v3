@@ -2527,7 +2527,7 @@ const de_UnsupportedTLDRes = async (parsedOutput: any, context: __SerdeContext):
 const se_Consent = (input: Consent, context: __SerdeContext): any => {
   return take(input, {
     Currency: [],
-    MaxPrice: (_) => __serializeFloat(_),
+    MaxPrice: __serializeFloat,
   });
 };
 
@@ -2578,9 +2578,9 @@ const se_ListOperationsRequest = (input: ListOperationsRequest, context: __Serde
     MaxItems: [],
     SortBy: [],
     SortOrder: [],
-    Status: (_) => _json(_),
+    Status: _json,
     SubmittedSince: (_) => Math.round(_.getTime() / 1000),
-    Type: (_) => _json(_),
+    Type: _json,
   });
 };
 
@@ -2629,11 +2629,11 @@ const se_ListOperationsRequest = (input: ListOperationsRequest, context: __Serde
  */
 const se_UpdateDomainContactRequest = (input: UpdateDomainContactRequest, context: __SerdeContext): any => {
   return take(input, {
-    AdminContact: (_) => _json(_),
+    AdminContact: _json,
     Consent: (_) => se_Consent(_, context),
     DomainName: [],
-    RegistrantContact: (_) => _json(_),
-    TechContact: (_) => _json(_),
+    RegistrantContact: _json,
+    TechContact: _json,
   });
 };
 

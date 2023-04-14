@@ -2294,7 +2294,7 @@ const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __S
     clientToken: (_) => _ ?? generateIdempotencyToken(),
     description: [],
     name: [],
-    tags: (_) => _json(_),
+    tags: _json,
     type: [],
   });
 };
@@ -2307,7 +2307,7 @@ const se_CreateSecurityConfigRequest = (input: CreateSecurityConfigRequest, cont
     clientToken: (_) => _ ?? generateIdempotencyToken(),
     description: [],
     name: [],
-    samlOptions: (_) => _json(_),
+    samlOptions: _json,
     type: [],
   });
 };
@@ -2332,8 +2332,8 @@ const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: _
   return take(input, {
     clientToken: (_) => _ ?? generateIdempotencyToken(),
     name: [],
-    securityGroupIds: (_) => _json(_),
-    subnetIds: (_) => _json(_),
+    securityGroupIds: _json,
+    subnetIds: _json,
     vpcId: [],
   });
 };
@@ -2466,7 +2466,7 @@ const se_UpdateSecurityConfigRequest = (input: UpdateSecurityConfigRequest, cont
     configVersion: [],
     description: [],
     id: [],
-    samlOptions: (_) => _json(_),
+    samlOptions: _json,
   });
 };
 
@@ -2489,12 +2489,12 @@ const se_UpdateSecurityPolicyRequest = (input: UpdateSecurityPolicyRequest, cont
  */
 const se_UpdateVpcEndpointRequest = (input: UpdateVpcEndpointRequest, context: __SerdeContext): any => {
   return take(input, {
-    addSecurityGroupIds: (_) => _json(_),
-    addSubnetIds: (_) => _json(_),
+    addSecurityGroupIds: _json,
+    addSubnetIds: _json,
     clientToken: (_) => _ ?? generateIdempotencyToken(),
     id: [],
-    removeSecurityGroupIds: (_) => _json(_),
-    removeSubnetIds: (_) => _json(_),
+    removeSecurityGroupIds: _json,
+    removeSubnetIds: _json,
   });
 };
 

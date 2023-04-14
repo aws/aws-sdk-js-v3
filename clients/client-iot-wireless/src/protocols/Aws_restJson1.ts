@@ -10354,11 +10354,11 @@ const se_CdmaList = (input: CdmaObj[], context: __SerdeContext): any => {
  */
 const se_CdmaObj = (input: CdmaObj, context: __SerdeContext): any => {
   return take(input, {
-    BaseLat: (_) => __serializeFloat(_),
-    BaseLng: (_) => __serializeFloat(_),
+    BaseLat: __serializeFloat,
+    BaseLng: __serializeFloat,
     BaseStationId: [],
-    CdmaLocalId: (_) => _json(_),
-    CdmaNmr: (_) => _json(_),
+    CdmaLocalId: _json,
+    CdmaNmr: _json,
     NetworkId: [],
     PilotPower: [],
     RegistrationZone: [],
@@ -10372,10 +10372,10 @@ const se_CdmaObj = (input: CdmaObj, context: __SerdeContext): any => {
 const se_CellTowers = (input: CellTowers, context: __SerdeContext): any => {
   return take(input, {
     Cdma: (_) => se_CdmaList(_, context),
-    Gsm: (_) => _json(_),
+    Gsm: _json,
     Lte: (_) => se_LteList(_, context),
-    Tdscdma: (_) => _json(_),
-    Wcdma: (_) => _json(_),
+    Tdscdma: _json,
+    Wcdma: _json,
   });
 };
 
@@ -10402,10 +10402,10 @@ const se_CellTowers = (input: CellTowers, context: __SerdeContext): any => {
  */
 const se_Gnss = (input: Gnss, context: __SerdeContext): any => {
   return take(input, {
-    AssistAltitude: (_) => __serializeFloat(_),
+    AssistAltitude: __serializeFloat,
     AssistPosition: (_) => se_AssistPosition(_, context),
-    CaptureTime: (_) => __serializeFloat(_),
-    CaptureTimeAccuracy: (_) => __serializeFloat(_),
+    CaptureTime: __serializeFloat,
+    CaptureTimeAccuracy: __serializeFloat,
     Payload: [],
     Use2DSolver: [],
   });
@@ -10515,7 +10515,7 @@ const se_LteNmrObj = (input: LteNmrObj, context: __SerdeContext): any => {
     EutranCid: [],
     Pci: [],
     Rsrp: [],
-    Rsrq: (_) => __serializeFloat(_),
+    Rsrq: __serializeFloat,
   });
 };
 
@@ -10525,14 +10525,14 @@ const se_LteNmrObj = (input: LteNmrObj, context: __SerdeContext): any => {
 const se_LteObj = (input: LteObj, context: __SerdeContext): any => {
   return take(input, {
     EutranCid: [],
-    LteLocalId: (_) => _json(_),
+    LteLocalId: _json,
     LteNmr: (_) => se_LteNmrList(_, context),
     LteTimingAdvance: [],
     Mcc: [],
     Mnc: [],
     NrCapable: [],
     Rsrp: [],
-    Rsrq: (_) => __serializeFloat(_),
+    Rsrq: __serializeFloat,
     Tac: [],
   });
 };

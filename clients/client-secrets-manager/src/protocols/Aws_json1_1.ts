@@ -1854,15 +1854,15 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeContext): any => {
   return take(input, {
-    AddReplicaRegions: (_) => _json(_),
+    AddReplicaRegions: _json,
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     ForceOverwriteReplicaSecret: [],
     KmsKeyId: [],
     Name: [],
-    SecretBinary: (_) => context.base64Encoder(_),
+    SecretBinary: context.base64Encoder,
     SecretString: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -1896,10 +1896,10 @@ const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeCont
 const se_PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    SecretBinary: (_) => context.base64Encoder(_),
+    SecretBinary: context.base64Encoder,
     SecretId: [],
     SecretString: [],
-    VersionStages: (_) => _json(_),
+    VersionStages: _json,
   });
 };
 
@@ -1921,7 +1921,7 @@ const se_RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeCont
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     RotateImmediately: [],
     RotationLambdaARN: [],
-    RotationRules: (_) => _json(_),
+    RotationRules: _json,
     SecretId: [],
   });
 };
@@ -1950,7 +1950,7 @@ const se_UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeCont
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     KmsKeyId: [],
-    SecretBinary: (_) => context.base64Encoder(_),
+    SecretBinary: context.base64Encoder,
     SecretId: [],
     SecretString: [],
   });

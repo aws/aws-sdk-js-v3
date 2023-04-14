@@ -1438,7 +1438,7 @@ const de_TaskNotFoundExceptionRes = async (
  */
 const se_ActivatePipelineInput = (input: ActivatePipelineInput, context: __SerdeContext): any => {
   return take(input, {
-    parameterValues: (_) => _json(_),
+    parameterValues: _json,
     pipelineId: [],
     startTimestamp: (_) => Math.round(_.getTime() / 1000),
   });

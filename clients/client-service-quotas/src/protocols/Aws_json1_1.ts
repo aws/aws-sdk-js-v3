@@ -1902,7 +1902,7 @@ const se_PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
 ): any => {
   return take(input, {
     AwsRegion: [],
-    DesiredValue: (_) => __serializeFloat(_),
+    DesiredValue: __serializeFloat,
     QuotaCode: [],
     ServiceCode: [],
   });
@@ -1916,7 +1916,7 @@ const se_RequestServiceQuotaIncreaseRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    DesiredValue: (_) => __serializeFloat(_),
+    DesiredValue: __serializeFloat,
     QuotaCode: [],
     ServiceCode: [],
   });

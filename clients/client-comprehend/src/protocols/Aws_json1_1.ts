@@ -6659,8 +6659,8 @@ const de_UnsupportedLanguageExceptionRes = async (
  */
 const se_ClassifyDocumentRequest = (input: ClassifyDocumentRequest, context: __SerdeContext): any => {
   return take(input, {
-    Bytes: (_) => context.base64Encoder(_),
-    DocumentReaderConfig: (_) => _json(_),
+    Bytes: context.base64Encoder,
+    DocumentReaderConfig: _json,
     EndpointArn: [],
     Text: [],
   });
@@ -6678,8 +6678,8 @@ const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeCo
     DatasetType: [],
     Description: [],
     FlywheelArn: [],
-    InputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    InputDataConfig: _json,
+    Tags: _json,
   });
 };
 
@@ -6691,16 +6691,16 @@ const se_CreateDocumentClassifierRequest = (input: CreateDocumentClassifierReque
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
     DocumentClassifierName: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     LanguageCode: [],
     Mode: [],
     ModelKmsKeyId: [],
     ModelPolicy: [],
-    OutputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OutputDataConfig: _json,
+    Tags: _json,
     VersionName: [],
     VolumeKmsKeyId: [],
-    VpcConfig: (_) => _json(_),
+    VpcConfig: _json,
   });
 };
 
@@ -6715,7 +6715,7 @@ const se_CreateEndpointRequest = (input: CreateEndpointRequest, context: __Serde
     EndpointName: [],
     FlywheelArn: [],
     ModelArn: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -6726,15 +6726,15 @@ const se_CreateEntityRecognizerRequest = (input: CreateEntityRecognizerRequest, 
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     LanguageCode: [],
     ModelKmsKeyId: [],
     ModelPolicy: [],
     RecognizerName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     VersionName: [],
     VolumeKmsKeyId: [],
-    VpcConfig: (_) => _json(_),
+    VpcConfig: _json,
   });
 };
 
@@ -6747,11 +6747,11 @@ const se_CreateFlywheelRequest = (input: CreateFlywheelRequest, context: __Serde
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
     DataLakeS3Uri: [],
-    DataSecurityConfig: (_) => _json(_),
+    DataSecurityConfig: _json,
     FlywheelName: [],
     ModelType: [],
-    Tags: (_) => _json(_),
-    TaskConfig: (_) => _json(_),
+    Tags: _json,
+    TaskConfig: _json,
   });
 };
 
@@ -6836,8 +6836,8 @@ const se_DatasetFilter = (input: DatasetFilter, context: __SerdeContext): any =>
  */
 const se_DetectEntitiesRequest = (input: DetectEntitiesRequest, context: __SerdeContext): any => {
   return take(input, {
-    Bytes: (_) => context.base64Encoder(_),
-    DocumentReaderConfig: (_) => _json(_),
+    Bytes: context.base64Encoder,
+    DocumentReaderConfig: _json,
     EndpointArn: [],
     LanguageCode: [],
     Text: [],
@@ -7248,12 +7248,12 @@ const se_StartDocumentClassificationJobRequest = (
     DataAccessRoleArn: [],
     DocumentClassifierArn: [],
     FlywheelArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
-    OutputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OutputDataConfig: _json,
+    Tags: _json,
     VolumeKmsKeyId: [],
-    VpcConfig: (_) => _json(_),
+    VpcConfig: _json,
   });
 };
 
@@ -7267,12 +7267,12 @@ const se_StartDominantLanguageDetectionJobRequest = (
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
-    OutputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OutputDataConfig: _json,
+    Tags: _json,
     VolumeKmsKeyId: [],
-    VpcConfig: (_) => _json(_),
+    VpcConfig: _json,
   });
 };
 
@@ -7285,13 +7285,13 @@ const se_StartEntitiesDetectionJobRequest = (input: StartEntitiesDetectionJobReq
     DataAccessRoleArn: [],
     EntityRecognizerArn: [],
     FlywheelArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OutputDataConfig: _json,
+    Tags: _json,
     VolumeKmsKeyId: [],
-    VpcConfig: (_) => _json(_),
+    VpcConfig: _json,
   });
 };
 
@@ -7302,12 +7302,12 @@ const se_StartEventsDetectionJobRequest = (input: StartEventsDetectionJobRequest
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
-    TargetEventTypes: (_) => _json(_),
+    OutputDataConfig: _json,
+    Tags: _json,
+    TargetEventTypes: _json,
   });
 };
 
@@ -7323,13 +7323,13 @@ const se_StartKeyPhrasesDetectionJobRequest = (
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OutputDataConfig: _json,
+    Tags: _json,
     VolumeKmsKeyId: [],
-    VpcConfig: (_) => _json(_),
+    VpcConfig: _json,
   });
 };
 
@@ -7343,13 +7343,13 @@ const se_StartPiiEntitiesDetectionJobRequest = (
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     LanguageCode: [],
     Mode: [],
-    OutputDataConfig: (_) => _json(_),
-    RedactionConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OutputDataConfig: _json,
+    RedactionConfig: _json,
+    Tags: _json,
   });
 };
 
@@ -7363,13 +7363,13 @@ const se_StartSentimentDetectionJobRequest = (
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OutputDataConfig: _json,
+    Tags: _json,
     VolumeKmsKeyId: [],
-    VpcConfig: (_) => _json(_),
+    VpcConfig: _json,
   });
 };
 
@@ -7383,13 +7383,13 @@ const se_StartTargetedSentimentDetectionJobRequest = (
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OutputDataConfig: _json,
+    Tags: _json,
     VolumeKmsKeyId: [],
-    VpcConfig: (_) => _json(_),
+    VpcConfig: _json,
   });
 };
 
@@ -7400,13 +7400,13 @@ const se_StartTopicsDetectionJobRequest = (input: StartTopicsDetectionJobRequest
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     NumberOfTopics: [],
-    OutputDataConfig: (_) => _json(_),
-    Tags: (_) => _json(_),
+    OutputDataConfig: _json,
+    Tags: _json,
     VolumeKmsKeyId: [],
-    VpcConfig: (_) => _json(_),
+    VpcConfig: _json,
   });
 };
 

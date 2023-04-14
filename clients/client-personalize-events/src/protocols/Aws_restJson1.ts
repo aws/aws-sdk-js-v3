@@ -331,11 +331,11 @@ const se_Event = (input: Event, context: __SerdeContext): any => {
   return take(input, {
     eventId: [],
     eventType: [],
-    eventValue: (_) => __serializeFloat(_),
-    impression: (_) => _json(_),
+    eventValue: __serializeFloat,
+    impression: _json,
     itemId: [],
-    metricAttribution: (_) => _json(_),
-    properties: (_) => __LazyJsonString.fromObject(_),
+    metricAttribution: _json,
+    properties: __LazyJsonString.fromObject,
     recommendationId: [],
     sentAt: (_) => Math.round(_.getTime() / 1000),
   });
@@ -360,7 +360,7 @@ const se_EventList = (input: Event[], context: __SerdeContext): any => {
 const se_Item = (input: Item, context: __SerdeContext): any => {
   return take(input, {
     itemId: [],
-    properties: (_) => __LazyJsonString.fromObject(_),
+    properties: __LazyJsonString.fromObject,
   });
 };
 
@@ -382,7 +382,7 @@ const se_ItemList = (input: Item[], context: __SerdeContext): any => {
  */
 const se_User = (input: User, context: __SerdeContext): any => {
   return take(input, {
-    properties: (_) => __LazyJsonString.fromObject(_),
+    properties: __LazyJsonString.fromObject,
     userId: [],
   });
 };

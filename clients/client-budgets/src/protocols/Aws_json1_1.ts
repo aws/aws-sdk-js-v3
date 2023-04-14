@@ -2003,7 +2003,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_ActionThreshold = (input: ActionThreshold, context: __SerdeContext): any => {
   return take(input, {
     ActionThresholdType: [],
-    ActionThresholdValue: (_) => __serializeFloat(_),
+    ActionThresholdValue: __serializeFloat,
   });
 };
 
@@ -2013,7 +2013,7 @@ const se_ActionThreshold = (input: ActionThreshold, context: __SerdeContext): an
 const se_AutoAdjustData = (input: AutoAdjustData, context: __SerdeContext): any => {
   return take(input, {
     AutoAdjustType: [],
-    HistoricalOptions: (_) => _json(_),
+    HistoricalOptions: _json,
     LastAutoAdjustTime: (_) => Math.round(_.getTime() / 1000),
   });
 };
@@ -2024,14 +2024,14 @@ const se_AutoAdjustData = (input: AutoAdjustData, context: __SerdeContext): any 
 const se_Budget = (input: Budget, context: __SerdeContext): any => {
   return take(input, {
     AutoAdjustData: (_) => se_AutoAdjustData(_, context),
-    BudgetLimit: (_) => _json(_),
+    BudgetLimit: _json,
     BudgetName: [],
     BudgetType: [],
-    CalculatedSpend: (_) => _json(_),
-    CostFilters: (_) => _json(_),
-    CostTypes: (_) => _json(_),
+    CalculatedSpend: _json,
+    CostFilters: _json,
+    CostTypes: _json,
     LastUpdatedTime: (_) => Math.round(_.getTime() / 1000),
-    PlannedBudgetLimits: (_) => _json(_),
+    PlannedBudgetLimits: _json,
     TimePeriod: (_) => se_TimePeriod(_, context),
     TimeUnit: [],
   });
@@ -2053,10 +2053,10 @@ const se_CreateBudgetActionRequest = (input: CreateBudgetActionRequest, context:
     ActionType: [],
     ApprovalModel: [],
     BudgetName: [],
-    Definition: (_) => _json(_),
+    Definition: _json,
     ExecutionRoleArn: [],
     NotificationType: [],
-    Subscribers: (_) => _json(_),
+    Subscribers: _json,
   });
 };
 
@@ -2079,7 +2079,7 @@ const se_CreateNotificationRequest = (input: CreateNotificationRequest, context:
     AccountId: [],
     BudgetName: [],
     Notification: (_) => se_Notification(_, context),
-    Subscribers: (_) => _json(_),
+    Subscribers: _json,
   });
 };
 
@@ -2091,7 +2091,7 @@ const se_CreateSubscriberRequest = (input: CreateSubscriberRequest, context: __S
     AccountId: [],
     BudgetName: [],
     Notification: (_) => se_Notification(_, context),
-    Subscriber: (_) => _json(_),
+    Subscriber: _json,
   });
 };
 
@@ -2120,7 +2120,7 @@ const se_DeleteSubscriberRequest = (input: DeleteSubscriberRequest, context: __S
     AccountId: [],
     BudgetName: [],
     Notification: (_) => se_Notification(_, context),
-    Subscriber: (_) => _json(_),
+    Subscriber: _json,
   });
 };
 
@@ -2207,7 +2207,7 @@ const se_Notification = (input: Notification, context: __SerdeContext): any => {
     ComparisonOperator: [],
     NotificationState: [],
     NotificationType: [],
-    Threshold: (_) => __serializeFloat(_),
+    Threshold: __serializeFloat,
     ThresholdType: [],
   });
 };
@@ -2218,7 +2218,7 @@ const se_Notification = (input: Notification, context: __SerdeContext): any => {
 const se_NotificationWithSubscribers = (input: NotificationWithSubscribers, context: __SerdeContext): any => {
   return take(input, {
     Notification: (_) => se_Notification(_, context),
-    Subscribers: (_) => _json(_),
+    Subscribers: _json,
   });
 };
 
@@ -2269,10 +2269,10 @@ const se_UpdateBudgetActionRequest = (input: UpdateBudgetActionRequest, context:
     ActionThreshold: (_) => se_ActionThreshold(_, context),
     ApprovalModel: [],
     BudgetName: [],
-    Definition: (_) => _json(_),
+    Definition: _json,
     ExecutionRoleArn: [],
     NotificationType: [],
-    Subscribers: (_) => _json(_),
+    Subscribers: _json,
   });
 };
 
@@ -2305,9 +2305,9 @@ const se_UpdateSubscriberRequest = (input: UpdateSubscriberRequest, context: __S
   return take(input, {
     AccountId: [],
     BudgetName: [],
-    NewSubscriber: (_) => _json(_),
+    NewSubscriber: _json,
     Notification: (_) => se_Notification(_, context),
-    OldSubscriber: (_) => _json(_),
+    OldSubscriber: _json,
   });
 };
 

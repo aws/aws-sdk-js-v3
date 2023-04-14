@@ -2752,7 +2752,7 @@ const de_UnsupportedOperationExceptionRes = async (
 const se_DetectorModelDefinition = (input: DetectorModelDefinition, context: __SerdeContext): any => {
   return take(input, {
     initialStateName: [],
-    states: (_) => _json(_),
+    states: _json,
   });
 };
 

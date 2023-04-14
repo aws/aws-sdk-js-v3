@@ -6406,9 +6406,9 @@ const se_ByteMatchSetUpdates = (input: ByteMatchSetUpdate[], context: __SerdeCon
  */
 const se_ByteMatchTuple = (input: ByteMatchTuple, context: __SerdeContext): any => {
   return take(input, {
-    FieldToMatch: (_) => _json(_),
+    FieldToMatch: _json,
     PositionalConstraint: [],
-    TargetString: (_) => context.base64Encoder(_),
+    TargetString: context.base64Encoder,
     TextTransformation: [],
   });
 };

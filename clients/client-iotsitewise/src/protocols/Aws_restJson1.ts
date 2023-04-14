@@ -7614,7 +7614,7 @@ const de_UnauthorizedExceptionRes = async (
 const se_AssetPropertyValue = (input: AssetPropertyValue, context: __SerdeContext): any => {
   return take(input, {
     quality: [],
-    timestamp: (_) => _json(_),
+    timestamp: _json,
     value: (_) => se_Variant(_, context),
   });
 };
@@ -7654,13 +7654,13 @@ const se_BatchGetAssetPropertyAggregatesEntry = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    aggregateTypes: (_) => _json(_),
+    aggregateTypes: _json,
     assetId: [],
     endDate: (_) => Math.round(_.getTime() / 1000),
     entryId: [],
     propertyAlias: [],
     propertyId: [],
-    qualities: (_) => _json(_),
+    qualities: _json,
     resolution: [],
     startDate: (_) => Math.round(_.getTime() / 1000),
     timeOrdering: [],
@@ -7698,7 +7698,7 @@ const se_BatchGetAssetPropertyValueHistoryEntry = (
     entryId: [],
     propertyAlias: [],
     propertyId: [],
-    qualities: (_) => _json(_),
+    qualities: _json,
     startDate: (_) => Math.round(_.getTime() / 1000),
     timeOrdering: [],
   });
@@ -7755,7 +7755,7 @@ const se_Image = (input: Image, context: __SerdeContext): any => {
  */
 const se_ImageFile = (input: ImageFile, context: __SerdeContext): any => {
   return take(input, {
-    data: (_) => context.base64Encoder(_),
+    data: context.base64Encoder,
     type: [],
   });
 };
@@ -7832,7 +7832,7 @@ const se_PutAssetPropertyValueEntry = (input: PutAssetPropertyValueEntry, contex
 const se_Variant = (input: Variant, context: __SerdeContext): any => {
   return take(input, {
     booleanValue: [],
-    doubleValue: (_) => __serializeFloat(_),
+    doubleValue: __serializeFloat,
     integerValue: [],
     stringValue: [],
   });

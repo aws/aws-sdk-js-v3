@@ -1066,9 +1066,9 @@ const se_CreateFHIRDatastoreRequest = (input: CreateFHIRDatastoreRequest, contex
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     DatastoreName: [],
     DatastoreTypeVersion: [],
-    PreloadDataConfig: (_) => _json(_),
-    SseConfiguration: (_) => _json(_),
-    Tags: (_) => _json(_),
+    PreloadDataConfig: _json,
+    SseConfiguration: _json,
+    Tags: _json,
   });
 };
 
@@ -1156,7 +1156,7 @@ const se_StartFHIRExportJobRequest = (input: StartFHIRExportJobRequest, context:
     DataAccessRoleArn: [],
     DatastoreId: [],
     JobName: [],
-    OutputDataConfig: (_) => _json(_),
+    OutputDataConfig: _json,
   });
 };
 
@@ -1168,9 +1168,9 @@ const se_StartFHIRImportJobRequest = (input: StartFHIRImportJobRequest, context:
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
     DatastoreId: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
-    JobOutputDataConfig: (_) => _json(_),
+    JobOutputDataConfig: _json,
   });
 };
 

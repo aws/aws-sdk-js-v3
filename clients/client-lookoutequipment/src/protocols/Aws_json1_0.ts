@@ -2651,7 +2651,7 @@ const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeCo
     DatasetName: [],
     DatasetSchema: (_) => se_DatasetSchema(_, context),
     ServerSideKmsKeyId: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -2662,14 +2662,14 @@ const se_CreateInferenceSchedulerRequest = (input: CreateInferenceSchedulerReque
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     DataDelayOffsetInMinutes: [],
-    DataInputConfiguration: (_) => _json(_),
-    DataOutputConfiguration: (_) => _json(_),
+    DataInputConfiguration: _json,
+    DataOutputConfiguration: _json,
     DataUploadFrequency: [],
     InferenceSchedulerName: [],
     ModelName: [],
     RoleArn: [],
     ServerSideKmsKeyId: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -2679,9 +2679,9 @@ const se_CreateInferenceSchedulerRequest = (input: CreateInferenceSchedulerReque
 const se_CreateLabelGroupRequest = (input: CreateLabelGroupRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
-    FaultCodes: (_) => _json(_),
+    FaultCodes: _json,
     LabelGroupName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -2707,17 +2707,17 @@ const se_CreateLabelRequest = (input: CreateLabelRequest, context: __SerdeContex
 const se_CreateModelRequest = (input: CreateModelRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
-    DataPreProcessingConfiguration: (_) => _json(_),
+    DataPreProcessingConfiguration: _json,
     DatasetName: [],
     DatasetSchema: (_) => se_DatasetSchema(_, context),
     EvaluationDataEndTime: (_) => Math.round(_.getTime() / 1000),
     EvaluationDataStartTime: (_) => Math.round(_.getTime() / 1000),
-    LabelsInputConfiguration: (_) => _json(_),
+    LabelsInputConfiguration: _json,
     ModelName: [],
     OffCondition: [],
     RoleArn: [],
     ServerSideKmsKeyId: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     TrainingDataEndTime: (_) => Math.round(_.getTime() / 1000),
     TrainingDataStartTime: (_) => Math.round(_.getTime() / 1000),
   });
@@ -2730,7 +2730,7 @@ const se_CreateModelRequest = (input: CreateModelRequest, context: __SerdeContex
  */
 const se_DatasetSchema = (input: DatasetSchema, context: __SerdeContext): any => {
   return take(input, {
-    InlineDataSchema: (_) => __LazyJsonString.fromObject(_),
+    InlineDataSchema: __LazyJsonString.fromObject,
   });
 };
 
@@ -2839,7 +2839,7 @@ const se_StartDataIngestionJobRequest = (input: StartDataIngestionJobRequest, co
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     DatasetName: [],
-    IngestionInputConfiguration: (_) => _json(_),
+    IngestionInputConfiguration: _json,
     RoleArn: [],
   });
 };

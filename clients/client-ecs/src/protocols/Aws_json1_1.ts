@@ -4748,18 +4748,18 @@ const de_UpdateInProgressExceptionRes = async (
  */
 const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeContext): any => {
   return take(input, {
-    capacityProviderStrategy: (_) => _json(_),
+    capacityProviderStrategy: _json,
     clientToken: [],
     cluster: [],
     externalId: [],
     launchType: [],
-    loadBalancers: (_) => _json(_),
-    networkConfiguration: (_) => _json(_),
+    loadBalancers: _json,
+    networkConfiguration: _json,
     platformVersion: [],
     scale: (_) => se_Scale(_, context),
     service: [],
-    serviceRegistries: (_) => _json(_),
-    tags: (_) => _json(_),
+    serviceRegistries: _json,
+    tags: _json,
     taskDefinition: [],
   });
 };
@@ -4943,15 +4943,15 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
  */
 const se_RegisterContainerInstanceRequest = (input: RegisterContainerInstanceRequest, context: __SerdeContext): any => {
   return take(input, {
-    attributes: (_) => _json(_),
+    attributes: _json,
     cluster: [],
     containerInstanceArn: [],
     instanceIdentityDocument: [],
     instanceIdentityDocumentSignature: [],
-    platformDevices: (_) => _json(_),
-    tags: (_) => _json(_),
+    platformDevices: _json,
+    tags: _json,
     totalResources: (_) => se_Resources(_, context),
-    versionInfo: (_) => _json(_),
+    versionInfo: _json,
   });
 };
 
@@ -4964,11 +4964,11 @@ const se_RegisterContainerInstanceRequest = (input: RegisterContainerInstanceReq
  */
 const se_Resource = (input: Resource, context: __SerdeContext): any => {
   return take(input, {
-    doubleValue: (_) => __serializeFloat(_),
+    doubleValue: __serializeFloat,
     integerValue: [],
     longValue: [],
     name: [],
-    stringSetValue: (_) => _json(_),
+    stringSetValue: _json,
     type: [],
   });
 };
@@ -4998,7 +4998,7 @@ const se_Resources = (input: Resource[], context: __SerdeContext): any => {
 const se_Scale = (input: Scale, context: __SerdeContext): any => {
   return take(input, {
     unit: [],
-    value: (_) => __serializeFloat(_),
+    value: __serializeFloat,
   });
 };
 
@@ -5039,11 +5039,11 @@ const se_Scale = (input: Scale, context: __SerdeContext): any => {
  */
 const se_SubmitTaskStateChangeRequest = (input: SubmitTaskStateChangeRequest, context: __SerdeContext): any => {
   return take(input, {
-    attachments: (_) => _json(_),
+    attachments: _json,
     cluster: [],
-    containers: (_) => _json(_),
+    containers: _json,
     executionStoppedAt: (_) => Math.round(_.getTime() / 1000),
-    managedAgents: (_) => _json(_),
+    managedAgents: _json,
     pullStartedAt: (_) => Math.round(_.getTime() / 1000),
     pullStoppedAt: (_) => Math.round(_.getTime() / 1000),
     reason: [],

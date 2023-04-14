@@ -1067,19 +1067,19 @@ const de_ServiceUnavailableExceptionRes = async (
  */
 const se_CreateDeliveryStreamInput = (input: CreateDeliveryStreamInput, context: __SerdeContext): any => {
   return take(input, {
-    AmazonOpenSearchServerlessDestinationConfiguration: (_) => _json(_),
-    AmazonopensearchserviceDestinationConfiguration: (_) => _json(_),
-    DeliveryStreamEncryptionConfigurationInput: (_) => _json(_),
+    AmazonOpenSearchServerlessDestinationConfiguration: _json,
+    AmazonopensearchserviceDestinationConfiguration: _json,
+    DeliveryStreamEncryptionConfigurationInput: _json,
     DeliveryStreamName: [],
     DeliveryStreamType: [],
-    ElasticsearchDestinationConfiguration: (_) => _json(_),
+    ElasticsearchDestinationConfiguration: _json,
     ExtendedS3DestinationConfiguration: (_) => se_ExtendedS3DestinationConfiguration(_, context),
-    HttpEndpointDestinationConfiguration: (_) => _json(_),
-    KinesisStreamSourceConfiguration: (_) => _json(_),
-    RedshiftDestinationConfiguration: (_) => _json(_),
-    S3DestinationConfiguration: (_) => _json(_),
-    SplunkDestinationConfiguration: (_) => _json(_),
-    Tags: (_) => _json(_),
+    HttpEndpointDestinationConfiguration: _json,
+    KinesisStreamSourceConfiguration: _json,
+    RedshiftDestinationConfiguration: _json,
+    S3DestinationConfiguration: _json,
+    SplunkDestinationConfiguration: _json,
+    Tags: _json,
   });
 };
 
@@ -1092,9 +1092,9 @@ const se_DataFormatConversionConfiguration = (
 ): any => {
   return take(input, {
     Enabled: [],
-    InputFormatConfiguration: (_) => _json(_),
+    InputFormatConfiguration: _json,
     OutputFormatConfiguration: (_) => se_OutputFormatConfiguration(_, context),
-    SchemaConfiguration: (_) => _json(_),
+    SchemaConfiguration: _json,
   });
 };
 
@@ -1127,17 +1127,17 @@ const se_ExtendedS3DestinationConfiguration = (
 ): any => {
   return take(input, {
     BucketARN: [],
-    BufferingHints: (_) => _json(_),
-    CloudWatchLoggingOptions: (_) => _json(_),
+    BufferingHints: _json,
+    CloudWatchLoggingOptions: _json,
     CompressionFormat: [],
     DataFormatConversionConfiguration: (_) => se_DataFormatConversionConfiguration(_, context),
-    DynamicPartitioningConfiguration: (_) => _json(_),
-    EncryptionConfiguration: (_) => _json(_),
+    DynamicPartitioningConfiguration: _json,
+    EncryptionConfiguration: _json,
     ErrorOutputPrefix: [],
     Prefix: [],
-    ProcessingConfiguration: (_) => _json(_),
+    ProcessingConfiguration: _json,
     RoleARN: [],
-    S3BackupConfiguration: (_) => _json(_),
+    S3BackupConfiguration: _json,
     S3BackupMode: [],
   });
 };
@@ -1148,18 +1148,18 @@ const se_ExtendedS3DestinationConfiguration = (
 const se_ExtendedS3DestinationUpdate = (input: ExtendedS3DestinationUpdate, context: __SerdeContext): any => {
   return take(input, {
     BucketARN: [],
-    BufferingHints: (_) => _json(_),
-    CloudWatchLoggingOptions: (_) => _json(_),
+    BufferingHints: _json,
+    CloudWatchLoggingOptions: _json,
     CompressionFormat: [],
     DataFormatConversionConfiguration: (_) => se_DataFormatConversionConfiguration(_, context),
-    DynamicPartitioningConfiguration: (_) => _json(_),
-    EncryptionConfiguration: (_) => _json(_),
+    DynamicPartitioningConfiguration: _json,
+    EncryptionConfiguration: _json,
     ErrorOutputPrefix: [],
     Prefix: [],
-    ProcessingConfiguration: (_) => _json(_),
+    ProcessingConfiguration: _json,
     RoleARN: [],
     S3BackupMode: [],
-    S3BackupUpdate: (_) => _json(_),
+    S3BackupUpdate: _json,
   });
 };
 
@@ -1203,13 +1203,13 @@ const se_ExtendedS3DestinationUpdate = (input: ExtendedS3DestinationUpdate, cont
 const se_OrcSerDe = (input: OrcSerDe, context: __SerdeContext): any => {
   return take(input, {
     BlockSizeBytes: [],
-    BloomFilterColumns: (_) => _json(_),
-    BloomFilterFalsePositiveProbability: (_) => __serializeFloat(_),
+    BloomFilterColumns: _json,
+    BloomFilterFalsePositiveProbability: __serializeFloat,
     Compression: [],
-    DictionaryKeyThreshold: (_) => __serializeFloat(_),
+    DictionaryKeyThreshold: __serializeFloat,
     EnablePadding: [],
     FormatVersion: [],
-    PaddingTolerance: (_) => __serializeFloat(_),
+    PaddingTolerance: __serializeFloat,
     RowIndexStride: [],
     StripeSizeBytes: [],
   });
@@ -1272,7 +1272,7 @@ const se_PutRecordInput = (input: PutRecordInput, context: __SerdeContext): any 
  */
 const se__Record = (input: _Record, context: __SerdeContext): any => {
   return take(input, {
-    Data: (_) => context.base64Encoder(_),
+    Data: context.base64Encoder,
   });
 };
 
@@ -1298,7 +1298,7 @@ const se__Record = (input: _Record, context: __SerdeContext): any => {
 const se_Serializer = (input: Serializer, context: __SerdeContext): any => {
   return take(input, {
     OrcSerDe: (_) => se_OrcSerDe(_, context),
-    ParquetSerDe: (_) => _json(_),
+    ParquetSerDe: _json,
   });
 };
 
@@ -1329,17 +1329,17 @@ const se_Serializer = (input: Serializer, context: __SerdeContext): any => {
  */
 const se_UpdateDestinationInput = (input: UpdateDestinationInput, context: __SerdeContext): any => {
   return take(input, {
-    AmazonOpenSearchServerlessDestinationUpdate: (_) => _json(_),
-    AmazonopensearchserviceDestinationUpdate: (_) => _json(_),
+    AmazonOpenSearchServerlessDestinationUpdate: _json,
+    AmazonopensearchserviceDestinationUpdate: _json,
     CurrentDeliveryStreamVersionId: [],
     DeliveryStreamName: [],
     DestinationId: [],
-    ElasticsearchDestinationUpdate: (_) => _json(_),
+    ElasticsearchDestinationUpdate: _json,
     ExtendedS3DestinationUpdate: (_) => se_ExtendedS3DestinationUpdate(_, context),
-    HttpEndpointDestinationUpdate: (_) => _json(_),
-    RedshiftDestinationUpdate: (_) => _json(_),
-    S3DestinationUpdate: (_) => _json(_),
-    SplunkDestinationUpdate: (_) => _json(_),
+    HttpEndpointDestinationUpdate: _json,
+    RedshiftDestinationUpdate: _json,
+    S3DestinationUpdate: _json,
+    SplunkDestinationUpdate: _json,
   });
 };
 

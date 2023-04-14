@@ -1135,12 +1135,12 @@ const se_MetricData = (input: MetricDatum[], context: __SerdeContext): any => {
  */
 const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
   return take(input, {
-    Dimensions: (_) => _json(_),
+    Dimensions: _json,
     MetricName: [],
     StatisticValues: (_) => se_StatisticSet(_, context),
     Timestamp: (_) => Math.round(_.getTime() / 1000),
     Unit: [],
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -1155,10 +1155,10 @@ const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
  */
 const se_StatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
   return take(input, {
-    Maximum: (_) => __serializeFloat(_),
-    Minimum: (_) => __serializeFloat(_),
+    Maximum: __serializeFloat,
+    Minimum: __serializeFloat,
     SampleCount: [],
-    Sum: (_) => __serializeFloat(_),
+    Sum: __serializeFloat,
   });
 };
 

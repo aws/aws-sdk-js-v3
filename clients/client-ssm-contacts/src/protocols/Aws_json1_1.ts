@@ -3151,7 +3151,7 @@ const se_CreateContactChannelRequest = (input: CreateContactChannelRequest, cont
   return take(input, {
     ContactId: [],
     DeferActivation: [],
-    DeliveryAddress: (_) => _json(_),
+    DeliveryAddress: _json,
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
     Name: [],
     Type: [],
@@ -3166,8 +3166,8 @@ const se_CreateContactRequest = (input: CreateContactRequest, context: __SerdeCo
     Alias: [],
     DisplayName: [],
     IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
-    Plan: (_) => _json(_),
-    Tags: (_) => _json(_),
+    Plan: _json,
+    Tags: _json,
     Type: [],
   });
 };
@@ -3179,7 +3179,7 @@ const se_CreateRotationOverrideRequest = (input: CreateRotationOverrideRequest, 
   return take(input, {
     EndTime: (_) => Math.round(_.getTime() / 1000),
     IdempotencyToken: [],
-    NewContactIds: (_) => _json(_),
+    NewContactIds: _json,
     RotationId: [],
     StartTime: (_) => Math.round(_.getTime() / 1000),
   });
@@ -3190,12 +3190,12 @@ const se_CreateRotationOverrideRequest = (input: CreateRotationOverrideRequest, 
  */
 const se_CreateRotationRequest = (input: CreateRotationRequest, context: __SerdeContext): any => {
   return take(input, {
-    ContactIds: (_) => _json(_),
+    ContactIds: _json,
     IdempotencyToken: [],
     Name: [],
-    Recurrence: (_) => _json(_),
+    Recurrence: _json,
     StartTime: (_) => Math.round(_.getTime() / 1000),
-    Tags: (_) => _json(_),
+    Tags: _json,
     TimeZoneId: [],
   });
 };
@@ -3259,10 +3259,10 @@ const se_ListPreviewRotationShiftsRequest = (input: ListPreviewRotationShiftsReq
   return take(input, {
     EndTime: (_) => Math.round(_.getTime() / 1000),
     MaxResults: [],
-    Members: (_) => _json(_),
+    Members: _json,
     NextToken: [],
     Overrides: (_) => se_OverrideList(_, context),
-    Recurrence: (_) => _json(_),
+    Recurrence: _json,
     RotationStartTime: (_) => Math.round(_.getTime() / 1000),
     StartTime: (_) => Math.round(_.getTime() / 1000),
     TimeZoneId: [],
@@ -3322,7 +3322,7 @@ const se_OverrideList = (input: PreviewOverride[], context: __SerdeContext): any
 const se_PreviewOverride = (input: PreviewOverride, context: __SerdeContext): any => {
   return take(input, {
     EndTime: (_) => Math.round(_.getTime() / 1000),
-    NewMembers: (_) => _json(_),
+    NewMembers: _json,
     StartTime: (_) => Math.round(_.getTime() / 1000),
   });
 };
@@ -3400,8 +3400,8 @@ const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
  */
 const se_UpdateRotationRequest = (input: UpdateRotationRequest, context: __SerdeContext): any => {
   return take(input, {
-    ContactIds: (_) => _json(_),
-    Recurrence: (_) => _json(_),
+    ContactIds: _json,
+    Recurrence: _json,
     RotationId: [],
     StartTime: (_) => Math.round(_.getTime() / 1000),
     TimeZoneId: [],

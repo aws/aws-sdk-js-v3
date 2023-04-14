@@ -2448,11 +2448,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_Position = (input: Position, context: __SerdeContext): any => {
   return take(input, {
-    elevation: (_) => __serializeFloat(_),
+    elevation: __serializeFloat,
     elevationReference: [],
     elevationUnit: [],
-    latitude: (_) => __serializeFloat(_),
-    longitude: (_) => __serializeFloat(_),
+    latitude: __serializeFloat,
+    longitude: __serializeFloat,
   });
 };
 

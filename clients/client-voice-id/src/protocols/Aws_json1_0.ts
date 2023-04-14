@@ -2379,8 +2379,8 @@ const se_CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeCont
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     Name: [],
-    ServerSideEncryptionConfiguration: (_) => _json(_),
-    Tags: (_) => _json(_),
+    ServerSideEncryptionConfiguration: _json,
+    Tags: _json,
   });
 };
 
@@ -2463,10 +2463,10 @@ const se_StartFraudsterRegistrationJobRequest = (
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
     DomainId: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
-    OutputDataConfig: (_) => _json(_),
-    RegistrationConfig: (_) => _json(_),
+    OutputDataConfig: _json,
+    RegistrationConfig: _json,
   });
 };
 
@@ -2478,10 +2478,10 @@ const se_StartSpeakerEnrollmentJobRequest = (input: StartSpeakerEnrollmentJobReq
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
     DomainId: [],
-    EnrollmentConfig: (_) => _json(_),
-    InputDataConfig: (_) => _json(_),
+    EnrollmentConfig: _json,
+    InputDataConfig: _json,
     JobName: [],
-    OutputDataConfig: (_) => _json(_),
+    OutputDataConfig: _json,
   });
 };
 

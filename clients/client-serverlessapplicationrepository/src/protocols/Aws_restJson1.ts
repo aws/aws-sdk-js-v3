@@ -1654,9 +1654,9 @@ const se___listOfTag = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_ApplicationPolicyStatement = (input: ApplicationPolicyStatement, context: __SerdeContext): any => {
   return take(input, {
-    actions: [, (_) => _json(_), `Actions`],
-    principalOrgIDs: [, (_) => _json(_), `PrincipalOrgIDs`],
-    principals: [, (_) => _json(_), `Principals`],
+    actions: [, _json, `Actions`],
+    principalOrgIDs: [, _json, `PrincipalOrgIDs`],
+    principals: [, _json, `Principals`],
     statementId: [, , `StatementId`],
   });
 };

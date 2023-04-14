@@ -8006,10 +8006,10 @@ const de_UnsupportedRegionExceptionRes = async (
  */
 const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any => {
   return take(input, {
-    N: (_) => __serializeFloat(_),
+    N: __serializeFloat,
     S: [],
     SDM: (_) => se_PlayerAttributeStringDoubleMap(_, context),
-    SL: (_) => _json(_),
+    SL: _json,
   });
 };
 
@@ -8034,13 +8034,13 @@ const se_CreateGameServerGroupInput = (input: CreateGameServerGroupInput, contex
     BalancingStrategy: [],
     GameServerGroupName: [],
     GameServerProtectionPolicy: [],
-    InstanceDefinitions: (_) => _json(_),
-    LaunchTemplate: (_) => _json(_),
+    InstanceDefinitions: _json,
+    LaunchTemplate: _json,
     MaxSize: [],
     MinSize: [],
     RoleArn: [],
-    Tags: (_) => _json(_),
-    VpcSubnets: (_) => _json(_),
+    Tags: _json,
+    VpcSubnets: _json,
   });
 };
 
@@ -8064,10 +8064,10 @@ const se_CreateGameServerGroupInput = (input: CreateGameServerGroupInput, contex
 const se_CreateScriptInput = (input: CreateScriptInput, context: __SerdeContext): any => {
   return take(input, {
     Name: [],
-    StorageLocation: (_) => _json(_),
-    Tags: (_) => _json(_),
+    StorageLocation: _json,
+    Tags: _json,
     Version: [],
-    ZipFile: (_) => context.base64Encoder(_),
+    ZipFile: context.base64Encoder,
   });
 };
 
@@ -8267,7 +8267,7 @@ const se_GameServerGroupAutoScalingPolicy = (input: GameServerGroupAutoScalingPo
  */
 const se_Player = (input: Player, context: __SerdeContext): any => {
   return take(input, {
-    LatencyInMs: (_) => _json(_),
+    LatencyInMs: _json,
     PlayerAttributes: (_) => se_PlayerAttributeMap(_, context),
     PlayerId: [],
     Team: [],
@@ -8311,7 +8311,7 @@ const se_PlayerAttributeStringDoubleMap = (input: Record<string, number>, contex
  */
 const se_PlayerLatency = (input: PlayerLatency, context: __SerdeContext): any => {
   return take(input, {
-    LatencyInMilliseconds: (_) => __serializeFloat(_),
+    LatencyInMilliseconds: __serializeFloat,
     PlayerId: [],
     RegionIdentifier: [],
   });
@@ -8361,7 +8361,7 @@ const se_PutScalingPolicyInput = (input: PutScalingPolicyInput, context: __Serde
     ScalingAdjustment: [],
     ScalingAdjustmentType: [],
     TargetConfiguration: (_) => se_TargetConfiguration(_, context),
-    Threshold: (_) => __serializeFloat(_),
+    Threshold: __serializeFloat,
   });
 };
 
@@ -8398,8 +8398,8 @@ const se_PutScalingPolicyInput = (input: PutScalingPolicyInput, context: __Serde
  */
 const se_StartGameSessionPlacementInput = (input: StartGameSessionPlacementInput, context: __SerdeContext): any => {
   return take(input, {
-    DesiredPlayerSessions: (_) => _json(_),
-    GameProperties: (_) => _json(_),
+    DesiredPlayerSessions: _json,
+    GameProperties: _json,
     GameSessionData: [],
     GameSessionName: [],
     GameSessionQueueName: [],
@@ -8455,7 +8455,7 @@ const se_StartMatchmakingInput = (input: StartMatchmakingInput, context: __Serde
  */
 const se_TargetConfiguration = (input: TargetConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    TargetValue: (_) => __serializeFloat(_),
+    TargetValue: __serializeFloat,
   });
 };
 
@@ -8464,7 +8464,7 @@ const se_TargetConfiguration = (input: TargetConfiguration, context: __SerdeCont
  */
 const se_TargetTrackingConfiguration = (input: TargetTrackingConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    TargetValue: (_) => __serializeFloat(_),
+    TargetValue: __serializeFloat,
   });
 };
 
@@ -8499,9 +8499,9 @@ const se_UpdateScriptInput = (input: UpdateScriptInput, context: __SerdeContext)
   return take(input, {
     Name: [],
     ScriptId: [],
-    StorageLocation: (_) => _json(_),
+    StorageLocation: _json,
     Version: [],
-    ZipFile: (_) => context.base64Encoder(_),
+    ZipFile: context.base64Encoder,
   });
 };
 

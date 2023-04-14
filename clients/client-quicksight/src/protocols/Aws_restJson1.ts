@@ -15824,7 +15824,7 @@ const se_AggregationFunction = (input: AggregationFunction, context: __SerdeCont
 const se_AggregationSortConfiguration = (input: AggregationSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
     AggregationFunction: (_) => se_AggregationFunction(_, context),
-    Column: (_) => _json(_),
+    Column: _json,
     SortDirection: [],
   });
 };
@@ -15851,10 +15851,10 @@ const se_AggregationSortConfigurationList = (input: AggregationSortConfiguration
  */
 const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContext): any => {
   return take(input, {
-    AnalysisDefaults: (_) => _json(_),
-    CalculatedFields: (_) => _json(_),
-    ColumnConfigurations: (_) => _json(_),
-    DataSetIdentifierDeclarations: (_) => _json(_),
+    AnalysisDefaults: _json,
+    CalculatedFields: _json,
+    ColumnConfigurations: _json,
+    DataSetIdentifierDeclarations: _json,
     FilterGroups: (_) => se_FilterGroupList(_, context),
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
     Sheets: (_) => se_SheetDefinitionList(_, context),
@@ -15894,8 +15894,8 @@ const se_ArcAxisConfiguration = (input: ArcAxisConfiguration, context: __SerdeCo
  */
 const se_ArcAxisDisplayRange = (input: ArcAxisDisplayRange, context: __SerdeContext): any => {
   return take(input, {
-    Max: (_) => __serializeFloat(_),
-    Min: (_) => __serializeFloat(_),
+    Max: __serializeFloat,
+    Min: __serializeFloat,
   });
 };
 
@@ -15904,7 +15904,7 @@ const se_ArcAxisDisplayRange = (input: ArcAxisDisplayRange, context: __SerdeCont
  */
 const se_ArcConfiguration = (input: ArcConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    ArcAngle: (_) => __serializeFloat(_),
+    ArcAngle: __serializeFloat,
     ArcThickness: [],
   });
 };
@@ -15926,7 +15926,7 @@ const se_ArcConfiguration = (input: ArcConfiguration, context: __SerdeContext): 
  */
 const se_AxisDataOptions = (input: AxisDataOptions, context: __SerdeContext): any => {
   return take(input, {
-    DateAxisOptions: (_) => _json(_),
+    DateAxisOptions: _json,
     NumericAxisOptions: (_) => se_NumericAxisOptions(_, context),
   });
 };
@@ -15938,8 +15938,8 @@ const se_AxisDataOptions = (input: AxisDataOptions, context: __SerdeContext): an
  */
 const se_AxisDisplayMinMaxRange = (input: AxisDisplayMinMaxRange, context: __SerdeContext): any => {
   return take(input, {
-    Maximum: (_) => __serializeFloat(_),
-    Minimum: (_) => __serializeFloat(_),
+    Maximum: __serializeFloat,
+    Minimum: __serializeFloat,
   });
 };
 
@@ -15962,7 +15962,7 @@ const se_AxisDisplayOptions = (input: AxisDisplayOptions, context: __SerdeContex
  */
 const se_AxisDisplayRange = (input: AxisDisplayRange, context: __SerdeContext): any => {
   return take(input, {
-    DataDriven: (_) => _json(_),
+    DataDriven: _json,
     MinMax: (_) => se_AxisDisplayMinMaxRange(_, context),
   });
 };
@@ -15979,7 +15979,7 @@ const se_AxisDisplayRange = (input: AxisDisplayRange, context: __SerdeContext): 
 const se_AxisLinearScale = (input: AxisLinearScale, context: __SerdeContext): any => {
   return take(input, {
     StepCount: [],
-    StepSize: (_) => __serializeFloat(_),
+    StepSize: __serializeFloat,
   });
 };
 
@@ -15988,7 +15988,7 @@ const se_AxisLinearScale = (input: AxisLinearScale, context: __SerdeContext): an
  */
 const se_AxisLogarithmicScale = (input: AxisLogarithmicScale, context: __SerdeContext): any => {
   return take(input, {
-    Base: (_) => __serializeFloat(_),
+    Base: __serializeFloat,
   });
 };
 
@@ -16007,8 +16007,8 @@ const se_AxisScale = (input: AxisScale, context: __SerdeContext): any => {
  */
 const se_AxisTickLabelOptions = (input: AxisTickLabelOptions, context: __SerdeContext): any => {
   return take(input, {
-    LabelOptions: (_) => _json(_),
-    RotationAngle: (_) => __serializeFloat(_),
+    LabelOptions: _json,
+    RotationAngle: __serializeFloat,
   });
 };
 
@@ -16017,9 +16017,9 @@ const se_AxisTickLabelOptions = (input: AxisTickLabelOptions, context: __SerdeCo
  */
 const se_BarChartAggregatedFieldWells = (input: BarChartAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    Category: (_) => _json(_),
-    Colors: (_) => _json(_),
-    SmallMultiples: (_) => _json(_),
+    Category: _json,
+    Colors: _json,
+    SmallMultiples: _json,
     Values: (_) => se_MeasureFieldList(_, context),
   });
 };
@@ -16031,20 +16031,20 @@ const se_BarChartConfiguration = (input: BarChartConfiguration, context: __Serde
   return take(input, {
     BarsArrangement: [],
     CategoryAxis: (_) => se_AxisDisplayOptions(_, context),
-    CategoryLabelOptions: (_) => _json(_),
-    ColorLabelOptions: (_) => _json(_),
-    ContributionAnalysisDefaults: (_) => _json(_),
-    DataLabels: (_) => _json(_),
+    CategoryLabelOptions: _json,
+    ColorLabelOptions: _json,
+    ContributionAnalysisDefaults: _json,
+    DataLabels: _json,
     FieldWells: (_) => se_BarChartFieldWells(_, context),
-    Legend: (_) => _json(_),
+    Legend: _json,
     Orientation: [],
     ReferenceLines: (_) => se_ReferenceLineList(_, context),
-    SmallMultiplesOptions: (_) => _json(_),
+    SmallMultiplesOptions: _json,
     SortConfiguration: (_) => se_BarChartSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
     ValueAxis: (_) => se_AxisDisplayOptions(_, context),
-    ValueLabelOptions: (_) => _json(_),
-    VisualPalette: (_) => _json(_),
+    ValueLabelOptions: _json,
+    VisualPalette: _json,
   });
 };
 
@@ -16062,11 +16062,11 @@ const se_BarChartFieldWells = (input: BarChartFieldWells, context: __SerdeContex
  */
 const se_BarChartSortConfiguration = (input: BarChartSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryItemsLimit: (_) => _json(_),
+    CategoryItemsLimit: _json,
     CategorySort: (_) => se_FieldSortOptionsList(_, context),
-    ColorItemsLimit: (_) => _json(_),
+    ColorItemsLimit: _json,
     ColorSort: (_) => se_FieldSortOptionsList(_, context),
-    SmallMultiplesLimitConfiguration: (_) => _json(_),
+    SmallMultiplesLimitConfiguration: _json,
     SmallMultiplesSort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -16079,8 +16079,8 @@ const se_BarChartVisual = (input: BarChartVisual, context: __SerdeContext): any 
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_BarChartConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -16093,7 +16093,7 @@ const se_BarChartVisual = (input: BarChartVisual, context: __SerdeContext): any 
 const se_BinWidthOptions = (input: BinWidthOptions, context: __SerdeContext): any => {
   return take(input, {
     BinCountLimit: [],
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -16110,7 +16110,7 @@ const se_BinWidthOptions = (input: BinWidthOptions, context: __SerdeContext): an
  */
 const se_BoxPlotAggregatedFieldWells = (input: BoxPlotAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    GroupBy: (_) => _json(_),
+    GroupBy: _json,
     Values: (_) => se_BoxPlotMeasureFieldList(_, context),
   });
 };
@@ -16120,17 +16120,17 @@ const se_BoxPlotAggregatedFieldWells = (input: BoxPlotAggregatedFieldWells, cont
  */
 const se_BoxPlotChartConfiguration = (input: BoxPlotChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    BoxPlotOptions: (_) => _json(_),
+    BoxPlotOptions: _json,
     CategoryAxis: (_) => se_AxisDisplayOptions(_, context),
-    CategoryLabelOptions: (_) => _json(_),
+    CategoryLabelOptions: _json,
     FieldWells: (_) => se_BoxPlotFieldWells(_, context),
-    Legend: (_) => _json(_),
+    Legend: _json,
     PrimaryYAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
-    PrimaryYAxisLabelOptions: (_) => _json(_),
+    PrimaryYAxisLabelOptions: _json,
     ReferenceLines: (_) => se_ReferenceLineList(_, context),
     SortConfiguration: (_) => se_BoxPlotSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
-    VisualPalette: (_) => _json(_),
+    VisualPalette: _json,
   });
 };
 
@@ -16164,7 +16164,7 @@ const se_BoxPlotMeasureFieldList = (input: MeasureField[], context: __SerdeConte
 const se_BoxPlotSortConfiguration = (input: BoxPlotSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
     CategorySort: (_) => se_FieldSortOptionsList(_, context),
-    PaginationConfiguration: (_) => _json(_),
+    PaginationConfiguration: _json,
   });
 };
 
@@ -16178,8 +16178,8 @@ const se_BoxPlotVisual = (input: BoxPlotVisual, context: __SerdeContext): any =>
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_BoxPlotChartConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -16305,7 +16305,7 @@ const se_ColumnSort = (input: ColumnSort, context: __SerdeContext): any => {
   return take(input, {
     AggregationFunction: (_) => se_AggregationFunction(_, context),
     Direction: [],
-    SortBy: (_) => _json(_),
+    SortBy: _json,
   });
 };
 
@@ -16321,7 +16321,7 @@ const se_ColumnSort = (input: ColumnSort, context: __SerdeContext): any => {
 const se_ColumnTooltipItem = (input: ColumnTooltipItem, context: __SerdeContext): any => {
   return take(input, {
     Aggregation: (_) => se_AggregationFunction(_, context),
-    Column: (_) => _json(_),
+    Column: _json,
     Label: [],
     Visibility: [],
   });
@@ -16333,8 +16333,8 @@ const se_ColumnTooltipItem = (input: ColumnTooltipItem, context: __SerdeContext)
 const se_ComboChartAggregatedFieldWells = (input: ComboChartAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
     BarValues: (_) => se_MeasureFieldList(_, context),
-    Category: (_) => _json(_),
-    Colors: (_) => _json(_),
+    Category: _json,
+    Colors: _json,
     LineValues: (_) => se_MeasureFieldList(_, context),
   });
 };
@@ -16344,22 +16344,22 @@ const se_ComboChartAggregatedFieldWells = (input: ComboChartAggregatedFieldWells
  */
 const se_ComboChartConfiguration = (input: ComboChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    BarDataLabels: (_) => _json(_),
+    BarDataLabels: _json,
     BarsArrangement: [],
     CategoryAxis: (_) => se_AxisDisplayOptions(_, context),
-    CategoryLabelOptions: (_) => _json(_),
-    ColorLabelOptions: (_) => _json(_),
+    CategoryLabelOptions: _json,
+    ColorLabelOptions: _json,
     FieldWells: (_) => se_ComboChartFieldWells(_, context),
-    Legend: (_) => _json(_),
-    LineDataLabels: (_) => _json(_),
+    Legend: _json,
+    LineDataLabels: _json,
     PrimaryYAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
-    PrimaryYAxisLabelOptions: (_) => _json(_),
+    PrimaryYAxisLabelOptions: _json,
     ReferenceLines: (_) => se_ReferenceLineList(_, context),
     SecondaryYAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
-    SecondaryYAxisLabelOptions: (_) => _json(_),
+    SecondaryYAxisLabelOptions: _json,
     SortConfiguration: (_) => se_ComboChartSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
-    VisualPalette: (_) => _json(_),
+    VisualPalette: _json,
   });
 };
 
@@ -16377,9 +16377,9 @@ const se_ComboChartFieldWells = (input: ComboChartFieldWells, context: __SerdeCo
  */
 const se_ComboChartSortConfiguration = (input: ComboChartSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryItemsLimit: (_) => _json(_),
+    CategoryItemsLimit: _json,
     CategorySort: (_) => se_FieldSortOptionsList(_, context),
-    ColorItemsLimit: (_) => _json(_),
+    ColorItemsLimit: _json,
     ColorSort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -16392,8 +16392,8 @@ const se_ComboChartVisual = (input: ComboChartVisual, context: __SerdeContext): 
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_ComboChartConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -16416,7 +16416,7 @@ const se_Computation = (input: Computation, context: __SerdeContext): any => {
     TopBottomMovers: (_) => se_TopBottomMoversComputation(_, context),
     TopBottomRanked: (_) => se_TopBottomRankedComputation(_, context),
     TotalAggregation: (_) => se_TotalAggregationComputation(_, context),
-    UniqueValues: (_) => _json(_),
+    UniqueValues: _json,
   });
 };
 
@@ -16437,7 +16437,7 @@ const se_ComputationList = (input: Computation[], context: __SerdeContext): any 
 const se_ConditionalFormattingColor = (input: ConditionalFormattingColor, context: __SerdeContext): any => {
   return take(input, {
     Gradient: (_) => se_ConditionalFormattingGradientColor(_, context),
-    Solid: (_) => _json(_),
+    Solid: _json,
   });
 };
 
@@ -16504,10 +16504,10 @@ const se_CustomActionSetParametersOperation = (
 const se_CustomContentVisual = (input: CustomContentVisual, context: __SerdeContext): any => {
   return take(input, {
     Actions: (_) => se_VisualCustomActionList(_, context),
-    ChartConfiguration: (_) => _json(_),
+    ChartConfiguration: _json,
     DataSetIdentifier: [],
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -16525,8 +16525,8 @@ const se_CustomParameterValues = (input: CustomParameterValues, context: __Serde
   return take(input, {
     DateTimeValues: (_) => se_DateTimeDefaultValueList(_, context),
     DecimalValues: (_) => se_DecimalDefaultValueList(_, context),
-    IntegerValues: (_) => _json(_),
-    StringValues: (_) => _json(_),
+    IntegerValues: _json,
+    StringValues: _json,
   });
 };
 
@@ -16557,10 +16557,10 @@ const se_CustomValuesConfiguration = (input: CustomValuesConfiguration, context:
  */
 const se_DashboardVersionDefinition = (input: DashboardVersionDefinition, context: __SerdeContext): any => {
   return take(input, {
-    AnalysisDefaults: (_) => _json(_),
-    CalculatedFields: (_) => _json(_),
-    ColumnConfigurations: (_) => _json(_),
-    DataSetIdentifierDeclarations: (_) => _json(_),
+    AnalysisDefaults: _json,
+    CalculatedFields: _json,
+    ColumnConfigurations: _json,
+    DataSetIdentifierDeclarations: _json,
     FilterGroups: (_) => se_FilterGroupList(_, context),
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
     Sheets: (_) => se_SheetDefinitionList(_, context),
@@ -16581,7 +16581,7 @@ const se_DashboardVersionDefinition = (input: DashboardVersionDefinition, contex
 const se_DataColor = (input: DataColor, context: __SerdeContext): any => {
   return take(input, {
     Color: [],
-    DataValue: (_) => __serializeFloat(_),
+    DataValue: __serializeFloat,
   });
 };
 
@@ -16667,8 +16667,8 @@ const se_DateTimeDefaultValueList = (input: Date[], context: __SerdeContext): an
  */
 const se_DateTimeDefaultValues = (input: DateTimeDefaultValues, context: __SerdeContext): any => {
   return take(input, {
-    DynamicValue: (_) => _json(_),
-    RollingDate: (_) => _json(_),
+    DynamicValue: _json,
+    RollingDate: _json,
     StaticValues: (_) => se_DateTimeDefaultValueList(_, context),
   });
 };
@@ -16749,7 +16749,7 @@ const se_DecimalDefaultValueList = (input: number[], context: __SerdeContext): a
  */
 const se_DecimalDefaultValues = (input: DecimalDefaultValues, context: __SerdeContext): any => {
   return take(input, {
-    DynamicValue: (_) => _json(_),
+    DynamicValue: _json,
     StaticValues: (_) => se_DecimalDefaultValueList(_, context),
   });
 };
@@ -16797,7 +16797,7 @@ const se_DecimalValueWhenUnsetConfiguration = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CustomValue: (_) => __serializeFloat(_),
+    CustomValue: __serializeFloat,
     ValueWhenUnsetOption: [],
   });
 };
@@ -16842,7 +16842,7 @@ const se_DestinationParameterValueConfiguration = (
  */
 const se_DrillDownFilter = (input: DrillDownFilter, context: __SerdeContext): any => {
   return take(input, {
-    CategoryFilter: (_) => _json(_),
+    CategoryFilter: _json,
     NumericEqualityFilter: (_) => se_NumericEqualityDrillDownFilter(_, context),
     TimeRangeFilter: (_) => se_TimeRangeDrillDownFilter(_, context),
   });
@@ -16883,7 +16883,7 @@ const se_EmptyVisual = (input: EmptyVisual, context: __SerdeContext): any => {
  */
 const se_ExplicitHierarchy = (input: ExplicitHierarchy, context: __SerdeContext): any => {
   return take(input, {
-    Columns: (_) => _json(_),
+    Columns: _json,
     DrillDownFilters: (_) => se_DrillDownFilterList(_, context),
     HierarchyId: [],
   });
@@ -16926,7 +16926,7 @@ const se_FieldBasedTooltip = (input: FieldBasedTooltip, context: __SerdeContext)
 const se_FieldSortOptions = (input: FieldSortOptions, context: __SerdeContext): any => {
   return take(input, {
     ColumnSort: (_) => se_ColumnSort(_, context),
-    FieldSort: (_) => _json(_),
+    FieldSort: _json,
   });
 };
 
@@ -16948,7 +16948,7 @@ const se_FieldSortOptionsList = (input: FieldSortOptions[], context: __SerdeCont
  */
 const se_FilledMapAggregatedFieldWells = (input: FilledMapAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    Geospatial: (_) => _json(_),
+    Geospatial: _json,
     Values: (_) => se_FilledMapMeasureFieldList(_, context),
   });
 };
@@ -16994,8 +16994,8 @@ const se_FilledMapConditionalFormattingOptionList = (
 const se_FilledMapConfiguration = (input: FilledMapConfiguration, context: __SerdeContext): any => {
   return take(input, {
     FieldWells: (_) => se_FilledMapFieldWells(_, context),
-    Legend: (_) => _json(_),
-    MapStyleOptions: (_) => _json(_),
+    Legend: _json,
+    MapStyleOptions: _json,
     SortConfiguration: (_) => se_FilledMapSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
     WindowOptions: (_) => se_GeospatialWindowOptions(_, context),
@@ -17055,8 +17055,8 @@ const se_FilledMapVisual = (input: FilledMapVisual, context: __SerdeContext): an
     ChartConfiguration: (_) => se_FilledMapConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     ConditionalFormatting: (_) => se_FilledMapConditionalFormatting(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -17066,10 +17066,10 @@ const se_FilledMapVisual = (input: FilledMapVisual, context: __SerdeContext): an
  */
 const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return take(input, {
-    CategoryFilter: (_) => _json(_),
+    CategoryFilter: _json,
     NumericEqualityFilter: (_) => se_NumericEqualityFilter(_, context),
     NumericRangeFilter: (_) => se_NumericRangeFilter(_, context),
-    RelativeDatesFilter: (_) => _json(_),
+    RelativeDatesFilter: _json,
     TimeEqualityFilter: (_) => se_TimeEqualityFilter(_, context),
     TimeRangeFilter: (_) => se_TimeRangeFilter(_, context),
     TopBottomFilter: (_) => se_TopBottomFilter(_, context),
@@ -17081,13 +17081,13 @@ const se_Filter = (input: Filter, context: __SerdeContext): any => {
  */
 const se_FilterControl = (input: FilterControl, context: __SerdeContext): any => {
   return take(input, {
-    DateTimePicker: (_) => _json(_),
-    Dropdown: (_) => _json(_),
-    List: (_) => _json(_),
-    RelativeDateTime: (_) => _json(_),
+    DateTimePicker: _json,
+    Dropdown: _json,
+    List: _json,
+    RelativeDateTime: _json,
     Slider: (_) => se_FilterSliderControl(_, context),
-    TextArea: (_) => _json(_),
-    TextField: (_) => _json(_),
+    TextArea: _json,
+    TextField: _json,
   });
 };
 
@@ -17116,7 +17116,7 @@ const se_FilterGroup = (input: FilterGroup, context: __SerdeContext): any => {
     CrossDataset: [],
     FilterGroupId: [],
     Filters: (_) => se_FilterList(_, context),
-    ScopeConfiguration: (_) => _json(_),
+    ScopeConfiguration: _json,
     Status: [],
   });
 };
@@ -17164,12 +17164,12 @@ const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
  */
 const se_FilterSliderControl = (input: FilterSliderControl, context: __SerdeContext): any => {
   return take(input, {
-    DisplayOptions: (_) => _json(_),
+    DisplayOptions: _json,
     FilterControlId: [],
-    MaximumValue: (_) => __serializeFloat(_),
-    MinimumValue: (_) => __serializeFloat(_),
+    MaximumValue: __serializeFloat,
+    MinimumValue: __serializeFloat,
     SourceFilterId: [],
-    StepSize: (_) => __serializeFloat(_),
+    StepSize: __serializeFloat,
     Title: [],
     Type: [],
   });
@@ -17202,14 +17202,14 @@ const se_ForecastComputation = (input: ForecastComputation, context: __SerdeCont
   return take(input, {
     ComputationId: [],
     CustomSeasonalityValue: [],
-    LowerBoundary: (_) => __serializeFloat(_),
+    LowerBoundary: __serializeFloat,
     Name: [],
     PeriodsBackward: [],
     PeriodsForward: [],
     PredictionInterval: [],
     Seasonality: [],
-    Time: (_) => _json(_),
-    UpperBoundary: (_) => __serializeFloat(_),
+    Time: _json,
+    UpperBoundary: __serializeFloat,
     Value: (_) => se_MeasureField(_, context),
   });
 };
@@ -17268,7 +17268,7 @@ const se_ForecastScenario = (input: ForecastScenario, context: __SerdeContext): 
  */
 const se_FunnelChartAggregatedFieldWells = (input: FunnelChartAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    Category: (_) => _json(_),
+    Category: _json,
     Values: (_) => se_FunnelChartMeasureFieldList(_, context),
   });
 };
@@ -17278,13 +17278,13 @@ const se_FunnelChartAggregatedFieldWells = (input: FunnelChartAggregatedFieldWel
  */
 const se_FunnelChartConfiguration = (input: FunnelChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryLabelOptions: (_) => _json(_),
-    DataLabelOptions: (_) => _json(_),
+    CategoryLabelOptions: _json,
+    DataLabelOptions: _json,
     FieldWells: (_) => se_FunnelChartFieldWells(_, context),
     SortConfiguration: (_) => se_FunnelChartSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
-    ValueLabelOptions: (_) => _json(_),
-    VisualPalette: (_) => _json(_),
+    ValueLabelOptions: _json,
+    VisualPalette: _json,
   });
 };
 
@@ -17317,7 +17317,7 @@ const se_FunnelChartMeasureFieldList = (input: MeasureField[], context: __SerdeC
  */
 const se_FunnelChartSortConfiguration = (input: FunnelChartSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryItemsLimit: (_) => _json(_),
+    CategoryItemsLimit: _json,
     CategorySort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -17330,8 +17330,8 @@ const se_FunnelChartVisual = (input: FunnelChartVisual, context: __SerdeContext)
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_FunnelChartConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -17389,11 +17389,11 @@ const se_GaugeChartConditionalFormattingOptionList = (
  */
 const se_GaugeChartConfiguration = (input: GaugeChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    DataLabels: (_) => _json(_),
+    DataLabels: _json,
     FieldWells: (_) => se_GaugeChartFieldWells(_, context),
     GaugeChartOptions: (_) => se_GaugeChartOptions(_, context),
     TooltipOptions: (_) => se_TooltipOptions(_, context),
-    VisualPalette: (_) => _json(_),
+    VisualPalette: _json,
   });
 };
 
@@ -17414,9 +17414,9 @@ const se_GaugeChartOptions = (input: GaugeChartOptions, context: __SerdeContext)
   return take(input, {
     Arc: (_) => se_ArcConfiguration(_, context),
     ArcAxis: (_) => se_ArcAxisConfiguration(_, context),
-    Comparison: (_) => _json(_),
+    Comparison: _json,
     PrimaryValueDisplayType: [],
-    PrimaryValueFontConfiguration: (_) => _json(_),
+    PrimaryValueFontConfiguration: _json,
   });
 };
 
@@ -17428,7 +17428,7 @@ const se_GaugeChartPrimaryValueConditionalFormatting = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Icon: (_) => _json(_),
+    Icon: _json,
     TextColor: (_) => se_ConditionalFormattingColor(_, context),
   });
 };
@@ -17441,8 +17441,8 @@ const se_GaugeChartVisual = (input: GaugeChartVisual, context: __SerdeContext): 
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_GaugeChartConfiguration(_, context),
     ConditionalFormatting: (_) => se_GaugeChartConditionalFormatting(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -17454,10 +17454,10 @@ const se_GaugeChartVisual = (input: GaugeChartVisual, context: __SerdeContext): 
  */
 const se_GeospatialCoordinateBounds = (input: GeospatialCoordinateBounds, context: __SerdeContext): any => {
   return take(input, {
-    East: (_) => __serializeFloat(_),
-    North: (_) => __serializeFloat(_),
-    South: (_) => __serializeFloat(_),
-    West: (_) => __serializeFloat(_),
+    East: __serializeFloat,
+    North: __serializeFloat,
+    South: __serializeFloat,
+    West: __serializeFloat,
   });
 };
 
@@ -17469,8 +17469,8 @@ const se_GeospatialMapAggregatedFieldWells = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Colors: (_) => _json(_),
-    Geospatial: (_) => _json(_),
+    Colors: _json,
+    Geospatial: _json,
     Values: (_) => se_MeasureFieldList(_, context),
   });
 };
@@ -17481,11 +17481,11 @@ const se_GeospatialMapAggregatedFieldWells = (
 const se_GeospatialMapConfiguration = (input: GeospatialMapConfiguration, context: __SerdeContext): any => {
   return take(input, {
     FieldWells: (_) => se_GeospatialMapFieldWells(_, context),
-    Legend: (_) => _json(_),
-    MapStyleOptions: (_) => _json(_),
-    PointStyleOptions: (_) => _json(_),
+    Legend: _json,
+    MapStyleOptions: _json,
+    PointStyleOptions: _json,
     Tooltip: (_) => se_TooltipOptions(_, context),
-    VisualPalette: (_) => _json(_),
+    VisualPalette: _json,
     WindowOptions: (_) => se_GeospatialWindowOptions(_, context),
   });
 };
@@ -17509,8 +17509,8 @@ const se_GeospatialMapVisual = (input: GeospatialMapVisual, context: __SerdeCont
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_GeospatialMapConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -17544,8 +17544,8 @@ const se_GradientColor = (input: GradientColor, context: __SerdeContext): any =>
 const se_GradientStop = (input: GradientStop, context: __SerdeContext): any => {
   return take(input, {
     Color: [],
-    DataValue: (_) => __serializeFloat(_),
-    GradientOffset: (_) => __serializeFloat(_),
+    DataValue: __serializeFloat,
+    GradientOffset: __serializeFloat,
   });
 };
 
@@ -17584,7 +17584,7 @@ const se_GrowthRateComputation = (input: GrowthRateComputation, context: __Serde
     ComputationId: [],
     Name: [],
     PeriodSize: [],
-    Time: (_) => _json(_),
+    Time: _json,
     Value: (_) => se_MeasureField(_, context),
   });
 };
@@ -17600,8 +17600,8 @@ const se_GrowthRateComputation = (input: GrowthRateComputation, context: __Serde
  */
 const se_HeatMapAggregatedFieldWells = (input: HeatMapAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    Columns: (_) => _json(_),
-    Rows: (_) => _json(_),
+    Columns: _json,
+    Rows: _json,
     Values: (_) => se_HeatMapMeasureFieldList(_, context),
   });
 };
@@ -17612,11 +17612,11 @@ const se_HeatMapAggregatedFieldWells = (input: HeatMapAggregatedFieldWells, cont
 const se_HeatMapConfiguration = (input: HeatMapConfiguration, context: __SerdeContext): any => {
   return take(input, {
     ColorScale: (_) => se_ColorScale(_, context),
-    ColumnLabelOptions: (_) => _json(_),
-    DataLabels: (_) => _json(_),
+    ColumnLabelOptions: _json,
+    DataLabels: _json,
     FieldWells: (_) => se_HeatMapFieldWells(_, context),
-    Legend: (_) => _json(_),
-    RowLabelOptions: (_) => _json(_),
+    Legend: _json,
+    RowLabelOptions: _json,
     SortConfiguration: (_) => se_HeatMapSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
   });
@@ -17649,9 +17649,9 @@ const se_HeatMapMeasureFieldList = (input: MeasureField[], context: __SerdeConte
  */
 const se_HeatMapSortConfiguration = (input: HeatMapSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    HeatMapColumnItemsLimitConfiguration: (_) => _json(_),
+    HeatMapColumnItemsLimitConfiguration: _json,
     HeatMapColumnSort: (_) => se_FieldSortOptionsList(_, context),
-    HeatMapRowItemsLimitConfiguration: (_) => _json(_),
+    HeatMapRowItemsLimitConfiguration: _json,
     HeatMapRowSort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -17664,8 +17664,8 @@ const se_HeatMapVisual = (input: HeatMapVisual, context: __SerdeContext): any =>
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_HeatMapConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -17684,10 +17684,10 @@ const se_HistogramAggregatedFieldWells = (input: HistogramAggregatedFieldWells, 
  */
 const se_HistogramBinOptions = (input: HistogramBinOptions, context: __SerdeContext): any => {
   return take(input, {
-    BinCount: (_) => _json(_),
+    BinCount: _json,
     BinWidth: (_) => se_BinWidthOptions(_, context),
     SelectedBinType: [],
-    StartValue: (_) => __serializeFloat(_),
+    StartValue: __serializeFloat,
   });
 };
 
@@ -17697,12 +17697,12 @@ const se_HistogramBinOptions = (input: HistogramBinOptions, context: __SerdeCont
 const se_HistogramConfiguration = (input: HistogramConfiguration, context: __SerdeContext): any => {
   return take(input, {
     BinOptions: (_) => se_HistogramBinOptions(_, context),
-    DataLabels: (_) => _json(_),
+    DataLabels: _json,
     FieldWells: (_) => se_HistogramFieldWells(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
-    VisualPalette: (_) => _json(_),
+    VisualPalette: _json,
     XAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
-    XAxisLabelOptions: (_) => _json(_),
+    XAxisLabelOptions: _json,
     YAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
   });
 };
@@ -17734,8 +17734,8 @@ const se_HistogramVisual = (input: HistogramVisual, context: __SerdeContext): an
   return take(input, {
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_HistogramConfiguration(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -17756,7 +17756,7 @@ const se_HistogramVisual = (input: HistogramVisual, context: __SerdeContext): an
 const se_InsightConfiguration = (input: InsightConfiguration, context: __SerdeContext): any => {
   return take(input, {
     Computations: (_) => se_ComputationList(_, context),
-    CustomNarrative: (_) => _json(_),
+    CustomNarrative: _json,
   });
 };
 
@@ -17768,8 +17768,8 @@ const se_InsightVisual = (input: InsightVisual, context: __SerdeContext): any =>
     Actions: (_) => se_VisualCustomActionList(_, context),
     DataSetIdentifier: [],
     InsightConfiguration: (_) => se_InsightConfiguration(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -17835,7 +17835,7 @@ const se_KPIConditionalFormattingOptionList = (
 const se_KPIConfiguration = (input: KPIConfiguration, context: __SerdeContext): any => {
   return take(input, {
     FieldWells: (_) => se_KPIFieldWells(_, context),
-    KPIOptions: (_) => _json(_),
+    KPIOptions: _json,
     SortConfiguration: (_) => se_KPISortConfiguration(_, context),
   });
 };
@@ -17846,7 +17846,7 @@ const se_KPIConfiguration = (input: KPIConfiguration, context: __SerdeContext): 
 const se_KPIFieldWells = (input: KPIFieldWells, context: __SerdeContext): any => {
   return take(input, {
     TargetValues: (_) => se_MeasureFieldList(_, context),
-    TrendGroups: (_) => _json(_),
+    TrendGroups: _json,
     Values: (_) => se_MeasureFieldList(_, context),
   });
 };
@@ -17861,7 +17861,7 @@ const se_KPIPrimaryValueConditionalFormatting = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Icon: (_) => _json(_),
+    Icon: _json,
     TextColor: (_) => se_ConditionalFormattingColor(_, context),
   });
 };
@@ -17896,8 +17896,8 @@ const se_KPIVisual = (input: KPIVisual, context: __SerdeContext): any => {
     ChartConfiguration: (_) => se_KPIConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     ConditionalFormatting: (_) => se_KPIConditionalFormatting(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -17918,8 +17918,8 @@ const se_Layout = (input: Layout, context: __SerdeContext): any => {
  */
 const se_LayoutConfiguration = (input: LayoutConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    FreeFormLayout: (_) => _json(_),
-    GridLayout: (_) => _json(_),
+    FreeFormLayout: _json,
+    GridLayout: _json,
     SectionBasedLayout: (_) => se_SectionBasedLayoutConfiguration(_, context),
   });
 };
@@ -17942,9 +17942,9 @@ const se_LayoutList = (input: Layout[], context: __SerdeContext): any => {
  */
 const se_LineChartAggregatedFieldWells = (input: LineChartAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    Category: (_) => _json(_),
-    Colors: (_) => _json(_),
-    SmallMultiples: (_) => _json(_),
+    Category: _json,
+    Colors: _json,
+    SmallMultiples: _json,
     Values: (_) => se_MeasureFieldList(_, context),
   });
 };
@@ -17954,25 +17954,25 @@ const se_LineChartAggregatedFieldWells = (input: LineChartAggregatedFieldWells, 
  */
 const se_LineChartConfiguration = (input: LineChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    ContributionAnalysisDefaults: (_) => _json(_),
-    DataLabels: (_) => _json(_),
-    DefaultSeriesSettings: (_) => _json(_),
+    ContributionAnalysisDefaults: _json,
+    DataLabels: _json,
+    DefaultSeriesSettings: _json,
     FieldWells: (_) => se_LineChartFieldWells(_, context),
     ForecastConfigurations: (_) => se_ForecastConfigurationList(_, context),
-    Legend: (_) => _json(_),
+    Legend: _json,
     PrimaryYAxisDisplayOptions: (_) => se_LineSeriesAxisDisplayOptions(_, context),
-    PrimaryYAxisLabelOptions: (_) => _json(_),
+    PrimaryYAxisLabelOptions: _json,
     ReferenceLines: (_) => se_ReferenceLineList(_, context),
     SecondaryYAxisDisplayOptions: (_) => se_LineSeriesAxisDisplayOptions(_, context),
-    SecondaryYAxisLabelOptions: (_) => _json(_),
-    Series: (_) => _json(_),
-    SmallMultiplesOptions: (_) => _json(_),
+    SecondaryYAxisLabelOptions: _json,
+    Series: _json,
+    SmallMultiplesOptions: _json,
     SortConfiguration: (_) => se_LineChartSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
     Type: [],
-    VisualPalette: (_) => _json(_),
+    VisualPalette: _json,
     XAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
-    XAxisLabelOptions: (_) => _json(_),
+    XAxisLabelOptions: _json,
   });
 };
 
@@ -17998,10 +17998,10 @@ const se_LineChartFieldWells = (input: LineChartFieldWells, context: __SerdeCont
  */
 const se_LineChartSortConfiguration = (input: LineChartSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryItemsLimitConfiguration: (_) => _json(_),
+    CategoryItemsLimitConfiguration: _json,
     CategorySort: (_) => se_FieldSortOptionsList(_, context),
-    ColorItemsLimitConfiguration: (_) => _json(_),
-    SmallMultiplesLimitConfiguration: (_) => _json(_),
+    ColorItemsLimitConfiguration: _json,
+    SmallMultiplesLimitConfiguration: _json,
     SmallMultiplesSort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -18014,8 +18014,8 @@ const se_LineChartVisual = (input: LineChartVisual, context: __SerdeContext): an
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_LineChartConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -18026,7 +18026,7 @@ const se_LineChartVisual = (input: LineChartVisual, context: __SerdeContext): an
 const se_LineSeriesAxisDisplayOptions = (input: LineSeriesAxisDisplayOptions, context: __SerdeContext): any => {
   return take(input, {
     AxisOptions: (_) => se_AxisDisplayOptions(_, context),
-    MissingDataConfigurations: (_) => _json(_),
+    MissingDataConfigurations: _json,
   });
 };
 
@@ -18065,7 +18065,7 @@ const se_MaximumMinimumComputation = (input: MaximumMinimumComputation, context:
   return take(input, {
     ComputationId: [],
     Name: [],
-    Time: (_) => _json(_),
+    Time: _json,
     Type: [],
     Value: (_) => se_MeasureField(_, context),
   });
@@ -18076,9 +18076,9 @@ const se_MaximumMinimumComputation = (input: MaximumMinimumComputation, context:
  */
 const se_MeasureField = (input: MeasureField, context: __SerdeContext): any => {
   return take(input, {
-    CalculatedMeasureField: (_) => _json(_),
-    CategoricalMeasureField: (_) => _json(_),
-    DateMeasureField: (_) => _json(_),
+    CalculatedMeasureField: _json,
+    CategoricalMeasureField: _json,
+    DateMeasureField: _json,
     NumericalMeasureField: (_) => se_NumericalMeasureField(_, context),
   });
 };
@@ -18103,7 +18103,7 @@ const se_MetricComparisonComputation = (input: MetricComparisonComputation, cont
     FromValue: (_) => se_MeasureField(_, context),
     Name: [],
     TargetValue: (_) => se_MeasureField(_, context),
-    Time: (_) => _json(_),
+    Time: _json,
   });
 };
 
@@ -18141,9 +18141,9 @@ const se_NumericalAggregationFunction = (input: NumericalAggregationFunction, co
 const se_NumericalMeasureField = (input: NumericalMeasureField, context: __SerdeContext): any => {
   return take(input, {
     AggregationFunction: (_) => se_NumericalAggregationFunction(_, context),
-    Column: (_) => _json(_),
+    Column: _json,
     FieldId: [],
-    FormatConfiguration: (_) => _json(_),
+    FormatConfiguration: _json,
   });
 };
 
@@ -18162,8 +18162,8 @@ const se_NumericAxisOptions = (input: NumericAxisOptions, context: __SerdeContex
  */
 const se_NumericEqualityDrillDownFilter = (input: NumericEqualityDrillDownFilter, context: __SerdeContext): any => {
   return take(input, {
-    Column: (_) => _json(_),
-    Value: (_) => __serializeFloat(_),
+    Column: _json,
+    Value: __serializeFloat,
   });
 };
 
@@ -18173,13 +18173,13 @@ const se_NumericEqualityDrillDownFilter = (input: NumericEqualityDrillDownFilter
 const se_NumericEqualityFilter = (input: NumericEqualityFilter, context: __SerdeContext): any => {
   return take(input, {
     AggregationFunction: (_) => se_AggregationFunction(_, context),
-    Column: (_) => _json(_),
+    Column: _json,
     FilterId: [],
     MatchOperator: [],
     NullOption: [],
     ParameterName: [],
     SelectAllOptions: [],
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -18191,7 +18191,7 @@ const se_NumericEqualityFilter = (input: NumericEqualityFilter, context: __Serde
 const se_NumericRangeFilter = (input: NumericRangeFilter, context: __SerdeContext): any => {
   return take(input, {
     AggregationFunction: (_) => se_AggregationFunction(_, context),
-    Column: (_) => _json(_),
+    Column: _json,
     FilterId: [],
     IncludeMaximum: [],
     IncludeMinimum: [],
@@ -18208,7 +18208,7 @@ const se_NumericRangeFilter = (input: NumericRangeFilter, context: __SerdeContex
 const se_NumericRangeFilterValue = (input: NumericRangeFilterValue, context: __SerdeContext): any => {
   return take(input, {
     Parameter: [],
-    StaticValue: (_) => __serializeFloat(_),
+    StaticValue: __serializeFloat,
   });
 };
 
@@ -18227,12 +18227,12 @@ const se_NumericRangeFilterValue = (input: NumericRangeFilterValue, context: __S
  */
 const se_ParameterControl = (input: ParameterControl, context: __SerdeContext): any => {
   return take(input, {
-    DateTimePicker: (_) => _json(_),
-    Dropdown: (_) => _json(_),
-    List: (_) => _json(_),
+    DateTimePicker: _json,
+    Dropdown: _json,
+    List: _json,
     Slider: (_) => se_ParameterSliderControl(_, context),
-    TextArea: (_) => _json(_),
-    TextField: (_) => _json(_),
+    TextArea: _json,
+    TextField: _json,
   });
 };
 
@@ -18256,8 +18256,8 @@ const se_ParameterDeclaration = (input: ParameterDeclaration, context: __SerdeCo
   return take(input, {
     DateTimeParameterDeclaration: (_) => se_DateTimeParameterDeclaration(_, context),
     DecimalParameterDeclaration: (_) => se_DecimalParameterDeclaration(_, context),
-    IntegerParameterDeclaration: (_) => _json(_),
-    StringParameterDeclaration: (_) => _json(_),
+    IntegerParameterDeclaration: _json,
+    StringParameterDeclaration: _json,
   });
 };
 
@@ -18283,8 +18283,8 @@ const se__Parameters = (input: _Parameters, context: __SerdeContext): any => {
   return take(input, {
     DateTimeParameters: (_) => se_DateTimeParameterList(_, context),
     DecimalParameters: (_) => se_DecimalParameterList(_, context),
-    IntegerParameters: (_) => _json(_),
-    StringParameters: (_) => _json(_),
+    IntegerParameters: _json,
+    StringParameters: _json,
   });
 };
 
@@ -18297,12 +18297,12 @@ const se__Parameters = (input: _Parameters, context: __SerdeContext): any => {
  */
 const se_ParameterSliderControl = (input: ParameterSliderControl, context: __SerdeContext): any => {
   return take(input, {
-    DisplayOptions: (_) => _json(_),
-    MaximumValue: (_) => __serializeFloat(_),
-    MinimumValue: (_) => __serializeFloat(_),
+    DisplayOptions: _json,
+    MaximumValue: __serializeFloat,
+    MinimumValue: __serializeFloat,
     ParameterControlId: [],
     SourceParameterName: [],
-    StepSize: (_) => __serializeFloat(_),
+    StepSize: __serializeFloat,
     Title: [],
   });
 };
@@ -18318,7 +18318,7 @@ const se_ParameterSliderControl = (input: ParameterSliderControl, context: __Ser
  */
 const se_PercentileAggregation = (input: PercentileAggregation, context: __SerdeContext): any => {
   return take(input, {
-    PercentileValue: (_) => __serializeFloat(_),
+    PercentileValue: __serializeFloat,
   });
 };
 
@@ -18327,8 +18327,8 @@ const se_PercentileAggregation = (input: PercentileAggregation, context: __Serde
  */
 const se_PercentVisibleRange = (input: PercentVisibleRange, context: __SerdeContext): any => {
   return take(input, {
-    From: (_) => __serializeFloat(_),
-    To: (_) => __serializeFloat(_),
+    From: __serializeFloat,
+    To: __serializeFloat,
   });
 };
 
@@ -18339,7 +18339,7 @@ const se_PeriodOverPeriodComputation = (input: PeriodOverPeriodComputation, cont
   return take(input, {
     ComputationId: [],
     Name: [],
-    Time: (_) => _json(_),
+    Time: _json,
     Value: (_) => se_MeasureField(_, context),
   });
 };
@@ -18352,7 +18352,7 @@ const se_PeriodToDateComputation = (input: PeriodToDateComputation, context: __S
     ComputationId: [],
     Name: [],
     PeriodTimeGranularity: [],
-    Time: (_) => _json(_),
+    Time: _json,
     Value: (_) => se_MeasureField(_, context),
   });
 };
@@ -18366,8 +18366,8 @@ const se_PeriodToDateComputation = (input: PeriodToDateComputation, context: __S
  */
 const se_PieChartAggregatedFieldWells = (input: PieChartAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    Category: (_) => _json(_),
-    SmallMultiples: (_) => _json(_),
+    Category: _json,
+    SmallMultiples: _json,
     Values: (_) => se_MeasureFieldList(_, context),
   });
 };
@@ -18377,17 +18377,17 @@ const se_PieChartAggregatedFieldWells = (input: PieChartAggregatedFieldWells, co
  */
 const se_PieChartConfiguration = (input: PieChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryLabelOptions: (_) => _json(_),
-    ContributionAnalysisDefaults: (_) => _json(_),
-    DataLabels: (_) => _json(_),
-    DonutOptions: (_) => _json(_),
+    CategoryLabelOptions: _json,
+    ContributionAnalysisDefaults: _json,
+    DataLabels: _json,
+    DonutOptions: _json,
     FieldWells: (_) => se_PieChartFieldWells(_, context),
-    Legend: (_) => _json(_),
-    SmallMultiplesOptions: (_) => _json(_),
+    Legend: _json,
+    SmallMultiplesOptions: _json,
     SortConfiguration: (_) => se_PieChartSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
-    ValueLabelOptions: (_) => _json(_),
-    VisualPalette: (_) => _json(_),
+    ValueLabelOptions: _json,
+    VisualPalette: _json,
   });
 };
 
@@ -18405,9 +18405,9 @@ const se_PieChartFieldWells = (input: PieChartFieldWells, context: __SerdeContex
  */
 const se_PieChartSortConfiguration = (input: PieChartSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryItemsLimit: (_) => _json(_),
+    CategoryItemsLimit: _json,
     CategorySort: (_) => se_FieldSortOptionsList(_, context),
-    SmallMultiplesLimitConfiguration: (_) => _json(_),
+    SmallMultiplesLimitConfiguration: _json,
     SmallMultiplesSort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -18420,8 +18420,8 @@ const se_PieChartVisual = (input: PieChartVisual, context: __SerdeContext): any 
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_PieChartConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -18463,8 +18463,8 @@ const se_PivotMeasureFieldList = (input: MeasureField[], context: __SerdeContext
  */
 const se_PivotTableAggregatedFieldWells = (input: PivotTableAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    Columns: (_) => _json(_),
-    Rows: (_) => _json(_),
+    Columns: _json,
+    Rows: _json,
     Values: (_) => se_PivotMeasureFieldList(_, context),
   });
 };
@@ -18478,7 +18478,7 @@ const se_PivotTableCellConditionalFormatting = (
 ): any => {
   return take(input, {
     FieldId: [],
-    Scope: (_) => _json(_),
+    Scope: _json,
     TextFormat: (_) => se_TextConditionalFormat(_, context),
   });
 };
@@ -18525,12 +18525,12 @@ const se_PivotTableConditionalFormattingOptionList = (
  */
 const se_PivotTableConfiguration = (input: PivotTableConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    FieldOptions: (_) => _json(_),
+    FieldOptions: _json,
     FieldWells: (_) => se_PivotTableFieldWells(_, context),
-    PaginatedReportOptions: (_) => _json(_),
+    PaginatedReportOptions: _json,
     SortConfiguration: (_) => se_PivotTableSortConfiguration(_, context),
-    TableOptions: (_) => _json(_),
-    TotalOptions: (_) => _json(_),
+    TableOptions: _json,
+    TotalOptions: _json,
   });
 };
 
@@ -18569,8 +18569,8 @@ const se_PivotTableFieldWells = (input: PivotTableFieldWells, context: __SerdeCo
 const se_PivotTableSortBy = (input: PivotTableSortBy, context: __SerdeContext): any => {
   return take(input, {
     Column: (_) => se_ColumnSort(_, context),
-    DataPath: (_) => _json(_),
-    Field: (_) => _json(_),
+    DataPath: _json,
+    Field: _json,
   });
 };
 
@@ -18593,8 +18593,8 @@ const se_PivotTableVisual = (input: PivotTableVisual, context: __SerdeContext): 
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_PivotTableConfiguration(_, context),
     ConditionalFormatting: (_) => se_PivotTableConditionalFormatting(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -18608,7 +18608,7 @@ const se_PivotTableVisual = (input: PivotTableVisual, context: __SerdeContext): 
  */
 const se_PredefinedHierarchy = (input: PredefinedHierarchy, context: __SerdeContext): any => {
   return take(input, {
-    Columns: (_) => _json(_),
+    Columns: _json,
     DrillDownFilters: (_) => se_DrillDownFilterList(_, context),
     HierarchyId: [],
   });
@@ -18631,8 +18631,8 @@ const se_PredefinedHierarchy = (input: PredefinedHierarchy, context: __SerdeCont
  */
 const se_RadarChartAggregatedFieldWells = (input: RadarChartAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    Category: (_) => _json(_),
-    Color: (_) => _json(_),
+    Category: _json,
+    Color: _json,
     Values: (_) => se_RadarChartValuesFieldList(_, context),
   });
 };
@@ -18651,17 +18651,17 @@ const se_RadarChartConfiguration = (input: RadarChartConfiguration, context: __S
     AlternateBandColorsVisibility: [],
     AlternateBandEvenColor: [],
     AlternateBandOddColor: [],
-    BaseSeriesSettings: (_) => _json(_),
+    BaseSeriesSettings: _json,
     CategoryAxis: (_) => se_AxisDisplayOptions(_, context),
-    CategoryLabelOptions: (_) => _json(_),
+    CategoryLabelOptions: _json,
     ColorAxis: (_) => se_AxisDisplayOptions(_, context),
-    ColorLabelOptions: (_) => _json(_),
+    ColorLabelOptions: _json,
     FieldWells: (_) => se_RadarChartFieldWells(_, context),
-    Legend: (_) => _json(_),
+    Legend: _json,
     Shape: [],
     SortConfiguration: (_) => se_RadarChartSortConfiguration(_, context),
-    StartAngle: (_) => __serializeFloat(_),
-    VisualPalette: (_) => _json(_),
+    StartAngle: __serializeFloat,
+    VisualPalette: _json,
   });
 };
 
@@ -18681,9 +18681,9 @@ const se_RadarChartFieldWells = (input: RadarChartFieldWells, context: __SerdeCo
  */
 const se_RadarChartSortConfiguration = (input: RadarChartSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryItemsLimit: (_) => _json(_),
+    CategoryItemsLimit: _json,
     CategorySort: (_) => se_FieldSortOptionsList(_, context),
-    ColorItemsLimit: (_) => _json(_),
+    ColorItemsLimit: _json,
     ColorSort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -18707,8 +18707,8 @@ const se_RadarChartVisual = (input: RadarChartVisual, context: __SerdeContext): 
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_RadarChartConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -18725,9 +18725,9 @@ const se_RadarChartVisual = (input: RadarChartVisual, context: __SerdeContext): 
 const se_ReferenceLine = (input: ReferenceLine, context: __SerdeContext): any => {
   return take(input, {
     DataConfiguration: (_) => se_ReferenceLineDataConfiguration(_, context),
-    LabelConfiguration: (_) => _json(_),
+    LabelConfiguration: _json,
     Status: [],
-    StyleConfiguration: (_) => _json(_),
+    StyleConfiguration: _json,
   });
 };
 
@@ -18753,7 +18753,7 @@ const se_ReferenceLineDynamicDataConfiguration = (
 ): any => {
   return take(input, {
     Calculation: (_) => se_NumericalAggregationFunction(_, context),
-    Column: (_) => _json(_),
+    Column: _json,
     MeasureAggregationFunction: (_) => se_AggregationFunction(_, context),
   });
 };
@@ -18779,7 +18779,7 @@ const se_ReferenceLineStaticDataConfiguration = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -18798,7 +18798,7 @@ const se_RefreshSchedule = (input: RefreshSchedule, context: __SerdeContext): an
   return take(input, {
     Arn: [],
     RefreshType: [],
-    ScheduleFrequency: (_) => _json(_),
+    ScheduleFrequency: _json,
     ScheduleId: [],
     StartAfterDateTime: (_) => Math.round(_.getTime() / 1000),
   });
@@ -18873,8 +18873,8 @@ const se_SankeyDiagramAggregatedFieldWells = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Destination: (_) => _json(_),
-    Source: (_) => _json(_),
+    Destination: _json,
+    Source: _json,
     Weight: (_) => se_MeasureFieldList(_, context),
   });
 };
@@ -18884,7 +18884,7 @@ const se_SankeyDiagramAggregatedFieldWells = (
  */
 const se_SankeyDiagramChartConfiguration = (input: SankeyDiagramChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    DataLabels: (_) => _json(_),
+    DataLabels: _json,
     FieldWells: (_) => se_SankeyDiagramFieldWells(_, context),
     SortConfiguration: (_) => se_SankeyDiagramSortConfiguration(_, context),
   });
@@ -18904,8 +18904,8 @@ const se_SankeyDiagramFieldWells = (input: SankeyDiagramFieldWells, context: __S
  */
 const se_SankeyDiagramSortConfiguration = (input: SankeyDiagramSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    DestinationItemsLimit: (_) => _json(_),
-    SourceItemsLimit: (_) => _json(_),
+    DestinationItemsLimit: _json,
+    SourceItemsLimit: _json,
     WeightSort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -18917,8 +18917,8 @@ const se_SankeyDiagramVisual = (input: SankeyDiagramVisual, context: __SerdeCont
   return take(input, {
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_SankeyDiagramChartConfiguration(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -18931,7 +18931,7 @@ const se_ScatterPlotCategoricallyAggregatedFieldWells = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Category: (_) => _json(_),
+    Category: _json,
     Size: (_) => se_MeasureFieldList(_, context),
     XAxis: (_) => se_MeasureFieldList(_, context),
     YAxis: (_) => se_MeasureFieldList(_, context),
@@ -18943,15 +18943,15 @@ const se_ScatterPlotCategoricallyAggregatedFieldWells = (
  */
 const se_ScatterPlotConfiguration = (input: ScatterPlotConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    DataLabels: (_) => _json(_),
+    DataLabels: _json,
     FieldWells: (_) => se_ScatterPlotFieldWells(_, context),
-    Legend: (_) => _json(_),
+    Legend: _json,
     Tooltip: (_) => se_TooltipOptions(_, context),
-    VisualPalette: (_) => _json(_),
+    VisualPalette: _json,
     XAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
-    XAxisLabelOptions: (_) => _json(_),
+    XAxisLabelOptions: _json,
     YAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
-    YAxisLabelOptions: (_) => _json(_),
+    YAxisLabelOptions: _json,
   });
 };
 
@@ -18974,8 +18974,8 @@ const se_ScatterPlotUnaggregatedFieldWells = (
 ): any => {
   return take(input, {
     Size: (_) => se_MeasureFieldList(_, context),
-    XAxis: (_) => _json(_),
-    YAxis: (_) => _json(_),
+    XAxis: _json,
+    YAxis: _json,
   });
 };
 
@@ -18987,8 +18987,8 @@ const se_ScatterPlotVisual = (input: ScatterPlotVisual, context: __SerdeContext)
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_ScatterPlotConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -19016,10 +19016,10 @@ const se_ScrollBarOptions = (input: ScrollBarOptions, context: __SerdeContext): 
  */
 const se_SectionBasedLayoutConfiguration = (input: SectionBasedLayoutConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    BodySections: (_) => _json(_),
-    CanvasSizeOptions: (_) => _json(_),
-    FooterSections: (_) => _json(_),
-    HeaderSections: (_) => _json(_),
+    BodySections: _json,
+    CanvasSizeOptions: _json,
+    FooterSections: _json,
+    HeaderSections: _json,
   });
 };
 
@@ -19123,9 +19123,9 @@ const se_SheetDefinition = (input: SheetDefinition, context: __SerdeContext): an
     Layouts: (_) => se_LayoutList(_, context),
     Name: [],
     ParameterControls: (_) => se_ParameterControlList(_, context),
-    SheetControlLayouts: (_) => _json(_),
+    SheetControlLayouts: _json,
     SheetId: [],
-    TextBoxes: (_) => _json(_),
+    TextBoxes: _json,
     Title: [],
     Visuals: (_) => se_VisualList(_, context),
   });
@@ -19205,7 +19205,7 @@ const se_SheetDefinitionList = (input: SheetDefinition[], context: __SerdeContex
  */
 const se_TableAggregatedFieldWells = (input: TableAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    GroupBy: (_) => _json(_),
+    GroupBy: _json,
     Values: (_) => se_MeasureFieldList(_, context),
   });
 };
@@ -19264,13 +19264,13 @@ const se_TableConditionalFormattingOptionList = (
  */
 const se_TableConfiguration = (input: TableConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    FieldOptions: (_) => _json(_),
+    FieldOptions: _json,
     FieldWells: (_) => se_TableFieldWells(_, context),
-    PaginatedReportOptions: (_) => _json(_),
+    PaginatedReportOptions: _json,
     SortConfiguration: (_) => se_TableSortConfiguration(_, context),
-    TableInlineVisualizations: (_) => _json(_),
-    TableOptions: (_) => _json(_),
-    TotalOptions: (_) => _json(_),
+    TableInlineVisualizations: _json,
+    TableOptions: _json,
+    TotalOptions: _json,
   });
 };
 
@@ -19298,7 +19298,7 @@ const se_TableConfiguration = (input: TableConfiguration, context: __SerdeContex
 const se_TableFieldWells = (input: TableFieldWells, context: __SerdeContext): any => {
   return take(input, {
     TableAggregatedFieldWells: (_) => se_TableAggregatedFieldWells(_, context),
-    TableUnaggregatedFieldWells: (_) => _json(_),
+    TableUnaggregatedFieldWells: _json,
   });
 };
 
@@ -19327,7 +19327,7 @@ const se_TableRowConditionalFormatting = (input: TableRowConditionalFormatting, 
  */
 const se_TableSortConfiguration = (input: TableSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    PaginationConfiguration: (_) => _json(_),
+    PaginationConfiguration: _json,
     RowSort: (_) => se_RowSortList(_, context),
   });
 };
@@ -19342,8 +19342,8 @@ const se_TableVisual = (input: TableVisual, context: __SerdeContext): any => {
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_TableConfiguration(_, context),
     ConditionalFormatting: (_) => se_TableConditionalFormatting(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -19367,10 +19367,10 @@ const se_TableVisual = (input: TableVisual, context: __SerdeContext): any => {
  */
 const se_TemplateVersionDefinition = (input: TemplateVersionDefinition, context: __SerdeContext): any => {
   return take(input, {
-    AnalysisDefaults: (_) => _json(_),
-    CalculatedFields: (_) => _json(_),
-    ColumnConfigurations: (_) => _json(_),
-    DataSetConfigurations: (_) => _json(_),
+    AnalysisDefaults: _json,
+    CalculatedFields: _json,
+    ColumnConfigurations: _json,
+    DataSetConfigurations: _json,
     FilterGroups: (_) => se_FilterGroupList(_, context),
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
     Sheets: (_) => se_SheetDefinitionList(_, context),
@@ -19387,7 +19387,7 @@ const se_TemplateVersionDefinition = (input: TemplateVersionDefinition, context:
 const se_TextConditionalFormat = (input: TextConditionalFormat, context: __SerdeContext): any => {
   return take(input, {
     BackgroundColor: (_) => se_ConditionalFormattingColor(_, context),
-    Icon: (_) => _json(_),
+    Icon: _json,
     TextColor: (_) => se_ConditionalFormattingColor(_, context),
   });
 };
@@ -19409,12 +19409,12 @@ const se_TextConditionalFormat = (input: TextConditionalFormat, context: __Serde
  */
 const se_TimeBasedForecastProperties = (input: TimeBasedForecastProperties, context: __SerdeContext): any => {
   return take(input, {
-    LowerBoundary: (_) => __serializeFloat(_),
+    LowerBoundary: __serializeFloat,
     PeriodsBackward: [],
     PeriodsForward: [],
     PredictionInterval: [],
     Seasonality: [],
-    UpperBoundary: (_) => __serializeFloat(_),
+    UpperBoundary: __serializeFloat,
   });
 };
 
@@ -19423,7 +19423,7 @@ const se_TimeBasedForecastProperties = (input: TimeBasedForecastProperties, cont
  */
 const se_TimeEqualityFilter = (input: TimeEqualityFilter, context: __SerdeContext): any => {
   return take(input, {
-    Column: (_) => _json(_),
+    Column: _json,
     FilterId: [],
     ParameterName: [],
     TimeGranularity: [],
@@ -19436,7 +19436,7 @@ const se_TimeEqualityFilter = (input: TimeEqualityFilter, context: __SerdeContex
  */
 const se_TimeRangeDrillDownFilter = (input: TimeRangeDrillDownFilter, context: __SerdeContext): any => {
   return take(input, {
-    Column: (_) => _json(_),
+    Column: _json,
     RangeMaximum: (_) => Math.round(_.getTime() / 1000),
     RangeMinimum: (_) => Math.round(_.getTime() / 1000),
     TimeGranularity: [],
@@ -19448,8 +19448,8 @@ const se_TimeRangeDrillDownFilter = (input: TimeRangeDrillDownFilter, context: _
  */
 const se_TimeRangeFilter = (input: TimeRangeFilter, context: __SerdeContext): any => {
   return take(input, {
-    Column: (_) => _json(_),
-    ExcludePeriodConfiguration: (_) => _json(_),
+    Column: _json,
+    ExcludePeriodConfiguration: _json,
     FilterId: [],
     IncludeMaximum: [],
     IncludeMinimum: [],
@@ -19466,7 +19466,7 @@ const se_TimeRangeFilter = (input: TimeRangeFilter, context: __SerdeContext): an
 const se_TimeRangeFilterValue = (input: TimeRangeFilterValue, context: __SerdeContext): any => {
   return take(input, {
     Parameter: [],
-    RollingDate: (_) => _json(_),
+    RollingDate: _json,
     StaticValue: (_) => Math.round(_.getTime() / 1000),
   });
 };
@@ -19477,7 +19477,7 @@ const se_TimeRangeFilterValue = (input: TimeRangeFilterValue, context: __SerdeCo
 const se_TooltipItem = (input: TooltipItem, context: __SerdeContext): any => {
   return take(input, {
     ColumnTooltipItem: (_) => se_ColumnTooltipItem(_, context),
-    FieldTooltipItem: (_) => _json(_),
+    FieldTooltipItem: _json,
   });
 };
 
@@ -19509,7 +19509,7 @@ const se_TooltipOptions = (input: TooltipOptions, context: __SerdeContext): any 
 const se_TopBottomFilter = (input: TopBottomFilter, context: __SerdeContext): any => {
   return take(input, {
     AggregationSortConfigurations: (_) => se_AggregationSortConfigurationList(_, context),
-    Column: (_) => _json(_),
+    Column: _json,
     FilterId: [],
     Limit: [],
     ParameterName: [],
@@ -19522,12 +19522,12 @@ const se_TopBottomFilter = (input: TopBottomFilter, context: __SerdeContext): an
  */
 const se_TopBottomMoversComputation = (input: TopBottomMoversComputation, context: __SerdeContext): any => {
   return take(input, {
-    Category: (_) => _json(_),
+    Category: _json,
     ComputationId: [],
     MoverSize: [],
     Name: [],
     SortOrder: [],
-    Time: (_) => _json(_),
+    Time: _json,
     Type: [],
     Value: (_) => se_MeasureField(_, context),
   });
@@ -19538,7 +19538,7 @@ const se_TopBottomMoversComputation = (input: TopBottomMoversComputation, contex
  */
 const se_TopBottomRankedComputation = (input: TopBottomRankedComputation, context: __SerdeContext): any => {
   return take(input, {
-    Category: (_) => _json(_),
+    Category: _json,
     ComputationId: [],
     Name: [],
     ResultSize: [],
@@ -19570,7 +19570,7 @@ const se_TotalAggregationComputation = (input: TotalAggregationComputation, cont
 const se_TreeMapAggregatedFieldWells = (input: TreeMapAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
     Colors: (_) => se_TreeMapMeasureFieldList(_, context),
-    Groups: (_) => _json(_),
+    Groups: _json,
     Sizes: (_) => se_TreeMapMeasureFieldList(_, context),
   });
 };
@@ -19580,13 +19580,13 @@ const se_TreeMapAggregatedFieldWells = (input: TreeMapAggregatedFieldWells, cont
  */
 const se_TreeMapConfiguration = (input: TreeMapConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    ColorLabelOptions: (_) => _json(_),
+    ColorLabelOptions: _json,
     ColorScale: (_) => se_ColorScale(_, context),
-    DataLabels: (_) => _json(_),
+    DataLabels: _json,
     FieldWells: (_) => se_TreeMapFieldWells(_, context),
-    GroupLabelOptions: (_) => _json(_),
-    Legend: (_) => _json(_),
-    SizeLabelOptions: (_) => _json(_),
+    GroupLabelOptions: _json,
+    Legend: _json,
+    SizeLabelOptions: _json,
     SortConfiguration: (_) => se_TreeMapSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
   });
@@ -19619,7 +19619,7 @@ const se_TreeMapMeasureFieldList = (input: MeasureField[], context: __SerdeConte
  */
 const se_TreeMapSortConfiguration = (input: TreeMapSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    TreeMapGroupItemsLimitConfiguration: (_) => _json(_),
+    TreeMapGroupItemsLimitConfiguration: _json,
     TreeMapSort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -19632,8 +19632,8 @@ const se_TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any =>
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_TreeMapConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -19731,10 +19731,10 @@ const se_VisualCustomActionList = (input: VisualCustomAction[], context: __Serde
  */
 const se_VisualCustomActionOperation = (input: VisualCustomActionOperation, context: __SerdeContext): any => {
   return take(input, {
-    FilterOperation: (_) => _json(_),
-    NavigationOperation: (_) => _json(_),
+    FilterOperation: _json,
+    NavigationOperation: _json,
     SetParametersOperation: (_) => se_CustomActionSetParametersOperation(_, context),
-    URLOperation: (_) => _json(_),
+    URLOperation: _json,
   });
 };
 
@@ -19778,8 +19778,8 @@ const se_WaterfallChartAggregatedFieldWells = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Breakdowns: (_) => _json(_),
-    Categories: (_) => _json(_),
+    Breakdowns: _json,
+    Categories: _json,
     Values: (_) => se_MeasureFieldList(_, context),
   });
 };
@@ -19790,15 +19790,15 @@ const se_WaterfallChartAggregatedFieldWells = (
 const se_WaterfallChartConfiguration = (input: WaterfallChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
     CategoryAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
-    CategoryAxisLabelOptions: (_) => _json(_),
-    DataLabels: (_) => _json(_),
+    CategoryAxisLabelOptions: _json,
+    DataLabels: _json,
     FieldWells: (_) => se_WaterfallChartFieldWells(_, context),
-    Legend: (_) => _json(_),
+    Legend: _json,
     PrimaryYAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
-    PrimaryYAxisLabelOptions: (_) => _json(_),
+    PrimaryYAxisLabelOptions: _json,
     SortConfiguration: (_) => se_WaterfallChartSortConfiguration(_, context),
-    VisualPalette: (_) => _json(_),
-    WaterfallChartOptions: (_) => _json(_),
+    VisualPalette: _json,
+    WaterfallChartOptions: _json,
   });
 };
 
@@ -19818,7 +19818,7 @@ const se_WaterfallChartFieldWells = (input: WaterfallChartFieldWells, context: _
  */
 const se_WaterfallChartSortConfiguration = (input: WaterfallChartSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    BreakdownItemsLimit: (_) => _json(_),
+    BreakdownItemsLimit: _json,
     CategorySort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -19831,8 +19831,8 @@ const se_WaterfallVisual = (input: WaterfallVisual, context: __SerdeContext): an
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_WaterfallChartConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };
@@ -19843,7 +19843,7 @@ const se_WaterfallVisual = (input: WaterfallVisual, context: __SerdeContext): an
 const se_WhatIfPointScenario = (input: WhatIfPointScenario, context: __SerdeContext): any => {
   return take(input, {
     Date: (_) => Math.round(_.getTime() / 1000),
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -19854,7 +19854,7 @@ const se_WhatIfRangeScenario = (input: WhatIfRangeScenario, context: __SerdeCont
   return take(input, {
     EndDate: (_) => Math.round(_.getTime() / 1000),
     StartDate: (_) => Math.round(_.getTime() / 1000),
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -19863,7 +19863,7 @@ const se_WhatIfRangeScenario = (input: WhatIfRangeScenario, context: __SerdeCont
  */
 const se_WordCloudAggregatedFieldWells = (input: WordCloudAggregatedFieldWells, context: __SerdeContext): any => {
   return take(input, {
-    GroupBy: (_) => _json(_),
+    GroupBy: _json,
     Size: (_) => se_WordCloudMeasureFieldList(_, context),
   });
 };
@@ -19873,10 +19873,10 @@ const se_WordCloudAggregatedFieldWells = (input: WordCloudAggregatedFieldWells, 
  */
 const se_WordCloudChartConfiguration = (input: WordCloudChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryLabelOptions: (_) => _json(_),
+    CategoryLabelOptions: _json,
     FieldWells: (_) => se_WordCloudFieldWells(_, context),
     SortConfiguration: (_) => se_WordCloudSortConfiguration(_, context),
-    WordCloudOptions: (_) => _json(_),
+    WordCloudOptions: _json,
   });
 };
 
@@ -19909,7 +19909,7 @@ const se_WordCloudMeasureFieldList = (input: MeasureField[], context: __SerdeCon
  */
 const se_WordCloudSortConfiguration = (input: WordCloudSortConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CategoryItemsLimit: (_) => _json(_),
+    CategoryItemsLimit: _json,
     CategorySort: (_) => se_FieldSortOptionsList(_, context),
   });
 };
@@ -19922,8 +19922,8 @@ const se_WordCloudVisual = (input: WordCloudVisual, context: __SerdeContext): an
     Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_WordCloudChartConfiguration(_, context),
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
-    Subtitle: (_) => _json(_),
-    Title: (_) => _json(_),
+    Subtitle: _json,
+    Title: _json,
     VisualId: [],
   });
 };

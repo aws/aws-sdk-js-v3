@@ -4025,7 +4025,7 @@ const se_DomainDeliverabilityTrackingOption = (
 ): any => {
   return take(input, {
     Domain: [],
-    InboxPlacementTrackingOption: (_) => _json(_),
+    InboxPlacementTrackingOption: _json,
     SubscriptionStartDate: (_) => Math.round(_.getTime() / 1000),
   });
 };
@@ -4052,8 +4052,8 @@ const se_DomainDeliverabilityTrackingOptions = (
 const se_EmailContent = (input: EmailContent, context: __SerdeContext): any => {
   return take(input, {
     Raw: (_) => se_RawMessage(_, context),
-    Simple: (_) => _json(_),
-    Template: (_) => _json(_),
+    Simple: _json,
+    Template: _json,
   });
 };
 
@@ -4080,7 +4080,7 @@ const se_EmailContent = (input: EmailContent, context: __SerdeContext): any => {
  */
 const se_RawMessage = (input: RawMessage, context: __SerdeContext): any => {
   return take(input, {
-    Data: (_) => context.base64Encoder(_),
+    Data: context.base64Encoder,
   });
 };
 

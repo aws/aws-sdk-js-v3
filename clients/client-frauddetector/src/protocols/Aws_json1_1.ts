@@ -5681,11 +5681,11 @@ const se_GetEventPredictionRequest = (input: GetEventPredictionRequest, context:
   return take(input, {
     detectorId: [],
     detectorVersionId: [],
-    entities: (_) => _json(_),
+    entities: _json,
     eventId: [],
     eventTimestamp: [],
     eventTypeName: [],
-    eventVariables: (_) => _json(_),
+    eventVariables: _json,
     externalModelEndpointDataBlobs: (_) => se_ExternalModelEndpointDataBlobMap(_, context),
   });
 };
@@ -5737,7 +5737,7 @@ const se_GetEventPredictionRequest = (input: GetEventPredictionRequest, context:
  */
 const se_ModelEndpointDataBlob = (input: ModelEndpointDataBlob, context: __SerdeContext): any => {
   return take(input, {
-    byteBuffer: (_) => context.base64Encoder(_),
+    byteBuffer: context.base64Encoder,
     contentType: [],
   });
 };

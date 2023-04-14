@@ -938,28 +938,28 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
  */
 const se_KitchenSink = (input: KitchenSink, context: __SerdeContext): any => {
   return take(input, {
-    Blob: (_) => context.base64Encoder(_),
+    Blob: context.base64Encoder,
     Boolean: [],
-    Double: (_) => __serializeFloat(_),
-    EmptyStruct: (_) => _json(_),
-    Float: (_) => __serializeFloat(_),
-    HttpdateTimestamp: (_) => __dateToUtcString(_),
+    Double: __serializeFloat,
+    EmptyStruct: _json,
+    Float: __serializeFloat,
+    HttpdateTimestamp: __dateToUtcString,
     Integer: [],
     Iso8601Timestamp: (_) => _.toISOString().split(".")[0] + "Z",
-    JsonValue: (_) => __LazyJsonString.fromObject(_),
-    ListOfLists: (_) => _json(_),
-    ListOfMapsOfStrings: (_) => _json(_),
-    ListOfStrings: (_) => _json(_),
-    ListOfStructs: (_) => _json(_),
+    JsonValue: __LazyJsonString.fromObject,
+    ListOfLists: _json,
+    ListOfMapsOfStrings: _json,
+    ListOfStrings: _json,
+    ListOfStructs: _json,
     Long: [],
-    MapOfListsOfStrings: (_) => _json(_),
-    MapOfMaps: (_) => _json(_),
-    MapOfStrings: (_) => _json(_),
-    MapOfStructs: (_) => _json(_),
+    MapOfListsOfStrings: _json,
+    MapOfMaps: _json,
+    MapOfStrings: _json,
+    MapOfStructs: _json,
     RecursiveList: (_) => se_ListOfKitchenSinks(_, context),
     RecursiveMap: (_) => se_MapOfKitchenSinks(_, context),
     RecursiveStruct: (_) => se_KitchenSink(_, context),
-    SimpleStruct: (_) => _json(_),
+    SimpleStruct: _json,
     String: [],
     StructWithJsonName: (_) => se_StructWithJsonName(_, context),
     Timestamp: (_) => Math.round(_.getTime() / 1000),
@@ -1058,8 +1058,8 @@ const se_SimpleScalarPropertiesInputOutput = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    doubleValue: (_) => __serializeFloat(_),
-    floatValue: (_) => __serializeFloat(_),
+    doubleValue: __serializeFloat,
+    floatValue: __serializeFloat,
   });
 };
 

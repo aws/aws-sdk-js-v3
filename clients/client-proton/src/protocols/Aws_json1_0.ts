@@ -6700,7 +6700,7 @@ const se_CreateComponentInput = (input: CreateComponentInput, context: __SerdeCo
     serviceInstanceName: [],
     serviceName: [],
     serviceSpec: [],
-    tags: (_) => _json(_),
+    tags: _json,
     templateFile: [],
   });
 };
@@ -6719,7 +6719,7 @@ const se_CreateEnvironmentAccountConnectionInput = (
     environmentName: [],
     managementAccountId: [],
     roleArn: [],
-    tags: (_) => _json(_),
+    tags: _json,
   });
 };
 
@@ -6734,9 +6734,9 @@ const se_CreateEnvironmentInput = (input: CreateEnvironmentInput, context: __Ser
     environmentAccountConnectionId: [],
     name: [],
     protonServiceRoleArn: [],
-    provisioningRepository: (_) => _json(_),
+    provisioningRepository: _json,
     spec: [],
-    tags: (_) => _json(_),
+    tags: _json,
     templateMajorVersion: [],
     templateMinorVersion: [],
     templateName: [],
@@ -6756,8 +6756,8 @@ const se_CreateEnvironmentTemplateVersionInput = (
     clientToken: (_) => _ ?? generateIdempotencyToken(),
     description: [],
     majorVersion: [],
-    source: (_) => _json(_),
-    tags: (_) => _json(_),
+    source: _json,
+    tags: _json,
     templateName: [],
   });
 };
@@ -6775,7 +6775,7 @@ const se_CreateServiceInput = (input: CreateServiceInput, context: __SerdeContex
     repositoryConnectionArn: [],
     repositoryId: [],
     spec: [],
-    tags: (_) => _json(_),
+    tags: _json,
     templateMajorVersion: [],
     templateMinorVersion: [],
     templateName: [],
@@ -6791,7 +6791,7 @@ const se_CreateServiceInstanceInput = (input: CreateServiceInstanceInput, contex
     name: [],
     serviceName: [],
     spec: [],
-    tags: (_) => _json(_),
+    tags: _json,
     templateMajorVersion: [],
     templateMinorVersion: [],
   });
@@ -6810,12 +6810,12 @@ const se_CreateServiceTemplateVersionInput = (
 ): any => {
   return take(input, {
     clientToken: (_) => _ ?? generateIdempotencyToken(),
-    compatibleEnvironmentTemplates: (_) => _json(_),
+    compatibleEnvironmentTemplates: _json,
     description: [],
     majorVersion: [],
-    source: (_) => _json(_),
-    supportedComponentSources: (_) => _json(_),
-    tags: (_) => _json(_),
+    source: _json,
+    supportedComponentSources: _json,
+    tags: _json,
     templateName: [],
   });
 };
@@ -6988,7 +6988,7 @@ const se_UpdateEnvironmentInput = (input: UpdateEnvironmentInput, context: __Ser
     environmentAccountConnectionId: [],
     name: [],
     protonServiceRoleArn: [],
-    provisioningRepository: (_) => _json(_),
+    provisioningRepository: _json,
     spec: [],
     templateMajorVersion: [],
     templateMinorVersion: [],

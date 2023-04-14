@@ -12207,8 +12207,8 @@ const se_CreateActivationRequest = (input: CreateActivationRequest, context: __S
     ExpirationDate: (_) => Math.round(_.getTime() / 1000),
     IamRole: [],
     RegistrationLimit: [],
-    RegistrationMetadata: (_) => _json(_),
-    Tags: (_) => _json(_),
+    RegistrationMetadata: _json,
+    Tags: _json,
   });
 };
 
@@ -12238,7 +12238,7 @@ const se_CreateMaintenanceWindowRequest = (input: CreateMaintenanceWindowRequest
     ScheduleOffset: [],
     ScheduleTimezone: [],
     StartDate: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -12252,16 +12252,16 @@ const se_CreateOpsItemRequest = (input: CreateOpsItemRequest, context: __SerdeCo
     ActualStartTime: (_) => Math.round(_.getTime() / 1000),
     Category: [],
     Description: [],
-    Notifications: (_) => _json(_),
-    OperationalData: (_) => _json(_),
+    Notifications: _json,
+    OperationalData: _json,
     OpsItemType: [],
     PlannedEndTime: (_) => Math.round(_.getTime() / 1000),
     PlannedStartTime: (_) => Math.round(_.getTime() / 1000),
     Priority: [],
-    RelatedOpsItems: (_) => _json(_),
+    RelatedOpsItems: _json,
     Severity: [],
     Source: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     Title: [],
   });
 };
@@ -12273,19 +12273,19 @@ const se_CreateOpsItemRequest = (input: CreateOpsItemRequest, context: __SerdeCo
  */
 const se_CreatePatchBaselineRequest = (input: CreatePatchBaselineRequest, context: __SerdeContext): any => {
   return take(input, {
-    ApprovalRules: (_) => _json(_),
-    ApprovedPatches: (_) => _json(_),
+    ApprovalRules: _json,
+    ApprovedPatches: _json,
     ApprovedPatchesComplianceLevel: [],
     ApprovedPatchesEnableNonSecurity: [],
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
-    GlobalFilters: (_) => _json(_),
+    GlobalFilters: _json,
     Name: [],
     OperatingSystem: [],
-    RejectedPatches: (_) => _json(_),
+    RejectedPatches: _json,
     RejectedPatchesAction: [],
-    Sources: (_) => _json(_),
-    Tags: (_) => _json(_),
+    Sources: _json,
+    Tags: _json,
   });
 };
 
@@ -12441,10 +12441,10 @@ const se_DeleteInventoryRequest = (input: DeleteInventoryRequest, context: __Ser
 const se_GetInventoryRequest = (input: GetInventoryRequest, context: __SerdeContext): any => {
   return take(input, {
     Aggregators: (_) => se_InventoryAggregatorList(_, context),
-    Filters: (_) => _json(_),
+    Filters: _json,
     MaxResults: [],
     NextToken: [],
-    ResultAttributes: (_) => _json(_),
+    ResultAttributes: _json,
   });
 };
 
@@ -12470,10 +12470,10 @@ const se_GetInventoryRequest = (input: GetInventoryRequest, context: __SerdeCont
 const se_GetOpsSummaryRequest = (input: GetOpsSummaryRequest, context: __SerdeContext): any => {
   return take(input, {
     Aggregators: (_) => se_OpsAggregatorList(_, context),
-    Filters: (_) => _json(_),
+    Filters: _json,
     MaxResults: [],
     NextToken: [],
-    ResultAttributes: (_) => _json(_),
+    ResultAttributes: _json,
     SyncName: [],
   });
 };
@@ -12521,7 +12521,7 @@ const se_InventoryAggregator = (input: InventoryAggregator, context: __SerdeCont
   return take(input, {
     Aggregators: (_) => se_InventoryAggregatorList(_, context),
     Expression: [],
-    Groups: (_) => _json(_),
+    Groups: _json,
   });
 };
 
@@ -12611,7 +12611,7 @@ const se_MaintenanceWindowLambdaParameters = (
 ): any => {
   return take(input, {
     ClientContext: [],
-    Payload: (_) => context.base64Encoder(_),
+    Payload: context.base64Encoder,
     Qualifier: [],
   });
 };
@@ -12628,10 +12628,10 @@ const se_MaintenanceWindowTaskInvocationParameters = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Automation: (_) => _json(_),
+    Automation: _json,
     Lambda: (_) => se_MaintenanceWindowLambdaParameters(_, context),
-    RunCommand: (_) => _json(_),
-    StepFunctions: (_) => _json(_),
+    RunCommand: _json,
+    StepFunctions: _json,
   });
 };
 
@@ -12661,9 +12661,9 @@ const se_OpsAggregator = (input: OpsAggregator, context: __SerdeContext): any =>
     AggregatorType: [],
     Aggregators: (_) => se_OpsAggregatorList(_, context),
     AttributeName: [],
-    Filters: (_) => _json(_),
+    Filters: _json,
     TypeName: [],
-    Values: (_) => _json(_),
+    Values: _json,
   });
 };
 
@@ -12780,7 +12780,7 @@ const se_PutComplianceItemsRequest = (input: PutComplianceItemsRequest, context:
     ComplianceType: [],
     ExecutionSummary: (_) => se_ComplianceExecutionSummary(_, context),
     ItemContentHash: [],
-    Items: (_) => _json(_),
+    Items: _json,
     ResourceId: [],
     ResourceType: [],
     UploadType: [],
@@ -12812,7 +12812,7 @@ const se_RegisterTargetWithMaintenanceWindowRequest = (
     Name: [],
     OwnerInformation: [],
     ResourceType: [],
-    Targets: (_) => _json(_),
+    Targets: _json,
     WindowId: [],
   });
 };
@@ -12825,20 +12825,20 @@ const se_RegisterTaskWithMaintenanceWindowRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    AlarmConfiguration: (_) => _json(_),
+    AlarmConfiguration: _json,
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     CutoffBehavior: [],
     Description: [],
-    LoggingInfo: (_) => _json(_),
+    LoggingInfo: _json,
     MaxConcurrency: [],
     MaxErrors: [],
     Name: [],
     Priority: [],
     ServiceRoleArn: [],
-    Targets: (_) => _json(_),
+    Targets: _json,
     TaskArn: [],
     TaskInvocationParameters: (_) => se_MaintenanceWindowTaskInvocationParameters(_, context),
-    TaskParameters: (_) => _json(_),
+    TaskParameters: _json,
     TaskType: [],
     WindowId: [],
   });
@@ -12912,11 +12912,11 @@ const se_StartChangeRequestExecutionRequest = (
     ClientToken: [],
     DocumentName: [],
     DocumentVersion: [],
-    Parameters: (_) => _json(_),
-    Runbooks: (_) => _json(_),
+    Parameters: _json,
+    Runbooks: _json,
     ScheduledEndTime: (_) => Math.round(_.getTime() / 1000),
     ScheduledTime: (_) => Math.round(_.getTime() / 1000),
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -12987,20 +12987,20 @@ const se_UpdateMaintenanceWindowTaskRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    AlarmConfiguration: (_) => _json(_),
+    AlarmConfiguration: _json,
     CutoffBehavior: [],
     Description: [],
-    LoggingInfo: (_) => _json(_),
+    LoggingInfo: _json,
     MaxConcurrency: [],
     MaxErrors: [],
     Name: [],
     Priority: [],
     Replace: [],
     ServiceRoleArn: [],
-    Targets: (_) => _json(_),
+    Targets: _json,
     TaskArn: [],
     TaskInvocationParameters: (_) => se_MaintenanceWindowTaskInvocationParameters(_, context),
-    TaskParameters: (_) => _json(_),
+    TaskParameters: _json,
     WindowId: [],
     WindowTaskId: [],
   });
@@ -13017,15 +13017,15 @@ const se_UpdateOpsItemRequest = (input: UpdateOpsItemRequest, context: __SerdeCo
     ActualStartTime: (_) => Math.round(_.getTime() / 1000),
     Category: [],
     Description: [],
-    Notifications: (_) => _json(_),
-    OperationalData: (_) => _json(_),
-    OperationalDataToDelete: (_) => _json(_),
+    Notifications: _json,
+    OperationalData: _json,
+    OperationalDataToDelete: _json,
     OpsItemArn: [],
     OpsItemId: [],
     PlannedEndTime: (_) => Math.round(_.getTime() / 1000),
     PlannedStartTime: (_) => Math.round(_.getTime() / 1000),
     Priority: [],
-    RelatedOpsItems: (_) => _json(_),
+    RelatedOpsItems: _json,
     Severity: [],
     Status: [],
     Title: [],

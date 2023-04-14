@@ -5827,7 +5827,7 @@ const se_GetDevicePoolCompatibilityRequest = (
     appArn: [],
     configuration: (_) => se_ScheduleRunConfiguration(_, context),
     devicePoolArn: [],
-    test: (_) => _json(_),
+    test: _json,
     testType: [],
   });
 };
@@ -5935,8 +5935,8 @@ const se_ListTestGridSessionsRequest = (input: ListTestGridSessionsRequest, cont
  */
 const se_Location = (input: Location, context: __SerdeContext): any => {
   return take(input, {
-    latitude: (_) => __serializeFloat(_),
-    longitude: (_) => __serializeFloat(_),
+    latitude: __serializeFloat,
+    longitude: __serializeFloat,
   });
 };
 
@@ -5957,15 +5957,15 @@ const se_Location = (input: Location, context: __SerdeContext): any => {
  */
 const se_ScheduleRunConfiguration = (input: ScheduleRunConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    auxiliaryApps: (_) => _json(_),
+    auxiliaryApps: _json,
     billingMethod: [],
-    customerArtifactPaths: (_) => _json(_),
+    customerArtifactPaths: _json,
     extraDataPackageArn: [],
     locale: [],
     location: (_) => se_Location(_, context),
     networkProfileArn: [],
-    radios: (_) => _json(_),
-    vpceConfigurationArns: (_) => _json(_),
+    radios: _json,
+    vpceConfigurationArns: _json,
   });
 };
 
@@ -5977,11 +5977,11 @@ const se_ScheduleRunRequest = (input: ScheduleRunRequest, context: __SerdeContex
     appArn: [],
     configuration: (_) => se_ScheduleRunConfiguration(_, context),
     devicePoolArn: [],
-    deviceSelectionConfiguration: (_) => _json(_),
-    executionConfiguration: (_) => _json(_),
+    deviceSelectionConfiguration: _json,
+    executionConfiguration: _json,
     name: [],
     projectArn: [],
-    test: (_) => _json(_),
+    test: _json,
   });
 };
 

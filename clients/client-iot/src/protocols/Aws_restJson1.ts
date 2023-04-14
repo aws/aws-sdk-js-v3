@@ -23135,7 +23135,7 @@ const se_AbortCriteria = (input: AbortCriteria, context: __SerdeContext): any =>
     action: [],
     failureType: [],
     minNumberOfExecutedThings: [],
-    thresholdPercentage: (_) => __serializeFloat(_),
+    thresholdPercentage: __serializeFloat,
   });
 };
 
@@ -23221,7 +23221,7 @@ const se_AwsJobAbortCriteria = (input: AwsJobAbortCriteria, context: __SerdeCont
     action: [],
     failureType: [],
     minNumberOfExecutedThings: [],
-    thresholdPercentage: (_) => __serializeFloat(_),
+    thresholdPercentage: __serializeFloat,
   });
 };
 
@@ -23252,8 +23252,8 @@ const se_AwsJobExecutionsRolloutConfig = (input: AwsJobExecutionsRolloutConfig, 
 const se_AwsJobExponentialRolloutRate = (input: AwsJobExponentialRolloutRate, context: __SerdeContext): any => {
   return take(input, {
     baseRatePerMinute: [],
-    incrementFactor: (_) => __serializeFloat(_),
-    rateIncreaseCriteria: (_) => _json(_),
+    incrementFactor: __serializeFloat,
+    rateIncreaseCriteria: _json,
   });
 };
 
@@ -23270,7 +23270,7 @@ const se_Behavior = (input: Behavior, context: __SerdeContext): any => {
   return take(input, {
     criteria: (_) => se_BehaviorCriteria(_, context),
     metric: [],
-    metricDimension: (_) => _json(_),
+    metricDimension: _json,
     name: [],
     suppressAlerts: [],
   });
@@ -23285,8 +23285,8 @@ const se_BehaviorCriteria = (input: BehaviorCriteria, context: __SerdeContext): 
     consecutiveDatapointsToAlarm: [],
     consecutiveDatapointsToClear: [],
     durationSeconds: [],
-    mlDetectionConfig: (_) => _json(_),
-    statisticalThreshold: (_) => _json(_),
+    mlDetectionConfig: _json,
+    statisticalThreshold: _json,
     value: (_) => se_MetricValue(_, context),
   });
 };
@@ -23323,7 +23323,7 @@ const se_CodeSigning = (input: CodeSigning, context: __SerdeContext): any => {
   return take(input, {
     awsSignerJobId: [],
     customCodeSigning: (_) => se_CustomCodeSigning(_, context),
-    startSigningJobParameter: (_) => _json(_),
+    startSigningJobParameter: _json,
   });
 };
 
@@ -23334,7 +23334,7 @@ const se_CodeSigning = (input: CodeSigning, context: __SerdeContext): any => {
  */
 const se_CodeSigningSignature = (input: CodeSigningSignature, context: __SerdeContext): any => {
   return take(input, {
-    inlineDocument: (_) => context.base64Encoder(_),
+    inlineDocument: context.base64Encoder,
   });
 };
 
@@ -23345,7 +23345,7 @@ const se_CodeSigningSignature = (input: CodeSigningSignature, context: __SerdeCo
  */
 const se_CustomCodeSigning = (input: CustomCodeSigning, context: __SerdeContext): any => {
   return take(input, {
-    certificateChain: (_) => _json(_),
+    certificateChain: _json,
     hashAlgorithm: [],
     signature: (_) => se_CodeSigningSignature(_, context),
     signatureAlgorithm: [],
@@ -23378,8 +23378,8 @@ const se_CustomCodeSigning = (input: CustomCodeSigning, context: __SerdeContext)
 const se_ExponentialRolloutRate = (input: ExponentialRolloutRate, context: __SerdeContext): any => {
   return take(input, {
     baseRatePerMinute: [],
-    incrementFactor: (_) => __serializeFloat(_),
-    rateIncreaseCriteria: (_) => _json(_),
+    incrementFactor: __serializeFloat,
+    rateIncreaseCriteria: _json,
   });
 };
 
@@ -23460,12 +23460,12 @@ const se_JobExecutionsRolloutConfig = (input: JobExecutionsRolloutConfig, contex
  */
 const se_MetricValue = (input: MetricValue, context: __SerdeContext): any => {
   return take(input, {
-    cidrs: (_) => _json(_),
+    cidrs: _json,
     count: [],
-    number: (_) => __serializeFloat(_),
+    number: __serializeFloat,
     numbers: (_) => se_NumberList(_, context),
-    ports: (_) => _json(_),
-    strings: (_) => _json(_),
+    ports: _json,
+    strings: _json,
   });
 };
 
@@ -23479,7 +23479,7 @@ const se_MetricValue = (input: MetricValue, context: __SerdeContext): any => {
 const se_MqttContext = (input: MqttContext, context: __SerdeContext): any => {
   return take(input, {
     clientId: [],
-    password: (_) => context.base64Encoder(_),
+    password: context.base64Encoder,
     username: [],
   });
 };
@@ -23506,9 +23506,9 @@ const se_NumberList = (input: number[], context: __SerdeContext): any => {
  */
 const se_OTAUpdateFile = (input: OTAUpdateFile, context: __SerdeContext): any => {
   return take(input, {
-    attributes: (_) => _json(_),
+    attributes: _json,
     codeSigning: (_) => se_CodeSigning(_, context),
-    fileLocation: (_) => _json(_),
+    fileLocation: _json,
     fileName: [],
     fileType: [],
     fileVersion: [],

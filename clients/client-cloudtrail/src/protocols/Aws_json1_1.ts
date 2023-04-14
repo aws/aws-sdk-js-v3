@@ -5362,7 +5362,7 @@ const se_LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeCont
   return take(input, {
     EndTime: (_) => Math.round(_.getTime() / 1000),
     EventCategory: [],
-    LookupAttributes: (_) => _json(_),
+    LookupAttributes: _json,
     MaxResults: [],
     NextToken: [],
     StartTime: (_) => Math.round(_.getTime() / 1000),
@@ -5392,10 +5392,10 @@ const se_LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeCont
  */
 const se_StartImportRequest = (input: StartImportRequest, context: __SerdeContext): any => {
   return take(input, {
-    Destinations: (_) => _json(_),
+    Destinations: _json,
     EndEventTime: (_) => Math.round(_.getTime() / 1000),
     ImportId: [],
-    ImportSource: (_) => _json(_),
+    ImportSource: _json,
     StartEventTime: (_) => Math.round(_.getTime() / 1000),
   });
 };

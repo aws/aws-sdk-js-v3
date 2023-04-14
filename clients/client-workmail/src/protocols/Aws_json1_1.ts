@@ -6358,8 +6358,8 @@ const se_CreateAvailabilityConfigurationRequest = (
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     DomainName: [],
-    EwsProvider: (_) => _json(_),
-    LambdaProvider: (_) => _json(_),
+    EwsProvider: _json,
+    LambdaProvider: _json,
     OrganizationId: [],
   });
 };
@@ -6375,7 +6375,7 @@ const se_CreateImpersonationRoleRequest = (input: CreateImpersonationRoleRequest
     Description: [],
     Name: [],
     OrganizationId: [],
-    Rules: (_) => _json(_),
+    Rules: _json,
     Type: [],
   });
 };
@@ -6390,16 +6390,16 @@ const se_CreateMobileDeviceAccessRuleRequest = (
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
-    DeviceModels: (_) => _json(_),
-    DeviceOperatingSystems: (_) => _json(_),
-    DeviceTypes: (_) => _json(_),
-    DeviceUserAgents: (_) => _json(_),
+    DeviceModels: _json,
+    DeviceOperatingSystems: _json,
+    DeviceTypes: _json,
+    DeviceUserAgents: _json,
     Effect: [],
     Name: [],
-    NotDeviceModels: (_) => _json(_),
-    NotDeviceOperatingSystems: (_) => _json(_),
-    NotDeviceTypes: (_) => _json(_),
-    NotDeviceUserAgents: (_) => _json(_),
+    NotDeviceModels: _json,
+    NotDeviceOperatingSystems: _json,
+    NotDeviceTypes: _json,
+    NotDeviceUserAgents: _json,
     OrganizationId: [],
   });
 };
@@ -6412,7 +6412,7 @@ const se_CreateOrganizationRequest = (input: CreateOrganizationRequest, context:
     Alias: [],
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     DirectoryId: [],
-    Domains: (_) => _json(_),
+    Domains: _json,
     EnableInteroperability: [],
     KmsKeyArn: [],
   });

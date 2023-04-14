@@ -2109,9 +2109,9 @@ const se_ImportCertificateAuthorityCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Certificate: (_) => context.base64Encoder(_),
+    Certificate: context.base64Encoder,
     CertificateAuthorityArn: [],
-    CertificateChain: (_) => context.base64Encoder(_),
+    CertificateChain: context.base64Encoder,
   });
 };
 
@@ -2120,14 +2120,14 @@ const se_ImportCertificateAuthorityCertificateRequest = (
  */
 const se_IssueCertificateRequest = (input: IssueCertificateRequest, context: __SerdeContext): any => {
   return take(input, {
-    ApiPassthrough: (_) => _json(_),
+    ApiPassthrough: _json,
     CertificateAuthorityArn: [],
-    Csr: (_) => context.base64Encoder(_),
+    Csr: context.base64Encoder,
     IdempotencyToken: [],
     SigningAlgorithm: [],
     TemplateArn: [],
-    Validity: (_) => _json(_),
-    ValidityNotBefore: (_) => _json(_),
+    Validity: _json,
+    ValidityNotBefore: _json,
   });
 };
 

@@ -5158,7 +5158,7 @@ const se_AssociateFirewallRuleGroupRequest = (
     MutationProtection: [],
     Name: [],
     Priority: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     VpcId: [],
   });
 };
@@ -5176,7 +5176,7 @@ const se_CreateFirewallDomainListRequest = (input: CreateFirewallDomainListReque
   return take(input, {
     CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -5187,7 +5187,7 @@ const se_CreateFirewallRuleGroupRequest = (input: CreateFirewallRuleGroupRequest
   return take(input, {
     CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -5222,7 +5222,7 @@ const se_CreateResolverQueryLogConfigRequest = (
     CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
     DestinationArn: [],
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 

@@ -1252,8 +1252,8 @@ const se_Message = (input: Message, context: __SerdeContext): any => {
   return take(input, {
     inputName: [],
     messageId: [],
-    payload: (_) => context.base64Encoder(_),
-    timestamp: (_) => _json(_),
+    payload: context.base64Encoder,
+    timestamp: _json,
   });
 };
 

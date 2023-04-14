@@ -2698,12 +2698,12 @@ const se_ApplicationCodeConfigurationUpdate = (
 const se_ApplicationConfiguration = (input: ApplicationConfiguration, context: __SerdeContext): any => {
   return take(input, {
     ApplicationCodeConfiguration: (_) => se_ApplicationCodeConfiguration(_, context),
-    ApplicationSnapshotConfiguration: (_) => _json(_),
-    EnvironmentProperties: (_) => _json(_),
-    FlinkApplicationConfiguration: (_) => _json(_),
-    SqlApplicationConfiguration: (_) => _json(_),
-    VpcConfigurations: (_) => _json(_),
-    ZeppelinApplicationConfiguration: (_) => _json(_),
+    ApplicationSnapshotConfiguration: _json,
+    EnvironmentProperties: _json,
+    FlinkApplicationConfiguration: _json,
+    SqlApplicationConfiguration: _json,
+    VpcConfigurations: _json,
+    ZeppelinApplicationConfiguration: _json,
   });
 };
 
@@ -2713,12 +2713,12 @@ const se_ApplicationConfiguration = (input: ApplicationConfiguration, context: _
 const se_ApplicationConfigurationUpdate = (input: ApplicationConfigurationUpdate, context: __SerdeContext): any => {
   return take(input, {
     ApplicationCodeConfigurationUpdate: (_) => se_ApplicationCodeConfigurationUpdate(_, context),
-    ApplicationSnapshotConfigurationUpdate: (_) => _json(_),
-    EnvironmentPropertyUpdates: (_) => _json(_),
-    FlinkApplicationConfigurationUpdate: (_) => _json(_),
-    SqlApplicationConfigurationUpdate: (_) => _json(_),
-    VpcConfigurationUpdates: (_) => _json(_),
-    ZeppelinApplicationConfigurationUpdate: (_) => _json(_),
+    ApplicationSnapshotConfigurationUpdate: _json,
+    EnvironmentPropertyUpdates: _json,
+    FlinkApplicationConfigurationUpdate: _json,
+    SqlApplicationConfigurationUpdate: _json,
+    VpcConfigurationUpdates: _json,
+    ZeppelinApplicationConfigurationUpdate: _json,
   });
 };
 
@@ -2751,9 +2751,9 @@ const se_ApplicationConfigurationUpdate = (input: ApplicationConfigurationUpdate
  */
 const se_CodeContent = (input: CodeContent, context: __SerdeContext): any => {
   return take(input, {
-    S3ContentLocation: (_) => _json(_),
+    S3ContentLocation: _json,
     TextContent: [],
-    ZipFileContent: (_) => context.base64Encoder(_),
+    ZipFileContent: context.base64Encoder,
   });
 };
 
@@ -2762,9 +2762,9 @@ const se_CodeContent = (input: CodeContent, context: __SerdeContext): any => {
  */
 const se_CodeContentUpdate = (input: CodeContentUpdate, context: __SerdeContext): any => {
   return take(input, {
-    S3ContentLocationUpdate: (_) => _json(_),
+    S3ContentLocationUpdate: _json,
     TextContentUpdate: [],
-    ZipFileContentUpdate: (_) => context.base64Encoder(_),
+    ZipFileContentUpdate: context.base64Encoder,
   });
 };
 
@@ -2779,10 +2779,10 @@ const se_CreateApplicationRequest = (input: CreateApplicationRequest, context: _
     ApplicationDescription: [],
     ApplicationMode: [],
     ApplicationName: [],
-    CloudWatchLoggingOptions: (_) => _json(_),
+    CloudWatchLoggingOptions: _json,
     RuntimeEnvironment: [],
     ServiceExecutionRole: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3004,10 +3004,10 @@ const se_UpdateApplicationRequest = (input: UpdateApplicationRequest, context: _
   return take(input, {
     ApplicationConfigurationUpdate: (_) => se_ApplicationConfigurationUpdate(_, context),
     ApplicationName: [],
-    CloudWatchLoggingOptionUpdates: (_) => _json(_),
+    CloudWatchLoggingOptionUpdates: _json,
     ConditionalToken: [],
     CurrentApplicationVersionId: [],
-    RunConfigurationUpdate: (_) => _json(_),
+    RunConfigurationUpdate: _json,
     ServiceExecutionRoleUpdate: [],
   });
 };

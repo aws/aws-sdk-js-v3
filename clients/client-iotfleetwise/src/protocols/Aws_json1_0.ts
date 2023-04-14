@@ -4037,13 +4037,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_Actuator = (input: Actuator, context: __SerdeContext): any => {
   return take(input, {
-    allowedValues: (_) => _json(_),
+    allowedValues: _json,
     assignedValue: [],
     dataType: [],
     description: [],
     fullyQualifiedName: [],
-    max: (_) => __serializeFloat(_),
-    min: (_) => __serializeFloat(_),
+    max: __serializeFloat,
+    min: __serializeFloat,
     unit: [],
   });
 };
@@ -4055,14 +4055,14 @@ const se_Actuator = (input: Actuator, context: __SerdeContext): any => {
  */
 const se_Attribute = (input: Attribute, context: __SerdeContext): any => {
   return take(input, {
-    allowedValues: (_) => _json(_),
+    allowedValues: _json,
     assignedValue: [],
     dataType: [],
     defaultValue: [],
     description: [],
     fullyQualifiedName: [],
-    max: (_) => __serializeFloat(_),
-    min: (_) => __serializeFloat(_),
+    max: __serializeFloat,
+    min: __serializeFloat,
     unit: [],
   });
 };
@@ -4082,7 +4082,7 @@ const se_CanDbcDefinition = (input: CanDbcDefinition, context: __SerdeContext): 
   return take(input, {
     canDbcFiles: (_) => se_NetworkFilesList(_, context),
     networkInterface: [],
-    signalsMap: (_) => _json(_),
+    signalsMap: _json,
   });
 };
 
@@ -4093,13 +4093,13 @@ const se_CanDbcDefinition = (input: CanDbcDefinition, context: __SerdeContext): 
  */
 const se_CanSignal = (input: CanSignal, context: __SerdeContext): any => {
   return take(input, {
-    factor: (_) => __serializeFloat(_),
+    factor: __serializeFloat,
     isBigEndian: [],
     isSigned: [],
     length: [],
     messageId: [],
     name: [],
-    offset: (_) => __serializeFloat(_),
+    offset: __serializeFloat,
     startBit: [],
   });
 };
@@ -4115,9 +4115,9 @@ const se_CanSignal = (input: CanSignal, context: __SerdeContext): any => {
  */
 const se_CreateCampaignRequest = (input: CreateCampaignRequest, context: __SerdeContext): any => {
   return take(input, {
-    collectionScheme: (_) => _json(_),
+    collectionScheme: _json,
     compression: [],
-    dataExtraDimensions: (_) => _json(_),
+    dataExtraDimensions: _json,
     description: [],
     diagnosticsMode: [],
     expiryTime: (_) => Math.round(_.getTime() / 1000),
@@ -4125,10 +4125,10 @@ const se_CreateCampaignRequest = (input: CreateCampaignRequest, context: __Serde
     postTriggerCollectionDuration: [],
     priority: [],
     signalCatalogArn: [],
-    signalsToCollect: (_) => _json(_),
+    signalsToCollect: _json,
     spoolingMode: [],
     startTime: (_) => Math.round(_.getTime() / 1000),
-    tags: (_) => _json(_),
+    tags: _json,
     targetArn: [],
   });
 };
@@ -4141,9 +4141,9 @@ const se_CreateDecoderManifestRequest = (input: CreateDecoderManifestRequest, co
     description: [],
     modelManifestArn: [],
     name: [],
-    networkInterfaces: (_) => _json(_),
+    networkInterfaces: _json,
     signalDecoders: (_) => se_SignalDecoders(_, context),
-    tags: (_) => _json(_),
+    tags: _json,
   });
 };
 
@@ -4159,7 +4159,7 @@ const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, contex
     description: [],
     name: [],
     nodes: (_) => se_Nodes(_, context),
-    tags: (_) => _json(_),
+    tags: _json,
   });
 };
 
@@ -4325,10 +4325,10 @@ const se_ObdSignal = (input: ObdSignal, context: __SerdeContext): any => {
     bitMaskLength: [],
     bitRightShift: [],
     byteLength: [],
-    offset: (_) => __serializeFloat(_),
+    offset: __serializeFloat,
     pid: [],
     pidResponseLength: [],
-    scaling: (_) => __serializeFloat(_),
+    scaling: __serializeFloat,
     serviceMode: [],
     startByte: [],
   });
@@ -4343,12 +4343,12 @@ const se_ObdSignal = (input: ObdSignal, context: __SerdeContext): any => {
  */
 const se_Sensor = (input: Sensor, context: __SerdeContext): any => {
   return take(input, {
-    allowedValues: (_) => _json(_),
+    allowedValues: _json,
     dataType: [],
     description: [],
     fullyQualifiedName: [],
-    max: (_) => __serializeFloat(_),
-    min: (_) => __serializeFloat(_),
+    max: __serializeFloat,
+    min: __serializeFloat,
     unit: [],
   });
 };
@@ -4404,11 +4404,11 @@ const se_UpdateDecoderManifestRequest = (input: UpdateDecoderManifestRequest, co
   return take(input, {
     description: [],
     name: [],
-    networkInterfacesToAdd: (_) => _json(_),
-    networkInterfacesToRemove: (_) => _json(_),
-    networkInterfacesToUpdate: (_) => _json(_),
+    networkInterfacesToAdd: _json,
+    networkInterfacesToRemove: _json,
+    networkInterfacesToUpdate: _json,
     signalDecodersToAdd: (_) => se_SignalDecoders(_, context),
-    signalDecodersToRemove: (_) => _json(_),
+    signalDecodersToRemove: _json,
     signalDecodersToUpdate: (_) => se_SignalDecoders(_, context),
     status: [],
   });
@@ -4426,7 +4426,7 @@ const se_UpdateSignalCatalogRequest = (input: UpdateSignalCatalogRequest, contex
     description: [],
     name: [],
     nodesToAdd: (_) => se_Nodes(_, context),
-    nodesToRemove: (_) => _json(_),
+    nodesToRemove: _json,
     nodesToUpdate: (_) => se_Nodes(_, context),
   });
 };

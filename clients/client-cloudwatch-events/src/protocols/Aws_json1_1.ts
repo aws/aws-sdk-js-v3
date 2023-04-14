@@ -3896,7 +3896,7 @@ const se_PutEventsRequestEntry = (input: PutEventsRequestEntry, context: __Serde
     Detail: [],
     DetailType: [],
     EventBusName: [],
-    Resources: (_) => _json(_),
+    Resources: _json,
     Source: [],
     Time: (_) => Math.round(_.getTime() / 1000),
     TraceHeader: [],
@@ -3930,7 +3930,7 @@ const se_PutPartnerEventsRequestEntry = (input: PutPartnerEventsRequestEntry, co
   return take(input, {
     Detail: [],
     DetailType: [],
-    Resources: (_) => _json(_),
+    Resources: _json,
     Source: [],
     Time: (_) => Math.round(_.getTime() / 1000),
   });
@@ -3989,7 +3989,7 @@ const se_PutPartnerEventsRequestEntryList = (input: PutPartnerEventsRequestEntry
 const se_StartReplayRequest = (input: StartReplayRequest, context: __SerdeContext): any => {
   return take(input, {
     Description: [],
-    Destination: (_) => _json(_),
+    Destination: _json,
     EventEndTime: (_) => Math.round(_.getTime() / 1000),
     EventSourceArn: [],
     EventStartTime: (_) => Math.round(_.getTime() / 1000),

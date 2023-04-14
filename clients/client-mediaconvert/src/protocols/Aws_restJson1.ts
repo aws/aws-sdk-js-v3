@@ -3290,8 +3290,8 @@ const se_AudioNormalizationSettings = (input: AudioNormalizationSettings, contex
     correctionGateLevel: [, , `CorrectionGateLevel`],
     loudnessLogging: [, , `LoudnessLogging`],
     peakCalculation: [, , `PeakCalculation`],
-    targetLkfs: [, (_) => __serializeFloat(_), `TargetLkfs`],
-    truePeakLimiterThreshold: [, (_) => __serializeFloat(_), `TruePeakLimiterThreshold`],
+    targetLkfs: [, __serializeFloat, `TargetLkfs`],
+    truePeakLimiterThreshold: [, __serializeFloat, `TruePeakLimiterThreshold`],
   });
 };
 
@@ -3307,11 +3307,11 @@ const se_AudioSelector = (input: AudioSelector, context: __SerdeContext): any =>
     hlsRenditionGroupSettings: [, (_) => se_HlsRenditionGroupSettings(_, context), `HlsRenditionGroupSettings`],
     languageCode: [, , `LanguageCode`],
     offset: [, , `Offset`],
-    pids: [, (_) => _json(_), `Pids`],
+    pids: [, _json, `Pids`],
     programSelection: [, , `ProgramSelection`],
     remixSettings: [, (_) => se_RemixSettings(_, context), `RemixSettings`],
     selectorType: [, , `SelectorType`],
-    tracks: [, (_) => _json(_), `Tracks`],
+    tracks: [, _json, `Tracks`],
   });
 };
 
@@ -3320,7 +3320,7 @@ const se_AudioSelector = (input: AudioSelector, context: __SerdeContext): any =>
  */
 const se_AudioSelectorGroup = (input: AudioSelectorGroup, context: __SerdeContext): any => {
   return take(input, {
-    audioSelectorNames: [, (_) => _json(_), `AudioSelectorNames`],
+    audioSelectorNames: [, _json, `AudioSelectorNames`],
   });
 };
 
@@ -3364,7 +3364,7 @@ const se_AutomatedEncodingSettings = (input: AutomatedEncodingSettings, context:
 const se_Av1QvbrSettings = (input: Av1QvbrSettings, context: __SerdeContext): any => {
   return take(input, {
     qvbrQualityLevel: [, , `QvbrQualityLevel`],
-    qvbrQualityLevelFineTune: [, (_) => __serializeFloat(_), `QvbrQualityLevelFineTune`],
+    qvbrQualityLevelFineTune: [, __serializeFloat, `QvbrQualityLevelFineTune`],
   });
 };
 
@@ -3379,7 +3379,7 @@ const se_Av1Settings = (input: Av1Settings, context: __SerdeContext): any => {
     framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
     framerateDenominator: [, , `FramerateDenominator`],
     framerateNumerator: [, , `FramerateNumerator`],
-    gopSize: [, (_) => __serializeFloat(_), `GopSize`],
+    gopSize: [, __serializeFloat, `GopSize`],
     maxBitrate: [, , `MaxBitrate`],
     numberBFramesBetweenReferenceFrames: [, , `NumberBFramesBetweenReferenceFrames`],
     qvbrSettings: [, (_) => se_Av1QvbrSettings(_, context), `QvbrSettings`],
@@ -3571,7 +3571,7 @@ const se_ClipLimits = (input: ClipLimits, context: __SerdeContext): any => {
 const se_CmafAdditionalManifest = (input: CmafAdditionalManifest, context: __SerdeContext): any => {
   return take(input, {
     manifestNameModifier: [, , `ManifestNameModifier`],
-    selectedOutputs: [, (_) => _json(_), `SelectedOutputs`],
+    selectedOutputs: [, _json, `SelectedOutputs`],
   });
 };
 
@@ -3612,7 +3612,7 @@ const se_CmafGroupSettings = (input: CmafGroupSettings, context: __SerdeContext)
     manifestCompression: [, , `ManifestCompression`],
     manifestDurationFormat: [, , `ManifestDurationFormat`],
     minBufferTime: [, , `MinBufferTime`],
-    minFinalSegmentLength: [, (_) => __serializeFloat(_), `MinFinalSegmentLength`],
+    minFinalSegmentLength: [, __serializeFloat, `MinFinalSegmentLength`],
     mpdManifestBandwidthType: [, , `MpdManifestBandwidthType`],
     mpdProfile: [, , `MpdProfile`],
     ptsOffsetHandlingForBFrames: [, , `PtsOffsetHandlingForBFrames`],
@@ -3635,7 +3635,7 @@ const se_CmafImageBasedTrickPlaySettings = (input: CmafImageBasedTrickPlaySettin
   return take(input, {
     intervalCadence: [, , `IntervalCadence`],
     thumbnailHeight: [, , `ThumbnailHeight`],
-    thumbnailInterval: [, (_) => __serializeFloat(_), `ThumbnailInterval`],
+    thumbnailInterval: [, __serializeFloat, `ThumbnailInterval`],
     thumbnailWidth: [, , `ThumbnailWidth`],
     tileHeight: [, , `TileHeight`],
     tileWidth: [, , `TileWidth`],
@@ -3705,7 +3705,7 @@ const se_ContainerSettings = (input: ContainerSettings, context: __SerdeContext)
 const se_DashAdditionalManifest = (input: DashAdditionalManifest, context: __SerdeContext): any => {
   return take(input, {
     manifestNameModifier: [, , `ManifestNameModifier`],
-    selectedOutputs: [, (_) => _json(_), `SelectedOutputs`],
+    selectedOutputs: [, _json, `SelectedOutputs`],
   });
 };
 
@@ -3740,7 +3740,7 @@ const se_DashIsoGroupSettings = (input: DashIsoGroupSettings, context: __SerdeCo
       `ImageBasedTrickPlaySettings`,
     ],
     minBufferTime: [, , `MinBufferTime`],
-    minFinalSegmentLength: [, (_) => __serializeFloat(_), `MinFinalSegmentLength`],
+    minFinalSegmentLength: [, __serializeFloat, `MinFinalSegmentLength`],
     mpdManifestBandwidthType: [, , `MpdManifestBandwidthType`],
     mpdProfile: [, , `MpdProfile`],
     ptsOffsetHandlingForBFrames: [, , `PtsOffsetHandlingForBFrames`],
@@ -3762,7 +3762,7 @@ const se_DashIsoImageBasedTrickPlaySettings = (
   return take(input, {
     intervalCadence: [, , `IntervalCadence`],
     thumbnailHeight: [, , `ThumbnailHeight`],
-    thumbnailInterval: [, (_) => __serializeFloat(_), `ThumbnailInterval`],
+    thumbnailInterval: [, __serializeFloat, `ThumbnailInterval`],
     thumbnailWidth: [, , `ThumbnailWidth`],
     tileHeight: [, , `TileHeight`],
     tileWidth: [, , `TileWidth`],
@@ -3900,10 +3900,10 @@ const se_Eac3AtmosSettings = (input: Eac3AtmosSettings, context: __SerdeContext)
     dynamicRangeCompressionLine: [, , `DynamicRangeCompressionLine`],
     dynamicRangeCompressionRf: [, , `DynamicRangeCompressionRf`],
     dynamicRangeControl: [, , `DynamicRangeControl`],
-    loRoCenterMixLevel: [, (_) => __serializeFloat(_), `LoRoCenterMixLevel`],
-    loRoSurroundMixLevel: [, (_) => __serializeFloat(_), `LoRoSurroundMixLevel`],
-    ltRtCenterMixLevel: [, (_) => __serializeFloat(_), `LtRtCenterMixLevel`],
-    ltRtSurroundMixLevel: [, (_) => __serializeFloat(_), `LtRtSurroundMixLevel`],
+    loRoCenterMixLevel: [, __serializeFloat, `LoRoCenterMixLevel`],
+    loRoSurroundMixLevel: [, __serializeFloat, `LoRoSurroundMixLevel`],
+    ltRtCenterMixLevel: [, __serializeFloat, `LtRtCenterMixLevel`],
+    ltRtSurroundMixLevel: [, __serializeFloat, `LtRtSurroundMixLevel`],
     meteringMode: [, , `MeteringMode`],
     sampleRate: [, , `SampleRate`],
     speechThreshold: [, , `SpeechThreshold`],
@@ -3927,10 +3927,10 @@ const se_Eac3Settings = (input: Eac3Settings, context: __SerdeContext): any => {
     dynamicRangeCompressionRf: [, , `DynamicRangeCompressionRf`],
     lfeControl: [, , `LfeControl`],
     lfeFilter: [, , `LfeFilter`],
-    loRoCenterMixLevel: [, (_) => __serializeFloat(_), `LoRoCenterMixLevel`],
-    loRoSurroundMixLevel: [, (_) => __serializeFloat(_), `LoRoSurroundMixLevel`],
-    ltRtCenterMixLevel: [, (_) => __serializeFloat(_), `LtRtCenterMixLevel`],
-    ltRtSurroundMixLevel: [, (_) => __serializeFloat(_), `LtRtSurroundMixLevel`],
+    loRoCenterMixLevel: [, __serializeFloat, `LoRoCenterMixLevel`],
+    loRoSurroundMixLevel: [, __serializeFloat, `LoRoSurroundMixLevel`],
+    ltRtCenterMixLevel: [, __serializeFloat, `LtRtCenterMixLevel`],
+    ltRtSurroundMixLevel: [, __serializeFloat, `LtRtSurroundMixLevel`],
     metadataControl: [, , `MetadataControl`],
     passthroughControl: [, , `PassthroughControl`],
     phaseControl: [, , `PhaseControl`],
@@ -4074,7 +4074,7 @@ const se_H264QvbrSettings = (input: H264QvbrSettings, context: __SerdeContext): 
   return take(input, {
     maxAverageBitrate: [, , `MaxAverageBitrate`],
     qvbrQualityLevel: [, , `QvbrQualityLevel`],
-    qvbrQualityLevelFineTune: [, (_) => __serializeFloat(_), `QvbrQualityLevelFineTune`],
+    qvbrQualityLevelFineTune: [, __serializeFloat, `QvbrQualityLevelFineTune`],
   });
 };
 
@@ -4098,7 +4098,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     framerateNumerator: [, , `FramerateNumerator`],
     gopBReference: [, , `GopBReference`],
     gopClosedCadence: [, , `GopClosedCadence`],
-    gopSize: [, (_) => __serializeFloat(_), `GopSize`],
+    gopSize: [, __serializeFloat, `GopSize`],
     gopSizeUnits: [, , `GopSizeUnits`],
     hrdBufferFinalFillPercentage: [, , `HrdBufferFinalFillPercentage`],
     hrdBufferInitialFillPercentage: [, , `HrdBufferInitialFillPercentage`],
@@ -4135,7 +4135,7 @@ const se_H265QvbrSettings = (input: H265QvbrSettings, context: __SerdeContext): 
   return take(input, {
     maxAverageBitrate: [, , `MaxAverageBitrate`],
     qvbrQualityLevel: [, , `QvbrQualityLevel`],
-    qvbrQualityLevelFineTune: [, (_) => __serializeFloat(_), `QvbrQualityLevelFineTune`],
+    qvbrQualityLevelFineTune: [, __serializeFloat, `QvbrQualityLevelFineTune`],
   });
 };
 
@@ -4157,7 +4157,7 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     framerateNumerator: [, , `FramerateNumerator`],
     gopBReference: [, , `GopBReference`],
     gopClosedCadence: [, , `GopClosedCadence`],
-    gopSize: [, (_) => __serializeFloat(_), `GopSize`],
+    gopSize: [, __serializeFloat, `GopSize`],
     gopSizeUnits: [, , `GopSizeUnits`],
     hrdBufferFinalFillPercentage: [, , `HrdBufferFinalFillPercentage`],
     hrdBufferInitialFillPercentage: [, , `HrdBufferInitialFillPercentage`],
@@ -4224,7 +4224,7 @@ const se_Hdr10Plus = (input: Hdr10Plus, context: __SerdeContext): any => {
 const se_HlsAdditionalManifest = (input: HlsAdditionalManifest, context: __SerdeContext): any => {
   return take(input, {
     manifestNameModifier: [, , `ManifestNameModifier`],
-    selectedOutputs: [, (_) => _json(_), `SelectedOutputs`],
+    selectedOutputs: [, _json, `SelectedOutputs`],
   });
 };
 
@@ -4260,7 +4260,7 @@ const se_HlsEncryptionSettings = (input: HlsEncryptionSettings, context: __Serde
  */
 const se_HlsGroupSettings = (input: HlsGroupSettings, context: __SerdeContext): any => {
   return take(input, {
-    adMarkers: [, (_) => _json(_), `AdMarkers`],
+    adMarkers: [, _json, `AdMarkers`],
     additionalManifests: [, (_) => se___listOfHlsAdditionalManifest(_, context), `AdditionalManifests`],
     audioOnlyHeader: [, , `AudioOnlyHeader`],
     baseUrl: [, , `BaseUrl`],
@@ -4281,7 +4281,7 @@ const se_HlsGroupSettings = (input: HlsGroupSettings, context: __SerdeContext): 
     ],
     manifestCompression: [, , `ManifestCompression`],
     manifestDurationFormat: [, , `ManifestDurationFormat`],
-    minFinalSegmentLength: [, (_) => __serializeFloat(_), `MinFinalSegmentLength`],
+    minFinalSegmentLength: [, __serializeFloat, `MinFinalSegmentLength`],
     minSegmentLength: [, , `MinSegmentLength`],
     outputSelection: [, , `OutputSelection`],
     programDateTime: [, , `ProgramDateTime`],
@@ -4305,7 +4305,7 @@ const se_HlsImageBasedTrickPlaySettings = (input: HlsImageBasedTrickPlaySettings
   return take(input, {
     intervalCadence: [, , `IntervalCadence`],
     thumbnailHeight: [, , `ThumbnailHeight`],
-    thumbnailInterval: [, (_) => __serializeFloat(_), `ThumbnailInterval`],
+    thumbnailInterval: [, __serializeFloat, `ThumbnailInterval`],
     thumbnailWidth: [, , `ThumbnailWidth`],
     tileHeight: [, , `TileHeight`],
     tileWidth: [, , `TileWidth`],
@@ -4401,7 +4401,7 @@ const se_Input = (input: Input, context: __SerdeContext): any => {
     position: [, (_) => se_Rectangle(_, context), `Position`],
     programNumber: [, , `ProgramNumber`],
     psiControl: [, , `PsiControl`],
-    supplementalImps: [, (_) => _json(_), `SupplementalImps`],
+    supplementalImps: [, _json, `SupplementalImps`],
     timecodeSource: [, , `TimecodeSource`],
     timecodeStart: [, , `TimecodeStart`],
     videoGenerator: [, (_) => se_InputVideoGenerator(_, context), `VideoGenerator`],
@@ -4533,7 +4533,7 @@ const se_KantarWatermarkSettings = (input: KantarWatermarkSettings, context: __S
     channelName: [, , `ChannelName`],
     contentReference: [, , `ContentReference`],
     credentialsSecretName: [, , `CredentialsSecretName`],
-    fileOffset: [, (_) => __serializeFloat(_), `FileOffset`],
+    fileOffset: [, __serializeFloat, `FileOffset`],
     kantarLicenseId: [, , `KantarLicenseId`],
     kantarServerUrl: [, , `KantarServerUrl`],
     logDestination: [, , `LogDestination`],
@@ -4563,25 +4563,25 @@ const se_M2tsSettings = (input: M2tsSettings, context: __SerdeContext): any => {
     audioBufferModel: [, , `AudioBufferModel`],
     audioDuration: [, , `AudioDuration`],
     audioFramesPerPes: [, , `AudioFramesPerPes`],
-    audioPids: [, (_) => _json(_), `AudioPids`],
+    audioPids: [, _json, `AudioPids`],
     bitrate: [, , `Bitrate`],
     bufferModel: [, , `BufferModel`],
     dataPTSControl: [, , `DataPTSControl`],
     dvbNitSettings: [, (_) => se_DvbNitSettings(_, context), `DvbNitSettings`],
     dvbSdtSettings: [, (_) => se_DvbSdtSettings(_, context), `DvbSdtSettings`],
-    dvbSubPids: [, (_) => _json(_), `DvbSubPids`],
+    dvbSubPids: [, _json, `DvbSubPids`],
     dvbTdtSettings: [, (_) => se_DvbTdtSettings(_, context), `DvbTdtSettings`],
     dvbTeletextPid: [, , `DvbTeletextPid`],
     ebpAudioInterval: [, , `EbpAudioInterval`],
     ebpPlacement: [, , `EbpPlacement`],
     esRateInPes: [, , `EsRateInPes`],
     forceTsVideoEbpOrder: [, , `ForceTsVideoEbpOrder`],
-    fragmentTime: [, (_) => __serializeFloat(_), `FragmentTime`],
+    fragmentTime: [, __serializeFloat, `FragmentTime`],
     klvMetadata: [, , `KlvMetadata`],
     maxPcrInterval: [, , `MaxPcrInterval`],
     minEbpInterval: [, , `MinEbpInterval`],
     nielsenId3: [, , `NielsenId3`],
-    nullPacketBitrate: [, (_) => __serializeFloat(_), `NullPacketBitrate`],
+    nullPacketBitrate: [, __serializeFloat, `NullPacketBitrate`],
     patInterval: [, , `PatInterval`],
     pcrControl: [, , `PcrControl`],
     pcrPid: [, , `PcrPid`],
@@ -4595,7 +4595,7 @@ const se_M2tsSettings = (input: M2tsSettings, context: __SerdeContext): any => {
     scte35Source: [, , `Scte35Source`],
     segmentationMarkers: [, , `SegmentationMarkers`],
     segmentationStyle: [, , `SegmentationStyle`],
-    segmentationTime: [, (_) => __serializeFloat(_), `SegmentationTime`],
+    segmentationTime: [, __serializeFloat, `SegmentationTime`],
     timedMetadataPid: [, , `TimedMetadataPid`],
     transportStreamId: [, , `TransportStreamId`],
     videoPid: [, , `VideoPid`],
@@ -4609,7 +4609,7 @@ const se_M3u8Settings = (input: M3u8Settings, context: __SerdeContext): any => {
   return take(input, {
     audioDuration: [, , `AudioDuration`],
     audioFramesPerPes: [, , `AudioFramesPerPes`],
-    audioPids: [, (_) => _json(_), `AudioPids`],
+    audioPids: [, _json, `AudioPids`],
     dataPTSControl: [, , `DataPTSControl`],
     maxPcrInterval: [, , `MaxPcrInterval`],
     nielsenId3: [, , `NielsenId3`],
@@ -4768,7 +4768,7 @@ const se_Mpeg2Settings = (input: Mpeg2Settings, context: __SerdeContext): any =>
     framerateDenominator: [, , `FramerateDenominator`],
     framerateNumerator: [, , `FramerateNumerator`],
     gopClosedCadence: [, , `GopClosedCadence`],
-    gopSize: [, (_) => __serializeFloat(_), `GopSize`],
+    gopSize: [, __serializeFloat, `GopSize`],
     gopSizeUnits: [, , `GopSizeUnits`],
     hrdBufferFinalFillPercentage: [, , `HrdBufferFinalFillPercentage`],
     hrdBufferInitialFillPercentage: [, , `HrdBufferInitialFillPercentage`],
@@ -4800,7 +4800,7 @@ const se_Mpeg2Settings = (input: Mpeg2Settings, context: __SerdeContext): any =>
 const se_MsSmoothAdditionalManifest = (input: MsSmoothAdditionalManifest, context: __SerdeContext): any => {
   return take(input, {
     manifestNameModifier: [, , `ManifestNameModifier`],
-    selectedOutputs: [, (_) => _json(_), `SelectedOutputs`],
+    selectedOutputs: [, _json, `SelectedOutputs`],
   });
 };
 
@@ -4977,7 +4977,7 @@ const se_Output = (input: Output, context: __SerdeContext): any => {
  */
 const se_OutputChannelMapping = (input: OutputChannelMapping, context: __SerdeContext): any => {
   return take(input, {
-    inputChannels: [, (_) => _json(_), `InputChannels`],
+    inputChannels: [, _json, `InputChannels`],
     inputChannelsFineTune: [, (_) => se___listOf__doubleMinNegative60Max6(_, context), `InputChannelsFineTune`],
   });
 };
@@ -5151,7 +5151,7 @@ const se_SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): 
   return take(input, {
     certificateArn: [, , `CertificateArn`],
     resourceId: [, , `ResourceId`],
-    systemIds: [, (_) => _json(_), `SystemIds`],
+    systemIds: [, _json, `SystemIds`],
     url: [, , `Url`],
   });
 };
@@ -5162,8 +5162,8 @@ const se_SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): 
 const se_SpekeKeyProviderCmaf = (input: SpekeKeyProviderCmaf, context: __SerdeContext): any => {
   return take(input, {
     certificateArn: [, , `CertificateArn`],
-    dashSignaledSystemIds: [, (_) => _json(_), `DashSignaledSystemIds`],
-    hlsSignaledSystemIds: [, (_) => _json(_), `HlsSignaledSystemIds`],
+    dashSignaledSystemIds: [, _json, `DashSignaledSystemIds`],
+    hlsSignaledSystemIds: [, _json, `HlsSignaledSystemIds`],
     resourceId: [, , `ResourceId`],
     url: [, , `Url`],
   });
@@ -5196,7 +5196,7 @@ const se_StaticKeyProvider = (input: StaticKeyProvider, context: __SerdeContext)
 const se_TeletextDestinationSettings = (input: TeletextDestinationSettings, context: __SerdeContext): any => {
   return take(input, {
     pageNumber: [, , `PageNumber`],
-    pageTypes: [, (_) => _json(_), `PageTypes`],
+    pageTypes: [, _json, `PageTypes`],
   });
 };
 
@@ -5374,7 +5374,7 @@ const se_Vp8Settings = (input: Vp8Settings, context: __SerdeContext): any => {
     framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
     framerateDenominator: [, , `FramerateDenominator`],
     framerateNumerator: [, , `FramerateNumerator`],
-    gopSize: [, (_) => __serializeFloat(_), `GopSize`],
+    gopSize: [, __serializeFloat, `GopSize`],
     hrdBufferSize: [, , `HrdBufferSize`],
     maxBitrate: [, , `MaxBitrate`],
     parControl: [, , `ParControl`],
@@ -5395,7 +5395,7 @@ const se_Vp9Settings = (input: Vp9Settings, context: __SerdeContext): any => {
     framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
     framerateDenominator: [, , `FramerateDenominator`],
     framerateNumerator: [, , `FramerateNumerator`],
-    gopSize: [, (_) => __serializeFloat(_), `GopSize`],
+    gopSize: [, __serializeFloat, `GopSize`],
     hrdBufferSize: [, , `HrdBufferSize`],
     maxBitrate: [, , `MaxBitrate`],
     parControl: [, , `ParControl`],

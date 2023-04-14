@@ -2188,8 +2188,8 @@ const de_ServerInternalErrorExceptionRes = async (
 const se_StartExportTaskRequest = (input: StartExportTaskRequest, context: __SerdeContext): any => {
   return take(input, {
     endTime: (_) => Math.round(_.getTime() / 1000),
-    exportDataFormat: (_) => _json(_),
-    filters: (_) => _json(_),
+    exportDataFormat: _json,
+    filters: _json,
     startTime: (_) => Math.round(_.getTime() / 1000),
   });
 };

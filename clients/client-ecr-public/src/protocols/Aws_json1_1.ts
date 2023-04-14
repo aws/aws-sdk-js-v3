@@ -2185,7 +2185,7 @@ const se_CreateRepositoryRequest = (input: CreateRepositoryRequest, context: __S
   return take(input, {
     catalogData: (_) => se_RepositoryCatalogDataInput(_, context),
     repositoryName: [],
-    tags: (_) => _json(_),
+    tags: _json,
   });
 };
 
@@ -2242,10 +2242,10 @@ const se_PutRepositoryCatalogDataRequest = (input: PutRepositoryCatalogDataReque
 const se_RepositoryCatalogDataInput = (input: RepositoryCatalogDataInput, context: __SerdeContext): any => {
   return take(input, {
     aboutText: [],
-    architectures: (_) => _json(_),
+    architectures: _json,
     description: [],
-    logoImageBlob: (_) => context.base64Encoder(_),
-    operatingSystems: (_) => _json(_),
+    logoImageBlob: context.base64Encoder,
+    operatingSystems: _json,
     usageText: [],
   });
 };
@@ -2269,7 +2269,7 @@ const se_RepositoryCatalogDataInput = (input: RepositoryCatalogDataInput, contex
  */
 const se_UploadLayerPartRequest = (input: UploadLayerPartRequest, context: __SerdeContext): any => {
   return take(input, {
-    layerPartBlob: (_) => context.base64Encoder(_),
+    layerPartBlob: context.base64Encoder,
     partFirstByte: [],
     partLastByte: [],
     registryId: [],

@@ -7740,7 +7740,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_AttributeKeyAndValue = (input: AttributeKeyAndValue, context: __SerdeContext): any => {
   return take(input, {
-    Key: (_) => _json(_),
+    Key: _json,
     Value: (_) => se_TypedAttributeValue(_, context),
   });
 };
@@ -7787,8 +7787,8 @@ const se_AttributeNameAndValueList = (input: AttributeNameAndValue[], context: _
 const se_BatchAddFacetToObject = (input: BatchAddFacetToObject, context: __SerdeContext): any => {
   return take(input, {
     ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
-    ObjectReference: (_) => _json(_),
-    SchemaFacet: (_) => _json(_),
+    ObjectReference: _json,
+    SchemaFacet: _json,
   });
 };
 
@@ -7804,9 +7804,9 @@ const se_BatchAddFacetToObject = (input: BatchAddFacetToObject, context: __Serde
 const se_BatchAttachTypedLink = (input: BatchAttachTypedLink, context: __SerdeContext): any => {
   return take(input, {
     Attributes: (_) => se_AttributeNameAndValueList(_, context),
-    SourceObjectReference: (_) => _json(_),
-    TargetObjectReference: (_) => _json(_),
-    TypedLinkFacet: (_) => _json(_),
+    SourceObjectReference: _json,
+    TargetObjectReference: _json,
+    TypedLinkFacet: _json,
   });
 };
 
@@ -7820,8 +7820,8 @@ const se_BatchCreateObject = (input: BatchCreateObject, context: __SerdeContext)
     BatchReferenceName: [],
     LinkName: [],
     ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
-    ParentReference: (_) => _json(_),
-    SchemaFacet: (_) => _json(_),
+    ParentReference: _json,
+    SchemaFacet: _json,
   });
 };
 
@@ -7847,7 +7847,7 @@ const se_BatchDetachTypedLink = (input: BatchDetachTypedLink, context: __SerdeCo
  */
 const se_BatchGetLinkAttributes = (input: BatchGetLinkAttributes, context: __SerdeContext): any => {
   return take(input, {
-    AttributeNames: (_) => _json(_),
+    AttributeNames: _json,
     TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
   });
 };
@@ -7864,10 +7864,10 @@ const se_BatchGetLinkAttributes = (input: BatchGetLinkAttributes, context: __Ser
 const se_BatchListIncomingTypedLinks = (input: BatchListIncomingTypedLinks, context: __SerdeContext): any => {
   return take(input, {
     FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
-    FilterTypedLink: (_) => _json(_),
+    FilterTypedLink: _json,
     MaxResults: [],
     NextToken: [],
-    ObjectReference: (_) => _json(_),
+    ObjectReference: _json,
   });
 };
 
@@ -7876,7 +7876,7 @@ const se_BatchListIncomingTypedLinks = (input: BatchListIncomingTypedLinks, cont
  */
 const se_BatchListIndex = (input: BatchListIndex, context: __SerdeContext): any => {
   return take(input, {
-    IndexReference: (_) => _json(_),
+    IndexReference: _json,
     MaxResults: [],
     NextToken: [],
     RangesOnIndexedValues: (_) => se_ObjectAttributeRangeList(_, context),
@@ -7899,10 +7899,10 @@ const se_BatchListIndex = (input: BatchListIndex, context: __SerdeContext): any 
 const se_BatchListOutgoingTypedLinks = (input: BatchListOutgoingTypedLinks, context: __SerdeContext): any => {
   return take(input, {
     FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
-    FilterTypedLink: (_) => _json(_),
+    FilterTypedLink: _json,
     MaxResults: [],
     NextToken: [],
-    ObjectReference: (_) => _json(_),
+    ObjectReference: _json,
   });
 };
 
@@ -7916,19 +7916,19 @@ const se_BatchListOutgoingTypedLinks = (input: BatchListOutgoingTypedLinks, cont
 const se_BatchReadOperation = (input: BatchReadOperation, context: __SerdeContext): any => {
   return take(input, {
     GetLinkAttributes: (_) => se_BatchGetLinkAttributes(_, context),
-    GetObjectAttributes: (_) => _json(_),
-    GetObjectInformation: (_) => _json(_),
-    ListAttachedIndices: (_) => _json(_),
+    GetObjectAttributes: _json,
+    GetObjectInformation: _json,
+    ListAttachedIndices: _json,
     ListIncomingTypedLinks: (_) => se_BatchListIncomingTypedLinks(_, context),
     ListIndex: (_) => se_BatchListIndex(_, context),
-    ListObjectAttributes: (_) => _json(_),
-    ListObjectChildren: (_) => _json(_),
-    ListObjectParentPaths: (_) => _json(_),
-    ListObjectParents: (_) => _json(_),
-    ListObjectPolicies: (_) => _json(_),
+    ListObjectAttributes: _json,
+    ListObjectChildren: _json,
+    ListObjectParentPaths: _json,
+    ListObjectParents: _json,
+    ListObjectPolicies: _json,
     ListOutgoingTypedLinks: (_) => se_BatchListOutgoingTypedLinks(_, context),
-    ListPolicyAttachments: (_) => _json(_),
-    LookupPolicy: (_) => _json(_),
+    ListPolicyAttachments: _json,
+    LookupPolicy: _json,
   });
 };
 
@@ -7961,7 +7961,7 @@ const se_BatchUpdateLinkAttributes = (input: BatchUpdateLinkAttributes, context:
 const se_BatchUpdateObjectAttributes = (input: BatchUpdateObjectAttributes, context: __SerdeContext): any => {
   return take(input, {
     AttributeUpdates: (_) => se_ObjectAttributeUpdateList(_, context),
-    ObjectReference: (_) => _json(_),
+    ObjectReference: _json,
   });
 };
 
@@ -7971,18 +7971,18 @@ const se_BatchUpdateObjectAttributes = (input: BatchUpdateObjectAttributes, cont
 const se_BatchWriteOperation = (input: BatchWriteOperation, context: __SerdeContext): any => {
   return take(input, {
     AddFacetToObject: (_) => se_BatchAddFacetToObject(_, context),
-    AttachObject: (_) => _json(_),
-    AttachPolicy: (_) => _json(_),
-    AttachToIndex: (_) => _json(_),
+    AttachObject: _json,
+    AttachPolicy: _json,
+    AttachToIndex: _json,
     AttachTypedLink: (_) => se_BatchAttachTypedLink(_, context),
-    CreateIndex: (_) => _json(_),
+    CreateIndex: _json,
     CreateObject: (_) => se_BatchCreateObject(_, context),
-    DeleteObject: (_) => _json(_),
-    DetachFromIndex: (_) => _json(_),
-    DetachObject: (_) => _json(_),
-    DetachPolicy: (_) => _json(_),
+    DeleteObject: _json,
+    DetachFromIndex: _json,
+    DetachObject: _json,
+    DetachPolicy: _json,
     DetachTypedLink: (_) => se_BatchDetachTypedLink(_, context),
-    RemoveFacetFromObject: (_) => _json(_),
+    RemoveFacetFromObject: _json,
     UpdateLinkAttributes: (_) => se_BatchUpdateLinkAttributes(_, context),
     UpdateObjectAttributes: (_) => se_BatchUpdateObjectAttributes(_, context),
   });
@@ -8005,7 +8005,7 @@ const se_BatchWriteOperationList = (input: BatchWriteOperation[], context: __Ser
 const se_FacetAttribute = (input: FacetAttribute, context: __SerdeContext): any => {
   return take(input, {
     AttributeDefinition: (_) => se_FacetAttributeDefinition(_, context),
-    AttributeReference: (_) => _json(_),
+    AttributeReference: _json,
     Name: [],
     RequiredBehavior: [],
   });
@@ -8018,7 +8018,7 @@ const se_FacetAttributeDefinition = (input: FacetAttributeDefinition, context: _
   return take(input, {
     DefaultValue: (_) => se_TypedAttributeValue(_, context),
     IsImmutable: [],
-    Rules: (_) => _json(_),
+    Rules: _json,
     Type: [],
   });
 };
@@ -8073,7 +8073,7 @@ const se_LinkAttributeAction = (input: LinkAttributeAction, context: __SerdeCont
 const se_LinkAttributeUpdate = (input: LinkAttributeUpdate, context: __SerdeContext): any => {
   return take(input, {
     AttributeAction: (_) => se_LinkAttributeAction(_, context),
-    AttributeKey: (_) => _json(_),
+    AttributeKey: _json,
   });
 };
 
@@ -8103,7 +8103,7 @@ const se_ObjectAttributeAction = (input: ObjectAttributeAction, context: __Serde
  */
 const se_ObjectAttributeRange = (input: ObjectAttributeRange, context: __SerdeContext): any => {
   return take(input, {
-    AttributeKey: (_) => _json(_),
+    AttributeKey: _json,
     Range: (_) => se_TypedAttributeValueRange(_, context),
   });
 };
@@ -8125,7 +8125,7 @@ const se_ObjectAttributeRangeList = (input: ObjectAttributeRange[], context: __S
 const se_ObjectAttributeUpdate = (input: ObjectAttributeUpdate, context: __SerdeContext): any => {
   return take(input, {
     ObjectAttributeAction: (_) => se_ObjectAttributeAction(_, context),
-    ObjectAttributeKey: (_) => _json(_),
+    ObjectAttributeKey: _json,
   });
 };
 
@@ -8193,7 +8193,7 @@ const se_TypedLinkAttributeDefinition = (input: TypedLinkAttributeDefinition, co
     IsImmutable: [],
     Name: [],
     RequiredBehavior: [],
-    Rules: (_) => _json(_),
+    Rules: _json,
     Type: [],
   });
 };
@@ -8236,7 +8236,7 @@ const se_TypedLinkAttributeRangeList = (input: TypedLinkAttributeRange[], contex
 const se_TypedLinkFacet = (input: TypedLinkFacet, context: __SerdeContext): any => {
   return take(input, {
     Attributes: (_) => se_TypedLinkAttributeDefinitionList(_, context),
-    IdentityAttributeOrder: (_) => _json(_),
+    IdentityAttributeOrder: _json,
     Name: [],
   });
 };
@@ -8270,9 +8270,9 @@ const se_TypedLinkFacetAttributeUpdateList = (input: TypedLinkFacetAttributeUpda
 const se_TypedLinkSpecifier = (input: TypedLinkSpecifier, context: __SerdeContext): any => {
   return take(input, {
     IdentityAttributeValues: (_) => se_AttributeNameAndValueList(_, context),
-    SourceObjectReference: (_) => _json(_),
-    TargetObjectReference: (_) => _json(_),
-    TypedLinkFacet: (_) => _json(_),
+    SourceObjectReference: _json,
+    TargetObjectReference: _json,
+    TypedLinkFacet: _json,
   });
 };
 

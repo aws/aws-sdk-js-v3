@@ -635,8 +635,8 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
  */
 const se_SimpleScalarPropertiesInput = (input: SimpleScalarPropertiesInput, context: __SerdeContext): any => {
   return take(input, {
-    doubleValue: (_) => __serializeFloat(_),
-    floatValue: (_) => __serializeFloat(_),
+    doubleValue: __serializeFloat,
+    floatValue: __serializeFloat,
   });
 };
 

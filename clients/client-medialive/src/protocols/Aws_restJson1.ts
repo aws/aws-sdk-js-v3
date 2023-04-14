@@ -6713,13 +6713,13 @@ const se___listOfVideoDescription = (input: VideoDescription[], context: __Serde
  */
 const se_AacSettings = (input: AacSettings, context: __SerdeContext): any => {
   return take(input, {
-    bitrate: [, (_) => __serializeFloat(_), `Bitrate`],
+    bitrate: [, __serializeFloat, `Bitrate`],
     codingMode: [, , `CodingMode`],
     inputType: [, , `InputType`],
     profile: [, , `Profile`],
     rateControlMode: [, , `RateControlMode`],
     rawFormat: [, , `RawFormat`],
-    sampleRate: [, (_) => __serializeFloat(_), `SampleRate`],
+    sampleRate: [, __serializeFloat, `SampleRate`],
     spec: [, , `Spec`],
     vbrQuality: [, , `VbrQuality`],
   });
@@ -6730,7 +6730,7 @@ const se_AacSettings = (input: AacSettings, context: __SerdeContext): any => {
  */
 const se_Ac3Settings = (input: Ac3Settings, context: __SerdeContext): any => {
   return take(input, {
-    bitrate: [, (_) => __serializeFloat(_), `Bitrate`],
+    bitrate: [, __serializeFloat, `Bitrate`],
     bitstreamMode: [, , `BitstreamMode`],
     codingMode: [, , `CodingMode`],
     dialnorm: [, , `Dialnorm`],
@@ -6764,7 +6764,7 @@ const se_ArchiveCdnSettings = (input: ArchiveCdnSettings, context: __SerdeContex
 const se_ArchiveContainerSettings = (input: ArchiveContainerSettings, context: __SerdeContext): any => {
   return take(input, {
     m2tsSettings: [, (_) => se_M2tsSettings(_, context), `M2tsSettings`],
-    rawSettings: [, (_) => _json(_), `RawSettings`],
+    rawSettings: [, _json, `RawSettings`],
   });
 };
 
@@ -6823,7 +6823,7 @@ const se_AudioCodecSettings = (input: AudioCodecSettings, context: __SerdeContex
     eac3AtmosSettings: [, (_) => se_Eac3AtmosSettings(_, context), `Eac3AtmosSettings`],
     eac3Settings: [, (_) => se_Eac3Settings(_, context), `Eac3Settings`],
     mp2Settings: [, (_) => se_Mp2Settings(_, context), `Mp2Settings`],
-    passThroughSettings: [, (_) => _json(_), `PassThroughSettings`],
+    passThroughSettings: [, _json, `PassThroughSettings`],
     wavSettings: [, (_) => se_WavSettings(_, context), `WavSettings`],
   });
 };
@@ -6883,7 +6883,7 @@ const se_AudioNormalizationSettings = (input: AudioNormalizationSettings, contex
   return take(input, {
     algorithm: [, , `Algorithm`],
     algorithmControl: [, , `AlgorithmControl`],
-    targetLkfs: [, (_) => __serializeFloat(_), `TargetLkfs`],
+    targetLkfs: [, __serializeFloat, `TargetLkfs`],
   });
 };
 
@@ -7024,7 +7024,7 @@ const se_BatchScheduleActionCreateRequest = (input: BatchScheduleActionCreateReq
  */
 const se_BatchScheduleActionDeleteRequest = (input: BatchScheduleActionDeleteRequest, context: __SerdeContext): any => {
   return take(input, {
-    actionNames: [, (_) => _json(_), `ActionNames`],
+    actionNames: [, _json, `ActionNames`],
   });
 };
 
@@ -7085,17 +7085,17 @@ const se_CaptionDescription = (input: CaptionDescription, context: __SerdeContex
  */
 const se_CaptionDestinationSettings = (input: CaptionDestinationSettings, context: __SerdeContext): any => {
   return take(input, {
-    aribDestinationSettings: [, (_) => _json(_), `AribDestinationSettings`],
+    aribDestinationSettings: [, _json, `AribDestinationSettings`],
     burnInDestinationSettings: [, (_) => se_BurnInDestinationSettings(_, context), `BurnInDestinationSettings`],
     dvbSubDestinationSettings: [, (_) => se_DvbSubDestinationSettings(_, context), `DvbSubDestinationSettings`],
     ebuTtDDestinationSettings: [, (_) => se_EbuTtDDestinationSettings(_, context), `EbuTtDDestinationSettings`],
-    embeddedDestinationSettings: [, (_) => _json(_), `EmbeddedDestinationSettings`],
-    embeddedPlusScte20DestinationSettings: [, (_) => _json(_), `EmbeddedPlusScte20DestinationSettings`],
-    rtmpCaptionInfoDestinationSettings: [, (_) => _json(_), `RtmpCaptionInfoDestinationSettings`],
-    scte20PlusEmbeddedDestinationSettings: [, (_) => _json(_), `Scte20PlusEmbeddedDestinationSettings`],
-    scte27DestinationSettings: [, (_) => _json(_), `Scte27DestinationSettings`],
-    smpteTtDestinationSettings: [, (_) => _json(_), `SmpteTtDestinationSettings`],
-    teletextDestinationSettings: [, (_) => _json(_), `TeletextDestinationSettings`],
+    embeddedDestinationSettings: [, _json, `EmbeddedDestinationSettings`],
+    embeddedPlusScte20DestinationSettings: [, _json, `EmbeddedPlusScte20DestinationSettings`],
+    rtmpCaptionInfoDestinationSettings: [, _json, `RtmpCaptionInfoDestinationSettings`],
+    scte20PlusEmbeddedDestinationSettings: [, _json, `Scte20PlusEmbeddedDestinationSettings`],
+    scte27DestinationSettings: [, _json, `Scte27DestinationSettings`],
+    smpteTtDestinationSettings: [, _json, `SmpteTtDestinationSettings`],
+    teletextDestinationSettings: [, _json, `TeletextDestinationSettings`],
     ttmlDestinationSettings: [, (_) => se_TtmlDestinationSettings(_, context), `TtmlDestinationSettings`],
     webvttDestinationSettings: [, (_) => se_WebvttDestinationSettings(_, context), `WebvttDestinationSettings`],
   });
@@ -7117,10 +7117,10 @@ const se_CaptionLanguageMapping = (input: CaptionLanguageMapping, context: __Ser
  */
 const se_CaptionRectangle = (input: CaptionRectangle, context: __SerdeContext): any => {
   return take(input, {
-    height: [, (_) => __serializeFloat(_), `Height`],
-    leftOffset: [, (_) => __serializeFloat(_), `LeftOffset`],
-    topOffset: [, (_) => __serializeFloat(_), `TopOffset`],
-    width: [, (_) => __serializeFloat(_), `Width`],
+    height: [, __serializeFloat, `Height`],
+    leftOffset: [, __serializeFloat, `LeftOffset`],
+    topOffset: [, __serializeFloat, `TopOffset`],
+    width: [, __serializeFloat, `Width`],
   });
 };
 
@@ -7141,7 +7141,7 @@ const se_CaptionSelector = (input: CaptionSelector, context: __SerdeContext): an
 const se_CaptionSelectorSettings = (input: CaptionSelectorSettings, context: __SerdeContext): any => {
   return take(input, {
     ancillarySourceSettings: [, (_) => se_AncillarySourceSettings(_, context), `AncillarySourceSettings`],
-    aribSourceSettings: [, (_) => _json(_), `AribSourceSettings`],
+    aribSourceSettings: [, _json, `AribSourceSettings`],
     dvbSubSourceSettings: [, (_) => se_DvbSubSourceSettings(_, context), `DvbSubSourceSettings`],
     embeddedSourceSettings: [, (_) => se_EmbeddedSourceSettings(_, context), `EmbeddedSourceSettings`],
     scte20SourceSettings: [, (_) => se_Scte20SourceSettings(_, context), `Scte20SourceSettings`],
@@ -7235,13 +7235,13 @@ const se_DvbTdtSettings = (input: DvbTdtSettings, context: __SerdeContext): any 
  */
 const se_Eac3AtmosSettings = (input: Eac3AtmosSettings, context: __SerdeContext): any => {
   return take(input, {
-    bitrate: [, (_) => __serializeFloat(_), `Bitrate`],
+    bitrate: [, __serializeFloat, `Bitrate`],
     codingMode: [, , `CodingMode`],
     dialnorm: [, , `Dialnorm`],
     drcLine: [, , `DrcLine`],
     drcRf: [, , `DrcRf`],
-    heightTrim: [, (_) => __serializeFloat(_), `HeightTrim`],
-    surroundTrim: [, (_) => __serializeFloat(_), `SurroundTrim`],
+    heightTrim: [, __serializeFloat, `HeightTrim`],
+    surroundTrim: [, __serializeFloat, `SurroundTrim`],
   });
 };
 
@@ -7251,7 +7251,7 @@ const se_Eac3AtmosSettings = (input: Eac3AtmosSettings, context: __SerdeContext)
 const se_Eac3Settings = (input: Eac3Settings, context: __SerdeContext): any => {
   return take(input, {
     attenuationControl: [, , `AttenuationControl`],
-    bitrate: [, (_) => __serializeFloat(_), `Bitrate`],
+    bitrate: [, __serializeFloat, `Bitrate`],
     bitstreamMode: [, , `BitstreamMode`],
     codingMode: [, , `CodingMode`],
     dcFilter: [, , `DcFilter`],
@@ -7260,10 +7260,10 @@ const se_Eac3Settings = (input: Eac3Settings, context: __SerdeContext): any => {
     drcRf: [, , `DrcRf`],
     lfeControl: [, , `LfeControl`],
     lfeFilter: [, , `LfeFilter`],
-    loRoCenterMixLevel: [, (_) => __serializeFloat(_), `LoRoCenterMixLevel`],
-    loRoSurroundMixLevel: [, (_) => __serializeFloat(_), `LoRoSurroundMixLevel`],
-    ltRtCenterMixLevel: [, (_) => __serializeFloat(_), `LtRtCenterMixLevel`],
-    ltRtSurroundMixLevel: [, (_) => __serializeFloat(_), `LtRtSurroundMixLevel`],
+    loRoCenterMixLevel: [, __serializeFloat, `LoRoCenterMixLevel`],
+    loRoSurroundMixLevel: [, __serializeFloat, `LoRoSurroundMixLevel`],
+    ltRtCenterMixLevel: [, __serializeFloat, `LtRtCenterMixLevel`],
+    ltRtSurroundMixLevel: [, __serializeFloat, `LtRtSurroundMixLevel`],
     metadataControl: [, , `MetadataControl`],
     passthroughControl: [, , `PassthroughControl`],
     phaseControl: [, , `PhaseControl`],
@@ -7480,9 +7480,9 @@ const se_GlobalConfiguration = (input: GlobalConfiguration, context: __SerdeCont
  */
 const se_H264ColorSpaceSettings = (input: H264ColorSpaceSettings, context: __SerdeContext): any => {
   return take(input, {
-    colorSpacePassthroughSettings: [, (_) => _json(_), `ColorSpacePassthroughSettings`],
-    rec601Settings: [, (_) => _json(_), `Rec601Settings`],
-    rec709Settings: [, (_) => _json(_), `Rec709Settings`],
+    colorSpacePassthroughSettings: [, _json, `ColorSpacePassthroughSettings`],
+    rec601Settings: [, _json, `Rec601Settings`],
+    rec709Settings: [, _json, `Rec709Settings`],
   });
 };
 
@@ -7518,7 +7518,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     gopBReference: [, , `GopBReference`],
     gopClosedCadence: [, , `GopClosedCadence`],
     gopNumBFrames: [, , `GopNumBFrames`],
-    gopSize: [, (_) => __serializeFloat(_), `GopSize`],
+    gopSize: [, __serializeFloat, `GopSize`],
     gopSizeUnits: [, , `GopSizeUnits`],
     level: [, , `Level`],
     lookAheadRateControl: [, , `LookAheadRateControl`],
@@ -7550,11 +7550,11 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
  */
 const se_H265ColorSpaceSettings = (input: H265ColorSpaceSettings, context: __SerdeContext): any => {
   return take(input, {
-    colorSpacePassthroughSettings: [, (_) => _json(_), `ColorSpacePassthroughSettings`],
-    dolbyVision81Settings: [, (_) => _json(_), `DolbyVision81Settings`],
+    colorSpacePassthroughSettings: [, _json, `ColorSpacePassthroughSettings`],
+    dolbyVision81Settings: [, _json, `DolbyVision81Settings`],
     hdr10Settings: [, (_) => se_Hdr10Settings(_, context), `Hdr10Settings`],
-    rec601Settings: [, (_) => _json(_), `Rec601Settings`],
-    rec709Settings: [, (_) => _json(_), `Rec709Settings`],
+    rec601Settings: [, _json, `Rec601Settings`],
+    rec709Settings: [, _json, `Rec709Settings`],
   });
 };
 
@@ -7585,7 +7585,7 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     framerateDenominator: [, , `FramerateDenominator`],
     framerateNumerator: [, , `FramerateNumerator`],
     gopClosedCadence: [, , `GopClosedCadence`],
-    gopSize: [, (_) => __serializeFloat(_), `GopSize`],
+    gopSize: [, __serializeFloat, `GopSize`],
     gopSizeUnits: [, , `GopSizeUnits`],
     level: [, , `Level`],
     lookAheadRateControl: [, , `LookAheadRateControl`],
@@ -7660,7 +7660,7 @@ const se_HlsCdnSettings = (input: HlsCdnSettings, context: __SerdeContext): any 
  */
 const se_HlsGroupSettings = (input: HlsGroupSettings, context: __SerdeContext): any => {
   return take(input, {
-    adMarkers: [, (_) => _json(_), `AdMarkers`],
+    adMarkers: [, _json, `AdMarkers`],
     baseUrlContent: [, , `BaseUrlContent`],
     baseUrlContent1: [, , `BaseUrlContent1`],
     baseUrlManifest: [, , `BaseUrlManifest`],
@@ -7773,7 +7773,7 @@ const se_HlsSettings = (input: HlsSettings, context: __SerdeContext): any => {
   return take(input, {
     audioOnlyHlsSettings: [, (_) => se_AudioOnlyHlsSettings(_, context), `AudioOnlyHlsSettings`],
     fmp4HlsSettings: [, (_) => se_Fmp4HlsSettings(_, context), `Fmp4HlsSettings`],
-    frameCaptureHlsSettings: [, (_) => _json(_), `FrameCaptureHlsSettings`],
+    frameCaptureHlsSettings: [, _json, `FrameCaptureHlsSettings`],
     standardHlsSettings: [, (_) => se_StandardHlsSettings(_, context), `StandardHlsSettings`],
   });
 };
@@ -7925,7 +7925,7 @@ const se_InputPrepareScheduleActionSettings = (
   return take(input, {
     inputAttachmentNameReference: [, , `InputAttachmentNameReference`],
     inputClippingSettings: [, (_) => se_InputClippingSettings(_, context), `InputClippingSettings`],
-    urlPath: [, (_) => _json(_), `UrlPath`],
+    urlPath: [, _json, `UrlPath`],
   });
 };
 
@@ -7980,7 +7980,7 @@ const se_InputSwitchScheduleActionSettings = (
   return take(input, {
     inputAttachmentNameReference: [, , `InputAttachmentNameReference`],
     inputClippingSettings: [, (_) => se_InputClippingSettings(_, context), `InputClippingSettings`],
-    urlPath: [, (_) => _json(_), `UrlPath`],
+    urlPath: [, _json, `UrlPath`],
   });
 };
 
@@ -7989,8 +7989,8 @@ const se_InputSwitchScheduleActionSettings = (
  */
 const se_InputVpcRequest = (input: InputVpcRequest, context: __SerdeContext): any => {
   return take(input, {
-    securityGroupIds: [, (_) => _json(_), `SecurityGroupIds`],
-    subnetIds: [, (_) => _json(_), `SubnetIds`],
+    securityGroupIds: [, _json, `SecurityGroupIds`],
+    subnetIds: [, _json, `SubnetIds`],
   });
 };
 
@@ -8041,11 +8041,11 @@ const se_M2tsSettings = (input: M2tsSettings, context: __SerdeContext): any => {
     esRateInPes: [, , `EsRateInPes`],
     etvPlatformPid: [, , `EtvPlatformPid`],
     etvSignalPid: [, , `EtvSignalPid`],
-    fragmentTime: [, (_) => __serializeFloat(_), `FragmentTime`],
+    fragmentTime: [, __serializeFloat, `FragmentTime`],
     klv: [, , `Klv`],
     klvDataPids: [, , `KlvDataPids`],
     nielsenId3Behavior: [, , `NielsenId3Behavior`],
-    nullPacketBitrate: [, (_) => __serializeFloat(_), `NullPacketBitrate`],
+    nullPacketBitrate: [, __serializeFloat, `NullPacketBitrate`],
     patInterval: [, , `PatInterval`],
     pcrControl: [, , `PcrControl`],
     pcrPeriod: [, , `PcrPeriod`],
@@ -8057,10 +8057,10 @@ const se_M2tsSettings = (input: M2tsSettings, context: __SerdeContext): any => {
     scte27Pids: [, , `Scte27Pids`],
     scte35Control: [, , `Scte35Control`],
     scte35Pid: [, , `Scte35Pid`],
-    scte35PrerollPullupMilliseconds: [, (_) => __serializeFloat(_), `Scte35PrerollPullupMilliseconds`],
+    scte35PrerollPullupMilliseconds: [, __serializeFloat, `Scte35PrerollPullupMilliseconds`],
     segmentationMarkers: [, , `SegmentationMarkers`],
     segmentationStyle: [, , `SegmentationStyle`],
-    segmentationTime: [, (_) => __serializeFloat(_), `SegmentationTime`],
+    segmentationTime: [, __serializeFloat, `SegmentationTime`],
     timedMetadataBehavior: [, , `TimedMetadataBehavior`],
     timedMetadataPid: [, , `TimedMetadataPid`],
     transportStreamId: [, , `TransportStreamId`],
@@ -8178,7 +8178,7 @@ const se_MotionGraphicsConfiguration = (input: MotionGraphicsConfiguration, cont
  */
 const se_MotionGraphicsSettings = (input: MotionGraphicsSettings, context: __SerdeContext): any => {
   return take(input, {
-    htmlMotionGraphicsSettings: [, (_) => _json(_), `HtmlMotionGraphicsSettings`],
+    htmlMotionGraphicsSettings: [, _json, `HtmlMotionGraphicsSettings`],
   });
 };
 
@@ -8187,9 +8187,9 @@ const se_MotionGraphicsSettings = (input: MotionGraphicsSettings, context: __Ser
  */
 const se_Mp2Settings = (input: Mp2Settings, context: __SerdeContext): any => {
   return take(input, {
-    bitrate: [, (_) => __serializeFloat(_), `Bitrate`],
+    bitrate: [, __serializeFloat, `Bitrate`],
     codingMode: [, , `CodingMode`],
-    sampleRate: [, (_) => __serializeFloat(_), `SampleRate`],
+    sampleRate: [, __serializeFloat, `SampleRate`],
   });
 };
 
@@ -8218,7 +8218,7 @@ const se_Mpeg2Settings = (input: Mpeg2Settings, context: __SerdeContext): any =>
     framerateNumerator: [, , `FramerateNumerator`],
     gopClosedCadence: [, , `GopClosedCadence`],
     gopNumBFrames: [, , `GopNumBFrames`],
-    gopSize: [, (_) => __serializeFloat(_), `GopSize`],
+    gopSize: [, __serializeFloat, `GopSize`],
     gopSizeUnits: [, , `GopSizeUnits`],
     scanType: [, , `ScanType`],
     subgopLength: [, , `SubgopLength`],
@@ -8383,7 +8383,7 @@ const se_NielsenConfiguration = (input: NielsenConfiguration, context: __SerdeCo
 const se_NielsenNaesIiNw = (input: NielsenNaesIiNw, context: __SerdeContext): any => {
   return take(input, {
     checkDigitString: [, , `CheckDigitString`],
-    sid: [, (_) => __serializeFloat(_), `Sid`],
+    sid: [, __serializeFloat, `Sid`],
     timezone: [, , `Timezone`],
   });
 };
@@ -8404,8 +8404,8 @@ const se_NielsenWatermarksSettings = (input: NielsenWatermarksSettings, context:
  */
 const se_Output = (input: Output, context: __SerdeContext): any => {
   return take(input, {
-    audioDescriptionNames: [, (_) => _json(_), `AudioDescriptionNames`],
-    captionDescriptionNames: [, (_) => _json(_), `CaptionDescriptionNames`],
+    audioDescriptionNames: [, _json, `AudioDescriptionNames`],
+    captionDescriptionNames: [, _json, `CaptionDescriptionNames`],
     outputName: [, , `OutputName`],
     outputSettings: [, (_) => se_OutputSettings(_, context), `OutputSettings`],
     videoDescriptionName: [, , `VideoDescriptionName`],
@@ -8461,7 +8461,7 @@ const se_OutputGroupSettings = (input: OutputGroupSettings, context: __SerdeCont
     hlsGroupSettings: [, (_) => se_HlsGroupSettings(_, context), `HlsGroupSettings`],
     mediaPackageGroupSettings: [, (_) => se_MediaPackageGroupSettings(_, context), `MediaPackageGroupSettings`],
     msSmoothGroupSettings: [, (_) => se_MsSmoothGroupSettings(_, context), `MsSmoothGroupSettings`],
-    multiplexGroupSettings: [, (_) => _json(_), `MultiplexGroupSettings`],
+    multiplexGroupSettings: [, _json, `MultiplexGroupSettings`],
     rtmpGroupSettings: [, (_) => se_RtmpGroupSettings(_, context), `RtmpGroupSettings`],
     udpGroupSettings: [, (_) => se_UdpGroupSettings(_, context), `UdpGroupSettings`],
   });
@@ -8484,7 +8484,7 @@ const se_OutputSettings = (input: OutputSettings, context: __SerdeContext): any 
     archiveOutputSettings: [, (_) => se_ArchiveOutputSettings(_, context), `ArchiveOutputSettings`],
     frameCaptureOutputSettings: [, (_) => se_FrameCaptureOutputSettings(_, context), `FrameCaptureOutputSettings`],
     hlsOutputSettings: [, (_) => se_HlsOutputSettings(_, context), `HlsOutputSettings`],
-    mediaPackageOutputSettings: [, (_) => _json(_), `MediaPackageOutputSettings`],
+    mediaPackageOutputSettings: [, _json, `MediaPackageOutputSettings`],
     msSmoothOutputSettings: [, (_) => se_MsSmoothOutputSettings(_, context), `MsSmoothOutputSettings`],
     multiplexOutputSettings: [, (_) => se_MultiplexOutputSettings(_, context), `MultiplexOutputSettings`],
     rtmpOutputSettings: [, (_) => se_RtmpOutputSettings(_, context), `RtmpOutputSettings`],
@@ -8546,7 +8546,7 @@ const se_RenewalSettings = (input: RenewalSettings, context: __SerdeContext): an
  */
 const se_RtmpGroupSettings = (input: RtmpGroupSettings, context: __SerdeContext): any => {
   return take(input, {
-    adMarkers: [, (_) => _json(_), `AdMarkers`],
+    adMarkers: [, _json, `AdMarkers`],
     authenticationScheme: [, , `AuthenticationScheme`],
     cacheFullBehavior: [, , `CacheFullBehavior`],
     cacheLength: [, , `CacheLength`],
@@ -8601,7 +8601,7 @@ const se_ScheduleActionSettings = (input: ScheduleActionSettings, context: __Ser
       (_) => se_MotionGraphicsActivateScheduleActionSettings(_, context),
       `MotionGraphicsImageActivateSettings`,
     ],
-    motionGraphicsImageDeactivateSettings: [, (_) => _json(_), `MotionGraphicsImageDeactivateSettings`],
+    motionGraphicsImageDeactivateSettings: [, _json, `MotionGraphicsImageDeactivateSettings`],
     pauseStateSettings: [, (_) => se_PauseStateScheduleActionSettings(_, context), `PauseStateSettings`],
     scte35InputSettings: [, (_) => se_Scte35InputScheduleActionSettings(_, context), `Scte35InputSettings`],
     scte35ReturnToNetworkSettings: [
@@ -8647,7 +8647,7 @@ const se_ScheduleActionStartSettings = (input: ScheduleActionStartSettings, cont
       (_) => se_FollowModeScheduleActionStartSettings(_, context),
       `FollowModeScheduleActionStartSettings`,
     ],
-    immediateModeScheduleActionStartSettings: [, (_) => _json(_), `ImmediateModeScheduleActionStartSettings`],
+    immediateModeScheduleActionStartSettings: [, _json, `ImmediateModeScheduleActionStartSettings`],
   });
 };
 
@@ -8966,7 +8966,7 @@ const se_UdpOutputSettings = (input: UdpOutputSettings, context: __SerdeContext)
  */
 const se_VideoBlackFailoverSettings = (input: VideoBlackFailoverSettings, context: __SerdeContext): any => {
   return take(input, {
-    blackDetectThreshold: [, (_) => __serializeFloat(_), `BlackDetectThreshold`],
+    blackDetectThreshold: [, __serializeFloat, `BlackDetectThreshold`],
     videoBlackThresholdMsec: [, , `VideoBlackThresholdMsec`],
   });
 };
@@ -9052,9 +9052,9 @@ const se_VideoSelectorSettings = (input: VideoSelectorSettings, context: __Serde
  */
 const se_VpcOutputSettings = (input: VpcOutputSettings, context: __SerdeContext): any => {
   return take(input, {
-    publicAddressAllocationIds: [, (_) => _json(_), `PublicAddressAllocationIds`],
-    securityGroupIds: [, (_) => _json(_), `SecurityGroupIds`],
-    subnetIds: [, (_) => _json(_), `SubnetIds`],
+    publicAddressAllocationIds: [, _json, `PublicAddressAllocationIds`],
+    securityGroupIds: [, _json, `SecurityGroupIds`],
+    subnetIds: [, _json, `SubnetIds`],
   });
 };
 
@@ -9063,9 +9063,9 @@ const se_VpcOutputSettings = (input: VpcOutputSettings, context: __SerdeContext)
  */
 const se_WavSettings = (input: WavSettings, context: __SerdeContext): any => {
   return take(input, {
-    bitDepth: [, (_) => __serializeFloat(_), `BitDepth`],
+    bitDepth: [, __serializeFloat, `BitDepth`],
     codingMode: [, , `CodingMode`],
-    sampleRate: [, (_) => __serializeFloat(_), `SampleRate`],
+    sampleRate: [, __serializeFloat, `SampleRate`],
   });
 };
 

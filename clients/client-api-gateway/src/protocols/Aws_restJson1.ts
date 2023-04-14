@@ -11664,8 +11664,8 @@ const se_ApiStage = (input: ApiStage, context: __SerdeContext): any => {
 const se_CanarySettings = (input: CanarySettings, context: __SerdeContext): any => {
   return take(input, {
     deploymentId: [],
-    percentTraffic: (_) => __serializeFloat(_),
-    stageVariableOverrides: (_) => _json(_),
+    percentTraffic: __serializeFloat,
+    stageVariableOverrides: _json,
     useStageCache: [],
   });
 };
@@ -11675,8 +11675,8 @@ const se_CanarySettings = (input: CanarySettings, context: __SerdeContext): any 
  */
 const se_DeploymentCanarySettings = (input: DeploymentCanarySettings, context: __SerdeContext): any => {
   return take(input, {
-    percentTraffic: (_) => __serializeFloat(_),
-    stageVariableOverrides: (_) => _json(_),
+    percentTraffic: __serializeFloat,
+    stageVariableOverrides: _json,
     useStageCache: [],
   });
 };
@@ -11739,7 +11739,7 @@ const se_MapOfApiStageThrottleSettings = (input: Record<string, ThrottleSettings
 const se_ThrottleSettings = (input: ThrottleSettings, context: __SerdeContext): any => {
   return take(input, {
     burstLimit: [],
-    rateLimit: (_) => __serializeFloat(_),
+    rateLimit: __serializeFloat,
   });
 };
 

@@ -2977,19 +2977,19 @@ const de_InvalidRequestExceptionRes = async (
  */
 const se_CreateLocationHdfsRequest = (input: CreateLocationHdfsRequest, context: __SerdeContext): any => {
   return take(input, {
-    AgentArns: (_) => _json(_),
+    AgentArns: _json,
     AuthenticationType: [],
     BlockSize: [],
-    KerberosKeytab: (_) => context.base64Encoder(_),
-    KerberosKrb5Conf: (_) => context.base64Encoder(_),
+    KerberosKeytab: context.base64Encoder,
+    KerberosKrb5Conf: context.base64Encoder,
     KerberosPrincipal: [],
     KmsKeyProviderUri: [],
-    NameNodes: (_) => _json(_),
-    QopConfiguration: (_) => _json(_),
+    NameNodes: _json,
+    QopConfiguration: _json,
     ReplicationFactor: [],
     SimpleUser: [],
     Subdirectory: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3004,15 +3004,15 @@ const se_CreateLocationObjectStorageRequest = (
 ): any => {
   return take(input, {
     AccessKey: [],
-    AgentArns: (_) => _json(_),
+    AgentArns: _json,
     BucketName: [],
     SecretKey: [],
-    ServerCertificate: (_) => context.base64Encoder(_),
+    ServerCertificate: context.base64Encoder,
     ServerHostname: [],
     ServerPort: [],
     ServerProtocol: [],
     Subdirectory: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3129,16 +3129,16 @@ const se_CreateLocationObjectStorageRequest = (
  */
 const se_UpdateLocationHdfsRequest = (input: UpdateLocationHdfsRequest, context: __SerdeContext): any => {
   return take(input, {
-    AgentArns: (_) => _json(_),
+    AgentArns: _json,
     AuthenticationType: [],
     BlockSize: [],
-    KerberosKeytab: (_) => context.base64Encoder(_),
-    KerberosKrb5Conf: (_) => context.base64Encoder(_),
+    KerberosKeytab: context.base64Encoder,
+    KerberosKrb5Conf: context.base64Encoder,
     KerberosPrincipal: [],
     KmsKeyProviderUri: [],
     LocationArn: [],
-    NameNodes: (_) => _json(_),
-    QopConfiguration: (_) => _json(_),
+    NameNodes: _json,
+    QopConfiguration: _json,
     ReplicationFactor: [],
     SimpleUser: [],
     Subdirectory: [],
@@ -3156,10 +3156,10 @@ const se_UpdateLocationObjectStorageRequest = (
 ): any => {
   return take(input, {
     AccessKey: [],
-    AgentArns: (_) => _json(_),
+    AgentArns: _json,
     LocationArn: [],
     SecretKey: [],
-    ServerCertificate: (_) => context.base64Encoder(_),
+    ServerCertificate: context.base64Encoder,
     ServerPort: [],
     ServerProtocol: [],
     Subdirectory: [],

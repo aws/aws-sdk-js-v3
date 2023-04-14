@@ -1368,7 +1368,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_ExportCertificateRequest = (input: ExportCertificateRequest, context: __SerdeContext): any => {
   return take(input, {
     CertificateArn: [],
-    Passphrase: (_) => context.base64Encoder(_),
+    Passphrase: context.base64Encoder,
   });
 };
 
@@ -1383,11 +1383,11 @@ const se_ExportCertificateRequest = (input: ExportCertificateRequest, context: _
  */
 const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: __SerdeContext): any => {
   return take(input, {
-    Certificate: (_) => context.base64Encoder(_),
+    Certificate: context.base64Encoder,
     CertificateArn: [],
-    CertificateChain: (_) => context.base64Encoder(_),
-    PrivateKey: (_) => context.base64Encoder(_),
-    Tags: (_) => _json(_),
+    CertificateChain: context.base64Encoder,
+    PrivateKey: context.base64Encoder,
+    Tags: _json,
   });
 };
 

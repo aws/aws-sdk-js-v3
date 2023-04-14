@@ -4862,7 +4862,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_AutoTuneMaintenanceSchedule = (input: AutoTuneMaintenanceSchedule, context: __SerdeContext): any => {
   return take(input, {
     CronExpressionForRecurrence: [],
-    Duration: (_) => _json(_),
+    Duration: _json,
     StartAt: (_) => Math.round(_.getTime() / 1000),
   });
 };

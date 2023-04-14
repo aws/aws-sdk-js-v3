@@ -3822,10 +3822,10 @@ const se_AppflowIntegration = (input: AppflowIntegration, context: __SerdeContex
  */
 const se_AutoMerging = (input: AutoMerging, context: __SerdeContext): any => {
   return take(input, {
-    ConflictResolution: (_) => _json(_),
-    Consolidation: (_) => _json(_),
+    ConflictResolution: _json,
+    Consolidation: _json,
     Enabled: [],
-    MinAllowedConfidenceScoreForMerging: (_) => __serializeFloat(_),
+    MinAllowedConfidenceScoreForMerging: __serializeFloat,
   });
 };
 
@@ -3872,8 +3872,8 @@ const se_FlowDefinition = (input: FlowDefinition, context: __SerdeContext): any 
     Description: [],
     FlowName: [],
     KmsArn: [],
-    SourceFlowConfig: (_) => _json(_),
-    Tasks: (_) => _json(_),
+    SourceFlowConfig: _json,
+    Tasks: _json,
     TriggerConfig: (_) => se_TriggerConfig(_, context),
   });
 };
@@ -3906,8 +3906,8 @@ const se_MatchingRequest = (input: MatchingRequest, context: __SerdeContext): an
   return take(input, {
     AutoMerging: (_) => se_AutoMerging(_, context),
     Enabled: [],
-    ExportingConfig: (_) => _json(_),
-    JobSchedule: (_) => _json(_),
+    ExportingConfig: _json,
+    JobSchedule: _json,
   });
 };
 

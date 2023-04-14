@@ -7907,12 +7907,12 @@ const se_BucketCriteriaAdditionalProperties = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    eq: [, (_) => _json(_), `eq`],
+    eq: [, _json, `eq`],
     gt: [, , `gt`],
     gte: [, , `gte`],
     lt: [, , `lt`],
     lte: [, , `lte`],
-    neq: [, (_) => _json(_), `neq`],
+    neq: [, _json, `neq`],
     prefix: [, , `prefix`],
   });
 };
@@ -7976,13 +7976,13 @@ const se_Criterion = (input: Record<string, CriterionAdditionalProperties>, cont
  */
 const se_CriterionAdditionalProperties = (input: CriterionAdditionalProperties, context: __SerdeContext): any => {
   return take(input, {
-    eq: [, (_) => _json(_), `eq`],
-    eqExactMatch: [, (_) => _json(_), `eqExactMatch`],
+    eq: [, _json, `eq`],
+    eqExactMatch: [, _json, `eqExactMatch`],
     gt: [, , `gt`],
     gte: [, , `gte`],
     lt: [, , `lt`],
     lte: [, , `lte`],
-    neq: [, (_) => _json(_), `neq`],
+    neq: [, _json, `neq`],
   });
 };
 
@@ -8012,7 +8012,7 @@ const se_FindingStatisticsSortCriteria = (input: FindingStatisticsSortCriteria, 
  */
 const se_JobScheduleFrequency = (input: JobScheduleFrequency, context: __SerdeContext): any => {
   return take(input, {
-    dailySchedule: [, (_) => _json(_), `dailySchedule`],
+    dailySchedule: [, _json, `dailySchedule`],
     monthlySchedule: [, (_) => se_MonthlySchedule(_, context), `monthlySchedule`],
     weeklySchedule: [, (_) => se_WeeklySchedule(_, context), `weeklySchedule`],
   });
@@ -8054,7 +8054,7 @@ const se_ListJobsFilterTerm = (input: ListJobsFilterTerm, context: __SerdeContex
   return take(input, {
     comparator: [, , `comparator`],
     key: [, , `key`],
-    values: [, (_) => _json(_), `values`],
+    values: [, _json, `values`],
   });
 };
 
@@ -8103,7 +8103,7 @@ const se_S3BucketCriteriaForJob = (input: S3BucketCriteriaForJob, context: __Ser
 const se_S3BucketDefinitionForJob = (input: S3BucketDefinitionForJob, context: __SerdeContext): any => {
   return take(input, {
     accountId: [, , `accountId`],
-    buckets: [, (_) => _json(_), `buckets`],
+    buckets: [, _json, `buckets`],
   });
 };
 
@@ -8115,7 +8115,7 @@ const se_S3ClassificationScopeExclusionUpdate = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    bucketNames: [, (_) => _json(_), `bucketNames`],
+    bucketNames: [, _json, `bucketNames`],
     operation: [, , `operation`],
   });
 };
@@ -8207,7 +8207,7 @@ const se_SearchResourcesSimpleCriterion = (input: SearchResourcesSimpleCriterion
   return take(input, {
     comparator: [, , `comparator`],
     key: [, , `key`],
-    values: [, (_) => _json(_), `values`],
+    values: [, _json, `values`],
   });
 };
 
@@ -8259,7 +8259,7 @@ const se_SensitivityInspectionTemplateExcludes = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    managedDataIdentifierIds: [, (_) => _json(_), `managedDataIdentifierIds`],
+    managedDataIdentifierIds: [, _json, `managedDataIdentifierIds`],
   });
 };
 
@@ -8271,9 +8271,9 @@ const se_SensitivityInspectionTemplateIncludes = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    allowListIds: [, (_) => _json(_), `allowListIds`],
-    customDataIdentifierIds: [, (_) => _json(_), `customDataIdentifierIds`],
-    managedDataIdentifierIds: [, (_) => _json(_), `managedDataIdentifierIds`],
+    allowListIds: [, _json, `allowListIds`],
+    customDataIdentifierIds: [, _json, `customDataIdentifierIds`],
+    managedDataIdentifierIds: [, _json, `managedDataIdentifierIds`],
   });
 };
 
@@ -8305,7 +8305,7 @@ const se_SimpleCriterionForJob = (input: SimpleCriterionForJob, context: __Serde
   return take(input, {
     comparator: [, , `comparator`],
     key: [, , `key`],
-    values: [, (_) => _json(_), `values`],
+    values: [, _json, `values`],
   });
 };
 
@@ -8316,7 +8316,7 @@ const se_SimpleScopeTerm = (input: SimpleScopeTerm, context: __SerdeContext): an
   return take(input, {
     comparator: [, , `comparator`],
     key: [, , `key`],
-    values: [, (_) => _json(_), `values`],
+    values: [, _json, `values`],
   });
 };
 
@@ -8391,7 +8391,7 @@ const se_UsageStatisticsFilter = (input: UsageStatisticsFilter, context: __Serde
   return take(input, {
     comparator: [, , `comparator`],
     key: [, , `key`],
-    values: [, (_) => _json(_), `values`],
+    values: [, _json, `values`],
   });
 };
 

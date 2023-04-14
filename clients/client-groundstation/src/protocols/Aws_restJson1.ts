@@ -3029,8 +3029,8 @@ const se_AntennaDownlinkConfig = (input: AntennaDownlinkConfig, context: __Serde
  */
 const se_AntennaDownlinkDemodDecodeConfig = (input: AntennaDownlinkDemodDecodeConfig, context: __SerdeContext): any => {
   return take(input, {
-    decodeConfig: (_) => _json(_),
-    demodulationConfig: (_) => _json(_),
+    decodeConfig: _json,
+    demodulationConfig: _json,
     spectrumConfig: (_) => se_SpectrumConfig(_, context),
   });
 };
@@ -3100,7 +3100,7 @@ const se_ConfigTypeData = (input: ConfigTypeData, context: __SerdeContext): any 
 const se_Eirp = (input: Eirp, context: __SerdeContext): any => {
   return take(input, {
     units: [],
-    value: (_) => __serializeFloat(_),
+    value: __serializeFloat,
   });
 };
 
@@ -3127,7 +3127,7 @@ const se_EphemerisData = (input: EphemerisData, context: __SerdeContext): any =>
 const se_Frequency = (input: Frequency, context: __SerdeContext): any => {
   return take(input, {
     units: [],
-    value: (_) => __serializeFloat(_),
+    value: __serializeFloat,
   });
 };
 
@@ -3137,7 +3137,7 @@ const se_Frequency = (input: Frequency, context: __SerdeContext): any => {
 const se_FrequencyBandwidth = (input: FrequencyBandwidth, context: __SerdeContext): any => {
   return take(input, {
     units: [],
-    value: (_) => __serializeFloat(_),
+    value: __serializeFloat,
   });
 };
 
@@ -3219,7 +3219,7 @@ const se_TLEDataList = (input: TLEData[], context: __SerdeContext): any => {
  */
 const se_TLEEphemeris = (input: TLEEphemeris, context: __SerdeContext): any => {
   return take(input, {
-    s3Object: (_) => _json(_),
+    s3Object: _json,
     tleData: (_) => se_TLEDataList(_, context),
   });
 };

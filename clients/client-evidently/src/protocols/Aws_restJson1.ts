@@ -3621,7 +3621,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_EvaluationRequest = (input: EvaluationRequest, context: __SerdeContext): any => {
   return take(input, {
     entityId: [],
-    evaluationContext: (_) => __LazyJsonString.fromObject(_),
+    evaluationContext: __LazyJsonString.fromObject,
     feature: [],
   });
 };
@@ -3642,7 +3642,7 @@ const se_EvaluationRequestsList = (input: EvaluationRequest[], context: __SerdeC
  */
 const se_Event = (input: Event, context: __SerdeContext): any => {
   return take(input, {
-    data: (_) => __LazyJsonString.fromObject(_),
+    data: __LazyJsonString.fromObject,
     timestamp: (_) => Math.round(_.getTime() / 1000),
     type: [],
   });
@@ -3675,7 +3675,7 @@ const se_EventList = (input: Event[], context: __SerdeContext): any => {
 const se_MetricDefinitionConfig = (input: MetricDefinitionConfig, context: __SerdeContext): any => {
   return take(input, {
     entityIdKey: [],
-    eventPattern: (_) => __LazyJsonString.fromObject(_),
+    eventPattern: __LazyJsonString.fromObject,
     name: [],
     unitLabel: [],
     valueKey: [],
@@ -3738,8 +3738,8 @@ const se_MetricMonitorConfigList = (input: MetricMonitorConfig[], context: __Ser
  */
 const se_ScheduledSplitConfig = (input: ScheduledSplitConfig, context: __SerdeContext): any => {
   return take(input, {
-    groupWeights: (_) => _json(_),
-    segmentOverrides: (_) => _json(_),
+    groupWeights: _json,
+    segmentOverrides: _json,
     startTime: (_) => Math.round(_.getTime() / 1000),
   });
 };

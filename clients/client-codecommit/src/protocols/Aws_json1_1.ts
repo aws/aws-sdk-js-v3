@@ -11020,9 +11020,9 @@ const de_TooManyTagsExceptionRes = async (
  */
 const se_ConflictResolution = (input: ConflictResolution, context: __SerdeContext): any => {
   return take(input, {
-    deleteFiles: (_) => _json(_),
+    deleteFiles: _json,
     replaceContents: (_) => se_ReplaceContentEntries(_, context),
-    setFileModes: (_) => _json(_),
+    setFileModes: _json,
   });
 };
 
@@ -11038,13 +11038,13 @@ const se_CreateCommitInput = (input: CreateCommitInput, context: __SerdeContext)
     authorName: [],
     branchName: [],
     commitMessage: [],
-    deleteFiles: (_) => _json(_),
+    deleteFiles: _json,
     email: [],
     keepEmptyFolders: [],
     parentCommitId: [],
     putFiles: (_) => se_PutFileEntries(_, context),
     repositoryName: [],
-    setFileModes: (_) => _json(_),
+    setFileModes: _json,
   });
 };
 
@@ -11057,7 +11057,7 @@ const se_CreatePullRequestInput = (input: CreatePullRequestInput, context: __Ser
   return take(input, {
     clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     description: [],
-    targets: (_) => _json(_),
+    targets: _json,
     title: [],
   });
 };
@@ -11258,7 +11258,7 @@ const se_PostCommentForComparedCommitInput = (
     beforeCommitId: [],
     clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     content: [],
-    location: (_) => _json(_),
+    location: _json,
     repositoryName: [],
   });
 };
@@ -11272,7 +11272,7 @@ const se_PostCommentForPullRequestInput = (input: PostCommentForPullRequestInput
     beforeCommitId: [],
     clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     content: [],
-    location: (_) => _json(_),
+    location: _json,
     pullRequestId: [],
     repositoryName: [],
   });
@@ -11307,10 +11307,10 @@ const se_PutFileEntries = (input: PutFileEntry[], context: __SerdeContext): any 
  */
 const se_PutFileEntry = (input: PutFileEntry, context: __SerdeContext): any => {
   return take(input, {
-    fileContent: (_) => context.base64Encoder(_),
+    fileContent: context.base64Encoder,
     fileMode: [],
     filePath: [],
-    sourceFile: (_) => _json(_),
+    sourceFile: _json,
   });
 };
 
@@ -11322,7 +11322,7 @@ const se_PutFileInput = (input: PutFileInput, context: __SerdeContext): any => {
     branchName: [],
     commitMessage: [],
     email: [],
-    fileContent: (_) => context.base64Encoder(_),
+    fileContent: context.base64Encoder,
     fileMode: [],
     filePath: [],
     name: [],
@@ -11349,7 +11349,7 @@ const se_ReplaceContentEntries = (input: ReplaceContentEntry[], context: __Serde
  */
 const se_ReplaceContentEntry = (input: ReplaceContentEntry, context: __SerdeContext): any => {
   return take(input, {
-    content: (_) => context.base64Encoder(_),
+    content: context.base64Encoder,
     fileMode: [],
     filePath: [],
     replacementType: [],

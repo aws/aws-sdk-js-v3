@@ -213,7 +213,7 @@ const de_RateExceededExceptionRes = async (
  */
 const se_CommitTransactionRequest = (input: CommitTransactionRequest, context: __SerdeContext): any => {
   return take(input, {
-    CommitDigest: (_) => context.base64Encoder(_),
+    CommitDigest: context.base64Encoder,
     TransactionId: [],
   });
 };
@@ -238,14 +238,14 @@ const se_ExecuteStatementRequest = (input: ExecuteStatementRequest, context: __S
  */
 const se_SendCommandRequest = (input: SendCommandRequest, context: __SerdeContext): any => {
   return take(input, {
-    AbortTransaction: (_) => _json(_),
+    AbortTransaction: _json,
     CommitTransaction: (_) => se_CommitTransactionRequest(_, context),
-    EndSession: (_) => _json(_),
+    EndSession: _json,
     ExecuteStatement: (_) => se_ExecuteStatementRequest(_, context),
-    FetchPage: (_) => _json(_),
+    FetchPage: _json,
     SessionToken: [],
-    StartSession: (_) => _json(_),
-    StartTransaction: (_) => _json(_),
+    StartSession: _json,
+    StartTransaction: _json,
   });
 };
 
@@ -269,7 +269,7 @@ const se_StatementParameters = (input: ValueHolder[], context: __SerdeContext): 
  */
 const se_ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
   return take(input, {
-    IonBinary: (_) => context.base64Encoder(_),
+    IonBinary: context.base64Encoder,
     IonText: [],
   });
 };

@@ -1451,9 +1451,9 @@ const de_UnsupportedDocumentExceptionRes = async (
 const se_AnalyzeDocumentRequest = (input: AnalyzeDocumentRequest, context: __SerdeContext): any => {
   return take(input, {
     Document: (_) => se_Document(_, context),
-    FeatureTypes: (_) => _json(_),
-    HumanLoopConfig: (_) => _json(_),
-    QueriesConfig: (_) => _json(_),
+    FeatureTypes: _json,
+    HumanLoopConfig: _json,
+    QueriesConfig: _json,
   });
 };
 
@@ -1491,8 +1491,8 @@ const se_DetectDocumentTextRequest = (input: DetectDocumentTextRequest, context:
  */
 const se_Document = (input: Document, context: __SerdeContext): any => {
   return take(input, {
-    Bytes: (_) => context.base64Encoder(_),
-    S3Object: (_) => _json(_),
+    Bytes: context.base64Encoder,
+    S3Object: _json,
   });
 };
 

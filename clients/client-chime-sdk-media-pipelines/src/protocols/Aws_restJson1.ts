@@ -2241,7 +2241,7 @@ const se_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
 ): any => {
   return take(input, {
     FragmentSelector: (_) => se_FragmentSelector(_, context),
-    Streams: (_) => _json(_),
+    Streams: _json,
   });
 };
 

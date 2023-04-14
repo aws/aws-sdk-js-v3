@@ -6166,7 +6166,7 @@ const se_CalculateRouteTruckModeOptions = (input: CalculateRouteTruckModeOptions
 const se_Circle = (input: Circle, context: __SerdeContext): any => {
   return take(input, {
     Center: (_) => se_Position(_, context),
-    Radius: (_) => __serializeFloat(_),
+    Radius: __serializeFloat,
   });
 };
 
@@ -6184,7 +6184,7 @@ const se_DevicePositionUpdate = (input: DevicePositionUpdate, context: __SerdeCo
     Accuracy: (_) => se_PositionalAccuracy(_, context),
     DeviceId: [],
     Position: (_) => se_Position(_, context),
-    PositionProperties: (_) => _json(_),
+    PositionProperties: _json,
     SampleTime: (_) => _.toISOString().split(".")[0] + "Z",
   });
 };
@@ -6254,7 +6254,7 @@ const se_Position = (input: number[], context: __SerdeContext): any => {
  */
 const se_PositionalAccuracy = (input: PositionalAccuracy, context: __SerdeContext): any => {
   return take(input, {
-    Horizontal: (_) => __serializeFloat(_),
+    Horizontal: __serializeFloat,
   });
 };
 
@@ -6280,10 +6280,10 @@ const se_PositionList = (input: number[][], context: __SerdeContext): any => {
  */
 const se_TruckDimensions = (input: TruckDimensions, context: __SerdeContext): any => {
   return take(input, {
-    Height: (_) => __serializeFloat(_),
-    Length: (_) => __serializeFloat(_),
+    Height: __serializeFloat,
+    Length: __serializeFloat,
     Unit: [],
-    Width: (_) => __serializeFloat(_),
+    Width: __serializeFloat,
   });
 };
 
@@ -6292,7 +6292,7 @@ const se_TruckDimensions = (input: TruckDimensions, context: __SerdeContext): an
  */
 const se_TruckWeight = (input: TruckWeight, context: __SerdeContext): any => {
   return take(input, {
-    Total: (_) => __serializeFloat(_),
+    Total: __serializeFloat,
     Unit: [],
   });
 };

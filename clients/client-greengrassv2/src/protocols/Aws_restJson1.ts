@@ -2931,7 +2931,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_ComponentDeploymentSpecification = (input: ComponentDeploymentSpecification, context: __SerdeContext): any => {
   return take(input, {
     componentVersion: [],
-    configurationUpdate: (_) => _json(_),
+    configurationUpdate: _json,
     runWith: (_) => se_ComponentRunWith(_, context),
   });
 };
@@ -3003,7 +3003,7 @@ const se_DeploymentIoTJobConfiguration = (input: DeploymentIoTJobConfiguration, 
   return take(input, {
     abortConfig: (_) => se_IoTJobAbortConfig(_, context),
     jobExecutionsRolloutConfig: (_) => se_IoTJobExecutionsRolloutConfig(_, context),
-    timeoutConfig: (_) => _json(_),
+    timeoutConfig: _json,
   });
 };
 
@@ -3030,7 +3030,7 @@ const se_IoTJobAbortCriteria = (input: IoTJobAbortCriteria, context: __SerdeCont
     action: [],
     failureType: [],
     minNumberOfExecutedThings: [],
-    thresholdPercentage: (_) => __serializeFloat(_),
+    thresholdPercentage: __serializeFloat,
   });
 };
 
@@ -3061,8 +3061,8 @@ const se_IoTJobExecutionsRolloutConfig = (input: IoTJobExecutionsRolloutConfig, 
 const se_IoTJobExponentialRolloutRate = (input: IoTJobExponentialRolloutRate, context: __SerdeContext): any => {
   return take(input, {
     baseRatePerMinute: [],
-    incrementFactor: (_) => __serializeFloat(_),
-    rateIncreaseCriteria: (_) => _json(_),
+    incrementFactor: __serializeFloat,
+    rateIncreaseCriteria: _json,
   });
 };
 
@@ -3101,7 +3101,7 @@ const se_IoTJobExponentialRolloutRate = (input: IoTJobExponentialRolloutRate, co
  */
 const se_SystemResourceLimits = (input: SystemResourceLimits, context: __SerdeContext): any => {
   return take(input, {
-    cpus: (_) => __serializeFloat(_),
+    cpus: __serializeFloat,
     memory: [],
   });
 };

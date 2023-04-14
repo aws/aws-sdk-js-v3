@@ -7057,8 +7057,8 @@ const se_DateRange = (input: DateRange, context: __SerdeContext): any => {
 const se_RecoveryPointSelection = (input: RecoveryPointSelection, context: __SerdeContext): any => {
   return take(input, {
     DateRange: (_) => se_DateRange(_, context),
-    ResourceIdentifiers: (_) => _json(_),
-    VaultNames: (_) => _json(_),
+    ResourceIdentifiers: _json,
+    VaultNames: _json,
   });
 };
 

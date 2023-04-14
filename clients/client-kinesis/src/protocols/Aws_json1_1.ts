@@ -2681,7 +2681,7 @@ const se_ListStreamConsumersInput = (input: ListStreamConsumersInput, context: _
  */
 const se_PutRecordInput = (input: PutRecordInput, context: __SerdeContext): any => {
   return take(input, {
-    Data: (_) => context.base64Encoder(_),
+    Data: context.base64Encoder,
     ExplicitHashKey: [],
     PartitionKey: [],
     SequenceNumberForOrdering: [],
@@ -2706,7 +2706,7 @@ const se_PutRecordsInput = (input: PutRecordsInput, context: __SerdeContext): an
  */
 const se_PutRecordsRequestEntry = (input: PutRecordsRequestEntry, context: __SerdeContext): any => {
   return take(input, {
-    Data: (_) => context.base64Encoder(_),
+    Data: context.base64Encoder,
     ExplicitHashKey: [],
     PartitionKey: [],
   });

@@ -3744,7 +3744,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_UploadLayerPartRequest = (input: UploadLayerPartRequest, context: __SerdeContext): any => {
   return take(input, {
-    layerPartBlob: (_) => context.base64Encoder(_),
+    layerPartBlob: context.base64Encoder,
     partFirstByte: [],
     partLastByte: [],
     registryId: [],

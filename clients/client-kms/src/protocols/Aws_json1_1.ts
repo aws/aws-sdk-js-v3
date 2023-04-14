@@ -4772,10 +4772,10 @@ const de_XksProxyVpcEndpointServiceNotFoundExceptionRes = async (
  */
 const se_DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any => {
   return take(input, {
-    CiphertextBlob: (_) => context.base64Encoder(_),
+    CiphertextBlob: context.base64Encoder,
     EncryptionAlgorithm: [],
-    EncryptionContext: (_) => _json(_),
-    GrantTokens: (_) => _json(_),
+    EncryptionContext: _json,
+    GrantTokens: _json,
     KeyId: [],
   });
 };
@@ -4808,10 +4808,10 @@ const se_DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any 
 const se_EncryptRequest = (input: EncryptRequest, context: __SerdeContext): any => {
   return take(input, {
     EncryptionAlgorithm: [],
-    EncryptionContext: (_) => _json(_),
-    GrantTokens: (_) => _json(_),
+    EncryptionContext: _json,
+    GrantTokens: _json,
     KeyId: [],
-    Plaintext: (_) => context.base64Encoder(_),
+    Plaintext: context.base64Encoder,
   });
 };
 
@@ -4828,10 +4828,10 @@ const se_EncryptRequest = (input: EncryptRequest, context: __SerdeContext): any 
  */
 const se_GenerateMacRequest = (input: GenerateMacRequest, context: __SerdeContext): any => {
   return take(input, {
-    GrantTokens: (_) => _json(_),
+    GrantTokens: _json,
     KeyId: [],
     MacAlgorithm: [],
-    Message: (_) => context.base64Encoder(_),
+    Message: context.base64Encoder,
   });
 };
 
@@ -4856,9 +4856,9 @@ const se_GenerateMacRequest = (input: GenerateMacRequest, context: __SerdeContex
  */
 const se_ImportKeyMaterialRequest = (input: ImportKeyMaterialRequest, context: __SerdeContext): any => {
   return take(input, {
-    EncryptedKeyMaterial: (_) => context.base64Encoder(_),
+    EncryptedKeyMaterial: context.base64Encoder,
     ExpirationModel: [],
-    ImportToken: (_) => context.base64Encoder(_),
+    ImportToken: context.base64Encoder,
     KeyId: [],
     ValidTo: (_) => Math.round(_.getTime() / 1000),
   });
@@ -4883,13 +4883,13 @@ const se_ImportKeyMaterialRequest = (input: ImportKeyMaterialRequest, context: _
  */
 const se_ReEncryptRequest = (input: ReEncryptRequest, context: __SerdeContext): any => {
   return take(input, {
-    CiphertextBlob: (_) => context.base64Encoder(_),
+    CiphertextBlob: context.base64Encoder,
     DestinationEncryptionAlgorithm: [],
-    DestinationEncryptionContext: (_) => _json(_),
+    DestinationEncryptionContext: _json,
     DestinationKeyId: [],
-    GrantTokens: (_) => _json(_),
+    GrantTokens: _json,
     SourceEncryptionAlgorithm: [],
-    SourceEncryptionContext: (_) => _json(_),
+    SourceEncryptionContext: _json,
     SourceKeyId: [],
   });
 };
@@ -4907,9 +4907,9 @@ const se_ReEncryptRequest = (input: ReEncryptRequest, context: __SerdeContext): 
  */
 const se_SignRequest = (input: SignRequest, context: __SerdeContext): any => {
   return take(input, {
-    GrantTokens: (_) => _json(_),
+    GrantTokens: _json,
     KeyId: [],
-    Message: (_) => context.base64Encoder(_),
+    Message: context.base64Encoder,
     MessageType: [],
     SigningAlgorithm: [],
   });
@@ -4938,11 +4938,11 @@ const se_SignRequest = (input: SignRequest, context: __SerdeContext): any => {
  */
 const se_VerifyMacRequest = (input: VerifyMacRequest, context: __SerdeContext): any => {
   return take(input, {
-    GrantTokens: (_) => _json(_),
+    GrantTokens: _json,
     KeyId: [],
-    Mac: (_) => context.base64Encoder(_),
+    Mac: context.base64Encoder,
     MacAlgorithm: [],
-    Message: (_) => context.base64Encoder(_),
+    Message: context.base64Encoder,
   });
 };
 
@@ -4951,11 +4951,11 @@ const se_VerifyMacRequest = (input: VerifyMacRequest, context: __SerdeContext): 
  */
 const se_VerifyRequest = (input: VerifyRequest, context: __SerdeContext): any => {
   return take(input, {
-    GrantTokens: (_) => _json(_),
+    GrantTokens: _json,
     KeyId: [],
-    Message: (_) => context.base64Encoder(_),
+    Message: context.base64Encoder,
     MessageType: [],
-    Signature: (_) => context.base64Encoder(_),
+    Signature: context.base64Encoder,
     SigningAlgorithm: [],
   });
 };

@@ -5788,8 +5788,8 @@ const se_AccountDetails = (input: AccountDetail[], context: __SerdeContext): any
  */
 const se_Condition = (input: Condition, context: __SerdeContext): any => {
   return take(input, {
-    eq: [, (_) => _json(_), `Eq`],
-    equals: [, (_) => _json(_), `Equals`],
+    eq: [, _json, `Eq`],
+    equals: [, _json, `Equals`],
     greaterThan: [, , `GreaterThan`],
     greaterThanOrEqual: [, , `GreaterThanOrEqual`],
     gt: [, , `Gt`],
@@ -5798,8 +5798,8 @@ const se_Condition = (input: Condition, context: __SerdeContext): any => {
     lessThanOrEqual: [, , `LessThanOrEqual`],
     lt: [, , `Lt`],
     lte: [, , `Lte`],
-    neq: [, (_) => _json(_), `Neq`],
-    notEquals: [, (_) => _json(_), `NotEquals`],
+    neq: [, _json, `Neq`],
+    notEquals: [, _json, `NotEquals`],
   });
 };
 
@@ -5808,8 +5808,8 @@ const se_Condition = (input: Condition, context: __SerdeContext): any => {
  */
 const se_CoverageFilterCondition = (input: CoverageFilterCondition, context: __SerdeContext): any => {
   return take(input, {
-    equals: [, (_) => _json(_), `Equals`],
-    notEquals: [, (_) => _json(_), `NotEquals`],
+    equals: [, _json, `Equals`],
+    notEquals: [, _json, `NotEquals`],
   });
 };
 
@@ -6297,10 +6297,10 @@ const se_SortCriteria = (input: SortCriteria, context: __SerdeContext): any => {
  */
 const se_UsageCriteria = (input: UsageCriteria, context: __SerdeContext): any => {
   return take(input, {
-    accountIds: [, (_) => _json(_), `AccountIds`],
-    dataSources: [, (_) => _json(_), `DataSources`],
-    features: [, (_) => _json(_), `Features`],
-    resources: [, (_) => _json(_), `Resources`],
+    accountIds: [, _json, `AccountIds`],
+    dataSources: [, _json, `DataSources`],
+    features: [, _json, `Features`],
+    resources: [, _json, `Resources`],
   });
 };
 

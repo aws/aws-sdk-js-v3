@@ -1790,7 +1790,7 @@ const se_Configuration = (input: Configuration, context: __SerdeContext): any =>
   return take(input, {
     classification: [],
     configurations: (_) => se_ConfigurationList(_, context),
-    properties: (_) => _json(_),
+    properties: _json,
   });
 };
 
@@ -1811,7 +1811,7 @@ const se_ConfigurationList = (input: Configuration[], context: __SerdeContext): 
 const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __SerdeContext): any => {
   return take(input, {
     applicationConfiguration: (_) => se_ConfigurationList(_, context),
-    monitoringConfiguration: (_) => _json(_),
+    monitoringConfiguration: _json,
   });
 };
 
@@ -1832,9 +1832,9 @@ const se_JobTemplateData = (input: JobTemplateData, context: __SerdeContext): an
   return take(input, {
     configurationOverrides: (_) => se_ParametricConfigurationOverrides(_, context),
     executionRoleArn: [],
-    jobDriver: (_) => _json(_),
-    jobTags: (_) => _json(_),
-    parameterConfiguration: (_) => _json(_),
+    jobDriver: _json,
+    jobTags: _json,
+    parameterConfiguration: _json,
     releaseLabel: [],
   });
 };
@@ -1849,7 +1849,7 @@ const se_JobTemplateData = (input: JobTemplateData, context: __SerdeContext): an
 const se_ParametricConfigurationOverrides = (input: ParametricConfigurationOverrides, context: __SerdeContext): any => {
   return take(input, {
     applicationConfiguration: (_) => se_ConfigurationList(_, context),
-    monitoringConfiguration: (_) => _json(_),
+    monitoringConfiguration: _json,
   });
 };
 

@@ -573,7 +573,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CreateScalingPlanRequest = (input: CreateScalingPlanRequest, context: __SerdeContext): any => {
   return take(input, {
-    ApplicationSource: (_) => _json(_),
+    ApplicationSource: _json,
     ScalingInstructions: (_) => se_ScalingInstructions(_, context),
     ScalingPlanName: [],
   });
@@ -621,11 +621,11 @@ const se_GetScalingPlanResourceForecastDataRequest = (
  */
 const se_ScalingInstruction = (input: ScalingInstruction, context: __SerdeContext): any => {
   return take(input, {
-    CustomizedLoadMetricSpecification: (_) => _json(_),
+    CustomizedLoadMetricSpecification: _json,
     DisableDynamicScaling: [],
     MaxCapacity: [],
     MinCapacity: [],
-    PredefinedLoadMetricSpecification: (_) => _json(_),
+    PredefinedLoadMetricSpecification: _json,
     PredictiveScalingMaxCapacityBehavior: [],
     PredictiveScalingMaxCapacityBuffer: [],
     PredictiveScalingMode: [],
@@ -662,13 +662,13 @@ const se_ScalingInstructions = (input: ScalingInstruction[], context: __SerdeCon
  */
 const se_TargetTrackingConfiguration = (input: TargetTrackingConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    CustomizedScalingMetricSpecification: (_) => _json(_),
+    CustomizedScalingMetricSpecification: _json,
     DisableScaleIn: [],
     EstimatedInstanceWarmup: [],
-    PredefinedScalingMetricSpecification: (_) => _json(_),
+    PredefinedScalingMetricSpecification: _json,
     ScaleInCooldown: [],
     ScaleOutCooldown: [],
-    TargetValue: (_) => __serializeFloat(_),
+    TargetValue: __serializeFloat,
   });
 };
 
@@ -688,7 +688,7 @@ const se_TargetTrackingConfigurations = (input: TargetTrackingConfiguration[], c
  */
 const se_UpdateScalingPlanRequest = (input: UpdateScalingPlanRequest, context: __SerdeContext): any => {
   return take(input, {
-    ApplicationSource: (_) => _json(_),
+    ApplicationSource: _json,
     ScalingInstructions: (_) => se_ScalingInstructions(_, context),
     ScalingPlanName: [],
     ScalingPlanVersion: [],

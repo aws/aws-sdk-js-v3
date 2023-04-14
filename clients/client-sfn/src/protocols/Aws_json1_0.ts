@@ -2313,7 +2313,7 @@ const se_UpdateMapRunInput = (input: UpdateMapRunInput, context: __SerdeContext)
     mapRunArn: [],
     maxConcurrency: [],
     toleratedFailureCount: [],
-    toleratedFailurePercentage: (_) => __serializeFloat(_),
+    toleratedFailurePercentage: __serializeFloat,
   });
 };
 

@@ -504,15 +504,15 @@ const de_NotAuthorizedExceptionRes = async (
  */
 const se_DescribeDimensionKeysRequest = (input: DescribeDimensionKeysRequest, context: __SerdeContext): any => {
   return take(input, {
-    AdditionalMetrics: (_) => _json(_),
+    AdditionalMetrics: _json,
     EndTime: (_) => Math.round(_.getTime() / 1000),
-    Filter: (_) => _json(_),
-    GroupBy: (_) => _json(_),
+    Filter: _json,
+    GroupBy: _json,
     Identifier: [],
     MaxResults: [],
     Metric: [],
     NextToken: [],
-    PartitionBy: (_) => _json(_),
+    PartitionBy: _json,
     PeriodInSeconds: [],
     ServiceType: [],
     StartTime: (_) => Math.round(_.getTime() / 1000),
@@ -535,7 +535,7 @@ const se_GetResourceMetricsRequest = (input: GetResourceMetricsRequest, context:
     EndTime: (_) => Math.round(_.getTime() / 1000),
     Identifier: [],
     MaxResults: [],
-    MetricQueries: (_) => _json(_),
+    MetricQueries: _json,
     NextToken: [],
     PeriodAlignment: [],
     PeriodInSeconds: [],

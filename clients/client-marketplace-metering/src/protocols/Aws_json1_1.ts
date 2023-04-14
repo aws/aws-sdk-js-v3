@@ -657,7 +657,7 @@ const se_MeterUsageRequest = (input: MeterUsageRequest, context: __SerdeContext)
     DryRun: [],
     ProductCode: [],
     Timestamp: (_) => Math.round(_.getTime() / 1000),
-    UsageAllocations: (_) => _json(_),
+    UsageAllocations: _json,
     UsageDimension: [],
     UsageQuantity: [],
   });
@@ -684,7 +684,7 @@ const se_UsageRecord = (input: UsageRecord, context: __SerdeContext): any => {
     Dimension: [],
     Quantity: [],
     Timestamp: (_) => Math.round(_.getTime() / 1000),
-    UsageAllocations: (_) => _json(_),
+    UsageAllocations: _json,
   });
 };
 

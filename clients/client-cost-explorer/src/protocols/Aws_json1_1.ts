@@ -2800,11 +2800,11 @@ const se_AnomalySubscription = (input: AnomalySubscription, context: __SerdeCont
   return take(input, {
     AccountId: [],
     Frequency: [],
-    MonitorArnList: (_) => _json(_),
-    Subscribers: (_) => _json(_),
+    MonitorArnList: _json,
+    Subscribers: _json,
     SubscriptionArn: [],
     SubscriptionName: [],
-    Threshold: (_) => __serializeFloat(_),
+    Threshold: __serializeFloat,
     ThresholdExpression: (_) => se_Expression(_, context),
   });
 };
@@ -2822,7 +2822,7 @@ const se_AnomalySubscription = (input: AnomalySubscription, context: __SerdeCont
  */
 const se_CostCategoryRule = (input: CostCategoryRule, context: __SerdeContext): any => {
   return take(input, {
-    InheritedValue: (_) => _json(_),
+    InheritedValue: _json,
     Rule: (_) => se_Expression(_, context),
     Type: [],
     Value: [],
@@ -2860,7 +2860,7 @@ const se_CostCategoryRulesList = (input: CostCategoryRule[], context: __SerdeCon
 const se_CreateAnomalyMonitorRequest = (input: CreateAnomalyMonitorRequest, context: __SerdeContext): any => {
   return take(input, {
     AnomalyMonitor: (_) => se_AnomalyMonitor(_, context),
-    ResourceTags: (_) => _json(_),
+    ResourceTags: _json,
   });
 };
 
@@ -2870,7 +2870,7 @@ const se_CreateAnomalyMonitorRequest = (input: CreateAnomalyMonitorRequest, cont
 const se_CreateAnomalySubscriptionRequest = (input: CreateAnomalySubscriptionRequest, context: __SerdeContext): any => {
   return take(input, {
     AnomalySubscription: (_) => se_AnomalySubscription(_, context),
-    ResourceTags: (_) => _json(_),
+    ResourceTags: _json,
   });
 };
 
@@ -2885,10 +2885,10 @@ const se_CreateCostCategoryDefinitionRequest = (
     DefaultValue: [],
     EffectiveStart: [],
     Name: [],
-    ResourceTags: (_) => _json(_),
+    ResourceTags: _json,
     RuleVersion: [],
     Rules: (_) => se_CostCategoryRulesList(_, context),
-    SplitChargeRules: (_) => _json(_),
+    SplitChargeRules: _json,
   });
 };
 
@@ -2912,11 +2912,11 @@ const se_CreateCostCategoryDefinitionRequest = (
 const se_Expression = (input: Expression, context: __SerdeContext): any => {
   return take(input, {
     And: (_) => se_Expressions(_, context),
-    CostCategories: (_) => _json(_),
-    Dimensions: (_) => _json(_),
+    CostCategories: _json,
+    Dimensions: _json,
     Not: (_) => se_Expression(_, context),
     Or: (_) => se_Expressions(_, context),
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -2936,7 +2936,7 @@ const se_Expressions = (input: Expression[], context: __SerdeContext): any => {
  */
 const se_GetAnomaliesRequest = (input: GetAnomaliesRequest, context: __SerdeContext): any => {
   return take(input, {
-    DateInterval: (_) => _json(_),
+    DateInterval: _json,
     Feedback: [],
     MaxResults: [],
     MonitorArn: [],
@@ -2956,10 +2956,10 @@ const se_GetCostAndUsageRequest = (input: GetCostAndUsageRequest, context: __Ser
   return take(input, {
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
-    GroupBy: (_) => _json(_),
-    Metrics: (_) => _json(_),
+    GroupBy: _json,
+    Metrics: _json,
     NextPageToken: [],
-    TimePeriod: (_) => _json(_),
+    TimePeriod: _json,
   });
 };
 
@@ -2973,10 +2973,10 @@ const se_GetCostAndUsageWithResourcesRequest = (
   return take(input, {
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
-    GroupBy: (_) => _json(_),
-    Metrics: (_) => _json(_),
+    GroupBy: _json,
+    Metrics: _json,
     NextPageToken: [],
-    TimePeriod: (_) => _json(_),
+    TimePeriod: _json,
   });
 };
 
@@ -2990,8 +2990,8 @@ const se_GetCostCategoriesRequest = (input: GetCostCategoriesRequest, context: _
     MaxResults: [],
     NextPageToken: [],
     SearchString: [],
-    SortBy: (_) => _json(_),
-    TimePeriod: (_) => _json(_),
+    SortBy: _json,
+    TimePeriod: _json,
   });
 };
 
@@ -3004,7 +3004,7 @@ const se_GetCostForecastRequest = (input: GetCostForecastRequest, context: __Ser
     Granularity: [],
     Metric: [],
     PredictionIntervalLevel: [],
-    TimePeriod: (_) => _json(_),
+    TimePeriod: _json,
   });
 };
 
@@ -3019,8 +3019,8 @@ const se_GetDimensionValuesRequest = (input: GetDimensionValuesRequest, context:
     MaxResults: [],
     NextPageToken: [],
     SearchString: [],
-    SortBy: (_) => _json(_),
-    TimePeriod: (_) => _json(_),
+    SortBy: _json,
+    TimePeriod: _json,
   });
 };
 
@@ -3031,12 +3031,12 @@ const se_GetReservationCoverageRequest = (input: GetReservationCoverageRequest, 
   return take(input, {
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
-    GroupBy: (_) => _json(_),
+    GroupBy: _json,
     MaxResults: [],
-    Metrics: (_) => _json(_),
+    Metrics: _json,
     NextPageToken: [],
-    SortBy: (_) => _json(_),
-    TimePeriod: (_) => _json(_),
+    SortBy: _json,
+    TimePeriod: _json,
   });
 };
 
@@ -3056,7 +3056,7 @@ const se_GetReservationPurchaseRecommendationRequest = (
     PageSize: [],
     PaymentOption: [],
     Service: [],
-    ServiceSpecification: (_) => _json(_),
+    ServiceSpecification: _json,
     TermInYears: [],
   });
 };
@@ -3068,11 +3068,11 @@ const se_GetReservationUtilizationRequest = (input: GetReservationUtilizationReq
   return take(input, {
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
-    GroupBy: (_) => _json(_),
+    GroupBy: _json,
     MaxResults: [],
     NextPageToken: [],
-    SortBy: (_) => _json(_),
-    TimePeriod: (_) => _json(_),
+    SortBy: _json,
+    TimePeriod: _json,
   });
 };
 
@@ -3084,7 +3084,7 @@ const se_GetRightsizingRecommendationRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    Configuration: (_) => _json(_),
+    Configuration: _json,
     Filter: (_) => se_Expression(_, context),
     NextPageToken: [],
     PageSize: [],
@@ -3099,12 +3099,12 @@ const se_GetSavingsPlansCoverageRequest = (input: GetSavingsPlansCoverageRequest
   return take(input, {
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
-    GroupBy: (_) => _json(_),
+    GroupBy: _json,
     MaxResults: [],
-    Metrics: (_) => _json(_),
+    Metrics: _json,
     NextToken: [],
-    SortBy: (_) => _json(_),
-    TimePeriod: (_) => _json(_),
+    SortBy: _json,
+    TimePeriod: _json,
   });
 };
 
@@ -3135,12 +3135,12 @@ const se_GetSavingsPlansUtilizationDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    DataType: (_) => _json(_),
+    DataType: _json,
     Filter: (_) => se_Expression(_, context),
     MaxResults: [],
     NextToken: [],
-    SortBy: (_) => _json(_),
-    TimePeriod: (_) => _json(_),
+    SortBy: _json,
+    TimePeriod: _json,
   });
 };
 
@@ -3154,8 +3154,8 @@ const se_GetSavingsPlansUtilizationRequest = (
   return take(input, {
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
-    SortBy: (_) => _json(_),
-    TimePeriod: (_) => _json(_),
+    SortBy: _json,
+    TimePeriod: _json,
   });
 };
 
@@ -3168,9 +3168,9 @@ const se_GetTagsRequest = (input: GetTagsRequest, context: __SerdeContext): any 
     MaxResults: [],
     NextPageToken: [],
     SearchString: [],
-    SortBy: (_) => _json(_),
+    SortBy: _json,
     TagKey: [],
-    TimePeriod: (_) => _json(_),
+    TimePeriod: _json,
   });
 };
 
@@ -3183,7 +3183,7 @@ const se_GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __S
     Granularity: [],
     Metric: [],
     PredictionIntervalLevel: [],
-    TimePeriod: (_) => _json(_),
+    TimePeriod: _json,
   });
 };
 
@@ -3240,9 +3240,9 @@ const se_GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __S
  */
 const se_TotalImpactFilter = (input: TotalImpactFilter, context: __SerdeContext): any => {
   return take(input, {
-    EndValue: (_) => __serializeFloat(_),
+    EndValue: __serializeFloat,
     NumericOperator: [],
-    StartValue: (_) => __serializeFloat(_),
+    StartValue: __serializeFloat,
   });
 };
 
@@ -3256,11 +3256,11 @@ const se_TotalImpactFilter = (input: TotalImpactFilter, context: __SerdeContext)
 const se_UpdateAnomalySubscriptionRequest = (input: UpdateAnomalySubscriptionRequest, context: __SerdeContext): any => {
   return take(input, {
     Frequency: [],
-    MonitorArnList: (_) => _json(_),
-    Subscribers: (_) => _json(_),
+    MonitorArnList: _json,
+    Subscribers: _json,
     SubscriptionArn: [],
     SubscriptionName: [],
-    Threshold: (_) => __serializeFloat(_),
+    Threshold: __serializeFloat,
     ThresholdExpression: (_) => se_Expression(_, context),
   });
 };
@@ -3280,7 +3280,7 @@ const se_UpdateCostCategoryDefinitionRequest = (
     EffectiveStart: [],
     RuleVersion: [],
     Rules: (_) => se_CostCategoryRulesList(_, context),
-    SplitChargeRules: (_) => _json(_),
+    SplitChargeRules: _json,
   });
 };
 

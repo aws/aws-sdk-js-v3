@@ -1113,7 +1113,7 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
  */
 const se_AudioInputEvent = (input: AudioInputEvent, context: __SerdeContext): any => {
   return take(input, {
-    audioChunk: (_) => context.base64Encoder(_),
+    audioChunk: context.base64Encoder,
     clientTimestampMillis: [],
     contentType: [],
     eventId: [],
@@ -1132,10 +1132,10 @@ const se_ConfigurationEvent = (input: ConfigurationEvent, context: __SerdeContex
     clientTimestampMillis: [],
     disablePlayback: [],
     eventId: [],
-    requestAttributes: (_) => _json(_),
+    requestAttributes: _json,
     responseContentType: [],
     sessionState: (_) => se_SessionState(_, context),
-    welcomeMessages: (_) => _json(_),
+    welcomeMessages: _json,
   });
 };
 
@@ -1190,7 +1190,7 @@ const se_Intent = (input: Intent, context: __SerdeContext): any => {
  */
 const se_RuntimeHintDetails = (input: RuntimeHintDetails, context: __SerdeContext): any => {
   return take(input, {
-    runtimeHintValues: (_) => _json(_),
+    runtimeHintValues: _json,
     subSlotHints: (_) => se_SlotHintsSlotMap(_, context),
   });
 };
@@ -1213,12 +1213,12 @@ const se_RuntimeHints = (input: RuntimeHints, context: __SerdeContext): any => {
  */
 const se_SessionState = (input: SessionState, context: __SerdeContext): any => {
   return take(input, {
-    activeContexts: (_) => _json(_),
+    activeContexts: _json,
     dialogAction: (_) => se_DialogAction(_, context),
     intent: (_) => se_Intent(_, context),
     originatingRequestId: [],
     runtimeHints: (_) => se_RuntimeHints(_, context),
-    sessionAttributes: (_) => _json(_),
+    sessionAttributes: _json,
   });
 };
 
@@ -1229,7 +1229,7 @@ const se_Slot = (input: Slot, context: __SerdeContext): any => {
   return take(input, {
     shape: [],
     subSlots: (_) => se_Slots(_, context),
-    value: (_) => _json(_),
+    value: _json,
     values: (_) => se_Values(_, context),
   });
 };

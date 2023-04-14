@@ -16881,7 +16881,7 @@ const se_MetricsV2 = (input: MetricV2[], context: __SerdeContext): any => {
  */
 const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
   return take(input, {
-    MetricFilters: (_) => _json(_),
+    MetricFilters: _json,
     Name: [],
     Threshold: (_) => se_ThresholdCollections(_, context),
   });
@@ -16932,7 +16932,7 @@ const se_QueueSearchCriteria = (input: QueueSearchCriteria, context: __SerdeCont
     AndConditions: (_) => se_QueueSearchConditionList(_, context),
     OrConditions: (_) => se_QueueSearchConditionList(_, context),
     QueueTypeCondition: [],
-    StringCondition: (_) => _json(_),
+    StringCondition: _json,
   });
 };
 
@@ -16980,7 +16980,7 @@ const se_RoutingProfileSearchCriteria = (input: RoutingProfileSearchCriteria, co
   return take(input, {
     AndConditions: (_) => se_RoutingProfileSearchConditionList(_, context),
     OrConditions: (_) => se_RoutingProfileSearchConditionList(_, context),
-    StringCondition: (_) => _json(_),
+    StringCondition: _json,
   });
 };
 
@@ -17017,7 +17017,7 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
   return take(input, {
     AndConditions: (_) => se_SecurityProfileSearchConditionList(_, context),
     OrConditions: (_) => se_SecurityProfileSearchConditionList(_, context),
-    StringCondition: (_) => _json(_),
+    StringCondition: _json,
   });
 };
 
@@ -17065,7 +17065,7 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 const se_Threshold = (input: Threshold, context: __SerdeContext): any => {
   return take(input, {
     Comparison: [],
-    ThresholdValue: (_) => __serializeFloat(_),
+    ThresholdValue: __serializeFloat,
   });
 };
 
@@ -17086,7 +17086,7 @@ const se_ThresholdCollections = (input: ThresholdV2[], context: __SerdeContext):
 const se_ThresholdV2 = (input: ThresholdV2, context: __SerdeContext): any => {
   return take(input, {
     Comparison: [],
-    ThresholdValue: (_) => __serializeFloat(_),
+    ThresholdValue: __serializeFloat,
   });
 };
 
@@ -17121,9 +17121,9 @@ const se_UserSearchConditionList = (input: UserSearchCriteria[], context: __Serd
 const se_UserSearchCriteria = (input: UserSearchCriteria, context: __SerdeContext): any => {
   return take(input, {
     AndConditions: (_) => se_UserSearchConditionList(_, context),
-    HierarchyGroupCondition: (_) => _json(_),
+    HierarchyGroupCondition: _json,
     OrConditions: (_) => se_UserSearchConditionList(_, context),
-    StringCondition: (_) => _json(_),
+    StringCondition: _json,
   });
 };
 

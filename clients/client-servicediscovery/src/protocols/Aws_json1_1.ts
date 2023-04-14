@@ -2079,7 +2079,7 @@ const se_CreateHttpNamespaceRequest = (input: CreateHttpNamespaceRequest, contex
     CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -2091,8 +2091,8 @@ const se_CreatePrivateDnsNamespaceRequest = (input: CreatePrivateDnsNamespaceReq
     CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     Name: [],
-    Properties: (_) => _json(_),
-    Tags: (_) => _json(_),
+    Properties: _json,
+    Tags: _json,
     Vpc: [],
   });
 };
@@ -2105,8 +2105,8 @@ const se_CreatePublicDnsNamespaceRequest = (input: CreatePublicDnsNamespaceReque
     CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     Name: [],
-    Properties: (_) => _json(_),
-    Tags: (_) => _json(_),
+    Properties: _json,
+    Tags: _json,
   });
 };
 
@@ -2117,12 +2117,12 @@ const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeCo
   return take(input, {
     CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
-    DnsConfig: (_) => _json(_),
-    HealthCheckConfig: (_) => _json(_),
-    HealthCheckCustomConfig: (_) => _json(_),
+    DnsConfig: _json,
+    HealthCheckConfig: _json,
+    HealthCheckCustomConfig: _json,
     Name: [],
     NamespaceId: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     Type: [],
   });
 };
@@ -2206,7 +2206,7 @@ const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeCo
  */
 const se_RegisterInstanceRequest = (input: RegisterInstanceRequest, context: __SerdeContext): any => {
   return take(input, {
-    Attributes: (_) => _json(_),
+    Attributes: _json,
     CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
     InstanceId: [],
     ServiceId: [],
@@ -2239,7 +2239,7 @@ const se_RegisterInstanceRequest = (input: RegisterInstanceRequest, context: __S
 const se_UpdateHttpNamespaceRequest = (input: UpdateHttpNamespaceRequest, context: __SerdeContext): any => {
   return take(input, {
     Id: [],
-    Namespace: (_) => _json(_),
+    Namespace: _json,
     UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
   });
 };
@@ -2252,7 +2252,7 @@ const se_UpdateHttpNamespaceRequest = (input: UpdateHttpNamespaceRequest, contex
 const se_UpdatePrivateDnsNamespaceRequest = (input: UpdatePrivateDnsNamespaceRequest, context: __SerdeContext): any => {
   return take(input, {
     Id: [],
-    Namespace: (_) => _json(_),
+    Namespace: _json,
     UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
   });
 };
@@ -2263,7 +2263,7 @@ const se_UpdatePrivateDnsNamespaceRequest = (input: UpdatePrivateDnsNamespaceReq
 const se_UpdatePublicDnsNamespaceRequest = (input: UpdatePublicDnsNamespaceRequest, context: __SerdeContext): any => {
   return take(input, {
     Id: [],
-    Namespace: (_) => _json(_),
+    Namespace: _json,
     UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
   });
 };

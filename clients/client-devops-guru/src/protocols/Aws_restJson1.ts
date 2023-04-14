@@ -3147,7 +3147,7 @@ const se_ListEventsFilters = (input: ListEventsFilters, context: __SerdeContext)
     EventSource: [],
     EventTimeRange: (_) => se_EventTimeRange(_, context),
     InsightId: [],
-    ResourceCollection: (_) => _json(_),
+    ResourceCollection: _json,
   });
 };
 
@@ -3184,7 +3184,7 @@ const se_ListInsightsStatusFilter = (input: ListInsightsStatusFilter, context: _
   return take(input, {
     Any: (_) => se_ListInsightsAnyStatusFilter(_, context),
     Closed: (_) => se_ListInsightsClosedStatusFilter(_, context),
-    Ongoing: (_) => _json(_),
+    Ongoing: _json,
   });
 };
 

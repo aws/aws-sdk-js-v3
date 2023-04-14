@@ -1168,15 +1168,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_CreateScheduledQueryRequest = (input: CreateScheduledQueryRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
-    ErrorReportConfiguration: (_) => _json(_),
+    ErrorReportConfiguration: _json,
     KmsKeyId: [],
     Name: [],
-    NotificationConfiguration: (_) => _json(_),
+    NotificationConfiguration: _json,
     QueryString: [],
-    ScheduleConfiguration: (_) => _json(_),
+    ScheduleConfiguration: _json,
     ScheduledQueryExecutionRoleArn: [],
-    Tags: (_) => _json(_),
-    TargetConfiguration: (_) => _json(_),
+    Tags: _json,
+    TargetConfiguration: _json,
   });
 };
 

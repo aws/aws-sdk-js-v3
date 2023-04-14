@@ -7901,7 +7901,7 @@ const se_FunctionCode = (input: FunctionCode, context: __SerdeContext): any => {
     S3Bucket: [],
     S3Key: [],
     S3ObjectVersion: [],
-    ZipFile: (_) => context.base64Encoder(_),
+    ZipFile: context.base64Encoder,
   });
 };
 
@@ -7921,7 +7921,7 @@ const se_LayerVersionContentInput = (input: LayerVersionContentInput, context: _
     S3Bucket: [],
     S3Key: [],
     S3ObjectVersion: [],
-    ZipFile: (_) => context.base64Encoder(_),
+    ZipFile: context.base64Encoder,
   });
 };
 

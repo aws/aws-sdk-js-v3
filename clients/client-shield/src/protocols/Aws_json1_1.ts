@@ -2922,7 +2922,7 @@ const se_ListAttacksRequest = (input: ListAttacksRequest, context: __SerdeContex
     EndTime: (_) => se_TimeRange(_, context),
     MaxResults: [],
     NextToken: [],
-    ResourceArns: (_) => _json(_),
+    ResourceArns: _json,
     StartTime: (_) => se_TimeRange(_, context),
   });
 };

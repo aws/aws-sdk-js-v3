@@ -1001,12 +1001,12 @@ const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __Serde
  */
 const se_EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
   return take(input, {
-    entityArns: (_) => _json(_),
-    entityValues: (_) => _json(_),
-    eventArns: (_) => _json(_),
+    entityArns: _json,
+    entityValues: _json,
+    eventArns: _json,
     lastUpdatedTimes: (_) => se_dateTimeRangeList(_, context),
-    statusCodes: (_) => _json(_),
-    tags: (_) => _json(_),
+    statusCodes: _json,
+    tags: _json,
   });
 };
 
@@ -1025,19 +1025,19 @@ const se_EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
  */
 const se_EventFilter = (input: EventFilter, context: __SerdeContext): any => {
   return take(input, {
-    availabilityZones: (_) => _json(_),
+    availabilityZones: _json,
     endTimes: (_) => se_dateTimeRangeList(_, context),
-    entityArns: (_) => _json(_),
-    entityValues: (_) => _json(_),
-    eventArns: (_) => _json(_),
-    eventStatusCodes: (_) => _json(_),
-    eventTypeCategories: (_) => _json(_),
-    eventTypeCodes: (_) => _json(_),
+    entityArns: _json,
+    entityValues: _json,
+    eventArns: _json,
+    eventStatusCodes: _json,
+    eventTypeCategories: _json,
+    eventTypeCodes: _json,
     lastUpdatedTimes: (_) => se_dateTimeRangeList(_, context),
-    regions: (_) => _json(_),
-    services: (_) => _json(_),
+    regions: _json,
+    services: _json,
     startTimes: (_) => se_dateTimeRangeList(_, context),
-    tags: (_) => _json(_),
+    tags: _json,
   });
 };
 
@@ -1062,16 +1062,16 @@ const se_EventFilter = (input: EventFilter, context: __SerdeContext): any => {
  */
 const se_OrganizationEventFilter = (input: OrganizationEventFilter, context: __SerdeContext): any => {
   return take(input, {
-    awsAccountIds: (_) => _json(_),
+    awsAccountIds: _json,
     endTime: (_) => se_DateTimeRange(_, context),
-    entityArns: (_) => _json(_),
-    entityValues: (_) => _json(_),
-    eventStatusCodes: (_) => _json(_),
-    eventTypeCategories: (_) => _json(_),
-    eventTypeCodes: (_) => _json(_),
+    entityArns: _json,
+    entityValues: _json,
+    eventStatusCodes: _json,
+    eventTypeCategories: _json,
+    eventTypeCodes: _json,
     lastUpdatedTime: (_) => se_DateTimeRange(_, context),
-    regions: (_) => _json(_),
-    services: (_) => _json(_),
+    regions: _json,
+    services: _json,
     startTime: (_) => se_DateTimeRange(_, context),
   });
 };

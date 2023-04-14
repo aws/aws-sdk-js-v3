@@ -3768,7 +3768,7 @@ const se_ComponentRequest = (input: ComponentRequest, context: __SerdeContext): 
     componentTypeId: [],
     description: [],
     properties: (_) => se_PropertyRequests(_, context),
-    propertyGroups: (_) => _json(_),
+    propertyGroups: _json,
   });
 };
 
@@ -3792,7 +3792,7 @@ const se_ComponentUpdateRequest = (input: ComponentUpdateRequest, context: __Ser
   return take(input, {
     componentTypeId: [],
     description: [],
-    propertyGroupUpdates: (_) => _json(_),
+    propertyGroupUpdates: _json,
     propertyUpdates: (_) => se_PropertyRequests(_, context),
     updateType: [],
   });
@@ -3822,7 +3822,7 @@ const se_DataType = (input: DataType, context: __SerdeContext): any => {
   return take(input, {
     allowedValues: (_) => se_DataValueList(_, context),
     nestedType: (_) => se_DataType(_, context),
-    relationship: (_) => _json(_),
+    relationship: _json,
     type: [],
     unitOfMeasure: [],
   });
@@ -3834,13 +3834,13 @@ const se_DataType = (input: DataType, context: __SerdeContext): any => {
 const se_DataValue = (input: DataValue, context: __SerdeContext): any => {
   return take(input, {
     booleanValue: [],
-    doubleValue: (_) => __serializeFloat(_),
+    doubleValue: __serializeFloat,
     expression: [],
     integerValue: [],
     listValue: (_) => se_DataValueList(_, context),
     longValue: [],
     mapValue: (_) => se_DataValueMap(_, context),
-    relationshipValue: (_) => _json(_),
+    relationshipValue: _json,
     stringValue: [],
   });
 };
@@ -3915,7 +3915,7 @@ const se_Entries = (input: PropertyValueEntry[], context: __SerdeContext): any =
  */
 const se_PropertyDefinitionRequest = (input: PropertyDefinitionRequest, context: __SerdeContext): any => {
   return take(input, {
-    configuration: (_) => _json(_),
+    configuration: _json,
     dataType: (_) => se_DataType(_, context),
     defaultValue: (_) => se_DataValue(_, context),
     displayName: [],
@@ -4010,7 +4010,7 @@ const se_PropertyValue = (input: PropertyValue, context: __SerdeContext): any =>
  */
 const se_PropertyValueEntry = (input: PropertyValueEntry, context: __SerdeContext): any => {
   return take(input, {
-    entityPropertyReference: (_) => _json(_),
+    entityPropertyReference: _json,
     propertyValues: (_) => se_PropertyValues(_, context),
   });
 };
@@ -4047,7 +4047,7 @@ const se_PropertyValues = (input: PropertyValue[], context: __SerdeContext): any
  */
 const se_TabularConditions = (input: TabularConditions, context: __SerdeContext): any => {
   return take(input, {
-    orderBy: (_) => _json(_),
+    orderBy: _json,
     propertyFilters: (_) => se_PropertyFilters(_, context),
   });
 };

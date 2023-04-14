@@ -3469,7 +3469,7 @@ const se_CreateConfigurationSetRequest = (input: CreateConfigurationSetRequest, 
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     ConfigurationSetName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3479,12 +3479,12 @@ const se_CreateConfigurationSetRequest = (input: CreateConfigurationSetRequest, 
 const se_CreateEventDestinationRequest = (input: CreateEventDestinationRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
-    CloudWatchLogsDestination: (_) => _json(_),
+    CloudWatchLogsDestination: _json,
     ConfigurationSetName: [],
     EventDestinationName: [],
-    KinesisFirehoseDestination: (_) => _json(_),
-    MatchingEventTypes: (_) => _json(_),
-    SnsDestination: (_) => _json(_),
+    KinesisFirehoseDestination: _json,
+    MatchingEventTypes: _json,
+    SnsDestination: _json,
   });
 };
 
@@ -3495,7 +3495,7 @@ const se_CreateOptOutListRequest = (input: CreateOptOutListRequest, context: __S
   return take(input, {
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     OptOutListName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3509,7 +3509,7 @@ const se_CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext)
     IsoCountryCode: [],
     MessageType: [],
     OriginationIdentity: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -3629,12 +3629,12 @@ const se_RequestPhoneNumberRequest = (input: RequestPhoneNumberRequest, context:
     DeletionProtectionEnabled: [],
     IsoCountryCode: [],
     MessageType: [],
-    NumberCapabilities: (_) => _json(_),
+    NumberCapabilities: _json,
     NumberType: [],
     OptOutListName: [],
     PoolId: [],
     RegistrationId: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 

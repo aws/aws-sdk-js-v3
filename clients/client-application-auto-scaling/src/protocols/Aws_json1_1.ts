@@ -1173,7 +1173,7 @@ const se_PutScheduledActionRequest = (input: PutScheduledActionRequest, context:
     EndTime: (_) => Math.round(_.getTime() / 1000),
     ResourceId: [],
     ScalableDimension: [],
-    ScalableTargetAction: (_) => _json(_),
+    ScalableTargetAction: _json,
     Schedule: [],
     ScheduledActionName: [],
     ServiceNamespace: [],
@@ -1193,8 +1193,8 @@ const se_PutScheduledActionRequest = (input: PutScheduledActionRequest, context:
  */
 const se_StepAdjustment = (input: StepAdjustment, context: __SerdeContext): any => {
   return take(input, {
-    MetricIntervalLowerBound: (_) => __serializeFloat(_),
-    MetricIntervalUpperBound: (_) => __serializeFloat(_),
+    MetricIntervalLowerBound: __serializeFloat,
+    MetricIntervalUpperBound: __serializeFloat,
     ScalingAdjustment: [],
   });
 };
@@ -1251,12 +1251,12 @@ const se_TargetTrackingScalingPolicyConfiguration = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CustomizedMetricSpecification: (_) => _json(_),
+    CustomizedMetricSpecification: _json,
     DisableScaleIn: [],
-    PredefinedMetricSpecification: (_) => _json(_),
+    PredefinedMetricSpecification: _json,
     ScaleInCooldown: [],
     ScaleOutCooldown: [],
-    TargetValue: (_) => __serializeFloat(_),
+    TargetValue: __serializeFloat,
   });
 };
 

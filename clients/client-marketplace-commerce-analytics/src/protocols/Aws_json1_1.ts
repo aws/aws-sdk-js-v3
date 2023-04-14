@@ -166,7 +166,7 @@ const de_MarketplaceCommerceAnalyticsExceptionRes = async (
  */
 const se_GenerateDataSetRequest = (input: GenerateDataSetRequest, context: __SerdeContext): any => {
   return take(input, {
-    customerDefinedValues: (_) => _json(_),
+    customerDefinedValues: _json,
     dataSetPublicationDate: (_) => Math.round(_.getTime() / 1000),
     dataSetType: [],
     destinationS3BucketName: [],
@@ -181,7 +181,7 @@ const se_GenerateDataSetRequest = (input: GenerateDataSetRequest, context: __Ser
  */
 const se_StartSupportDataExportRequest = (input: StartSupportDataExportRequest, context: __SerdeContext): any => {
   return take(input, {
-    customerDefinedValues: (_) => _json(_),
+    customerDefinedValues: _json,
     dataSetType: [],
     destinationS3BucketName: [],
     destinationS3Prefix: [],

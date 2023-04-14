@@ -2701,13 +2701,13 @@ const se_CountClosedWorkflowExecutionsInput = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    closeStatusFilter: (_) => _json(_),
+    closeStatusFilter: _json,
     closeTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
     domain: [],
-    executionFilter: (_) => _json(_),
+    executionFilter: _json,
     startTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
-    tagFilter: (_) => _json(_),
-    typeFilter: (_) => _json(_),
+    tagFilter: _json,
+    typeFilter: _json,
   });
 };
 
@@ -2717,10 +2717,10 @@ const se_CountClosedWorkflowExecutionsInput = (
 const se_CountOpenWorkflowExecutionsInput = (input: CountOpenWorkflowExecutionsInput, context: __SerdeContext): any => {
   return take(input, {
     domain: [],
-    executionFilter: (_) => _json(_),
+    executionFilter: _json,
     startTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
-    tagFilter: (_) => _json(_),
-    typeFilter: (_) => _json(_),
+    tagFilter: _json,
+    typeFilter: _json,
   });
 };
 
@@ -2770,16 +2770,16 @@ const se_ListClosedWorkflowExecutionsInput = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    closeStatusFilter: (_) => _json(_),
+    closeStatusFilter: _json,
     closeTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
     domain: [],
-    executionFilter: (_) => _json(_),
+    executionFilter: _json,
     maximumPageSize: [],
     nextPageToken: [],
     reverseOrder: [],
     startTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
-    tagFilter: (_) => _json(_),
-    typeFilter: (_) => _json(_),
+    tagFilter: _json,
+    typeFilter: _json,
   });
 };
 
@@ -2791,13 +2791,13 @@ const se_ListClosedWorkflowExecutionsInput = (
 const se_ListOpenWorkflowExecutionsInput = (input: ListOpenWorkflowExecutionsInput, context: __SerdeContext): any => {
   return take(input, {
     domain: [],
-    executionFilter: (_) => _json(_),
+    executionFilter: _json,
     maximumPageSize: [],
     nextPageToken: [],
     reverseOrder: [],
     startTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
-    tagFilter: (_) => _json(_),
-    typeFilter: (_) => _json(_),
+    tagFilter: _json,
+    typeFilter: _json,
   });
 };
 

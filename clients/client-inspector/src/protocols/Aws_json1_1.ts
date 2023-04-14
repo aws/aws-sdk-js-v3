@@ -2931,12 +2931,12 @@ const de_UnsupportedFeatureExceptionRes = async (
 const se_AssessmentRunFilter = (input: AssessmentRunFilter, context: __SerdeContext): any => {
   return take(input, {
     completionTimeRange: (_) => se_TimestampRange(_, context),
-    durationRange: (_) => _json(_),
+    durationRange: _json,
     namePattern: [],
-    rulesPackageArns: (_) => _json(_),
+    rulesPackageArns: _json,
     startTimeRange: (_) => se_TimestampRange(_, context),
     stateChangeTimeRange: (_) => se_TimestampRange(_, context),
-    states: (_) => _json(_),
+    states: _json,
   });
 };
 
@@ -2995,14 +2995,14 @@ const se_AssessmentRunFilter = (input: AssessmentRunFilter, context: __SerdeCont
  */
 const se_FindingFilter = (input: FindingFilter, context: __SerdeContext): any => {
   return take(input, {
-    agentIds: (_) => _json(_),
-    attributes: (_) => _json(_),
-    autoScalingGroups: (_) => _json(_),
+    agentIds: _json,
+    attributes: _json,
+    autoScalingGroups: _json,
     creationTimeRange: (_) => se_TimestampRange(_, context),
-    ruleNames: (_) => _json(_),
-    rulesPackageArns: (_) => _json(_),
-    severities: (_) => _json(_),
-    userAttributes: (_) => _json(_),
+    ruleNames: _json,
+    rulesPackageArns: _json,
+    severities: _json,
+    userAttributes: _json,
   });
 };
 
@@ -3019,7 +3019,7 @@ const se_FindingFilter = (input: FindingFilter, context: __SerdeContext): any =>
  */
 const se_ListAssessmentRunsRequest = (input: ListAssessmentRunsRequest, context: __SerdeContext): any => {
   return take(input, {
-    assessmentTemplateArns: (_) => _json(_),
+    assessmentTemplateArns: _json,
     filter: (_) => se_AssessmentRunFilter(_, context),
     maxResults: [],
     nextToken: [],
@@ -3039,7 +3039,7 @@ const se_ListAssessmentRunsRequest = (input: ListAssessmentRunsRequest, context:
  */
 const se_ListFindingsRequest = (input: ListFindingsRequest, context: __SerdeContext): any => {
   return take(input, {
-    assessmentRunArns: (_) => _json(_),
+    assessmentRunArns: _json,
     filter: (_) => se_FindingFilter(_, context),
     maxResults: [],
     nextToken: [],

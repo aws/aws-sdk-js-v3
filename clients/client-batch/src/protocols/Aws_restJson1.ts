@@ -2285,7 +2285,7 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 const se_ShareAttributes = (input: ShareAttributes, context: __SerdeContext): any => {
   return take(input, {
     shareIdentifier: [],
-    weightFactor: (_) => __serializeFloat(_),
+    weightFactor: __serializeFloat,
   });
 };
 

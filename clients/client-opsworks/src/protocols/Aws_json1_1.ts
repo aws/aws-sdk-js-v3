@@ -4754,12 +4754,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_AutoScalingThresholds = (input: AutoScalingThresholds, context: __SerdeContext): any => {
   return take(input, {
-    Alarms: (_) => _json(_),
-    CpuThreshold: (_) => __serializeFloat(_),
+    Alarms: _json,
+    CpuThreshold: __serializeFloat,
     IgnoreMetricsTime: [],
     InstanceCount: [],
-    LoadThreshold: (_) => __serializeFloat(_),
-    MemoryThreshold: (_) => __serializeFloat(_),
+    LoadThreshold: __serializeFloat,
+    MemoryThreshold: __serializeFloat,
     ThresholdsWaitTime: [],
   });
 };

@@ -4492,7 +4492,7 @@ const se_Action = (input: Action, context: __SerdeContext): any => {
   return take(input, {
     AttributeName: [],
     Operation: [],
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -4517,8 +4517,8 @@ const se_Action = (input: Action, context: __SerdeContext): any => {
  */
 const se_ContinuousParameterRange = (input: ContinuousParameterRange, context: __SerdeContext): any => {
   return take(input, {
-    MaxValue: (_) => __serializeFloat(_),
-    MinValue: (_) => __serializeFloat(_),
+    MaxValue: __serializeFloat,
+    MinValue: __serializeFloat,
     Name: [],
     ScalingType: [],
   });
@@ -4562,19 +4562,19 @@ const se_CreatePredictorRequest = (input: CreatePredictorRequest, context: __Ser
   return take(input, {
     AlgorithmArn: [],
     AutoMLOverrideStrategy: [],
-    EncryptionConfig: (_) => _json(_),
-    EvaluationParameters: (_) => _json(_),
-    FeaturizationConfig: (_) => _json(_),
+    EncryptionConfig: _json,
+    EvaluationParameters: _json,
+    FeaturizationConfig: _json,
     ForecastHorizon: [],
-    ForecastTypes: (_) => _json(_),
+    ForecastTypes: _json,
     HPOConfig: (_) => se_HyperParameterTuningJobConfig(_, context),
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     OptimizationMetric: [],
     PerformAutoML: [],
     PerformHPO: [],
     PredictorName: [],
-    Tags: (_) => _json(_),
-    TrainingParameters: (_) => _json(_),
+    Tags: _json,
+    TrainingParameters: _json,
   });
 };
 
@@ -4587,8 +4587,8 @@ const se_CreatePredictorRequest = (input: CreatePredictorRequest, context: __Ser
  */
 const se_CreateWhatIfForecastRequest = (input: CreateWhatIfForecastRequest, context: __SerdeContext): any => {
   return take(input, {
-    Tags: (_) => _json(_),
-    TimeSeriesReplacementsDataSource: (_) => _json(_),
+    Tags: _json,
+    TimeSeriesReplacementsDataSource: _json,
     TimeSeriesTransformations: (_) => se_TimeSeriesTransformations(_, context),
     WhatIfAnalysisArn: [],
     WhatIfForecastName: [],
@@ -4737,9 +4737,9 @@ const se_HyperParameterTuningJobConfig = (input: HyperParameterTuningJobConfig, 
  */
 const se_ParameterRanges = (input: ParameterRanges, context: __SerdeContext): any => {
   return take(input, {
-    CategoricalParameterRanges: (_) => _json(_),
+    CategoricalParameterRanges: _json,
     ContinuousParameterRanges: (_) => se_ContinuousParameterRanges(_, context),
-    IntegerParameterRanges: (_) => _json(_),
+    IntegerParameterRanges: _json,
   });
 };
 
@@ -4785,7 +4785,7 @@ const se_ParameterRanges = (input: ParameterRanges, context: __SerdeContext): an
 const se_TimeSeriesTransformation = (input: TimeSeriesTransformation, context: __SerdeContext): any => {
   return take(input, {
     Action: (_) => se_Action(_, context),
-    TimeSeriesConditions: (_) => _json(_),
+    TimeSeriesConditions: _json,
   });
 };
 

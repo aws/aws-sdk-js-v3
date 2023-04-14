@@ -289,7 +289,7 @@ const de_InternalServiceExceptionRes = async (
 const se_DeploymentResult = (input: DeploymentResult, context: __SerdeContext): any => {
   return take(input, {
     DeploymentEndTime: (_) => Math.round(_.getTime() / 1000),
-    DeploymentModels: (_) => _json(_),
+    DeploymentModels: _json,
     DeploymentName: [],
     DeploymentStartTime: (_) => Math.round(_.getTime() / 1000),
     DeploymentStatus: [],
@@ -305,7 +305,7 @@ const se_EdgeMetric = (input: EdgeMetric, context: __SerdeContext): any => {
     Dimension: [],
     MetricName: [],
     Timestamp: (_) => Math.round(_.getTime() / 1000),
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 

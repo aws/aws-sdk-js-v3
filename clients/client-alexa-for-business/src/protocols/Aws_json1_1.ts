@@ -6242,7 +6242,7 @@ const se_CreateAddressBookRequest = (input: CreateAddressBookRequest, context: _
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -6255,13 +6255,13 @@ const se_CreateBusinessReportScheduleRequest = (
 ): any => {
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    ContentRange: (_) => _json(_),
+    ContentRange: _json,
     Format: [],
-    Recurrence: (_) => _json(_),
+    Recurrence: _json,
     S3BucketName: [],
     S3KeyPrefix: [],
     ScheduleName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -6273,10 +6273,10 @@ const se_CreateConferenceProviderRequest = (input: CreateConferenceProviderReque
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     ConferenceProviderName: [],
     ConferenceProviderType: [],
-    IPDialIn: (_) => _json(_),
-    MeetingSetting: (_) => _json(_),
-    PSTNDialIn: (_) => _json(_),
-    Tags: (_) => _json(_),
+    IPDialIn: _json,
+    MeetingSetting: _json,
+    PSTNDialIn: _json,
+    Tags: _json,
   });
 };
 
@@ -6290,9 +6290,9 @@ const se_CreateContactRequest = (input: CreateContactRequest, context: __SerdeCo
     FirstName: [],
     LastName: [],
     PhoneNumber: [],
-    PhoneNumbers: (_) => _json(_),
-    SipAddresses: (_) => _json(_),
-    Tags: (_) => _json(_),
+    PhoneNumbers: _json,
+    SipAddresses: _json,
+    Tags: _json,
   });
 };
 
@@ -6306,7 +6306,7 @@ const se_CreateGatewayGroupRequest = (input: CreateGatewayGroupRequest, context:
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -6328,8 +6328,8 @@ const se_CreateNetworkProfileRequest = (input: CreateNetworkProfileRequest, cont
     NextPassword: [],
     SecurityType: [],
     Ssid: [],
-    Tags: (_) => _json(_),
-    TrustAnchors: (_) => _json(_),
+    Tags: _json,
+    TrustAnchors: _json,
   });
 };
 
@@ -6344,11 +6344,11 @@ const se_CreateProfileRequest = (input: CreateProfileRequest, context: __SerdeCo
     DistanceUnit: [],
     Locale: [],
     MaxVolumeLimit: [],
-    MeetingRoomConfiguration: (_) => _json(_),
+    MeetingRoomConfiguration: _json,
     PSTNEnabled: [],
     ProfileName: [],
     SetupModeDisabled: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     TemperatureUnit: [],
     Timezone: [],
     WakeWord: [],
@@ -6367,7 +6367,7 @@ const se_CreateRoomRequest = (input: CreateRoomRequest, context: __SerdeContext)
     ProfileArn: [],
     ProviderCalendarId: [],
     RoomName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -6379,7 +6379,7 @@ const se_CreateSkillGroupRequest = (input: CreateSkillGroupRequest, context: __S
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     SkillGroupName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -6392,7 +6392,7 @@ const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext)
     Email: [],
     FirstName: [],
     LastName: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     UserId: [],
   });
 };
@@ -6543,8 +6543,8 @@ const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext)
 const se_SendAnnouncementRequest = (input: SendAnnouncementRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    Content: (_) => _json(_),
-    RoomFilters: (_) => _json(_),
+    Content: _json,
+    RoomFilters: _json,
     TimeToLiveInSeconds: [],
   });
 };

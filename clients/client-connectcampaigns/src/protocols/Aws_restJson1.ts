@@ -2219,7 +2219,7 @@ const se_DialerConfig = (input: DialerConfig, context: __SerdeContext): any => {
  */
 const se_DialRequest = (input: DialRequest, context: __SerdeContext): any => {
   return take(input, {
-    attributes: (_) => _json(_),
+    attributes: _json,
     clientToken: [],
     expirationTime: (_) => _.toISOString().split(".")[0] + "Z",
     phoneNumber: [],
@@ -2248,7 +2248,7 @@ const se_DialRequestList = (input: DialRequest[], context: __SerdeContext): any 
  */
 const se_PredictiveDialerConfig = (input: PredictiveDialerConfig, context: __SerdeContext): any => {
   return take(input, {
-    bandwidthAllocation: (_) => __serializeFloat(_),
+    bandwidthAllocation: __serializeFloat,
   });
 };
 
@@ -2257,7 +2257,7 @@ const se_PredictiveDialerConfig = (input: PredictiveDialerConfig, context: __Ser
  */
 const se_ProgressiveDialerConfig = (input: ProgressiveDialerConfig, context: __SerdeContext): any => {
   return take(input, {
-    bandwidthAllocation: (_) => __serializeFloat(_),
+    bandwidthAllocation: __serializeFloat,
   });
 };
 

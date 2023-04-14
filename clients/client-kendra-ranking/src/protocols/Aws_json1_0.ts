@@ -852,11 +852,11 @@ const se_CreateRescoreExecutionPlanRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CapacityUnits: (_) => _json(_),
+    CapacityUnits: _json,
     ClientToken: (_) => _ ?? generateIdempotencyToken(),
     Description: [],
     Name: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
   });
 };
 
@@ -872,10 +872,10 @@ const se_Document = (input: Document, context: __SerdeContext): any => {
     Body: [],
     GroupId: [],
     Id: [],
-    OriginalScore: (_) => __serializeFloat(_),
+    OriginalScore: __serializeFloat,
     Title: [],
-    TokenizedBody: (_) => _json(_),
-    TokenizedTitle: (_) => _json(_),
+    TokenizedBody: _json,
+    TokenizedTitle: _json,
   });
 };
 

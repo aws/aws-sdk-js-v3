@@ -9500,7 +9500,7 @@ const se_SetUICustomizationRequest = (input: SetUICustomizationRequest, context:
   return take(input, {
     CSS: [],
     ClientId: [],
-    ImageFile: (_) => context.base64Encoder(_),
+    ImageFile: context.base64Encoder,
     UserPoolId: [],
   });
 };

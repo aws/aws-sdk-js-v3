@@ -2203,11 +2203,11 @@ const se_StartEntitiesDetectionV2JobRequest = (
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     KMSKey: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
+    OutputDataConfig: _json,
   });
 };
 
@@ -2218,11 +2218,11 @@ const se_StartICD10CMInferenceJobRequest = (input: StartICD10CMInferenceJobReque
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     KMSKey: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
+    OutputDataConfig: _json,
   });
 };
 
@@ -2233,11 +2233,11 @@ const se_StartPHIDetectionJobRequest = (input: StartPHIDetectionJobRequest, cont
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     KMSKey: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
+    OutputDataConfig: _json,
   });
 };
 
@@ -2248,11 +2248,11 @@ const se_StartRxNormInferenceJobRequest = (input: StartRxNormInferenceJobRequest
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     KMSKey: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
+    OutputDataConfig: _json,
   });
 };
 
@@ -2263,11 +2263,11 @@ const se_StartSNOMEDCTInferenceJobRequest = (input: StartSNOMEDCTInferenceJobReq
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
     DataAccessRoleArn: [],
-    InputDataConfig: (_) => _json(_),
+    InputDataConfig: _json,
     JobName: [],
     KMSKey: [],
     LanguageCode: [],
-    OutputDataConfig: (_) => _json(_),
+    OutputDataConfig: _json,
   });
 };
 

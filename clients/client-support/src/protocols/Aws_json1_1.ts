@@ -1121,7 +1121,7 @@ const se_AddAttachmentsToSetRequest = (input: AddAttachmentsToSetRequest, contex
  */
 const se_Attachment = (input: Attachment, context: __SerdeContext): any => {
   return take(input, {
-    data: (_) => context.base64Encoder(_),
+    data: context.base64Encoder,
     fileName: [],
   });
 };

@@ -3564,7 +3564,7 @@ const se_AddInstanceGroupsInput = (input: AddInstanceGroupsInput, context: __Ser
  */
 const se_AutoScalingPolicy = (input: AutoScalingPolicy, context: __SerdeContext): any => {
   return take(input, {
-    Constraints: (_) => _json(_),
+    Constraints: _json,
     Rules: (_) => se_ScalingRuleList(_, context),
   });
 };
@@ -3579,8 +3579,8 @@ const se_BlockPublicAccessConfiguration = (input: BlockPublicAccessConfiguration
     BlockPublicSecurityGroupRules: [],
     Classification: [],
     Configurations: (_) => se_ConfigurationList(_, context),
-    PermittedPublicSecurityGroupRuleRanges: (_) => _json(_),
-    Properties: (_) => _json(_),
+    PermittedPublicSecurityGroupRuleRanges: _json,
+    Properties: _json,
   });
 };
 
@@ -3596,13 +3596,13 @@ const se_BlockPublicAccessConfiguration = (input: BlockPublicAccessConfiguration
 const se_CloudWatchAlarmDefinition = (input: CloudWatchAlarmDefinition, context: __SerdeContext): any => {
   return take(input, {
     ComparisonOperator: [],
-    Dimensions: (_) => _json(_),
+    Dimensions: _json,
     EvaluationPeriods: [],
     MetricName: [],
     Namespace: [],
     Period: [],
     Statistic: [],
-    Threshold: (_) => __serializeFloat(_),
+    Threshold: __serializeFloat,
     Unit: [],
   });
 };
@@ -3618,7 +3618,7 @@ const se_Configuration = (input: Configuration, context: __SerdeContext): any =>
   return take(input, {
     Classification: [],
     Configurations: (_) => se_ConfigurationList(_, context),
-    Properties: (_) => _json(_),
+    Properties: _json,
   });
 };
 
@@ -3654,8 +3654,8 @@ const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __Serde
   return take(input, {
     CreatedAfter: (_) => Math.round(_.getTime() / 1000),
     CreatedBefore: (_) => Math.round(_.getTime() / 1000),
-    JobFlowIds: (_) => _json(_),
-    JobFlowStates: (_) => _json(_),
+    JobFlowIds: _json,
+    JobFlowStates: _json,
   });
 };
 
@@ -3700,9 +3700,9 @@ const se_InstanceFleetConfig = (input: InstanceFleetConfig, context: __SerdeCont
   return take(input, {
     InstanceFleetType: [],
     InstanceTypeConfigs: (_) => se_InstanceTypeConfigList(_, context),
-    LaunchSpecifications: (_) => _json(_),
+    LaunchSpecifications: _json,
     Name: [],
-    ResizeSpecifications: (_) => _json(_),
+    ResizeSpecifications: _json,
     TargetOnDemandCapacity: [],
     TargetSpotCapacity: [],
   });
@@ -3734,7 +3734,7 @@ const se_InstanceGroupConfig = (input: InstanceGroupConfig, context: __SerdeCont
     BidPrice: [],
     Configurations: (_) => se_ConfigurationList(_, context),
     CustomAmiId: [],
-    EbsConfiguration: (_) => _json(_),
+    EbsConfiguration: _json,
     InstanceCount: [],
     InstanceRole: [],
     InstanceType: [],
@@ -3760,11 +3760,11 @@ const se_InstanceGroupConfigList = (input: InstanceGroupConfig[], context: __Ser
 const se_InstanceGroupModifyConfig = (input: InstanceGroupModifyConfig, context: __SerdeContext): any => {
   return take(input, {
     Configurations: (_) => se_ConfigurationList(_, context),
-    EC2InstanceIdsToTerminate: (_) => _json(_),
+    EC2InstanceIdsToTerminate: _json,
     InstanceCount: [],
     InstanceGroupId: [],
     ReconfigurationType: [],
-    ShrinkPolicy: (_) => _json(_),
+    ShrinkPolicy: _json,
   });
 };
 
@@ -3791,10 +3791,10 @@ const se_InstanceGroupModifyConfigList = (input: InstanceGroupModifyConfig[], co
 const se_InstanceTypeConfig = (input: InstanceTypeConfig, context: __SerdeContext): any => {
   return take(input, {
     BidPrice: [],
-    BidPriceAsPercentageOfOnDemandPrice: (_) => __serializeFloat(_),
+    BidPriceAsPercentageOfOnDemandPrice: __serializeFloat,
     Configurations: (_) => se_ConfigurationList(_, context),
     CustomAmiId: [],
-    EbsConfiguration: (_) => _json(_),
+    EbsConfiguration: _json,
     InstanceType: [],
     WeightedCapacity: [],
   });
@@ -3818,11 +3818,11 @@ const se_InstanceTypeConfigList = (input: InstanceTypeConfig[], context: __Serde
  */
 const se_JobFlowInstancesConfig = (input: JobFlowInstancesConfig, context: __SerdeContext): any => {
   return take(input, {
-    AdditionalMasterSecurityGroups: (_) => _json(_),
-    AdditionalSlaveSecurityGroups: (_) => _json(_),
+    AdditionalMasterSecurityGroups: _json,
+    AdditionalSlaveSecurityGroups: _json,
     Ec2KeyName: [],
     Ec2SubnetId: [],
-    Ec2SubnetIds: (_) => _json(_),
+    Ec2SubnetIds: _json,
     EmrManagedMasterSecurityGroup: [],
     EmrManagedSlaveSecurityGroup: [],
     HadoopVersion: [],
@@ -3831,7 +3831,7 @@ const se_JobFlowInstancesConfig = (input: JobFlowInstancesConfig, context: __Ser
     InstanceGroups: (_) => se_InstanceGroupConfigList(_, context),
     KeepJobFlowAliveWhenNoSteps: [],
     MasterInstanceType: [],
-    Placement: (_) => _json(_),
+    Placement: _json,
     ServiceAccessSecurityGroup: [],
     SlaveInstanceType: [],
     TerminationProtected: [],
@@ -3851,7 +3851,7 @@ const se_JobFlowInstancesConfig = (input: JobFlowInstancesConfig, context: __Ser
  */
 const se_ListClustersInput = (input: ListClustersInput, context: __SerdeContext): any => {
   return take(input, {
-    ClusterStates: (_) => _json(_),
+    ClusterStates: _json,
     CreatedAfter: (_) => Math.round(_.getTime() / 1000),
     CreatedBefore: (_) => Math.round(_.getTime() / 1000),
     Marker: [],
@@ -3969,32 +3969,32 @@ const se_RunJobFlowInput = (input: RunJobFlowInput, context: __SerdeContext): an
   return take(input, {
     AdditionalInfo: [],
     AmiVersion: [],
-    Applications: (_) => _json(_),
+    Applications: _json,
     AutoScalingRole: [],
-    AutoTerminationPolicy: (_) => _json(_),
-    BootstrapActions: (_) => _json(_),
+    AutoTerminationPolicy: _json,
+    BootstrapActions: _json,
     Configurations: (_) => se_ConfigurationList(_, context),
     CustomAmiId: [],
     EbsRootVolumeSize: [],
     Instances: (_) => se_JobFlowInstancesConfig(_, context),
     JobFlowRole: [],
-    KerberosAttributes: (_) => _json(_),
+    KerberosAttributes: _json,
     LogEncryptionKmsKeyId: [],
     LogUri: [],
-    ManagedScalingPolicy: (_) => _json(_),
+    ManagedScalingPolicy: _json,
     Name: [],
-    NewSupportedProducts: (_) => _json(_),
+    NewSupportedProducts: _json,
     OSReleaseLabel: [],
-    PlacementGroupConfigs: (_) => _json(_),
+    PlacementGroupConfigs: _json,
     ReleaseLabel: [],
     RepoUpgradeOnBoot: [],
     ScaleDownBehavior: [],
     SecurityConfiguration: [],
     ServiceRole: [],
     StepConcurrencyLevel: [],
-    Steps: (_) => _json(_),
-    SupportedProducts: (_) => _json(_),
-    Tags: (_) => _json(_),
+    Steps: _json,
+    SupportedProducts: _json,
+    Tags: _json,
     VisibleToAllUsers: [],
   });
 };
@@ -4008,7 +4008,7 @@ const se_RunJobFlowInput = (input: RunJobFlowInput, context: __SerdeContext): an
  */
 const se_ScalingRule = (input: ScalingRule, context: __SerdeContext): any => {
   return take(input, {
-    Action: (_) => _json(_),
+    Action: _json,
     Description: [],
     Name: [],
     Trigger: (_) => se_ScalingTrigger(_, context),

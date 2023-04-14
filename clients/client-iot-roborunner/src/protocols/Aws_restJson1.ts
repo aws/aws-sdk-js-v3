@@ -2060,9 +2060,9 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CartesianCoordinates = (input: CartesianCoordinates, context: __SerdeContext): any => {
   return take(input, {
-    x: (_) => __serializeFloat(_),
-    y: (_) => __serializeFloat(_),
-    z: (_) => __serializeFloat(_),
+    x: __serializeFloat,
+    y: __serializeFloat,
+    z: __serializeFloat,
   });
 };
 

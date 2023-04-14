@@ -12993,7 +12993,7 @@ const se_CreateRelationalDatabaseFromSnapshotRequest = (
     relationalDatabaseSnapshotName: [],
     restoreTime: (_) => Math.round(_.getTime() / 1000),
     sourceRelationalDatabaseName: [],
-    tags: (_) => _json(_),
+    tags: _json,
     useLatestRestorableTime: [],
   });
 };
@@ -13096,7 +13096,7 @@ const se_GetBucketMetricDataRequest = (input: GetBucketMetricDataRequest, contex
     metricName: [],
     period: [],
     startTime: (_) => Math.round(_.getTime() / 1000),
-    statistics: (_) => _json(_),
+    statistics: _json,
     unit: [],
   });
 };
@@ -13144,7 +13144,7 @@ const se_GetContainerServiceMetricDataRequest = (
     period: [],
     serviceName: [],
     startTime: (_) => Math.round(_.getTime() / 1000),
-    statistics: (_) => _json(_),
+    statistics: _json,
   });
 };
 
@@ -13185,7 +13185,7 @@ const se_GetDistributionMetricDataRequest = (input: GetDistributionMetricDataReq
     metricName: [],
     period: [],
     startTime: (_) => Math.round(_.getTime() / 1000),
-    statistics: (_) => _json(_),
+    statistics: _json,
     unit: [],
   });
 };
@@ -13210,7 +13210,7 @@ const se_GetInstanceMetricDataRequest = (input: GetInstanceMetricDataRequest, co
     metricName: [],
     period: [],
     startTime: (_) => Math.round(_.getTime() / 1000),
-    statistics: (_) => _json(_),
+    statistics: _json,
     unit: [],
   });
 };
@@ -13241,7 +13241,7 @@ const se_GetLoadBalancerMetricDataRequest = (input: GetLoadBalancerMetricDataReq
     metricName: [],
     period: [],
     startTime: (_) => Math.round(_.getTime() / 1000),
-    statistics: (_) => _json(_),
+    statistics: _json,
     unit: [],
   });
 };
@@ -13302,7 +13302,7 @@ const se_GetRelationalDatabaseMetricDataRequest = (
     period: [],
     relationalDatabaseName: [],
     startTime: (_) => Math.round(_.getTime() / 1000),
-    statistics: (_) => _json(_),
+    statistics: _json,
     unit: [],
   });
 };
@@ -13360,14 +13360,14 @@ const se_PutAlarmRequest = (input: PutAlarmRequest, context: __SerdeContext): an
   return take(input, {
     alarmName: [],
     comparisonOperator: [],
-    contactProtocols: (_) => _json(_),
+    contactProtocols: _json,
     datapointsToAlarm: [],
     evaluationPeriods: [],
     metricName: [],
     monitoredResourceName: [],
     notificationEnabled: [],
-    notificationTriggers: (_) => _json(_),
-    threshold: (_) => __serializeFloat(_),
+    notificationTriggers: _json,
+    threshold: __serializeFloat,
     treatMissingData: [],
   });
 };

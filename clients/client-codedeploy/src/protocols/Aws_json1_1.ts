@@ -5863,7 +5863,7 @@ const se_ListDeploymentsInput = (input: ListDeploymentsInput, context: __SerdeCo
     createTimeRange: (_) => se_TimeRange(_, context),
     deploymentGroupName: [],
     externalId: [],
-    includeOnlyStatuses: (_) => _json(_),
+    includeOnlyStatuses: _json,
     nextToken: [],
   });
 };

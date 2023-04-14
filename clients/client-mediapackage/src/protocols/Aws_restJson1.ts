@@ -2043,7 +2043,7 @@ const se_DashEncryption = (input: DashEncryption, context: __SerdeContext): any 
  */
 const se_DashPackage = (input: DashPackage, context: __SerdeContext): any => {
   return take(input, {
-    adTriggers: [, (_) => _json(_), `AdTriggers`],
+    adTriggers: [, _json, `AdTriggers`],
     adsOnDeliveryRestrictions: [, , `AdsOnDeliveryRestrictions`],
     encryption: [, (_) => se_DashEncryption(_, context), `Encryption`],
     includeIframeOnlyStream: [, , `IncludeIframeOnlyStream`],
@@ -2051,7 +2051,7 @@ const se_DashPackage = (input: DashPackage, context: __SerdeContext): any => {
     manifestWindowSeconds: [, , `ManifestWindowSeconds`],
     minBufferTimeSeconds: [, , `MinBufferTimeSeconds`],
     minUpdatePeriodSeconds: [, , `MinUpdatePeriodSeconds`],
-    periodTriggers: [, (_) => _json(_), `PeriodTriggers`],
+    periodTriggers: [, _json, `PeriodTriggers`],
     profile: [, , `Profile`],
     segmentDurationSeconds: [, , `SegmentDurationSeconds`],
     segmentTemplateFormat: [, , `SegmentTemplateFormat`],
@@ -2103,7 +2103,7 @@ const se_HlsManifestCreateOrUpdateParameters = (
 ): any => {
   return take(input, {
     adMarkers: [, , `AdMarkers`],
-    adTriggers: [, (_) => _json(_), `AdTriggers`],
+    adTriggers: [, _json, `AdTriggers`],
     adsOnDeliveryRestrictions: [, , `AdsOnDeliveryRestrictions`],
     id: [, , `Id`],
     includeIframeOnlyStream: [, , `IncludeIframeOnlyStream`],
@@ -2120,7 +2120,7 @@ const se_HlsManifestCreateOrUpdateParameters = (
 const se_HlsPackage = (input: HlsPackage, context: __SerdeContext): any => {
   return take(input, {
     adMarkers: [, , `AdMarkers`],
-    adTriggers: [, (_) => _json(_), `AdTriggers`],
+    adTriggers: [, _json, `AdTriggers`],
     adsOnDeliveryRestrictions: [, , `AdsOnDeliveryRestrictions`],
     encryption: [, (_) => se_HlsEncryption(_, context), `Encryption`],
     includeDvbSubtitles: [, , `IncludeDvbSubtitles`],
@@ -2188,7 +2188,7 @@ const se_SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): 
     ],
     resourceId: [, , `ResourceId`],
     roleArn: [, , `RoleArn`],
-    systemIds: [, (_) => _json(_), `SystemIds`],
+    systemIds: [, _json, `SystemIds`],
     url: [, , `Url`],
   });
 };

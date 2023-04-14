@@ -1798,13 +1798,13 @@ const se_AppMonitorConfiguration = (input: AppMonitorConfiguration, context: __S
   return take(input, {
     AllowCookies: [],
     EnableXRay: [],
-    ExcludedPages: (_) => _json(_),
-    FavoritePages: (_) => _json(_),
+    ExcludedPages: _json,
+    FavoritePages: _json,
     GuestRoleArn: [],
     IdentityPoolId: [],
-    IncludedPages: (_) => _json(_),
-    SessionSampleRate: (_) => __serializeFloat(_),
-    Telemetries: (_) => _json(_),
+    IncludedPages: _json,
+    SessionSampleRate: __serializeFloat,
+    Telemetries: _json,
   });
 };
 
@@ -1833,9 +1833,9 @@ const se_AppMonitorConfiguration = (input: AppMonitorConfiguration, context: __S
  */
 const se_RumEvent = (input: RumEvent, context: __SerdeContext): any => {
   return take(input, {
-    details: (_) => __LazyJsonString.fromObject(_),
+    details: __LazyJsonString.fromObject,
     id: [],
-    metadata: (_) => __LazyJsonString.fromObject(_),
+    metadata: __LazyJsonString.fromObject,
     timestamp: (_) => Math.round(_.getTime() / 1000),
     type: [],
   });

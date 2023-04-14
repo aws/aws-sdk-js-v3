@@ -4346,11 +4346,11 @@ const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __Serde
 const se_StartQueryExecutionInput = (input: StartQueryExecutionInput, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
-    ExecutionParameters: (_) => _json(_),
-    QueryExecutionContext: (_) => _json(_),
+    ExecutionParameters: _json,
+    QueryExecutionContext: _json,
     QueryString: [],
-    ResultConfiguration: (_) => _json(_),
-    ResultReuseConfiguration: (_) => _json(_),
+    ResultConfiguration: _json,
+    ResultReuseConfiguration: _json,
     WorkGroup: [],
   });
 };

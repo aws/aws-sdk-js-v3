@@ -4842,7 +4842,7 @@ const se_QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeCo
     CatalogId: [],
     DatabaseName: [],
     QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
-    QueryParameters: (_) => _json(_),
+    QueryParameters: _json,
     TransactionId: [],
   });
 };

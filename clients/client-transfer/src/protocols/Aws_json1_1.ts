@@ -4472,7 +4472,7 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
     Description: [],
     InactiveDate: (_) => Math.round(_.getTime() / 1000),
     PrivateKey: [],
-    Tags: (_) => _json(_),
+    Tags: _json,
     Usage: [],
   });
 };

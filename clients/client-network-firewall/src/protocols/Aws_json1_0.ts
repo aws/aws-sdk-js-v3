@@ -2976,12 +2976,12 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
     Capacity: [],
     Description: [],
     DryRun: [],
-    EncryptionConfiguration: (_) => _json(_),
-    RuleGroup: (_) => _json(_),
+    EncryptionConfiguration: _json,
+    RuleGroup: _json,
     RuleGroupName: [],
     Rules: [],
-    SourceMetadata: (_) => _json(_),
-    Tags: (_) => _json(_),
+    SourceMetadata: _json,
+    Tags: _json,
     Type: [],
   });
 };
@@ -3175,12 +3175,12 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
   return take(input, {
     Description: [],
     DryRun: [],
-    EncryptionConfiguration: (_) => _json(_),
-    RuleGroup: (_) => _json(_),
+    EncryptionConfiguration: _json,
+    RuleGroup: _json,
     RuleGroupArn: [],
     RuleGroupName: [],
     Rules: [],
-    SourceMetadata: (_) => _json(_),
+    SourceMetadata: _json,
     Type: [],
     UpdateToken: [],
   });

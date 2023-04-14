@@ -3563,9 +3563,9 @@ const se_PutJobSuccessResultInput = (input: PutJobSuccessResultInput, context: _
   return take(input, {
     continuationToken: [],
     currentRevision: (_) => se_CurrentRevision(_, context),
-    executionDetails: (_) => _json(_),
+    executionDetails: _json,
     jobId: [],
-    outputVariables: (_) => _json(_),
+    outputVariables: _json,
   });
 };
 
@@ -3582,7 +3582,7 @@ const se_PutThirdPartyJobSuccessResultInput = (
     clientToken: [],
     continuationToken: [],
     currentRevision: (_) => se_CurrentRevision(_, context),
-    executionDetails: (_) => _json(_),
+    executionDetails: _json,
     jobId: [],
   });
 };

@@ -2796,8 +2796,8 @@ const de_TooManyTagsExceptionRes = async (
  */
 const se_SamplingRule = (input: SamplingRule, context: __SerdeContext): any => {
   return take(input, {
-    Attributes: (_) => _json(_),
-    FixedRate: (_) => __serializeFloat(_),
+    Attributes: _json,
+    FixedRate: __serializeFloat,
     HTTPMethod: [],
     Host: [],
     Priority: [],
@@ -2817,8 +2817,8 @@ const se_SamplingRule = (input: SamplingRule, context: __SerdeContext): any => {
  */
 const se_SamplingRuleUpdate = (input: SamplingRuleUpdate, context: __SerdeContext): any => {
   return take(input, {
-    Attributes: (_) => _json(_),
-    FixedRate: (_) => __serializeFloat(_),
+    Attributes: _json,
+    FixedRate: __serializeFloat,
     HTTPMethod: [],
     Host: [],
     Priority: [],
@@ -2863,7 +2863,7 @@ const se_SamplingStatisticsDocumentList = (input: SamplingStatisticsDocument[], 
 const se_SamplingStrategy = (input: SamplingStrategy, context: __SerdeContext): any => {
   return take(input, {
     Name: [],
-    Value: (_) => __serializeFloat(_),
+    Value: __serializeFloat,
   });
 };
 
@@ -2878,7 +2878,7 @@ const se_SamplingStrategy = (input: SamplingStrategy, context: __SerdeContext): 
  */
 const se_TelemetryRecord = (input: TelemetryRecord, context: __SerdeContext): any => {
   return take(input, {
-    BackendConnectionErrors: (_) => _json(_),
+    BackendConnectionErrors: _json,
     SegmentsReceivedCount: [],
     SegmentsRejectedCount: [],
     SegmentsSentCount: [],
