@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.314.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.313.0...v3.314.0) (2023-04-14)
+
+
+### Features
+
+* **client-rds:** This release adds support of modifying the engine mode of database clusters. ([6902006](https://github.com/aws/aws-sdk-js-v3/commit/6902006ea3a3a8ba9ae5f78be4594309c97921ee))
+
+
+
+
+
 # [3.312.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.311.0...v3.312.0) (2023-04-12)
 
 

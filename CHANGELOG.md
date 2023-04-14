@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.314.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.313.0...v3.314.0) (2023-04-14)
+
+
+### Features
+
+* **client-lambda:** This release adds SnapStart related exceptions to InvokeWithResponseStream API. IAM access related documentation is also added for this API. ([c7d2e84](https://github.com/aws/aws-sdk-js-v3/commit/c7d2e84ab485c834954706bdfe51174c00ad24e7))
+* **client-rds:** This release adds support of modifying the engine mode of database clusters. ([6902006](https://github.com/aws/aws-sdk-js-v3/commit/6902006ea3a3a8ba9ae5f78be4594309c97921ee))
+* **clients:** update client endpoints as of 2023-04-14 ([72f43dc](https://github.com/aws/aws-sdk-js-v3/commit/72f43dc04a86d73da88a9e5d8bdf128404cf61f0))
+
+
+
+
+
 # [3.313.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.312.0...v3.313.0) (2023-04-13)
 
 

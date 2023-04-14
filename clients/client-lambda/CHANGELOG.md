@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.314.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.313.0...v3.314.0) (2023-04-14)
+
+
+### Features
+
+* **client-lambda:** This release adds SnapStart related exceptions to InvokeWithResponseStream API. IAM access related documentation is also added for this API. ([c7d2e84](https://github.com/aws/aws-sdk-js-v3/commit/c7d2e84ab485c834954706bdfe51174c00ad24e7))
+
+
+
+
+
 # [3.312.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.311.0...v3.312.0) (2023-04-12)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda
