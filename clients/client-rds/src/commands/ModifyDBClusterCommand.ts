@@ -106,6 +106,8 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   ManageMasterUserPassword: true || false,
  *   RotateMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   EngineMode: "STRING_VALUE",
+ *   AllowEngineModeChange: true || false,
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -128,6 +130,9 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *  <p>
  *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
  *             cluster parameter group.</p>
+ *
+ * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
+ *  <p>The user already has a DB instance with the given identifier.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
  *  <p>

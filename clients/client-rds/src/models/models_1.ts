@@ -3983,7 +3983,6 @@ export interface ModifyDBClusterMessage {
 
   /**
    * <p>The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.</p>
-   *          <p>Type: Integer</p>
    *          <p>Valid for: Multi-AZ DB clusters only</p>
    */
   AllocatedStorage?: number;
@@ -4186,6 +4185,26 @@ export interface ModifyDBClusterMessage {
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   MasterUserSecretKmsKeyId?: string;
+
+  /**
+   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</p>
+   *          <note>
+   *             <p>The DB engine mode can be modified only from <code>serverless</code> to <code>provisioned</code>.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
+   *             CreateDBCluster</a>.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
+   */
+  EngineMode?: string;
+
+  /**
+   * <p>A value that indicates whether engine mode changes from <code>serverless</code> to <code>provisioned</code>
+   *             are allowed.</p>
+   *          <p>Constraints: You must allow engine mode changes when specifying a different value for the <code>EngineMode</code> parameter
+   *             from the DB cluster's current engine mode.</p>
+   *          <p>Valid for: Aurora Serverless v1 DB clusters only</p>
+   */
+  AllowEngineModeChange?: boolean;
 }
 
 /**

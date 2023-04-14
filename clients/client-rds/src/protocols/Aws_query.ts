@@ -8382,6 +8382,9 @@ const de_ModifyDBClusterCommandError = async (
     case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "DBInstanceAlreadyExists":
+    case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
+      throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
       throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
@@ -16589,6 +16592,12 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   }
   if (input.MasterUserSecretKmsKeyId != null) {
     entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
+  if (input.EngineMode != null) {
+    entries["EngineMode"] = input.EngineMode;
+  }
+  if (input.AllowEngineModeChange != null) {
+    entries["AllowEngineModeChange"] = input.AllowEngineModeChange;
   }
   return entries;
 };
