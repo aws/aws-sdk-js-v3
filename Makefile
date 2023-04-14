@@ -28,3 +28,9 @@ protocols:
 server-protocols:
 	yarn generate-clients -s
 	yarn test:server-protocols
+
+bytes-cjs:
+	make turbo-build
+	node scripts/remote-cache/ start&
+	npx turbo run build:cjs --api="http://localhost:3000" --team="aws-sdk-js" --token="xyz"
+	node scripts/remote-cache/ stop

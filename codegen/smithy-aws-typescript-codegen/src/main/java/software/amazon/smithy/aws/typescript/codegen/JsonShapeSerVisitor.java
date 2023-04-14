@@ -150,10 +150,12 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                 String inputLocation = "input." + memberName;
 
                 // Handle @timestampFormat on members not just the targeted shape.
-                String valueProvider = "_ => " + (memberShape.hasTrait(TimestampFormatTrait.class)
-                        ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                TIMESTAMP_FORMAT, "_")
-                        : target.accept(getMemberVisitor("_")));
+                String valueExpression = (memberShape.hasTrait(TimestampFormatTrait.class)
+                    ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
+                            TIMESTAMP_FORMAT, "_")
+                    : target.accept(getMemberVisitor("_")));
+                String valueProvider = "_ => " + valueExpression;
+                boolean isUnaryCall = UnaryFunctionCall.check(valueExpression);
 
                 if (hasJsonName) {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
@@ -161,6 +163,8 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                     } else {
                         if (valueProvider.equals("_ => _")) {
                             writer.write("'$L': [,,`$L`],", wireName, memberName);
+                        } else if (isUnaryCall) {
+                            writer.write("'$L': [,$L,`$L`],", wireName, UnaryFunctionCall.toRef(valueExpression), memberName);
                         } else {
                             writer.write("'$L': [,$L,`$L`],", wireName, valueProvider, memberName);
                         }
@@ -171,6 +175,8 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                     } else {
                         if (valueProvider.equals("_ => _")) {
                             writer.write("'$1L': [],", memberName);
+                        } else if (isUnaryCall) {
+                            writer.write("'$1L': $2L,", memberName, UnaryFunctionCall.toRef(valueExpression));
                         } else {
                             writer.write("'$1L': $2L,", memberName, valueProvider);
                         }
