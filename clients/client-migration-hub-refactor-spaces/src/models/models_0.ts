@@ -766,7 +766,7 @@ export interface CreateEnvironmentResponse {
   Tags?: Record<string, string>;
 
   /**
-   * <p>A timestamp that indicates when the environment was last updated. </p>
+   * <p>A timestamp that indicates when the environment was last updated.</p>
    */
   LastUpdatedTime?: Date;
 
@@ -1475,7 +1475,7 @@ export interface EnvironmentSummary {
   OwnerAccountId?: string;
 
   /**
-   * <p>The ID of the transit gateway set up by the environment. </p>
+   * <p>The ID of the Transit Gateway set up by the environment. </p>
    */
   TransitGatewayId?: string;
 
@@ -1683,7 +1683,7 @@ export interface GetEnvironmentResponse {
   OwnerAccountId?: string;
 
   /**
-   * <p>The ID of the transit gateway set up by the environment. </p>
+   * <p>The ID of the Transit Gateway set up by the environment, if applicable.</p>
    */
   TransitGatewayId?: string;
 
