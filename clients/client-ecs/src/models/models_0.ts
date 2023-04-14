@@ -5149,13 +5149,18 @@ export interface ContainerDefinition {
   extraHosts?: HostEntry[];
 
   /**
-   * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level
-   * 			security systems. This field isn't valid for containers in tasks using the
-   * 			Fargate launch type.</p>
-   *          <p>With Windows containers, this parameter can be used to reference a credential spec
-   * 			file when configuring a container for Active Directory authentication. For more
+   * <p>A list of strings to provide custom configuration for multiple
+   * 			security systems. For more information about valid values, see <a href="https://docs.docker.com/engine/reference/run/#security-configuration">Docker Run Security Configuration</a>. This field isn't valid
+   * 			for containers in tasks using the Fargate launch
+   * 			type.</p>
+   *          <p>For Linux tasks on EC2, this parameter can be used to reference custom
+   * 			labels for SELinux and AppArmor multi-level security systems.</p>
+   *          <p>For any tasks on EC2, this parameter can be used to reference a
+   * 			credential spec file that configures a container for Active Directory
+   * 			authentication. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using gMSAs for Windows
-   * 				Containers</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				Containers</a> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html">Using gMSAs for Linux
+   * 					Containers</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <p>This parameter maps to <code>SecurityOpt</code> in the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
    * 				<code>--security-opt</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
