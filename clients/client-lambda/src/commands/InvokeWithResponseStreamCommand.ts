@@ -39,6 +39,9 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
 /**
  * @public
  * <p>Configure your Lambda functions to stream response payloads back to clients. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html">Configuring a Lambda function to stream responses</a>.</p>
+ *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action. For details on how to set up
+ *       permissions for cross-account invocations, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke">Granting function
+ *         access to other accounts</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -142,6 +145,16 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link SnapStartException} (client fault)
+ *  <p>The <code>afterRestore()</code>
+ *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+ *
+ * @throws {@link SnapStartNotReadyException} (client fault)
+ *  <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
+ *
+ * @throws {@link SnapStartTimeoutException} (client fault)
+ *  <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
  *
  * @throws {@link SubnetIPAddressLimitReachedException} (server fault)
  *  <p>Lambda couldn't set up VPC access for the Lambda function because one or more

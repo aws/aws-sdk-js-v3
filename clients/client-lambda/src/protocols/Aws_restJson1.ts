@@ -5547,6 +5547,15 @@ const de_InvokeWithResponseStreamCommandError = async (
     case "ServiceException":
     case "com.amazonaws.lambda#ServiceException":
       throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "SnapStartException":
+    case "com.amazonaws.lambda#SnapStartException":
+      throw await de_SnapStartExceptionRes(parsedOutput, context);
+    case "SnapStartNotReadyException":
+    case "com.amazonaws.lambda#SnapStartNotReadyException":
+      throw await de_SnapStartNotReadyExceptionRes(parsedOutput, context);
+    case "SnapStartTimeoutException":
+    case "com.amazonaws.lambda#SnapStartTimeoutException":
+      throw await de_SnapStartTimeoutExceptionRes(parsedOutput, context);
     case "SubnetIPAddressLimitReachedException":
     case "com.amazonaws.lambda#SubnetIPAddressLimitReachedException":
       throw await de_SubnetIPAddressLimitReachedExceptionRes(parsedOutput, context);

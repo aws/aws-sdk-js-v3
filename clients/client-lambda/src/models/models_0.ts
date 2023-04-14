@@ -1243,7 +1243,10 @@ export interface EventSourceMappingConfiguration {
 
   /**
    * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1,
-   * which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.  </p>
+   * which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p>
+   *          <note>
+   *             <p>The minimum value that can be set is 60 seconds.</p>
+   *          </note>
    */
   MaximumRecordAgeInSeconds?: number;
 
@@ -2060,7 +2063,8 @@ export interface FunctionConfiguration {
   FunctionArn?: string;
 
   /**
-   * <p>The runtime environment for the Lambda function.</p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
   Runtime?: Runtime | string;
 
@@ -4962,14 +4966,14 @@ export interface FunctionUrlConfig {
    *             <li>
    *                <p>
    *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function
-   *           using the <code>Invoke</code> API operation. Invocation results are available when the
-   *           payload is complete. The maximum payload size is 6 MB.</p>
+   *         using the <code>Invoke</code> API operation. Invocation results are available when the
+   *         payload is complete. The maximum payload size is 6 MB.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available.
-   *             Lambda invokes your function using the <code>InvokeWithResponseStream</code>
-   *           API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *         Lambda invokes your function using the <code>InvokeWithResponseStream</code>
+   *         API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
    *             </li>
    *          </ul>
    */
