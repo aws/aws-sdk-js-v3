@@ -34,7 +34,7 @@ export type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
   /**
    * For *`PutObjectRequest["Body"]`*, see {@link PutObjectRequest.Body}.
    */
-  Body?: PutObjectRequest["Body"] | string | Uint8Array | Buffer;
+  Body?: PutObjectRequest["Body"] | string | Uint8Array | Buffer | ArrayBuffer;
 };
 /**
  * This interface extends from `PutObjectRequest` interface. There are more parameters than `Body` defined in {@link PutObjectRequest}
