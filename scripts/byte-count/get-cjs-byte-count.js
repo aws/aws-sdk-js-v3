@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 const { join } = require("path");
-const { readdirSync, statSync, rmSync } = require("fs");
-const { removeSync } = require("fs-extra");
+const { readdirSync, statSync, rmSync, writeFileSync } = require("fs");
 const { spawnProcess } = require("../utils/spawn-process");
 const walk = require("../utils/walk");
 const assert = require("assert");
@@ -23,13 +22,19 @@ locations.clients = join(locations.root, "clients");
 
   for await (const clientFolderName of readdirSync(locations.clients)) {
     const clientLocation = join(locations.clients, clientFolderName);
-    removeSync(join(clientLocation, "dist-types"));
-    removeSync(join(clientLocation, "dist-es"));
+    const clientPkgJsonLocation = join(clientLocation, "package.json");
+    const pkg = require(clientPkgJsonLocation);
 
     packs.push(
-      spawnProcess("npm", ["pack"], {
-        cwd: clientLocation,
-      })
+      (async () => {
+        writeFileSync(clientPkgJsonLocation, JSON.stringify({ ...pkg, files: "dist-cjs" }, null, 2), "utf-8");
+
+        spawnProcess("npm", ["pack"], {
+          cwd: clientLocation,
+        });
+
+        writeFileSync(clientPkgJsonLocation, JSON.stringify(pkg, null, 2), "utf-8");
+      })()
     );
   }
 
