@@ -314,7 +314,7 @@ export class DynamoDB extends DynamoDBClient {
    *          <p>By default, <code>BatchGetItem</code> performs eventually consistent reads on every
    *             table in the request. If you want strongly consistent reads instead, you can set
    *                 <code>ConsistentRead</code> to <code>true</code> for any or all tables.</p>
-   *          <p>In order to minimize response latency, <code>BatchGetItem</code> retrieves items in
+   *          <p>In order to minimize response latency, <code>BatchGetItem</code> may retrieve items in
    *             parallel.</p>
    *          <p>When designing your application, keep in mind that DynamoDB does not return items in
    *             any particular order. To help parse the response by item, include the primary key values
@@ -1940,7 +1940,7 @@ export class DynamoDB extends DynamoDBClient {
 
   /**
    * @public
-   * <p>Creates a new table from an existing backup. Any number of users can execute up to 4
+   * <p>Creates a new table from an existing backup. Any number of users can execute up to 50
    *             concurrent restores (any type of restore) in a given account. </p>
    *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
    *             second.</p>

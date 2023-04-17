@@ -32,7 +32,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
 
 /**
  * @public
- * <p>Creates a new table from an existing backup. Any number of users can execute up to 4
+ * <p>Creates a new table from an existing backup. Any number of users can execute up to 50
  *             concurrent restores (any type of restore) in a given account. </p>
  *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
  *             second.</p>
