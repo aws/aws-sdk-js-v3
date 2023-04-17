@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.315.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.314.0...v3.315.0) (2023-04-17)
+
+
+### Features
+
+* **client-appflow:** This release adds a Client Token parameter to the following AppFlow APIs: Create/Update Connector Profile, Create/Update Flow, Start Flow, Register Connector, Update Connector Registration. The Client Token parameter allows idempotent operations for these APIs. ([7be646f](https://github.com/aws/aws-sdk-js-v3/commit/7be646fcf662e0c336de49e48ea9eda4008e6418))
+* **client-drs:** Changed existing APIs and added new APIs to support using an account-level launch configuration template with AWS Elastic Disaster Recovery. ([c1349f2](https://github.com/aws/aws-sdk-js-v3/commit/c1349f2280ea701328bfabdf49871983dcaae69c))
+* **client-emr-serverless:** The GetJobRun API has been updated to include the job's billed resource utilization. This utilization shows the aggregate vCPU, memory and storage that AWS has billed for the job run. The billed resources include a 1-minute minimum usage for workers, plus additional storage over 20 GB per worker. ([6f369a9](https://github.com/aws/aws-sdk-js-v3/commit/6f369a93f2d645c6217c31aabb38fc25d23c14ea))
+* **client-internetmonitor:** This release includes a new configurable value, TrafficPercentageToMonitor, which allows users to adjust the amount of traffic monitored by percentage ([e391e56](https://github.com/aws/aws-sdk-js-v3/commit/e391e566156534c8dd2ef699f0ff9f61b7b6e1ef))
+* **client-iot-wireless:** Supports the new feature of LoRaWAN roaming, allows to configure MaxEirp for LoRaWAN gateway, and allows to configure PingSlotPeriod for LoRaWAN multicast group ([73f7859](https://github.com/aws/aws-sdk-js-v3/commit/73f78595dc6f76e34ca8d309e4baaf0ef1d005df))
+* **client-lambda:** Add Python 3.10 (python3.10) support to AWS Lambda ([4122770](https://github.com/aws/aws-sdk-js-v3/commit/4122770148ec7b207df9a55975268e7d1c831936))
+* **clients:** update client endpoints as of 2023-04-17 ([9d6e5f7](https://github.com/aws/aws-sdk-js-v3/commit/9d6e5f7754f2b0a908981e3ac1c3237eb55feca7))
+* **codegen:** shorten serialization and deserialization code in protocols files ([#4625](https://github.com/aws/aws-sdk-js-v3/issues/4625)) ([8798a6e](https://github.com/aws/aws-sdk-js-v3/commit/8798a6eac1b48f0a807c51e38b864ef62b712943))
+* **smithy-client:** update client defaults provider ([3a4d2cb](https://github.com/aws/aws-sdk-js-v3/commit/3a4d2cbe511f19566375a93dcce3a7d58bd3b380))
+
+
+
+
+
 # [3.314.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.313.0...v3.314.0) (2023-04-14)
 
 
