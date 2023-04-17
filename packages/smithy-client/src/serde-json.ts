@@ -14,7 +14,7 @@ export const _json = (obj: any): any => {
   if (Array.isArray(obj)) {
     return obj.filter((_: any) => _ != null);
   }
-  if (typeof obj === 'object') {
+  if (typeof obj === "object") {
     const target: any = {};
     for (const key of Object.keys(obj)) {
       if (obj[key] == null) {
@@ -25,4 +25,4 @@ export const _json = (obj: any): any => {
     return target;
   }
   return obj;
-}
+};
