@@ -32,7 +32,8 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
 
 /**
  * @public
- * <p>Returns a URL to access the job run dashboard.</p>
+ * <p>Returns a URL to access the job run dashboard. The generated URL is valid for one hour,
+ *          after which you must invoke the API again to generate a new URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,7 +61,8 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
  *
  *
  */

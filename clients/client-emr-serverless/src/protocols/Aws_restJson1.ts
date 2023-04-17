@@ -67,6 +67,7 @@ import {
   MonitoringConfiguration,
   NetworkConfiguration,
   ResourceNotFoundException,
+  ResourceUtilization,
   S3MonitoringConfiguration,
   ServiceQuotaExceededException,
   SparkSubmit,
@@ -1652,6 +1653,7 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
   return take(output, {
     applicationId: __expectString,
     arn: __expectString,
+    billedResourceUtilization: (_: any) => de_ResourceUtilization(_, context),
     configurationOverrides: (_: any) => de_ConfigurationOverrides(_, context),
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
@@ -1710,6 +1712,17 @@ const de_JobRunSummary = (output: any, context: __SerdeContext): JobRunSummary =
 // de_MonitoringConfiguration omitted.
 
 // de_NetworkConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1ResourceUtilization
+ */
+const de_ResourceUtilization = (output: any, context: __SerdeContext): ResourceUtilization => {
+  return take(output, {
+    memoryGBHour: __limitedParseDouble,
+    storageGBHour: __limitedParseDouble,
+    vCPUHour: __limitedParseDouble,
+  }) as any;
+};
 
 // de_S3MonitoringConfiguration omitted.
 

@@ -515,7 +515,8 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -800,6 +801,30 @@ export interface GetJobRunRequest {
    * <p>The ID of the job run.</p>
    */
   jobRunId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The resource utilization for memory, storage, and vCPU for jobs.</p>
+ */
+export interface ResourceUtilization {
+  /**
+   * <p>The aggregated vCPU used per hour from the time the job starts executing until the job
+   *          is terminated.</p>
+   */
+  vCPUHour?: number;
+
+  /**
+   * <p>The aggregated memory used per hour from the time the job starts executing until the job
+   *          is terminated.</p>
+   */
+  memoryGBHour?: number;
+
+  /**
+   * <p>The aggregated storage used per hour from the time the job starts executing until the
+   *          job is terminated.</p>
+   */
+  storageGBHour?: number;
 }
 
 /**
@@ -1307,8 +1332,8 @@ export interface JobRun {
   tags?: Record<string, string>;
 
   /**
-   * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing
-   *          till the time job is terminated, rounded up to the nearest second.</p>
+   * <p>The aggregate vCPU, memory, and storage resources used from the time the job starts to
+   *          execute, until the time the job terminates, rounded up to the nearest second.</p>
    */
   totalResourceUtilization?: TotalResourceUtilization;
 
@@ -1325,9 +1350,18 @@ export interface JobRun {
   totalExecutionDurationSeconds?: number;
 
   /**
-   * Maximum duration for the job run to run. If the job run runs beyond this duration, it will be automatically cancelled.
+   * <p>Returns the job run timeout value from the <code>StartJobRun</code> call. If no timeout
+   *          was specified, then it returns the default timeout of 720 minutes.</p>
    */
   executionTimeoutMinutes?: number;
+
+  /**
+   * <p>The aggregate vCPU, memory, and storage that AWS has billed for the job run. The billed
+   *          resources include a 1-minute minimum usage for workers, plus additional storage over 20 GB
+   *          per worker. Note that billed resources do not include usage for idle pre-initialized
+   *          workers.</p>
+   */
+  billedResourceUtilization?: ResourceUtilization;
 }
 
 /**
