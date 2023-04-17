@@ -26,10 +26,18 @@ import {
   CreateExtendedSourceServerCommandOutput,
 } from "../commands/CreateExtendedSourceServerCommand";
 import {
+  CreateLaunchConfigurationTemplateCommandInput,
+  CreateLaunchConfigurationTemplateCommandOutput,
+} from "../commands/CreateLaunchConfigurationTemplateCommand";
+import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "../commands/CreateReplicationConfigurationTemplateCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
+import {
+  DeleteLaunchConfigurationTemplateCommandInput,
+  DeleteLaunchConfigurationTemplateCommandOutput,
+} from "../commands/DeleteLaunchConfigurationTemplateCommand";
 import {
   DeleteRecoveryInstanceCommandInput,
   DeleteRecoveryInstanceCommandOutput,
@@ -44,6 +52,10 @@ import {
   DescribeJobLogItemsCommandOutput,
 } from "../commands/DescribeJobLogItemsCommand";
 import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "../commands/DescribeJobsCommand";
+import {
+  DescribeLaunchConfigurationTemplatesCommandInput,
+  DescribeLaunchConfigurationTemplatesCommandOutput,
+} from "../commands/DescribeLaunchConfigurationTemplatesCommand";
 import {
   DescribeRecoveryInstancesCommandInput,
   DescribeRecoveryInstancesCommandOutput,
@@ -121,6 +133,10 @@ import {
   UpdateLaunchConfigurationCommandOutput,
 } from "../commands/UpdateLaunchConfigurationCommand";
 import {
+  UpdateLaunchConfigurationTemplateCommandInput,
+  UpdateLaunchConfigurationTemplateCommandOutput,
+} from "../commands/UpdateLaunchConfigurationTemplateCommand";
+import {
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
 } from "../commands/UpdateReplicationConfigurationCommand";
@@ -166,6 +182,41 @@ export const se_CreateExtendedSourceServerCommand = async (
     take(input, {
       sourceServerArn: [],
       tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateLaunchConfigurationTemplateCommand
+ */
+export const se_CreateLaunchConfigurationTemplateCommand = async (
+  input: CreateLaunchConfigurationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLaunchConfigurationTemplate";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      copyPrivateIp: [],
+      copyTags: [],
+      launchDisposition: [],
+      licensing: (_) => _json(_),
+      tags: (_) => _json(_),
+      targetInstanceTypeRightSizingMethod: [],
     })
   );
   return new __HttpRequest({
@@ -239,6 +290,36 @@ export const se_DeleteJobCommand = async (
   body = JSON.stringify(
     take(input, {
       jobID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand
+ */
+export const se_DeleteLaunchConfigurationTemplateCommand = async (
+  input: DeleteLaunchConfigurationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLaunchConfigurationTemplate";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      launchConfigurationTemplateID: [],
     })
   );
   return new __HttpRequest({
@@ -388,6 +469,38 @@ export const se_DescribeJobsCommand = async (
   body = JSON.stringify(
     take(input, {
       filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand
+ */
+export const se_DescribeLaunchConfigurationTemplatesCommand = async (
+  input: DescribeLaunchConfigurationTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeLaunchConfigurationTemplates";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      launchConfigurationTemplateIDs: (_) => _json(_),
       maxResults: [],
       nextToken: [],
     })
@@ -1156,6 +1269,41 @@ export const se_UpdateLaunchConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateLaunchConfigurationTemplateCommand
+ */
+export const se_UpdateLaunchConfigurationTemplateCommand = async (
+  input: UpdateLaunchConfigurationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLaunchConfigurationTemplate";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      copyPrivateIp: [],
+      copyTags: [],
+      launchConfigurationTemplateID: [],
+      launchDisposition: [],
+      licensing: (_) => _json(_),
+      targetInstanceTypeRightSizingMethod: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateReplicationConfigurationCommand
  */
 export const se_UpdateReplicationConfigurationCommand = async (
@@ -1312,6 +1460,68 @@ const de_CreateExtendedSourceServerCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateLaunchConfigurationTemplateCommand
+ */
+export const de_CreateLaunchConfigurationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLaunchConfigurationTemplateCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateLaunchConfigurationTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    launchConfigurationTemplate: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateLaunchConfigurationTemplateCommandError
+ */
+const de_CreateLaunchConfigurationTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLaunchConfigurationTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.drs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.drs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateReplicationConfigurationTemplateCommand
  */
 export const de_CreateReplicationConfigurationTemplateCommand = async (
@@ -1413,6 +1623,61 @@ const de_DeleteJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand
+ */
+export const de_DeleteLaunchConfigurationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLaunchConfigurationTemplateCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteLaunchConfigurationTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommandError
+ */
+const de_DeleteLaunchConfigurationTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLaunchConfigurationTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1704,6 +1969,66 @@ const de_DescribeJobsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.drs#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand
+ */
+export const de_DescribeLaunchConfigurationTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLaunchConfigurationTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeLaunchConfigurationTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommandError
+ */
+const de_DescribeLaunchConfigurationTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLaunchConfigurationTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.drs#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -3233,6 +3558,68 @@ const de_UpdateLaunchConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommand
+ */
+export const de_UpdateLaunchConfigurationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLaunchConfigurationTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateLaunchConfigurationTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    launchConfigurationTemplate: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommandError
+ */
+const de_UpdateLaunchConfigurationTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLaunchConfigurationTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.drs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateReplicationConfigurationCommand
  */
 export const de_UpdateReplicationConfigurationCommand = async (
@@ -3582,6 +3969,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DescribeSourceServersRequestFiltersIDs omitted.
 
+// se_LaunchConfigurationTemplateIDs omitted.
+
 // se_Licensing omitted.
 
 // se_PITPolicy omitted.
@@ -3657,6 +4046,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_JobLogs omitted.
 
 // de_JobsList omitted.
+
+// de_LaunchConfigurationTemplate omitted.
+
+// de_LaunchConfigurationTemplates omitted.
 
 // de_Licensing omitted.
 

@@ -216,6 +216,14 @@ CreateExtendedSourceServer
 </details>
 <details>
 <summary>
+CreateLaunchConfigurationTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/createlaunchconfigurationtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/createlaunchconfigurationtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/createlaunchconfigurationtemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateReplicationConfigurationTemplate
 </summary>
 
@@ -228,6 +236,14 @@ DeleteJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/deletejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteLaunchConfigurationTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/deletelaunchconfigurationtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletelaunchconfigurationtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletelaunchconfigurationtemplatecommandoutput.html)
 
 </details>
 <details>
@@ -268,6 +284,14 @@ DescribeJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/describejobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/describejobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/describejobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeLaunchConfigurationTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/describelaunchconfigurationtemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/describelaunchconfigurationtemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/describelaunchconfigurationtemplatescommandoutput.html)
 
 </details>
 <details>
@@ -468,6 +492,14 @@ UpdateLaunchConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/updatelaunchconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/updatelaunchconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/updatelaunchconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateLaunchConfigurationTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/updatelaunchconfigurationtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/updatelaunchconfigurationtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/updatelaunchconfigurationtemplatecommandoutput.html)
 
 </details>
 <details>

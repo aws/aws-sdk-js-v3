@@ -54,10 +54,18 @@ import {
   CreateExtendedSourceServerCommandOutput,
 } from "./commands/CreateExtendedSourceServerCommand";
 import {
+  CreateLaunchConfigurationTemplateCommandInput,
+  CreateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/CreateLaunchConfigurationTemplateCommand";
+import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import {
+  DeleteLaunchConfigurationTemplateCommandInput,
+  DeleteLaunchConfigurationTemplateCommandOutput,
+} from "./commands/DeleteLaunchConfigurationTemplateCommand";
 import {
   DeleteRecoveryInstanceCommandInput,
   DeleteRecoveryInstanceCommandOutput,
@@ -72,6 +80,10 @@ import {
   DescribeJobLogItemsCommandOutput,
 } from "./commands/DescribeJobLogItemsCommand";
 import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
+import {
+  DescribeLaunchConfigurationTemplatesCommandInput,
+  DescribeLaunchConfigurationTemplatesCommandOutput,
+} from "./commands/DescribeLaunchConfigurationTemplatesCommand";
 import {
   DescribeRecoveryInstancesCommandInput,
   DescribeRecoveryInstancesCommandOutput,
@@ -149,6 +161,10 @@ import {
   UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
 import {
+  UpdateLaunchConfigurationTemplateCommandInput,
+  UpdateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/UpdateLaunchConfigurationTemplateCommand";
+import {
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
 } from "./commands/UpdateReplicationConfigurationCommand";
@@ -169,13 +185,16 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
  */
 export type ServiceInputTypes =
   | CreateExtendedSourceServerCommandInput
+  | CreateLaunchConfigurationTemplateCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
   | DeleteJobCommandInput
+  | DeleteLaunchConfigurationTemplateCommandInput
   | DeleteRecoveryInstanceCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
   | DeleteSourceServerCommandInput
   | DescribeJobLogItemsCommandInput
   | DescribeJobsCommandInput
+  | DescribeLaunchConfigurationTemplatesCommandInput
   | DescribeRecoveryInstancesCommandInput
   | DescribeRecoverySnapshotsCommandInput
   | DescribeReplicationConfigurationTemplatesCommandInput
@@ -201,6 +220,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateFailbackReplicationConfigurationCommandInput
   | UpdateLaunchConfigurationCommandInput
+  | UpdateLaunchConfigurationTemplateCommandInput
   | UpdateReplicationConfigurationCommandInput
   | UpdateReplicationConfigurationTemplateCommandInput;
 
@@ -209,13 +229,16 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateExtendedSourceServerCommandOutput
+  | CreateLaunchConfigurationTemplateCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
   | DeleteJobCommandOutput
+  | DeleteLaunchConfigurationTemplateCommandOutput
   | DeleteRecoveryInstanceCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
   | DeleteSourceServerCommandOutput
   | DescribeJobLogItemsCommandOutput
   | DescribeJobsCommandOutput
+  | DescribeLaunchConfigurationTemplatesCommandOutput
   | DescribeRecoveryInstancesCommandOutput
   | DescribeRecoverySnapshotsCommandOutput
   | DescribeReplicationConfigurationTemplatesCommandOutput
@@ -241,6 +264,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateFailbackReplicationConfigurationCommandOutput
   | UpdateLaunchConfigurationCommandOutput
+  | UpdateLaunchConfigurationTemplateCommandOutput
   | UpdateReplicationConfigurationCommandOutput
   | UpdateReplicationConfigurationTemplateCommandOutput;
 

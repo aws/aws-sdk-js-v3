@@ -615,6 +615,11 @@ export interface SourceProperties {
    * <p>Operating system.</p>
    */
   os?: OS;
+
+  /**
+   * <p>Are EC2 nitro instance types supported when recovering the Source Server.</p>
+   */
+  supportsNitroInstances?: boolean;
 }
 
 /**
@@ -972,6 +977,137 @@ export class ValidationException extends __BaseException {
  * @public
  * @enum
  */
+export const LaunchDisposition = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchDisposition = (typeof LaunchDisposition)[keyof typeof LaunchDisposition];
+
+/**
+ * @public
+ * <p>Configuration of a machine's license.</p>
+ */
+export interface Licensing {
+  /**
+   * <p>Whether to enable "Bring your own license" or not.</p>
+   */
+  osByol?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetInstanceTypeRightSizingMethod = {
+  BASIC: "BASIC",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetInstanceTypeRightSizingMethod =
+  (typeof TargetInstanceTypeRightSizingMethod)[keyof typeof TargetInstanceTypeRightSizingMethod];
+
+/**
+ * @public
+ */
+export interface CreateLaunchConfigurationTemplateRequest {
+  /**
+   * <p>Request to associate tags during creation of a Launch Configuration Template.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Launch disposition.</p>
+   */
+  launchDisposition?: LaunchDisposition | string;
+
+  /**
+   * <p>Target instance type right-sizing method.</p>
+   */
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+
+  /**
+   * <p>Copy private IP.</p>
+   */
+  copyPrivateIp?: boolean;
+
+  /**
+   * <p>Copy tags.</p>
+   */
+  copyTags?: boolean;
+
+  /**
+   * <p>Licensing.</p>
+   */
+  licensing?: Licensing;
+}
+
+/**
+ * @public
+ * <p>Account level Launch Configuration Template.</p>
+ */
+export interface LaunchConfigurationTemplate {
+  /**
+   * <p>ID of the Launch Configuration Template.</p>
+   */
+  launchConfigurationTemplateID?: string;
+
+  /**
+   * <p>ARN of the Launch Configuration Template.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Tags of the Launch Configuration Template.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Launch disposition.</p>
+   */
+  launchDisposition?: LaunchDisposition | string;
+
+  /**
+   * <p>Target instance type right-sizing method.</p>
+   */
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+
+  /**
+   * <p>Copy private IP.</p>
+   */
+  copyPrivateIp?: boolean;
+
+  /**
+   * <p>Copy tags.</p>
+   */
+  copyTags?: boolean;
+
+  /**
+   * <p>Licensing.</p>
+   */
+  licensing?: Licensing;
+}
+
+/**
+ * @public
+ */
+export interface CreateLaunchConfigurationTemplateResponse {
+  /**
+   * <p>Created Launch Configuration Template.</p>
+   */
+  launchConfigurationTemplate?: LaunchConfigurationTemplate;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ReplicationConfigurationDataPlaneRouting = {
   PRIVATE_IP: "PRIVATE_IP",
   PUBLIC_IP: "PUBLIC_IP",
@@ -1245,6 +1381,21 @@ export interface DeleteJobRequest {
  * @public
  */
 export interface DeleteJobResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteLaunchConfigurationTemplateRequest {
+  /**
+   * <p>The ID of the Launch Configuration Template to be deleted.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLaunchConfigurationTemplateResponse {}
 
 /**
  * @public
@@ -1574,6 +1725,41 @@ export interface DescribeJobsResponse {
 
   /**
    * <p>The token of the next Job to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLaunchConfigurationTemplatesRequest {
+  /**
+   * <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
+   */
+  launchConfigurationTemplateIDs?: string[];
+
+  /**
+   * <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token of the next Launch Configuration Template to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLaunchConfigurationTemplatesResponse {
+  /**
+   * <p>List of items returned by DescribeLaunchConfigurationTemplates.</p>
+   */
+  items?: LaunchConfigurationTemplate[];
+
+  /**
+   * <p>The token of the next Launch Configuration Template to retrieve.</p>
    */
   nextToken?: string;
 }
@@ -2348,6 +2534,51 @@ export interface InitializeServiceResponse {}
 /**
  * @public
  */
+export interface UpdateLaunchConfigurationTemplateRequest {
+  /**
+   * <p>Launch Configuration Template ID.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+
+  /**
+   * <p>Launch disposition.</p>
+   */
+  launchDisposition?: LaunchDisposition | string;
+
+  /**
+   * <p>Target instance type right-sizing method.</p>
+   */
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+
+  /**
+   * <p>Copy private IP.</p>
+   */
+  copyPrivateIp?: boolean;
+
+  /**
+   * <p>Copy tags.</p>
+   */
+  copyTags?: boolean;
+
+  /**
+   * <p>Licensing.</p>
+   */
+  licensing?: Licensing;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLaunchConfigurationTemplateResponse {
+  /**
+   * <p>Updated Launch Configuration Template.</p>
+   */
+  launchConfigurationTemplate?: LaunchConfigurationTemplate;
+}
+
+/**
+ * @public
+ */
 export interface ListExtensibleSourceServersRequest {
   /**
    * <p>The Id of the staging Account to retrieve extensible source servers from.</p>
@@ -2680,46 +2911,6 @@ export interface GetLaunchConfigurationRequest {
    */
   sourceServerID: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LaunchDisposition = {
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type LaunchDisposition = (typeof LaunchDisposition)[keyof typeof LaunchDisposition];
-
-/**
- * @public
- * <p>Configuration of a machine's license.</p>
- */
-export interface Licensing {
-  /**
-   * <p>Whether to enable "Bring your own license" or not.</p>
-   */
-  osByol?: boolean;
-}
-
-/**
- * @public
- * @enum
- */
-export const TargetInstanceTypeRightSizingMethod = {
-  BASIC: "BASIC",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type TargetInstanceTypeRightSizingMethod =
-  (typeof TargetInstanceTypeRightSizingMethod)[keyof typeof TargetInstanceTypeRightSizingMethod];
 
 /**
  * @public
@@ -3205,6 +3396,36 @@ export const CreateExtendedSourceServerResponseFilterSensitiveLog = (obj: Create
 /**
  * @internal
  */
+export const CreateLaunchConfigurationTemplateRequestFilterSensitiveLog = (
+  obj: CreateLaunchConfigurationTemplateRequest
+): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LaunchConfigurationTemplateFilterSensitiveLog = (obj: LaunchConfigurationTemplate): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLaunchConfigurationTemplateResponseFilterSensitiveLog = (
+  obj: CreateLaunchConfigurationTemplateResponse
+): any => ({
+  ...obj,
+  ...(obj.launchConfigurationTemplate && {
+    launchConfigurationTemplate: LaunchConfigurationTemplateFilterSensitiveLog(obj.launchConfigurationTemplate),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const CreateReplicationConfigurationTemplateRequestFilterSensitiveLog = (
   obj: CreateReplicationConfigurationTemplateRequest
 ): any => ({
@@ -3241,6 +3462,16 @@ export const DescribeJobsResponseFilterSensitiveLog = (obj: DescribeJobsResponse
 /**
  * @internal
  */
+export const DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog = (
+  obj: DescribeLaunchConfigurationTemplatesResponse
+): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => LaunchConfigurationTemplateFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const RecoveryInstanceFilterSensitiveLog = (obj: RecoveryInstance): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -3270,6 +3501,18 @@ export const DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog
 export const DescribeSourceServersResponseFilterSensitiveLog = (obj: DescribeSourceServersResponse): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => SourceServerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchConfigurationTemplateResponseFilterSensitiveLog = (
+  obj: UpdateLaunchConfigurationTemplateResponse
+): any => ({
+  ...obj,
+  ...(obj.launchConfigurationTemplate && {
+    launchConfigurationTemplate: LaunchConfigurationTemplateFilterSensitiveLog(obj.launchConfigurationTemplate),
+  }),
 });
 
 /**
