@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,10 +9,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -65,26 +67,18 @@ import {
   LogConfigurations,
   Member,
   MemberConfiguration,
-  MemberFabricAttributes,
   MemberFabricConfiguration,
   MemberFabricLogPublishingConfiguration,
-  MemberFrameworkAttributes,
   MemberFrameworkConfiguration,
   MemberLogPublishingConfiguration,
   MemberSummary,
   Network,
-  NetworkEthereumAttributes,
-  NetworkFabricAttributes,
   NetworkFabricConfiguration,
-  NetworkFrameworkAttributes,
   NetworkFrameworkConfiguration,
   NetworkSummary,
   Node,
   NodeConfiguration,
-  NodeEthereumAttributes,
-  NodeFabricAttributes,
   NodeFabricLogPublishingConfiguration,
-  NodeFrameworkAttributes,
   NodeLogPublishingConfiguration,
   NodeSummary,
   Proposal,
@@ -97,7 +91,6 @@ import {
   ResourceNotReadyException,
   ThrottlingException,
   TooManyTagsException,
-  VoteSummary,
   VotingPolicy,
 } from "../models/models_0";
 
@@ -114,11 +107,13 @@ export const se_CreateAccessorCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accessors";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessorType != null && { AccessorType: input.AccessorType }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessorType: [],
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -145,13 +140,13 @@ export const se_CreateMemberCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/members";
   resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.InvitationId != null && { InvitationId: input.InvitationId }),
-    ...(input.MemberConfiguration != null && {
-      MemberConfiguration: se_MemberConfiguration(input.MemberConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      InvitationId: [],
+      MemberConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -176,21 +171,19 @@ export const se_CreateNetworkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Framework != null && { Framework: input.Framework }),
-    ...(input.FrameworkConfiguration != null && {
-      FrameworkConfiguration: se_NetworkFrameworkConfiguration(input.FrameworkConfiguration, context),
-    }),
-    ...(input.FrameworkVersion != null && { FrameworkVersion: input.FrameworkVersion }),
-    ...(input.MemberConfiguration != null && {
-      MemberConfiguration: se_MemberConfiguration(input.MemberConfiguration, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
-    ...(input.VotingPolicy != null && { VotingPolicy: se_VotingPolicy(input.VotingPolicy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      Framework: [],
+      FrameworkConfiguration: (_) => _json(_),
+      FrameworkVersion: [],
+      MemberConfiguration: (_) => _json(_),
+      Name: [],
+      Tags: (_) => _json(_),
+      VotingPolicy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -217,14 +210,14 @@ export const se_CreateNodeCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/nodes";
   resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.MemberId != null && { MemberId: input.MemberId }),
-    ...(input.NodeConfiguration != null && {
-      NodeConfiguration: se_NodeConfiguration(input.NodeConfiguration, context),
-    }),
-    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      MemberId: [],
+      NodeConfiguration: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -251,13 +244,15 @@ export const se_CreateProposalCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/proposals";
   resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Actions != null && { Actions: se_ProposalActions(input.Actions, context) }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.MemberId != null && { MemberId: input.MemberId }),
-    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Actions: (_) => _json(_),
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      MemberId: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -747,9 +742,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -807,11 +804,11 @@ export const se_UpdateMemberCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "MemberId", () => input.MemberId!, "{MemberId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LogPublishingConfiguration != null && {
-      LogPublishingConfiguration: se_MemberLogPublishingConfiguration(input.LogPublishingConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LogPublishingConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -839,12 +836,12 @@ export const se_UpdateNodeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "NodeId", () => input.NodeId!, "{NodeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LogPublishingConfiguration != null && {
-      LogPublishingConfiguration: se_NodeLogPublishingConfiguration(input.LogPublishingConfiguration, context),
-    }),
-    ...(input.MemberId != null && { MemberId: input.MemberId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LogPublishingConfiguration: (_) => _json(_),
+      MemberId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -873,10 +870,12 @@ export const se_VoteOnProposalCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "ProposalId", () => input.ProposalId!, "{ProposalId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Vote != null && { Vote: input.Vote }),
-    ...(input.VoterMemberId != null && { VoterMemberId: input.VoterMemberId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Vote: [],
+      VoterMemberId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -902,12 +901,11 @@ export const de_CreateAccessorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessorId != null) {
-    contents.AccessorId = __expectString(data.AccessorId);
-  }
-  if (data.BillingToken != null) {
-    contents.BillingToken = __expectString(data.BillingToken);
-  }
+  const doc = take(data, {
+    AccessorId: __expectString,
+    BillingToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -947,10 +945,9 @@ const de_CreateAccessorCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -970,9 +967,10 @@ export const de_CreateMemberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MemberId != null) {
-    contents.MemberId = __expectString(data.MemberId);
-  }
+  const doc = take(data, {
+    MemberId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1018,10 +1016,9 @@ const de_CreateMemberCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1041,12 +1038,11 @@ export const de_CreateNetworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MemberId != null) {
-    contents.MemberId = __expectString(data.MemberId);
-  }
-  if (data.NetworkId != null) {
-    contents.NetworkId = __expectString(data.NetworkId);
-  }
+  const doc = take(data, {
+    MemberId: __expectString,
+    NetworkId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1086,10 +1082,9 @@ const de_CreateNetworkCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1109,9 +1104,10 @@ export const de_CreateNodeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NodeId != null) {
-    contents.NodeId = __expectString(data.NodeId);
-  }
+  const doc = take(data, {
+    NodeId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1157,10 +1153,9 @@ const de_CreateNodeCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1180,9 +1175,10 @@ export const de_CreateProposalCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProposalId != null) {
-    contents.ProposalId = __expectString(data.ProposalId);
-  }
+  const doc = take(data, {
+    ProposalId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1222,10 +1218,9 @@ const de_CreateProposalCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1278,10 +1273,9 @@ const de_DeleteAccessorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1337,10 +1331,9 @@ const de_DeleteMemberCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1396,10 +1389,9 @@ const de_DeleteNodeCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1419,9 +1411,10 @@ export const de_GetAccessorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Accessor != null) {
-    contents.Accessor = de_Accessor(data.Accessor, context);
-  }
+  const doc = take(data, {
+    Accessor: (_) => de_Accessor(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1455,10 +1448,9 @@ const de_GetAccessorCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1478,9 +1470,10 @@ export const de_GetMemberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Member != null) {
-    contents.Member = de_Member(data.Member, context);
-  }
+  const doc = take(data, {
+    Member: (_) => de_Member(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1514,10 +1507,9 @@ const de_GetMemberCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1537,9 +1529,10 @@ export const de_GetNetworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Network != null) {
-    contents.Network = de_Network(data.Network, context);
-  }
+  const doc = take(data, {
+    Network: (_) => de_Network(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1573,10 +1566,9 @@ const de_GetNetworkCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1596,9 +1588,10 @@ export const de_GetNodeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Node != null) {
-    contents.Node = de_Node(data.Node, context);
-  }
+  const doc = take(data, {
+    Node: (_) => de_Node(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1632,10 +1625,9 @@ const de_GetNodeCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1655,9 +1647,10 @@ export const de_GetProposalCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Proposal != null) {
-    contents.Proposal = de_Proposal(data.Proposal, context);
-  }
+  const doc = take(data, {
+    Proposal: (_) => de_Proposal(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1691,10 +1684,9 @@ const de_GetProposalCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1714,12 +1706,11 @@ export const de_ListAccessorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Accessors != null) {
-    contents.Accessors = de_AccessorSummaryList(data.Accessors, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Accessors: (_) => de_AccessorSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1750,10 +1741,9 @@ const de_ListAccessorsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1773,12 +1763,11 @@ export const de_ListInvitationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Invitations != null) {
-    contents.Invitations = de_InvitationList(data.Invitations, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Invitations: (_) => de_InvitationList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1815,10 +1804,9 @@ const de_ListInvitationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1838,12 +1826,11 @@ export const de_ListMembersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Members != null) {
-    contents.Members = de_MemberSummaryList(data.Members, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Members: (_) => de_MemberSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1874,10 +1861,9 @@ const de_ListMembersCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1897,12 +1883,11 @@ export const de_ListNetworksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Networks != null) {
-    contents.Networks = de_NetworkSummaryList(data.Networks, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Networks: (_) => de_NetworkSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1933,10 +1918,9 @@ const de_ListNetworksCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1956,12 +1940,11 @@ export const de_ListNodesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Nodes != null) {
-    contents.Nodes = de_NodeSummaryList(data.Nodes, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Nodes: (_) => de_NodeSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1992,10 +1975,9 @@ const de_ListNodesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2015,12 +1997,11 @@ export const de_ListProposalsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Proposals != null) {
-    contents.Proposals = de_ProposalSummaryList(data.Proposals, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Proposals: (_) => de_ProposalSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2054,10 +2035,9 @@ const de_ListProposalsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2077,12 +2057,11 @@ export const de_ListProposalVotesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ProposalVotes != null) {
-    contents.ProposalVotes = de_ProposalVoteList(data.ProposalVotes, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProposalVotes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2113,10 +2092,9 @@ const de_ListProposalVotesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2136,9 +2114,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_OutputTagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2169,10 +2148,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2228,10 +2206,9 @@ const de_RejectInvitationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2284,10 +2261,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2337,10 +2313,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2393,10 +2368,9 @@ const de_UpdateMemberCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2449,10 +2423,9 @@ const de_UpdateNodeCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2508,16 +2481,15 @@ const de_VoteOnProposalCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2527,9 +2499,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2546,9 +2519,10 @@ const de_IllegalActionExceptionRes = async (
 ): Promise<IllegalActionException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IllegalActionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2565,6 +2539,8 @@ const de_InternalServiceErrorExceptionRes = async (
 ): Promise<InternalServiceErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2581,9 +2557,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2600,9 +2577,10 @@ const de_ResourceAlreadyExistsExceptionRes = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2619,9 +2597,10 @@ const de_ResourceLimitExceededExceptionRes = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2638,12 +2617,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2660,9 +2638,10 @@ const de_ResourceNotReadyExceptionRes = async (
 ): Promise<ResourceNotReadyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2676,6 +2655,8 @@ const de_ResourceNotReadyExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2692,12 +2673,11 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2705,249 +2685,72 @@ const de_TooManyTagsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ApprovalThresholdPolicy
- */
-const se_ApprovalThresholdPolicy = (input: ApprovalThresholdPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.ProposalDurationInHours != null && { ProposalDurationInHours: input.ProposalDurationInHours }),
-    ...(input.ThresholdComparator != null && { ThresholdComparator: input.ThresholdComparator }),
-    ...(input.ThresholdPercentage != null && { ThresholdPercentage: input.ThresholdPercentage }),
-  };
-};
+// se_ApprovalThresholdPolicy omitted.
 
-/**
- * serializeAws_restJson1InputTagMap
- */
-const se_InputTagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_InputTagMap omitted.
 
-/**
- * serializeAws_restJson1InviteAction
- */
-const se_InviteAction = (input: InviteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.Principal != null && { Principal: input.Principal }),
-  };
-};
+// se_InviteAction omitted.
 
-/**
- * serializeAws_restJson1InviteActionList
- */
-const se_InviteActionList = (input: InviteAction[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_InviteAction(entry, context);
-    });
-};
+// se_InviteActionList omitted.
 
-/**
- * serializeAws_restJson1LogConfiguration
- */
-const se_LogConfiguration = (input: LogConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
+// se_LogConfiguration omitted.
 
-/**
- * serializeAws_restJson1LogConfigurations
- */
-const se_LogConfigurations = (input: LogConfigurations, context: __SerdeContext): any => {
-  return {
-    ...(input.Cloudwatch != null && { Cloudwatch: se_LogConfiguration(input.Cloudwatch, context) }),
-  };
-};
+// se_LogConfigurations omitted.
 
-/**
- * serializeAws_restJson1MemberConfiguration
- */
-const se_MemberConfiguration = (input: MemberConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FrameworkConfiguration != null && {
-      FrameworkConfiguration: se_MemberFrameworkConfiguration(input.FrameworkConfiguration, context),
-    }),
-    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.LogPublishingConfiguration != null && {
-      LogPublishingConfiguration: se_MemberLogPublishingConfiguration(input.LogPublishingConfiguration, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
-  };
-};
+// se_MemberConfiguration omitted.
 
-/**
- * serializeAws_restJson1MemberFabricConfiguration
- */
-const se_MemberFabricConfiguration = (input: MemberFabricConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdminPassword != null && { AdminPassword: input.AdminPassword }),
-    ...(input.AdminUsername != null && { AdminUsername: input.AdminUsername }),
-  };
-};
+// se_MemberFabricConfiguration omitted.
 
-/**
- * serializeAws_restJson1MemberFabricLogPublishingConfiguration
- */
-const se_MemberFabricLogPublishingConfiguration = (
-  input: MemberFabricLogPublishingConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CaLogs != null && { CaLogs: se_LogConfigurations(input.CaLogs, context) }),
-  };
-};
+// se_MemberFabricLogPublishingConfiguration omitted.
 
-/**
- * serializeAws_restJson1MemberFrameworkConfiguration
- */
-const se_MemberFrameworkConfiguration = (input: MemberFrameworkConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Fabric != null && { Fabric: se_MemberFabricConfiguration(input.Fabric, context) }),
-  };
-};
+// se_MemberFrameworkConfiguration omitted.
 
-/**
- * serializeAws_restJson1MemberLogPublishingConfiguration
- */
-const se_MemberLogPublishingConfiguration = (input: MemberLogPublishingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Fabric != null && { Fabric: se_MemberFabricLogPublishingConfiguration(input.Fabric, context) }),
-  };
-};
+// se_MemberLogPublishingConfiguration omitted.
 
-/**
- * serializeAws_restJson1NetworkFabricConfiguration
- */
-const se_NetworkFabricConfiguration = (input: NetworkFabricConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Edition != null && { Edition: input.Edition }),
-  };
-};
+// se_NetworkFabricConfiguration omitted.
 
-/**
- * serializeAws_restJson1NetworkFrameworkConfiguration
- */
-const se_NetworkFrameworkConfiguration = (input: NetworkFrameworkConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Fabric != null && { Fabric: se_NetworkFabricConfiguration(input.Fabric, context) }),
-  };
-};
+// se_NetworkFrameworkConfiguration omitted.
 
-/**
- * serializeAws_restJson1NodeConfiguration
- */
-const se_NodeConfiguration = (input: NodeConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
-    ...(input.LogPublishingConfiguration != null && {
-      LogPublishingConfiguration: se_NodeLogPublishingConfiguration(input.LogPublishingConfiguration, context),
-    }),
-    ...(input.StateDB != null && { StateDB: input.StateDB }),
-  };
-};
+// se_NodeConfiguration omitted.
 
-/**
- * serializeAws_restJson1NodeFabricLogPublishingConfiguration
- */
-const se_NodeFabricLogPublishingConfiguration = (
-  input: NodeFabricLogPublishingConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ChaincodeLogs != null && { ChaincodeLogs: se_LogConfigurations(input.ChaincodeLogs, context) }),
-    ...(input.PeerLogs != null && { PeerLogs: se_LogConfigurations(input.PeerLogs, context) }),
-  };
-};
+// se_NodeFabricLogPublishingConfiguration omitted.
 
-/**
- * serializeAws_restJson1NodeLogPublishingConfiguration
- */
-const se_NodeLogPublishingConfiguration = (input: NodeLogPublishingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Fabric != null && { Fabric: se_NodeFabricLogPublishingConfiguration(input.Fabric, context) }),
-  };
-};
+// se_NodeLogPublishingConfiguration omitted.
 
-/**
- * serializeAws_restJson1ProposalActions
- */
-const se_ProposalActions = (input: ProposalActions, context: __SerdeContext): any => {
-  return {
-    ...(input.Invitations != null && { Invitations: se_InviteActionList(input.Invitations, context) }),
-    ...(input.Removals != null && { Removals: se_RemoveActionList(input.Removals, context) }),
-  };
-};
+// se_ProposalActions omitted.
 
-/**
- * serializeAws_restJson1RemoveAction
- */
-const se_RemoveAction = (input: RemoveAction, context: __SerdeContext): any => {
-  return {
-    ...(input.MemberId != null && { MemberId: input.MemberId }),
-  };
-};
+// se_RemoveAction omitted.
 
-/**
- * serializeAws_restJson1RemoveActionList
- */
-const se_RemoveActionList = (input: RemoveAction[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RemoveAction(entry, context);
-    });
-};
+// se_RemoveActionList omitted.
 
-/**
- * serializeAws_restJson1VotingPolicy
- */
-const se_VotingPolicy = (input: VotingPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.ApprovalThresholdPolicy != null && {
-      ApprovalThresholdPolicy: se_ApprovalThresholdPolicy(input.ApprovalThresholdPolicy, context),
-    }),
-  };
-};
+// se_VotingPolicy omitted.
 
 /**
  * deserializeAws_restJson1Accessor
  */
 const de_Accessor = (output: any, context: __SerdeContext): Accessor => {
-  return {
-    Arn: __expectString(output.Arn),
-    BillingToken: __expectString(output.BillingToken),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    Id: __expectString(output.Id),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    BillingToken: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Id: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AccessorSummary
  */
 const de_AccessorSummary = (output: any, context: __SerdeContext): AccessorSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    Id: __expectString(output.Id),
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Id: __expectString,
+    Status: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -2957,41 +2760,25 @@ const de_AccessorSummaryList = (output: any, context: __SerdeContext): AccessorS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AccessorSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ApprovalThresholdPolicy
- */
-const de_ApprovalThresholdPolicy = (output: any, context: __SerdeContext): ApprovalThresholdPolicy => {
-  return {
-    ProposalDurationInHours: __expectInt32(output.ProposalDurationInHours),
-    ThresholdComparator: __expectString(output.ThresholdComparator),
-    ThresholdPercentage: __expectInt32(output.ThresholdPercentage),
-  } as any;
-};
+// de_ApprovalThresholdPolicy omitted.
 
 /**
  * deserializeAws_restJson1Invitation
  */
 const de_Invitation = (output: any, context: __SerdeContext): Invitation => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    ExpirationDate:
-      output.ExpirationDate != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationDate))
-        : undefined,
-    InvitationId: __expectString(output.InvitationId),
-    NetworkSummary: output.NetworkSummary != null ? de_NetworkSummary(output.NetworkSummary, context) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ExpirationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    InvitationId: __expectString,
+    NetworkSummary: (_: any) => de_NetworkSummary(_, context),
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -3001,139 +2788,59 @@ const de_InvitationList = (output: any, context: __SerdeContext): Invitation[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Invitation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1InviteAction
- */
-const de_InviteAction = (output: any, context: __SerdeContext): InviteAction => {
-  return {
-    Principal: __expectString(output.Principal),
-  } as any;
-};
+// de_InviteAction omitted.
 
-/**
- * deserializeAws_restJson1InviteActionList
- */
-const de_InviteActionList = (output: any, context: __SerdeContext): InviteAction[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InviteAction(entry, context);
-    });
-  return retVal;
-};
+// de_InviteActionList omitted.
 
-/**
- * deserializeAws_restJson1LogConfiguration
- */
-const de_LogConfiguration = (output: any, context: __SerdeContext): LogConfiguration => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
-};
+// de_LogConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LogConfigurations
- */
-const de_LogConfigurations = (output: any, context: __SerdeContext): LogConfigurations => {
-  return {
-    Cloudwatch: output.Cloudwatch != null ? de_LogConfiguration(output.Cloudwatch, context) : undefined,
-  } as any;
-};
+// de_LogConfigurations omitted.
 
 /**
  * deserializeAws_restJson1Member
  */
 const de_Member = (output: any, context: __SerdeContext): Member => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    Description: __expectString(output.Description),
-    FrameworkAttributes:
-      output.FrameworkAttributes != null
-        ? de_MemberFrameworkAttributes(output.FrameworkAttributes, context)
-        : undefined,
-    Id: __expectString(output.Id),
-    KmsKeyArn: __expectString(output.KmsKeyArn),
-    LogPublishingConfiguration:
-      output.LogPublishingConfiguration != null
-        ? de_MemberLogPublishingConfiguration(output.LogPublishingConfiguration, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    NetworkId: __expectString(output.NetworkId),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    FrameworkAttributes: _json,
+    Id: __expectString,
+    KmsKeyArn: __expectString,
+    LogPublishingConfiguration: _json,
+    Name: __expectString,
+    NetworkId: __expectString,
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1MemberFabricAttributes
- */
-const de_MemberFabricAttributes = (output: any, context: __SerdeContext): MemberFabricAttributes => {
-  return {
-    AdminUsername: __expectString(output.AdminUsername),
-    CaEndpoint: __expectString(output.CaEndpoint),
-  } as any;
-};
+// de_MemberFabricAttributes omitted.
 
-/**
- * deserializeAws_restJson1MemberFabricLogPublishingConfiguration
- */
-const de_MemberFabricLogPublishingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MemberFabricLogPublishingConfiguration => {
-  return {
-    CaLogs: output.CaLogs != null ? de_LogConfigurations(output.CaLogs, context) : undefined,
-  } as any;
-};
+// de_MemberFabricLogPublishingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1MemberFrameworkAttributes
- */
-const de_MemberFrameworkAttributes = (output: any, context: __SerdeContext): MemberFrameworkAttributes => {
-  return {
-    Fabric: output.Fabric != null ? de_MemberFabricAttributes(output.Fabric, context) : undefined,
-  } as any;
-};
+// de_MemberFrameworkAttributes omitted.
 
-/**
- * deserializeAws_restJson1MemberLogPublishingConfiguration
- */
-const de_MemberLogPublishingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MemberLogPublishingConfiguration => {
-  return {
-    Fabric: output.Fabric != null ? de_MemberFabricLogPublishingConfiguration(output.Fabric, context) : undefined,
-  } as any;
-};
+// de_MemberLogPublishingConfiguration omitted.
 
 /**
  * deserializeAws_restJson1MemberSummary
  */
 const de_MemberSummary = (output: any, context: __SerdeContext): MemberSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    IsOwned: __expectBoolean(output.IsOwned),
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    IsOwned: __expectBoolean,
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -3143,9 +2850,6 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MemberSummary(entry, context);
     });
   return retVal;
@@ -3155,70 +2859,42 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
  * deserializeAws_restJson1Network
  */
 const de_Network = (output: any, context: __SerdeContext): Network => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    Description: __expectString(output.Description),
-    Framework: __expectString(output.Framework),
-    FrameworkAttributes:
-      output.FrameworkAttributes != null
-        ? de_NetworkFrameworkAttributes(output.FrameworkAttributes, context)
-        : undefined,
-    FrameworkVersion: __expectString(output.FrameworkVersion),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
-    VotingPolicy: output.VotingPolicy != null ? de_VotingPolicy(output.VotingPolicy, context) : undefined,
-    VpcEndpointServiceName: __expectString(output.VpcEndpointServiceName),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Framework: __expectString,
+    FrameworkAttributes: _json,
+    FrameworkVersion: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    VotingPolicy: _json,
+    VpcEndpointServiceName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1NetworkEthereumAttributes
- */
-const de_NetworkEthereumAttributes = (output: any, context: __SerdeContext): NetworkEthereumAttributes => {
-  return {
-    ChainId: __expectString(output.ChainId),
-  } as any;
-};
+// de_NetworkEthereumAttributes omitted.
 
-/**
- * deserializeAws_restJson1NetworkFabricAttributes
- */
-const de_NetworkFabricAttributes = (output: any, context: __SerdeContext): NetworkFabricAttributes => {
-  return {
-    Edition: __expectString(output.Edition),
-    OrderingServiceEndpoint: __expectString(output.OrderingServiceEndpoint),
-  } as any;
-};
+// de_NetworkFabricAttributes omitted.
 
-/**
- * deserializeAws_restJson1NetworkFrameworkAttributes
- */
-const de_NetworkFrameworkAttributes = (output: any, context: __SerdeContext): NetworkFrameworkAttributes => {
-  return {
-    Ethereum: output.Ethereum != null ? de_NetworkEthereumAttributes(output.Ethereum, context) : undefined,
-    Fabric: output.Fabric != null ? de_NetworkFabricAttributes(output.Fabric, context) : undefined,
-  } as any;
-};
+// de_NetworkFrameworkAttributes omitted.
 
 /**
  * deserializeAws_restJson1NetworkSummary
  */
 const de_NetworkSummary = (output: any, context: __SerdeContext): NetworkSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    Description: __expectString(output.Description),
-    Framework: __expectString(output.Framework),
-    FrameworkVersion: __expectString(output.FrameworkVersion),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Framework: __expectString,
+    FrameworkVersion: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -3228,9 +2904,6 @@ const de_NetworkSummaryList = (output: any, context: __SerdeContext): NetworkSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_NetworkSummary(entry, context);
     });
   return retVal;
@@ -3240,93 +2913,45 @@ const de_NetworkSummaryList = (output: any, context: __SerdeContext): NetworkSum
  * deserializeAws_restJson1Node
  */
 const de_Node = (output: any, context: __SerdeContext): Node => {
-  return {
-    Arn: __expectString(output.Arn),
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    FrameworkAttributes:
-      output.FrameworkAttributes != null ? de_NodeFrameworkAttributes(output.FrameworkAttributes, context) : undefined,
-    Id: __expectString(output.Id),
-    InstanceType: __expectString(output.InstanceType),
-    KmsKeyArn: __expectString(output.KmsKeyArn),
-    LogPublishingConfiguration:
-      output.LogPublishingConfiguration != null
-        ? de_NodeLogPublishingConfiguration(output.LogPublishingConfiguration, context)
-        : undefined,
-    MemberId: __expectString(output.MemberId),
-    NetworkId: __expectString(output.NetworkId),
-    StateDB: __expectString(output.StateDB),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    AvailabilityZone: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    FrameworkAttributes: _json,
+    Id: __expectString,
+    InstanceType: __expectString,
+    KmsKeyArn: __expectString,
+    LogPublishingConfiguration: _json,
+    MemberId: __expectString,
+    NetworkId: __expectString,
+    StateDB: __expectString,
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1NodeEthereumAttributes
- */
-const de_NodeEthereumAttributes = (output: any, context: __SerdeContext): NodeEthereumAttributes => {
-  return {
-    HttpEndpoint: __expectString(output.HttpEndpoint),
-    WebSocketEndpoint: __expectString(output.WebSocketEndpoint),
-  } as any;
-};
+// de_NodeEthereumAttributes omitted.
 
-/**
- * deserializeAws_restJson1NodeFabricAttributes
- */
-const de_NodeFabricAttributes = (output: any, context: __SerdeContext): NodeFabricAttributes => {
-  return {
-    PeerEndpoint: __expectString(output.PeerEndpoint),
-    PeerEventEndpoint: __expectString(output.PeerEventEndpoint),
-  } as any;
-};
+// de_NodeFabricAttributes omitted.
 
-/**
- * deserializeAws_restJson1NodeFabricLogPublishingConfiguration
- */
-const de_NodeFabricLogPublishingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): NodeFabricLogPublishingConfiguration => {
-  return {
-    ChaincodeLogs: output.ChaincodeLogs != null ? de_LogConfigurations(output.ChaincodeLogs, context) : undefined,
-    PeerLogs: output.PeerLogs != null ? de_LogConfigurations(output.PeerLogs, context) : undefined,
-  } as any;
-};
+// de_NodeFabricLogPublishingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1NodeFrameworkAttributes
- */
-const de_NodeFrameworkAttributes = (output: any, context: __SerdeContext): NodeFrameworkAttributes => {
-  return {
-    Ethereum: output.Ethereum != null ? de_NodeEthereumAttributes(output.Ethereum, context) : undefined,
-    Fabric: output.Fabric != null ? de_NodeFabricAttributes(output.Fabric, context) : undefined,
-  } as any;
-};
+// de_NodeFrameworkAttributes omitted.
 
-/**
- * deserializeAws_restJson1NodeLogPublishingConfiguration
- */
-const de_NodeLogPublishingConfiguration = (output: any, context: __SerdeContext): NodeLogPublishingConfiguration => {
-  return {
-    Fabric: output.Fabric != null ? de_NodeFabricLogPublishingConfiguration(output.Fabric, context) : undefined,
-  } as any;
-};
+// de_NodeLogPublishingConfiguration omitted.
 
 /**
  * deserializeAws_restJson1NodeSummary
  */
 const de_NodeSummary = (output: any, context: __SerdeContext): NodeSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    Id: __expectString(output.Id),
-    InstanceType: __expectString(output.InstanceType),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    AvailabilityZone: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Id: __expectString,
+    InstanceType: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -3336,81 +2961,51 @@ const de_NodeSummaryList = (output: any, context: __SerdeContext): NodeSummary[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_NodeSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1OutputTagMap
- */
-const de_OutputTagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_OutputTagMap omitted.
 
 /**
  * deserializeAws_restJson1Proposal
  */
 const de_Proposal = (output: any, context: __SerdeContext): Proposal => {
-  return {
-    Actions: output.Actions != null ? de_ProposalActions(output.Actions, context) : undefined,
-    Arn: __expectString(output.Arn),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    Description: __expectString(output.Description),
-    ExpirationDate:
-      output.ExpirationDate != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationDate))
-        : undefined,
-    NetworkId: __expectString(output.NetworkId),
-    NoVoteCount: __expectInt32(output.NoVoteCount),
-    OutstandingVoteCount: __expectInt32(output.OutstandingVoteCount),
-    ProposalId: __expectString(output.ProposalId),
-    ProposedByMemberId: __expectString(output.ProposedByMemberId),
-    ProposedByMemberName: __expectString(output.ProposedByMemberName),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
-    YesVoteCount: __expectInt32(output.YesVoteCount),
-  } as any;
+  return take(output, {
+    Actions: _json,
+    Arn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    ExpirationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    NetworkId: __expectString,
+    NoVoteCount: __expectInt32,
+    OutstandingVoteCount: __expectInt32,
+    ProposalId: __expectString,
+    ProposedByMemberId: __expectString,
+    ProposedByMemberName: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    YesVoteCount: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ProposalActions
- */
-const de_ProposalActions = (output: any, context: __SerdeContext): ProposalActions => {
-  return {
-    Invitations: output.Invitations != null ? de_InviteActionList(output.Invitations, context) : undefined,
-    Removals: output.Removals != null ? de_RemoveActionList(output.Removals, context) : undefined,
-  } as any;
-};
+// de_ProposalActions omitted.
 
 /**
  * deserializeAws_restJson1ProposalSummary
  */
 const de_ProposalSummary = (output: any, context: __SerdeContext): ProposalSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate:
-      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
-    Description: __expectString(output.Description),
-    ExpirationDate:
-      output.ExpirationDate != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationDate))
-        : undefined,
-    ProposalId: __expectString(output.ProposalId),
-    ProposedByMemberId: __expectString(output.ProposedByMemberId),
-    ProposedByMemberName: __expectString(output.ProposedByMemberName),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    ExpirationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ProposalId: __expectString,
+    ProposedByMemberId: __expectString,
+    ProposedByMemberName: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -3420,75 +3015,20 @@ const de_ProposalSummaryList = (output: any, context: __SerdeContext): ProposalS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProposalSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ProposalVoteList
- */
-const de_ProposalVoteList = (output: any, context: __SerdeContext): VoteSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VoteSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ProposalVoteList omitted.
 
-/**
- * deserializeAws_restJson1RemoveAction
- */
-const de_RemoveAction = (output: any, context: __SerdeContext): RemoveAction => {
-  return {
-    MemberId: __expectString(output.MemberId),
-  } as any;
-};
+// de_RemoveAction omitted.
 
-/**
- * deserializeAws_restJson1RemoveActionList
- */
-const de_RemoveActionList = (output: any, context: __SerdeContext): RemoveAction[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RemoveAction(entry, context);
-    });
-  return retVal;
-};
+// de_RemoveActionList omitted.
 
-/**
- * deserializeAws_restJson1VoteSummary
- */
-const de_VoteSummary = (output: any, context: __SerdeContext): VoteSummary => {
-  return {
-    MemberId: __expectString(output.MemberId),
-    MemberName: __expectString(output.MemberName),
-    Vote: __expectString(output.Vote),
-  } as any;
-};
+// de_VoteSummary omitted.
 
-/**
- * deserializeAws_restJson1VotingPolicy
- */
-const de_VotingPolicy = (output: any, context: __SerdeContext): VotingPolicy => {
-  return {
-    ApprovalThresholdPolicy:
-      output.ApprovalThresholdPolicy != null
-        ? de_ApprovalThresholdPolicy(output.ApprovalThresholdPolicy, context)
-        : undefined,
-  } as any;
-};
+// de_VotingPolicy omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

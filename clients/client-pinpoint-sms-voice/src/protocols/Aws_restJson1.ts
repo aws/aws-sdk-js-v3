@@ -1,15 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -51,7 +52,6 @@ import {
   BadRequestException,
   CallInstructionsMessageType,
   CloudWatchLogsDestination,
-  EventDestination,
   EventDestinationDefinition,
   EventType,
   InternalServiceErrorException,
@@ -80,9 +80,11 @@ export const se_CreateConfigurationSetCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/sms-voice/configuration-sets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationSetName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -117,12 +119,12 @@ export const se_CreateConfigurationSetEventDestinationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.EventDestination != null && {
-      EventDestination: se_EventDestinationDefinition(input.EventDestination, context),
-    }),
-    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EventDestination: (_) => _json(_),
+      EventDestinationName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -280,13 +282,15 @@ export const se_SendVoiceMessageCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/sms-voice/voice/message";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CallerId != null && { CallerId: input.CallerId }),
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Content != null && { Content: se_VoiceMessageContent(input.Content, context) }),
-    ...(input.DestinationPhoneNumber != null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
-    ...(input.OriginationPhoneNumber != null && { OriginationPhoneNumber: input.OriginationPhoneNumber }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CallerId: [],
+      ConfigurationSetName: [],
+      Content: (_) => _json(_),
+      DestinationPhoneNumber: [],
+      OriginationPhoneNumber: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -329,11 +333,11 @@ export const se_UpdateConfigurationSetEventDestinationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.EventDestination != null && {
-      EventDestination: se_EventDestinationDefinition(input.EventDestination, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EventDestination: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -392,10 +396,9 @@ const de_CreateConfigurationSetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -451,10 +454,9 @@ const de_CreateConfigurationSetEventDestinationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -504,10 +506,9 @@ const de_DeleteConfigurationSetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -557,10 +558,9 @@ const de_DeleteConfigurationSetEventDestinationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -580,9 +580,10 @@ export const de_GetConfigurationSetEventDestinationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventDestinations != null) {
-    contents.EventDestinations = de_EventDestinations(data.EventDestinations, context);
-  }
+  const doc = take(data, {
+    EventDestinations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -613,10 +614,9 @@ const de_GetConfigurationSetEventDestinationsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -636,12 +636,11 @@ export const de_ListConfigurationSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConfigurationSets != null) {
-    contents.ConfigurationSets = de_ConfigurationSets(data.ConfigurationSets, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ConfigurationSets: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -669,10 +668,9 @@ const de_ListConfigurationSetsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -692,9 +690,10 @@ export const de_SendVoiceMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
+  const doc = take(data, {
+    MessageId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -722,10 +721,9 @@ const de_SendVoiceMessageCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -775,16 +773,15 @@ const de_UpdateConfigurationSetEventDestinationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AlreadyExistsExceptionRes
  */
@@ -794,9 +791,10 @@ const de_AlreadyExistsExceptionRes = async (
 ): Promise<AlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -810,9 +808,10 @@ const de_AlreadyExistsExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -829,9 +828,10 @@ const de_InternalServiceErrorExceptionRes = async (
 ): Promise<InternalServiceErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -848,9 +848,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -864,9 +865,10 @@ const de_LimitExceededExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -883,9 +885,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -893,203 +896,37 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1CallInstructionsMessageType
- */
-const se_CallInstructionsMessageType = (input: CallInstructionsMessageType, context: __SerdeContext): any => {
-  return {
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_CallInstructionsMessageType omitted.
 
-/**
- * serializeAws_restJson1CloudWatchLogsDestination
- */
-const se_CloudWatchLogsDestination = (input: CloudWatchLogsDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.LogGroupArn != null && { LogGroupArn: input.LogGroupArn }),
-  };
-};
+// se_CloudWatchLogsDestination omitted.
 
-/**
- * serializeAws_restJson1EventDestinationDefinition
- */
-const se_EventDestinationDefinition = (input: EventDestinationDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLogsDestination != null && {
-      CloudWatchLogsDestination: se_CloudWatchLogsDestination(input.CloudWatchLogsDestination, context),
-    }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.KinesisFirehoseDestination != null && {
-      KinesisFirehoseDestination: se_KinesisFirehoseDestination(input.KinesisFirehoseDestination, context),
-    }),
-    ...(input.MatchingEventTypes != null && { MatchingEventTypes: se_EventTypes(input.MatchingEventTypes, context) }),
-    ...(input.SnsDestination != null && { SnsDestination: se_SnsDestination(input.SnsDestination, context) }),
-  };
-};
+// se_EventDestinationDefinition omitted.
 
-/**
- * serializeAws_restJson1EventTypes
- */
-const se_EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EventTypes omitted.
 
-/**
- * serializeAws_restJson1KinesisFirehoseDestination
- */
-const se_KinesisFirehoseDestination = (input: KinesisFirehoseDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamArn != null && { DeliveryStreamArn: input.DeliveryStreamArn }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-  };
-};
+// se_KinesisFirehoseDestination omitted.
 
-/**
- * serializeAws_restJson1PlainTextMessageType
- */
-const se_PlainTextMessageType = (input: PlainTextMessageType, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text != null && { Text: input.Text }),
-    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
-  };
-};
+// se_PlainTextMessageType omitted.
 
-/**
- * serializeAws_restJson1SnsDestination
- */
-const se_SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
-  };
-};
+// se_SnsDestination omitted.
 
-/**
- * serializeAws_restJson1SSMLMessageType
- */
-const se_SSMLMessageType = (input: SSMLMessageType, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text != null && { Text: input.Text }),
-    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
-  };
-};
+// se_SSMLMessageType omitted.
 
-/**
- * serializeAws_restJson1VoiceMessageContent
- */
-const se_VoiceMessageContent = (input: VoiceMessageContent, context: __SerdeContext): any => {
-  return {
-    ...(input.CallInstructionsMessage != null && {
-      CallInstructionsMessage: se_CallInstructionsMessageType(input.CallInstructionsMessage, context),
-    }),
-    ...(input.PlainTextMessage != null && {
-      PlainTextMessage: se_PlainTextMessageType(input.PlainTextMessage, context),
-    }),
-    ...(input.SSMLMessage != null && { SSMLMessage: se_SSMLMessageType(input.SSMLMessage, context) }),
-  };
-};
+// se_VoiceMessageContent omitted.
 
-/**
- * deserializeAws_restJson1CloudWatchLogsDestination
- */
-const de_CloudWatchLogsDestination = (output: any, context: __SerdeContext): CloudWatchLogsDestination => {
-  return {
-    IamRoleArn: __expectString(output.IamRoleArn),
-    LogGroupArn: __expectString(output.LogGroupArn),
-  } as any;
-};
+// de_CloudWatchLogsDestination omitted.
 
-/**
- * deserializeAws_restJson1ConfigurationSets
- */
-const de_ConfigurationSets = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ConfigurationSets omitted.
 
-/**
- * deserializeAws_restJson1EventDestination
- */
-const de_EventDestination = (output: any, context: __SerdeContext): EventDestination => {
-  return {
-    CloudWatchLogsDestination:
-      output.CloudWatchLogsDestination != null
-        ? de_CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
-        : undefined,
-    Enabled: __expectBoolean(output.Enabled),
-    KinesisFirehoseDestination:
-      output.KinesisFirehoseDestination != null
-        ? de_KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
-        : undefined,
-    MatchingEventTypes:
-      output.MatchingEventTypes != null ? de_EventTypes(output.MatchingEventTypes, context) : undefined,
-    Name: __expectString(output.Name),
-    SnsDestination: output.SnsDestination != null ? de_SnsDestination(output.SnsDestination, context) : undefined,
-  } as any;
-};
+// de_EventDestination omitted.
 
-/**
- * deserializeAws_restJson1EventDestinations
- */
-const de_EventDestinations = (output: any, context: __SerdeContext): EventDestination[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventDestination(entry, context);
-    });
-  return retVal;
-};
+// de_EventDestinations omitted.
 
-/**
- * deserializeAws_restJson1EventTypes
- */
-const de_EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EventTypes omitted.
 
-/**
- * deserializeAws_restJson1KinesisFirehoseDestination
- */
-const de_KinesisFirehoseDestination = (output: any, context: __SerdeContext): KinesisFirehoseDestination => {
-  return {
-    DeliveryStreamArn: __expectString(output.DeliveryStreamArn),
-    IamRoleArn: __expectString(output.IamRoleArn),
-  } as any;
-};
+// de_KinesisFirehoseDestination omitted.
 
-/**
- * deserializeAws_restJson1SnsDestination
- */
-const de_SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
-  return {
-    TopicArn: __expectString(output.TopicArn),
-  } as any;
-};
+// de_SnsDestination omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

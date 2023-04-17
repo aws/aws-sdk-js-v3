@@ -1,18 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -172,34 +173,24 @@ import { ChimeSDKMessagingServiceException as __BaseException } from "../models/
 import {
   AppInstanceUserMembershipSummary,
   BadRequestException,
-  BatchChannelMemberships,
-  BatchCreateChannelMembershipError,
   Channel,
-  ChannelAssociatedWithFlowSummary,
   ChannelBan,
-  ChannelBanSummary,
   ChannelFlow,
-  ChannelFlowSummary,
   ChannelMembership,
   ChannelMembershipForAppInstanceUserSummary,
   ChannelMembershipPreferences,
-  ChannelMembershipSummary,
   ChannelMessage,
   ChannelMessageCallback,
-  ChannelMessageStatusStructure,
   ChannelMessageSummary,
   ChannelModeratedByAppInstanceUserSummary,
   ChannelModerator,
-  ChannelModeratorSummary,
   ChannelSummary,
   ConflictException,
   ElasticChannelConfiguration,
   ExpirationSettings,
   ForbiddenException,
-  Identity,
   LambdaConfiguration,
   MessageAttributeValue,
-  MessagingSessionEndpoint,
   NotFoundException,
   Processor,
   ProcessorConfiguration,
@@ -210,7 +201,6 @@ import {
   ServiceFailureException,
   ServiceUnavailableException,
   StreamingConfiguration,
-  SubChannelSummary,
   Tag,
   ThrottledClientException,
   UnauthorizedClientException,
@@ -232,9 +222,11 @@ export const se_AssociateChannelFlowCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/channel-flow";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelFlowArn != null && { ChannelFlowArn: input.ChannelFlowArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelFlowArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -265,11 +257,13 @@ export const se_BatchCreateChannelMembershipCommand = async (
     operation: [, "batch-create"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.MemberArns != null && { MemberArns: se_MemberArns(input.MemberArns, context) }),
-    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MemberArns: (_) => _json(_),
+      SubChannelId: [],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -299,11 +293,13 @@ export const se_ChannelFlowCallbackCommand = async (
     operation: [, "channel-flow-callback"],
   });
   let body: any;
-  body = JSON.stringify({
-    CallbackId: input.CallbackId ?? generateIdempotencyToken(),
-    ...(input.ChannelMessage != null && { ChannelMessage: se_ChannelMessageCallback(input.ChannelMessage, context) }),
-    ...(input.DeleteResource != null && { DeleteResource: input.DeleteResource }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CallbackId: (_) => _ ?? generateIdempotencyToken(),
+      ChannelMessage: (_) => _json(_),
+      DeleteResource: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -330,24 +326,22 @@ export const se_CreateChannelCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceArn != null && { AppInstanceArn: input.AppInstanceArn }),
-    ...(input.ChannelId != null && { ChannelId: input.ChannelId }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ElasticChannelConfiguration != null && {
-      ElasticChannelConfiguration: se_ElasticChannelConfiguration(input.ElasticChannelConfiguration, context),
-    }),
-    ...(input.ExpirationSettings != null && {
-      ExpirationSettings: se_ExpirationSettings(input.ExpirationSettings, context),
-    }),
-    ...(input.MemberArns != null && { MemberArns: se_ChannelMemberArns(input.MemberArns, context) }),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Mode != null && { Mode: input.Mode }),
-    ...(input.ModeratorArns != null && { ModeratorArns: se_ChannelModeratorArns(input.ModeratorArns, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Privacy != null && { Privacy: input.Privacy }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceArn: [],
+      ChannelId: [],
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ElasticChannelConfiguration: (_) => _json(_),
+      ExpirationSettings: (_) => _json(_),
+      MemberArns: (_) => _json(_),
+      Metadata: [],
+      Mode: [],
+      ModeratorArns: (_) => _json(_),
+      Name: [],
+      Privacy: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -375,9 +369,11 @@ export const se_CreateChannelBanCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/bans";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MemberArn != null && { MemberArn: input.MemberArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MemberArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -402,13 +398,15 @@ export const se_CreateChannelFlowCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceArn != null && { AppInstanceArn: input.AppInstanceArn }),
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Processors != null && { Processors: se_ProcessorList(input.Processors, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceArn: [],
+      ClientRequestToken: [],
+      Name: [],
+      Processors: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -436,11 +434,13 @@ export const se_CreateChannelMembershipCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/memberships";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MemberArn != null && { MemberArn: input.MemberArn }),
-    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MemberArn: [],
+      SubChannelId: [],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -468,9 +468,11 @@ export const se_CreateChannelModeratorCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/moderators";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelModeratorArn != null && { ChannelModeratorArn: input.ChannelModeratorArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelModeratorArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1456,11 +1458,11 @@ export const se_PutChannelExpirationSettingsCommand = async (
     "/channels/{ChannelArn}/expiration-settings";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ExpirationSettings != null && {
-      ExpirationSettings: se_ExpirationSettings(input.ExpirationSettings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ExpirationSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1490,9 +1492,11 @@ export const se_PutChannelMembershipPreferencesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Preferences != null && { Preferences: se_ChannelMembershipPreferences(input.Preferences, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Preferences: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1527,11 +1531,11 @@ export const se_PutMessagingStreamingConfigurationsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamingConfigurations != null && {
-      StreamingConfigurations: se_StreamingConfigurationList(input.StreamingConfigurations, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamingConfigurations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1564,9 +1568,11 @@ export const se_RedactChannelMessageCommand = async (
     operation: [, "redact"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SubChannelId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1598,9 +1604,11 @@ export const se_SearchChannelsCommand = async (
     "next-token": [, input.NextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Fields != null && { Fields: se_SearchFields(input.Fields, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Fields: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1629,21 +1637,19 @@ export const se_SendChannelMessageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/messages";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.ContentType != null && { ContentType: input.ContentType }),
-    ...(input.MessageAttributes != null && {
-      MessageAttributes: se_MessageAttributeMap(input.MessageAttributes, context),
-    }),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Persistence != null && { Persistence: input.Persistence }),
-    ...(input.PushNotification != null && {
-      PushNotification: se_PushNotificationConfiguration(input.PushNotification, context),
-    }),
-    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Content: [],
+      ContentType: [],
+      MessageAttributes: (_) => _json(_),
+      Metadata: [],
+      Persistence: [],
+      PushNotification: (_) => _json(_),
+      SubChannelId: [],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1671,10 +1677,12 @@ export const se_TagResourceCommand = async (
     operation: [, "tag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1703,10 +1711,12 @@ export const se_UntagResourceCommand = async (
     operation: [, "untag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1734,11 +1744,13 @@ export const se_UpdateChannelCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Mode != null && { Mode: input.Mode }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Metadata: [],
+      Mode: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1772,10 +1784,12 @@ export const se_UpdateChannelFlowCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Processors != null && { Processors: se_ProcessorList(input.Processors, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      Processors: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1805,12 +1819,14 @@ export const se_UpdateChannelMessageCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.ContentType != null && { ContentType: input.ContentType }),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Content: [],
+      ContentType: [],
+      Metadata: [],
+      SubChannelId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1838,9 +1854,11 @@ export const se_UpdateChannelReadMarkerCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/readMarker";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SubChannelId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1908,10 +1926,9 @@ const de_AssociateChannelFlowCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1931,12 +1948,11 @@ export const de_BatchCreateChannelMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BatchChannelMemberships != null) {
-    contents.BatchChannelMemberships = de_BatchChannelMemberships(data.BatchChannelMemberships, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = de_BatchCreateChannelMembershipErrors(data.Errors, context);
-  }
+  const doc = take(data, {
+    BatchChannelMemberships: _json,
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1979,10 +1995,9 @@ const de_BatchCreateChannelMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2002,12 +2017,11 @@ export const de_ChannelFlowCallbackCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CallbackId != null) {
-    contents.CallbackId = __expectString(data.CallbackId);
-  }
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
+  const doc = take(data, {
+    CallbackId: __expectString,
+    ChannelArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2047,10 +2061,9 @@ const de_ChannelFlowCallbackCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2070,9 +2083,10 @@ export const de_CreateChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2115,10 +2129,9 @@ const de_CreateChannelCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2138,12 +2151,11 @@ export const de_CreateChannelBanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.Member != null) {
-    contents.Member = de_Identity(data.Member, context);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    Member: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2186,10 +2198,9 @@ const de_CreateChannelBanCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2209,9 +2220,10 @@ export const de_CreateChannelFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelFlowArn != null) {
-    contents.ChannelFlowArn = __expectString(data.ChannelFlowArn);
-  }
+  const doc = take(data, {
+    ChannelFlowArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2254,10 +2266,9 @@ const de_CreateChannelFlowCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2277,15 +2288,12 @@ export const de_CreateChannelMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.Member != null) {
-    contents.Member = de_Identity(data.Member, context);
-  }
-  if (data.SubChannelId != null) {
-    contents.SubChannelId = __expectString(data.SubChannelId);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    Member: _json,
+    SubChannelId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2331,10 +2339,9 @@ const de_CreateChannelMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2354,12 +2361,11 @@ export const de_CreateChannelModeratorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelModerator != null) {
-    contents.ChannelModerator = de_Identity(data.ChannelModerator, context);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelModerator: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2402,10 +2408,9 @@ const de_CreateChannelModeratorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2461,10 +2466,9 @@ const de_DeleteChannelCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2520,10 +2524,9 @@ const de_DeleteChannelBanCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2582,10 +2585,9 @@ const de_DeleteChannelFlowCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2644,10 +2646,9 @@ const de_DeleteChannelMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2703,10 +2704,9 @@ const de_DeleteChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2762,10 +2762,9 @@ const de_DeleteChannelModeratorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2818,10 +2817,9 @@ const de_DeleteMessagingStreamingConfigurationsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2841,9 +2839,10 @@ export const de_DescribeChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channel != null) {
-    contents.Channel = de_Channel(data.Channel, context);
-  }
+  const doc = take(data, {
+    Channel: (_) => de_Channel(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2880,10 +2879,9 @@ const de_DescribeChannelCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2903,9 +2901,10 @@ export const de_DescribeChannelBanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelBan != null) {
-    contents.ChannelBan = de_ChannelBan(data.ChannelBan, context);
-  }
+  const doc = take(data, {
+    ChannelBan: (_) => de_ChannelBan(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2945,10 +2944,9 @@ const de_DescribeChannelBanCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2968,9 +2966,10 @@ export const de_DescribeChannelFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelFlow != null) {
-    contents.ChannelFlow = de_ChannelFlow(data.ChannelFlow, context);
-  }
+  const doc = take(data, {
+    ChannelFlow: (_) => de_ChannelFlow(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3007,10 +3006,9 @@ const de_DescribeChannelFlowCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3030,9 +3028,10 @@ export const de_DescribeChannelMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelMembership != null) {
-    contents.ChannelMembership = de_ChannelMembership(data.ChannelMembership, context);
-  }
+  const doc = take(data, {
+    ChannelMembership: (_) => de_ChannelMembership(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3072,10 +3071,9 @@ const de_DescribeChannelMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3095,9 +3093,10 @@ export const de_DescribeChannelMembershipForAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelMembership != null) {
-    contents.ChannelMembership = de_ChannelMembershipForAppInstanceUserSummary(data.ChannelMembership, context);
-  }
+  const doc = take(data, {
+    ChannelMembership: (_) => de_ChannelMembershipForAppInstanceUserSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3134,10 +3133,9 @@ const de_DescribeChannelMembershipForAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3157,9 +3155,10 @@ export const de_DescribeChannelModeratedByAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channel != null) {
-    contents.Channel = de_ChannelModeratedByAppInstanceUserSummary(data.Channel, context);
-  }
+  const doc = take(data, {
+    Channel: (_) => de_ChannelModeratedByAppInstanceUserSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3196,10 +3195,9 @@ const de_DescribeChannelModeratedByAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3219,9 +3217,10 @@ export const de_DescribeChannelModeratorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelModerator != null) {
-    contents.ChannelModerator = de_ChannelModerator(data.ChannelModerator, context);
-  }
+  const doc = take(data, {
+    ChannelModerator: (_) => de_ChannelModerator(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3261,10 +3260,9 @@ const de_DescribeChannelModeratorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3326,10 +3324,9 @@ const de_DisassociateChannelFlowCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3349,15 +3346,12 @@ export const de_GetChannelMembershipPreferencesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.Member != null) {
-    contents.Member = de_Identity(data.Member, context);
-  }
-  if (data.Preferences != null) {
-    contents.Preferences = de_ChannelMembershipPreferences(data.Preferences, context);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    Member: _json,
+    Preferences: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3394,10 +3388,9 @@ const de_GetChannelMembershipPreferencesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3417,9 +3410,10 @@ export const de_GetChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelMessage != null) {
-    contents.ChannelMessage = de_ChannelMessage(data.ChannelMessage, context);
-  }
+  const doc = take(data, {
+    ChannelMessage: (_) => de_ChannelMessage(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3459,10 +3453,9 @@ const de_GetChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3482,9 +3475,10 @@ export const de_GetChannelMessageStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Status != null) {
-    contents.Status = de_ChannelMessageStatusStructure(data.Status, context);
-  }
+  const doc = take(data, {
+    Status: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3521,10 +3515,9 @@ const de_GetChannelMessageStatusCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3544,9 +3537,10 @@ export const de_GetMessagingSessionEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Endpoint != null) {
-    contents.Endpoint = de_MessagingSessionEndpoint(data.Endpoint, context);
-  }
+  const doc = take(data, {
+    Endpoint: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3580,10 +3574,9 @@ const de_GetMessagingSessionEndpointCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3603,9 +3596,10 @@ export const de_GetMessagingStreamingConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamingConfigurations != null) {
-    contents.StreamingConfigurations = de_StreamingConfigurationList(data.StreamingConfigurations, context);
-  }
+  const doc = take(data, {
+    StreamingConfigurations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3645,10 +3639,9 @@ const de_GetMessagingStreamingConfigurationsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3668,15 +3661,12 @@ export const de_ListChannelBansCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelBans != null) {
-    contents.ChannelBans = de_ChannelBanSummaryList(data.ChannelBans, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelBans: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3713,10 +3703,9 @@ const de_ListChannelBansCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3736,12 +3725,11 @@ export const de_ListChannelFlowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelFlows != null) {
-    contents.ChannelFlows = de_ChannelFlowSummaryList(data.ChannelFlows, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelFlows: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3778,10 +3766,9 @@ const de_ListChannelFlowsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3801,15 +3788,12 @@ export const de_ListChannelMembershipsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelMemberships != null) {
-    contents.ChannelMemberships = de_ChannelMembershipSummaryList(data.ChannelMemberships, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelMemberships: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3846,10 +3830,9 @@ const de_ListChannelMembershipsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3869,12 +3852,11 @@ export const de_ListChannelMembershipsForAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelMemberships != null) {
-    contents.ChannelMemberships = de_ChannelMembershipForAppInstanceUserSummaryList(data.ChannelMemberships, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelMemberships: (_) => de_ChannelMembershipForAppInstanceUserSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3911,10 +3893,9 @@ const de_ListChannelMembershipsForAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3934,18 +3915,13 @@ export const de_ListChannelMessagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelMessages != null) {
-    contents.ChannelMessages = de_ChannelMessageSummaryList(data.ChannelMessages, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SubChannelId != null) {
-    contents.SubChannelId = __expectString(data.SubChannelId);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelMessages: (_) => de_ChannelMessageSummaryList(_, context),
+    NextToken: __expectString,
+    SubChannelId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3982,10 +3958,9 @@ const de_ListChannelMessagesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4005,15 +3980,12 @@ export const de_ListChannelModeratorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelModerators != null) {
-    contents.ChannelModerators = de_ChannelModeratorSummaryList(data.ChannelModerators, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelModerators: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4050,10 +4022,9 @@ const de_ListChannelModeratorsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4073,12 +4044,11 @@ export const de_ListChannelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channels != null) {
-    contents.Channels = de_ChannelSummaryList(data.Channels, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Channels: (_) => de_ChannelSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4115,10 +4085,9 @@ const de_ListChannelsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4138,12 +4107,11 @@ export const de_ListChannelsAssociatedWithChannelFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channels != null) {
-    contents.Channels = de_ChannelAssociatedWithFlowSummaryList(data.Channels, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Channels: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4180,10 +4148,9 @@ const de_ListChannelsAssociatedWithChannelFlowCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4203,12 +4170,11 @@ export const de_ListChannelsModeratedByAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channels != null) {
-    contents.Channels = de_ChannelModeratedByAppInstanceUserSummaryList(data.Channels, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Channels: (_) => de_ChannelModeratedByAppInstanceUserSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4245,10 +4211,9 @@ const de_ListChannelsModeratedByAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4268,15 +4233,12 @@ export const de_ListSubChannelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SubChannels != null) {
-    contents.SubChannels = de_SubChannelSummaryList(data.SubChannels, context);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    NextToken: __expectString,
+    SubChannels: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4313,10 +4275,9 @@ const de_ListSubChannelsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4336,9 +4297,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4375,10 +4337,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4398,12 +4359,11 @@ export const de_PutChannelExpirationSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ExpirationSettings != null) {
-    contents.ExpirationSettings = de_ExpirationSettings(data.ExpirationSettings, context);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ExpirationSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4443,10 +4403,9 @@ const de_PutChannelExpirationSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4466,15 +4425,12 @@ export const de_PutChannelMembershipPreferencesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.Member != null) {
-    contents.Member = de_Identity(data.Member, context);
-  }
-  if (data.Preferences != null) {
-    contents.Preferences = de_ChannelMembershipPreferences(data.Preferences, context);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    Member: _json,
+    Preferences: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4514,10 +4470,9 @@ const de_PutChannelMembershipPreferencesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4537,9 +4492,10 @@ export const de_PutMessagingStreamingConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamingConfigurations != null) {
-    contents.StreamingConfigurations = de_StreamingConfigurationList(data.StreamingConfigurations, context);
-  }
+  const doc = take(data, {
+    StreamingConfigurations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4582,10 +4538,9 @@ const de_PutMessagingStreamingConfigurationsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4605,15 +4560,12 @@ export const de_RedactChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
-  if (data.SubChannelId != null) {
-    contents.SubChannelId = __expectString(data.SubChannelId);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    MessageId: __expectString,
+    SubChannelId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4653,10 +4605,9 @@ const de_RedactChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4676,12 +4627,11 @@ export const de_SearchChannelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channels != null) {
-    contents.Channels = de_ChannelSummaryList(data.Channels, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Channels: (_) => de_ChannelSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4718,10 +4668,9 @@ const de_SearchChannelsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4741,18 +4690,13 @@ export const de_SendChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
-  if (data.Status != null) {
-    contents.Status = de_ChannelMessageStatusStructure(data.Status, context);
-  }
-  if (data.SubChannelId != null) {
-    contents.SubChannelId = __expectString(data.SubChannelId);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    MessageId: __expectString,
+    Status: _json,
+    SubChannelId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4792,10 +4736,9 @@ const de_SendChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4854,10 +4797,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4913,10 +4855,9 @@ const de_UntagResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4936,9 +4877,10 @@ export const de_UpdateChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4978,10 +4920,9 @@ const de_UpdateChannelCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5001,9 +4942,10 @@ export const de_UpdateChannelFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelFlowArn != null) {
-    contents.ChannelFlowArn = __expectString(data.ChannelFlowArn);
-  }
+  const doc = take(data, {
+    ChannelFlowArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5043,10 +4985,9 @@ const de_UpdateChannelFlowCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5066,18 +5007,13 @@ export const de_UpdateChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
-  if (data.Status != null) {
-    contents.Status = de_ChannelMessageStatusStructure(data.Status, context);
-  }
-  if (data.SubChannelId != null) {
-    contents.SubChannelId = __expectString(data.SubChannelId);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    MessageId: __expectString,
+    Status: _json,
+    SubChannelId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5117,10 +5053,9 @@ const de_UpdateChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5140,12 +5075,11 @@ export const de_UpdateChannelReadMarkerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.SubChannelId != null) {
-    contents.SubChannelId = __expectString(data.SubChannelId);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    SubChannelId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5185,28 +5119,26 @@ const de_UpdateChannelReadMarkerCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5220,12 +5152,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5239,12 +5170,11 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5258,12 +5188,11 @@ const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeConte
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5280,12 +5209,11 @@ const de_ResourceLimitExceededExceptionRes = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5302,12 +5230,11 @@ const de_ServiceFailureExceptionRes = async (
 ): Promise<ServiceFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5324,12 +5251,11 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5346,12 +5272,11 @@ const de_ThrottledClientExceptionRes = async (
 ): Promise<ThrottledClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottledClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5368,12 +5293,11 @@ const de_UnauthorizedClientExceptionRes = async (
 ): Promise<UnauthorizedClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5381,275 +5305,53 @@ const de_UnauthorizedClientExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ChannelMemberArns
- */
-const se_ChannelMemberArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ChannelMemberArns omitted.
 
-/**
- * serializeAws_restJson1ChannelMembershipPreferences
- */
-const se_ChannelMembershipPreferences = (input: ChannelMembershipPreferences, context: __SerdeContext): any => {
-  return {
-    ...(input.PushNotifications != null && {
-      PushNotifications: se_PushNotificationPreferences(input.PushNotifications, context),
-    }),
-  };
-};
+// se_ChannelMembershipPreferences omitted.
 
-/**
- * serializeAws_restJson1ChannelMessageCallback
- */
-const se_ChannelMessageCallback = (input: ChannelMessageCallback, context: __SerdeContext): any => {
-  return {
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.ContentType != null && { ContentType: input.ContentType }),
-    ...(input.MessageAttributes != null && {
-      MessageAttributes: se_MessageAttributeMap(input.MessageAttributes, context),
-    }),
-    ...(input.MessageId != null && { MessageId: input.MessageId }),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.PushNotification != null && {
-      PushNotification: se_PushNotificationConfiguration(input.PushNotification, context),
-    }),
-    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
-  };
-};
+// se_ChannelMessageCallback omitted.
 
-/**
- * serializeAws_restJson1ChannelModeratorArns
- */
-const se_ChannelModeratorArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ChannelModeratorArns omitted.
 
-/**
- * serializeAws_restJson1ElasticChannelConfiguration
- */
-const se_ElasticChannelConfiguration = (input: ElasticChannelConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MaximumSubChannels != null && { MaximumSubChannels: input.MaximumSubChannels }),
-    ...(input.MinimumMembershipPercentage != null && {
-      MinimumMembershipPercentage: input.MinimumMembershipPercentage,
-    }),
-    ...(input.TargetMembershipsPerSubChannel != null && {
-      TargetMembershipsPerSubChannel: input.TargetMembershipsPerSubChannel,
-    }),
-  };
-};
+// se_ElasticChannelConfiguration omitted.
 
-/**
- * serializeAws_restJson1ExpirationSettings
- */
-const se_ExpirationSettings = (input: ExpirationSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ExpirationCriterion != null && { ExpirationCriterion: input.ExpirationCriterion }),
-    ...(input.ExpirationDays != null && { ExpirationDays: input.ExpirationDays }),
-  };
-};
+// se_ExpirationSettings omitted.
 
-/**
- * serializeAws_restJson1LambdaConfiguration
- */
-const se_LambdaConfiguration = (input: LambdaConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.InvocationType != null && { InvocationType: input.InvocationType }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_LambdaConfiguration omitted.
 
-/**
- * serializeAws_restJson1MemberArns
- */
-const se_MemberArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MemberArns omitted.
 
-/**
- * serializeAws_restJson1MessageAttributeMap
- */
-const se_MessageAttributeMap = (input: Record<string, MessageAttributeValue>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_MessageAttributeValue(value, context);
-    return acc;
-  }, {});
-};
+// se_MessageAttributeMap omitted.
 
-/**
- * serializeAws_restJson1MessageAttributeStringValues
- */
-const se_MessageAttributeStringValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MessageAttributeStringValues omitted.
 
-/**
- * serializeAws_restJson1MessageAttributeValue
- */
-const se_MessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
-  return {
-    ...(input.StringValues != null && { StringValues: se_MessageAttributeStringValues(input.StringValues, context) }),
-  };
-};
+// se_MessageAttributeValue omitted.
 
-/**
- * serializeAws_restJson1Processor
- */
-const se_Processor = (input: Processor, context: __SerdeContext): any => {
-  return {
-    ...(input.Configuration != null && { Configuration: se_ProcessorConfiguration(input.Configuration, context) }),
-    ...(input.ExecutionOrder != null && { ExecutionOrder: input.ExecutionOrder }),
-    ...(input.FallbackAction != null && { FallbackAction: input.FallbackAction }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_Processor omitted.
 
-/**
- * serializeAws_restJson1ProcessorConfiguration
- */
-const se_ProcessorConfiguration = (input: ProcessorConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Lambda != null && { Lambda: se_LambdaConfiguration(input.Lambda, context) }),
-  };
-};
+// se_ProcessorConfiguration omitted.
 
-/**
- * serializeAws_restJson1ProcessorList
- */
-const se_ProcessorList = (input: Processor[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Processor(entry, context);
-    });
-};
+// se_ProcessorList omitted.
 
-/**
- * serializeAws_restJson1PushNotificationConfiguration
- */
-const se_PushNotificationConfiguration = (input: PushNotificationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_PushNotificationConfiguration omitted.
 
-/**
- * serializeAws_restJson1PushNotificationPreferences
- */
-const se_PushNotificationPreferences = (input: PushNotificationPreferences, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowNotifications != null && { AllowNotifications: input.AllowNotifications }),
-    ...(input.FilterRule != null && { FilterRule: input.FilterRule }),
-  };
-};
+// se_PushNotificationPreferences omitted.
 
-/**
- * serializeAws_restJson1SearchField
- */
-const se_SearchField = (input: SearchField, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Operator != null && { Operator: input.Operator }),
-    ...(input.Values != null && { Values: se_SearchFieldValues(input.Values, context) }),
-  };
-};
+// se_SearchField omitted.
 
-/**
- * serializeAws_restJson1SearchFields
- */
-const se_SearchFields = (input: SearchField[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SearchField(entry, context);
-    });
-};
+// se_SearchFields omitted.
 
-/**
- * serializeAws_restJson1SearchFieldValues
- */
-const se_SearchFieldValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SearchFieldValues omitted.
 
-/**
- * serializeAws_restJson1StreamingConfiguration
- */
-const se_StreamingConfiguration = (input: StreamingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.DataType != null && { DataType: input.DataType }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_StreamingConfiguration omitted.
 
-/**
- * serializeAws_restJson1StreamingConfigurationList
- */
-const se_StreamingConfigurationList = (input: StreamingConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_StreamingConfiguration(entry, context);
-    });
-};
+// se_StreamingConfigurationList omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
 /**
  * deserializeAws_restJson1AppInstanceUserMembershipSummary
@@ -5658,231 +5360,89 @@ const de_AppInstanceUserMembershipSummary = (
   output: any,
   context: __SerdeContext
 ): AppInstanceUserMembershipSummary => {
-  return {
-    ReadMarkerTimestamp:
-      output.ReadMarkerTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadMarkerTimestamp)))
-        : undefined,
-    SubChannelId: __expectString(output.SubChannelId),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    ReadMarkerTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SubChannelId: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BatchChannelMemberships
- */
-const de_BatchChannelMemberships = (output: any, context: __SerdeContext): BatchChannelMemberships => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    InvitedBy: output.InvitedBy != null ? de_Identity(output.InvitedBy, context) : undefined,
-    Members: output.Members != null ? de_Members(output.Members, context) : undefined,
-    SubChannelId: __expectString(output.SubChannelId),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_BatchChannelMemberships omitted.
 
-/**
- * deserializeAws_restJson1BatchCreateChannelMembershipError
- */
-const de_BatchCreateChannelMembershipError = (
-  output: any,
-  context: __SerdeContext
-): BatchCreateChannelMembershipError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    MemberArn: __expectString(output.MemberArn),
-  } as any;
-};
+// de_BatchCreateChannelMembershipError omitted.
 
-/**
- * deserializeAws_restJson1BatchCreateChannelMembershipErrors
- */
-const de_BatchCreateChannelMembershipErrors = (
-  output: any,
-  context: __SerdeContext
-): BatchCreateChannelMembershipError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchCreateChannelMembershipError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchCreateChannelMembershipErrors omitted.
 
 /**
  * deserializeAws_restJson1Channel
  */
 const de_Channel = (output: any, context: __SerdeContext): Channel => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    ChannelFlowArn: __expectString(output.ChannelFlowArn),
-    CreatedBy: output.CreatedBy != null ? de_Identity(output.CreatedBy, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    ElasticChannelConfiguration:
-      output.ElasticChannelConfiguration != null
-        ? de_ElasticChannelConfiguration(output.ElasticChannelConfiguration, context)
-        : undefined,
-    ExpirationSettings:
-      output.ExpirationSettings != null ? de_ExpirationSettings(output.ExpirationSettings, context) : undefined,
-    LastMessageTimestamp:
-      output.LastMessageTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Metadata: __expectString(output.Metadata),
-    Mode: __expectString(output.Mode),
-    Name: __expectString(output.Name),
-    Privacy: __expectString(output.Privacy),
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    ChannelFlowArn: __expectString,
+    CreatedBy: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ElasticChannelConfiguration: _json,
+    ExpirationSettings: _json,
+    LastMessageTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: __expectString,
+    Mode: __expectString,
+    Name: __expectString,
+    Privacy: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ChannelAssociatedWithFlowSummary
- */
-const de_ChannelAssociatedWithFlowSummary = (
-  output: any,
-  context: __SerdeContext
-): ChannelAssociatedWithFlowSummary => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    Metadata: __expectString(output.Metadata),
-    Mode: __expectString(output.Mode),
-    Name: __expectString(output.Name),
-    Privacy: __expectString(output.Privacy),
-  } as any;
-};
+// de_ChannelAssociatedWithFlowSummary omitted.
 
-/**
- * deserializeAws_restJson1ChannelAssociatedWithFlowSummaryList
- */
-const de_ChannelAssociatedWithFlowSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ChannelAssociatedWithFlowSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelAssociatedWithFlowSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelAssociatedWithFlowSummaryList omitted.
 
 /**
  * deserializeAws_restJson1ChannelBan
  */
 const de_ChannelBan = (output: any, context: __SerdeContext): ChannelBan => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    CreatedBy: output.CreatedBy != null ? de_Identity(output.CreatedBy, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    CreatedBy: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Member: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ChannelBanSummary
- */
-const de_ChannelBanSummary = (output: any, context: __SerdeContext): ChannelBanSummary => {
-  return {
-    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
-  } as any;
-};
+// de_ChannelBanSummary omitted.
 
-/**
- * deserializeAws_restJson1ChannelBanSummaryList
- */
-const de_ChannelBanSummaryList = (output: any, context: __SerdeContext): ChannelBanSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelBanSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelBanSummaryList omitted.
 
 /**
  * deserializeAws_restJson1ChannelFlow
  */
 const de_ChannelFlow = (output: any, context: __SerdeContext): ChannelFlow => {
-  return {
-    ChannelFlowArn: __expectString(output.ChannelFlowArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Processors: output.Processors != null ? de_ProcessorList(output.Processors, context) : undefined,
-  } as any;
+  return take(output, {
+    ChannelFlowArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Processors: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ChannelFlowSummary
- */
-const de_ChannelFlowSummary = (output: any, context: __SerdeContext): ChannelFlowSummary => {
-  return {
-    ChannelFlowArn: __expectString(output.ChannelFlowArn),
-    Name: __expectString(output.Name),
-    Processors: output.Processors != null ? de_ProcessorList(output.Processors, context) : undefined,
-  } as any;
-};
+// de_ChannelFlowSummary omitted.
 
-/**
- * deserializeAws_restJson1ChannelFlowSummaryList
- */
-const de_ChannelFlowSummaryList = (output: any, context: __SerdeContext): ChannelFlowSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelFlowSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelFlowSummaryList omitted.
 
 /**
  * deserializeAws_restJson1ChannelMembership
  */
 const de_ChannelMembership = (output: any, context: __SerdeContext): ChannelMembership => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    InvitedBy: output.InvitedBy != null ? de_Identity(output.InvitedBy, context) : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
-    SubChannelId: __expectString(output.SubChannelId),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InvitedBy: _json,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Member: _json,
+    SubChannelId: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -5892,13 +5452,10 @@ const de_ChannelMembershipForAppInstanceUserSummary = (
   output: any,
   context: __SerdeContext
 ): ChannelMembershipForAppInstanceUserSummary => {
-  return {
-    AppInstanceUserMembershipSummary:
-      output.AppInstanceUserMembershipSummary != null
-        ? de_AppInstanceUserMembershipSummary(output.AppInstanceUserMembershipSummary, context)
-        : undefined,
-    ChannelSummary: output.ChannelSummary != null ? de_ChannelSummary(output.ChannelSummary, context) : undefined,
-  } as any;
+  return take(output, {
+    AppInstanceUserMembershipSummary: (_: any) => de_AppInstanceUserMembershipSummary(_, context),
+    ChannelSummary: (_: any) => de_ChannelSummary(_, context),
+  }) as any;
 };
 
 /**
@@ -5911,119 +5468,60 @@ const de_ChannelMembershipForAppInstanceUserSummaryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChannelMembershipForAppInstanceUserSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ChannelMembershipPreferences
- */
-const de_ChannelMembershipPreferences = (output: any, context: __SerdeContext): ChannelMembershipPreferences => {
-  return {
-    PushNotifications:
-      output.PushNotifications != null ? de_PushNotificationPreferences(output.PushNotifications, context) : undefined,
-  } as any;
-};
+// de_ChannelMembershipPreferences omitted.
 
-/**
- * deserializeAws_restJson1ChannelMembershipSummary
- */
-const de_ChannelMembershipSummary = (output: any, context: __SerdeContext): ChannelMembershipSummary => {
-  return {
-    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
-  } as any;
-};
+// de_ChannelMembershipSummary omitted.
 
-/**
- * deserializeAws_restJson1ChannelMembershipSummaryList
- */
-const de_ChannelMembershipSummaryList = (output: any, context: __SerdeContext): ChannelMembershipSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelMembershipSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelMembershipSummaryList omitted.
 
 /**
  * deserializeAws_restJson1ChannelMessage
  */
 const de_ChannelMessage = (output: any, context: __SerdeContext): ChannelMessage => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    Content: __expectString(output.Content),
-    ContentType: __expectString(output.ContentType),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastEditedTimestamp:
-      output.LastEditedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastEditedTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    MessageAttributes:
-      output.MessageAttributes != null ? de_MessageAttributeMap(output.MessageAttributes, context) : undefined,
-    MessageId: __expectString(output.MessageId),
-    Metadata: __expectString(output.Metadata),
-    Persistence: __expectString(output.Persistence),
-    Redacted: __expectBoolean(output.Redacted),
-    Sender: output.Sender != null ? de_Identity(output.Sender, context) : undefined,
-    Status: output.Status != null ? de_ChannelMessageStatusStructure(output.Status, context) : undefined,
-    SubChannelId: __expectString(output.SubChannelId),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    Content: __expectString,
+    ContentType: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastEditedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MessageAttributes: _json,
+    MessageId: __expectString,
+    Metadata: __expectString,
+    Persistence: __expectString,
+    Redacted: __expectBoolean,
+    Sender: _json,
+    Status: _json,
+    SubChannelId: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ChannelMessageStatusStructure
- */
-const de_ChannelMessageStatusStructure = (output: any, context: __SerdeContext): ChannelMessageStatusStructure => {
-  return {
-    Detail: __expectString(output.Detail),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ChannelMessageStatusStructure omitted.
 
 /**
  * deserializeAws_restJson1ChannelMessageSummary
  */
 const de_ChannelMessageSummary = (output: any, context: __SerdeContext): ChannelMessageSummary => {
-  return {
-    Content: __expectString(output.Content),
-    ContentType: __expectString(output.ContentType),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastEditedTimestamp:
-      output.LastEditedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastEditedTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    MessageAttributes:
-      output.MessageAttributes != null ? de_MessageAttributeMap(output.MessageAttributes, context) : undefined,
-    MessageId: __expectString(output.MessageId),
-    Metadata: __expectString(output.Metadata),
-    Redacted: __expectBoolean(output.Redacted),
-    Sender: output.Sender != null ? de_Identity(output.Sender, context) : undefined,
-    Status: output.Status != null ? de_ChannelMessageStatusStructure(output.Status, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Content: __expectString,
+    ContentType: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastEditedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MessageAttributes: _json,
+    MessageId: __expectString,
+    Metadata: __expectString,
+    Redacted: __expectBoolean,
+    Sender: _json,
+    Status: _json,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -6033,9 +5531,6 @@ const de_ChannelMessageSummaryList = (output: any, context: __SerdeContext): Cha
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChannelMessageSummary(entry, context);
     });
   return retVal;
@@ -6048,9 +5543,9 @@ const de_ChannelModeratedByAppInstanceUserSummary = (
   output: any,
   context: __SerdeContext
 ): ChannelModeratedByAppInstanceUserSummary => {
-  return {
-    ChannelSummary: output.ChannelSummary != null ? de_ChannelSummary(output.ChannelSummary, context) : undefined,
-  } as any;
+  return take(output, {
+    ChannelSummary: (_: any) => de_ChannelSummary(_, context),
+  }) as any;
 };
 
 /**
@@ -6063,9 +5558,6 @@ const de_ChannelModeratedByAppInstanceUserSummaryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChannelModeratedByAppInstanceUserSummary(entry, context);
     });
   return retVal;
@@ -6075,56 +5567,30 @@ const de_ChannelModeratedByAppInstanceUserSummaryList = (
  * deserializeAws_restJson1ChannelModerator
  */
 const de_ChannelModerator = (output: any, context: __SerdeContext): ChannelModerator => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    CreatedBy: output.CreatedBy != null ? de_Identity(output.CreatedBy, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    Moderator: output.Moderator != null ? de_Identity(output.Moderator, context) : undefined,
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    CreatedBy: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Moderator: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ChannelModeratorSummary
- */
-const de_ChannelModeratorSummary = (output: any, context: __SerdeContext): ChannelModeratorSummary => {
-  return {
-    Moderator: output.Moderator != null ? de_Identity(output.Moderator, context) : undefined,
-  } as any;
-};
+// de_ChannelModeratorSummary omitted.
 
-/**
- * deserializeAws_restJson1ChannelModeratorSummaryList
- */
-const de_ChannelModeratorSummaryList = (output: any, context: __SerdeContext): ChannelModeratorSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelModeratorSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelModeratorSummaryList omitted.
 
 /**
  * deserializeAws_restJson1ChannelSummary
  */
 const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    LastMessageTimestamp:
-      output.LastMessageTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
-        : undefined,
-    Metadata: __expectString(output.Metadata),
-    Mode: __expectString(output.Mode),
-    Name: __expectString(output.Name),
-    Privacy: __expectString(output.Privacy),
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    LastMessageTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: __expectString,
+    Mode: __expectString,
+    Name: __expectString,
+    Privacy: __expectString,
+  }) as any;
 };
 
 /**
@@ -6134,237 +5600,48 @@ const de_ChannelSummaryList = (output: any, context: __SerdeContext): ChannelSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChannelSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ElasticChannelConfiguration
- */
-const de_ElasticChannelConfiguration = (output: any, context: __SerdeContext): ElasticChannelConfiguration => {
-  return {
-    MaximumSubChannels: __expectInt32(output.MaximumSubChannels),
-    MinimumMembershipPercentage: __expectInt32(output.MinimumMembershipPercentage),
-    TargetMembershipsPerSubChannel: __expectInt32(output.TargetMembershipsPerSubChannel),
-  } as any;
-};
+// de_ElasticChannelConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ExpirationSettings
- */
-const de_ExpirationSettings = (output: any, context: __SerdeContext): ExpirationSettings => {
-  return {
-    ExpirationCriterion: __expectString(output.ExpirationCriterion),
-    ExpirationDays: __expectInt32(output.ExpirationDays),
-  } as any;
-};
+// de_ExpirationSettings omitted.
 
-/**
- * deserializeAws_restJson1Identity
- */
-const de_Identity = (output: any, context: __SerdeContext): Identity => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Identity omitted.
 
-/**
- * deserializeAws_restJson1LambdaConfiguration
- */
-const de_LambdaConfiguration = (output: any, context: __SerdeContext): LambdaConfiguration => {
-  return {
-    InvocationType: __expectString(output.InvocationType),
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
-};
+// de_LambdaConfiguration omitted.
 
-/**
- * deserializeAws_restJson1Members
- */
-const de_Members = (output: any, context: __SerdeContext): Identity[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Identity(entry, context);
-    });
-  return retVal;
-};
+// de_Members omitted.
 
-/**
- * deserializeAws_restJson1MessageAttributeMap
- */
-const de_MessageAttributeMap = (output: any, context: __SerdeContext): Record<string, MessageAttributeValue> => {
-  return Object.entries(output).reduce((acc: Record<string, MessageAttributeValue>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_MessageAttributeValue(value, context);
-    return acc;
-  }, {});
-};
+// de_MessageAttributeMap omitted.
 
-/**
- * deserializeAws_restJson1MessageAttributeStringValues
- */
-const de_MessageAttributeStringValues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MessageAttributeStringValues omitted.
 
-/**
- * deserializeAws_restJson1MessageAttributeValue
- */
-const de_MessageAttributeValue = (output: any, context: __SerdeContext): MessageAttributeValue => {
-  return {
-    StringValues:
-      output.StringValues != null ? de_MessageAttributeStringValues(output.StringValues, context) : undefined,
-  } as any;
-};
+// de_MessageAttributeValue omitted.
 
-/**
- * deserializeAws_restJson1MessagingSessionEndpoint
- */
-const de_MessagingSessionEndpoint = (output: any, context: __SerdeContext): MessagingSessionEndpoint => {
-  return {
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_MessagingSessionEndpoint omitted.
 
-/**
- * deserializeAws_restJson1Processor
- */
-const de_Processor = (output: any, context: __SerdeContext): Processor => {
-  return {
-    Configuration: output.Configuration != null ? de_ProcessorConfiguration(output.Configuration, context) : undefined,
-    ExecutionOrder: __expectInt32(output.ExecutionOrder),
-    FallbackAction: __expectString(output.FallbackAction),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Processor omitted.
 
-/**
- * deserializeAws_restJson1ProcessorConfiguration
- */
-const de_ProcessorConfiguration = (output: any, context: __SerdeContext): ProcessorConfiguration => {
-  return {
-    Lambda: output.Lambda != null ? de_LambdaConfiguration(output.Lambda, context) : undefined,
-  } as any;
-};
+// de_ProcessorConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ProcessorList
- */
-const de_ProcessorList = (output: any, context: __SerdeContext): Processor[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Processor(entry, context);
-    });
-  return retVal;
-};
+// de_ProcessorList omitted.
 
-/**
- * deserializeAws_restJson1PushNotificationPreferences
- */
-const de_PushNotificationPreferences = (output: any, context: __SerdeContext): PushNotificationPreferences => {
-  return {
-    AllowNotifications: __expectString(output.AllowNotifications),
-    FilterRule: __expectString(output.FilterRule),
-  } as any;
-};
+// de_PushNotificationPreferences omitted.
 
-/**
- * deserializeAws_restJson1StreamingConfiguration
- */
-const de_StreamingConfiguration = (output: any, context: __SerdeContext): StreamingConfiguration => {
-  return {
-    DataType: __expectString(output.DataType),
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
-};
+// de_StreamingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StreamingConfigurationList
- */
-const de_StreamingConfigurationList = (output: any, context: __SerdeContext): StreamingConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StreamingConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_StreamingConfigurationList omitted.
 
-/**
- * deserializeAws_restJson1SubChannelSummary
- */
-const de_SubChannelSummary = (output: any, context: __SerdeContext): SubChannelSummary => {
-  return {
-    MembershipCount: __expectInt32(output.MembershipCount),
-    SubChannelId: __expectString(output.SubChannelId),
-  } as any;
-};
+// de_SubChannelSummary omitted.
 
-/**
- * deserializeAws_restJson1SubChannelSummaryList
- */
-const de_SubChannelSummaryList = (output: any, context: __SerdeContext): SubChannelSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SubChannelSummary(entry, context);
-    });
-  return retVal;
-};
+// de_SubChannelSummaryList omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

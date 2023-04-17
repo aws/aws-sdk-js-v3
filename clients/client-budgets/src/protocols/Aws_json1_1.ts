@@ -1,16 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -84,23 +84,16 @@ import {
   CalculatedSpend,
   CostTypes,
   CreateBudgetActionRequest,
-  CreateBudgetActionResponse,
   CreateBudgetRequest,
-  CreateBudgetResponse,
   CreateNotificationRequest,
-  CreateNotificationResponse,
   CreateSubscriberRequest,
-  CreateSubscriberResponse,
   CreationLimitExceededException,
   Definition,
   DeleteBudgetActionRequest,
   DeleteBudgetActionResponse,
   DeleteBudgetRequest,
-  DeleteBudgetResponse,
   DeleteNotificationRequest,
-  DeleteNotificationResponse,
   DeleteSubscriberRequest,
-  DeleteSubscriberResponse,
   DescribeBudgetActionHistoriesRequest,
   DescribeBudgetActionHistoriesResponse,
   DescribeBudgetActionRequest,
@@ -120,10 +113,8 @@ import {
   DescribeNotificationsForBudgetRequest,
   DescribeNotificationsForBudgetResponse,
   DescribeSubscribersForNotificationRequest,
-  DescribeSubscribersForNotificationResponse,
   DuplicateRecordException,
   ExecuteBudgetActionRequest,
-  ExecuteBudgetActionResponse,
   ExpiredNextTokenException,
   HistoricalOptions,
   IamActionDefinition,
@@ -143,11 +134,8 @@ import {
   UpdateBudgetActionRequest,
   UpdateBudgetActionResponse,
   UpdateBudgetRequest,
-  UpdateBudgetResponse,
   UpdateNotificationRequest,
-  UpdateNotificationResponse,
   UpdateSubscriberRequest,
-  UpdateSubscriberResponse,
 } from "../models/models_0";
 
 /**
@@ -211,7 +199,7 @@ export const se_DeleteBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteBudget");
   let body: any;
-  body = JSON.stringify(se_DeleteBudgetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -224,7 +212,7 @@ export const se_DeleteBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteBudgetAction");
   let body: any;
-  body = JSON.stringify(se_DeleteBudgetActionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -263,7 +251,7 @@ export const se_DescribeBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeBudget");
   let body: any;
-  body = JSON.stringify(se_DescribeBudgetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -276,7 +264,7 @@ export const se_DescribeBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeBudgetAction");
   let body: any;
-  body = JSON.stringify(se_DescribeBudgetActionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -302,7 +290,7 @@ export const se_DescribeBudgetActionsForAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeBudgetActionsForAccount");
   let body: any;
-  body = JSON.stringify(se_DescribeBudgetActionsForAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -315,7 +303,7 @@ export const se_DescribeBudgetActionsForBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeBudgetActionsForBudget");
   let body: any;
-  body = JSON.stringify(se_DescribeBudgetActionsForBudgetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -328,7 +316,7 @@ export const se_DescribeBudgetNotificationsForAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeBudgetNotificationsForAccount");
   let body: any;
-  body = JSON.stringify(se_DescribeBudgetNotificationsForAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -354,7 +342,7 @@ export const se_DescribeBudgetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeBudgets");
   let body: any;
-  body = JSON.stringify(se_DescribeBudgetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -367,7 +355,7 @@ export const se_DescribeNotificationsForBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeNotificationsForBudget");
   let body: any;
-  body = JSON.stringify(se_DescribeNotificationsForBudgetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -393,7 +381,7 @@ export const se_ExecuteBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExecuteBudgetAction");
   let body: any;
-  body = JSON.stringify(se_ExecuteBudgetActionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -461,12 +449,12 @@ export const de_CreateBudgetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateBudgetResponse(data, context);
+  contents = _json(data);
   const response: CreateBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -502,10 +490,9 @@ const de_CreateBudgetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -523,12 +510,12 @@ export const de_CreateBudgetActionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateBudgetActionResponse(data, context);
+  contents = _json(data);
   const response: CreateBudgetActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -567,10 +554,9 @@ const de_CreateBudgetActionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -588,12 +574,12 @@ export const de_CreateNotificationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateNotificationResponse(data, context);
+  contents = _json(data);
   const response: CreateNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -632,10 +618,9 @@ const de_CreateNotificationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -653,12 +638,12 @@ export const de_CreateSubscriberCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateSubscriberResponse(data, context);
+  contents = _json(data);
   const response: CreateSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -697,10 +682,9 @@ const de_CreateSubscriberCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -718,12 +702,12 @@ export const de_DeleteBudgetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteBudgetResponse(data, context);
+  contents = _json(data);
   const response: DeleteBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -756,10 +740,9 @@ const de_DeleteBudgetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -782,7 +765,7 @@ export const de_DeleteBudgetActionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -818,10 +801,9 @@ const de_DeleteBudgetActionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -839,12 +821,12 @@ export const de_DeleteNotificationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteNotificationResponse(data, context);
+  contents = _json(data);
   const response: DeleteNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -877,10 +859,9 @@ const de_DeleteNotificationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -898,12 +879,12 @@ export const de_DeleteSubscriberCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteSubscriberResponse(data, context);
+  contents = _json(data);
   const response: DeleteSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -936,10 +917,9 @@ const de_DeleteSubscriberCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -962,7 +942,7 @@ export const de_DescribeBudgetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -995,10 +975,9 @@ const de_DescribeBudgetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1021,7 +1000,7 @@ export const de_DescribeBudgetActionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1054,10 +1033,9 @@ const de_DescribeBudgetActionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1080,7 +1058,7 @@ export const de_DescribeBudgetActionHistoriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1116,10 +1094,9 @@ const de_DescribeBudgetActionHistoriesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1142,7 +1119,7 @@ export const de_DescribeBudgetActionsForAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1175,10 +1152,9 @@ const de_DescribeBudgetActionsForAccountCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1201,7 +1177,7 @@ export const de_DescribeBudgetActionsForBudgetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1237,10 +1213,9 @@ const de_DescribeBudgetActionsForBudgetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1263,7 +1238,7 @@ export const de_DescribeBudgetNotificationsForAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1302,10 +1277,9 @@ const de_DescribeBudgetNotificationsForAccountCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1328,7 +1302,7 @@ export const de_DescribeBudgetPerformanceHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1367,10 +1341,9 @@ const de_DescribeBudgetPerformanceHistoryCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1393,7 +1366,7 @@ export const de_DescribeBudgetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1432,10 +1405,9 @@ const de_DescribeBudgetsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1458,7 +1430,7 @@ export const de_DescribeNotificationsForBudgetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1497,10 +1469,9 @@ const de_DescribeNotificationsForBudgetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1518,12 +1489,12 @@ export const de_DescribeSubscribersForNotificationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeSubscribersForNotificationResponse(data, context);
+  contents = _json(data);
   const response: DescribeSubscribersForNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1562,10 +1533,9 @@ const de_DescribeSubscribersForNotificationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1583,12 +1553,12 @@ export const de_ExecuteBudgetActionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ExecuteBudgetActionResponse(data, context);
+  contents = _json(data);
   const response: ExecuteBudgetActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1624,10 +1594,9 @@ const de_ExecuteBudgetActionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1645,12 +1614,12 @@ export const de_UpdateBudgetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateBudgetResponse(data, context);
+  contents = _json(data);
   const response: UpdateBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1683,10 +1652,9 @@ const de_UpdateBudgetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1709,7 +1677,7 @@ export const de_UpdateBudgetActionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1745,10 +1713,9 @@ const de_UpdateBudgetActionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1766,12 +1733,12 @@ export const de_UpdateNotificationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateNotificationResponse(data, context);
+  contents = _json(data);
   const response: UpdateNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1807,10 +1774,9 @@ const de_UpdateNotificationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1828,12 +1794,12 @@ export const de_UpdateSubscriberCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateSubscriberResponse(data, context);
+  contents = _json(data);
   const response: UpdateSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1869,10 +1835,9 @@ const de_UpdateSubscriberCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1886,7 +1851,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1902,7 +1867,7 @@ const de_CreationLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<CreationLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CreationLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CreationLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1918,7 +1883,7 @@ const de_DuplicateRecordExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicateRecordException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateRecordException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateRecordException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1934,7 +1899,7 @@ const de_ExpiredNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<ExpiredNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ExpiredNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExpiredNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1950,7 +1915,7 @@ const de_InternalErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1966,7 +1931,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1982,7 +1947,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1995,7 +1960,7 @@ const de_InvalidParameterExceptionRes = async (
  */
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2011,7 +1976,7 @@ const de_ResourceLockedExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceLockedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceLockedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceLockedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2024,7 +1989,7 @@ const de_ResourceLockedExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2036,203 +2001,127 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * serializeAws_json1_1ActionThreshold
  */
 const se_ActionThreshold = (input: ActionThreshold, context: __SerdeContext): any => {
-  return {
-    ...(input.ActionThresholdType != null && { ActionThresholdType: input.ActionThresholdType }),
-    ...(input.ActionThresholdValue != null && { ActionThresholdValue: __serializeFloat(input.ActionThresholdValue) }),
-  };
+  return take(input, {
+    ActionThresholdType: [],
+    ActionThresholdValue: __serializeFloat,
+  });
 };
 
 /**
  * serializeAws_json1_1AutoAdjustData
  */
 const se_AutoAdjustData = (input: AutoAdjustData, context: __SerdeContext): any => {
-  return {
-    ...(input.AutoAdjustType != null && { AutoAdjustType: input.AutoAdjustType }),
-    ...(input.HistoricalOptions != null && {
-      HistoricalOptions: se_HistoricalOptions(input.HistoricalOptions, context),
-    }),
-    ...(input.LastAutoAdjustTime != null && {
-      LastAutoAdjustTime: Math.round(input.LastAutoAdjustTime.getTime() / 1000),
-    }),
-  };
+  return take(input, {
+    AutoAdjustType: [],
+    HistoricalOptions: _json,
+    LastAutoAdjustTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_json1_1Budget
  */
 const se_Budget = (input: Budget, context: __SerdeContext): any => {
-  return {
-    ...(input.AutoAdjustData != null && { AutoAdjustData: se_AutoAdjustData(input.AutoAdjustData, context) }),
-    ...(input.BudgetLimit != null && { BudgetLimit: se_Spend(input.BudgetLimit, context) }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.BudgetType != null && { BudgetType: input.BudgetType }),
-    ...(input.CalculatedSpend != null && { CalculatedSpend: se_CalculatedSpend(input.CalculatedSpend, context) }),
-    ...(input.CostFilters != null && { CostFilters: se_CostFilters(input.CostFilters, context) }),
-    ...(input.CostTypes != null && { CostTypes: se_CostTypes(input.CostTypes, context) }),
-    ...(input.LastUpdatedTime != null && { LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000) }),
-    ...(input.PlannedBudgetLimits != null && {
-      PlannedBudgetLimits: se_PlannedBudgetLimits(input.PlannedBudgetLimits, context),
-    }),
-    ...(input.TimePeriod != null && { TimePeriod: se_TimePeriod(input.TimePeriod, context) }),
-    ...(input.TimeUnit != null && { TimeUnit: input.TimeUnit }),
-  };
+  return take(input, {
+    AutoAdjustData: (_) => se_AutoAdjustData(_, context),
+    BudgetLimit: _json,
+    BudgetName: [],
+    BudgetType: [],
+    CalculatedSpend: _json,
+    CostFilters: _json,
+    CostTypes: _json,
+    LastUpdatedTime: (_) => Math.round(_.getTime() / 1000),
+    PlannedBudgetLimits: _json,
+    TimePeriod: (_) => se_TimePeriod(_, context),
+    TimeUnit: [],
+  });
 };
 
-/**
- * serializeAws_json1_1CalculatedSpend
- */
-const se_CalculatedSpend = (input: CalculatedSpend, context: __SerdeContext): any => {
-  return {
-    ...(input.ActualSpend != null && { ActualSpend: se_Spend(input.ActualSpend, context) }),
-    ...(input.ForecastedSpend != null && { ForecastedSpend: se_Spend(input.ForecastedSpend, context) }),
-  };
-};
+// se_CalculatedSpend omitted.
 
-/**
- * serializeAws_json1_1CostFilters
- */
-const se_CostFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_DimensionValues(value, context);
-    return acc;
-  }, {});
-};
+// se_CostFilters omitted.
 
-/**
- * serializeAws_json1_1CostTypes
- */
-const se_CostTypes = (input: CostTypes, context: __SerdeContext): any => {
-  return {
-    ...(input.IncludeCredit != null && { IncludeCredit: input.IncludeCredit }),
-    ...(input.IncludeDiscount != null && { IncludeDiscount: input.IncludeDiscount }),
-    ...(input.IncludeOtherSubscription != null && { IncludeOtherSubscription: input.IncludeOtherSubscription }),
-    ...(input.IncludeRecurring != null && { IncludeRecurring: input.IncludeRecurring }),
-    ...(input.IncludeRefund != null && { IncludeRefund: input.IncludeRefund }),
-    ...(input.IncludeSubscription != null && { IncludeSubscription: input.IncludeSubscription }),
-    ...(input.IncludeSupport != null && { IncludeSupport: input.IncludeSupport }),
-    ...(input.IncludeTax != null && { IncludeTax: input.IncludeTax }),
-    ...(input.IncludeUpfront != null && { IncludeUpfront: input.IncludeUpfront }),
-    ...(input.UseAmortized != null && { UseAmortized: input.UseAmortized }),
-    ...(input.UseBlended != null && { UseBlended: input.UseBlended }),
-  };
-};
+// se_CostTypes omitted.
 
 /**
  * serializeAws_json1_1CreateBudgetActionRequest
  */
 const se_CreateBudgetActionRequest = (input: CreateBudgetActionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ActionThreshold != null && { ActionThreshold: se_ActionThreshold(input.ActionThreshold, context) }),
-    ...(input.ActionType != null && { ActionType: input.ActionType }),
-    ...(input.ApprovalModel != null && { ApprovalModel: input.ApprovalModel }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.Definition != null && { Definition: se_Definition(input.Definition, context) }),
-    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.NotificationType != null && { NotificationType: input.NotificationType }),
-    ...(input.Subscribers != null && { Subscribers: se_Subscribers(input.Subscribers, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    ActionThreshold: (_) => se_ActionThreshold(_, context),
+    ActionType: [],
+    ApprovalModel: [],
+    BudgetName: [],
+    Definition: _json,
+    ExecutionRoleArn: [],
+    NotificationType: [],
+    Subscribers: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1CreateBudgetRequest
  */
 const se_CreateBudgetRequest = (input: CreateBudgetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.Budget != null && { Budget: se_Budget(input.Budget, context) }),
-    ...(input.NotificationsWithSubscribers != null && {
-      NotificationsWithSubscribers: se_NotificationWithSubscribersList(input.NotificationsWithSubscribers, context),
-    }),
-  };
+  return take(input, {
+    AccountId: [],
+    Budget: (_) => se_Budget(_, context),
+    NotificationsWithSubscribers: (_) => se_NotificationWithSubscribersList(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1CreateNotificationRequest
  */
 const se_CreateNotificationRequest = (input: CreateNotificationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.Notification != null && { Notification: se_Notification(input.Notification, context) }),
-    ...(input.Subscribers != null && { Subscribers: se_Subscribers(input.Subscribers, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    BudgetName: [],
+    Notification: (_) => se_Notification(_, context),
+    Subscribers: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1CreateSubscriberRequest
  */
 const se_CreateSubscriberRequest = (input: CreateSubscriberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.Notification != null && { Notification: se_Notification(input.Notification, context) }),
-    ...(input.Subscriber != null && { Subscriber: se_Subscriber(input.Subscriber, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    BudgetName: [],
+    Notification: (_) => se_Notification(_, context),
+    Subscriber: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1Definition
- */
-const se_Definition = (input: Definition, context: __SerdeContext): any => {
-  return {
-    ...(input.IamActionDefinition != null && {
-      IamActionDefinition: se_IamActionDefinition(input.IamActionDefinition, context),
-    }),
-    ...(input.ScpActionDefinition != null && {
-      ScpActionDefinition: se_ScpActionDefinition(input.ScpActionDefinition, context),
-    }),
-    ...(input.SsmActionDefinition != null && {
-      SsmActionDefinition: se_SsmActionDefinition(input.SsmActionDefinition, context),
-    }),
-  };
-};
+// se_Definition omitted.
 
-/**
- * serializeAws_json1_1DeleteBudgetActionRequest
- */
-const se_DeleteBudgetActionRequest = (input: DeleteBudgetActionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ActionId != null && { ActionId: input.ActionId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-  };
-};
+// se_DeleteBudgetActionRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteBudgetRequest
- */
-const se_DeleteBudgetRequest = (input: DeleteBudgetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-  };
-};
+// se_DeleteBudgetRequest omitted.
 
 /**
  * serializeAws_json1_1DeleteNotificationRequest
  */
 const se_DeleteNotificationRequest = (input: DeleteNotificationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.Notification != null && { Notification: se_Notification(input.Notification, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    BudgetName: [],
+    Notification: (_) => se_Notification(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1DeleteSubscriberRequest
  */
 const se_DeleteSubscriberRequest = (input: DeleteSubscriberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.Notification != null && { Notification: se_Notification(input.Notification, context) }),
-    ...(input.Subscriber != null && { Subscriber: se_Subscriber(input.Subscriber, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    BudgetName: [],
+    Notification: (_) => se_Notification(_, context),
+    Subscriber: _json,
+  });
 };
 
 /**
@@ -2242,69 +2131,23 @@ const se_DescribeBudgetActionHistoriesRequest = (
   input: DescribeBudgetActionHistoriesRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ActionId != null && { ActionId: input.ActionId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TimePeriod != null && { TimePeriod: se_TimePeriod(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    ActionId: [],
+    BudgetName: [],
+    MaxResults: [],
+    NextToken: [],
+    TimePeriod: (_) => se_TimePeriod(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1DescribeBudgetActionRequest
- */
-const se_DescribeBudgetActionRequest = (input: DescribeBudgetActionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ActionId != null && { ActionId: input.ActionId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-  };
-};
+// se_DescribeBudgetActionRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeBudgetActionsForAccountRequest
- */
-const se_DescribeBudgetActionsForAccountRequest = (
-  input: DescribeBudgetActionsForAccountRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeBudgetActionsForAccountRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeBudgetActionsForBudgetRequest
- */
-const se_DescribeBudgetActionsForBudgetRequest = (
-  input: DescribeBudgetActionsForBudgetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeBudgetActionsForBudgetRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeBudgetNotificationsForAccountRequest
- */
-const se_DescribeBudgetNotificationsForAccountRequest = (
-  input: DescribeBudgetNotificationsForAccountRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeBudgetNotificationsForAccountRequest omitted.
 
 /**
  * serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest
@@ -2313,50 +2156,20 @@ const se_DescribeBudgetPerformanceHistoryRequest = (
   input: DescribeBudgetPerformanceHistoryRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TimePeriod != null && { TimePeriod: se_TimePeriod(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    BudgetName: [],
+    MaxResults: [],
+    NextToken: [],
+    TimePeriod: (_) => se_TimePeriod(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1DescribeBudgetRequest
- */
-const se_DescribeBudgetRequest = (input: DescribeBudgetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-  };
-};
+// se_DescribeBudgetRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeBudgetsRequest
- */
-const se_DescribeBudgetsRequest = (input: DescribeBudgetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeBudgetsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeNotificationsForBudgetRequest
- */
-const se_DescribeNotificationsForBudgetRequest = (
-  input: DescribeNotificationsForBudgetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeNotificationsForBudgetRequest omitted.
 
 /**
  * serializeAws_json1_1DescribeSubscribersForNotificationRequest
@@ -2365,103 +2178,48 @@ const se_DescribeSubscribersForNotificationRequest = (
   input: DescribeSubscribersForNotificationRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Notification != null && { Notification: se_Notification(input.Notification, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    BudgetName: [],
+    MaxResults: [],
+    NextToken: [],
+    Notification: (_) => se_Notification(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1DimensionValues
- */
-const se_DimensionValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DimensionValues omitted.
 
-/**
- * serializeAws_json1_1ExecuteBudgetActionRequest
- */
-const se_ExecuteBudgetActionRequest = (input: ExecuteBudgetActionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ActionId != null && { ActionId: input.ActionId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.ExecutionType != null && { ExecutionType: input.ExecutionType }),
-  };
-};
+// se_ExecuteBudgetActionRequest omitted.
 
-/**
- * serializeAws_json1_1Groups
- */
-const se_Groups = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Groups omitted.
 
-/**
- * serializeAws_json1_1HistoricalOptions
- */
-const se_HistoricalOptions = (input: HistoricalOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.BudgetAdjustmentPeriod != null && { BudgetAdjustmentPeriod: input.BudgetAdjustmentPeriod }),
-    ...(input.LookBackAvailablePeriods != null && { LookBackAvailablePeriods: input.LookBackAvailablePeriods }),
-  };
-};
+// se_HistoricalOptions omitted.
 
-/**
- * serializeAws_json1_1IamActionDefinition
- */
-const se_IamActionDefinition = (input: IamActionDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.Groups != null && { Groups: se_Groups(input.Groups, context) }),
-    ...(input.PolicyArn != null && { PolicyArn: input.PolicyArn }),
-    ...(input.Roles != null && { Roles: se_Roles(input.Roles, context) }),
-    ...(input.Users != null && { Users: se_Users(input.Users, context) }),
-  };
-};
+// se_IamActionDefinition omitted.
 
-/**
- * serializeAws_json1_1InstanceIds
- */
-const se_InstanceIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InstanceIds omitted.
 
 /**
  * serializeAws_json1_1Notification
  */
 const se_Notification = (input: Notification, context: __SerdeContext): any => {
-  return {
-    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.NotificationState != null && { NotificationState: input.NotificationState }),
-    ...(input.NotificationType != null && { NotificationType: input.NotificationType }),
-    ...(input.Threshold != null && { Threshold: __serializeFloat(input.Threshold) }),
-    ...(input.ThresholdType != null && { ThresholdType: input.ThresholdType }),
-  };
+  return take(input, {
+    ComparisonOperator: [],
+    NotificationState: [],
+    NotificationType: [],
+    Threshold: __serializeFloat,
+    ThresholdType: [],
+  });
 };
 
 /**
  * serializeAws_json1_1NotificationWithSubscribers
  */
 const se_NotificationWithSubscribers = (input: NotificationWithSubscribers, context: __SerdeContext): any => {
-  return {
-    ...(input.Notification != null && { Notification: se_Notification(input.Notification, context) }),
-    ...(input.Subscribers != null && { Subscribers: se_Subscribers(input.Subscribers, context) }),
-  };
+  return take(input, {
+    Notification: (_) => se_Notification(_, context),
+    Subscribers: _json,
+  });
 };
 
 /**
@@ -2475,191 +2233,104 @@ const se_NotificationWithSubscribersList = (input: NotificationWithSubscribers[]
     });
 };
 
-/**
- * serializeAws_json1_1PlannedBudgetLimits
- */
-const se_PlannedBudgetLimits = (input: Record<string, Spend>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_Spend(value, context);
-    return acc;
-  }, {});
-};
+// se_PlannedBudgetLimits omitted.
 
-/**
- * serializeAws_json1_1Roles
- */
-const se_Roles = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Roles omitted.
 
-/**
- * serializeAws_json1_1ScpActionDefinition
- */
-const se_ScpActionDefinition = (input: ScpActionDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
-    ...(input.TargetIds != null && { TargetIds: se_TargetIds(input.TargetIds, context) }),
-  };
-};
+// se_ScpActionDefinition omitted.
 
-/**
- * serializeAws_json1_1Spend
- */
-const se_Spend = (input: Spend, context: __SerdeContext): any => {
-  return {
-    ...(input.Amount != null && { Amount: input.Amount }),
-    ...(input.Unit != null && { Unit: input.Unit }),
-  };
-};
+// se_Spend omitted.
 
-/**
- * serializeAws_json1_1SsmActionDefinition
- */
-const se_SsmActionDefinition = (input: SsmActionDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.ActionSubType != null && { ActionSubType: input.ActionSubType }),
-    ...(input.InstanceIds != null && { InstanceIds: se_InstanceIds(input.InstanceIds, context) }),
-    ...(input.Region != null && { Region: input.Region }),
-  };
-};
+// se_SsmActionDefinition omitted.
 
-/**
- * serializeAws_json1_1Subscriber
- */
-const se_Subscriber = (input: Subscriber, context: __SerdeContext): any => {
-  return {
-    ...(input.Address != null && { Address: input.Address }),
-    ...(input.SubscriptionType != null && { SubscriptionType: input.SubscriptionType }),
-  };
-};
+// se_Subscriber omitted.
 
-/**
- * serializeAws_json1_1Subscribers
- */
-const se_Subscribers = (input: Subscriber[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Subscriber(entry, context);
-    });
-};
+// se_Subscribers omitted.
 
-/**
- * serializeAws_json1_1TargetIds
- */
-const se_TargetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TargetIds omitted.
 
 /**
  * serializeAws_json1_1TimePeriod
  */
 const se_TimePeriod = (input: TimePeriod, context: __SerdeContext): any => {
-  return {
-    ...(input.End != null && { End: Math.round(input.End.getTime() / 1000) }),
-    ...(input.Start != null && { Start: Math.round(input.Start.getTime() / 1000) }),
-  };
+  return take(input, {
+    End: (_) => Math.round(_.getTime() / 1000),
+    Start: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_json1_1UpdateBudgetActionRequest
  */
 const se_UpdateBudgetActionRequest = (input: UpdateBudgetActionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ActionId != null && { ActionId: input.ActionId }),
-    ...(input.ActionThreshold != null && { ActionThreshold: se_ActionThreshold(input.ActionThreshold, context) }),
-    ...(input.ApprovalModel != null && { ApprovalModel: input.ApprovalModel }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.Definition != null && { Definition: se_Definition(input.Definition, context) }),
-    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.NotificationType != null && { NotificationType: input.NotificationType }),
-    ...(input.Subscribers != null && { Subscribers: se_Subscribers(input.Subscribers, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    ActionId: [],
+    ActionThreshold: (_) => se_ActionThreshold(_, context),
+    ApprovalModel: [],
+    BudgetName: [],
+    Definition: _json,
+    ExecutionRoleArn: [],
+    NotificationType: [],
+    Subscribers: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1UpdateBudgetRequest
  */
 const se_UpdateBudgetRequest = (input: UpdateBudgetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.NewBudget != null && { NewBudget: se_Budget(input.NewBudget, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    NewBudget: (_) => se_Budget(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1UpdateNotificationRequest
  */
 const se_UpdateNotificationRequest = (input: UpdateNotificationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.NewNotification != null && { NewNotification: se_Notification(input.NewNotification, context) }),
-    ...(input.OldNotification != null && { OldNotification: se_Notification(input.OldNotification, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    BudgetName: [],
+    NewNotification: (_) => se_Notification(_, context),
+    OldNotification: (_) => se_Notification(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1UpdateSubscriberRequest
  */
 const se_UpdateSubscriberRequest = (input: UpdateSubscriberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.NewSubscriber != null && { NewSubscriber: se_Subscriber(input.NewSubscriber, context) }),
-    ...(input.Notification != null && { Notification: se_Notification(input.Notification, context) }),
-    ...(input.OldSubscriber != null && { OldSubscriber: se_Subscriber(input.OldSubscriber, context) }),
-  };
+  return take(input, {
+    AccountId: [],
+    BudgetName: [],
+    NewSubscriber: _json,
+    Notification: (_) => se_Notification(_, context),
+    OldSubscriber: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1Users
- */
-const se_Users = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Users omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
 /**
  * deserializeAws_json1_1Action
  */
 const de_Action = (output: any, context: __SerdeContext): Action => {
-  return {
-    ActionId: __expectString(output.ActionId),
-    ActionThreshold: output.ActionThreshold != null ? de_ActionThreshold(output.ActionThreshold, context) : undefined,
-    ActionType: __expectString(output.ActionType),
-    ApprovalModel: __expectString(output.ApprovalModel),
-    BudgetName: __expectString(output.BudgetName),
-    Definition: output.Definition != null ? de_Definition(output.Definition, context) : undefined,
-    ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
-    NotificationType: __expectString(output.NotificationType),
-    Status: __expectString(output.Status),
-    Subscribers: output.Subscribers != null ? de_Subscribers(output.Subscribers, context) : undefined,
-  } as any;
+  return take(output, {
+    ActionId: __expectString,
+    ActionThreshold: (_: any) => de_ActionThreshold(_, context),
+    ActionType: __expectString,
+    ApprovalModel: __expectString,
+    BudgetName: __expectString,
+    Definition: _json,
+    ExecutionRoleArn: __expectString,
+    NotificationType: __expectString,
+    Status: __expectString,
+    Subscribers: _json,
+  }) as any;
 };
 
 /**
@@ -2669,9 +2340,6 @@ const de_ActionHistories = (output: any, context: __SerdeContext): ActionHistory
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ActionHistory(entry, context);
     });
   return retVal;
@@ -2681,24 +2349,22 @@ const de_ActionHistories = (output: any, context: __SerdeContext): ActionHistory
  * deserializeAws_json1_1ActionHistory
  */
 const de_ActionHistory = (output: any, context: __SerdeContext): ActionHistory => {
-  return {
-    ActionHistoryDetails:
-      output.ActionHistoryDetails != null ? de_ActionHistoryDetails(output.ActionHistoryDetails, context) : undefined,
-    EventType: __expectString(output.EventType),
-    Status: __expectString(output.Status),
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-  } as any;
+  return take(output, {
+    ActionHistoryDetails: (_: any) => de_ActionHistoryDetails(_, context),
+    EventType: __expectString,
+    Status: __expectString,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ActionHistoryDetails
  */
 const de_ActionHistoryDetails = (output: any, context: __SerdeContext): ActionHistoryDetails => {
-  return {
-    Action: output.Action != null ? de_Action(output.Action, context) : undefined,
-    Message: __expectString(output.Message),
-  } as any;
+  return take(output, {
+    Action: (_: any) => de_Action(_, context),
+    Message: __expectString,
+  }) as any;
 };
 
 /**
@@ -2708,9 +2374,6 @@ const de_Actions = (output: any, context: __SerdeContext): Action[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Action(entry, context);
     });
   return retVal;
@@ -2720,59 +2383,51 @@ const de_Actions = (output: any, context: __SerdeContext): Action[] => {
  * deserializeAws_json1_1ActionThreshold
  */
 const de_ActionThreshold = (output: any, context: __SerdeContext): ActionThreshold => {
-  return {
-    ActionThresholdType: __expectString(output.ActionThresholdType),
-    ActionThresholdValue: __limitedParseDouble(output.ActionThresholdValue),
-  } as any;
+  return take(output, {
+    ActionThresholdType: __expectString,
+    ActionThresholdValue: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1AutoAdjustData
  */
 const de_AutoAdjustData = (output: any, context: __SerdeContext): AutoAdjustData => {
-  return {
-    AutoAdjustType: __expectString(output.AutoAdjustType),
-    HistoricalOptions:
-      output.HistoricalOptions != null ? de_HistoricalOptions(output.HistoricalOptions, context) : undefined,
-    LastAutoAdjustTime:
-      output.LastAutoAdjustTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAutoAdjustTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    AutoAdjustType: __expectString,
+    HistoricalOptions: _json,
+    LastAutoAdjustTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Budget
  */
 const de_Budget = (output: any, context: __SerdeContext): Budget => {
-  return {
-    AutoAdjustData: output.AutoAdjustData != null ? de_AutoAdjustData(output.AutoAdjustData, context) : undefined,
-    BudgetLimit: output.BudgetLimit != null ? de_Spend(output.BudgetLimit, context) : undefined,
-    BudgetName: __expectString(output.BudgetName),
-    BudgetType: __expectString(output.BudgetType),
-    CalculatedSpend: output.CalculatedSpend != null ? de_CalculatedSpend(output.CalculatedSpend, context) : undefined,
-    CostFilters: output.CostFilters != null ? de_CostFilters(output.CostFilters, context) : undefined,
-    CostTypes: output.CostTypes != null ? de_CostTypes(output.CostTypes, context) : undefined,
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    PlannedBudgetLimits:
-      output.PlannedBudgetLimits != null ? de_PlannedBudgetLimits(output.PlannedBudgetLimits, context) : undefined,
-    TimePeriod: output.TimePeriod != null ? de_TimePeriod(output.TimePeriod, context) : undefined,
-    TimeUnit: __expectString(output.TimeUnit),
-  } as any;
+  return take(output, {
+    AutoAdjustData: (_: any) => de_AutoAdjustData(_, context),
+    BudgetLimit: _json,
+    BudgetName: __expectString,
+    BudgetType: __expectString,
+    CalculatedSpend: _json,
+    CostFilters: _json,
+    CostTypes: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PlannedBudgetLimits: _json,
+    TimePeriod: (_: any) => de_TimePeriod(_, context),
+    TimeUnit: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BudgetedAndActualAmounts
  */
 const de_BudgetedAndActualAmounts = (output: any, context: __SerdeContext): BudgetedAndActualAmounts => {
-  return {
-    ActualAmount: output.ActualAmount != null ? de_Spend(output.ActualAmount, context) : undefined,
-    BudgetedAmount: output.BudgetedAmount != null ? de_Spend(output.BudgetedAmount, context) : undefined,
-    TimePeriod: output.TimePeriod != null ? de_TimePeriod(output.TimePeriod, context) : undefined,
-  } as any;
+  return take(output, {
+    ActualAmount: _json,
+    BudgetedAmount: _json,
+    TimePeriod: (_: any) => de_TimePeriod(_, context),
+  }) as any;
 };
 
 /**
@@ -2782,9 +2437,6 @@ const de_BudgetedAndActualAmountsList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BudgetedAndActualAmounts(entry, context);
     });
   return retVal;
@@ -2794,10 +2446,10 @@ const de_BudgetedAndActualAmountsList = (output: any, context: __SerdeContext): 
  * deserializeAws_json1_1BudgetNotificationsForAccount
  */
 const de_BudgetNotificationsForAccount = (output: any, context: __SerdeContext): BudgetNotificationsForAccount => {
-  return {
-    BudgetName: __expectString(output.BudgetName),
-    Notifications: output.Notifications != null ? de_Notifications(output.Notifications, context) : undefined,
-  } as any;
+  return take(output, {
+    BudgetName: __expectString,
+    Notifications: (_: any) => de_Notifications(_, context),
+  }) as any;
 };
 
 /**
@@ -2810,9 +2462,6 @@ const de_BudgetNotificationsForAccountList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BudgetNotificationsForAccount(entry, context);
     });
   return retVal;
@@ -2822,17 +2471,14 @@ const de_BudgetNotificationsForAccountList = (
  * deserializeAws_json1_1BudgetPerformanceHistory
  */
 const de_BudgetPerformanceHistory = (output: any, context: __SerdeContext): BudgetPerformanceHistory => {
-  return {
-    BudgetName: __expectString(output.BudgetName),
-    BudgetType: __expectString(output.BudgetType),
-    BudgetedAndActualAmountsList:
-      output.BudgetedAndActualAmountsList != null
-        ? de_BudgetedAndActualAmountsList(output.BudgetedAndActualAmountsList, context)
-        : undefined,
-    CostFilters: output.CostFilters != null ? de_CostFilters(output.CostFilters, context) : undefined,
-    CostTypes: output.CostTypes != null ? de_CostTypes(output.CostTypes, context) : undefined,
-    TimeUnit: __expectString(output.TimeUnit),
-  } as any;
+  return take(output, {
+    BudgetName: __expectString,
+    BudgetType: __expectString,
+    BudgetedAndActualAmountsList: (_: any) => de_BudgetedAndActualAmountsList(_, context),
+    CostFilters: _json,
+    CostTypes: _json,
+    TimeUnit: __expectString,
+  }) as any;
 };
 
 /**
@@ -2842,142 +2488,45 @@ const de_Budgets = (output: any, context: __SerdeContext): Budget[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Budget(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CalculatedSpend
- */
-const de_CalculatedSpend = (output: any, context: __SerdeContext): CalculatedSpend => {
-  return {
-    ActualSpend: output.ActualSpend != null ? de_Spend(output.ActualSpend, context) : undefined,
-    ForecastedSpend: output.ForecastedSpend != null ? de_Spend(output.ForecastedSpend, context) : undefined,
-  } as any;
-};
+// de_CalculatedSpend omitted.
 
-/**
- * deserializeAws_json1_1CostFilters
- */
-const de_CostFilters = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_DimensionValues(value, context);
-    return acc;
-  }, {});
-};
+// de_CostFilters omitted.
 
-/**
- * deserializeAws_json1_1CostTypes
- */
-const de_CostTypes = (output: any, context: __SerdeContext): CostTypes => {
-  return {
-    IncludeCredit: __expectBoolean(output.IncludeCredit),
-    IncludeDiscount: __expectBoolean(output.IncludeDiscount),
-    IncludeOtherSubscription: __expectBoolean(output.IncludeOtherSubscription),
-    IncludeRecurring: __expectBoolean(output.IncludeRecurring),
-    IncludeRefund: __expectBoolean(output.IncludeRefund),
-    IncludeSubscription: __expectBoolean(output.IncludeSubscription),
-    IncludeSupport: __expectBoolean(output.IncludeSupport),
-    IncludeTax: __expectBoolean(output.IncludeTax),
-    IncludeUpfront: __expectBoolean(output.IncludeUpfront),
-    UseAmortized: __expectBoolean(output.UseAmortized),
-    UseBlended: __expectBoolean(output.UseBlended),
-  } as any;
-};
+// de_CostTypes omitted.
 
-/**
- * deserializeAws_json1_1CreateBudgetActionResponse
- */
-const de_CreateBudgetActionResponse = (output: any, context: __SerdeContext): CreateBudgetActionResponse => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    ActionId: __expectString(output.ActionId),
-    BudgetName: __expectString(output.BudgetName),
-  } as any;
-};
+// de_CreateBudgetActionResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateBudgetResponse
- */
-const de_CreateBudgetResponse = (output: any, context: __SerdeContext): CreateBudgetResponse => {
-  return {} as any;
-};
+// de_CreateBudgetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateNotificationResponse
- */
-const de_CreateNotificationResponse = (output: any, context: __SerdeContext): CreateNotificationResponse => {
-  return {} as any;
-};
+// de_CreateNotificationResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateSubscriberResponse
- */
-const de_CreateSubscriberResponse = (output: any, context: __SerdeContext): CreateSubscriberResponse => {
-  return {} as any;
-};
+// de_CreateSubscriberResponse omitted.
 
-/**
- * deserializeAws_json1_1CreationLimitExceededException
- */
-const de_CreationLimitExceededException = (output: any, context: __SerdeContext): CreationLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_CreationLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1Definition
- */
-const de_Definition = (output: any, context: __SerdeContext): Definition => {
-  return {
-    IamActionDefinition:
-      output.IamActionDefinition != null ? de_IamActionDefinition(output.IamActionDefinition, context) : undefined,
-    ScpActionDefinition:
-      output.ScpActionDefinition != null ? de_ScpActionDefinition(output.ScpActionDefinition, context) : undefined,
-    SsmActionDefinition:
-      output.SsmActionDefinition != null ? de_SsmActionDefinition(output.SsmActionDefinition, context) : undefined,
-  } as any;
-};
+// de_Definition omitted.
 
 /**
  * deserializeAws_json1_1DeleteBudgetActionResponse
  */
 const de_DeleteBudgetActionResponse = (output: any, context: __SerdeContext): DeleteBudgetActionResponse => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Action: output.Action != null ? de_Action(output.Action, context) : undefined,
-    BudgetName: __expectString(output.BudgetName),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    Action: (_: any) => de_Action(_, context),
+    BudgetName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteBudgetResponse
- */
-const de_DeleteBudgetResponse = (output: any, context: __SerdeContext): DeleteBudgetResponse => {
-  return {} as any;
-};
+// de_DeleteBudgetResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteNotificationResponse
- */
-const de_DeleteNotificationResponse = (output: any, context: __SerdeContext): DeleteNotificationResponse => {
-  return {} as any;
-};
+// de_DeleteNotificationResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteSubscriberResponse
- */
-const de_DeleteSubscriberResponse = (output: any, context: __SerdeContext): DeleteSubscriberResponse => {
-  return {} as any;
-};
+// de_DeleteSubscriberResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeBudgetActionHistoriesResponse
@@ -2986,21 +2535,21 @@ const de_DescribeBudgetActionHistoriesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeBudgetActionHistoriesResponse => {
-  return {
-    ActionHistories: output.ActionHistories != null ? de_ActionHistories(output.ActionHistories, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ActionHistories: (_: any) => de_ActionHistories(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeBudgetActionResponse
  */
 const de_DescribeBudgetActionResponse = (output: any, context: __SerdeContext): DescribeBudgetActionResponse => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Action: output.Action != null ? de_Action(output.Action, context) : undefined,
-    BudgetName: __expectString(output.BudgetName),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    Action: (_: any) => de_Action(_, context),
+    BudgetName: __expectString,
+  }) as any;
 };
 
 /**
@@ -3010,10 +2559,10 @@ const de_DescribeBudgetActionsForAccountResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeBudgetActionsForAccountResponse => {
-  return {
-    Actions: output.Actions != null ? de_Actions(output.Actions, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Actions: (_: any) => de_Actions(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -3023,10 +2572,10 @@ const de_DescribeBudgetActionsForBudgetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeBudgetActionsForBudgetResponse => {
-  return {
-    Actions: output.Actions != null ? de_Actions(output.Actions, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Actions: (_: any) => de_Actions(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -3036,13 +2585,10 @@ const de_DescribeBudgetNotificationsForAccountResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeBudgetNotificationsForAccountResponse => {
-  return {
-    BudgetNotificationsForAccount:
-      output.BudgetNotificationsForAccount != null
-        ? de_BudgetNotificationsForAccountList(output.BudgetNotificationsForAccount, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    BudgetNotificationsForAccount: (_: any) => de_BudgetNotificationsForAccountList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -3052,32 +2598,29 @@ const de_DescribeBudgetPerformanceHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeBudgetPerformanceHistoryResponse => {
-  return {
-    BudgetPerformanceHistory:
-      output.BudgetPerformanceHistory != null
-        ? de_BudgetPerformanceHistory(output.BudgetPerformanceHistory, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    BudgetPerformanceHistory: (_: any) => de_BudgetPerformanceHistory(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeBudgetResponse
  */
 const de_DescribeBudgetResponse = (output: any, context: __SerdeContext): DescribeBudgetResponse => {
-  return {
-    Budget: output.Budget != null ? de_Budget(output.Budget, context) : undefined,
-  } as any;
+  return take(output, {
+    Budget: (_: any) => de_Budget(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeBudgetsResponse
  */
 const de_DescribeBudgetsResponse = (output: any, context: __SerdeContext): DescribeBudgetsResponse => {
-  return {
-    Budgets: output.Budgets != null ? de_Budgets(output.Budgets, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Budgets: (_: any) => de_Budgets(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -3087,169 +2630,49 @@ const de_DescribeNotificationsForBudgetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeNotificationsForBudgetResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Notifications: output.Notifications != null ? de_Notifications(output.Notifications, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Notifications: (_: any) => de_Notifications(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeSubscribersForNotificationResponse
- */
-const de_DescribeSubscribersForNotificationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeSubscribersForNotificationResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Subscribers: output.Subscribers != null ? de_Subscribers(output.Subscribers, context) : undefined,
-  } as any;
-};
+// de_DescribeSubscribersForNotificationResponse omitted.
 
-/**
- * deserializeAws_json1_1DimensionValues
- */
-const de_DimensionValues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DimensionValues omitted.
 
-/**
- * deserializeAws_json1_1DuplicateRecordException
- */
-const de_DuplicateRecordException = (output: any, context: __SerdeContext): DuplicateRecordException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DuplicateRecordException omitted.
 
-/**
- * deserializeAws_json1_1ExecuteBudgetActionResponse
- */
-const de_ExecuteBudgetActionResponse = (output: any, context: __SerdeContext): ExecuteBudgetActionResponse => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    ActionId: __expectString(output.ActionId),
-    BudgetName: __expectString(output.BudgetName),
-    ExecutionType: __expectString(output.ExecutionType),
-  } as any;
-};
+// de_ExecuteBudgetActionResponse omitted.
 
-/**
- * deserializeAws_json1_1ExpiredNextTokenException
- */
-const de_ExpiredNextTokenException = (output: any, context: __SerdeContext): ExpiredNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ExpiredNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1Groups
- */
-const de_Groups = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Groups omitted.
 
-/**
- * deserializeAws_json1_1HistoricalOptions
- */
-const de_HistoricalOptions = (output: any, context: __SerdeContext): HistoricalOptions => {
-  return {
-    BudgetAdjustmentPeriod: __expectInt32(output.BudgetAdjustmentPeriod),
-    LookBackAvailablePeriods: __expectInt32(output.LookBackAvailablePeriods),
-  } as any;
-};
+// de_HistoricalOptions omitted.
 
-/**
- * deserializeAws_json1_1IamActionDefinition
- */
-const de_IamActionDefinition = (output: any, context: __SerdeContext): IamActionDefinition => {
-  return {
-    Groups: output.Groups != null ? de_Groups(output.Groups, context) : undefined,
-    PolicyArn: __expectString(output.PolicyArn),
-    Roles: output.Roles != null ? de_Roles(output.Roles, context) : undefined,
-    Users: output.Users != null ? de_Users(output.Users, context) : undefined,
-  } as any;
-};
+// de_IamActionDefinition omitted.
 
-/**
- * deserializeAws_json1_1InstanceIds
- */
-const de_InstanceIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_InstanceIds omitted.
 
-/**
- * deserializeAws_json1_1InternalErrorException
- */
-const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalErrorException omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1NotFoundException
- */
-const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NotFoundException omitted.
 
 /**
  * deserializeAws_json1_1Notification
  */
 const de_Notification = (output: any, context: __SerdeContext): Notification => {
-  return {
-    ComparisonOperator: __expectString(output.ComparisonOperator),
-    NotificationState: __expectString(output.NotificationState),
-    NotificationType: __expectString(output.NotificationType),
-    Threshold: __limitedParseDouble(output.Threshold),
-    ThresholdType: __expectString(output.ThresholdType),
-  } as any;
+  return take(output, {
+    ComparisonOperator: __expectString,
+    NotificationState: __expectString,
+    NotificationType: __expectString,
+    Threshold: __limitedParseDouble,
+    ThresholdType: __expectString,
+  }) as any;
 };
 
 /**
@@ -3259,188 +2682,60 @@ const de_Notifications = (output: any, context: __SerdeContext): Notification[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Notification(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1PlannedBudgetLimits
- */
-const de_PlannedBudgetLimits = (output: any, context: __SerdeContext): Record<string, Spend> => {
-  return Object.entries(output).reduce((acc: Record<string, Spend>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_Spend(value, context);
-    return acc;
-  }, {});
-};
+// de_PlannedBudgetLimits omitted.
 
-/**
- * deserializeAws_json1_1ResourceLockedException
- */
-const de_ResourceLockedException = (output: any, context: __SerdeContext): ResourceLockedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceLockedException omitted.
 
-/**
- * deserializeAws_json1_1Roles
- */
-const de_Roles = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Roles omitted.
 
-/**
- * deserializeAws_json1_1ScpActionDefinition
- */
-const de_ScpActionDefinition = (output: any, context: __SerdeContext): ScpActionDefinition => {
-  return {
-    PolicyId: __expectString(output.PolicyId),
-    TargetIds: output.TargetIds != null ? de_TargetIds(output.TargetIds, context) : undefined,
-  } as any;
-};
+// de_ScpActionDefinition omitted.
 
-/**
- * deserializeAws_json1_1Spend
- */
-const de_Spend = (output: any, context: __SerdeContext): Spend => {
-  return {
-    Amount: __expectString(output.Amount),
-    Unit: __expectString(output.Unit),
-  } as any;
-};
+// de_Spend omitted.
 
-/**
- * deserializeAws_json1_1SsmActionDefinition
- */
-const de_SsmActionDefinition = (output: any, context: __SerdeContext): SsmActionDefinition => {
-  return {
-    ActionSubType: __expectString(output.ActionSubType),
-    InstanceIds: output.InstanceIds != null ? de_InstanceIds(output.InstanceIds, context) : undefined,
-    Region: __expectString(output.Region),
-  } as any;
-};
+// de_SsmActionDefinition omitted.
 
-/**
- * deserializeAws_json1_1Subscriber
- */
-const de_Subscriber = (output: any, context: __SerdeContext): Subscriber => {
-  return {
-    Address: __expectString(output.Address),
-    SubscriptionType: __expectString(output.SubscriptionType),
-  } as any;
-};
+// de_Subscriber omitted.
 
-/**
- * deserializeAws_json1_1Subscribers
- */
-const de_Subscribers = (output: any, context: __SerdeContext): Subscriber[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Subscriber(entry, context);
-    });
-  return retVal;
-};
+// de_Subscribers omitted.
 
-/**
- * deserializeAws_json1_1TargetIds
- */
-const de_TargetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TargetIds omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
 /**
  * deserializeAws_json1_1TimePeriod
  */
 const de_TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
-  return {
-    End: output.End != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.End))) : undefined,
-    Start: output.Start != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Start))) : undefined,
-  } as any;
+  return take(output, {
+    End: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Start: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateBudgetActionResponse
  */
 const de_UpdateBudgetActionResponse = (output: any, context: __SerdeContext): UpdateBudgetActionResponse => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    BudgetName: __expectString(output.BudgetName),
-    NewAction: output.NewAction != null ? de_Action(output.NewAction, context) : undefined,
-    OldAction: output.OldAction != null ? de_Action(output.OldAction, context) : undefined,
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    BudgetName: __expectString,
+    NewAction: (_: any) => de_Action(_, context),
+    OldAction: (_: any) => de_Action(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateBudgetResponse
- */
-const de_UpdateBudgetResponse = (output: any, context: __SerdeContext): UpdateBudgetResponse => {
-  return {} as any;
-};
+// de_UpdateBudgetResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateNotificationResponse
- */
-const de_UpdateNotificationResponse = (output: any, context: __SerdeContext): UpdateNotificationResponse => {
-  return {} as any;
-};
+// de_UpdateNotificationResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateSubscriberResponse
- */
-const de_UpdateSubscriberResponse = (output: any, context: __SerdeContext): UpdateSubscriberResponse => {
-  return {} as any;
-};
+// de_UpdateSubscriberResponse omitted.
 
-/**
- * deserializeAws_json1_1Users
- */
-const de_Users = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Users omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3462,6 +2757,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

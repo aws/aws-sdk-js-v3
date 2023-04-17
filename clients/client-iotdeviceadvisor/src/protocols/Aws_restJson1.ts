@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -9,10 +10,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -61,7 +63,6 @@ import {
   SuiteRunConfiguration,
   SuiteRunInformation,
   TestCaseRun,
-  TestCaseScenario,
   TestResult,
   ValidationException,
 } from "../models/models_0";
@@ -79,12 +80,12 @@ export const se_CreateSuiteDefinitionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.suiteDefinitionConfiguration != null && {
-      suiteDefinitionConfiguration: se_SuiteDefinitionConfiguration(input.suiteDefinitionConfiguration, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      suiteDefinitionConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -357,13 +358,13 @@ export const se_StartSuiteRunCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.suiteDefinitionVersion != null && { suiteDefinitionVersion: input.suiteDefinitionVersion }),
-    ...(input.suiteRunConfiguration != null && {
-      suiteRunConfiguration: se_SuiteRunConfiguration(input.suiteRunConfiguration, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      suiteDefinitionVersion: [],
+      suiteRunConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -422,9 +423,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -488,11 +491,11 @@ export const se_UpdateSuiteDefinitionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.suiteDefinitionConfiguration != null && {
-      suiteDefinitionConfiguration: se_SuiteDefinitionConfiguration(input.suiteDefinitionConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      suiteDefinitionConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -518,18 +521,13 @@ export const de_CreateSuiteDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.suiteDefinitionArn != null) {
-    contents.suiteDefinitionArn = __expectString(data.suiteDefinitionArn);
-  }
-  if (data.suiteDefinitionId != null) {
-    contents.suiteDefinitionId = __expectString(data.suiteDefinitionId);
-  }
-  if (data.suiteDefinitionName != null) {
-    contents.suiteDefinitionName = __expectString(data.suiteDefinitionName);
-  }
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    suiteDefinitionArn: __expectString,
+    suiteDefinitionId: __expectString,
+    suiteDefinitionName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -554,10 +552,9 @@ const de_CreateSuiteDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -601,10 +598,9 @@ const de_DeleteSuiteDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -624,9 +620,10 @@ export const de_GetEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endpoint != null) {
-    contents.endpoint = __expectString(data.endpoint);
-  }
+  const doc = take(data, {
+    endpoint: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -654,10 +651,9 @@ const de_GetEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -677,30 +673,17 @@ export const de_GetSuiteDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.lastModifiedAt != null) {
-    contents.lastModifiedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedAt)));
-  }
-  if (data.latestVersion != null) {
-    contents.latestVersion = __expectString(data.latestVersion);
-  }
-  if (data.suiteDefinitionArn != null) {
-    contents.suiteDefinitionArn = __expectString(data.suiteDefinitionArn);
-  }
-  if (data.suiteDefinitionConfiguration != null) {
-    contents.suiteDefinitionConfiguration = de_SuiteDefinitionConfiguration(data.suiteDefinitionConfiguration, context);
-  }
-  if (data.suiteDefinitionId != null) {
-    contents.suiteDefinitionId = __expectString(data.suiteDefinitionId);
-  }
-  if (data.suiteDefinitionVersion != null) {
-    contents.suiteDefinitionVersion = __expectString(data.suiteDefinitionVersion);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    latestVersion: __expectString,
+    suiteDefinitionArn: __expectString,
+    suiteDefinitionConfiguration: _json,
+    suiteDefinitionId: __expectString,
+    suiteDefinitionVersion: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -728,10 +711,9 @@ const de_GetSuiteDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -751,39 +733,20 @@ export const de_GetSuiteRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
-  }
-  if (data.errorReason != null) {
-    contents.errorReason = __expectString(data.errorReason);
-  }
-  if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startTime)));
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.suiteDefinitionId != null) {
-    contents.suiteDefinitionId = __expectString(data.suiteDefinitionId);
-  }
-  if (data.suiteDefinitionVersion != null) {
-    contents.suiteDefinitionVersion = __expectString(data.suiteDefinitionVersion);
-  }
-  if (data.suiteRunArn != null) {
-    contents.suiteRunArn = __expectString(data.suiteRunArn);
-  }
-  if (data.suiteRunConfiguration != null) {
-    contents.suiteRunConfiguration = de_SuiteRunConfiguration(data.suiteRunConfiguration, context);
-  }
-  if (data.suiteRunId != null) {
-    contents.suiteRunId = __expectString(data.suiteRunId);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.testResult != null) {
-    contents.testResult = de_TestResult(data.testResult, context);
-  }
+  const doc = take(data, {
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    errorReason: __expectString,
+    startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    suiteDefinitionId: __expectString,
+    suiteDefinitionVersion: __expectString,
+    suiteRunArn: __expectString,
+    suiteRunConfiguration: _json,
+    suiteRunId: __expectString,
+    tags: _json,
+    testResult: (_) => de_TestResult(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -811,10 +774,9 @@ const de_GetSuiteRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -834,9 +796,10 @@ export const de_GetSuiteRunReportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.qualificationReportDownloadUrl != null) {
-    contents.qualificationReportDownloadUrl = __expectString(data.qualificationReportDownloadUrl);
-  }
+  const doc = take(data, {
+    qualificationReportDownloadUrl: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -864,10 +827,9 @@ const de_GetSuiteRunReportCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -887,15 +849,11 @@ export const de_ListSuiteDefinitionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.suiteDefinitionInformationList != null) {
-    contents.suiteDefinitionInformationList = de_SuiteDefinitionInformationList(
-      data.suiteDefinitionInformationList,
-      context
-    );
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    suiteDefinitionInformationList: (_) => de_SuiteDefinitionInformationList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -920,10 +878,9 @@ const de_ListSuiteDefinitionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -943,12 +900,11 @@ export const de_ListSuiteRunsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.suiteRunsList != null) {
-    contents.suiteRunsList = de_SuiteRunsList(data.suiteRunsList, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    suiteRunsList: (_) => de_SuiteRunsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -973,10 +929,9 @@ const de_ListSuiteRunsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -996,9 +951,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1026,10 +982,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1049,18 +1004,13 @@ export const de_StartSuiteRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.endpoint != null) {
-    contents.endpoint = __expectString(data.endpoint);
-  }
-  if (data.suiteRunArn != null) {
-    contents.suiteRunArn = __expectString(data.suiteRunArn);
-  }
-  if (data.suiteRunId != null) {
-    contents.suiteRunId = __expectString(data.suiteRunId);
-  }
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    endpoint: __expectString,
+    suiteRunArn: __expectString,
+    suiteRunId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1088,10 +1038,9 @@ const de_StartSuiteRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1138,10 +1087,9 @@ const de_StopSuiteRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1188,10 +1136,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1238,10 +1185,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1261,24 +1207,15 @@ export const de_UpdateSuiteDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.lastUpdatedAt != null) {
-    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
-  }
-  if (data.suiteDefinitionArn != null) {
-    contents.suiteDefinitionArn = __expectString(data.suiteDefinitionArn);
-  }
-  if (data.suiteDefinitionId != null) {
-    contents.suiteDefinitionId = __expectString(data.suiteDefinitionId);
-  }
-  if (data.suiteDefinitionName != null) {
-    contents.suiteDefinitionName = __expectString(data.suiteDefinitionName);
-  }
-  if (data.suiteDefinitionVersion != null) {
-    contents.suiteDefinitionVersion = __expectString(data.suiteDefinitionVersion);
-  }
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    suiteDefinitionArn: __expectString,
+    suiteDefinitionId: __expectString,
+    suiteDefinitionName: __expectString,
+    suiteDefinitionVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1303,25 +1240,25 @@ const de_UpdateSuiteDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1338,9 +1275,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1357,9 +1295,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1373,9 +1312,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1383,111 +1323,31 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1DeviceUnderTest
- */
-const se_DeviceUnderTest = (input: DeviceUnderTest, context: __SerdeContext): any => {
-  return {
-    ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
-    ...(input.thingArn != null && { thingArn: input.thingArn }),
-  };
-};
+// se_DeviceUnderTest omitted.
 
-/**
- * serializeAws_restJson1DeviceUnderTestList
- */
-const se_DeviceUnderTestList = (input: DeviceUnderTest[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DeviceUnderTest(entry, context);
-    });
-};
+// se_DeviceUnderTestList omitted.
 
-/**
- * serializeAws_restJson1SelectedTestList
- */
-const se_SelectedTestList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SelectedTestList omitted.
 
-/**
- * serializeAws_restJson1SuiteDefinitionConfiguration
- */
-const se_SuiteDefinitionConfiguration = (input: SuiteDefinitionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.devicePermissionRoleArn != null && { devicePermissionRoleArn: input.devicePermissionRoleArn }),
-    ...(input.devices != null && { devices: se_DeviceUnderTestList(input.devices, context) }),
-    ...(input.intendedForQualification != null && { intendedForQualification: input.intendedForQualification }),
-    ...(input.isLongDurationTest != null && { isLongDurationTest: input.isLongDurationTest }),
-    ...(input.protocol != null && { protocol: input.protocol }),
-    ...(input.rootGroup != null && { rootGroup: input.rootGroup }),
-    ...(input.suiteDefinitionName != null && { suiteDefinitionName: input.suiteDefinitionName }),
-  };
-};
+// se_SuiteDefinitionConfiguration omitted.
 
-/**
- * serializeAws_restJson1SuiteRunConfiguration
- */
-const se_SuiteRunConfiguration = (input: SuiteRunConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.parallelRun != null && { parallelRun: input.parallelRun }),
-    ...(input.primaryDevice != null && { primaryDevice: se_DeviceUnderTest(input.primaryDevice, context) }),
-    ...(input.selectedTestList != null && { selectedTestList: se_SelectedTestList(input.selectedTestList, context) }),
-  };
-};
+// se_SuiteRunConfiguration omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1DeviceUnderTest
- */
-const de_DeviceUnderTest = (output: any, context: __SerdeContext): DeviceUnderTest => {
-  return {
-    certificateArn: __expectString(output.certificateArn),
-    thingArn: __expectString(output.thingArn),
-  } as any;
-};
+// de_DeviceUnderTest omitted.
 
-/**
- * deserializeAws_restJson1DeviceUnderTestList
- */
-const de_DeviceUnderTestList = (output: any, context: __SerdeContext): DeviceUnderTest[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DeviceUnderTest(entry, context);
-    });
-  return retVal;
-};
+// de_DeviceUnderTestList omitted.
 
 /**
  * deserializeAws_restJson1GroupResult
  */
 const de_GroupResult = (output: any, context: __SerdeContext): GroupResult => {
-  return {
-    groupId: __expectString(output.groupId),
-    groupName: __expectString(output.groupName),
-    tests: output.tests != null ? de_TestCaseRuns(output.tests, context) : undefined,
-  } as any;
+  return take(output, {
+    groupId: __expectString,
+    groupName: __expectString,
+    tests: (_: any) => de_TestCaseRuns(_, context),
+  }) as any;
 };
 
 /**
@@ -1497,58 +1357,28 @@ const de_GroupResultList = (output: any, context: __SerdeContext): GroupResult[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_GroupResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SelectedTestList
- */
-const de_SelectedTestList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SelectedTestList omitted.
 
-/**
- * deserializeAws_restJson1SuiteDefinitionConfiguration
- */
-const de_SuiteDefinitionConfiguration = (output: any, context: __SerdeContext): SuiteDefinitionConfiguration => {
-  return {
-    devicePermissionRoleArn: __expectString(output.devicePermissionRoleArn),
-    devices: output.devices != null ? de_DeviceUnderTestList(output.devices, context) : undefined,
-    intendedForQualification: __expectBoolean(output.intendedForQualification),
-    isLongDurationTest: __expectBoolean(output.isLongDurationTest),
-    protocol: __expectString(output.protocol),
-    rootGroup: __expectString(output.rootGroup),
-    suiteDefinitionName: __expectString(output.suiteDefinitionName),
-  } as any;
-};
+// de_SuiteDefinitionConfiguration omitted.
 
 /**
  * deserializeAws_restJson1SuiteDefinitionInformation
  */
 const de_SuiteDefinitionInformation = (output: any, context: __SerdeContext): SuiteDefinitionInformation => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    defaultDevices: output.defaultDevices != null ? de_DeviceUnderTestList(output.defaultDevices, context) : undefined,
-    intendedForQualification: __expectBoolean(output.intendedForQualification),
-    isLongDurationTest: __expectBoolean(output.isLongDurationTest),
-    protocol: __expectString(output.protocol),
-    suiteDefinitionId: __expectString(output.suiteDefinitionId),
-    suiteDefinitionName: __expectString(output.suiteDefinitionName),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultDevices: _json,
+    intendedForQualification: __expectBoolean,
+    isLongDurationTest: __expectBoolean,
+    protocol: __expectString,
+    suiteDefinitionId: __expectString,
+    suiteDefinitionName: __expectString,
+  }) as any;
 };
 
 /**
@@ -1558,44 +1388,29 @@ const de_SuiteDefinitionInformationList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SuiteDefinitionInformation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SuiteRunConfiguration
- */
-const de_SuiteRunConfiguration = (output: any, context: __SerdeContext): SuiteRunConfiguration => {
-  return {
-    parallelRun: __expectBoolean(output.parallelRun),
-    primaryDevice: output.primaryDevice != null ? de_DeviceUnderTest(output.primaryDevice, context) : undefined,
-    selectedTestList:
-      output.selectedTestList != null ? de_SelectedTestList(output.selectedTestList, context) : undefined,
-  } as any;
-};
+// de_SuiteRunConfiguration omitted.
 
 /**
  * deserializeAws_restJson1SuiteRunInformation
  */
 const de_SuiteRunInformation = (output: any, context: __SerdeContext): SuiteRunInformation => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    endAt: output.endAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endAt))) : undefined,
-    failed: __expectInt32(output.failed),
-    passed: __expectInt32(output.passed),
-    startedAt:
-      output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
-    status: __expectString(output.status),
-    suiteDefinitionId: __expectString(output.suiteDefinitionId),
-    suiteDefinitionName: __expectString(output.suiteDefinitionName),
-    suiteDefinitionVersion: __expectString(output.suiteDefinitionVersion),
-    suiteRunId: __expectString(output.suiteRunId),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    endAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failed: __expectInt32,
+    passed: __expectInt32,
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    suiteDefinitionId: __expectString,
+    suiteDefinitionName: __expectString,
+    suiteDefinitionVersion: __expectString,
+    suiteRunId: __expectString,
+  }) as any;
 };
 
 /**
@@ -1605,45 +1420,29 @@ const de_SuiteRunsList = (output: any, context: __SerdeContext): SuiteRunInforma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SuiteRunInformation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 /**
  * deserializeAws_restJson1TestCaseRun
  */
 const de_TestCaseRun = (output: any, context: __SerdeContext): TestCaseRun => {
-  return {
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    failure: __expectString(output.failure),
-    logUrl: __expectString(output.logUrl),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    status: __expectString(output.status),
-    testCaseDefinitionId: __expectString(output.testCaseDefinitionId),
-    testCaseDefinitionName: __expectString(output.testCaseDefinitionName),
-    testCaseRunId: __expectString(output.testCaseRunId),
-    testScenarios: output.testScenarios != null ? de_TestCaseScenariosList(output.testScenarios, context) : undefined,
-    warnings: __expectString(output.warnings),
-  } as any;
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failure: __expectString,
+    logUrl: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    testCaseDefinitionId: __expectString,
+    testCaseDefinitionName: __expectString,
+    testCaseRunId: __expectString,
+    testScenarios: _json,
+    warnings: __expectString,
+  }) as any;
 };
 
 /**
@@ -1653,49 +1452,22 @@ const de_TestCaseRuns = (output: any, context: __SerdeContext): TestCaseRun[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TestCaseRun(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TestCaseScenario
- */
-const de_TestCaseScenario = (output: any, context: __SerdeContext): TestCaseScenario => {
-  return {
-    failure: __expectString(output.failure),
-    status: __expectString(output.status),
-    systemMessage: __expectString(output.systemMessage),
-    testCaseScenarioId: __expectString(output.testCaseScenarioId),
-    testCaseScenarioType: __expectString(output.testCaseScenarioType),
-  } as any;
-};
+// de_TestCaseScenario omitted.
 
-/**
- * deserializeAws_restJson1TestCaseScenariosList
- */
-const de_TestCaseScenariosList = (output: any, context: __SerdeContext): TestCaseScenario[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TestCaseScenario(entry, context);
-    });
-  return retVal;
-};
+// de_TestCaseScenariosList omitted.
 
 /**
  * deserializeAws_restJson1TestResult
  */
 const de_TestResult = (output: any, context: __SerdeContext): TestResult => {
-  return {
-    groups: output.groups != null ? de_GroupResultList(output.groups, context) : undefined,
-  } as any;
+  return take(output, {
+    groups: (_: any) => de_GroupResultList(_, context),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

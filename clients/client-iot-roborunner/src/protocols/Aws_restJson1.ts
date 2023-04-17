@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -9,10 +10,11 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -73,13 +75,15 @@ export const se_CreateDestinationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createDestination";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalFixedProperties != null && { additionalFixedProperties: input.additionalFixedProperties }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.name != null && { name: input.name }),
-    ...(input.site != null && { site: input.site }),
-    ...(input.state != null && { state: input.state }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalFixedProperties: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      name: [],
+      site: [],
+      state: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -104,12 +108,14 @@ export const se_CreateSiteCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSite";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.countryCode != null && { countryCode: input.countryCode }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      countryCode: [],
+      description: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -134,18 +140,18 @@ export const se_CreateWorkerCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createWorker";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalFixedProperties != null && { additionalFixedProperties: input.additionalFixedProperties }),
-    ...(input.additionalTransientProperties != null && {
-      additionalTransientProperties: input.additionalTransientProperties,
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.fleet != null && { fleet: input.fleet }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.orientation != null && { orientation: se_Orientation(input.orientation, context) }),
-    ...(input.position != null && { position: se_PositionCoordinates(input.position, context) }),
-    ...(input.vendorProperties != null && { vendorProperties: se_VendorProperties(input.vendorProperties, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalFixedProperties: [],
+      additionalTransientProperties: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      fleet: [],
+      name: [],
+      orientation: (_) => se_Orientation(_, context),
+      position: (_) => se_PositionCoordinates(_, context),
+      vendorProperties: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -170,12 +176,14 @@ export const se_CreateWorkerFleetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createWorkerFleet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalFixedProperties != null && { additionalFixedProperties: input.additionalFixedProperties }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.name != null && { name: input.name }),
-    ...(input.site != null && { site: input.site }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalFixedProperties: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      name: [],
+      site: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -200,9 +208,11 @@ export const se_DeleteDestinationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteDestination";
   let body: any;
-  body = JSON.stringify({
-    ...(input.id != null && { id: input.id }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      id: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -227,9 +237,11 @@ export const se_DeleteSiteCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteSite";
   let body: any;
-  body = JSON.stringify({
-    ...(input.id != null && { id: input.id }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      id: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -254,9 +266,11 @@ export const se_DeleteWorkerCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteWorker";
   let body: any;
-  body = JSON.stringify({
-    ...(input.id != null && { id: input.id }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      id: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -281,9 +295,11 @@ export const se_DeleteWorkerFleetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteWorkerFleet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.id != null && { id: input.id }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      id: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -525,12 +541,14 @@ export const se_UpdateDestinationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDestination";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalFixedProperties != null && { additionalFixedProperties: input.additionalFixedProperties }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.state != null && { state: input.state }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalFixedProperties: [],
+      id: [],
+      name: [],
+      state: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -555,12 +573,14 @@ export const se_UpdateSiteCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateSite";
   let body: any;
-  body = JSON.stringify({
-    ...(input.countryCode != null && { countryCode: input.countryCode }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      countryCode: [],
+      description: [],
+      id: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -585,17 +605,17 @@ export const se_UpdateWorkerCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateWorker";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalFixedProperties != null && { additionalFixedProperties: input.additionalFixedProperties }),
-    ...(input.additionalTransientProperties != null && {
-      additionalTransientProperties: input.additionalTransientProperties,
-    }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.orientation != null && { orientation: se_Orientation(input.orientation, context) }),
-    ...(input.position != null && { position: se_PositionCoordinates(input.position, context) }),
-    ...(input.vendorProperties != null && { vendorProperties: se_VendorProperties(input.vendorProperties, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalFixedProperties: [],
+      additionalTransientProperties: [],
+      id: [],
+      name: [],
+      orientation: (_) => se_Orientation(_, context),
+      position: (_) => se_PositionCoordinates(_, context),
+      vendorProperties: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -620,11 +640,13 @@ export const se_UpdateWorkerFleetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateWorkerFleet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalFixedProperties != null && { additionalFixedProperties: input.additionalFixedProperties }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalFixedProperties: [],
+      id: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -650,21 +672,14 @@ export const de_CreateDestinationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.state != null) {
-    contents.state = __expectString(data.state);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    state: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -704,10 +719,9 @@ const de_CreateDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -727,18 +741,13 @@ export const de_CreateSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -775,10 +784,9 @@ const de_CreateSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -798,21 +806,14 @@ export const de_CreateWorkerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.site != null) {
-    contents.site = __expectString(data.site);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    site: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -852,10 +853,9 @@ const de_CreateWorkerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -875,18 +875,13 @@ export const de_CreateWorkerFleetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -926,10 +921,9 @@ const de_CreateWorkerFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -985,10 +979,9 @@ const de_DeleteDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1044,10 +1037,9 @@ const de_DeleteSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1103,10 +1095,9 @@ const de_DeleteWorkerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1162,10 +1153,9 @@ const de_DeleteWorkerFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1185,30 +1175,17 @@ export const de_GetDestinationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.additionalFixedProperties != null) {
-    contents.additionalFixedProperties = __expectString(data.additionalFixedProperties);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.site != null) {
-    contents.site = __expectString(data.site);
-  }
-  if (data.state != null) {
-    contents.state = __expectString(data.state);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    additionalFixedProperties: __expectString,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    name: __expectString,
+    site: __expectString,
+    state: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1242,10 +1219,9 @@ const de_GetDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1265,27 +1241,16 @@ export const de_GetSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.countryCode != null) {
-    contents.countryCode = __expectString(data.countryCode);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    countryCode: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1319,10 +1284,9 @@ const de_GetSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1342,42 +1306,21 @@ export const de_GetWorkerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.additionalFixedProperties != null) {
-    contents.additionalFixedProperties = __expectString(data.additionalFixedProperties);
-  }
-  if (data.additionalTransientProperties != null) {
-    contents.additionalTransientProperties = __expectString(data.additionalTransientProperties);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.fleet != null) {
-    contents.fleet = __expectString(data.fleet);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.orientation != null) {
-    contents.orientation = de_Orientation(__expectUnion(data.orientation), context);
-  }
-  if (data.position != null) {
-    contents.position = de_PositionCoordinates(__expectUnion(data.position), context);
-  }
-  if (data.site != null) {
-    contents.site = __expectString(data.site);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
-  if (data.vendorProperties != null) {
-    contents.vendorProperties = de_VendorProperties(data.vendorProperties, context);
-  }
+  const doc = take(data, {
+    additionalFixedProperties: __expectString,
+    additionalTransientProperties: __expectString,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fleet: __expectString,
+    id: __expectString,
+    name: __expectString,
+    orientation: (_) => de_Orientation(__expectUnion(_), context),
+    position: (_) => de_PositionCoordinates(__expectUnion(_), context),
+    site: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vendorProperties: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1411,10 +1354,9 @@ const de_GetWorkerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1434,27 +1376,16 @@ export const de_GetWorkerFleetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.additionalFixedProperties != null) {
-    contents.additionalFixedProperties = __expectString(data.additionalFixedProperties);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.site != null) {
-    contents.site = __expectString(data.site);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    additionalFixedProperties: __expectString,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    name: __expectString,
+    site: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1488,10 +1419,9 @@ const de_GetWorkerFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1511,12 +1441,11 @@ export const de_ListDestinationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.destinations != null) {
-    contents.destinations = de_Destinations(data.destinations, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    destinations: (_) => de_Destinations(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1550,10 +1479,9 @@ const de_ListDestinationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1573,12 +1501,11 @@ export const de_ListSitesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.sites != null) {
-    contents.sites = de_Sites(data.sites, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    sites: (_) => de_Sites(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1609,10 +1536,9 @@ const de_ListSitesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1632,12 +1558,11 @@ export const de_ListWorkerFleetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.workerFleets != null) {
-    contents.workerFleets = de_WorkerFleets(data.workerFleets, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    workerFleets: (_) => de_WorkerFleets(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1671,10 +1596,9 @@ const de_ListWorkerFleetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1694,12 +1618,11 @@ export const de_ListWorkersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.workers != null) {
-    contents.workers = de_Workers(data.workers, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    workers: (_) => de_Workers(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1733,10 +1656,9 @@ const de_ListWorkersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1756,24 +1678,15 @@ export const de_UpdateDestinationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.additionalFixedProperties != null) {
-    contents.additionalFixedProperties = __expectString(data.additionalFixedProperties);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.state != null) {
-    contents.state = __expectString(data.state);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    additionalFixedProperties: __expectString,
+    arn: __expectString,
+    id: __expectString,
+    name: __expectString,
+    state: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1807,10 +1720,9 @@ const de_UpdateDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1830,24 +1742,15 @@ export const de_UpdateSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.countryCode != null) {
-    contents.countryCode = __expectString(data.countryCode);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    countryCode: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1881,10 +1784,9 @@ const de_UpdateSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1904,36 +1806,19 @@ export const de_UpdateWorkerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.additionalFixedProperties != null) {
-    contents.additionalFixedProperties = __expectString(data.additionalFixedProperties);
-  }
-  if (data.additionalTransientProperties != null) {
-    contents.additionalTransientProperties = __expectString(data.additionalTransientProperties);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.fleet != null) {
-    contents.fleet = __expectString(data.fleet);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.orientation != null) {
-    contents.orientation = de_Orientation(__expectUnion(data.orientation), context);
-  }
-  if (data.position != null) {
-    contents.position = de_PositionCoordinates(__expectUnion(data.position), context);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
-  if (data.vendorProperties != null) {
-    contents.vendorProperties = de_VendorProperties(data.vendorProperties, context);
-  }
+  const doc = take(data, {
+    additionalFixedProperties: __expectString,
+    additionalTransientProperties: __expectString,
+    arn: __expectString,
+    fleet: __expectString,
+    id: __expectString,
+    name: __expectString,
+    orientation: (_) => de_Orientation(__expectUnion(_), context),
+    position: (_) => de_PositionCoordinates(__expectUnion(_), context),
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vendorProperties: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1967,10 +1852,9 @@ const de_UpdateWorkerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1990,21 +1874,14 @@ export const de_UpdateWorkerFleetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.additionalFixedProperties != null) {
-    contents.additionalFixedProperties = __expectString(data.additionalFixedProperties);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.updatedAt != null) {
-    contents.updatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updatedAt)));
-  }
+  const doc = take(data, {
+    additionalFixedProperties: __expectString,
+    arn: __expectString,
+    id: __expectString,
+    name: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2038,16 +1915,15 @@ const de_UpdateWorkerFleetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2057,9 +1933,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2073,9 +1950,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2092,9 +1970,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2111,9 +1990,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2130,9 +2010,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2146,9 +2027,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2162,9 +2044,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2176,11 +2059,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * serializeAws_restJson1CartesianCoordinates
  */
 const se_CartesianCoordinates = (input: CartesianCoordinates, context: __SerdeContext): any => {
-  return {
-    ...(input.x != null && { x: __serializeFloat(input.x) }),
-    ...(input.y != null && { y: __serializeFloat(input.y) }),
-    ...(input.z != null && { z: __serializeFloat(input.z) }),
-  };
+  return take(input, {
+    x: __serializeFloat,
+    y: __serializeFloat,
+    z: __serializeFloat,
+  });
 };
 
 /**
@@ -2203,49 +2086,33 @@ const se_PositionCoordinates = (input: PositionCoordinates, context: __SerdeCont
   });
 };
 
-/**
- * serializeAws_restJson1VendorProperties
- */
-const se_VendorProperties = (input: VendorProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.vendorAdditionalFixedProperties != null && {
-      vendorAdditionalFixedProperties: input.vendorAdditionalFixedProperties,
-    }),
-    ...(input.vendorAdditionalTransientProperties != null && {
-      vendorAdditionalTransientProperties: input.vendorAdditionalTransientProperties,
-    }),
-    ...(input.vendorWorkerId != null && { vendorWorkerId: input.vendorWorkerId }),
-    ...(input.vendorWorkerIpAddress != null && { vendorWorkerIpAddress: input.vendorWorkerIpAddress }),
-  };
-};
+// se_VendorProperties omitted.
 
 /**
  * deserializeAws_restJson1CartesianCoordinates
  */
 const de_CartesianCoordinates = (output: any, context: __SerdeContext): CartesianCoordinates => {
-  return {
-    x: __limitedParseDouble(output.x),
-    y: __limitedParseDouble(output.y),
-    z: __limitedParseDouble(output.z),
-  } as any;
+  return take(output, {
+    x: __limitedParseDouble,
+    y: __limitedParseDouble,
+    z: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Destination
  */
 const de_Destination = (output: any, context: __SerdeContext): Destination => {
-  return {
-    additionalFixedProperties: __expectString(output.additionalFixedProperties),
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    site: __expectString(output.site),
-    state: __expectString(output.state),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    additionalFixedProperties: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    name: __expectString,
+    site: __expectString,
+    state: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -2255,9 +2122,6 @@ const de_Destinations = (output: any, context: __SerdeContext): Destination[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Destination(entry, context);
     });
   return retVal;
@@ -2289,13 +2153,12 @@ const de_PositionCoordinates = (output: any, context: __SerdeContext): PositionC
  * deserializeAws_restJson1Site
  */
 const de_Site = (output: any, context: __SerdeContext): Site => {
-  return {
-    arn: __expectString(output.arn),
-    countryCode: __expectString(output.countryCode),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    countryCode: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
 /**
@@ -2305,64 +2168,46 @@ const de_Sites = (output: any, context: __SerdeContext): Site[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Site(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1VendorProperties
- */
-const de_VendorProperties = (output: any, context: __SerdeContext): VendorProperties => {
-  return {
-    vendorAdditionalFixedProperties: __expectString(output.vendorAdditionalFixedProperties),
-    vendorAdditionalTransientProperties: __expectString(output.vendorAdditionalTransientProperties),
-    vendorWorkerId: __expectString(output.vendorWorkerId),
-    vendorWorkerIpAddress: __expectString(output.vendorWorkerIpAddress),
-  } as any;
-};
+// de_VendorProperties omitted.
 
 /**
  * deserializeAws_restJson1Worker
  */
 const de_Worker = (output: any, context: __SerdeContext): Worker => {
-  return {
-    additionalFixedProperties: __expectString(output.additionalFixedProperties),
-    additionalTransientProperties: __expectString(output.additionalTransientProperties),
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    fleet: __expectString(output.fleet),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    orientation: output.orientation != null ? de_Orientation(__expectUnion(output.orientation), context) : undefined,
-    position: output.position != null ? de_PositionCoordinates(__expectUnion(output.position), context) : undefined,
-    site: __expectString(output.site),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-    vendorProperties:
-      output.vendorProperties != null ? de_VendorProperties(output.vendorProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    additionalFixedProperties: __expectString,
+    additionalTransientProperties: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fleet: __expectString,
+    id: __expectString,
+    name: __expectString,
+    orientation: (_: any) => de_Orientation(__expectUnion(_), context),
+    position: (_: any) => de_PositionCoordinates(__expectUnion(_), context),
+    site: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vendorProperties: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1WorkerFleet
  */
 const de_WorkerFleet = (output: any, context: __SerdeContext): WorkerFleet => {
-  return {
-    additionalFixedProperties: __expectString(output.additionalFixedProperties),
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    site: __expectString(output.site),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    additionalFixedProperties: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    name: __expectString,
+    site: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -2372,9 +2217,6 @@ const de_WorkerFleets = (output: any, context: __SerdeContext): WorkerFleet[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorkerFleet(entry, context);
     });
   return retVal;
@@ -2387,9 +2229,6 @@ const de_Workers = (output: any, context: __SerdeContext): Worker[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Worker(entry, context);
     });
   return retVal;

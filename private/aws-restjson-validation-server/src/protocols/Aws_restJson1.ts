@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   expectBoolean as __expectBoolean,
   expectByte as __expectByte,
   expectInt32 as __expectInt32,
@@ -12,10 +13,11 @@ import {
   expectString as __expectString,
   expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  take,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -103,21 +105,14 @@ export const deserializeMalformedEnumRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.list != null) {
-    contents.list = de_EnumList(data.list, context);
-  }
-  if (data.map != null) {
-    contents.map = de_EnumMap(data.map, context);
-  }
-  if (data.string != null) {
-    contents.string = __expectString(data.string);
-  }
-  if (data.stringWithEnumTrait != null) {
-    contents.stringWithEnumTrait = __expectString(data.stringWithEnumTrait);
-  }
-  if (data.union != null) {
-    contents.union = de_EnumUnion(__expectUnion(data.union), context);
-  }
+  const doc = take(data, {
+    list: (_) => de_EnumList(_, context),
+    map: (_) => de_EnumMap(_, context),
+    string: __expectString,
+    stringWithEnumTrait: __expectString,
+    union: (_) => de_EnumUnion(__expectUnion(_), context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -143,24 +138,15 @@ export const deserializeMalformedLengthRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.blob != null) {
-    contents.blob = context.base64Decoder(data.blob);
-  }
-  if (data.list != null) {
-    contents.list = de_LengthList(data.list, context);
-  }
-  if (data.map != null) {
-    contents.map = de_LengthMap(data.map, context);
-  }
-  if (data.maxString != null) {
-    contents.maxString = __expectString(data.maxString);
-  }
-  if (data.minString != null) {
-    contents.minString = __expectString(data.minString);
-  }
-  if (data.string != null) {
-    contents.string = __expectString(data.string);
-  }
+  const doc = take(data, {
+    blob: context.base64Decoder,
+    list: (_) => de_LengthList(_, context),
+    map: (_) => de_LengthMap(_, context),
+    maxString: __expectString,
+    minString: __expectString,
+    string: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -186,24 +172,15 @@ export const deserializeMalformedLengthOverrideRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.blob != null) {
-    contents.blob = context.base64Decoder(data.blob);
-  }
-  if (data.list != null) {
-    contents.list = de_LengthList(data.list, context);
-  }
-  if (data.map != null) {
-    contents.map = de_LengthMap(data.map, context);
-  }
-  if (data.maxString != null) {
-    contents.maxString = __expectString(data.maxString);
-  }
-  if (data.minString != null) {
-    contents.minString = __expectString(data.minString);
-  }
-  if (data.string != null) {
-    contents.string = __expectString(data.string);
-  }
+  const doc = take(data, {
+    blob: context.base64Decoder,
+    list: (_) => de_LengthList(_, context),
+    map: (_) => de_LengthMap(_, context),
+    maxString: __expectString,
+    minString: __expectString,
+    string: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -270,21 +247,14 @@ export const deserializeMalformedPatternRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.evilString != null) {
-    contents.evilString = __expectString(data.evilString);
-  }
-  if (data.list != null) {
-    contents.list = de_PatternList(data.list, context);
-  }
-  if (data.map != null) {
-    contents.map = de_PatternMap(data.map, context);
-  }
-  if (data.string != null) {
-    contents.string = __expectString(data.string);
-  }
-  if (data.union != null) {
-    contents.union = de_PatternUnion(__expectUnion(data.union), context);
-  }
+  const doc = take(data, {
+    evilString: __expectString,
+    list: (_) => de_PatternList(_, context),
+    map: (_) => de_PatternMap(_, context),
+    string: __expectString,
+    union: (_) => de_PatternUnion(__expectUnion(_), context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -310,18 +280,13 @@ export const deserializeMalformedPatternOverrideRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.list != null) {
-    contents.list = de_PatternListOverride(data.list, context);
-  }
-  if (data.map != null) {
-    contents.map = de_PatternMapOverride(data.map, context);
-  }
-  if (data.string != null) {
-    contents.string = __expectString(data.string);
-  }
-  if (data.union != null) {
-    contents.union = de_PatternUnionOverride(__expectUnion(data.union), context);
-  }
+  const doc = take(data, {
+    list: (_) => de_PatternListOverride(_, context),
+    map: (_) => de_PatternMapOverride(_, context),
+    string: __expectString,
+    union: (_) => de_PatternUnionOverride(__expectUnion(_), context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -347,51 +312,24 @@ export const deserializeMalformedRangeRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.byte != null) {
-    contents.byte = __expectByte(data.byte);
-  }
-  if (data.float != null) {
-    contents.float = __limitedParseFloat32(data.float);
-  }
-  if (data.integer != null) {
-    contents.integer = __expectInt32(data.integer);
-  }
-  if (data.long != null) {
-    contents.long = __expectLong(data.long);
-  }
-  if (data.maxByte != null) {
-    contents.maxByte = __expectByte(data.maxByte);
-  }
-  if (data.maxFloat != null) {
-    contents.maxFloat = __limitedParseFloat32(data.maxFloat);
-  }
-  if (data.maxInteger != null) {
-    contents.maxInteger = __expectInt32(data.maxInteger);
-  }
-  if (data.maxLong != null) {
-    contents.maxLong = __expectLong(data.maxLong);
-  }
-  if (data.maxShort != null) {
-    contents.maxShort = __expectShort(data.maxShort);
-  }
-  if (data.minByte != null) {
-    contents.minByte = __expectByte(data.minByte);
-  }
-  if (data.minFloat != null) {
-    contents.minFloat = __limitedParseFloat32(data.minFloat);
-  }
-  if (data.minInteger != null) {
-    contents.minInteger = __expectInt32(data.minInteger);
-  }
-  if (data.minLong != null) {
-    contents.minLong = __expectLong(data.minLong);
-  }
-  if (data.minShort != null) {
-    contents.minShort = __expectShort(data.minShort);
-  }
-  if (data.short != null) {
-    contents.short = __expectShort(data.short);
-  }
+  const doc = take(data, {
+    byte: __expectByte,
+    float: __limitedParseFloat32,
+    integer: __expectInt32,
+    long: __expectLong,
+    maxByte: __expectByte,
+    maxFloat: __limitedParseFloat32,
+    maxInteger: __expectInt32,
+    maxLong: __expectLong,
+    maxShort: __expectShort,
+    minByte: __expectByte,
+    minFloat: __limitedParseFloat32,
+    minInteger: __expectInt32,
+    minLong: __expectLong,
+    minShort: __expectShort,
+    short: __expectShort,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -417,51 +355,24 @@ export const deserializeMalformedRangeOverrideRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.byte != null) {
-    contents.byte = __expectByte(data.byte);
-  }
-  if (data.float != null) {
-    contents.float = __limitedParseFloat32(data.float);
-  }
-  if (data.integer != null) {
-    contents.integer = __expectInt32(data.integer);
-  }
-  if (data.long != null) {
-    contents.long = __expectLong(data.long);
-  }
-  if (data.maxByte != null) {
-    contents.maxByte = __expectByte(data.maxByte);
-  }
-  if (data.maxFloat != null) {
-    contents.maxFloat = __limitedParseFloat32(data.maxFloat);
-  }
-  if (data.maxInteger != null) {
-    contents.maxInteger = __expectInt32(data.maxInteger);
-  }
-  if (data.maxLong != null) {
-    contents.maxLong = __expectLong(data.maxLong);
-  }
-  if (data.maxShort != null) {
-    contents.maxShort = __expectShort(data.maxShort);
-  }
-  if (data.minByte != null) {
-    contents.minByte = __expectByte(data.minByte);
-  }
-  if (data.minFloat != null) {
-    contents.minFloat = __limitedParseFloat32(data.minFloat);
-  }
-  if (data.minInteger != null) {
-    contents.minInteger = __expectInt32(data.minInteger);
-  }
-  if (data.minLong != null) {
-    contents.minLong = __expectLong(data.minLong);
-  }
-  if (data.minShort != null) {
-    contents.minShort = __expectShort(data.minShort);
-  }
-  if (data.short != null) {
-    contents.short = __expectShort(data.short);
-  }
+  const doc = take(data, {
+    byte: __expectByte,
+    float: __limitedParseFloat32,
+    integer: __expectInt32,
+    long: __expectLong,
+    maxByte: __expectByte,
+    maxFloat: __limitedParseFloat32,
+    maxInteger: __expectInt32,
+    maxLong: __expectLong,
+    maxShort: __expectShort,
+    minByte: __expectByte,
+    minFloat: __limitedParseFloat32,
+    minInteger: __expectInt32,
+    minLong: __expectLong,
+    minShort: __expectShort,
+    short: __expectShort,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -505,9 +416,10 @@ export const deserializeMalformedRequiredRequest = async (
     }
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.string != null) {
-    contents.string = __expectString(data.string);
-  }
+  const doc = take(data, {
+    string: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -533,51 +445,24 @@ export const deserializeMalformedUniqueItemsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.blobList != null) {
-    contents.blobList = de_BlobSet(data.blobList, context);
-  }
-  if (data.booleanList != null) {
-    contents.booleanList = de_BooleanSet(data.booleanList, context);
-  }
-  if (data.byteList != null) {
-    contents.byteList = de_ByteSet(data.byteList, context);
-  }
-  if (data.dateTimeList != null) {
-    contents.dateTimeList = de_DateTimeSet(data.dateTimeList, context);
-  }
-  if (data.enumList != null) {
-    contents.enumList = de_FooEnumSet(data.enumList, context);
-  }
-  if (data.httpDateList != null) {
-    contents.httpDateList = de_HttpDateSet(data.httpDateList, context);
-  }
-  if (data.intEnumList != null) {
-    contents.intEnumList = de_IntegerEnumSet(data.intEnumList, context);
-  }
-  if (data.integerList != null) {
-    contents.integerList = de_IntegerSet(data.integerList, context);
-  }
-  if (data.listList != null) {
-    contents.listList = de_ListSet(data.listList, context);
-  }
-  if (data.longList != null) {
-    contents.longList = de_LongSet(data.longList, context);
-  }
-  if (data.shortList != null) {
-    contents.shortList = de_ShortSet(data.shortList, context);
-  }
-  if (data.stringList != null) {
-    contents.stringList = de_StringSet(data.stringList, context);
-  }
-  if (data.structureList != null) {
-    contents.structureList = de_StructureSet(data.structureList, context);
-  }
-  if (data.timestampList != null) {
-    contents.timestampList = de_TimestampSet(data.timestampList, context);
-  }
-  if (data.unionList != null) {
-    contents.unionList = de_UnionSet(data.unionList, context);
-  }
+  const doc = take(data, {
+    blobList: (_) => de_BlobSet(_, context),
+    booleanList: (_) => de_BooleanSet(_, context),
+    byteList: (_) => de_ByteSet(_, context),
+    dateTimeList: (_) => de_DateTimeSet(_, context),
+    enumList: (_) => de_FooEnumSet(_, context),
+    httpDateList: (_) => de_HttpDateSet(_, context),
+    intEnumList: (_) => de_IntegerEnumSet(_, context),
+    integerList: (_) => de_IntegerSet(_, context),
+    listList: (_) => de_ListSet(_, context),
+    longList: (_) => de_LongSet(_, context),
+    shortList: (_) => de_ShortSet(_, context),
+    stringList: (_) => de_StringSet(_, context),
+    structureList: (_) => de_StructureSet(_, context),
+    timestampList: (_) => de_TimestampSet(_, context),
+    unionList: (_) => de_UnionSet(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -603,9 +488,10 @@ export const deserializeRecursiveStructuresRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.union != null) {
-    contents.union = de_RecursiveUnionOne(__expectUnion(data.union), context);
-  }
+  const doc = take(data, {
+    union: (_) => de_RecursiveUnionOne(__expectUnion(_), context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -631,9 +517,10 @@ export const deserializeSensitiveValidationRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.string != null) {
-    contents.string = __expectString(data.string);
-  }
+  const doc = take(data, {
+    string: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1132,7 +1019,6 @@ export const serializeFrameworkException = async (
   }
 };
 
-const map = __map;
 export const serializeValidationExceptionError = async (
   input: ValidationException,
   ctx: ServerSerdeContext
@@ -1152,10 +1038,12 @@ export const serializeValidationExceptionError = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.fieldList != null && { fieldList: se_ValidationExceptionFieldList(input.fieldList, context) }),
-    ...(input.message != null && { message: input.message }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fieldList: (_) => se_ValidationExceptionFieldList(_, context),
+      message: [],
+    })
+  );
   return new __HttpResponse({
     headers,
     body,
@@ -1167,10 +1055,10 @@ export const serializeValidationExceptionError = async (
  * serializeAws_restJson1ValidationExceptionField
  */
 const se_ValidationExceptionField = (input: ValidationExceptionField, context: __SerdeContext): any => {
-  return {
-    ...(input.message != null && { message: input.message }),
-    ...(input.path != null && { path: input.path }),
-  };
+  return take(input, {
+    message: [],
+    path: [],
+  });
 };
 
 /**
@@ -1456,9 +1344,9 @@ const de_FooUnion = (output: any, context: __SerdeContext): FooUnion => {
  * deserializeAws_restJson1GreetingStruct
  */
 const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
-  return {
-    hi: __expectString(output.hi),
-  } as any;
+  return take(output, {
+    hi: __expectString,
+  }) as any;
 };
 
 /**

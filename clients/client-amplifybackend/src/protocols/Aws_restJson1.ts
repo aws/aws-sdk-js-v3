@@ -1,16 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -148,9 +150,11 @@ export const se_CloneBackendCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.TargetEnvironmentName != null && { targetEnvironmentName: input.TargetEnvironmentName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      targetEnvironmentName: [, , `TargetEnvironmentName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -175,13 +179,15 @@ export const se_CreateBackendCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppId != null && { appId: input.AppId }),
-    ...(input.AppName != null && { appName: input.AppName }),
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig != null && { resourceConfig: se_ResourceConfig(input.ResourceConfig, context) }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appId: [, , `AppId`],
+      appName: [, , `AppName`],
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+      resourceConfig: [, (_) => _json(_), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -207,11 +213,13 @@ export const se_CreateBackendAPICommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/api";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig != null && { resourceConfig: se_BackendAPIResourceConfig(input.ResourceConfig, context) }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+      resourceConfig: [, (_) => se_BackendAPIResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -237,13 +245,13 @@ export const se_CreateBackendAuthCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/auth";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig != null && {
-      resourceConfig: se_CreateBackendAuthResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+      resourceConfig: [, (_) => se_CreateBackendAuthResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -269,9 +277,11 @@ export const se_CreateBackendConfigCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendManagerAppId != null && { backendManagerAppId: input.BackendManagerAppId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendManagerAppId: [, , `BackendManagerAppId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -297,13 +307,13 @@ export const se_CreateBackendStorageCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/storage";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig != null && {
-      resourceConfig: se_CreateBackendStorageResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+      resourceConfig: [, (_) => se_CreateBackendStorageResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -396,10 +406,12 @@ export const se_DeleteBackendAPICommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && { resourceConfig: se_BackendAPIResourceConfig(input.ResourceConfig, context) }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_BackendAPIResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -435,9 +447,11 @@ export const se_DeleteBackendAuthCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -473,10 +487,12 @@ export const se_DeleteBackendStorageCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-    ...(input.ServiceName != null && { serviceName: input.ServiceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+      serviceName: [, , `ServiceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -538,9 +554,11 @@ export const se_GenerateBackendAPIModelsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -566,9 +584,11 @@ export const se_GetBackendCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/details";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -604,10 +624,12 @@ export const se_GetBackendAPICommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && { resourceConfig: se_BackendAPIResourceConfig(input.ResourceConfig, context) }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_BackendAPIResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -643,9 +665,11 @@ export const se_GetBackendAPIModelsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -681,9 +705,11 @@ export const se_GetBackendAuthCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -753,9 +779,11 @@ export const se_GetBackendStorageCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -816,12 +844,14 @@ export const se_ImportBackendAuthCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.IdentityPoolId != null && { identityPoolId: input.IdentityPoolId }),
-    ...(input.NativeClientId != null && { nativeClientId: input.NativeClientId }),
-    ...(input.UserPoolId != null && { userPoolId: input.UserPoolId }),
-    ...(input.WebClientId != null && { webClientId: input.WebClientId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      identityPoolId: [, , `IdentityPoolId`],
+      nativeClientId: [, , `NativeClientId`],
+      userPoolId: [, , `UserPoolId`],
+      webClientId: [, , `WebClientId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -857,10 +887,12 @@ export const se_ImportBackendStorageCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BucketName != null && { bucketName: input.BucketName }),
-    ...(input.ServiceName != null && { serviceName: input.ServiceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      bucketName: [, , `BucketName`],
+      serviceName: [, , `ServiceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -896,13 +928,15 @@ export const se_ListBackendJobsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.JobId != null && { jobId: input.JobId }),
-    ...(input.MaxResults != null && { maxResults: input.MaxResults }),
-    ...(input.NextToken != null && { nextToken: input.NextToken }),
-    ...(input.Operation != null && { operation: input.Operation }),
-    ...(input.Status != null && { status: input.Status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      jobId: [, , `JobId`],
+      maxResults: [, , `MaxResults`],
+      nextToken: [, , `NextToken`],
+      operation: [, , `Operation`],
+      status: [, , `Status`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -927,9 +961,11 @@ export const se_ListS3BucketsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/s3Buckets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { nextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      nextToken: [, , `NextToken`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -955,9 +991,11 @@ export const se_RemoveAllBackendsCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/remove";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CleanAmplifyApp != null && { cleanAmplifyApp: input.CleanAmplifyApp }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cleanAmplifyApp: [, , `CleanAmplifyApp`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1017,10 +1055,12 @@ export const se_UpdateBackendAPICommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && { resourceConfig: se_BackendAPIResourceConfig(input.ResourceConfig, context) }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_BackendAPIResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1056,12 +1096,12 @@ export const se_UpdateBackendAuthCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && {
-      resourceConfig: se_UpdateBackendAuthResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_UpdateBackendAuthResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1088,9 +1128,11 @@ export const se_UpdateBackendConfigCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config/update";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LoginAuthConfig != null && { loginAuthConfig: se_LoginAuthConfigReqObj(input.LoginAuthConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      loginAuthConfig: [, (_) => se_LoginAuthConfigReqObj(_, context), `LoginAuthConfig`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1127,10 +1169,12 @@ export const se_UpdateBackendJobCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Operation != null && { operation: input.Operation }),
-    ...(input.Status != null && { status: input.Status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      operation: [, , `Operation`],
+      status: [, , `Status`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1166,12 +1210,12 @@ export const se_UpdateBackendStorageCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && {
-      resourceConfig: se_UpdateBackendStorageResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_UpdateBackendStorageResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1197,24 +1241,15 @@ export const de_CloneBackendCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1245,10 +1280,9 @@ const de_CloneBackendCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1268,24 +1302,15 @@ export const de_CreateBackendCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1316,10 +1341,9 @@ const de_CreateBackendCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1339,24 +1363,15 @@ export const de_CreateBackendAPICommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1387,10 +1402,9 @@ const de_CreateBackendAPICommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1410,24 +1424,15 @@ export const de_CreateBackendAuthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1458,10 +1463,9 @@ const de_CreateBackendAuthCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1481,18 +1485,13 @@ export const de_CreateBackendConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1523,10 +1522,9 @@ const de_CreateBackendConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1546,18 +1544,13 @@ export const de_CreateBackendStorageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1588,10 +1581,9 @@ const de_CreateBackendStorageCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1611,18 +1603,13 @@ export const de_CreateTokenCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.challengeCode != null) {
-    contents.ChallengeCode = __expectString(data.challengeCode);
-  }
-  if (data.sessionId != null) {
-    contents.SessionId = __expectString(data.sessionId);
-  }
-  if (data.ttl != null) {
-    contents.Ttl = __expectString(data.ttl);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    ChallengeCode: [, __expectString, `challengeCode`],
+    SessionId: [, __expectString, `sessionId`],
+    Ttl: [, __expectString, `ttl`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1653,10 +1640,9 @@ const de_CreateTokenCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1676,24 +1662,15 @@ export const de_DeleteBackendCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1724,10 +1701,9 @@ const de_DeleteBackendCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1747,24 +1723,15 @@ export const de_DeleteBackendAPICommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1795,10 +1762,9 @@ const de_DeleteBackendAPICommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1818,24 +1784,15 @@ export const de_DeleteBackendAuthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1866,10 +1823,9 @@ const de_DeleteBackendAuthCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1889,18 +1845,13 @@ export const de_DeleteBackendStorageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1931,10 +1882,9 @@ const de_DeleteBackendStorageCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1954,9 +1904,10 @@ export const de_DeleteTokenCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.isSuccess != null) {
-    contents.IsSuccess = __expectBoolean(data.isSuccess);
-  }
+  const doc = take(data, {
+    IsSuccess: [, __expectBoolean, `isSuccess`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1987,10 +1938,9 @@ const de_DeleteTokenCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2010,24 +1960,15 @@ export const de_GenerateBackendAPIModelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2058,10 +1999,9 @@ const de_GenerateBackendAPIModelsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2081,27 +2021,16 @@ export const de_GetBackendCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.amplifyFeatureFlags != null) {
-    contents.AmplifyFeatureFlags = __expectString(data.amplifyFeatureFlags);
-  }
-  if (data.amplifyMetaConfig != null) {
-    contents.AmplifyMetaConfig = __expectString(data.amplifyMetaConfig);
-  }
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.appName != null) {
-    contents.AppName = __expectString(data.appName);
-  }
-  if (data.backendEnvironmentList != null) {
-    contents.BackendEnvironmentList = de_ListOf__string(data.backendEnvironmentList, context);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
+  const doc = take(data, {
+    AmplifyFeatureFlags: [, __expectString, `amplifyFeatureFlags`],
+    AmplifyMetaConfig: [, __expectString, `amplifyMetaConfig`],
+    AppId: [, __expectString, `appId`],
+    AppName: [, __expectString, `appName`],
+    BackendEnvironmentList: [, _json, `backendEnvironmentList`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2132,10 +2061,9 @@ const de_GetBackendCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2155,21 +2083,14 @@ export const de_GetBackendAPICommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.resourceConfig != null) {
-    contents.ResourceConfig = de_BackendAPIResourceConfig(data.resourceConfig, context);
-  }
-  if (data.resourceName != null) {
-    contents.ResourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    ResourceConfig: [, (_) => de_BackendAPIResourceConfig(_, context), `resourceConfig`],
+    ResourceName: [, __expectString, `resourceName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2200,10 +2121,9 @@ const de_GetBackendAPICommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2223,15 +2143,12 @@ export const de_GetBackendAPIModelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.modelIntrospectionSchema != null) {
-    contents.ModelIntrospectionSchema = __expectString(data.modelIntrospectionSchema);
-  }
-  if (data.models != null) {
-    contents.Models = __expectString(data.models);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    ModelIntrospectionSchema: [, __expectString, `modelIntrospectionSchema`],
+    Models: [, __expectString, `models`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2262,10 +2179,9 @@ const de_GetBackendAPIModelsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2285,21 +2201,14 @@ export const de_GetBackendAuthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.resourceConfig != null) {
-    contents.ResourceConfig = de_CreateBackendAuthResourceConfig(data.resourceConfig, context);
-  }
-  if (data.resourceName != null) {
-    contents.ResourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    ResourceConfig: [, (_) => de_CreateBackendAuthResourceConfig(_, context), `resourceConfig`],
+    ResourceName: [, __expectString, `resourceName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2330,10 +2239,9 @@ const de_GetBackendAuthCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2353,30 +2261,17 @@ export const de_GetBackendJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.createTime != null) {
-    contents.CreateTime = __expectString(data.createTime);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
-  if (data.updateTime != null) {
-    contents.UpdateTime = __expectString(data.updateTime);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    CreateTime: [, __expectString, `createTime`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+    UpdateTime: [, __expectString, `updateTime`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2407,10 +2302,9 @@ const de_GetBackendJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2430,18 +2324,13 @@ export const de_GetBackendStorageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.resourceConfig != null) {
-    contents.ResourceConfig = de_GetBackendStorageResourceConfig(data.resourceConfig, context);
-  }
-  if (data.resourceName != null) {
-    contents.ResourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    ResourceConfig: [, (_) => de_GetBackendStorageResourceConfig(_, context), `resourceConfig`],
+    ResourceName: [, __expectString, `resourceName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2472,10 +2361,9 @@ const de_GetBackendStorageCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2495,18 +2383,13 @@ export const de_GetTokenCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.challengeCode != null) {
-    contents.ChallengeCode = __expectString(data.challengeCode);
-  }
-  if (data.sessionId != null) {
-    contents.SessionId = __expectString(data.sessionId);
-  }
-  if (data.ttl != null) {
-    contents.Ttl = __expectString(data.ttl);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    ChallengeCode: [, __expectString, `challengeCode`],
+    SessionId: [, __expectString, `sessionId`],
+    Ttl: [, __expectString, `ttl`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2537,10 +2420,9 @@ const de_GetTokenCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2560,24 +2442,15 @@ export const de_ImportBackendAuthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2608,10 +2481,9 @@ const de_ImportBackendAuthCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2631,18 +2503,13 @@ export const de_ImportBackendStorageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2673,10 +2540,9 @@ const de_ImportBackendStorageCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2696,12 +2562,11 @@ export const de_ListBackendJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobs != null) {
-    contents.Jobs = de_ListOfBackendJobRespObj(data.jobs, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Jobs: [, (_) => de_ListOfBackendJobRespObj(_, context), `jobs`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2732,10 +2597,9 @@ const de_ListBackendJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2755,12 +2619,11 @@ export const de_ListS3BucketsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.buckets != null) {
-    contents.Buckets = de_ListOfS3BucketInfo(data.buckets, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Buckets: [, (_) => de_ListOfS3BucketInfo(_, context), `buckets`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2791,10 +2654,9 @@ const de_ListS3BucketsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2814,21 +2676,14 @@ export const de_RemoveAllBackendsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2859,10 +2714,9 @@ const de_RemoveAllBackendsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2882,9 +2736,10 @@ export const de_RemoveBackendConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
+  const doc = take(data, {
+    Error: [, __expectString, `error`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2915,10 +2770,9 @@ const de_RemoveBackendConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2938,24 +2792,15 @@ export const de_UpdateBackendAPICommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2986,10 +2831,9 @@ const de_UpdateBackendAPICommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3009,24 +2853,15 @@ export const de_UpdateBackendAuthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3057,10 +2892,9 @@ const de_UpdateBackendAuthCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3080,18 +2914,13 @@ export const de_UpdateBackendConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendManagerAppId != null) {
-    contents.BackendManagerAppId = __expectString(data.backendManagerAppId);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.loginAuthConfig != null) {
-    contents.LoginAuthConfig = de_LoginAuthConfigReqObj(data.loginAuthConfig, context);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendManagerAppId: [, __expectString, `backendManagerAppId`],
+    Error: [, __expectString, `error`],
+    LoginAuthConfig: [, (_) => de_LoginAuthConfigReqObj(_, context), `loginAuthConfig`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3122,10 +2951,9 @@ const de_UpdateBackendConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3145,30 +2973,17 @@ export const de_UpdateBackendJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.createTime != null) {
-    contents.CreateTime = __expectString(data.createTime);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
-  if (data.updateTime != null) {
-    contents.UpdateTime = __expectString(data.updateTime);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    CreateTime: [, __expectString, `createTime`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+    UpdateTime: [, __expectString, `updateTime`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3199,10 +3014,9 @@ const de_UpdateBackendJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3222,18 +3036,13 @@ export const de_UpdateBackendStorageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3264,25 +3073,25 @@ const de_UpdateBackendStorageCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3299,9 +3108,10 @@ const de_GatewayTimeoutExceptionRes = async (
 ): Promise<GatewayTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new GatewayTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3315,12 +3125,11 @@ const de_GatewayTimeoutExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
-  if (data.resourceType != null) {
-    contents.ResourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+    ResourceType: [, __expectString, `resourceType`],
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3337,12 +3146,11 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.limitType != null) {
-    contents.LimitType = __expectString(data.limitType);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    LimitType: [, __expectString, `limitType`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3354,87 +3162,81 @@ const de_TooManyRequestsExceptionRes = async (
  * serializeAws_restJson1BackendAPIAppSyncAuthSettings
  */
 const se_BackendAPIAppSyncAuthSettings = (input: BackendAPIAppSyncAuthSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.CognitoUserPoolId != null && { cognitoUserPoolId: input.CognitoUserPoolId }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.ExpirationTime != null && { expirationTime: __serializeFloat(input.ExpirationTime) }),
-    ...(input.OpenIDAuthTTL != null && { openIDAuthTTL: input.OpenIDAuthTTL }),
-    ...(input.OpenIDClientId != null && { openIDClientId: input.OpenIDClientId }),
-    ...(input.OpenIDIatTTL != null && { openIDIatTTL: input.OpenIDIatTTL }),
-    ...(input.OpenIDIssueURL != null && { openIDIssueURL: input.OpenIDIssueURL }),
-    ...(input.OpenIDProviderName != null && { openIDProviderName: input.OpenIDProviderName }),
-  };
+  return take(input, {
+    cognitoUserPoolId: [, , `CognitoUserPoolId`],
+    description: [, , `Description`],
+    expirationTime: [, __serializeFloat, `ExpirationTime`],
+    openIDAuthTTL: [, , `OpenIDAuthTTL`],
+    openIDClientId: [, , `OpenIDClientId`],
+    openIDIatTTL: [, , `OpenIDIatTTL`],
+    openIDIssueURL: [, , `OpenIDIssueURL`],
+    openIDProviderName: [, , `OpenIDProviderName`],
+  });
 };
 
 /**
  * serializeAws_restJson1BackendAPIAuthType
  */
 const se_BackendAPIAuthType = (input: BackendAPIAuthType, context: __SerdeContext): any => {
-  return {
-    ...(input.Mode != null && { mode: input.Mode }),
-    ...(input.Settings != null && { settings: se_BackendAPIAppSyncAuthSettings(input.Settings, context) }),
-  };
+  return take(input, {
+    mode: [, , `Mode`],
+    settings: [, (_) => se_BackendAPIAppSyncAuthSettings(_, context), `Settings`],
+  });
 };
 
 /**
  * serializeAws_restJson1BackendAPIConflictResolution
  */
 const se_BackendAPIConflictResolution = (input: BackendAPIConflictResolution, context: __SerdeContext): any => {
-  return {
-    ...(input.ResolutionStrategy != null && { resolutionStrategy: input.ResolutionStrategy }),
-  };
+  return take(input, {
+    resolutionStrategy: [, , `ResolutionStrategy`],
+  });
 };
 
 /**
  * serializeAws_restJson1BackendAPIResourceConfig
  */
 const se_BackendAPIResourceConfig = (input: BackendAPIResourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalAuthTypes != null && {
-      additionalAuthTypes: se_ListOfBackendAPIAuthType(input.AdditionalAuthTypes, context),
-    }),
-    ...(input.ApiName != null && { apiName: input.ApiName }),
-    ...(input.ConflictResolution != null && {
-      conflictResolution: se_BackendAPIConflictResolution(input.ConflictResolution, context),
-    }),
-    ...(input.DefaultAuthType != null && { defaultAuthType: se_BackendAPIAuthType(input.DefaultAuthType, context) }),
-    ...(input.Service != null && { service: input.Service }),
-    ...(input.TransformSchema != null && { transformSchema: input.TransformSchema }),
-  };
+  return take(input, {
+    additionalAuthTypes: [, (_) => se_ListOfBackendAPIAuthType(_, context), `AdditionalAuthTypes`],
+    apiName: [, , `ApiName`],
+    conflictResolution: [, (_) => se_BackendAPIConflictResolution(_, context), `ConflictResolution`],
+    defaultAuthType: [, (_) => se_BackendAPIAuthType(_, context), `DefaultAuthType`],
+    service: [, , `Service`],
+    transformSchema: [, , `TransformSchema`],
+  });
 };
 
 /**
  * serializeAws_restJson1BackendAuthAppleProviderConfig
  */
 const se_BackendAuthAppleProviderConfig = (input: BackendAuthAppleProviderConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientId != null && { client_id: input.ClientId }),
-    ...(input.KeyId != null && { key_id: input.KeyId }),
-    ...(input.PrivateKey != null && { private_key: input.PrivateKey }),
-    ...(input.TeamId != null && { team_id: input.TeamId }),
-  };
+  return take(input, {
+    client_id: [, , `ClientId`],
+    key_id: [, , `KeyId`],
+    private_key: [, , `PrivateKey`],
+    team_id: [, , `TeamId`],
+  });
 };
 
 /**
  * serializeAws_restJson1BackendAuthSocialProviderConfig
  */
 const se_BackendAuthSocialProviderConfig = (input: BackendAuthSocialProviderConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientId != null && { client_id: input.ClientId }),
-    ...(input.ClientSecret != null && { client_secret: input.ClientSecret }),
-  };
+  return take(input, {
+    client_id: [, , `ClientId`],
+    client_secret: [, , `ClientSecret`],
+  });
 };
 
 /**
  * serializeAws_restJson1BackendStoragePermissions
  */
 const se_BackendStoragePermissions = (input: BackendStoragePermissions, context: __SerdeContext): any => {
-  return {
-    ...(input.Authenticated != null && { authenticated: se_ListOfAuthenticatedElement(input.Authenticated, context) }),
-    ...(input.UnAuthenticated != null && {
-      unAuthenticated: se_ListOfUnAuthenticatedElement(input.UnAuthenticated, context),
-    }),
-  };
+  return take(input, {
+    authenticated: [, _json, `Authenticated`],
+    unAuthenticated: [, _json, `UnAuthenticated`],
+  });
 };
 
 /**
@@ -3444,11 +3246,11 @@ const se_CreateBackendAuthForgotPasswordConfig = (
   input: CreateBackendAuthForgotPasswordConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DeliveryMethod != null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings != null && { emailSettings: se_EmailSettings(input.EmailSettings, context) }),
-    ...(input.SmsSettings != null && { smsSettings: se_SmsSettings(input.SmsSettings, context) }),
-  };
+  return take(input, {
+    deliveryMethod: [, , `DeliveryMethod`],
+    emailSettings: [, (_) => se_EmailSettings(_, context), `EmailSettings`],
+    smsSettings: [, (_) => se_SmsSettings(_, context), `SmsSettings`],
+  });
 };
 
 /**
@@ -3458,40 +3260,34 @@ const se_CreateBackendAuthIdentityPoolConfig = (
   input: CreateBackendAuthIdentityPoolConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.IdentityPoolName != null && { identityPoolName: input.IdentityPoolName }),
-    ...(input.UnauthenticatedLogin != null && { unauthenticatedLogin: input.UnauthenticatedLogin }),
-  };
+  return take(input, {
+    identityPoolName: [, , `IdentityPoolName`],
+    unauthenticatedLogin: [, , `UnauthenticatedLogin`],
+  });
 };
 
 /**
  * serializeAws_restJson1CreateBackendAuthMFAConfig
  */
 const se_CreateBackendAuthMFAConfig = (input: CreateBackendAuthMFAConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.MFAMode != null && { MFAMode: input.MFAMode }),
-    ...(input.Settings != null && { settings: se_Settings(input.Settings, context) }),
-  };
+  return take(input, {
+    MFAMode: [],
+    settings: [, (_) => se_Settings(_, context), `Settings`],
+  });
 };
 
 /**
  * serializeAws_restJson1CreateBackendAuthOAuthConfig
  */
 const se_CreateBackendAuthOAuthConfig = (input: CreateBackendAuthOAuthConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainPrefix != null && { domainPrefix: input.DomainPrefix }),
-    ...(input.OAuthGrantType != null && { oAuthGrantType: input.OAuthGrantType }),
-    ...(input.OAuthScopes != null && { oAuthScopes: se_ListOfOAuthScopesElement(input.OAuthScopes, context) }),
-    ...(input.RedirectSignInURIs != null && {
-      redirectSignInURIs: se_ListOf__string(input.RedirectSignInURIs, context),
-    }),
-    ...(input.RedirectSignOutURIs != null && {
-      redirectSignOutURIs: se_ListOf__string(input.RedirectSignOutURIs, context),
-    }),
-    ...(input.SocialProviderSettings != null && {
-      socialProviderSettings: se_SocialProviderSettings(input.SocialProviderSettings, context),
-    }),
-  };
+  return take(input, {
+    domainPrefix: [, , `DomainPrefix`],
+    oAuthGrantType: [, , `OAuthGrantType`],
+    oAuthScopes: [, _json, `OAuthScopes`],
+    redirectSignInURIs: [, _json, `RedirectSignInURIs`],
+    redirectSignOutURIs: [, _json, `RedirectSignOutURIs`],
+    socialProviderSettings: [, (_) => se_SocialProviderSettings(_, context), `SocialProviderSettings`],
+  });
 };
 
 /**
@@ -3501,52 +3297,38 @@ const se_CreateBackendAuthPasswordPolicyConfig = (
   input: CreateBackendAuthPasswordPolicyConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AdditionalConstraints != null && {
-      additionalConstraints: se_ListOfAdditionalConstraintsElement(input.AdditionalConstraints, context),
-    }),
-    ...(input.MinimumLength != null && { minimumLength: __serializeFloat(input.MinimumLength) }),
-  };
+  return take(input, {
+    additionalConstraints: [, _json, `AdditionalConstraints`],
+    minimumLength: [, __serializeFloat, `MinimumLength`],
+  });
 };
 
 /**
  * serializeAws_restJson1CreateBackendAuthResourceConfig
  */
 const se_CreateBackendAuthResourceConfig = (input: CreateBackendAuthResourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthResources != null && { authResources: input.AuthResources }),
-    ...(input.IdentityPoolConfigs != null && {
-      identityPoolConfigs: se_CreateBackendAuthIdentityPoolConfig(input.IdentityPoolConfigs, context),
-    }),
-    ...(input.Service != null && { service: input.Service }),
-    ...(input.UserPoolConfigs != null && {
-      userPoolConfigs: se_CreateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
-    }),
-  };
+  return take(input, {
+    authResources: [, , `AuthResources`],
+    identityPoolConfigs: [, (_) => se_CreateBackendAuthIdentityPoolConfig(_, context), `IdentityPoolConfigs`],
+    service: [, , `Service`],
+    userPoolConfigs: [, (_) => se_CreateBackendAuthUserPoolConfig(_, context), `UserPoolConfigs`],
+  });
 };
 
 /**
  * serializeAws_restJson1CreateBackendAuthUserPoolConfig
  */
 const se_CreateBackendAuthUserPoolConfig = (input: CreateBackendAuthUserPoolConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ForgotPassword != null && {
-      forgotPassword: se_CreateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
-    }),
-    ...(input.Mfa != null && { mfa: se_CreateBackendAuthMFAConfig(input.Mfa, context) }),
-    ...(input.OAuth != null && { oAuth: se_CreateBackendAuthOAuthConfig(input.OAuth, context) }),
-    ...(input.PasswordPolicy != null && {
-      passwordPolicy: se_CreateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
-    }),
-    ...(input.RequiredSignUpAttributes != null && {
-      requiredSignUpAttributes: se_ListOfRequiredSignUpAttributesElement(input.RequiredSignUpAttributes, context),
-    }),
-    ...(input.SignInMethod != null && { signInMethod: input.SignInMethod }),
-    ...(input.UserPoolName != null && { userPoolName: input.UserPoolName }),
-    ...(input.VerificationMessage != null && {
-      verificationMessage: se_CreateBackendAuthVerificationMessageConfig(input.VerificationMessage, context),
-    }),
-  };
+  return take(input, {
+    forgotPassword: [, (_) => se_CreateBackendAuthForgotPasswordConfig(_, context), `ForgotPassword`],
+    mfa: [, (_) => se_CreateBackendAuthMFAConfig(_, context), `Mfa`],
+    oAuth: [, (_) => se_CreateBackendAuthOAuthConfig(_, context), `OAuth`],
+    passwordPolicy: [, (_) => se_CreateBackendAuthPasswordPolicyConfig(_, context), `PasswordPolicy`],
+    requiredSignUpAttributes: [, _json, `RequiredSignUpAttributes`],
+    signInMethod: [, , `SignInMethod`],
+    userPoolName: [, , `UserPoolName`],
+    verificationMessage: [, (_) => se_CreateBackendAuthVerificationMessageConfig(_, context), `VerificationMessage`],
+  });
 };
 
 /**
@@ -3556,11 +3338,11 @@ const se_CreateBackendAuthVerificationMessageConfig = (
   input: CreateBackendAuthVerificationMessageConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DeliveryMethod != null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings != null && { emailSettings: se_EmailSettings(input.EmailSettings, context) }),
-    ...(input.SmsSettings != null && { smsSettings: se_SmsSettings(input.SmsSettings, context) }),
-  };
+  return take(input, {
+    deliveryMethod: [, , `DeliveryMethod`],
+    emailSettings: [, (_) => se_EmailSettings(_, context), `EmailSettings`],
+    smsSettings: [, (_) => se_SmsSettings(_, context), `SmsSettings`],
+  });
 };
 
 /**
@@ -3570,58 +3352,28 @@ const se_CreateBackendStorageResourceConfig = (
   input: CreateBackendStorageResourceConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.BucketName != null && { bucketName: input.BucketName }),
-    ...(input.Permissions != null && { permissions: se_BackendStoragePermissions(input.Permissions, context) }),
-    ...(input.ServiceName != null && { serviceName: input.ServiceName }),
-  };
+  return take(input, {
+    bucketName: [, , `BucketName`],
+    permissions: [, (_) => se_BackendStoragePermissions(_, context), `Permissions`],
+    serviceName: [, , `ServiceName`],
+  });
 };
 
 /**
  * serializeAws_restJson1EmailSettings
  */
 const se_EmailSettings = (input: EmailSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.EmailMessage != null && { emailMessage: input.EmailMessage }),
-    ...(input.EmailSubject != null && { emailSubject: input.EmailSubject }),
-  };
+  return take(input, {
+    emailMessage: [, , `EmailMessage`],
+    emailSubject: [, , `EmailSubject`],
+  });
 };
 
-/**
- * serializeAws_restJson1ListOf__string
- */
-const se_ListOf__string = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOf__string omitted.
 
-/**
- * serializeAws_restJson1ListOfAdditionalConstraintsElement
- */
-const se_ListOfAdditionalConstraintsElement = (
-  input: (AdditionalConstraintsElement | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfAdditionalConstraintsElement omitted.
 
-/**
- * serializeAws_restJson1ListOfAuthenticatedElement
- */
-const se_ListOfAuthenticatedElement = (input: (AuthenticatedElement | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfAuthenticatedElement omitted.
 
 /**
  * serializeAws_restJson1ListOfBackendAPIAuthType
@@ -3634,105 +3386,57 @@ const se_ListOfBackendAPIAuthType = (input: BackendAPIAuthType[], context: __Ser
     });
 };
 
-/**
- * serializeAws_restJson1ListOfMfaTypesElement
- */
-const se_ListOfMfaTypesElement = (input: (MfaTypesElement | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfMfaTypesElement omitted.
 
-/**
- * serializeAws_restJson1ListOfOAuthScopesElement
- */
-const se_ListOfOAuthScopesElement = (input: (OAuthScopesElement | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfOAuthScopesElement omitted.
 
-/**
- * serializeAws_restJson1ListOfRequiredSignUpAttributesElement
- */
-const se_ListOfRequiredSignUpAttributesElement = (
-  input: (RequiredSignUpAttributesElement | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfRequiredSignUpAttributesElement omitted.
 
-/**
- * serializeAws_restJson1ListOfUnAuthenticatedElement
- */
-const se_ListOfUnAuthenticatedElement = (input: (UnAuthenticatedElement | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfUnAuthenticatedElement omitted.
 
 /**
  * serializeAws_restJson1LoginAuthConfigReqObj
  */
 const se_LoginAuthConfigReqObj = (input: LoginAuthConfigReqObj, context: __SerdeContext): any => {
-  return {
-    ...(input.AwsCognitoIdentityPoolId != null && { aws_cognito_identity_pool_id: input.AwsCognitoIdentityPoolId }),
-    ...(input.AwsCognitoRegion != null && { aws_cognito_region: input.AwsCognitoRegion }),
-    ...(input.AwsUserPoolsId != null && { aws_user_pools_id: input.AwsUserPoolsId }),
-    ...(input.AwsUserPoolsWebClientId != null && { aws_user_pools_web_client_id: input.AwsUserPoolsWebClientId }),
-  };
+  return take(input, {
+    aws_cognito_identity_pool_id: [, , `AwsCognitoIdentityPoolId`],
+    aws_cognito_region: [, , `AwsCognitoRegion`],
+    aws_user_pools_id: [, , `AwsUserPoolsId`],
+    aws_user_pools_web_client_id: [, , `AwsUserPoolsWebClientId`],
+  });
 };
 
-/**
- * serializeAws_restJson1ResourceConfig
- */
-const se_ResourceConfig = (input: ResourceConfig, context: __SerdeContext): any => {
-  return {};
-};
+// se_ResourceConfig omitted.
 
 /**
  * serializeAws_restJson1Settings
  */
 const se_Settings = (input: Settings, context: __SerdeContext): any => {
-  return {
-    ...(input.MfaTypes != null && { mfaTypes: se_ListOfMfaTypesElement(input.MfaTypes, context) }),
-    ...(input.SmsMessage != null && { smsMessage: input.SmsMessage }),
-  };
+  return take(input, {
+    mfaTypes: [, _json, `MfaTypes`],
+    smsMessage: [, , `SmsMessage`],
+  });
 };
 
 /**
  * serializeAws_restJson1SmsSettings
  */
 const se_SmsSettings = (input: SmsSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.SmsMessage != null && { smsMessage: input.SmsMessage }),
-  };
+  return take(input, {
+    smsMessage: [, , `SmsMessage`],
+  });
 };
 
 /**
  * serializeAws_restJson1SocialProviderSettings
  */
 const se_SocialProviderSettings = (input: SocialProviderSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.Facebook != null && { Facebook: se_BackendAuthSocialProviderConfig(input.Facebook, context) }),
-    ...(input.Google != null && { Google: se_BackendAuthSocialProviderConfig(input.Google, context) }),
-    ...(input.LoginWithAmazon != null && {
-      LoginWithAmazon: se_BackendAuthSocialProviderConfig(input.LoginWithAmazon, context),
-    }),
-    ...(input.SignInWithApple != null && {
-      SignInWithApple: se_BackendAuthAppleProviderConfig(input.SignInWithApple, context),
-    }),
-  };
+  return take(input, {
+    Facebook: (_) => se_BackendAuthSocialProviderConfig(_, context),
+    Google: (_) => se_BackendAuthSocialProviderConfig(_, context),
+    LoginWithAmazon: (_) => se_BackendAuthSocialProviderConfig(_, context),
+    SignInWithApple: (_) => se_BackendAuthAppleProviderConfig(_, context),
+  });
 };
 
 /**
@@ -3742,11 +3446,11 @@ const se_UpdateBackendAuthForgotPasswordConfig = (
   input: UpdateBackendAuthForgotPasswordConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DeliveryMethod != null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings != null && { emailSettings: se_EmailSettings(input.EmailSettings, context) }),
-    ...(input.SmsSettings != null && { smsSettings: se_SmsSettings(input.SmsSettings, context) }),
-  };
+  return take(input, {
+    deliveryMethod: [, , `DeliveryMethod`],
+    emailSettings: [, (_) => se_EmailSettings(_, context), `EmailSettings`],
+    smsSettings: [, (_) => se_SmsSettings(_, context), `SmsSettings`],
+  });
 };
 
 /**
@@ -3756,39 +3460,33 @@ const se_UpdateBackendAuthIdentityPoolConfig = (
   input: UpdateBackendAuthIdentityPoolConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.UnauthenticatedLogin != null && { unauthenticatedLogin: input.UnauthenticatedLogin }),
-  };
+  return take(input, {
+    unauthenticatedLogin: [, , `UnauthenticatedLogin`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateBackendAuthMFAConfig
  */
 const se_UpdateBackendAuthMFAConfig = (input: UpdateBackendAuthMFAConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.MFAMode != null && { MFAMode: input.MFAMode }),
-    ...(input.Settings != null && { settings: se_Settings(input.Settings, context) }),
-  };
+  return take(input, {
+    MFAMode: [],
+    settings: [, (_) => se_Settings(_, context), `Settings`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateBackendAuthOAuthConfig
  */
 const se_UpdateBackendAuthOAuthConfig = (input: UpdateBackendAuthOAuthConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainPrefix != null && { domainPrefix: input.DomainPrefix }),
-    ...(input.OAuthGrantType != null && { oAuthGrantType: input.OAuthGrantType }),
-    ...(input.OAuthScopes != null && { oAuthScopes: se_ListOfOAuthScopesElement(input.OAuthScopes, context) }),
-    ...(input.RedirectSignInURIs != null && {
-      redirectSignInURIs: se_ListOf__string(input.RedirectSignInURIs, context),
-    }),
-    ...(input.RedirectSignOutURIs != null && {
-      redirectSignOutURIs: se_ListOf__string(input.RedirectSignOutURIs, context),
-    }),
-    ...(input.SocialProviderSettings != null && {
-      socialProviderSettings: se_SocialProviderSettings(input.SocialProviderSettings, context),
-    }),
-  };
+  return take(input, {
+    domainPrefix: [, , `DomainPrefix`],
+    oAuthGrantType: [, , `OAuthGrantType`],
+    oAuthScopes: [, _json, `OAuthScopes`],
+    redirectSignInURIs: [, _json, `RedirectSignInURIs`],
+    redirectSignOutURIs: [, _json, `RedirectSignOutURIs`],
+    socialProviderSettings: [, (_) => se_SocialProviderSettings(_, context), `SocialProviderSettings`],
+  });
 };
 
 /**
@@ -3798,47 +3496,35 @@ const se_UpdateBackendAuthPasswordPolicyConfig = (
   input: UpdateBackendAuthPasswordPolicyConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AdditionalConstraints != null && {
-      additionalConstraints: se_ListOfAdditionalConstraintsElement(input.AdditionalConstraints, context),
-    }),
-    ...(input.MinimumLength != null && { minimumLength: __serializeFloat(input.MinimumLength) }),
-  };
+  return take(input, {
+    additionalConstraints: [, _json, `AdditionalConstraints`],
+    minimumLength: [, __serializeFloat, `MinimumLength`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateBackendAuthResourceConfig
  */
 const se_UpdateBackendAuthResourceConfig = (input: UpdateBackendAuthResourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthResources != null && { authResources: input.AuthResources }),
-    ...(input.IdentityPoolConfigs != null && {
-      identityPoolConfigs: se_UpdateBackendAuthIdentityPoolConfig(input.IdentityPoolConfigs, context),
-    }),
-    ...(input.Service != null && { service: input.Service }),
-    ...(input.UserPoolConfigs != null && {
-      userPoolConfigs: se_UpdateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
-    }),
-  };
+  return take(input, {
+    authResources: [, , `AuthResources`],
+    identityPoolConfigs: [, (_) => se_UpdateBackendAuthIdentityPoolConfig(_, context), `IdentityPoolConfigs`],
+    service: [, , `Service`],
+    userPoolConfigs: [, (_) => se_UpdateBackendAuthUserPoolConfig(_, context), `UserPoolConfigs`],
+  });
 };
 
 /**
  * serializeAws_restJson1UpdateBackendAuthUserPoolConfig
  */
 const se_UpdateBackendAuthUserPoolConfig = (input: UpdateBackendAuthUserPoolConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ForgotPassword != null && {
-      forgotPassword: se_UpdateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
-    }),
-    ...(input.Mfa != null && { mfa: se_UpdateBackendAuthMFAConfig(input.Mfa, context) }),
-    ...(input.OAuth != null && { oAuth: se_UpdateBackendAuthOAuthConfig(input.OAuth, context) }),
-    ...(input.PasswordPolicy != null && {
-      passwordPolicy: se_UpdateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
-    }),
-    ...(input.VerificationMessage != null && {
-      verificationMessage: se_UpdateBackendAuthVerificationMessageConfig(input.VerificationMessage, context),
-    }),
-  };
+  return take(input, {
+    forgotPassword: [, (_) => se_UpdateBackendAuthForgotPasswordConfig(_, context), `ForgotPassword`],
+    mfa: [, (_) => se_UpdateBackendAuthMFAConfig(_, context), `Mfa`],
+    oAuth: [, (_) => se_UpdateBackendAuthOAuthConfig(_, context), `OAuth`],
+    passwordPolicy: [, (_) => se_UpdateBackendAuthPasswordPolicyConfig(_, context), `PasswordPolicy`],
+    verificationMessage: [, (_) => se_UpdateBackendAuthVerificationMessageConfig(_, context), `VerificationMessage`],
+  });
 };
 
 /**
@@ -3848,11 +3534,11 @@ const se_UpdateBackendAuthVerificationMessageConfig = (
   input: UpdateBackendAuthVerificationMessageConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DeliveryMethod != null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings != null && { emailSettings: se_EmailSettings(input.EmailSettings, context) }),
-    ...(input.SmsSettings != null && { smsSettings: se_SmsSettings(input.SmsSettings, context) }),
-  };
+  return take(input, {
+    deliveryMethod: [, , `DeliveryMethod`],
+    emailSettings: [, (_) => se_EmailSettings(_, context), `EmailSettings`],
+    smsSettings: [, (_) => se_SmsSettings(_, context), `SmsSettings`],
+  });
 };
 
 /**
@@ -3862,114 +3548,107 @@ const se_UpdateBackendStorageResourceConfig = (
   input: UpdateBackendStorageResourceConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Permissions != null && { permissions: se_BackendStoragePermissions(input.Permissions, context) }),
-    ...(input.ServiceName != null && { serviceName: input.ServiceName }),
-  };
+  return take(input, {
+    permissions: [, (_) => se_BackendStoragePermissions(_, context), `Permissions`],
+    serviceName: [, , `ServiceName`],
+  });
 };
 
 /**
  * deserializeAws_restJson1BackendAPIAppSyncAuthSettings
  */
 const de_BackendAPIAppSyncAuthSettings = (output: any, context: __SerdeContext): BackendAPIAppSyncAuthSettings => {
-  return {
-    CognitoUserPoolId: __expectString(output.cognitoUserPoolId),
-    Description: __expectString(output.description),
-    ExpirationTime: __limitedParseDouble(output.expirationTime),
-    OpenIDAuthTTL: __expectString(output.openIDAuthTTL),
-    OpenIDClientId: __expectString(output.openIDClientId),
-    OpenIDIatTTL: __expectString(output.openIDIatTTL),
-    OpenIDIssueURL: __expectString(output.openIDIssueURL),
-    OpenIDProviderName: __expectString(output.openIDProviderName),
-  } as any;
+  return take(output, {
+    CognitoUserPoolId: [, __expectString, `cognitoUserPoolId`],
+    Description: [, __expectString, `description`],
+    ExpirationTime: [, __limitedParseDouble, `expirationTime`],
+    OpenIDAuthTTL: [, __expectString, `openIDAuthTTL`],
+    OpenIDClientId: [, __expectString, `openIDClientId`],
+    OpenIDIatTTL: [, __expectString, `openIDIatTTL`],
+    OpenIDIssueURL: [, __expectString, `openIDIssueURL`],
+    OpenIDProviderName: [, __expectString, `openIDProviderName`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BackendAPIAuthType
  */
 const de_BackendAPIAuthType = (output: any, context: __SerdeContext): BackendAPIAuthType => {
-  return {
-    Mode: __expectString(output.mode),
-    Settings: output.settings != null ? de_BackendAPIAppSyncAuthSettings(output.settings, context) : undefined,
-  } as any;
+  return take(output, {
+    Mode: [, __expectString, `mode`],
+    Settings: (_) => [, de_BackendAPIAppSyncAuthSettings(_, context), `settings`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BackendAPIConflictResolution
  */
 const de_BackendAPIConflictResolution = (output: any, context: __SerdeContext): BackendAPIConflictResolution => {
-  return {
-    ResolutionStrategy: __expectString(output.resolutionStrategy),
-  } as any;
+  return take(output, {
+    ResolutionStrategy: [, __expectString, `resolutionStrategy`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BackendAPIResourceConfig
  */
 const de_BackendAPIResourceConfig = (output: any, context: __SerdeContext): BackendAPIResourceConfig => {
-  return {
-    AdditionalAuthTypes:
-      output.additionalAuthTypes != null ? de_ListOfBackendAPIAuthType(output.additionalAuthTypes, context) : undefined,
-    ApiName: __expectString(output.apiName),
-    ConflictResolution:
-      output.conflictResolution != null
-        ? de_BackendAPIConflictResolution(output.conflictResolution, context)
-        : undefined,
-    DefaultAuthType:
-      output.defaultAuthType != null ? de_BackendAPIAuthType(output.defaultAuthType, context) : undefined,
-    Service: __expectString(output.service),
-    TransformSchema: __expectString(output.transformSchema),
-  } as any;
+  return take(output, {
+    AdditionalAuthTypes: (_) => [, de_ListOfBackendAPIAuthType(_, context), `additionalAuthTypes`],
+    ApiName: [, __expectString, `apiName`],
+    ConflictResolution: (_) => [, de_BackendAPIConflictResolution(_, context), `conflictResolution`],
+    DefaultAuthType: (_) => [, de_BackendAPIAuthType(_, context), `defaultAuthType`],
+    Service: [, __expectString, `service`],
+    TransformSchema: [, __expectString, `transformSchema`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BackendAuthAppleProviderConfig
  */
 const de_BackendAuthAppleProviderConfig = (output: any, context: __SerdeContext): BackendAuthAppleProviderConfig => {
-  return {
-    ClientId: __expectString(output.client_id),
-    KeyId: __expectString(output.key_id),
-    PrivateKey: __expectString(output.private_key),
-    TeamId: __expectString(output.team_id),
-  } as any;
+  return take(output, {
+    ClientId: [, __expectString, `client_id`],
+    KeyId: [, __expectString, `key_id`],
+    PrivateKey: [, __expectString, `private_key`],
+    TeamId: [, __expectString, `team_id`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BackendAuthSocialProviderConfig
  */
 const de_BackendAuthSocialProviderConfig = (output: any, context: __SerdeContext): BackendAuthSocialProviderConfig => {
-  return {
-    ClientId: __expectString(output.client_id),
-    ClientSecret: __expectString(output.client_secret),
-  } as any;
+  return take(output, {
+    ClientId: [, __expectString, `client_id`],
+    ClientSecret: [, __expectString, `client_secret`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BackendJobRespObj
  */
 const de_BackendJobRespObj = (output: any, context: __SerdeContext): BackendJobRespObj => {
-  return {
-    AppId: __expectString(output.appId),
-    BackendEnvironmentName: __expectString(output.backendEnvironmentName),
-    CreateTime: __expectString(output.createTime),
-    Error: __expectString(output.error),
-    JobId: __expectString(output.jobId),
-    Operation: __expectString(output.operation),
-    Status: __expectString(output.status),
-    UpdateTime: __expectString(output.updateTime),
-  } as any;
+  return take(output, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    CreateTime: [, __expectString, `createTime`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+    UpdateTime: [, __expectString, `updateTime`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1BackendStoragePermissions
  */
 const de_BackendStoragePermissions = (output: any, context: __SerdeContext): BackendStoragePermissions => {
-  return {
-    Authenticated:
-      output.authenticated != null ? de_ListOfAuthenticatedElement(output.authenticated, context) : undefined,
-    UnAuthenticated:
-      output.unAuthenticated != null ? de_ListOfUnAuthenticatedElement(output.unAuthenticated, context) : undefined,
-  } as any;
+  return take(output, {
+    Authenticated: [, _json, `authenticated`],
+    UnAuthenticated: [, _json, `unAuthenticated`],
+  }) as any;
 };
 
 /**
@@ -3979,11 +3658,11 @@ const de_CreateBackendAuthForgotPasswordConfig = (
   output: any,
   context: __SerdeContext
 ): CreateBackendAuthForgotPasswordConfig => {
-  return {
-    DeliveryMethod: __expectString(output.deliveryMethod),
-    EmailSettings: output.emailSettings != null ? de_EmailSettings(output.emailSettings, context) : undefined,
-    SmsSettings: output.smsSettings != null ? de_SmsSettings(output.smsSettings, context) : undefined,
-  } as any;
+  return take(output, {
+    DeliveryMethod: [, __expectString, `deliveryMethod`],
+    EmailSettings: (_) => [, de_EmailSettings(_, context), `emailSettings`],
+    SmsSettings: (_) => [, de_SmsSettings(_, context), `smsSettings`],
+  }) as any;
 };
 
 /**
@@ -3993,39 +3672,34 @@ const de_CreateBackendAuthIdentityPoolConfig = (
   output: any,
   context: __SerdeContext
 ): CreateBackendAuthIdentityPoolConfig => {
-  return {
-    IdentityPoolName: __expectString(output.identityPoolName),
-    UnauthenticatedLogin: __expectBoolean(output.unauthenticatedLogin),
-  } as any;
+  return take(output, {
+    IdentityPoolName: [, __expectString, `identityPoolName`],
+    UnauthenticatedLogin: [, __expectBoolean, `unauthenticatedLogin`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CreateBackendAuthMFAConfig
  */
 const de_CreateBackendAuthMFAConfig = (output: any, context: __SerdeContext): CreateBackendAuthMFAConfig => {
-  return {
-    MFAMode: __expectString(output.MFAMode),
-    Settings: output.settings != null ? de_Settings(output.settings, context) : undefined,
-  } as any;
+  return take(output, {
+    MFAMode: __expectString,
+    Settings: (_) => [, de_Settings(_, context), `settings`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CreateBackendAuthOAuthConfig
  */
 const de_CreateBackendAuthOAuthConfig = (output: any, context: __SerdeContext): CreateBackendAuthOAuthConfig => {
-  return {
-    DomainPrefix: __expectString(output.domainPrefix),
-    OAuthGrantType: __expectString(output.oAuthGrantType),
-    OAuthScopes: output.oAuthScopes != null ? de_ListOfOAuthScopesElement(output.oAuthScopes, context) : undefined,
-    RedirectSignInURIs:
-      output.redirectSignInURIs != null ? de_ListOf__string(output.redirectSignInURIs, context) : undefined,
-    RedirectSignOutURIs:
-      output.redirectSignOutURIs != null ? de_ListOf__string(output.redirectSignOutURIs, context) : undefined,
-    SocialProviderSettings:
-      output.socialProviderSettings != null
-        ? de_SocialProviderSettings(output.socialProviderSettings, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    DomainPrefix: [, __expectString, `domainPrefix`],
+    OAuthGrantType: [, __expectString, `oAuthGrantType`],
+    OAuthScopes: [, _json, `oAuthScopes`],
+    RedirectSignInURIs: [, _json, `redirectSignInURIs`],
+    RedirectSignOutURIs: [, _json, `redirectSignOutURIs`],
+    SocialProviderSettings: (_) => [, de_SocialProviderSettings(_, context), `socialProviderSettings`],
+  }) as any;
 };
 
 /**
@@ -4035,57 +3709,38 @@ const de_CreateBackendAuthPasswordPolicyConfig = (
   output: any,
   context: __SerdeContext
 ): CreateBackendAuthPasswordPolicyConfig => {
-  return {
-    AdditionalConstraints:
-      output.additionalConstraints != null
-        ? de_ListOfAdditionalConstraintsElement(output.additionalConstraints, context)
-        : undefined,
-    MinimumLength: __limitedParseDouble(output.minimumLength),
-  } as any;
+  return take(output, {
+    AdditionalConstraints: [, _json, `additionalConstraints`],
+    MinimumLength: [, __limitedParseDouble, `minimumLength`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CreateBackendAuthResourceConfig
  */
 const de_CreateBackendAuthResourceConfig = (output: any, context: __SerdeContext): CreateBackendAuthResourceConfig => {
-  return {
-    AuthResources: __expectString(output.authResources),
-    IdentityPoolConfigs:
-      output.identityPoolConfigs != null
-        ? de_CreateBackendAuthIdentityPoolConfig(output.identityPoolConfigs, context)
-        : undefined,
-    Service: __expectString(output.service),
-    UserPoolConfigs:
-      output.userPoolConfigs != null ? de_CreateBackendAuthUserPoolConfig(output.userPoolConfigs, context) : undefined,
-  } as any;
+  return take(output, {
+    AuthResources: [, __expectString, `authResources`],
+    IdentityPoolConfigs: (_) => [, de_CreateBackendAuthIdentityPoolConfig(_, context), `identityPoolConfigs`],
+    Service: [, __expectString, `service`],
+    UserPoolConfigs: (_) => [, de_CreateBackendAuthUserPoolConfig(_, context), `userPoolConfigs`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CreateBackendAuthUserPoolConfig
  */
 const de_CreateBackendAuthUserPoolConfig = (output: any, context: __SerdeContext): CreateBackendAuthUserPoolConfig => {
-  return {
-    ForgotPassword:
-      output.forgotPassword != null
-        ? de_CreateBackendAuthForgotPasswordConfig(output.forgotPassword, context)
-        : undefined,
-    Mfa: output.mfa != null ? de_CreateBackendAuthMFAConfig(output.mfa, context) : undefined,
-    OAuth: output.oAuth != null ? de_CreateBackendAuthOAuthConfig(output.oAuth, context) : undefined,
-    PasswordPolicy:
-      output.passwordPolicy != null
-        ? de_CreateBackendAuthPasswordPolicyConfig(output.passwordPolicy, context)
-        : undefined,
-    RequiredSignUpAttributes:
-      output.requiredSignUpAttributes != null
-        ? de_ListOfRequiredSignUpAttributesElement(output.requiredSignUpAttributes, context)
-        : undefined,
-    SignInMethod: __expectString(output.signInMethod),
-    UserPoolName: __expectString(output.userPoolName),
-    VerificationMessage:
-      output.verificationMessage != null
-        ? de_CreateBackendAuthVerificationMessageConfig(output.verificationMessage, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ForgotPassword: (_) => [, de_CreateBackendAuthForgotPasswordConfig(_, context), `forgotPassword`],
+    Mfa: (_) => [, de_CreateBackendAuthMFAConfig(_, context), `mfa`],
+    OAuth: (_) => [, de_CreateBackendAuthOAuthConfig(_, context), `oAuth`],
+    PasswordPolicy: (_) => [, de_CreateBackendAuthPasswordPolicyConfig(_, context), `passwordPolicy`],
+    RequiredSignUpAttributes: [, _json, `requiredSignUpAttributes`],
+    SignInMethod: [, __expectString, `signInMethod`],
+    UserPoolName: [, __expectString, `userPoolName`],
+    VerificationMessage: (_) => [, de_CreateBackendAuthVerificationMessageConfig(_, context), `verificationMessage`],
+  }) as any;
 };
 
 /**
@@ -4095,82 +3750,40 @@ const de_CreateBackendAuthVerificationMessageConfig = (
   output: any,
   context: __SerdeContext
 ): CreateBackendAuthVerificationMessageConfig => {
-  return {
-    DeliveryMethod: __expectString(output.deliveryMethod),
-    EmailSettings: output.emailSettings != null ? de_EmailSettings(output.emailSettings, context) : undefined,
-    SmsSettings: output.smsSettings != null ? de_SmsSettings(output.smsSettings, context) : undefined,
-  } as any;
+  return take(output, {
+    DeliveryMethod: [, __expectString, `deliveryMethod`],
+    EmailSettings: (_) => [, de_EmailSettings(_, context), `emailSettings`],
+    SmsSettings: (_) => [, de_SmsSettings(_, context), `smsSettings`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EmailSettings
  */
 const de_EmailSettings = (output: any, context: __SerdeContext): EmailSettings => {
-  return {
-    EmailMessage: __expectString(output.emailMessage),
-    EmailSubject: __expectString(output.emailSubject),
-  } as any;
+  return take(output, {
+    EmailMessage: [, __expectString, `emailMessage`],
+    EmailSubject: [, __expectString, `emailSubject`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1GetBackendStorageResourceConfig
  */
 const de_GetBackendStorageResourceConfig = (output: any, context: __SerdeContext): GetBackendStorageResourceConfig => {
-  return {
-    BucketName: __expectString(output.bucketName),
-    Imported: __expectBoolean(output.imported),
-    Permissions: output.permissions != null ? de_BackendStoragePermissions(output.permissions, context) : undefined,
-    ServiceName: __expectString(output.serviceName),
-  } as any;
+  return take(output, {
+    BucketName: [, __expectString, `bucketName`],
+    Imported: [, __expectBoolean, `imported`],
+    Permissions: (_) => [, de_BackendStoragePermissions(_, context), `permissions`],
+    ServiceName: [, __expectString, `serviceName`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ListOf__string
- */
-const de_ListOf__string = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOf__string omitted.
 
-/**
- * deserializeAws_restJson1ListOfAdditionalConstraintsElement
- */
-const de_ListOfAdditionalConstraintsElement = (
-  output: any,
-  context: __SerdeContext
-): (AdditionalConstraintsElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfAdditionalConstraintsElement omitted.
 
-/**
- * deserializeAws_restJson1ListOfAuthenticatedElement
- */
-const de_ListOfAuthenticatedElement = (output: any, context: __SerdeContext): (AuthenticatedElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfAuthenticatedElement omitted.
 
 /**
  * deserializeAws_restJson1ListOfBackendAPIAuthType
@@ -4179,9 +3792,6 @@ const de_ListOfBackendAPIAuthType = (output: any, context: __SerdeContext): Back
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BackendAPIAuthType(entry, context);
     });
   return retVal;
@@ -4194,61 +3804,16 @@ const de_ListOfBackendJobRespObj = (output: any, context: __SerdeContext): Backe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BackendJobRespObj(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfMfaTypesElement
- */
-const de_ListOfMfaTypesElement = (output: any, context: __SerdeContext): (MfaTypesElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfMfaTypesElement omitted.
 
-/**
- * deserializeAws_restJson1ListOfOAuthScopesElement
- */
-const de_ListOfOAuthScopesElement = (output: any, context: __SerdeContext): (OAuthScopesElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfOAuthScopesElement omitted.
 
-/**
- * deserializeAws_restJson1ListOfRequiredSignUpAttributesElement
- */
-const de_ListOfRequiredSignUpAttributesElement = (
-  output: any,
-  context: __SerdeContext
-): (RequiredSignUpAttributesElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfRequiredSignUpAttributesElement omitted.
 
 /**
  * deserializeAws_restJson1ListOfS3BucketInfo
@@ -4257,82 +3822,64 @@ const de_ListOfS3BucketInfo = (output: any, context: __SerdeContext): S3BucketIn
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_S3BucketInfo(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfUnAuthenticatedElement
- */
-const de_ListOfUnAuthenticatedElement = (output: any, context: __SerdeContext): (UnAuthenticatedElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfUnAuthenticatedElement omitted.
 
 /**
  * deserializeAws_restJson1LoginAuthConfigReqObj
  */
 const de_LoginAuthConfigReqObj = (output: any, context: __SerdeContext): LoginAuthConfigReqObj => {
-  return {
-    AwsCognitoIdentityPoolId: __expectString(output.aws_cognito_identity_pool_id),
-    AwsCognitoRegion: __expectString(output.aws_cognito_region),
-    AwsUserPoolsId: __expectString(output.aws_user_pools_id),
-    AwsUserPoolsWebClientId: __expectString(output.aws_user_pools_web_client_id),
-  } as any;
+  return take(output, {
+    AwsCognitoIdentityPoolId: [, __expectString, `aws_cognito_identity_pool_id`],
+    AwsCognitoRegion: [, __expectString, `aws_cognito_region`],
+    AwsUserPoolsId: [, __expectString, `aws_user_pools_id`],
+    AwsUserPoolsWebClientId: [, __expectString, `aws_user_pools_web_client_id`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1S3BucketInfo
  */
 const de_S3BucketInfo = (output: any, context: __SerdeContext): S3BucketInfo => {
-  return {
-    CreationDate: __expectString(output.creationDate),
-    Name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    CreationDate: [, __expectString, `creationDate`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Settings
  */
 const de_Settings = (output: any, context: __SerdeContext): Settings => {
-  return {
-    MfaTypes: output.mfaTypes != null ? de_ListOfMfaTypesElement(output.mfaTypes, context) : undefined,
-    SmsMessage: __expectString(output.smsMessage),
-  } as any;
+  return take(output, {
+    MfaTypes: [, _json, `mfaTypes`],
+    SmsMessage: [, __expectString, `smsMessage`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SmsSettings
  */
 const de_SmsSettings = (output: any, context: __SerdeContext): SmsSettings => {
-  return {
-    SmsMessage: __expectString(output.smsMessage),
-  } as any;
+  return take(output, {
+    SmsMessage: [, __expectString, `smsMessage`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SocialProviderSettings
  */
 const de_SocialProviderSettings = (output: any, context: __SerdeContext): SocialProviderSettings => {
-  return {
-    Facebook: output.Facebook != null ? de_BackendAuthSocialProviderConfig(output.Facebook, context) : undefined,
-    Google: output.Google != null ? de_BackendAuthSocialProviderConfig(output.Google, context) : undefined,
-    LoginWithAmazon:
-      output.LoginWithAmazon != null ? de_BackendAuthSocialProviderConfig(output.LoginWithAmazon, context) : undefined,
-    SignInWithApple:
-      output.SignInWithApple != null ? de_BackendAuthAppleProviderConfig(output.SignInWithApple, context) : undefined,
-  } as any;
+  return take(output, {
+    Facebook: (_: any) => de_BackendAuthSocialProviderConfig(_, context),
+    Google: (_: any) => de_BackendAuthSocialProviderConfig(_, context),
+    LoginWithAmazon: (_: any) => de_BackendAuthSocialProviderConfig(_, context),
+    SignInWithApple: (_: any) => de_BackendAuthAppleProviderConfig(_, context),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

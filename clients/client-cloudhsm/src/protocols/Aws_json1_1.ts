@@ -1,10 +1,9 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectString as __expectString,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -42,48 +41,28 @@ import {
 import { CloudHSMServiceException as __BaseException } from "../models/CloudHSMServiceException";
 import {
   AddTagsToResourceRequest,
-  AddTagsToResourceResponse,
   CloudHsmInternalException,
   CloudHsmServiceException,
   CreateHapgRequest,
-  CreateHapgResponse,
   CreateHsmRequest,
-  CreateHsmResponse,
   CreateLunaClientRequest,
-  CreateLunaClientResponse,
   DeleteHapgRequest,
-  DeleteHapgResponse,
   DeleteHsmRequest,
-  DeleteHsmResponse,
   DeleteLunaClientRequest,
-  DeleteLunaClientResponse,
   DescribeHapgRequest,
-  DescribeHapgResponse,
   DescribeHsmRequest,
-  DescribeHsmResponse,
   DescribeLunaClientRequest,
-  DescribeLunaClientResponse,
   GetConfigRequest,
-  GetConfigResponse,
   InvalidRequestException,
   ListAvailableZonesRequest,
-  ListAvailableZonesResponse,
   ListHapgsRequest,
-  ListHapgsResponse,
   ListHsmsRequest,
-  ListHsmsResponse,
   ListLunaClientsRequest,
-  ListLunaClientsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ModifyHapgRequest,
-  ModifyHapgResponse,
   ModifyHsmRequest,
-  ModifyHsmResponse,
   ModifyLunaClientRequest,
-  ModifyLunaClientResponse,
   RemoveTagsFromResourceRequest,
-  RemoveTagsFromResourceResponse,
   Tag,
 } from "../models/models_0";
 
@@ -96,7 +75,7 @@ export const se_AddTagsToResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddTagsToResource");
   let body: any;
-  body = JSON.stringify(se_AddTagsToResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -109,7 +88,7 @@ export const se_CreateHapgCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHapg");
   let body: any;
-  body = JSON.stringify(se_CreateHapgRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -122,7 +101,7 @@ export const se_CreateHsmCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHsm");
   let body: any;
-  body = JSON.stringify(se_CreateHsmRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -135,7 +114,7 @@ export const se_CreateLunaClientCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLunaClient");
   let body: any;
-  body = JSON.stringify(se_CreateLunaClientRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -148,7 +127,7 @@ export const se_DeleteHapgCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteHapg");
   let body: any;
-  body = JSON.stringify(se_DeleteHapgRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -161,7 +140,7 @@ export const se_DeleteHsmCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteHsm");
   let body: any;
-  body = JSON.stringify(se_DeleteHsmRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -174,7 +153,7 @@ export const se_DeleteLunaClientCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteLunaClient");
   let body: any;
-  body = JSON.stringify(se_DeleteLunaClientRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -187,7 +166,7 @@ export const se_DescribeHapgCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeHapg");
   let body: any;
-  body = JSON.stringify(se_DescribeHapgRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -200,7 +179,7 @@ export const se_DescribeHsmCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeHsm");
   let body: any;
-  body = JSON.stringify(se_DescribeHsmRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -213,7 +192,7 @@ export const se_DescribeLunaClientCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLunaClient");
   let body: any;
-  body = JSON.stringify(se_DescribeLunaClientRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -226,7 +205,7 @@ export const se_GetConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetConfig");
   let body: any;
-  body = JSON.stringify(se_GetConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -239,7 +218,7 @@ export const se_ListAvailableZonesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAvailableZones");
   let body: any;
-  body = JSON.stringify(se_ListAvailableZonesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -252,7 +231,7 @@ export const se_ListHapgsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHapgs");
   let body: any;
-  body = JSON.stringify(se_ListHapgsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -265,7 +244,7 @@ export const se_ListHsmsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHsms");
   let body: any;
-  body = JSON.stringify(se_ListHsmsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -278,7 +257,7 @@ export const se_ListLunaClientsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLunaClients");
   let body: any;
-  body = JSON.stringify(se_ListLunaClientsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -291,7 +270,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -304,7 +283,7 @@ export const se_ModifyHapgCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyHapg");
   let body: any;
-  body = JSON.stringify(se_ModifyHapgRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -317,7 +296,7 @@ export const se_ModifyHsmCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyHsm");
   let body: any;
-  body = JSON.stringify(se_ModifyHsmRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -330,7 +309,7 @@ export const se_ModifyLunaClientCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyLunaClient");
   let body: any;
-  body = JSON.stringify(se_ModifyLunaClientRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -343,7 +322,7 @@ export const se_RemoveTagsFromResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveTagsFromResource");
   let body: any;
-  body = JSON.stringify(se_RemoveTagsFromResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -359,12 +338,12 @@ export const de_AddTagsToResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddTagsToResourceResponse(data, context);
+  contents = _json(data);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -391,10 +370,9 @@ const de_AddTagsToResourceCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -412,12 +390,12 @@ export const de_CreateHapgCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateHapgResponse(data, context);
+  contents = _json(data);
   const response: CreateHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -444,10 +422,9 @@ const de_CreateHapgCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -465,12 +442,12 @@ export const de_CreateHsmCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateHsmResponse(data, context);
+  contents = _json(data);
   const response: CreateHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -497,10 +474,9 @@ const de_CreateHsmCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -518,12 +494,12 @@ export const de_CreateLunaClientCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateLunaClientResponse(data, context);
+  contents = _json(data);
   const response: CreateLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -550,10 +526,9 @@ const de_CreateLunaClientCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -571,12 +546,12 @@ export const de_DeleteHapgCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteHapgResponse(data, context);
+  contents = _json(data);
   const response: DeleteHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -603,10 +578,9 @@ const de_DeleteHapgCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -624,12 +598,12 @@ export const de_DeleteHsmCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteHsmResponse(data, context);
+  contents = _json(data);
   const response: DeleteHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -656,10 +630,9 @@ const de_DeleteHsmCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -677,12 +650,12 @@ export const de_DeleteLunaClientCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteLunaClientResponse(data, context);
+  contents = _json(data);
   const response: DeleteLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -709,10 +682,9 @@ const de_DeleteLunaClientCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -730,12 +702,12 @@ export const de_DescribeHapgCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeHapgResponse(data, context);
+  contents = _json(data);
   const response: DescribeHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -762,10 +734,9 @@ const de_DescribeHapgCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -783,12 +754,12 @@ export const de_DescribeHsmCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeHsmResponse(data, context);
+  contents = _json(data);
   const response: DescribeHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -815,10 +786,9 @@ const de_DescribeHsmCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -836,12 +806,12 @@ export const de_DescribeLunaClientCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeLunaClientResponse(data, context);
+  contents = _json(data);
   const response: DescribeLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -868,10 +838,9 @@ const de_DescribeLunaClientCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -889,12 +858,12 @@ export const de_GetConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetConfigResponse(data, context);
+  contents = _json(data);
   const response: GetConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -921,10 +890,9 @@ const de_GetConfigCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -942,12 +910,12 @@ export const de_ListAvailableZonesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAvailableZonesResponse(data, context);
+  contents = _json(data);
   const response: ListAvailableZonesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -974,10 +942,9 @@ const de_ListAvailableZonesCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -995,12 +962,12 @@ export const de_ListHapgsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListHapgsResponse(data, context);
+  contents = _json(data);
   const response: ListHapgsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1027,10 +994,9 @@ const de_ListHapgsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1048,12 +1014,12 @@ export const de_ListHsmsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListHsmsResponse(data, context);
+  contents = _json(data);
   const response: ListHsmsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1080,10 +1046,9 @@ const de_ListHsmsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1101,12 +1066,12 @@ export const de_ListLunaClientsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLunaClientsResponse(data, context);
+  contents = _json(data);
   const response: ListLunaClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1133,10 +1098,9 @@ const de_ListLunaClientsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1154,12 +1118,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1186,10 +1150,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1207,12 +1170,12 @@ export const de_ModifyHapgCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ModifyHapgResponse(data, context);
+  contents = _json(data);
   const response: ModifyHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1239,10 +1202,9 @@ const de_ModifyHapgCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1260,12 +1222,12 @@ export const de_ModifyHsmCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ModifyHsmResponse(data, context);
+  contents = _json(data);
   const response: ModifyHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1292,10 +1254,9 @@ const de_ModifyHsmCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1313,12 +1274,12 @@ export const de_ModifyLunaClientCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ModifyLunaClientResponse(data, context);
+  contents = _json(data);
   const response: ModifyLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1339,10 +1300,9 @@ const de_ModifyLunaClientCommandError = async (
       throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1360,12 +1320,12 @@ export const de_RemoveTagsFromResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RemoveTagsFromResourceResponse(data, context);
+  contents = _json(data);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1392,10 +1352,9 @@ const de_RemoveTagsFromResourceCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1409,7 +1368,7 @@ const de_CloudHsmInternalExceptionRes = async (
   context: __SerdeContext
 ): Promise<CloudHsmInternalException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CloudHsmInternalException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CloudHsmInternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1425,7 +1384,7 @@ const de_CloudHsmServiceExceptionRes = async (
   context: __SerdeContext
 ): Promise<CloudHsmServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CloudHsmServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CloudHsmServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1441,7 +1400,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1449,627 +1408,117 @@ const de_InvalidRequestExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AddTagsToResourceRequest
- */
-const se_AddTagsToResourceRequest = (input: AddTagsToResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagList != null && { TagList: se_TagList(input.TagList, context) }),
-  };
-};
+// se_AddTagsToResourceRequest omitted.
 
-/**
- * serializeAws_json1_1CreateHapgRequest
- */
-const se_CreateHapgRequest = (input: CreateHapgRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Label != null && { Label: input.Label }),
-  };
-};
+// se_CreateHapgRequest omitted.
 
-/**
- * serializeAws_json1_1CreateHsmRequest
- */
-const se_CreateHsmRequest = (input: CreateHsmRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.EniIp != null && { EniIp: input.EniIp }),
-    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.SshKey != null && { SshKey: input.SshKey }),
-    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
-    ...(input.SubscriptionType != null && { SubscriptionType: input.SubscriptionType }),
-    ...(input.SyslogIp != null && { SyslogIp: input.SyslogIp }),
-  };
-};
+// se_CreateHsmRequest omitted.
 
-/**
- * serializeAws_json1_1CreateLunaClientRequest
- */
-const se_CreateLunaClientRequest = (input: CreateLunaClientRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.Label != null && { Label: input.Label }),
-  };
-};
+// se_CreateLunaClientRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteHapgRequest
- */
-const se_DeleteHapgRequest = (input: DeleteHapgRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HapgArn != null && { HapgArn: input.HapgArn }),
-  };
-};
+// se_DeleteHapgRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteHsmRequest
- */
-const se_DeleteHsmRequest = (input: DeleteHsmRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HsmArn != null && { HsmArn: input.HsmArn }),
-  };
-};
+// se_DeleteHsmRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteLunaClientRequest
- */
-const se_DeleteLunaClientRequest = (input: DeleteLunaClientRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientArn != null && { ClientArn: input.ClientArn }),
-  };
-};
+// se_DeleteLunaClientRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeHapgRequest
- */
-const se_DescribeHapgRequest = (input: DescribeHapgRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HapgArn != null && { HapgArn: input.HapgArn }),
-  };
-};
+// se_DescribeHapgRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeHsmRequest
- */
-const se_DescribeHsmRequest = (input: DescribeHsmRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HsmArn != null && { HsmArn: input.HsmArn }),
-    ...(input.HsmSerialNumber != null && { HsmSerialNumber: input.HsmSerialNumber }),
-  };
-};
+// se_DescribeHsmRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeLunaClientRequest
- */
-const se_DescribeLunaClientRequest = (input: DescribeLunaClientRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateFingerprint != null && { CertificateFingerprint: input.CertificateFingerprint }),
-    ...(input.ClientArn != null && { ClientArn: input.ClientArn }),
-  };
-};
+// se_DescribeLunaClientRequest omitted.
 
-/**
- * serializeAws_json1_1GetConfigRequest
- */
-const se_GetConfigRequest = (input: GetConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientArn != null && { ClientArn: input.ClientArn }),
-    ...(input.ClientVersion != null && { ClientVersion: input.ClientVersion }),
-    ...(input.HapgList != null && { HapgList: se_HapgList(input.HapgList, context) }),
-  };
-};
+// se_GetConfigRequest omitted.
 
-/**
- * serializeAws_json1_1HapgList
- */
-const se_HapgList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_HapgList omitted.
 
-/**
- * serializeAws_json1_1ListAvailableZonesRequest
- */
-const se_ListAvailableZonesRequest = (input: ListAvailableZonesRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_ListAvailableZonesRequest omitted.
 
-/**
- * serializeAws_json1_1ListHapgsRequest
- */
-const se_ListHapgsRequest = (input: ListHapgsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListHapgsRequest omitted.
 
-/**
- * serializeAws_json1_1ListHsmsRequest
- */
-const se_ListHsmsRequest = (input: ListHsmsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListHsmsRequest omitted.
 
-/**
- * serializeAws_json1_1ListLunaClientsRequest
- */
-const se_ListLunaClientsRequest = (input: ListLunaClientsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListLunaClientsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1ModifyHapgRequest
- */
-const se_ModifyHapgRequest = (input: ModifyHapgRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HapgArn != null && { HapgArn: input.HapgArn }),
-    ...(input.Label != null && { Label: input.Label }),
-    ...(input.PartitionSerialList != null && {
-      PartitionSerialList: se_PartitionSerialList(input.PartitionSerialList, context),
-    }),
-  };
-};
+// se_ModifyHapgRequest omitted.
 
-/**
- * serializeAws_json1_1ModifyHsmRequest
- */
-const se_ModifyHsmRequest = (input: ModifyHsmRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EniIp != null && { EniIp: input.EniIp }),
-    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
-    ...(input.HsmArn != null && { HsmArn: input.HsmArn }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
-    ...(input.SyslogIp != null && { SyslogIp: input.SyslogIp }),
-  };
-};
+// se_ModifyHsmRequest omitted.
 
-/**
- * serializeAws_json1_1ModifyLunaClientRequest
- */
-const se_ModifyLunaClientRequest = (input: ModifyLunaClientRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.ClientArn != null && { ClientArn: input.ClientArn }),
-  };
-};
+// se_ModifyLunaClientRequest omitted.
 
-/**
- * serializeAws_json1_1PartitionSerialList
- */
-const se_PartitionSerialList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PartitionSerialList omitted.
 
-/**
- * serializeAws_json1_1RemoveTagsFromResourceRequest
- */
-const se_RemoveTagsFromResourceRequest = (input: RemoveTagsFromResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeyList != null && { TagKeyList: se_TagKeyList(input.TagKeyList, context) }),
-  };
-};
+// se_RemoveTagsFromResourceRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * deserializeAws_json1_1AddTagsToResourceResponse
- */
-const de_AddTagsToResourceResponse = (output: any, context: __SerdeContext): AddTagsToResourceResponse => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_AddTagsToResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1AZList
- */
-const de_AZList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AZList omitted.
 
-/**
- * deserializeAws_json1_1ClientList
- */
-const de_ClientList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ClientList omitted.
 
-/**
- * deserializeAws_json1_1CloudHsmInternalException
- */
-const de_CloudHsmInternalException = (output: any, context: __SerdeContext): CloudHsmInternalException => {
-  return {
-    message: __expectString(output.message),
-    retryable: __expectBoolean(output.retryable),
-  } as any;
-};
+// de_CloudHsmInternalException omitted.
 
-/**
- * deserializeAws_json1_1CloudHsmServiceException
- */
-const de_CloudHsmServiceException = (output: any, context: __SerdeContext): CloudHsmServiceException => {
-  return {
-    message: __expectString(output.message),
-    retryable: __expectBoolean(output.retryable),
-  } as any;
-};
+// de_CloudHsmServiceException omitted.
 
-/**
- * deserializeAws_json1_1CreateHapgResponse
- */
-const de_CreateHapgResponse = (output: any, context: __SerdeContext): CreateHapgResponse => {
-  return {
-    HapgArn: __expectString(output.HapgArn),
-  } as any;
-};
+// de_CreateHapgResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateHsmResponse
- */
-const de_CreateHsmResponse = (output: any, context: __SerdeContext): CreateHsmResponse => {
-  return {
-    HsmArn: __expectString(output.HsmArn),
-  } as any;
-};
+// de_CreateHsmResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateLunaClientResponse
- */
-const de_CreateLunaClientResponse = (output: any, context: __SerdeContext): CreateLunaClientResponse => {
-  return {
-    ClientArn: __expectString(output.ClientArn),
-  } as any;
-};
+// de_CreateLunaClientResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteHapgResponse
- */
-const de_DeleteHapgResponse = (output: any, context: __SerdeContext): DeleteHapgResponse => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DeleteHapgResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteHsmResponse
- */
-const de_DeleteHsmResponse = (output: any, context: __SerdeContext): DeleteHsmResponse => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DeleteHsmResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteLunaClientResponse
- */
-const de_DeleteLunaClientResponse = (output: any, context: __SerdeContext): DeleteLunaClientResponse => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DeleteLunaClientResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeHapgResponse
- */
-const de_DescribeHapgResponse = (output: any, context: __SerdeContext): DescribeHapgResponse => {
-  return {
-    HapgArn: __expectString(output.HapgArn),
-    HapgSerial: __expectString(output.HapgSerial),
-    HsmsLastActionFailed:
-      output.HsmsLastActionFailed != null ? de_HsmList(output.HsmsLastActionFailed, context) : undefined,
-    HsmsPendingDeletion:
-      output.HsmsPendingDeletion != null ? de_HsmList(output.HsmsPendingDeletion, context) : undefined,
-    HsmsPendingRegistration:
-      output.HsmsPendingRegistration != null ? de_HsmList(output.HsmsPendingRegistration, context) : undefined,
-    Label: __expectString(output.Label),
-    LastModifiedTimestamp: __expectString(output.LastModifiedTimestamp),
-    PartitionSerialList:
-      output.PartitionSerialList != null ? de_PartitionSerialList(output.PartitionSerialList, context) : undefined,
-    State: __expectString(output.State),
-  } as any;
-};
+// de_DescribeHapgResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeHsmResponse
- */
-const de_DescribeHsmResponse = (output: any, context: __SerdeContext): DescribeHsmResponse => {
-  return {
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    EniId: __expectString(output.EniId),
-    EniIp: __expectString(output.EniIp),
-    HsmArn: __expectString(output.HsmArn),
-    HsmType: __expectString(output.HsmType),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    Partitions: output.Partitions != null ? de_PartitionList(output.Partitions, context) : undefined,
-    SerialNumber: __expectString(output.SerialNumber),
-    ServerCertLastUpdated: __expectString(output.ServerCertLastUpdated),
-    ServerCertUri: __expectString(output.ServerCertUri),
-    SoftwareVersion: __expectString(output.SoftwareVersion),
-    SshKeyLastUpdated: __expectString(output.SshKeyLastUpdated),
-    SshPublicKey: __expectString(output.SshPublicKey),
-    Status: __expectString(output.Status),
-    StatusDetails: __expectString(output.StatusDetails),
-    SubnetId: __expectString(output.SubnetId),
-    SubscriptionEndDate: __expectString(output.SubscriptionEndDate),
-    SubscriptionStartDate: __expectString(output.SubscriptionStartDate),
-    SubscriptionType: __expectString(output.SubscriptionType),
-    VendorName: __expectString(output.VendorName),
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_DescribeHsmResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeLunaClientResponse
- */
-const de_DescribeLunaClientResponse = (output: any, context: __SerdeContext): DescribeLunaClientResponse => {
-  return {
-    Certificate: __expectString(output.Certificate),
-    CertificateFingerprint: __expectString(output.CertificateFingerprint),
-    ClientArn: __expectString(output.ClientArn),
-    Label: __expectString(output.Label),
-    LastModifiedTimestamp: __expectString(output.LastModifiedTimestamp),
-  } as any;
-};
+// de_DescribeLunaClientResponse omitted.
 
-/**
- * deserializeAws_json1_1GetConfigResponse
- */
-const de_GetConfigResponse = (output: any, context: __SerdeContext): GetConfigResponse => {
-  return {
-    ConfigCred: __expectString(output.ConfigCred),
-    ConfigFile: __expectString(output.ConfigFile),
-    ConfigType: __expectString(output.ConfigType),
-  } as any;
-};
+// de_GetConfigResponse omitted.
 
-/**
- * deserializeAws_json1_1HapgList
- */
-const de_HapgList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HapgList omitted.
 
-/**
- * deserializeAws_json1_1HsmList
- */
-const de_HsmList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HsmList omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    message: __expectString(output.message),
-    retryable: __expectBoolean(output.retryable),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
-/**
- * deserializeAws_json1_1ListAvailableZonesResponse
- */
-const de_ListAvailableZonesResponse = (output: any, context: __SerdeContext): ListAvailableZonesResponse => {
-  return {
-    AZList: output.AZList != null ? de_AZList(output.AZList, context) : undefined,
-  } as any;
-};
+// de_ListAvailableZonesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListHapgsResponse
- */
-const de_ListHapgsResponse = (output: any, context: __SerdeContext): ListHapgsResponse => {
-  return {
-    HapgList: output.HapgList != null ? de_HapgList(output.HapgList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListHapgsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListHsmsResponse
- */
-const de_ListHsmsResponse = (output: any, context: __SerdeContext): ListHsmsResponse => {
-  return {
-    HsmList: output.HsmList != null ? de_HsmList(output.HsmList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListHsmsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListLunaClientsResponse
- */
-const de_ListLunaClientsResponse = (output: any, context: __SerdeContext): ListLunaClientsResponse => {
-  return {
-    ClientList: output.ClientList != null ? de_ClientList(output.ClientList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListLunaClientsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    TagList: output.TagList != null ? de_TagList(output.TagList, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1ModifyHapgResponse
- */
-const de_ModifyHapgResponse = (output: any, context: __SerdeContext): ModifyHapgResponse => {
-  return {
-    HapgArn: __expectString(output.HapgArn),
-  } as any;
-};
+// de_ModifyHapgResponse omitted.
 
-/**
- * deserializeAws_json1_1ModifyHsmResponse
- */
-const de_ModifyHsmResponse = (output: any, context: __SerdeContext): ModifyHsmResponse => {
-  return {
-    HsmArn: __expectString(output.HsmArn),
-  } as any;
-};
+// de_ModifyHsmResponse omitted.
 
-/**
- * deserializeAws_json1_1ModifyLunaClientResponse
- */
-const de_ModifyLunaClientResponse = (output: any, context: __SerdeContext): ModifyLunaClientResponse => {
-  return {
-    ClientArn: __expectString(output.ClientArn),
-  } as any;
-};
+// de_ModifyLunaClientResponse omitted.
 
-/**
- * deserializeAws_json1_1PartitionList
- */
-const de_PartitionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PartitionList omitted.
 
-/**
- * deserializeAws_json1_1PartitionSerialList
- */
-const de_PartitionSerialList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PartitionSerialList omitted.
 
-/**
- * deserializeAws_json1_1RemoveTagsFromResourceResponse
- */
-const de_RemoveTagsFromResourceResponse = (output: any, context: __SerdeContext): RemoveTagsFromResourceResponse => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_RemoveTagsFromResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2091,6 +1540,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

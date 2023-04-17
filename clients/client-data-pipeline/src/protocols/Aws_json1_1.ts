@@ -1,10 +1,10 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectString as __expectString,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -47,61 +47,39 @@ import {
 import { DataPipelineServiceException as __BaseException } from "../models/DataPipelineServiceException";
 import {
   ActivatePipelineInput,
-  ActivatePipelineOutput,
   AddTagsInput,
-  AddTagsOutput,
   CreatePipelineInput,
-  CreatePipelineOutput,
   DeactivatePipelineInput,
-  DeactivatePipelineOutput,
   DeletePipelineInput,
   DescribeObjectsInput,
-  DescribeObjectsOutput,
   DescribePipelinesInput,
-  DescribePipelinesOutput,
   EvaluateExpressionInput,
-  EvaluateExpressionOutput,
   Field,
   GetPipelineDefinitionInput,
-  GetPipelineDefinitionOutput,
   InstanceIdentity,
   InternalServiceError,
   InvalidRequestException,
   ListPipelinesInput,
-  ListPipelinesOutput,
   Operator,
   ParameterAttribute,
   ParameterObject,
   ParameterValue,
   PipelineDeletedException,
-  PipelineDescription,
-  PipelineIdName,
   PipelineNotFoundException,
   PipelineObject,
   PollForTaskInput,
-  PollForTaskOutput,
   PutPipelineDefinitionInput,
-  PutPipelineDefinitionOutput,
   Query,
   QueryObjectsInput,
-  QueryObjectsOutput,
   RemoveTagsInput,
-  RemoveTagsOutput,
   ReportTaskProgressInput,
-  ReportTaskProgressOutput,
   ReportTaskRunnerHeartbeatInput,
-  ReportTaskRunnerHeartbeatOutput,
   Selector,
   SetStatusInput,
   SetTaskStatusInput,
-  SetTaskStatusOutput,
   Tag,
   TaskNotFoundException,
-  TaskObject,
   ValidatePipelineDefinitionInput,
-  ValidatePipelineDefinitionOutput,
-  ValidationError,
-  ValidationWarning,
 } from "../models/models_0";
 
 /**
@@ -126,7 +104,7 @@ export const se_AddTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddTags");
   let body: any;
-  body = JSON.stringify(se_AddTagsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -139,7 +117,7 @@ export const se_CreatePipelineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePipeline");
   let body: any;
-  body = JSON.stringify(se_CreatePipelineInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -152,7 +130,7 @@ export const se_DeactivatePipelineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeactivatePipeline");
   let body: any;
-  body = JSON.stringify(se_DeactivatePipelineInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -165,7 +143,7 @@ export const se_DeletePipelineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePipeline");
   let body: any;
-  body = JSON.stringify(se_DeletePipelineInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -178,7 +156,7 @@ export const se_DescribeObjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeObjects");
   let body: any;
-  body = JSON.stringify(se_DescribeObjectsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -191,7 +169,7 @@ export const se_DescribePipelinesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePipelines");
   let body: any;
-  body = JSON.stringify(se_DescribePipelinesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -204,7 +182,7 @@ export const se_EvaluateExpressionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EvaluateExpression");
   let body: any;
-  body = JSON.stringify(se_EvaluateExpressionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -217,7 +195,7 @@ export const se_GetPipelineDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPipelineDefinition");
   let body: any;
-  body = JSON.stringify(se_GetPipelineDefinitionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -230,7 +208,7 @@ export const se_ListPipelinesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPipelines");
   let body: any;
-  body = JSON.stringify(se_ListPipelinesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -243,7 +221,7 @@ export const se_PollForTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PollForTask");
   let body: any;
-  body = JSON.stringify(se_PollForTaskInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -256,7 +234,7 @@ export const se_PutPipelineDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutPipelineDefinition");
   let body: any;
-  body = JSON.stringify(se_PutPipelineDefinitionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -269,7 +247,7 @@ export const se_QueryObjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("QueryObjects");
   let body: any;
-  body = JSON.stringify(se_QueryObjectsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -282,7 +260,7 @@ export const se_RemoveTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveTags");
   let body: any;
-  body = JSON.stringify(se_RemoveTagsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -295,7 +273,7 @@ export const se_ReportTaskProgressCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ReportTaskProgress");
   let body: any;
-  body = JSON.stringify(se_ReportTaskProgressInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -308,7 +286,7 @@ export const se_ReportTaskRunnerHeartbeatCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ReportTaskRunnerHeartbeat");
   let body: any;
-  body = JSON.stringify(se_ReportTaskRunnerHeartbeatInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -321,7 +299,7 @@ export const se_SetStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetStatus");
   let body: any;
-  body = JSON.stringify(se_SetStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -334,7 +312,7 @@ export const se_SetTaskStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetTaskStatus");
   let body: any;
-  body = JSON.stringify(se_SetTaskStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -347,7 +325,7 @@ export const se_ValidatePipelineDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ValidatePipelineDefinition");
   let body: any;
-  body = JSON.stringify(se_ValidatePipelineDefinitionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -363,12 +341,12 @@ export const de_ActivatePipelineCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ActivatePipelineOutput(data, context);
+  contents = _json(data);
   const response: ActivatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -398,10 +376,9 @@ const de_ActivatePipelineCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -419,12 +396,12 @@ export const de_AddTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddTagsOutput(data, context);
+  contents = _json(data);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -454,10 +431,9 @@ const de_AddTagsCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -475,12 +451,12 @@ export const de_CreatePipelineCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreatePipelineOutput(data, context);
+  contents = _json(data);
   const response: CreatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -504,10 +480,9 @@ const de_CreatePipelineCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -525,12 +500,12 @@ export const de_DeactivatePipelineCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeactivatePipelineOutput(data, context);
+  contents = _json(data);
   const response: DeactivatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -560,10 +535,9 @@ const de_DeactivatePipelineCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -583,7 +557,7 @@ export const de_DeletePipelineCommand = async (
   const response: DeletePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -610,10 +584,9 @@ const de_DeletePipelineCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -631,12 +604,12 @@ export const de_DescribeObjectsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeObjectsOutput(data, context);
+  contents = _json(data);
   const response: DescribeObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -666,10 +639,9 @@ const de_DescribeObjectsCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -687,12 +659,12 @@ export const de_DescribePipelinesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribePipelinesOutput(data, context);
+  contents = _json(data);
   const response: DescribePipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -722,10 +694,9 @@ const de_DescribePipelinesCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -743,12 +714,12 @@ export const de_EvaluateExpressionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EvaluateExpressionOutput(data, context);
+  contents = _json(data);
   const response: EvaluateExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -781,10 +752,9 @@ const de_EvaluateExpressionCommandError = async (
       throw await de_TaskNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -802,12 +772,12 @@ export const de_GetPipelineDefinitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetPipelineDefinitionOutput(data, context);
+  contents = _json(data);
   const response: GetPipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -837,10 +807,9 @@ const de_GetPipelineDefinitionCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -858,12 +827,12 @@ export const de_ListPipelinesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPipelinesOutput(data, context);
+  contents = _json(data);
   const response: ListPipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -887,10 +856,9 @@ const de_ListPipelinesCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -908,12 +876,12 @@ export const de_PollForTaskCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PollForTaskOutput(data, context);
+  contents = _json(data);
   const response: PollForTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -940,10 +908,9 @@ const de_PollForTaskCommandError = async (
       throw await de_TaskNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -961,12 +928,12 @@ export const de_PutPipelineDefinitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutPipelineDefinitionOutput(data, context);
+  contents = _json(data);
   const response: PutPipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -996,10 +963,9 @@ const de_PutPipelineDefinitionCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1017,12 +983,12 @@ export const de_QueryObjectsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_QueryObjectsOutput(data, context);
+  contents = _json(data);
   const response: QueryObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1052,10 +1018,9 @@ const de_QueryObjectsCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1073,12 +1038,12 @@ export const de_RemoveTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RemoveTagsOutput(data, context);
+  contents = _json(data);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1108,10 +1073,9 @@ const de_RemoveTagsCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1129,12 +1093,12 @@ export const de_ReportTaskProgressCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ReportTaskProgressOutput(data, context);
+  contents = _json(data);
   const response: ReportTaskProgressCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1167,10 +1131,9 @@ const de_ReportTaskProgressCommandError = async (
       throw await de_TaskNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1188,12 +1151,12 @@ export const de_ReportTaskRunnerHeartbeatCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ReportTaskRunnerHeartbeatOutput(data, context);
+  contents = _json(data);
   const response: ReportTaskRunnerHeartbeatCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1217,10 +1180,9 @@ const de_ReportTaskRunnerHeartbeatCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1240,7 +1202,7 @@ export const de_SetStatusCommand = async (
   const response: SetStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1270,10 +1232,9 @@ const de_SetStatusCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1291,12 +1252,12 @@ export const de_SetTaskStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetTaskStatusOutput(data, context);
+  contents = _json(data);
   const response: SetTaskStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1329,10 +1290,9 @@ const de_SetTaskStatusCommandError = async (
       throw await de_TaskNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1350,12 +1310,12 @@ export const de_ValidatePipelineDefinitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ValidatePipelineDefinitionOutput(data, context);
+  contents = _json(data);
   const response: ValidatePipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1385,10 +1345,9 @@ const de_ValidatePipelineDefinitionCommandError = async (
       throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1402,7 +1361,7 @@ const de_InternalServiceErrorRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServiceError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServiceError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1418,7 +1377,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1434,7 +1393,7 @@ const de_PipelineDeletedExceptionRes = async (
   context: __SerdeContext
 ): Promise<PipelineDeletedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PipelineDeletedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PipelineDeletedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1450,7 +1409,7 @@ const de_PipelineNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<PipelineNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PipelineNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PipelineNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1466,7 +1425,7 @@ const de_TaskNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<TaskNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TaskNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TaskNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1478,935 +1437,178 @@ const de_TaskNotFoundExceptionRes = async (
  * serializeAws_json1_1ActivatePipelineInput
  */
 const se_ActivatePipelineInput = (input: ActivatePipelineInput, context: __SerdeContext): any => {
-  return {
-    ...(input.parameterValues != null && { parameterValues: se_ParameterValueList(input.parameterValues, context) }),
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-    ...(input.startTimestamp != null && { startTimestamp: Math.round(input.startTimestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    parameterValues: _json,
+    pipelineId: [],
+    startTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1AddTagsInput
- */
-const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-    ...(input.tags != null && { tags: se_tagList(input.tags, context) }),
-  };
-};
+// se_AddTagsInput omitted.
 
-/**
- * serializeAws_json1_1CreatePipelineInput
- */
-const se_CreatePipelineInput = (input: CreatePipelineInput, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_tagList(input.tags, context) }),
-    ...(input.uniqueId != null && { uniqueId: input.uniqueId }),
-  };
-};
+// se_CreatePipelineInput omitted.
 
-/**
- * serializeAws_json1_1DeactivatePipelineInput
- */
-const se_DeactivatePipelineInput = (input: DeactivatePipelineInput, context: __SerdeContext): any => {
-  return {
-    ...(input.cancelActive != null && { cancelActive: input.cancelActive }),
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-  };
-};
+// se_DeactivatePipelineInput omitted.
 
-/**
- * serializeAws_json1_1DeletePipelineInput
- */
-const se_DeletePipelineInput = (input: DeletePipelineInput, context: __SerdeContext): any => {
-  return {
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-  };
-};
+// se_DeletePipelineInput omitted.
 
-/**
- * serializeAws_json1_1DescribeObjectsInput
- */
-const se_DescribeObjectsInput = (input: DescribeObjectsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.evaluateExpressions != null && { evaluateExpressions: input.evaluateExpressions }),
-    ...(input.marker != null && { marker: input.marker }),
-    ...(input.objectIds != null && { objectIds: se_idList(input.objectIds, context) }),
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-  };
-};
+// se_DescribeObjectsInput omitted.
 
-/**
- * serializeAws_json1_1DescribePipelinesInput
- */
-const se_DescribePipelinesInput = (input: DescribePipelinesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.pipelineIds != null && { pipelineIds: se_idList(input.pipelineIds, context) }),
-  };
-};
+// se_DescribePipelinesInput omitted.
 
-/**
- * serializeAws_json1_1EvaluateExpressionInput
- */
-const se_EvaluateExpressionInput = (input: EvaluateExpressionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.expression != null && { expression: input.expression }),
-    ...(input.objectId != null && { objectId: input.objectId }),
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-  };
-};
+// se_EvaluateExpressionInput omitted.
 
-/**
- * serializeAws_json1_1Field
- */
-const se_Field = (input: Field, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.refValue != null && { refValue: input.refValue }),
-    ...(input.stringValue != null && { stringValue: input.stringValue }),
-  };
-};
+// se_Field omitted.
 
-/**
- * serializeAws_json1_1fieldList
- */
-const se_fieldList = (input: Field[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Field(entry, context);
-    });
-};
+// se_fieldList omitted.
 
-/**
- * serializeAws_json1_1GetPipelineDefinitionInput
- */
-const se_GetPipelineDefinitionInput = (input: GetPipelineDefinitionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_GetPipelineDefinitionInput omitted.
 
-/**
- * serializeAws_json1_1idList
- */
-const se_idList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_idList omitted.
 
-/**
- * serializeAws_json1_1InstanceIdentity
- */
-const se_InstanceIdentity = (input: InstanceIdentity, context: __SerdeContext): any => {
-  return {
-    ...(input.document != null && { document: input.document }),
-    ...(input.signature != null && { signature: input.signature }),
-  };
-};
+// se_InstanceIdentity omitted.
 
-/**
- * serializeAws_json1_1ListPipelinesInput
- */
-const se_ListPipelinesInput = (input: ListPipelinesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.marker != null && { marker: input.marker }),
-  };
-};
+// se_ListPipelinesInput omitted.
 
-/**
- * serializeAws_json1_1Operator
- */
-const se_Operator = (input: Operator, context: __SerdeContext): any => {
-  return {
-    ...(input.type != null && { type: input.type }),
-    ...(input.values != null && { values: se_stringList(input.values, context) }),
-  };
-};
+// se_Operator omitted.
 
-/**
- * serializeAws_json1_1ParameterAttribute
- */
-const se_ParameterAttribute = (input: ParameterAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.stringValue != null && { stringValue: input.stringValue }),
-  };
-};
+// se_ParameterAttribute omitted.
 
-/**
- * serializeAws_json1_1ParameterAttributeList
- */
-const se_ParameterAttributeList = (input: ParameterAttribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ParameterAttribute(entry, context);
-    });
-};
+// se_ParameterAttributeList omitted.
 
-/**
- * serializeAws_json1_1ParameterObject
- */
-const se_ParameterObject = (input: ParameterObject, context: __SerdeContext): any => {
-  return {
-    ...(input.attributes != null && { attributes: se_ParameterAttributeList(input.attributes, context) }),
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_ParameterObject omitted.
 
-/**
- * serializeAws_json1_1ParameterObjectList
- */
-const se_ParameterObjectList = (input: ParameterObject[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ParameterObject(entry, context);
-    });
-};
+// se_ParameterObjectList omitted.
 
-/**
- * serializeAws_json1_1ParameterValue
- */
-const se_ParameterValue = (input: ParameterValue, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.stringValue != null && { stringValue: input.stringValue }),
-  };
-};
+// se_ParameterValue omitted.
 
-/**
- * serializeAws_json1_1ParameterValueList
- */
-const se_ParameterValueList = (input: ParameterValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ParameterValue(entry, context);
-    });
-};
+// se_ParameterValueList omitted.
 
-/**
- * serializeAws_json1_1PipelineObject
- */
-const se_PipelineObject = (input: PipelineObject, context: __SerdeContext): any => {
-  return {
-    ...(input.fields != null && { fields: se_fieldList(input.fields, context) }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_PipelineObject omitted.
 
-/**
- * serializeAws_json1_1PipelineObjectList
- */
-const se_PipelineObjectList = (input: PipelineObject[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PipelineObject(entry, context);
-    });
-};
+// se_PipelineObjectList omitted.
 
-/**
- * serializeAws_json1_1PollForTaskInput
- */
-const se_PollForTaskInput = (input: PollForTaskInput, context: __SerdeContext): any => {
-  return {
-    ...(input.hostname != null && { hostname: input.hostname }),
-    ...(input.instanceIdentity != null && { instanceIdentity: se_InstanceIdentity(input.instanceIdentity, context) }),
-    ...(input.workerGroup != null && { workerGroup: input.workerGroup }),
-  };
-};
+// se_PollForTaskInput omitted.
 
-/**
- * serializeAws_json1_1PutPipelineDefinitionInput
- */
-const se_PutPipelineDefinitionInput = (input: PutPipelineDefinitionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.parameterObjects != null && {
-      parameterObjects: se_ParameterObjectList(input.parameterObjects, context),
-    }),
-    ...(input.parameterValues != null && { parameterValues: se_ParameterValueList(input.parameterValues, context) }),
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-    ...(input.pipelineObjects != null && { pipelineObjects: se_PipelineObjectList(input.pipelineObjects, context) }),
-  };
-};
+// se_PutPipelineDefinitionInput omitted.
 
-/**
- * serializeAws_json1_1Query
- */
-const se_Query = (input: Query, context: __SerdeContext): any => {
-  return {
-    ...(input.selectors != null && { selectors: se_SelectorList(input.selectors, context) }),
-  };
-};
+// se_Query omitted.
 
-/**
- * serializeAws_json1_1QueryObjectsInput
- */
-const se_QueryObjectsInput = (input: QueryObjectsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.limit != null && { limit: input.limit }),
-    ...(input.marker != null && { marker: input.marker }),
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-    ...(input.query != null && { query: se_Query(input.query, context) }),
-    ...(input.sphere != null && { sphere: input.sphere }),
-  };
-};
+// se_QueryObjectsInput omitted.
 
-/**
- * serializeAws_json1_1RemoveTagsInput
- */
-const se_RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-    ...(input.tagKeys != null && { tagKeys: se_stringList(input.tagKeys, context) }),
-  };
-};
+// se_RemoveTagsInput omitted.
 
-/**
- * serializeAws_json1_1ReportTaskProgressInput
- */
-const se_ReportTaskProgressInput = (input: ReportTaskProgressInput, context: __SerdeContext): any => {
-  return {
-    ...(input.fields != null && { fields: se_fieldList(input.fields, context) }),
-    ...(input.taskId != null && { taskId: input.taskId }),
-  };
-};
+// se_ReportTaskProgressInput omitted.
 
-/**
- * serializeAws_json1_1ReportTaskRunnerHeartbeatInput
- */
-const se_ReportTaskRunnerHeartbeatInput = (input: ReportTaskRunnerHeartbeatInput, context: __SerdeContext): any => {
-  return {
-    ...(input.hostname != null && { hostname: input.hostname }),
-    ...(input.taskrunnerId != null && { taskrunnerId: input.taskrunnerId }),
-    ...(input.workerGroup != null && { workerGroup: input.workerGroup }),
-  };
-};
+// se_ReportTaskRunnerHeartbeatInput omitted.
 
-/**
- * serializeAws_json1_1Selector
- */
-const se_Selector = (input: Selector, context: __SerdeContext): any => {
-  return {
-    ...(input.fieldName != null && { fieldName: input.fieldName }),
-    ...(input.operator != null && { operator: se_Operator(input.operator, context) }),
-  };
-};
+// se_Selector omitted.
 
-/**
- * serializeAws_json1_1SelectorList
- */
-const se_SelectorList = (input: Selector[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Selector(entry, context);
-    });
-};
+// se_SelectorList omitted.
 
-/**
- * serializeAws_json1_1SetStatusInput
- */
-const se_SetStatusInput = (input: SetStatusInput, context: __SerdeContext): any => {
-  return {
-    ...(input.objectIds != null && { objectIds: se_idList(input.objectIds, context) }),
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_SetStatusInput omitted.
 
-/**
- * serializeAws_json1_1SetTaskStatusInput
- */
-const se_SetTaskStatusInput = (input: SetTaskStatusInput, context: __SerdeContext): any => {
-  return {
-    ...(input.errorId != null && { errorId: input.errorId }),
-    ...(input.errorMessage != null && { errorMessage: input.errorMessage }),
-    ...(input.errorStackTrace != null && { errorStackTrace: input.errorStackTrace }),
-    ...(input.taskId != null && { taskId: input.taskId }),
-    ...(input.taskStatus != null && { taskStatus: input.taskStatus }),
-  };
-};
+// se_SetTaskStatusInput omitted.
 
-/**
- * serializeAws_json1_1stringList
- */
-const se_stringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_stringList omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1tagList
- */
-const se_tagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_tagList omitted.
 
-/**
- * serializeAws_json1_1ValidatePipelineDefinitionInput
- */
-const se_ValidatePipelineDefinitionInput = (input: ValidatePipelineDefinitionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.parameterObjects != null && {
-      parameterObjects: se_ParameterObjectList(input.parameterObjects, context),
-    }),
-    ...(input.parameterValues != null && { parameterValues: se_ParameterValueList(input.parameterValues, context) }),
-    ...(input.pipelineId != null && { pipelineId: input.pipelineId }),
-    ...(input.pipelineObjects != null && { pipelineObjects: se_PipelineObjectList(input.pipelineObjects, context) }),
-  };
-};
+// se_ValidatePipelineDefinitionInput omitted.
 
-/**
- * deserializeAws_json1_1ActivatePipelineOutput
- */
-const de_ActivatePipelineOutput = (output: any, context: __SerdeContext): ActivatePipelineOutput => {
-  return {} as any;
-};
+// de_ActivatePipelineOutput omitted.
 
-/**
- * deserializeAws_json1_1AddTagsOutput
- */
-const de_AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
-  return {} as any;
-};
+// de_AddTagsOutput omitted.
 
-/**
- * deserializeAws_json1_1CreatePipelineOutput
- */
-const de_CreatePipelineOutput = (output: any, context: __SerdeContext): CreatePipelineOutput => {
-  return {
-    pipelineId: __expectString(output.pipelineId),
-  } as any;
-};
+// de_CreatePipelineOutput omitted.
 
-/**
- * deserializeAws_json1_1DeactivatePipelineOutput
- */
-const de_DeactivatePipelineOutput = (output: any, context: __SerdeContext): DeactivatePipelineOutput => {
-  return {} as any;
-};
+// de_DeactivatePipelineOutput omitted.
 
-/**
- * deserializeAws_json1_1DescribeObjectsOutput
- */
-const de_DescribeObjectsOutput = (output: any, context: __SerdeContext): DescribeObjectsOutput => {
-  return {
-    hasMoreResults: __expectBoolean(output.hasMoreResults),
-    marker: __expectString(output.marker),
-    pipelineObjects:
-      output.pipelineObjects != null ? de_PipelineObjectList(output.pipelineObjects, context) : undefined,
-  } as any;
-};
+// de_DescribeObjectsOutput omitted.
 
-/**
- * deserializeAws_json1_1DescribePipelinesOutput
- */
-const de_DescribePipelinesOutput = (output: any, context: __SerdeContext): DescribePipelinesOutput => {
-  return {
-    pipelineDescriptionList:
-      output.pipelineDescriptionList != null
-        ? de_PipelineDescriptionList(output.pipelineDescriptionList, context)
-        : undefined,
-  } as any;
-};
+// de_DescribePipelinesOutput omitted.
 
-/**
- * deserializeAws_json1_1EvaluateExpressionOutput
- */
-const de_EvaluateExpressionOutput = (output: any, context: __SerdeContext): EvaluateExpressionOutput => {
-  return {
-    evaluatedExpression: __expectString(output.evaluatedExpression),
-  } as any;
-};
+// de_EvaluateExpressionOutput omitted.
 
-/**
- * deserializeAws_json1_1Field
- */
-const de_Field = (output: any, context: __SerdeContext): Field => {
-  return {
-    key: __expectString(output.key),
-    refValue: __expectString(output.refValue),
-    stringValue: __expectString(output.stringValue),
-  } as any;
-};
+// de_Field omitted.
 
-/**
- * deserializeAws_json1_1fieldList
- */
-const de_fieldList = (output: any, context: __SerdeContext): Field[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Field(entry, context);
-    });
-  return retVal;
-};
+// de_fieldList omitted.
 
-/**
- * deserializeAws_json1_1GetPipelineDefinitionOutput
- */
-const de_GetPipelineDefinitionOutput = (output: any, context: __SerdeContext): GetPipelineDefinitionOutput => {
-  return {
-    parameterObjects:
-      output.parameterObjects != null ? de_ParameterObjectList(output.parameterObjects, context) : undefined,
-    parameterValues:
-      output.parameterValues != null ? de_ParameterValueList(output.parameterValues, context) : undefined,
-    pipelineObjects:
-      output.pipelineObjects != null ? de_PipelineObjectList(output.pipelineObjects, context) : undefined,
-  } as any;
-};
+// de_GetPipelineDefinitionOutput omitted.
 
-/**
- * deserializeAws_json1_1idList
- */
-const de_idList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_idList omitted.
 
-/**
- * deserializeAws_json1_1InternalServiceError
- */
-const de_InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServiceError omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
-/**
- * deserializeAws_json1_1ListPipelinesOutput
- */
-const de_ListPipelinesOutput = (output: any, context: __SerdeContext): ListPipelinesOutput => {
-  return {
-    hasMoreResults: __expectBoolean(output.hasMoreResults),
-    marker: __expectString(output.marker),
-    pipelineIdList: output.pipelineIdList != null ? de_pipelineList(output.pipelineIdList, context) : undefined,
-  } as any;
-};
+// de_ListPipelinesOutput omitted.
 
-/**
- * deserializeAws_json1_1ParameterAttribute
- */
-const de_ParameterAttribute = (output: any, context: __SerdeContext): ParameterAttribute => {
-  return {
-    key: __expectString(output.key),
-    stringValue: __expectString(output.stringValue),
-  } as any;
-};
+// de_ParameterAttribute omitted.
 
-/**
- * deserializeAws_json1_1ParameterAttributeList
- */
-const de_ParameterAttributeList = (output: any, context: __SerdeContext): ParameterAttribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ParameterAttribute(entry, context);
-    });
-  return retVal;
-};
+// de_ParameterAttributeList omitted.
 
-/**
- * deserializeAws_json1_1ParameterObject
- */
-const de_ParameterObject = (output: any, context: __SerdeContext): ParameterObject => {
-  return {
-    attributes: output.attributes != null ? de_ParameterAttributeList(output.attributes, context) : undefined,
-    id: __expectString(output.id),
-  } as any;
-};
+// de_ParameterObject omitted.
 
-/**
- * deserializeAws_json1_1ParameterObjectList
- */
-const de_ParameterObjectList = (output: any, context: __SerdeContext): ParameterObject[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ParameterObject(entry, context);
-    });
-  return retVal;
-};
+// de_ParameterObjectList omitted.
 
-/**
- * deserializeAws_json1_1ParameterValue
- */
-const de_ParameterValue = (output: any, context: __SerdeContext): ParameterValue => {
-  return {
-    id: __expectString(output.id),
-    stringValue: __expectString(output.stringValue),
-  } as any;
-};
+// de_ParameterValue omitted.
 
-/**
- * deserializeAws_json1_1ParameterValueList
- */
-const de_ParameterValueList = (output: any, context: __SerdeContext): ParameterValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ParameterValue(entry, context);
-    });
-  return retVal;
-};
+// de_ParameterValueList omitted.
 
-/**
- * deserializeAws_json1_1PipelineDeletedException
- */
-const de_PipelineDeletedException = (output: any, context: __SerdeContext): PipelineDeletedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PipelineDeletedException omitted.
 
-/**
- * deserializeAws_json1_1PipelineDescription
- */
-const de_PipelineDescription = (output: any, context: __SerdeContext): PipelineDescription => {
-  return {
-    description: __expectString(output.description),
-    fields: output.fields != null ? de_fieldList(output.fields, context) : undefined,
-    name: __expectString(output.name),
-    pipelineId: __expectString(output.pipelineId),
-    tags: output.tags != null ? de_tagList(output.tags, context) : undefined,
-  } as any;
-};
+// de_PipelineDescription omitted.
 
-/**
- * deserializeAws_json1_1PipelineDescriptionList
- */
-const de_PipelineDescriptionList = (output: any, context: __SerdeContext): PipelineDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PipelineDescription(entry, context);
-    });
-  return retVal;
-};
+// de_PipelineDescriptionList omitted.
 
-/**
- * deserializeAws_json1_1PipelineIdName
- */
-const de_PipelineIdName = (output: any, context: __SerdeContext): PipelineIdName => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_PipelineIdName omitted.
 
-/**
- * deserializeAws_json1_1pipelineList
- */
-const de_pipelineList = (output: any, context: __SerdeContext): PipelineIdName[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PipelineIdName(entry, context);
-    });
-  return retVal;
-};
+// de_pipelineList omitted.
 
-/**
- * deserializeAws_json1_1PipelineNotFoundException
- */
-const de_PipelineNotFoundException = (output: any, context: __SerdeContext): PipelineNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PipelineNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1PipelineObject
- */
-const de_PipelineObject = (output: any, context: __SerdeContext): PipelineObject => {
-  return {
-    fields: output.fields != null ? de_fieldList(output.fields, context) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_PipelineObject omitted.
 
-/**
- * deserializeAws_json1_1PipelineObjectList
- */
-const de_PipelineObjectList = (output: any, context: __SerdeContext): PipelineObject[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PipelineObject(entry, context);
-    });
-  return retVal;
-};
+// de_PipelineObjectList omitted.
 
-/**
- * deserializeAws_json1_1PipelineObjectMap
- */
-const de_PipelineObjectMap = (output: any, context: __SerdeContext): Record<string, PipelineObject> => {
-  return Object.entries(output).reduce((acc: Record<string, PipelineObject>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_PipelineObject(value, context);
-    return acc;
-  }, {});
-};
+// de_PipelineObjectMap omitted.
 
-/**
- * deserializeAws_json1_1PollForTaskOutput
- */
-const de_PollForTaskOutput = (output: any, context: __SerdeContext): PollForTaskOutput => {
-  return {
-    taskObject: output.taskObject != null ? de_TaskObject(output.taskObject, context) : undefined,
-  } as any;
-};
+// de_PollForTaskOutput omitted.
 
-/**
- * deserializeAws_json1_1PutPipelineDefinitionOutput
- */
-const de_PutPipelineDefinitionOutput = (output: any, context: __SerdeContext): PutPipelineDefinitionOutput => {
-  return {
-    errored: __expectBoolean(output.errored),
-    validationErrors:
-      output.validationErrors != null ? de_ValidationErrors(output.validationErrors, context) : undefined,
-    validationWarnings:
-      output.validationWarnings != null ? de_ValidationWarnings(output.validationWarnings, context) : undefined,
-  } as any;
-};
+// de_PutPipelineDefinitionOutput omitted.
 
-/**
- * deserializeAws_json1_1QueryObjectsOutput
- */
-const de_QueryObjectsOutput = (output: any, context: __SerdeContext): QueryObjectsOutput => {
-  return {
-    hasMoreResults: __expectBoolean(output.hasMoreResults),
-    ids: output.ids != null ? de_idList(output.ids, context) : undefined,
-    marker: __expectString(output.marker),
-  } as any;
-};
+// de_QueryObjectsOutput omitted.
 
-/**
- * deserializeAws_json1_1RemoveTagsOutput
- */
-const de_RemoveTagsOutput = (output: any, context: __SerdeContext): RemoveTagsOutput => {
-  return {} as any;
-};
+// de_RemoveTagsOutput omitted.
 
-/**
- * deserializeAws_json1_1ReportTaskProgressOutput
- */
-const de_ReportTaskProgressOutput = (output: any, context: __SerdeContext): ReportTaskProgressOutput => {
-  return {
-    canceled: __expectBoolean(output.canceled),
-  } as any;
-};
+// de_ReportTaskProgressOutput omitted.
 
-/**
- * deserializeAws_json1_1ReportTaskRunnerHeartbeatOutput
- */
-const de_ReportTaskRunnerHeartbeatOutput = (output: any, context: __SerdeContext): ReportTaskRunnerHeartbeatOutput => {
-  return {
-    terminate: __expectBoolean(output.terminate),
-  } as any;
-};
+// de_ReportTaskRunnerHeartbeatOutput omitted.
 
-/**
- * deserializeAws_json1_1SetTaskStatusOutput
- */
-const de_SetTaskStatusOutput = (output: any, context: __SerdeContext): SetTaskStatusOutput => {
-  return {} as any;
-};
+// de_SetTaskStatusOutput omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1tagList
- */
-const de_tagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_tagList omitted.
 
-/**
- * deserializeAws_json1_1TaskNotFoundException
- */
-const de_TaskNotFoundException = (output: any, context: __SerdeContext): TaskNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TaskNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1TaskObject
- */
-const de_TaskObject = (output: any, context: __SerdeContext): TaskObject => {
-  return {
-    attemptId: __expectString(output.attemptId),
-    objects: output.objects != null ? de_PipelineObjectMap(output.objects, context) : undefined,
-    pipelineId: __expectString(output.pipelineId),
-    taskId: __expectString(output.taskId),
-  } as any;
-};
+// de_TaskObject omitted.
 
-/**
- * deserializeAws_json1_1ValidatePipelineDefinitionOutput
- */
-const de_ValidatePipelineDefinitionOutput = (
-  output: any,
-  context: __SerdeContext
-): ValidatePipelineDefinitionOutput => {
-  return {
-    errored: __expectBoolean(output.errored),
-    validationErrors:
-      output.validationErrors != null ? de_ValidationErrors(output.validationErrors, context) : undefined,
-    validationWarnings:
-      output.validationWarnings != null ? de_ValidationWarnings(output.validationWarnings, context) : undefined,
-  } as any;
-};
+// de_ValidatePipelineDefinitionOutput omitted.
 
-/**
- * deserializeAws_json1_1ValidationError
- */
-const de_ValidationError = (output: any, context: __SerdeContext): ValidationError => {
-  return {
-    errors: output.errors != null ? de_validationMessages(output.errors, context) : undefined,
-    id: __expectString(output.id),
-  } as any;
-};
+// de_ValidationError omitted.
 
-/**
- * deserializeAws_json1_1ValidationErrors
- */
-const de_ValidationErrors = (output: any, context: __SerdeContext): ValidationError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationError(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationErrors omitted.
 
-/**
- * deserializeAws_json1_1validationMessages
- */
-const de_validationMessages = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_validationMessages omitted.
 
-/**
- * deserializeAws_json1_1ValidationWarning
- */
-const de_ValidationWarning = (output: any, context: __SerdeContext): ValidationWarning => {
-  return {
-    id: __expectString(output.id),
-    warnings: output.warnings != null ? de_validationMessages(output.warnings, context) : undefined,
-  } as any;
-};
+// de_ValidationWarning omitted.
 
-/**
- * deserializeAws_json1_1ValidationWarnings
- */
-const de_ValidationWarnings = (output: any, context: __SerdeContext): ValidationWarning[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationWarning(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationWarnings omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2428,6 +1630,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

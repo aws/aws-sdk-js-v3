@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -22,9 +24,7 @@ import { GetRecordCommandInput, GetRecordCommandOutput } from "../commands/GetRe
 import { PutRecordCommandInput, PutRecordCommandOutput } from "../commands/PutRecordCommand";
 import {
   AccessForbidden,
-  BatchGetRecordError,
   BatchGetRecordIdentifier,
-  BatchGetRecordResultDetail,
   FeatureValue,
   InternalFailure,
   ResourceNotFound,
@@ -47,9 +47,11 @@ export const se_BatchGetRecordCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetRecord";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Identifiers != null && { Identifiers: se_BatchGetRecordIdentifiers(input.Identifiers, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Identifiers: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -169,10 +171,12 @@ export const se_PutRecordCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Record != null && { Record: se_Record(input.Record, context) }),
-    ...(input.TargetStores != null && { TargetStores: se_TargetStores(input.TargetStores, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Record: (_) => _json(_),
+      TargetStores: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -198,15 +202,12 @@ export const de_BatchGetRecordCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_BatchGetRecordErrors(data.Errors, context);
-  }
-  if (data.Records != null) {
-    contents.Records = de_BatchGetRecordResultDetails(data.Records, context);
-  }
-  if (data.UnprocessedIdentifiers != null) {
-    contents.UnprocessedIdentifiers = de_UnprocessedIdentifiers(data.UnprocessedIdentifiers, context);
-  }
+  const doc = take(data, {
+    Errors: _json,
+    Records: _json,
+    UnprocessedIdentifiers: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -237,10 +238,9 @@ const de_BatchGetRecordCommandError = async (
       throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -290,10 +290,9 @@ const de_DeleteRecordCommandError = async (
       throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -313,9 +312,10 @@ export const de_GetRecordCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Record != null) {
-    contents.Record = de_Record(data.Record, context);
-  }
+  const doc = take(data, {
+    Record: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -349,10 +349,9 @@ const de_GetRecordCommandError = async (
       throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -402,25 +401,25 @@ const de_PutRecordCommandError = async (
       throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessForbiddenRes
  */
 const de_AccessForbiddenRes = async (parsedOutput: any, context: __SerdeContext): Promise<AccessForbidden> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessForbidden({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -434,9 +433,10 @@ const de_AccessForbiddenRes = async (parsedOutput: any, context: __SerdeContext)
 const de_InternalFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalFailure> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailure({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -450,9 +450,10 @@ const de_InternalFailureRes = async (parsedOutput: any, context: __SerdeContext)
 const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ResourceNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -466,9 +467,10 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 const de_ServiceUnavailableRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceUnavailable> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailable({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -482,9 +484,10 @@ const de_ServiceUnavailableRes = async (parsedOutput: any, context: __SerdeConte
 const de_ValidationErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -492,220 +495,39 @@ const de_ValidationErrorRes = async (parsedOutput: any, context: __SerdeContext)
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1BatchGetRecordIdentifier
- */
-const se_BatchGetRecordIdentifier = (input: BatchGetRecordIdentifier, context: __SerdeContext): any => {
-  return {
-    ...(input.FeatureGroupName != null && { FeatureGroupName: input.FeatureGroupName }),
-    ...(input.FeatureNames != null && { FeatureNames: se_FeatureNames(input.FeatureNames, context) }),
-    ...(input.RecordIdentifiersValueAsString != null && {
-      RecordIdentifiersValueAsString: se_RecordIdentifiers(input.RecordIdentifiersValueAsString, context),
-    }),
-  };
-};
+// se_BatchGetRecordIdentifier omitted.
 
-/**
- * serializeAws_restJson1BatchGetRecordIdentifiers
- */
-const se_BatchGetRecordIdentifiers = (input: BatchGetRecordIdentifier[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_BatchGetRecordIdentifier(entry, context);
-    });
-};
+// se_BatchGetRecordIdentifiers omitted.
 
-/**
- * serializeAws_restJson1FeatureNames
- */
-const se_FeatureNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FeatureNames omitted.
 
-/**
- * serializeAws_restJson1FeatureValue
- */
-const se_FeatureValue = (input: FeatureValue, context: __SerdeContext): any => {
-  return {
-    ...(input.FeatureName != null && { FeatureName: input.FeatureName }),
-    ...(input.ValueAsString != null && { ValueAsString: input.ValueAsString }),
-  };
-};
+// se_FeatureValue omitted.
 
-/**
- * serializeAws_restJson1Record
- */
-const se_Record = (input: FeatureValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FeatureValue(entry, context);
-    });
-};
+// se_Record omitted.
 
-/**
- * serializeAws_restJson1RecordIdentifiers
- */
-const se_RecordIdentifiers = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RecordIdentifiers omitted.
 
-/**
- * serializeAws_restJson1TargetStores
- */
-const se_TargetStores = (input: (TargetStore | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TargetStores omitted.
 
-/**
- * deserializeAws_restJson1BatchGetRecordError
- */
-const de_BatchGetRecordError = (output: any, context: __SerdeContext): BatchGetRecordError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    FeatureGroupName: __expectString(output.FeatureGroupName),
-    RecordIdentifierValueAsString: __expectString(output.RecordIdentifierValueAsString),
-  } as any;
-};
+// de_BatchGetRecordError omitted.
 
-/**
- * deserializeAws_restJson1BatchGetRecordErrors
- */
-const de_BatchGetRecordErrors = (output: any, context: __SerdeContext): BatchGetRecordError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetRecordError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetRecordErrors omitted.
 
-/**
- * deserializeAws_restJson1BatchGetRecordIdentifier
- */
-const de_BatchGetRecordIdentifier = (output: any, context: __SerdeContext): BatchGetRecordIdentifier => {
-  return {
-    FeatureGroupName: __expectString(output.FeatureGroupName),
-    FeatureNames: output.FeatureNames != null ? de_FeatureNames(output.FeatureNames, context) : undefined,
-    RecordIdentifiersValueAsString:
-      output.RecordIdentifiersValueAsString != null
-        ? de_RecordIdentifiers(output.RecordIdentifiersValueAsString, context)
-        : undefined,
-  } as any;
-};
+// de_BatchGetRecordIdentifier omitted.
 
-/**
- * deserializeAws_restJson1BatchGetRecordResultDetail
- */
-const de_BatchGetRecordResultDetail = (output: any, context: __SerdeContext): BatchGetRecordResultDetail => {
-  return {
-    FeatureGroupName: __expectString(output.FeatureGroupName),
-    Record: output.Record != null ? de_Record(output.Record, context) : undefined,
-    RecordIdentifierValueAsString: __expectString(output.RecordIdentifierValueAsString),
-  } as any;
-};
+// de_BatchGetRecordResultDetail omitted.
 
-/**
- * deserializeAws_restJson1BatchGetRecordResultDetails
- */
-const de_BatchGetRecordResultDetails = (output: any, context: __SerdeContext): BatchGetRecordResultDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetRecordResultDetail(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetRecordResultDetails omitted.
 
-/**
- * deserializeAws_restJson1FeatureNames
- */
-const de_FeatureNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FeatureNames omitted.
 
-/**
- * deserializeAws_restJson1FeatureValue
- */
-const de_FeatureValue = (output: any, context: __SerdeContext): FeatureValue => {
-  return {
-    FeatureName: __expectString(output.FeatureName),
-    ValueAsString: __expectString(output.ValueAsString),
-  } as any;
-};
+// de_FeatureValue omitted.
 
-/**
- * deserializeAws_restJson1Record
- */
-const de_Record = (output: any, context: __SerdeContext): FeatureValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FeatureValue(entry, context);
-    });
-  return retVal;
-};
+// de_Record omitted.
 
-/**
- * deserializeAws_restJson1RecordIdentifiers
- */
-const de_RecordIdentifiers = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RecordIdentifiers omitted.
 
-/**
- * deserializeAws_restJson1UnprocessedIdentifiers
- */
-const de_UnprocessedIdentifiers = (output: any, context: __SerdeContext): BatchGetRecordIdentifier[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetRecordIdentifier(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedIdentifiers omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

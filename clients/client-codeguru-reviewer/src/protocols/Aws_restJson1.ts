@@ -1,18 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -77,13 +77,9 @@ import {
   EventInfo,
   InternalServerException,
   KMSKeyDetails,
-  Metrics,
-  MetricsSummary,
   NotFoundException,
   Reaction,
   RecommendationFeedback,
-  RecommendationFeedbackSummary,
-  RecommendationSummary,
   Repository,
   RepositoryAnalysis,
   RepositoryAssociation,
@@ -91,7 +87,6 @@ import {
   RepositoryHeadSourceCodeType,
   RequestMetadata,
   ResourceNotFoundException,
-  RuleMetadata,
   S3BucketRepository,
   S3Repository,
   S3RepositoryDetails,
@@ -114,12 +109,14 @@ export const se_AssociateRepositoryCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.KMSKeyDetails != null && { KMSKeyDetails: se_KMSKeyDetails(input.KMSKeyDetails, context) }),
-    ...(input.Repository != null && { Repository: se_Repository(input.Repository, context) }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      KMSKeyDetails: (_) => _json(_),
+      Repository: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -144,12 +141,14 @@ export const se_CreateCodeReviewCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/codereviews";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RepositoryAssociationArn != null && { RepositoryAssociationArn: input.RepositoryAssociationArn }),
-    ...(input.Type != null && { Type: se_CodeReviewType(input.Type, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Name: [],
+      RepositoryAssociationArn: [],
+      Type: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -476,11 +475,13 @@ export const se_PutRecommendationFeedbackCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/feedback";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CodeReviewArn != null && { CodeReviewArn: input.CodeReviewArn }),
-    ...(input.Reactions != null && { Reactions: se_Reactions(input.Reactions, context) }),
-    ...(input.RecommendationId != null && { RecommendationId: input.RecommendationId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CodeReviewArn: [],
+      Reactions: (_) => _json(_),
+      RecommendationId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -506,9 +507,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -564,12 +567,11 @@ export const de_AssociateRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RepositoryAssociation != null) {
-    contents.RepositoryAssociation = de_RepositoryAssociation(data.RepositoryAssociation, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    RepositoryAssociation: (_) => de_RepositoryAssociation(_, context),
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -603,10 +605,9 @@ const de_AssociateRepositoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -626,9 +627,10 @@ export const de_CreateCodeReviewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CodeReview != null) {
-    contents.CodeReview = de_CodeReview(data.CodeReview, context);
-  }
+  const doc = take(data, {
+    CodeReview: (_) => de_CodeReview(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -665,10 +667,9 @@ const de_CreateCodeReviewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -688,9 +689,10 @@ export const de_DescribeCodeReviewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CodeReview != null) {
-    contents.CodeReview = de_CodeReview(data.CodeReview, context);
-  }
+  const doc = take(data, {
+    CodeReview: (_) => de_CodeReview(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -724,10 +726,9 @@ const de_DescribeCodeReviewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -747,9 +748,10 @@ export const de_DescribeRecommendationFeedbackCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RecommendationFeedback != null) {
-    contents.RecommendationFeedback = de_RecommendationFeedback(data.RecommendationFeedback, context);
-  }
+  const doc = take(data, {
+    RecommendationFeedback: (_) => de_RecommendationFeedback(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -783,10 +785,9 @@ const de_DescribeRecommendationFeedbackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -806,12 +807,11 @@ export const de_DescribeRepositoryAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RepositoryAssociation != null) {
-    contents.RepositoryAssociation = de_RepositoryAssociation(data.RepositoryAssociation, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    RepositoryAssociation: (_) => de_RepositoryAssociation(_, context),
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -845,10 +845,9 @@ const de_DescribeRepositoryAssociationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -868,12 +867,11 @@ export const de_DisassociateRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RepositoryAssociation != null) {
-    contents.RepositoryAssociation = de_RepositoryAssociation(data.RepositoryAssociation, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    RepositoryAssociation: (_) => de_RepositoryAssociation(_, context),
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -910,10 +908,9 @@ const de_DisassociateRepositoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -933,12 +930,11 @@ export const de_ListCodeReviewsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CodeReviewSummaries != null) {
-    contents.CodeReviewSummaries = de_CodeReviewSummaries(data.CodeReviewSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CodeReviewSummaries: (_) => de_CodeReviewSummaries(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -969,10 +965,9 @@ const de_ListCodeReviewsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -992,15 +987,11 @@ export const de_ListRecommendationFeedbackCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RecommendationFeedbackSummaries != null) {
-    contents.RecommendationFeedbackSummaries = de_RecommendationFeedbackSummaries(
-      data.RecommendationFeedbackSummaries,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RecommendationFeedbackSummaries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1034,10 +1025,9 @@ const de_ListRecommendationFeedbackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1057,12 +1047,11 @@ export const de_ListRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RecommendationSummaries != null) {
-    contents.RecommendationSummaries = de_RecommendationSummaries(data.RecommendationSummaries, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RecommendationSummaries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1096,10 +1085,9 @@ const de_ListRecommendationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1119,15 +1107,11 @@ export const de_ListRepositoryAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RepositoryAssociationSummaries != null) {
-    contents.RepositoryAssociationSummaries = de_RepositoryAssociationSummaries(
-      data.RepositoryAssociationSummaries,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RepositoryAssociationSummaries: (_) => de_RepositoryAssociationSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1155,10 +1139,9 @@ const de_ListRepositoryAssociationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1178,9 +1161,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1208,10 +1192,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1264,10 +1247,9 @@ const de_PutRecommendationFeedbackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1314,10 +1296,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1364,16 +1345,15 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1383,9 +1363,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1399,9 +1380,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1418,9 +1400,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1434,9 +1417,10 @@ const de_InternalServerExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1453,9 +1437,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1469,9 +1454,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1485,9 +1471,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1495,283 +1482,72 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AnalysisTypes
- */
-const se_AnalysisTypes = (input: (AnalysisType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AnalysisTypes omitted.
 
-/**
- * serializeAws_restJson1BranchDiffSourceCodeType
- */
-const se_BranchDiffSourceCodeType = (input: BranchDiffSourceCodeType, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationBranchName != null && { DestinationBranchName: input.DestinationBranchName }),
-    ...(input.SourceBranchName != null && { SourceBranchName: input.SourceBranchName }),
-  };
-};
+// se_BranchDiffSourceCodeType omitted.
 
-/**
- * serializeAws_restJson1CodeArtifacts
- */
-const se_CodeArtifacts = (input: CodeArtifacts, context: __SerdeContext): any => {
-  return {
-    ...(input.BuildArtifactsObjectKey != null && { BuildArtifactsObjectKey: input.BuildArtifactsObjectKey }),
-    ...(input.SourceCodeArtifactsObjectKey != null && {
-      SourceCodeArtifactsObjectKey: input.SourceCodeArtifactsObjectKey,
-    }),
-  };
-};
+// se_CodeArtifacts omitted.
 
-/**
- * serializeAws_restJson1CodeCommitRepository
- */
-const se_CodeCommitRepository = (input: CodeCommitRepository, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_CodeCommitRepository omitted.
 
-/**
- * serializeAws_restJson1CodeReviewType
- */
-const se_CodeReviewType = (input: CodeReviewType, context: __SerdeContext): any => {
-  return {
-    ...(input.AnalysisTypes != null && { AnalysisTypes: se_AnalysisTypes(input.AnalysisTypes, context) }),
-    ...(input.RepositoryAnalysis != null && {
-      RepositoryAnalysis: se_RepositoryAnalysis(input.RepositoryAnalysis, context),
-    }),
-  };
-};
+// se_CodeReviewType omitted.
 
-/**
- * serializeAws_restJson1CommitDiffSourceCodeType
- */
-const se_CommitDiffSourceCodeType = (input: CommitDiffSourceCodeType, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationCommit != null && { DestinationCommit: input.DestinationCommit }),
-    ...(input.MergeBaseCommit != null && { MergeBaseCommit: input.MergeBaseCommit }),
-    ...(input.SourceCommit != null && { SourceCommit: input.SourceCommit }),
-  };
-};
+// se_CommitDiffSourceCodeType omitted.
 
-/**
- * serializeAws_restJson1EventInfo
- */
-const se_EventInfo = (input: EventInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_EventInfo omitted.
 
-/**
- * serializeAws_restJson1KMSKeyDetails
- */
-const se_KMSKeyDetails = (input: KMSKeyDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionOption != null && { EncryptionOption: input.EncryptionOption }),
-    ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
-  };
-};
+// se_KMSKeyDetails omitted.
 
-/**
- * serializeAws_restJson1Reactions
- */
-const se_Reactions = (input: (Reaction | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Reactions omitted.
 
-/**
- * serializeAws_restJson1Repository
- */
-const se_Repository = (input: Repository, context: __SerdeContext): any => {
-  return {
-    ...(input.Bitbucket != null && { Bitbucket: se_ThirdPartySourceRepository(input.Bitbucket, context) }),
-    ...(input.CodeCommit != null && { CodeCommit: se_CodeCommitRepository(input.CodeCommit, context) }),
-    ...(input.GitHubEnterpriseServer != null && {
-      GitHubEnterpriseServer: se_ThirdPartySourceRepository(input.GitHubEnterpriseServer, context),
-    }),
-    ...(input.S3Bucket != null && { S3Bucket: se_S3Repository(input.S3Bucket, context) }),
-  };
-};
+// se_Repository omitted.
 
-/**
- * serializeAws_restJson1RepositoryAnalysis
- */
-const se_RepositoryAnalysis = (input: RepositoryAnalysis, context: __SerdeContext): any => {
-  return {
-    ...(input.RepositoryHead != null && {
-      RepositoryHead: se_RepositoryHeadSourceCodeType(input.RepositoryHead, context),
-    }),
-    ...(input.SourceCodeType != null && { SourceCodeType: se_SourceCodeType(input.SourceCodeType, context) }),
-  };
-};
+// se_RepositoryAnalysis omitted.
 
-/**
- * serializeAws_restJson1RepositoryHeadSourceCodeType
- */
-const se_RepositoryHeadSourceCodeType = (input: RepositoryHeadSourceCodeType, context: __SerdeContext): any => {
-  return {
-    ...(input.BranchName != null && { BranchName: input.BranchName }),
-  };
-};
+// se_RepositoryHeadSourceCodeType omitted.
 
-/**
- * serializeAws_restJson1RequestMetadata
- */
-const se_RequestMetadata = (input: RequestMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.EventInfo != null && { EventInfo: se_EventInfo(input.EventInfo, context) }),
-    ...(input.RequestId != null && { RequestId: input.RequestId }),
-    ...(input.Requester != null && { Requester: input.Requester }),
-    ...(input.VendorName != null && { VendorName: input.VendorName }),
-  };
-};
+// se_RequestMetadata omitted.
 
-/**
- * serializeAws_restJson1S3BucketRepository
- */
-const se_S3BucketRepository = (input: S3BucketRepository, context: __SerdeContext): any => {
-  return {
-    ...(input.Details != null && { Details: se_S3RepositoryDetails(input.Details, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_S3BucketRepository omitted.
 
-/**
- * serializeAws_restJson1S3Repository
- */
-const se_S3Repository = (input: S3Repository, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketName != null && { BucketName: input.BucketName }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_S3Repository omitted.
 
-/**
- * serializeAws_restJson1S3RepositoryDetails
- */
-const se_S3RepositoryDetails = (input: S3RepositoryDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketName != null && { BucketName: input.BucketName }),
-    ...(input.CodeArtifacts != null && { CodeArtifacts: se_CodeArtifacts(input.CodeArtifacts, context) }),
-  };
-};
+// se_S3RepositoryDetails omitted.
 
-/**
- * serializeAws_restJson1SourceCodeType
- */
-const se_SourceCodeType = (input: SourceCodeType, context: __SerdeContext): any => {
-  return {
-    ...(input.BranchDiff != null && { BranchDiff: se_BranchDiffSourceCodeType(input.BranchDiff, context) }),
-    ...(input.CommitDiff != null && { CommitDiff: se_CommitDiffSourceCodeType(input.CommitDiff, context) }),
-    ...(input.RepositoryHead != null && {
-      RepositoryHead: se_RepositoryHeadSourceCodeType(input.RepositoryHead, context),
-    }),
-    ...(input.RequestMetadata != null && { RequestMetadata: se_RequestMetadata(input.RequestMetadata, context) }),
-    ...(input.S3BucketRepository != null && {
-      S3BucketRepository: se_S3BucketRepository(input.S3BucketRepository, context),
-    }),
-  };
-};
+// se_SourceCodeType omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1ThirdPartySourceRepository
- */
-const se_ThirdPartySourceRepository = (input: ThirdPartySourceRepository, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Owner != null && { Owner: input.Owner }),
-  };
-};
+// se_ThirdPartySourceRepository omitted.
 
-/**
- * deserializeAws_restJson1AnalysisTypes
- */
-const de_AnalysisTypes = (output: any, context: __SerdeContext): (AnalysisType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AnalysisTypes omitted.
 
-/**
- * deserializeAws_restJson1BranchDiffSourceCodeType
- */
-const de_BranchDiffSourceCodeType = (output: any, context: __SerdeContext): BranchDiffSourceCodeType => {
-  return {
-    DestinationBranchName: __expectString(output.DestinationBranchName),
-    SourceBranchName: __expectString(output.SourceBranchName),
-  } as any;
-};
+// de_BranchDiffSourceCodeType omitted.
 
-/**
- * deserializeAws_restJson1CodeArtifacts
- */
-const de_CodeArtifacts = (output: any, context: __SerdeContext): CodeArtifacts => {
-  return {
-    BuildArtifactsObjectKey: __expectString(output.BuildArtifactsObjectKey),
-    SourceCodeArtifactsObjectKey: __expectString(output.SourceCodeArtifactsObjectKey),
-  } as any;
-};
+// de_CodeArtifacts omitted.
 
 /**
  * deserializeAws_restJson1CodeReview
  */
 const de_CodeReview = (output: any, context: __SerdeContext): CodeReview => {
-  return {
-    AnalysisTypes: output.AnalysisTypes != null ? de_AnalysisTypes(output.AnalysisTypes, context) : undefined,
-    AssociationArn: __expectString(output.AssociationArn),
-    CodeReviewArn: __expectString(output.CodeReviewArn),
-    ConfigFileState: __expectString(output.ConfigFileState),
-    CreatedTimeStamp:
-      output.CreatedTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimeStamp)))
-        : undefined,
-    LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
-        : undefined,
-    Metrics: output.Metrics != null ? de_Metrics(output.Metrics, context) : undefined,
-    Name: __expectString(output.Name),
-    Owner: __expectString(output.Owner),
-    ProviderType: __expectString(output.ProviderType),
-    PullRequestId: __expectString(output.PullRequestId),
-    RepositoryName: __expectString(output.RepositoryName),
-    SourceCodeType: output.SourceCodeType != null ? de_SourceCodeType(output.SourceCodeType, context) : undefined,
-    State: __expectString(output.State),
-    StateReason: __expectString(output.StateReason),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    AnalysisTypes: _json,
+    AssociationArn: __expectString,
+    CodeReviewArn: __expectString,
+    ConfigFileState: __expectString,
+    CreatedTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metrics: _json,
+    Name: __expectString,
+    Owner: __expectString,
+    ProviderType: __expectString,
+    PullRequestId: __expectString,
+    RepositoryName: __expectString,
+    SourceCodeType: _json,
+    State: __expectString,
+    StateReason: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -1781,9 +1557,6 @@ const de_CodeReviewSummaries = (output: any, context: __SerdeContext): CodeRevie
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CodeReviewSummary(entry, context);
     });
   return retVal;
@@ -1793,198 +1566,74 @@ const de_CodeReviewSummaries = (output: any, context: __SerdeContext): CodeRevie
  * deserializeAws_restJson1CodeReviewSummary
  */
 const de_CodeReviewSummary = (output: any, context: __SerdeContext): CodeReviewSummary => {
-  return {
-    CodeReviewArn: __expectString(output.CodeReviewArn),
-    CreatedTimeStamp:
-      output.CreatedTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimeStamp)))
-        : undefined,
-    LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
-        : undefined,
-    MetricsSummary: output.MetricsSummary != null ? de_MetricsSummary(output.MetricsSummary, context) : undefined,
-    Name: __expectString(output.Name),
-    Owner: __expectString(output.Owner),
-    ProviderType: __expectString(output.ProviderType),
-    PullRequestId: __expectString(output.PullRequestId),
-    RepositoryName: __expectString(output.RepositoryName),
-    SourceCodeType: output.SourceCodeType != null ? de_SourceCodeType(output.SourceCodeType, context) : undefined,
-    State: __expectString(output.State),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CodeReviewArn: __expectString,
+    CreatedTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MetricsSummary: _json,
+    Name: __expectString,
+    Owner: __expectString,
+    ProviderType: __expectString,
+    PullRequestId: __expectString,
+    RepositoryName: __expectString,
+    SourceCodeType: _json,
+    State: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CommitDiffSourceCodeType
- */
-const de_CommitDiffSourceCodeType = (output: any, context: __SerdeContext): CommitDiffSourceCodeType => {
-  return {
-    DestinationCommit: __expectString(output.DestinationCommit),
-    MergeBaseCommit: __expectString(output.MergeBaseCommit),
-    SourceCommit: __expectString(output.SourceCommit),
-  } as any;
-};
+// de_CommitDiffSourceCodeType omitted.
 
-/**
- * deserializeAws_restJson1EventInfo
- */
-const de_EventInfo = (output: any, context: __SerdeContext): EventInfo => {
-  return {
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_EventInfo omitted.
 
-/**
- * deserializeAws_restJson1KMSKeyDetails
- */
-const de_KMSKeyDetails = (output: any, context: __SerdeContext): KMSKeyDetails => {
-  return {
-    EncryptionOption: __expectString(output.EncryptionOption),
-    KMSKeyId: __expectString(output.KMSKeyId),
-  } as any;
-};
+// de_KMSKeyDetails omitted.
 
-/**
- * deserializeAws_restJson1Metrics
- */
-const de_Metrics = (output: any, context: __SerdeContext): Metrics => {
-  return {
-    FindingsCount: __expectLong(output.FindingsCount),
-    MeteredLinesOfCodeCount: __expectLong(output.MeteredLinesOfCodeCount),
-    SuppressedLinesOfCodeCount: __expectLong(output.SuppressedLinesOfCodeCount),
-  } as any;
-};
+// de_Metrics omitted.
 
-/**
- * deserializeAws_restJson1MetricsSummary
- */
-const de_MetricsSummary = (output: any, context: __SerdeContext): MetricsSummary => {
-  return {
-    FindingsCount: __expectLong(output.FindingsCount),
-    MeteredLinesOfCodeCount: __expectLong(output.MeteredLinesOfCodeCount),
-    SuppressedLinesOfCodeCount: __expectLong(output.SuppressedLinesOfCodeCount),
-  } as any;
-};
+// de_MetricsSummary omitted.
 
-/**
- * deserializeAws_restJson1Reactions
- */
-const de_Reactions = (output: any, context: __SerdeContext): (Reaction | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Reactions omitted.
 
 /**
  * deserializeAws_restJson1RecommendationFeedback
  */
 const de_RecommendationFeedback = (output: any, context: __SerdeContext): RecommendationFeedback => {
-  return {
-    CodeReviewArn: __expectString(output.CodeReviewArn),
-    CreatedTimeStamp:
-      output.CreatedTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimeStamp)))
-        : undefined,
-    LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
-        : undefined,
-    Reactions: output.Reactions != null ? de_Reactions(output.Reactions, context) : undefined,
-    RecommendationId: __expectString(output.RecommendationId),
-    UserId: __expectString(output.UserId),
-  } as any;
+  return take(output, {
+    CodeReviewArn: __expectString,
+    CreatedTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Reactions: _json,
+    RecommendationId: __expectString,
+    UserId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RecommendationFeedbackSummaries
- */
-const de_RecommendationFeedbackSummaries = (output: any, context: __SerdeContext): RecommendationFeedbackSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationFeedbackSummary(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationFeedbackSummaries omitted.
 
-/**
- * deserializeAws_restJson1RecommendationFeedbackSummary
- */
-const de_RecommendationFeedbackSummary = (output: any, context: __SerdeContext): RecommendationFeedbackSummary => {
-  return {
-    Reactions: output.Reactions != null ? de_Reactions(output.Reactions, context) : undefined,
-    RecommendationId: __expectString(output.RecommendationId),
-    UserId: __expectString(output.UserId),
-  } as any;
-};
+// de_RecommendationFeedbackSummary omitted.
 
-/**
- * deserializeAws_restJson1RecommendationSummaries
- */
-const de_RecommendationSummaries = (output: any, context: __SerdeContext): RecommendationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationSummaries omitted.
 
-/**
- * deserializeAws_restJson1RecommendationSummary
- */
-const de_RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
-  return {
-    Description: __expectString(output.Description),
-    EndLine: __expectInt32(output.EndLine),
-    FilePath: __expectString(output.FilePath),
-    RecommendationCategory: __expectString(output.RecommendationCategory),
-    RecommendationId: __expectString(output.RecommendationId),
-    RuleMetadata: output.RuleMetadata != null ? de_RuleMetadata(output.RuleMetadata, context) : undefined,
-    Severity: __expectString(output.Severity),
-    StartLine: __expectInt32(output.StartLine),
-  } as any;
-};
+// de_RecommendationSummary omitted.
 
 /**
  * deserializeAws_restJson1RepositoryAssociation
  */
 const de_RepositoryAssociation = (output: any, context: __SerdeContext): RepositoryAssociation => {
-  return {
-    AssociationArn: __expectString(output.AssociationArn),
-    AssociationId: __expectString(output.AssociationId),
-    ConnectionArn: __expectString(output.ConnectionArn),
-    CreatedTimeStamp:
-      output.CreatedTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimeStamp)))
-        : undefined,
-    KMSKeyDetails: output.KMSKeyDetails != null ? de_KMSKeyDetails(output.KMSKeyDetails, context) : undefined,
-    LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Owner: __expectString(output.Owner),
-    ProviderType: __expectString(output.ProviderType),
-    S3RepositoryDetails:
-      output.S3RepositoryDetails != null ? de_S3RepositoryDetails(output.S3RepositoryDetails, context) : undefined,
-    State: __expectString(output.State),
-    StateReason: __expectString(output.StateReason),
-  } as any;
+  return take(output, {
+    AssociationArn: __expectString,
+    AssociationId: __expectString,
+    ConnectionArn: __expectString,
+    CreatedTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KMSKeyDetails: _json,
+    LastUpdatedTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Owner: __expectString,
+    ProviderType: __expectString,
+    S3RepositoryDetails: _json,
+    State: __expectString,
+    StateReason: __expectString,
+  }) as any;
 };
 
 /**
@@ -1994,9 +1643,6 @@ const de_RepositoryAssociationSummaries = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RepositoryAssociationSummary(entry, context);
     });
   return retVal;
@@ -2006,117 +1652,33 @@ const de_RepositoryAssociationSummaries = (output: any, context: __SerdeContext)
  * deserializeAws_restJson1RepositoryAssociationSummary
  */
 const de_RepositoryAssociationSummary = (output: any, context: __SerdeContext): RepositoryAssociationSummary => {
-  return {
-    AssociationArn: __expectString(output.AssociationArn),
-    AssociationId: __expectString(output.AssociationId),
-    ConnectionArn: __expectString(output.ConnectionArn),
-    LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Owner: __expectString(output.Owner),
-    ProviderType: __expectString(output.ProviderType),
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    AssociationArn: __expectString,
+    AssociationId: __expectString,
+    ConnectionArn: __expectString,
+    LastUpdatedTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Owner: __expectString,
+    ProviderType: __expectString,
+    State: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RepositoryHeadSourceCodeType
- */
-const de_RepositoryHeadSourceCodeType = (output: any, context: __SerdeContext): RepositoryHeadSourceCodeType => {
-  return {
-    BranchName: __expectString(output.BranchName),
-  } as any;
-};
+// de_RepositoryHeadSourceCodeType omitted.
 
-/**
- * deserializeAws_restJson1RequestMetadata
- */
-const de_RequestMetadata = (output: any, context: __SerdeContext): RequestMetadata => {
-  return {
-    EventInfo: output.EventInfo != null ? de_EventInfo(output.EventInfo, context) : undefined,
-    RequestId: __expectString(output.RequestId),
-    Requester: __expectString(output.Requester),
-    VendorName: __expectString(output.VendorName),
-  } as any;
-};
+// de_RequestMetadata omitted.
 
-/**
- * deserializeAws_restJson1RuleMetadata
- */
-const de_RuleMetadata = (output: any, context: __SerdeContext): RuleMetadata => {
-  return {
-    LongDescription: __expectString(output.LongDescription),
-    RuleId: __expectString(output.RuleId),
-    RuleName: __expectString(output.RuleName),
-    RuleTags: output.RuleTags != null ? de_RuleTags(output.RuleTags, context) : undefined,
-    ShortDescription: __expectString(output.ShortDescription),
-  } as any;
-};
+// de_RuleMetadata omitted.
 
-/**
- * deserializeAws_restJson1RuleTags
- */
-const de_RuleTags = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RuleTags omitted.
 
-/**
- * deserializeAws_restJson1S3BucketRepository
- */
-const de_S3BucketRepository = (output: any, context: __SerdeContext): S3BucketRepository => {
-  return {
-    Details: output.Details != null ? de_S3RepositoryDetails(output.Details, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_S3BucketRepository omitted.
 
-/**
- * deserializeAws_restJson1S3RepositoryDetails
- */
-const de_S3RepositoryDetails = (output: any, context: __SerdeContext): S3RepositoryDetails => {
-  return {
-    BucketName: __expectString(output.BucketName),
-    CodeArtifacts: output.CodeArtifacts != null ? de_CodeArtifacts(output.CodeArtifacts, context) : undefined,
-  } as any;
-};
+// de_S3RepositoryDetails omitted.
 
-/**
- * deserializeAws_restJson1SourceCodeType
- */
-const de_SourceCodeType = (output: any, context: __SerdeContext): SourceCodeType => {
-  return {
-    BranchDiff: output.BranchDiff != null ? de_BranchDiffSourceCodeType(output.BranchDiff, context) : undefined,
-    CommitDiff: output.CommitDiff != null ? de_CommitDiffSourceCodeType(output.CommitDiff, context) : undefined,
-    RepositoryHead:
-      output.RepositoryHead != null ? de_RepositoryHeadSourceCodeType(output.RepositoryHead, context) : undefined,
-    RequestMetadata: output.RequestMetadata != null ? de_RequestMetadata(output.RequestMetadata, context) : undefined,
-    S3BucketRepository:
-      output.S3BucketRepository != null ? de_S3BucketRepository(output.S3BucketRepository, context) : undefined,
-  } as any;
-};
+// de_SourceCodeType omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

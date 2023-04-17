@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -22,17 +23,10 @@ import {
 import { ConnectContactLensServiceException as __BaseException } from "../models/ConnectContactLensServiceException";
 import {
   AccessDeniedException,
-  Categories,
-  CategoryDetails,
-  CharacterOffsets,
   InternalServiceException,
   InvalidRequestException,
-  IssueDetected,
-  PointOfInterest,
-  RealtimeContactAnalysisSegment,
   ResourceNotFoundException,
   ThrottlingException,
-  Transcript,
 } from "../models/models_0";
 
 /**
@@ -50,12 +44,14 @@ export const se_ListRealtimeContactAnalysisSegmentsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/realtime-contact-analysis/analysis-segments";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ContactId: [],
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -81,12 +77,11 @@ export const de_ListRealtimeContactAnalysisSegmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Segments != null) {
-    contents.Segments = de_RealtimeContactAnalysisSegments(data.Segments, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Segments: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -120,16 +115,15 @@ const de_ListRealtimeContactAnalysisSegmentsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -139,9 +133,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -158,9 +153,10 @@ const de_InternalServiceExceptionRes = async (
 ): Promise<InternalServiceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -177,9 +173,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -196,9 +193,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -212,9 +210,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -222,155 +221,29 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * deserializeAws_restJson1Categories
- */
-const de_Categories = (output: any, context: __SerdeContext): Categories => {
-  return {
-    MatchedCategories:
-      output.MatchedCategories != null ? de_MatchedCategories(output.MatchedCategories, context) : undefined,
-    MatchedDetails: output.MatchedDetails != null ? de_MatchedDetails(output.MatchedDetails, context) : undefined,
-  } as any;
-};
+// de_Categories omitted.
 
-/**
- * deserializeAws_restJson1CategoryDetails
- */
-const de_CategoryDetails = (output: any, context: __SerdeContext): CategoryDetails => {
-  return {
-    PointsOfInterest:
-      output.PointsOfInterest != null ? de_PointsOfInterest(output.PointsOfInterest, context) : undefined,
-  } as any;
-};
+// de_CategoryDetails omitted.
 
-/**
- * deserializeAws_restJson1CharacterOffsets
- */
-const de_CharacterOffsets = (output: any, context: __SerdeContext): CharacterOffsets => {
-  return {
-    BeginOffsetChar: __expectInt32(output.BeginOffsetChar),
-    EndOffsetChar: __expectInt32(output.EndOffsetChar),
-  } as any;
-};
+// de_CharacterOffsets omitted.
 
-/**
- * deserializeAws_restJson1IssueDetected
- */
-const de_IssueDetected = (output: any, context: __SerdeContext): IssueDetected => {
-  return {
-    CharacterOffsets:
-      output.CharacterOffsets != null ? de_CharacterOffsets(output.CharacterOffsets, context) : undefined,
-  } as any;
-};
+// de_IssueDetected omitted.
 
-/**
- * deserializeAws_restJson1IssuesDetected
- */
-const de_IssuesDetected = (output: any, context: __SerdeContext): IssueDetected[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IssueDetected(entry, context);
-    });
-  return retVal;
-};
+// de_IssuesDetected omitted.
 
-/**
- * deserializeAws_restJson1MatchedCategories
- */
-const de_MatchedCategories = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MatchedCategories omitted.
 
-/**
- * deserializeAws_restJson1MatchedDetails
- */
-const de_MatchedDetails = (output: any, context: __SerdeContext): Record<string, CategoryDetails> => {
-  return Object.entries(output).reduce((acc: Record<string, CategoryDetails>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_CategoryDetails(value, context);
-    return acc;
-  }, {});
-};
+// de_MatchedDetails omitted.
 
-/**
- * deserializeAws_restJson1PointOfInterest
- */
-const de_PointOfInterest = (output: any, context: __SerdeContext): PointOfInterest => {
-  return {
-    BeginOffsetMillis: __expectInt32(output.BeginOffsetMillis),
-    EndOffsetMillis: __expectInt32(output.EndOffsetMillis),
-  } as any;
-};
+// de_PointOfInterest omitted.
 
-/**
- * deserializeAws_restJson1PointsOfInterest
- */
-const de_PointsOfInterest = (output: any, context: __SerdeContext): PointOfInterest[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PointOfInterest(entry, context);
-    });
-  return retVal;
-};
+// de_PointsOfInterest omitted.
 
-/**
- * deserializeAws_restJson1RealtimeContactAnalysisSegment
- */
-const de_RealtimeContactAnalysisSegment = (output: any, context: __SerdeContext): RealtimeContactAnalysisSegment => {
-  return {
-    Categories: output.Categories != null ? de_Categories(output.Categories, context) : undefined,
-    Transcript: output.Transcript != null ? de_Transcript(output.Transcript, context) : undefined,
-  } as any;
-};
+// de_RealtimeContactAnalysisSegment omitted.
 
-/**
- * deserializeAws_restJson1RealtimeContactAnalysisSegments
- */
-const de_RealtimeContactAnalysisSegments = (output: any, context: __SerdeContext): RealtimeContactAnalysisSegment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RealtimeContactAnalysisSegment(entry, context);
-    });
-  return retVal;
-};
+// de_RealtimeContactAnalysisSegments omitted.
 
-/**
- * deserializeAws_restJson1Transcript
- */
-const de_Transcript = (output: any, context: __SerdeContext): Transcript => {
-  return {
-    BeginOffsetMillis: __expectInt32(output.BeginOffsetMillis),
-    Content: __expectString(output.Content),
-    EndOffsetMillis: __expectInt32(output.EndOffsetMillis),
-    Id: __expectString(output.Id),
-    IssuesDetected: output.IssuesDetected != null ? de_IssuesDetected(output.IssuesDetected, context) : undefined,
-    ParticipantId: __expectString(output.ParticipantId),
-    ParticipantRole: __expectString(output.ParticipantRole),
-    Sentiment: __expectString(output.Sentiment),
-  } as any;
-};
+// de_Transcript omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

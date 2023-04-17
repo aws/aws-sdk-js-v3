@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,9 +12,10 @@ import {
   expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -38,13 +40,11 @@ import {
   AccessDeniedException,
   ArrayValue,
   BadRequestException,
-  ColumnMetadata,
   Field,
   ForbiddenException,
   InternalServerErrorException,
   NotFoundException,
   ResultFrame,
-  ResultSetMetadata,
   ResultSetOptions,
   ServiceUnavailableError,
   SqlParameter,
@@ -69,15 +69,17 @@ export const se_BatchExecuteStatementCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchExecute";
   let body: any;
-  body = JSON.stringify({
-    ...(input.database != null && { database: input.database }),
-    ...(input.parameterSets != null && { parameterSets: se_SqlParameterSets(input.parameterSets, context) }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.schema != null && { schema: input.schema }),
-    ...(input.secretArn != null && { secretArn: input.secretArn }),
-    ...(input.sql != null && { sql: input.sql }),
-    ...(input.transactionId != null && { transactionId: input.transactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      database: [],
+      parameterSets: (_) => se_SqlParameterSets(_, context),
+      resourceArn: [],
+      schema: [],
+      secretArn: [],
+      sql: [],
+      transactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -102,12 +104,14 @@ export const se_BeginTransactionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BeginTransaction";
   let body: any;
-  body = JSON.stringify({
-    ...(input.database != null && { database: input.database }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.schema != null && { schema: input.schema }),
-    ...(input.secretArn != null && { secretArn: input.secretArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      database: [],
+      resourceArn: [],
+      schema: [],
+      secretArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -132,11 +136,13 @@ export const se_CommitTransactionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CommitTransaction";
   let body: any;
-  body = JSON.stringify({
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.secretArn != null && { secretArn: input.secretArn }),
-    ...(input.transactionId != null && { transactionId: input.transactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [],
+      secretArn: [],
+      transactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -161,13 +167,15 @@ export const se_ExecuteSqlCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ExecuteSql";
   let body: any;
-  body = JSON.stringify({
-    ...(input.awsSecretStoreArn != null && { awsSecretStoreArn: input.awsSecretStoreArn }),
-    ...(input.database != null && { database: input.database }),
-    ...(input.dbClusterOrInstanceArn != null && { dbClusterOrInstanceArn: input.dbClusterOrInstanceArn }),
-    ...(input.schema != null && { schema: input.schema }),
-    ...(input.sqlStatements != null && { sqlStatements: input.sqlStatements }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      awsSecretStoreArn: [],
+      database: [],
+      dbClusterOrInstanceArn: [],
+      schema: [],
+      sqlStatements: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -192,19 +200,21 @@ export const se_ExecuteStatementCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Execute";
   let body: any;
-  body = JSON.stringify({
-    ...(input.continueAfterTimeout != null && { continueAfterTimeout: input.continueAfterTimeout }),
-    ...(input.database != null && { database: input.database }),
-    ...(input.formatRecordsAs != null && { formatRecordsAs: input.formatRecordsAs }),
-    ...(input.includeResultMetadata != null && { includeResultMetadata: input.includeResultMetadata }),
-    ...(input.parameters != null && { parameters: se_SqlParametersList(input.parameters, context) }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.resultSetOptions != null && { resultSetOptions: se_ResultSetOptions(input.resultSetOptions, context) }),
-    ...(input.schema != null && { schema: input.schema }),
-    ...(input.secretArn != null && { secretArn: input.secretArn }),
-    ...(input.sql != null && { sql: input.sql }),
-    ...(input.transactionId != null && { transactionId: input.transactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      continueAfterTimeout: [],
+      database: [],
+      formatRecordsAs: [],
+      includeResultMetadata: [],
+      parameters: (_) => se_SqlParametersList(_, context),
+      resourceArn: [],
+      resultSetOptions: (_) => _json(_),
+      schema: [],
+      secretArn: [],
+      sql: [],
+      transactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -229,11 +239,13 @@ export const se_RollbackTransactionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RollbackTransaction";
   let body: any;
-  body = JSON.stringify({
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.secretArn != null && { secretArn: input.secretArn }),
-    ...(input.transactionId != null && { transactionId: input.transactionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [],
+      secretArn: [],
+      transactionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -259,9 +271,10 @@ export const de_BatchExecuteStatementCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.updateResults != null) {
-    contents.updateResults = de_UpdateResults(data.updateResults, context);
-  }
+  const doc = take(data, {
+    updateResults: (_) => de_UpdateResults(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -298,10 +311,9 @@ const de_BatchExecuteStatementCommandError = async (
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -321,9 +333,10 @@ export const de_BeginTransactionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.transactionId != null) {
-    contents.transactionId = __expectString(data.transactionId);
-  }
+  const doc = take(data, {
+    transactionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -360,10 +373,9 @@ const de_BeginTransactionCommandError = async (
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -383,9 +395,10 @@ export const de_CommitTransactionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.transactionStatus != null) {
-    contents.transactionStatus = __expectString(data.transactionStatus);
-  }
+  const doc = take(data, {
+    transactionStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -425,10 +438,9 @@ const de_CommitTransactionCommandError = async (
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -448,9 +460,10 @@ export const de_ExecuteSqlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.sqlStatementResults != null) {
-    contents.sqlStatementResults = de_SqlStatementResults(data.sqlStatementResults, context);
-  }
+  const doc = take(data, {
+    sqlStatementResults: (_) => de_SqlStatementResults(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -484,10 +497,9 @@ const de_ExecuteSqlCommandError = async (
       throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -507,21 +519,14 @@ export const de_ExecuteStatementCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.columnMetadata != null) {
-    contents.columnMetadata = de_Metadata(data.columnMetadata, context);
-  }
-  if (data.formattedRecords != null) {
-    contents.formattedRecords = __expectString(data.formattedRecords);
-  }
-  if (data.generatedFields != null) {
-    contents.generatedFields = de_FieldList(data.generatedFields, context);
-  }
-  if (data.numberOfRecordsUpdated != null) {
-    contents.numberOfRecordsUpdated = __expectLong(data.numberOfRecordsUpdated);
-  }
-  if (data.records != null) {
-    contents.records = de_SqlRecords(data.records, context);
-  }
+  const doc = take(data, {
+    columnMetadata: _json,
+    formattedRecords: __expectString,
+    generatedFields: (_) => de_FieldList(_, context),
+    numberOfRecordsUpdated: __expectLong,
+    records: (_) => de_SqlRecords(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -558,10 +563,9 @@ const de_ExecuteStatementCommandError = async (
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -581,9 +585,10 @@ export const de_RollbackTransactionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.transactionStatus != null) {
-    contents.transactionStatus = __expectString(data.transactionStatus);
-  }
+  const doc = take(data, {
+    transactionStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -623,16 +628,15 @@ const de_RollbackTransactionCommandError = async (
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -642,9 +646,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -658,9 +663,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -674,9 +680,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -693,6 +700,8 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -706,9 +715,10 @@ const de_InternalServerErrorExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -725,6 +735,8 @@ const de_ServiceUnavailableErrorRes = async (
 ): Promise<ServiceUnavailableError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -741,12 +753,11 @@ const de_StatementTimeoutExceptionRes = async (
 ): Promise<StatementTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.dbConnectionId != null) {
-    contents.dbConnectionId = __expectLong(data.dbConnectionId);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    dbConnectionId: __expectLong,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StatementTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -771,24 +782,15 @@ const se_ArrayOfArray = (input: ArrayValue[], context: __SerdeContext): any => {
 const se_ArrayValue = (input: ArrayValue, context: __SerdeContext): any => {
   return ArrayValue.visit(input, {
     arrayValues: (value) => ({ arrayValues: se_ArrayOfArray(value, context) }),
-    booleanValues: (value) => ({ booleanValues: se_BooleanArray(value, context) }),
+    booleanValues: (value) => ({ booleanValues: _json(value) }),
     doubleValues: (value) => ({ doubleValues: se_DoubleArray(value, context) }),
-    longValues: (value) => ({ longValues: se_LongArray(value, context) }),
-    stringValues: (value) => ({ stringValues: se_StringArray(value, context) }),
+    longValues: (value) => ({ longValues: _json(value) }),
+    stringValues: (value) => ({ stringValues: _json(value) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-/**
- * serializeAws_restJson1BooleanArray
- */
-const se_BooleanArray = (input: boolean[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BooleanArray omitted.
 
 /**
  * serializeAws_restJson1DoubleArray
@@ -817,36 +819,19 @@ const se_Field = (input: Field, context: __SerdeContext): any => {
   });
 };
 
-/**
- * serializeAws_restJson1LongArray
- */
-const se_LongArray = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LongArray omitted.
 
-/**
- * serializeAws_restJson1ResultSetOptions
- */
-const se_ResultSetOptions = (input: ResultSetOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.decimalReturnType != null && { decimalReturnType: input.decimalReturnType }),
-    ...(input.longReturnType != null && { longReturnType: input.longReturnType }),
-  };
-};
+// se_ResultSetOptions omitted.
 
 /**
  * serializeAws_restJson1SqlParameter
  */
 const se_SqlParameter = (input: SqlParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.typeHint != null && { typeHint: input.typeHint }),
-    ...(input.value != null && { value: se_Field(input.value, context) }),
-  };
+  return take(input, {
+    name: [],
+    typeHint: [],
+    value: (_) => se_Field(_, context),
+  });
 };
 
 /**
@@ -871,16 +856,7 @@ const se_SqlParametersList = (input: SqlParameter[], context: __SerdeContext): a
     });
 };
 
-/**
- * serializeAws_restJson1StringArray
- */
-const se_StringArray = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringArray omitted.
 
 /**
  * deserializeAws_restJson1ArrayOfArray
@@ -889,9 +865,6 @@ const de_ArrayOfArray = (output: any, context: __SerdeContext): ArrayValue[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ArrayValue(__expectUnion(entry), context);
     });
   return retVal;
@@ -908,7 +881,7 @@ const de_ArrayValue = (output: any, context: __SerdeContext): ArrayValue => {
   }
   if (output.booleanValues != null) {
     return {
-      booleanValues: de_BooleanArray(output.booleanValues, context),
+      booleanValues: _json(output.booleanValues),
     };
   }
   if (output.doubleValues != null) {
@@ -918,12 +891,12 @@ const de_ArrayValue = (output: any, context: __SerdeContext): ArrayValue => {
   }
   if (output.longValues != null) {
     return {
-      longValues: de_LongArray(output.longValues, context),
+      longValues: _json(output.longValues),
     };
   }
   if (output.stringValues != null) {
     return {
-      stringValues: de_StringArray(output.stringValues, context),
+      stringValues: _json(output.stringValues),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -936,50 +909,14 @@ const de_ArrayValueList = (output: any, context: __SerdeContext): Value[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Value(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1BooleanArray
- */
-const de_BooleanArray = (output: any, context: __SerdeContext): boolean[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectBoolean(entry) as any;
-    });
-  return retVal;
-};
+// de_BooleanArray omitted.
 
-/**
- * deserializeAws_restJson1ColumnMetadata
- */
-const de_ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
-  return {
-    arrayBaseColumnType: __expectInt32(output.arrayBaseColumnType),
-    isAutoIncrement: __expectBoolean(output.isAutoIncrement),
-    isCaseSensitive: __expectBoolean(output.isCaseSensitive),
-    isCurrency: __expectBoolean(output.isCurrency),
-    isSigned: __expectBoolean(output.isSigned),
-    label: __expectString(output.label),
-    name: __expectString(output.name),
-    nullable: __expectInt32(output.nullable),
-    precision: __expectInt32(output.precision),
-    scale: __expectInt32(output.scale),
-    schemaName: __expectString(output.schemaName),
-    tableName: __expectString(output.tableName),
-    type: __expectInt32(output.type),
-    typeName: __expectString(output.typeName),
-  } as any;
-};
+// de_ColumnMetadata omitted.
 
 /**
  * deserializeAws_restJson1DoubleArray
@@ -988,9 +925,6 @@ const de_DoubleArray = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseDouble(entry) as any;
     });
   return retVal;
@@ -1035,51 +969,22 @@ const de_FieldList = (output: any, context: __SerdeContext): Field[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Field(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1LongArray
- */
-const de_LongArray = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectLong(entry) as any;
-    });
-  return retVal;
-};
+// de_LongArray omitted.
 
-/**
- * deserializeAws_restJson1Metadata
- */
-const de_Metadata = (output: any, context: __SerdeContext): ColumnMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ColumnMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_Metadata omitted.
 
 /**
  * deserializeAws_restJson1_Record
  */
 const de__Record = (output: any, context: __SerdeContext): _Record => {
-  return {
-    values: output.values != null ? de_Row(output.values, context) : undefined,
-  } as any;
+  return take(output, {
+    values: (_: any) => de_Row(_, context),
+  }) as any;
 };
 
 /**
@@ -1089,9 +994,6 @@ const de_Records = (output: any, context: __SerdeContext): _Record[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de__Record(entry, context);
     });
   return retVal;
@@ -1101,22 +1003,13 @@ const de_Records = (output: any, context: __SerdeContext): _Record[] => {
  * deserializeAws_restJson1ResultFrame
  */
 const de_ResultFrame = (output: any, context: __SerdeContext): ResultFrame => {
-  return {
-    records: output.records != null ? de_Records(output.records, context) : undefined,
-    resultSetMetadata:
-      output.resultSetMetadata != null ? de_ResultSetMetadata(output.resultSetMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    records: (_: any) => de_Records(_, context),
+    resultSetMetadata: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ResultSetMetadata
- */
-const de_ResultSetMetadata = (output: any, context: __SerdeContext): ResultSetMetadata => {
-  return {
-    columnCount: __expectLong(output.columnCount),
-    columnMetadata: output.columnMetadata != null ? de_Metadata(output.columnMetadata, context) : undefined,
-  } as any;
-};
+// de_ResultSetMetadata omitted.
 
 /**
  * deserializeAws_restJson1Row
@@ -1125,9 +1018,6 @@ const de_Row = (output: any, context: __SerdeContext): Value[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Value(__expectUnion(entry), context);
     });
   return retVal;
@@ -1140,9 +1030,6 @@ const de_SqlRecords = (output: any, context: __SerdeContext): Field[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FieldList(entry, context);
     });
   return retVal;
@@ -1152,10 +1039,10 @@ const de_SqlRecords = (output: any, context: __SerdeContext): Field[][] => {
  * deserializeAws_restJson1SqlStatementResult
  */
 const de_SqlStatementResult = (output: any, context: __SerdeContext): SqlStatementResult => {
-  return {
-    numberOfRecordsUpdated: __expectLong(output.numberOfRecordsUpdated),
-    resultFrame: output.resultFrame != null ? de_ResultFrame(output.resultFrame, context) : undefined,
-  } as any;
+  return take(output, {
+    numberOfRecordsUpdated: __expectLong,
+    resultFrame: (_: any) => de_ResultFrame(_, context),
+  }) as any;
 };
 
 /**
@@ -1165,45 +1052,29 @@ const de_SqlStatementResults = (output: any, context: __SerdeContext): SqlStatem
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SqlStatementResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1StringArray
- */
-const de_StringArray = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringArray omitted.
 
 /**
  * deserializeAws_restJson1StructValue
  */
 const de_StructValue = (output: any, context: __SerdeContext): StructValue => {
-  return {
-    attributes: output.attributes != null ? de_ArrayValueList(output.attributes, context) : undefined,
-  } as any;
+  return take(output, {
+    attributes: (_: any) => de_ArrayValueList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1UpdateResult
  */
 const de_UpdateResult = (output: any, context: __SerdeContext): UpdateResult => {
-  return {
-    generatedFields: output.generatedFields != null ? de_FieldList(output.generatedFields, context) : undefined,
-  } as any;
+  return take(output, {
+    generatedFields: (_: any) => de_FieldList(_, context),
+  }) as any;
 };
 
 /**
@@ -1213,9 +1084,6 @@ const de_UpdateResults = (output: any, context: __SerdeContext): UpdateResult[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_UpdateResult(entry, context);
     });
   return retVal;

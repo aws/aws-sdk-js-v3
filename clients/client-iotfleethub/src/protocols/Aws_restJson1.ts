@@ -1,15 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -34,7 +36,6 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import { IoTFleetHubServiceException as __BaseException } from "../models/IoTFleetHubServiceException";
 import {
-  ApplicationSummary,
   ConflictException,
   InternalFailureException,
   InvalidRequestException,
@@ -56,13 +57,15 @@ export const se_CreateApplicationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
-  body = JSON.stringify({
-    ...(input.applicationDescription != null && { applicationDescription: input.applicationDescription }),
-    ...(input.applicationName != null && { applicationName: input.applicationName }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      applicationDescription: [],
+      applicationName: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      roleArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -203,9 +206,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -269,11 +274,13 @@ export const se_UpdateApplicationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.applicationDescription != null && { applicationDescription: input.applicationDescription }),
-    ...(input.applicationName != null && { applicationName: input.applicationName }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      applicationDescription: [],
+      applicationName: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -299,12 +306,11 @@ export const de_CreateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationArn != null) {
-    contents.applicationArn = __expectString(data.applicationArn);
-  }
-  if (data.applicationId != null) {
-    contents.applicationId = __expectString(data.applicationId);
-  }
+  const doc = take(data, {
+    applicationArn: __expectString,
+    applicationId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -335,10 +341,9 @@ const de_CreateApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -388,10 +393,9 @@ const de_DeleteApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -411,42 +415,21 @@ export const de_DescribeApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationArn != null) {
-    contents.applicationArn = __expectString(data.applicationArn);
-  }
-  if (data.applicationCreationDate != null) {
-    contents.applicationCreationDate = __expectLong(data.applicationCreationDate);
-  }
-  if (data.applicationDescription != null) {
-    contents.applicationDescription = __expectString(data.applicationDescription);
-  }
-  if (data.applicationId != null) {
-    contents.applicationId = __expectString(data.applicationId);
-  }
-  if (data.applicationLastUpdateDate != null) {
-    contents.applicationLastUpdateDate = __expectLong(data.applicationLastUpdateDate);
-  }
-  if (data.applicationName != null) {
-    contents.applicationName = __expectString(data.applicationName);
-  }
-  if (data.applicationState != null) {
-    contents.applicationState = __expectString(data.applicationState);
-  }
-  if (data.applicationUrl != null) {
-    contents.applicationUrl = __expectString(data.applicationUrl);
-  }
-  if (data.errorMessage != null) {
-    contents.errorMessage = __expectString(data.errorMessage);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
-  if (data.ssoClientId != null) {
-    contents.ssoClientId = __expectString(data.ssoClientId);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    applicationArn: __expectString,
+    applicationCreationDate: __expectLong,
+    applicationDescription: __expectString,
+    applicationId: __expectString,
+    applicationLastUpdateDate: __expectLong,
+    applicationName: __expectString,
+    applicationState: __expectString,
+    applicationUrl: __expectString,
+    errorMessage: __expectString,
+    roleArn: __expectString,
+    ssoClientId: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -477,10 +460,9 @@ const de_DescribeApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -500,12 +482,11 @@ export const de_ListApplicationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.applicationSummaries != null) {
-    contents.applicationSummaries = de_ApplicationSummaries(data.applicationSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    applicationSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -533,10 +514,9 @@ const de_ListApplicationsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -556,9 +536,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -586,10 +567,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -636,10 +616,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -686,10 +665,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -742,25 +720,25 @@ const de_UpdateApplicationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -777,9 +755,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -796,9 +775,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -815,9 +795,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -834,9 +815,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -850,9 +832,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -860,61 +843,13 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1ApplicationSummaries
- */
-const de_ApplicationSummaries = (output: any, context: __SerdeContext): ApplicationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ApplicationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ApplicationSummaries omitted.
 
-/**
- * deserializeAws_restJson1ApplicationSummary
- */
-const de_ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
-  return {
-    applicationCreationDate: __expectLong(output.applicationCreationDate),
-    applicationDescription: __expectString(output.applicationDescription),
-    applicationId: __expectString(output.applicationId),
-    applicationLastUpdateDate: __expectLong(output.applicationLastUpdateDate),
-    applicationName: __expectString(output.applicationName),
-    applicationState: __expectString(output.applicationState),
-    applicationUrl: __expectString(output.applicationUrl),
-  } as any;
-};
+// de_ApplicationSummary omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

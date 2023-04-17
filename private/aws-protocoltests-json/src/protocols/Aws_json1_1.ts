@@ -5,6 +5,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   dateToUtcString as __dateToUtcString,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
@@ -21,7 +22,8 @@ import {
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   DocumentType as __DocumentType,
@@ -76,7 +78,6 @@ import {
   FooError,
   FractionalSecondsOutput,
   GreetingStruct,
-  GreetingWithErrorsOutput,
   HostLabelInput,
   InvalidGreeting,
   JsonEnumsInputOutput,
@@ -84,7 +85,6 @@ import {
   MyUnion,
   NullOperationInputOutput,
   OperationWithOptionalInputOutputInput,
-  OperationWithOptionalInputOutputOutput,
   PutAndGetInlineDocumentsInputOutput,
   SimpleScalarPropertiesInputOutput,
   SimpleStruct,
@@ -144,7 +144,7 @@ export const se_EndpointWithHostLabelOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EndpointWithHostLabelOperation");
   let body: any;
-  body = JSON.stringify(se_HostLabelInput(input, context));
+  body = JSON.stringify(_json(input));
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "foo.{label}." + resolvedHostname;
@@ -204,7 +204,7 @@ export const se_JsonEnumsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("JsonEnums");
   let body: any;
-  body = JSON.stringify(se_JsonEnumsInputOutput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -256,7 +256,7 @@ export const se_OperationWithOptionalInputOutputCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("OperationWithOptionalInputOutput");
   let body: any;
-  body = JSON.stringify(se_OperationWithOptionalInputOutputInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -303,7 +303,7 @@ export const de_DatetimeOffsetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -319,10 +319,9 @@ const de_DatetimeOffsetsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -341,7 +340,7 @@ export const de_EmptyOperationCommand = async (
   const response: EmptyOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -357,10 +356,9 @@ const de_EmptyOperationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -379,7 +377,7 @@ export const de_EndpointOperationCommand = async (
   const response: EndpointOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -395,10 +393,9 @@ const de_EndpointOperationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -417,7 +414,7 @@ export const de_EndpointWithHostLabelOperationCommand = async (
   const response: EndpointWithHostLabelOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -433,10 +430,9 @@ const de_EndpointWithHostLabelOperationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -458,7 +454,7 @@ export const de_FractionalSecondsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -474,10 +470,9 @@ const de_FractionalSecondsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -494,12 +489,12 @@ export const de_GreetingWithErrorsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GreetingWithErrorsOutput(data, context);
+  contents = _json(data);
   const response: GreetingWithErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -526,10 +521,9 @@ const de_GreetingWithErrorsCommandError = async (
       throw await de_InvalidGreetingRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -549,7 +543,7 @@ export const de_HostWithPathOperationCommand = async (
   const response: HostWithPathOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -565,10 +559,9 @@ const de_HostWithPathOperationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -585,12 +578,12 @@ export const de_JsonEnumsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_JsonEnumsInputOutput(data, context);
+  contents = _json(data);
   const response: JsonEnumsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -606,10 +599,9 @@ const de_JsonEnumsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -631,7 +623,7 @@ export const de_JsonUnionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -647,10 +639,9 @@ const de_JsonUnionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -672,7 +663,7 @@ export const de_KitchenSinkOperationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -696,10 +687,9 @@ const de_KitchenSinkOperationCommandError = async (
       throw await de_ErrorWithoutMembersRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -722,7 +712,7 @@ export const de_NullOperationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -738,10 +728,9 @@ const de_NullOperationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -758,12 +747,12 @@ export const de_OperationWithOptionalInputOutputCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_OperationWithOptionalInputOutputOutput(data, context);
+  contents = _json(data);
   const response: OperationWithOptionalInputOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -779,10 +768,9 @@ const de_OperationWithOptionalInputOutputCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -804,7 +792,7 @@ export const de_PutAndGetInlineDocumentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -820,10 +808,9 @@ const de_PutAndGetInlineDocumentsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -845,7 +832,7 @@ export const de_SimpleScalarPropertiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -861,10 +848,9 @@ const de_SimpleScalarPropertiesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -900,7 +886,7 @@ const de_ErrorWithMembersRes = async (parsedOutput: any, context: __SerdeContext
  */
 const de_ErrorWithoutMembersRes = async (parsedOutput: any, context: __SerdeContext): Promise<ErrorWithoutMembers> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ErrorWithoutMembers(body, context);
+  const deserialized: any = _json(body);
   const exception = new ErrorWithoutMembers({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -913,7 +899,7 @@ const de_ErrorWithoutMembersRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_FooErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<FooError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FooError(body, context);
+  const deserialized: any = _json(body);
   const exception = new FooError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -926,7 +912,7 @@ const de_FooErrorRes = async (parsedOutput: any, context: __SerdeContext): Promi
  */
 const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidGreeting> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidGreeting(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidGreeting({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -941,76 +927,44 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
   return input;
 };
 
-/**
- * serializeAws_json1_1EmptyStruct
- */
-const se_EmptyStruct = (input: EmptyStruct, context: __SerdeContext): any => {
-  return {};
-};
+// se_EmptyStruct omitted.
 
-/**
- * serializeAws_json1_1HostLabelInput
- */
-const se_HostLabelInput = (input: HostLabelInput, context: __SerdeContext): any => {
-  return {
-    ...(input.label != null && { label: input.label }),
-  };
-};
+// se_HostLabelInput omitted.
 
-/**
- * serializeAws_json1_1JsonEnumsInputOutput
- */
-const se_JsonEnumsInputOutput = (input: JsonEnumsInputOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.fooEnum1 != null && { fooEnum1: input.fooEnum1 }),
-    ...(input.fooEnum2 != null && { fooEnum2: input.fooEnum2 }),
-    ...(input.fooEnum3 != null && { fooEnum3: input.fooEnum3 }),
-    ...(input.fooEnumList != null && { fooEnumList: se_FooEnumList(input.fooEnumList, context) }),
-    ...(input.fooEnumMap != null && { fooEnumMap: se_FooEnumMap(input.fooEnumMap, context) }),
-    ...(input.fooEnumSet != null && { fooEnumSet: se_FooEnumSet(input.fooEnumSet, context) }),
-  };
-};
+// se_JsonEnumsInputOutput omitted.
 
 /**
  * serializeAws_json1_1KitchenSink
  */
 const se_KitchenSink = (input: KitchenSink, context: __SerdeContext): any => {
-  return {
-    ...(input.Blob != null && { Blob: context.base64Encoder(input.Blob) }),
-    ...(input.Boolean != null && { Boolean: input.Boolean }),
-    ...(input.Double != null && { Double: __serializeFloat(input.Double) }),
-    ...(input.EmptyStruct != null && { EmptyStruct: se_EmptyStruct(input.EmptyStruct, context) }),
-    ...(input.Float != null && { Float: __serializeFloat(input.Float) }),
-    ...(input.HttpdateTimestamp != null && { HttpdateTimestamp: __dateToUtcString(input.HttpdateTimestamp) }),
-    ...(input.Integer != null && { Integer: input.Integer }),
-    ...(input.Iso8601Timestamp != null && {
-      Iso8601Timestamp: input.Iso8601Timestamp.toISOString().split(".")[0] + "Z",
-    }),
-    ...(input.JsonValue != null && { JsonValue: __LazyJsonString.fromObject(input.JsonValue) }),
-    ...(input.ListOfLists != null && { ListOfLists: se_ListOfListOfStrings(input.ListOfLists, context) }),
-    ...(input.ListOfMapsOfStrings != null && {
-      ListOfMapsOfStrings: se_ListOfMapsOfStrings(input.ListOfMapsOfStrings, context),
-    }),
-    ...(input.ListOfStrings != null && { ListOfStrings: se_ListOfStrings(input.ListOfStrings, context) }),
-    ...(input.ListOfStructs != null && { ListOfStructs: se_ListOfStructs(input.ListOfStructs, context) }),
-    ...(input.Long != null && { Long: input.Long }),
-    ...(input.MapOfListsOfStrings != null && {
-      MapOfListsOfStrings: se_MapOfListsOfStrings(input.MapOfListsOfStrings, context),
-    }),
-    ...(input.MapOfMaps != null && { MapOfMaps: se_MapOfMapOfStrings(input.MapOfMaps, context) }),
-    ...(input.MapOfStrings != null && { MapOfStrings: se_MapOfStrings(input.MapOfStrings, context) }),
-    ...(input.MapOfStructs != null && { MapOfStructs: se_MapOfStructs(input.MapOfStructs, context) }),
-    ...(input.RecursiveList != null && { RecursiveList: se_ListOfKitchenSinks(input.RecursiveList, context) }),
-    ...(input.RecursiveMap != null && { RecursiveMap: se_MapOfKitchenSinks(input.RecursiveMap, context) }),
-    ...(input.RecursiveStruct != null && { RecursiveStruct: se_KitchenSink(input.RecursiveStruct, context) }),
-    ...(input.SimpleStruct != null && { SimpleStruct: se_SimpleStruct(input.SimpleStruct, context) }),
-    ...(input.String != null && { String: input.String }),
-    ...(input.StructWithJsonName != null && {
-      StructWithJsonName: se_StructWithJsonName(input.StructWithJsonName, context),
-    }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.UnixTimestamp != null && { UnixTimestamp: Math.round(input.UnixTimestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    Blob: context.base64Encoder,
+    Boolean: [],
+    Double: __serializeFloat,
+    EmptyStruct: _json,
+    Float: __serializeFloat,
+    HttpdateTimestamp: __dateToUtcString,
+    Integer: [],
+    Iso8601Timestamp: (_) => _.toISOString().split(".")[0] + "Z",
+    JsonValue: __LazyJsonString.fromObject,
+    ListOfLists: _json,
+    ListOfMapsOfStrings: _json,
+    ListOfStrings: _json,
+    ListOfStructs: _json,
+    Long: [],
+    MapOfListsOfStrings: _json,
+    MapOfMaps: _json,
+    MapOfStrings: _json,
+    MapOfStructs: _json,
+    RecursiveList: (_) => se_ListOfKitchenSinks(_, context),
+    RecursiveMap: (_) => se_MapOfKitchenSinks(_, context),
+    RecursiveStruct: (_) => se_KitchenSink(_, context),
+    SimpleStruct: _json,
+    String: [],
+    StructWithJsonName: (_) => se_StructWithJsonName(_, context),
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    UnixTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
@@ -1024,49 +978,13 @@ const se_ListOfKitchenSinks = (input: KitchenSink[], context: __SerdeContext): a
     });
 };
 
-/**
- * serializeAws_json1_1ListOfListOfStrings
- */
-const se_ListOfListOfStrings = (input: string[][], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ListOfStrings(entry, context);
-    });
-};
+// se_ListOfListOfStrings omitted.
 
-/**
- * serializeAws_json1_1ListOfMapsOfStrings
- */
-const se_ListOfMapsOfStrings = (input: Record<string, string>[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MapOfStrings(entry, context);
-    });
-};
+// se_ListOfMapsOfStrings omitted.
 
-/**
- * serializeAws_json1_1ListOfStrings
- */
-const se_ListOfStrings = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfStrings omitted.
 
-/**
- * serializeAws_json1_1ListOfStructs
- */
-const se_ListOfStructs = (input: SimpleStruct[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SimpleStruct(entry, context);
-    });
-};
+// se_ListOfStructs omitted.
 
 /**
  * serializeAws_json1_1MapOfKitchenSinks
@@ -1081,57 +999,13 @@ const se_MapOfKitchenSinks = (input: Record<string, KitchenSink>, context: __Ser
   }, {});
 };
 
-/**
- * serializeAws_json1_1MapOfListsOfStrings
- */
-const se_MapOfListsOfStrings = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_ListOfStrings(value, context);
-    return acc;
-  }, {});
-};
+// se_MapOfListsOfStrings omitted.
 
-/**
- * serializeAws_json1_1MapOfMapOfStrings
- */
-const se_MapOfMapOfStrings = (input: Record<string, Record<string, string>>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_MapOfStrings(value, context);
-    return acc;
-  }, {});
-};
+// se_MapOfMapOfStrings omitted.
 
-/**
- * serializeAws_json1_1MapOfStrings
- */
-const se_MapOfStrings = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_MapOfStrings omitted.
 
-/**
- * serializeAws_json1_1MapOfStructs
- */
-const se_MapOfStructs = (input: Record<string, SimpleStruct>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_SimpleStruct(value, context);
-    return acc;
-  }, {});
-};
+// se_MapOfStructs omitted.
 
 /**
  * serializeAws_json1_1MyUnion
@@ -1141,11 +1015,11 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     blobValue: (value) => ({ blobValue: context.base64Encoder(value) }),
     booleanValue: (value) => ({ booleanValue: value }),
     enumValue: (value) => ({ enumValue: value }),
-    listValue: (value) => ({ listValue: se_StringList(value, context) }),
-    mapValue: (value) => ({ mapValue: se_StringMap(value, context) }),
+    listValue: (value) => ({ listValue: _json(value) }),
+    mapValue: (value) => ({ mapValue: _json(value) }),
     numberValue: (value) => ({ numberValue: value }),
     stringValue: (value) => ({ stringValue: value }),
-    structureValue: (value) => ({ structureValue: se_GreetingStruct(value, context) }),
+    structureValue: (value) => ({ structureValue: _json(value) }),
     timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -1155,24 +1029,14 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
  * serializeAws_json1_1NullOperationInputOutput
  */
 const se_NullOperationInputOutput = (input: NullOperationInputOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.sparseStringList != null && { sparseStringList: se_SparseStringList(input.sparseStringList, context) }),
-    ...(input.sparseStringMap != null && { sparseStringMap: se_SparseStringMap(input.sparseStringMap, context) }),
-    ...(input.string != null && { string: input.string }),
-  };
+  return take(input, {
+    sparseStringList: (_) => se_SparseStringList(_, context),
+    sparseStringMap: (_) => se_SparseStringMap(_, context),
+    string: [],
+  });
 };
 
-/**
- * serializeAws_json1_1OperationWithOptionalInputOutputInput
- */
-const se_OperationWithOptionalInputOutputInput = (
-  input: OperationWithOptionalInputOutputInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_OperationWithOptionalInputOutputInput omitted.
 
 /**
  * serializeAws_json1_1PutAndGetInlineDocumentsInputOutput
@@ -1181,9 +1045,9 @@ const se_PutAndGetInlineDocumentsInputOutput = (
   input: PutAndGetInlineDocumentsInputOutput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.inlineDocument != null && { inlineDocument: se_Document(input.inlineDocument, context) }),
-  };
+  return take(input, {
+    inlineDocument: (_) => se_Document(_, context),
+  });
 };
 
 /**
@@ -1193,93 +1057,45 @@ const se_SimpleScalarPropertiesInputOutput = (
   input: SimpleScalarPropertiesInputOutput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.doubleValue != null && { doubleValue: __serializeFloat(input.doubleValue) }),
-    ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
-  };
+  return take(input, {
+    doubleValue: __serializeFloat,
+    floatValue: __serializeFloat,
+  });
 };
 
-/**
- * serializeAws_json1_1SimpleStruct
- */
-const se_SimpleStruct = (input: SimpleStruct, context: __SerdeContext): any => {
-  return {
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_SimpleStruct omitted.
 
 /**
  * serializeAws_json1_1StructWithJsonName
  */
 const se_StructWithJsonName = (input: StructWithJsonName, context: __SerdeContext): any => {
-  return {
-    ...(input.Value != null && { Value: input.Value }),
-  };
+  return take(input, {
+    Value: [, , `Value`],
+  });
 };
 
 /**
  * serializeAws_json1_1UnionInputOutput
  */
 const se_UnionInputOutput = (input: UnionInputOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.contents != null && { contents: se_MyUnion(input.contents, context) }),
-  };
+  return take(input, {
+    contents: (_) => se_MyUnion(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1FooEnumList
- */
-const se_FooEnumList = (input: (FooEnum | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FooEnumList omitted.
 
-/**
- * serializeAws_json1_1FooEnumMap
- */
-const se_FooEnumMap = (input: Record<string, FooEnum | string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_FooEnumMap omitted.
 
-/**
- * serializeAws_json1_1FooEnumSet
- */
-const se_FooEnumSet = (input: (FooEnum | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FooEnumSet omitted.
 
-/**
- * serializeAws_json1_1GreetingStruct
- */
-const se_GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
-  return {
-    ...(input.hi != null && { hi: input.hi }),
-  };
-};
+// se_GreetingStruct omitted.
 
 /**
  * serializeAws_json1_1SparseStringList
  */
 const se_SparseStringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    if (entry === null) {
-      return null as any;
-    }
-    return entry;
-  });
+  return input;
 };
 
 /**
@@ -1296,56 +1112,36 @@ const se_SparseStringMap = (input: Record<string, string>, context: __SerdeConte
   }, {});
 };
 
-/**
- * serializeAws_json1_1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
-/**
- * serializeAws_json1_1StringMap
- */
-const se_StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_StringMap omitted.
 
 /**
  * deserializeAws_json1_1ComplexError
  */
 const de_ComplexError = (output: any, context: __SerdeContext): ComplexError => {
-  return {
-    Nested: output.Nested != null ? de_ComplexNestedErrorData(output.Nested, context) : undefined,
-    TopLevel: __expectString(output.TopLevel),
-  } as any;
+  return take(output, {
+    Nested: (_: any) => de_ComplexNestedErrorData(_, context),
+    TopLevel: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ComplexNestedErrorData
  */
 const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
-  return {
-    Foo: __expectString(output.Foo),
-  } as any;
+  return take(output, {
+    Foo: [, __expectString, `Foo`],
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DatetimeOffsetsOutput
  */
 const de_DatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
-  return {
-    datetime: output.datetime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.datetime)) : undefined,
-  } as any;
+  return take(output, {
+    datetime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -1355,127 +1151,75 @@ const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
 };
 
-/**
- * deserializeAws_json1_1EmptyStruct
- */
-const de_EmptyStruct = (output: any, context: __SerdeContext): EmptyStruct => {
-  return {} as any;
-};
+// de_EmptyStruct omitted.
 
 /**
  * deserializeAws_json1_1ErrorWithMembers
  */
 const de_ErrorWithMembers = (output: any, context: __SerdeContext): ErrorWithMembers => {
-  return {
-    Code: __expectString(output.Code),
-    ComplexData: output.ComplexData != null ? de_KitchenSink(output.ComplexData, context) : undefined,
-    IntegerField: __expectInt32(output.IntegerField),
-    ListField: output.ListField != null ? de_ListOfStrings(output.ListField, context) : undefined,
-    MapField: output.MapField != null ? de_MapOfStrings(output.MapField, context) : undefined,
-    Message: __expectString(output.Message),
-    StringField: __expectString(output.StringField),
-  } as any;
+  return take(output, {
+    Code: __expectString,
+    ComplexData: (_: any) => de_KitchenSink(_, context),
+    IntegerField: __expectInt32,
+    ListField: _json,
+    MapField: _json,
+    Message: __expectString,
+    StringField: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ErrorWithoutMembers
- */
-const de_ErrorWithoutMembers = (output: any, context: __SerdeContext): ErrorWithoutMembers => {
-  return {} as any;
-};
+// de_ErrorWithoutMembers omitted.
 
-/**
- * deserializeAws_json1_1FooError
- */
-const de_FooError = (output: any, context: __SerdeContext): FooError => {
-  return {} as any;
-};
+// de_FooError omitted.
 
 /**
  * deserializeAws_json1_1FractionalSecondsOutput
  */
 const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): FractionalSecondsOutput => {
-  return {
-    datetime: output.datetime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.datetime)) : undefined,
-    httpdate: output.httpdate != null ? __expectNonNull(__parseRfc7231DateTime(output.httpdate)) : undefined,
-  } as any;
+  return take(output, {
+    datetime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    httpdate: (_: any) => __expectNonNull(__parseRfc7231DateTime(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GreetingWithErrorsOutput
- */
-const de_GreetingWithErrorsOutput = (output: any, context: __SerdeContext): GreetingWithErrorsOutput => {
-  return {
-    greeting: __expectString(output.greeting),
-  } as any;
-};
+// de_GreetingWithErrorsOutput omitted.
 
-/**
- * deserializeAws_json1_1InvalidGreeting
- */
-const de_InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidGreeting omitted.
 
-/**
- * deserializeAws_json1_1JsonEnumsInputOutput
- */
-const de_JsonEnumsInputOutput = (output: any, context: __SerdeContext): JsonEnumsInputOutput => {
-  return {
-    fooEnum1: __expectString(output.fooEnum1),
-    fooEnum2: __expectString(output.fooEnum2),
-    fooEnum3: __expectString(output.fooEnum3),
-    fooEnumList: output.fooEnumList != null ? de_FooEnumList(output.fooEnumList, context) : undefined,
-    fooEnumMap: output.fooEnumMap != null ? de_FooEnumMap(output.fooEnumMap, context) : undefined,
-    fooEnumSet: output.fooEnumSet != null ? de_FooEnumSet(output.fooEnumSet, context) : undefined,
-  } as any;
-};
+// de_JsonEnumsInputOutput omitted.
 
 /**
  * deserializeAws_json1_1KitchenSink
  */
 const de_KitchenSink = (output: any, context: __SerdeContext): KitchenSink => {
-  return {
-    Blob: output.Blob != null ? context.base64Decoder(output.Blob) : undefined,
-    Boolean: __expectBoolean(output.Boolean),
-    Double: __limitedParseDouble(output.Double),
-    EmptyStruct: output.EmptyStruct != null ? de_EmptyStruct(output.EmptyStruct, context) : undefined,
-    Float: __limitedParseFloat32(output.Float),
-    HttpdateTimestamp:
-      output.HttpdateTimestamp != null ? __expectNonNull(__parseRfc7231DateTime(output.HttpdateTimestamp)) : undefined,
-    Integer: __expectInt32(output.Integer),
-    Iso8601Timestamp:
-      output.Iso8601Timestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Iso8601Timestamp))
-        : undefined,
-    JsonValue: output.JsonValue != null ? new __LazyJsonString(output.JsonValue) : undefined,
-    ListOfLists: output.ListOfLists != null ? de_ListOfListOfStrings(output.ListOfLists, context) : undefined,
-    ListOfMapsOfStrings:
-      output.ListOfMapsOfStrings != null ? de_ListOfMapsOfStrings(output.ListOfMapsOfStrings, context) : undefined,
-    ListOfStrings: output.ListOfStrings != null ? de_ListOfStrings(output.ListOfStrings, context) : undefined,
-    ListOfStructs: output.ListOfStructs != null ? de_ListOfStructs(output.ListOfStructs, context) : undefined,
-    Long: __expectLong(output.Long),
-    MapOfListsOfStrings:
-      output.MapOfListsOfStrings != null ? de_MapOfListsOfStrings(output.MapOfListsOfStrings, context) : undefined,
-    MapOfMaps: output.MapOfMaps != null ? de_MapOfMapOfStrings(output.MapOfMaps, context) : undefined,
-    MapOfStrings: output.MapOfStrings != null ? de_MapOfStrings(output.MapOfStrings, context) : undefined,
-    MapOfStructs: output.MapOfStructs != null ? de_MapOfStructs(output.MapOfStructs, context) : undefined,
-    RecursiveList: output.RecursiveList != null ? de_ListOfKitchenSinks(output.RecursiveList, context) : undefined,
-    RecursiveMap: output.RecursiveMap != null ? de_MapOfKitchenSinks(output.RecursiveMap, context) : undefined,
-    RecursiveStruct: output.RecursiveStruct != null ? de_KitchenSink(output.RecursiveStruct, context) : undefined,
-    SimpleStruct: output.SimpleStruct != null ? de_SimpleStruct(output.SimpleStruct, context) : undefined,
-    String: __expectString(output.String),
-    StructWithJsonName:
-      output.StructWithJsonName != null ? de_StructWithJsonName(output.StructWithJsonName, context) : undefined,
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-    UnixTimestamp:
-      output.UnixTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UnixTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Blob: context.base64Decoder,
+    Boolean: __expectBoolean,
+    Double: __limitedParseDouble,
+    EmptyStruct: _json,
+    Float: __limitedParseFloat32,
+    HttpdateTimestamp: (_: any) => __expectNonNull(__parseRfc7231DateTime(_)),
+    Integer: __expectInt32,
+    Iso8601Timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    JsonValue: (_: any) => new __LazyJsonString(_),
+    ListOfLists: _json,
+    ListOfMapsOfStrings: _json,
+    ListOfStrings: _json,
+    ListOfStructs: _json,
+    Long: __expectLong,
+    MapOfListsOfStrings: _json,
+    MapOfMaps: _json,
+    MapOfStrings: _json,
+    MapOfStructs: _json,
+    RecursiveList: (_: any) => de_ListOfKitchenSinks(_, context),
+    RecursiveMap: (_: any) => de_MapOfKitchenSinks(_, context),
+    RecursiveStruct: (_: any) => de_KitchenSink(_, context),
+    SimpleStruct: _json,
+    String: __expectString,
+    StructWithJsonName: (_: any) => de_StructWithJsonName(_, context),
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UnixTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -1485,73 +1229,18 @@ const de_ListOfKitchenSinks = (output: any, context: __SerdeContext): KitchenSin
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_KitchenSink(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ListOfListOfStrings
- */
-const de_ListOfListOfStrings = (output: any, context: __SerdeContext): string[][] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListOfStrings(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfListOfStrings omitted.
 
-/**
- * deserializeAws_json1_1ListOfMapsOfStrings
- */
-const de_ListOfMapsOfStrings = (output: any, context: __SerdeContext): Record<string, string>[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MapOfStrings(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfMapsOfStrings omitted.
 
-/**
- * deserializeAws_json1_1ListOfStrings
- */
-const de_ListOfStrings = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfStrings omitted.
 
-/**
- * deserializeAws_json1_1ListOfStructs
- */
-const de_ListOfStructs = (output: any, context: __SerdeContext): SimpleStruct[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SimpleStruct(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfStructs omitted.
 
 /**
  * deserializeAws_json1_1MapOfKitchenSinks
@@ -1566,57 +1255,13 @@ const de_MapOfKitchenSinks = (output: any, context: __SerdeContext): Record<stri
   }, {});
 };
 
-/**
- * deserializeAws_json1_1MapOfListsOfStrings
- */
-const de_MapOfListsOfStrings = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_ListOfStrings(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfListsOfStrings omitted.
 
-/**
- * deserializeAws_json1_1MapOfMapOfStrings
- */
-const de_MapOfMapOfStrings = (output: any, context: __SerdeContext): Record<string, Record<string, string>> => {
-  return Object.entries(output).reduce((acc: Record<string, Record<string, string>>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_MapOfStrings(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfMapOfStrings omitted.
 
-/**
- * deserializeAws_json1_1MapOfStrings
- */
-const de_MapOfStrings = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_MapOfStrings omitted.
 
-/**
- * deserializeAws_json1_1MapOfStructs
- */
-const de_MapOfStructs = (output: any, context: __SerdeContext): Record<string, SimpleStruct> => {
-  return Object.entries(output).reduce((acc: Record<string, SimpleStruct>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_SimpleStruct(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfStructs omitted.
 
 /**
  * deserializeAws_json1_1MyUnion
@@ -1635,12 +1280,12 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
   }
   if (output.listValue != null) {
     return {
-      listValue: de_StringList(output.listValue, context),
+      listValue: _json(output.listValue),
     };
   }
   if (output.mapValue != null) {
     return {
-      mapValue: de_StringMap(output.mapValue, context),
+      mapValue: _json(output.mapValue),
     };
   }
   if (__expectInt32(output.numberValue) !== undefined) {
@@ -1651,7 +1296,7 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
   }
   if (output.structureValue != null) {
     return {
-      structureValue: de_GreetingStruct(output.structureValue, context),
+      structureValue: _json(output.structureValue),
     };
   }
   if (output.timestampValue != null) {
@@ -1666,25 +1311,14 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
  * deserializeAws_json1_1NullOperationInputOutput
  */
 const de_NullOperationInputOutput = (output: any, context: __SerdeContext): NullOperationInputOutput => {
-  return {
-    sparseStringList:
-      output.sparseStringList != null ? de_SparseStringList(output.sparseStringList, context) : undefined,
-    sparseStringMap: output.sparseStringMap != null ? de_SparseStringMap(output.sparseStringMap, context) : undefined,
-    string: __expectString(output.string),
-  } as any;
+  return take(output, {
+    sparseStringList: (_: any) => de_SparseStringList(_, context),
+    sparseStringMap: (_: any) => de_SparseStringMap(_, context),
+    string: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1OperationWithOptionalInputOutputOutput
- */
-const de_OperationWithOptionalInputOutputOutput = (
-  output: any,
-  context: __SerdeContext
-): OperationWithOptionalInputOutputOutput => {
-  return {
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_OperationWithOptionalInputOutputOutput omitted.
 
 /**
  * deserializeAws_json1_1PutAndGetInlineDocumentsInputOutput
@@ -1693,9 +1327,9 @@ const de_PutAndGetInlineDocumentsInputOutput = (
   output: any,
   context: __SerdeContext
 ): PutAndGetInlineDocumentsInputOutput => {
-  return {
-    inlineDocument: output.inlineDocument != null ? de_Document(output.inlineDocument, context) : undefined,
-  } as any;
+  return take(output, {
+    inlineDocument: (_: any) => de_Document(_, context),
+  }) as any;
 };
 
 /**
@@ -1705,90 +1339,39 @@ const de_SimpleScalarPropertiesInputOutput = (
   output: any,
   context: __SerdeContext
 ): SimpleScalarPropertiesInputOutput => {
-  return {
-    doubleValue: __limitedParseDouble(output.doubleValue),
-    floatValue: __limitedParseFloat32(output.floatValue),
-  } as any;
+  return take(output, {
+    doubleValue: __limitedParseDouble,
+    floatValue: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SimpleStruct
- */
-const de_SimpleStruct = (output: any, context: __SerdeContext): SimpleStruct => {
-  return {
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_SimpleStruct omitted.
 
 /**
  * deserializeAws_json1_1StructWithJsonName
  */
 const de_StructWithJsonName = (output: any, context: __SerdeContext): StructWithJsonName => {
-  return {
-    Value: __expectString(output.Value),
-  } as any;
+  return take(output, {
+    Value: [, __expectString, `Value`],
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UnionInputOutput
  */
 const de_UnionInputOutput = (output: any, context: __SerdeContext): UnionInputOutput => {
-  return {
-    contents: output.contents != null ? de_MyUnion(__expectUnion(output.contents), context) : undefined,
-  } as any;
+  return take(output, {
+    contents: (_: any) => de_MyUnion(__expectUnion(_), context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1FooEnumList
- */
-const de_FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FooEnumList omitted.
 
-/**
- * deserializeAws_json1_1FooEnumMap
- */
-const de_FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
-  return Object.entries(output).reduce((acc: Record<string, FooEnum | string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_FooEnumMap omitted.
 
-/**
- * deserializeAws_json1_1FooEnumSet
- */
-const de_FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FooEnumSet omitted.
 
-/**
- * deserializeAws_json1_1GreetingStruct
- */
-const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
-  return {
-    hi: __expectString(output.hi),
-  } as any;
-};
+// de_GreetingStruct omitted.
 
 /**
  * deserializeAws_json1_1SparseStringList
@@ -1817,33 +1400,9 @@ const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string
   }, {});
 };
 
-/**
- * deserializeAws_json1_1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_json1_1StringMap
- */
-const de_StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_StringMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1865,6 +1424,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

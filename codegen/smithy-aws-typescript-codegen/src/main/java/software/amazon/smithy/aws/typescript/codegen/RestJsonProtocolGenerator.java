@@ -33,6 +33,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
+import software.amazon.smithy.typescript.codegen.validation.UnaryFunctionCall;
 import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -84,6 +85,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
+        writer.addImport("take", null, "@aws-sdk/smithy-client");
         writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
     }
 
@@ -145,30 +147,47 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     private void serializeDocumentBody(GenerationContext context, List<HttpBinding> documentBindings) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
-
-        writer.openBlock("body = JSON.stringify({", "});", () -> {
+        writer.addImport("take", null, "@aws-sdk/smithy-client");
+        writer.openBlock("body = JSON.stringify(take(input, {", "}));", () -> {
             for (HttpBinding binding : documentBindings) {
                 MemberShape memberShape = binding.getMember();
                 // The name of the member to get from the input shape.
                 String memberName = symbolProvider.toMemberName(memberShape);
                 String inputLocation = "input." + memberName;
                 // Use the jsonName trait value if present, otherwise use the member name.
-                String locationName = memberShape.getTrait(JsonNameTrait.class)
+                String wireName = memberShape.getTrait(JsonNameTrait.class)
                         .map(JsonNameTrait::getValue)
                         .orElseGet(binding::getLocationName);
+                boolean hasJsonName = memberShape.hasTrait(JsonNameTrait.class);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
 
                 // Handle @timestampFormat on members not just the targeted shape.
-                String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
+                String valueProvider = "_ => " + (memberShape.hasTrait(TimestampFormatTrait.class)
                         ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                getDocumentTimestampFormat(), inputLocation)
-                        : target.accept(getMemberSerVisitor(context, inputLocation));
+                        getDocumentTimestampFormat(), "_")
+                        : target.accept(getMemberSerVisitor(context, "_")));
 
-                if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                    writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
+                if (hasJsonName) {
+                    if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
+                        writer.write("'$L': [,_ => _ ?? generateIdempotencyToken(),`$L`],",
+                            wireName, memberName);
+                    } else {
+                        if (valueProvider.equals("_ => _")) {
+                            writer.write("'$L': [,,`$L`],", wireName, memberName);
+                        } else {
+                            writer.write("'$1L': [, $2L, `$3L`],", wireName, valueProvider, memberName);
+                        }
+                    }
                 } else {
-                    writer.write("...($1L != null && { $2S: $3L }),",
-                            inputLocation, locationName, valueProvider);
+                  if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
+                      writer.write("'$L': _ => _ ?? generateIdempotencyToken(),", wireName);
+                  } else {
+                      if (valueProvider.equals("_ => _")) {
+                          writer.write("'$1L': [],", wireName);
+                      } else {
+                          writer.write("'$1L': $2L,", wireName, valueProvider);
+                      }
+                  }
                 }
             }
         });
@@ -282,21 +301,39 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     ) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
+        writer.addImport("take", null, "@aws-sdk/smithy-client");
 
-        for (HttpBinding binding : documentBindings) {
-            Shape target = context.getModel().expectShape(binding.getMember().getTarget());
-            // The name of the member to get from the input shape.
-            String memberName = symbolProvider.toMemberName(binding.getMember());
-            // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = binding.getMember().getTrait(JsonNameTrait.class)
-                    .map(JsonNameTrait::getValue)
-                    .orElseGet(binding::getLocationName);
-            writer.openBlock("if (data.$L != null) {", "}", locationName,
-                    () -> {
-                writer.write("contents.$L = $L;", memberName,
-                        target.accept(getMemberDeserVisitor(context, binding.getMember(), "data." + locationName)));
-            });
-        }
+        writer.openBlock("const doc = take(data, {", "});", () -> {
+            for (HttpBinding binding : documentBindings) {
+                Shape target = context.getModel().expectShape(binding.getMember().getTarget());
+                // The name of the member to get from the input shape.
+                String memberName = symbolProvider.toMemberName(binding.getMember());
+                // Use the jsonName trait value if present, otherwise use the member name.
+                String wireName = binding.getMember().getTrait(JsonNameTrait.class)
+                        .map(JsonNameTrait::getValue)
+                        .orElseGet(binding::getLocationName);
+                boolean hasJsonName = binding.getMember().hasTrait(JsonNameTrait.class);
+
+                String valueExpression = target.accept(
+                    getMemberDeserVisitor(context, binding.getMember(), "_"));
+                boolean isUnaryCall = UnaryFunctionCall.check(valueExpression);
+                if (hasJsonName) {
+                    if (isUnaryCall) {
+                        writer.write("'$L': [, $L, `$L`],",
+                            memberName, UnaryFunctionCall.toRef(valueExpression), wireName);
+                    } else {
+                        writer.write("'$L': [, _ => $L, `$L`],", memberName, valueExpression, wireName);
+                    }
+                } else {
+                    if (isUnaryCall) {
+                        writer.write("'$L': $L,", wireName, UnaryFunctionCall.toRef(valueExpression));
+                    } else {
+                        writer.write("'$L': _ => $L,", wireName, valueExpression);
+                    }
+                }
+            }
+        });
+        writer.write("Object.assign(contents, doc);");
     }
 
     @Override
@@ -358,6 +395,11 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected boolean requiresNumericEpochSecondsInPayload() {
+        return true;
+    }
+
+    @Override
+    protected boolean enableSerdeElision() {
         return true;
     }
 }

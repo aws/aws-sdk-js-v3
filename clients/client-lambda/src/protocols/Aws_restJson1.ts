@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,11 +12,12 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -218,19 +220,15 @@ import {
 } from "../commands/UpdateFunctionUrlConfigCommand";
 import { LambdaServiceException as __BaseException } from "../models/LambdaServiceException";
 import {
-  AccountLimit,
-  AccountUsage,
   AliasConfiguration,
   AliasRoutingConfiguration,
   AllowedPublishers,
   AmazonManagedKafkaEventSourceConfig,
   Architecture,
-  CodeSigningConfig,
   CodeSigningConfigNotFoundException,
   CodeSigningPolicies,
   CodeStorageExceededException,
   CodeVerificationFailedException,
-  Concurrency,
   Cors,
   DeadLetterConfig,
   DestinationConfig,
@@ -242,25 +240,17 @@ import {
   EFSMountConnectivityException,
   EFSMountFailureException,
   EFSMountTimeoutException,
-  EndPointType,
   ENILimitReachedException,
   Environment,
-  EnvironmentError,
-  EnvironmentResponse,
   EphemeralStorage,
   EventSourceMappingConfiguration,
   FileSystemConfig,
   Filter,
   FilterCriteria,
   FunctionCode,
-  FunctionCodeLocation,
-  FunctionConfiguration,
   FunctionEventInvokeConfig,
   FunctionResponseType,
-  FunctionUrlConfig,
   ImageConfig,
-  ImageConfigError,
-  ImageConfigResponse,
   InvalidCodeSignatureException,
   InvalidParameterValueException,
   InvalidRequestContentException,
@@ -275,16 +265,11 @@ import {
   KMSDisabledException,
   KMSInvalidStateException,
   KMSNotFoundException,
-  Layer,
-  LayersListItem,
   LayerVersionContentInput,
-  LayerVersionContentOutput,
-  LayerVersionsListItem,
   OnFailure,
   OnSuccess,
   PolicyLengthExceededException,
   PreconditionFailedException,
-  ProvisionedConcurrencyConfigListItem,
   ProvisionedConcurrencyConfigNotFoundException,
   RequestTooLargeException,
   ResourceConflictException,
@@ -292,8 +277,6 @@ import {
   ResourceNotFoundException,
   ResourceNotReadyException,
   Runtime,
-  RuntimeVersionConfig,
-  RuntimeVersionError,
   ScalingConfig,
   SelfManagedEventSource,
   SelfManagedKafkaEventSourceConfig,
@@ -301,16 +284,13 @@ import {
   SnapStart,
   SnapStartException,
   SnapStartNotReadyException,
-  SnapStartResponse,
   SnapStartTimeoutException,
   SourceAccessConfiguration,
   SubnetIPAddressLimitReachedException,
   TooManyRequestsException,
   TracingConfig,
-  TracingConfigResponse,
   UnsupportedMediaTypeException,
   VpcConfig,
-  VpcConfigResponse,
 } from "../models/models_0";
 
 /**
@@ -340,12 +320,14 @@ export const se_AddLayerVersionPermissionCommand = async (
     RevisionId: [, input.RevisionId!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
-    ...(input.Principal != null && { Principal: input.Principal }),
-    ...(input.StatementId != null && { StatementId: input.StatementId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Action: [],
+      OrganizationId: [],
+      Principal: [],
+      StatementId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -384,17 +366,19 @@ export const se_AddPermissionCommand = async (
     Qualifier: [, input.Qualifier!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.EventSourceToken != null && { EventSourceToken: input.EventSourceToken }),
-    ...(input.FunctionUrlAuthType != null && { FunctionUrlAuthType: input.FunctionUrlAuthType }),
-    ...(input.Principal != null && { Principal: input.Principal }),
-    ...(input.PrincipalOrgID != null && { PrincipalOrgID: input.PrincipalOrgID }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-    ...(input.SourceAccount != null && { SourceAccount: input.SourceAccount }),
-    ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
-    ...(input.StatementId != null && { StatementId: input.StatementId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Action: [],
+      EventSourceToken: [],
+      FunctionUrlAuthType: [],
+      Principal: [],
+      PrincipalOrgID: [],
+      RevisionId: [],
+      SourceAccount: [],
+      SourceArn: [],
+      StatementId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -430,12 +414,14 @@ export const se_CreateAliasCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FunctionVersion != null && { FunctionVersion: input.FunctionVersion }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RoutingConfig != null && { RoutingConfig: se_AliasRoutingConfiguration(input.RoutingConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      FunctionVersion: [],
+      Name: [],
+      RoutingConfig: (_) => se_AliasRoutingConfiguration(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -461,15 +447,13 @@ export const se_CreateCodeSigningConfigCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-04-22/code-signing-configs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AllowedPublishers != null && {
-      AllowedPublishers: se_AllowedPublishers(input.AllowedPublishers, context),
-    }),
-    ...(input.CodeSigningPolicies != null && {
-      CodeSigningPolicies: se_CodeSigningPolicies(input.CodeSigningPolicies, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AllowedPublishers: (_) => _json(_),
+      CodeSigningPolicies: (_) => _json(_),
+      Description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -495,55 +479,33 @@ export const se_CreateEventSourceMappingCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AmazonManagedKafkaEventSourceConfig != null && {
-      AmazonManagedKafkaEventSourceConfig: se_AmazonManagedKafkaEventSourceConfig(
-        input.AmazonManagedKafkaEventSourceConfig,
-        context
-      ),
-    }),
-    ...(input.BatchSize != null && { BatchSize: input.BatchSize }),
-    ...(input.BisectBatchOnFunctionError != null && { BisectBatchOnFunctionError: input.BisectBatchOnFunctionError }),
-    ...(input.DestinationConfig != null && {
-      DestinationConfig: se_DestinationConfig(input.DestinationConfig, context),
-    }),
-    ...(input.DocumentDBEventSourceConfig != null && {
-      DocumentDBEventSourceConfig: se_DocumentDBEventSourceConfig(input.DocumentDBEventSourceConfig, context),
-    }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.EventSourceArn != null && { EventSourceArn: input.EventSourceArn }),
-    ...(input.FilterCriteria != null && { FilterCriteria: se_FilterCriteria(input.FilterCriteria, context) }),
-    ...(input.FunctionName != null && { FunctionName: input.FunctionName }),
-    ...(input.FunctionResponseTypes != null && {
-      FunctionResponseTypes: se_FunctionResponseTypeList(input.FunctionResponseTypes, context),
-    }),
-    ...(input.MaximumBatchingWindowInSeconds != null && {
-      MaximumBatchingWindowInSeconds: input.MaximumBatchingWindowInSeconds,
-    }),
-    ...(input.MaximumRecordAgeInSeconds != null && { MaximumRecordAgeInSeconds: input.MaximumRecordAgeInSeconds }),
-    ...(input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
-    ...(input.ParallelizationFactor != null && { ParallelizationFactor: input.ParallelizationFactor }),
-    ...(input.Queues != null && { Queues: se_Queues(input.Queues, context) }),
-    ...(input.ScalingConfig != null && { ScalingConfig: se_ScalingConfig(input.ScalingConfig, context) }),
-    ...(input.SelfManagedEventSource != null && {
-      SelfManagedEventSource: se_SelfManagedEventSource(input.SelfManagedEventSource, context),
-    }),
-    ...(input.SelfManagedKafkaEventSourceConfig != null && {
-      SelfManagedKafkaEventSourceConfig: se_SelfManagedKafkaEventSourceConfig(
-        input.SelfManagedKafkaEventSourceConfig,
-        context
-      ),
-    }),
-    ...(input.SourceAccessConfigurations != null && {
-      SourceAccessConfigurations: se_SourceAccessConfigurations(input.SourceAccessConfigurations, context),
-    }),
-    ...(input.StartingPosition != null && { StartingPosition: input.StartingPosition }),
-    ...(input.StartingPositionTimestamp != null && {
-      StartingPositionTimestamp: Math.round(input.StartingPositionTimestamp.getTime() / 1000),
-    }),
-    ...(input.Topics != null && { Topics: se_Topics(input.Topics, context) }),
-    ...(input.TumblingWindowInSeconds != null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AmazonManagedKafkaEventSourceConfig: (_) => _json(_),
+      BatchSize: [],
+      BisectBatchOnFunctionError: [],
+      DestinationConfig: (_) => _json(_),
+      DocumentDBEventSourceConfig: (_) => _json(_),
+      Enabled: [],
+      EventSourceArn: [],
+      FilterCriteria: (_) => _json(_),
+      FunctionName: [],
+      FunctionResponseTypes: (_) => _json(_),
+      MaximumBatchingWindowInSeconds: [],
+      MaximumRecordAgeInSeconds: [],
+      MaximumRetryAttempts: [],
+      ParallelizationFactor: [],
+      Queues: (_) => _json(_),
+      ScalingConfig: (_) => _json(_),
+      SelfManagedEventSource: (_) => _json(_),
+      SelfManagedKafkaEventSourceConfig: (_) => _json(_),
+      SourceAccessConfigurations: (_) => _json(_),
+      StartingPosition: [],
+      StartingPositionTimestamp: (_) => Math.round(_.getTime() / 1000),
+      Topics: (_) => _json(_),
+      TumblingWindowInSeconds: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -568,33 +530,33 @@ export const se_CreateFunctionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Architectures != null && { Architectures: se_ArchitecturesList(input.Architectures, context) }),
-    ...(input.Code != null && { Code: se_FunctionCode(input.Code, context) }),
-    ...(input.CodeSigningConfigArn != null && { CodeSigningConfigArn: input.CodeSigningConfigArn }),
-    ...(input.DeadLetterConfig != null && { DeadLetterConfig: se_DeadLetterConfig(input.DeadLetterConfig, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Environment != null && { Environment: se_Environment(input.Environment, context) }),
-    ...(input.EphemeralStorage != null && { EphemeralStorage: se_EphemeralStorage(input.EphemeralStorage, context) }),
-    ...(input.FileSystemConfigs != null && {
-      FileSystemConfigs: se_FileSystemConfigList(input.FileSystemConfigs, context),
-    }),
-    ...(input.FunctionName != null && { FunctionName: input.FunctionName }),
-    ...(input.Handler != null && { Handler: input.Handler }),
-    ...(input.ImageConfig != null && { ImageConfig: se_ImageConfig(input.ImageConfig, context) }),
-    ...(input.KMSKeyArn != null && { KMSKeyArn: input.KMSKeyArn }),
-    ...(input.Layers != null && { Layers: se_LayerList(input.Layers, context) }),
-    ...(input.MemorySize != null && { MemorySize: input.MemorySize }),
-    ...(input.PackageType != null && { PackageType: input.PackageType }),
-    ...(input.Publish != null && { Publish: input.Publish }),
-    ...(input.Role != null && { Role: input.Role }),
-    ...(input.Runtime != null && { Runtime: input.Runtime }),
-    ...(input.SnapStart != null && { SnapStart: se_SnapStart(input.SnapStart, context) }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.Timeout != null && { Timeout: input.Timeout }),
-    ...(input.TracingConfig != null && { TracingConfig: se_TracingConfig(input.TracingConfig, context) }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Architectures: (_) => _json(_),
+      Code: (_) => se_FunctionCode(_, context),
+      CodeSigningConfigArn: [],
+      DeadLetterConfig: (_) => _json(_),
+      Description: [],
+      Environment: (_) => _json(_),
+      EphemeralStorage: (_) => _json(_),
+      FileSystemConfigs: (_) => _json(_),
+      FunctionName: [],
+      Handler: [],
+      ImageConfig: (_) => _json(_),
+      KMSKeyArn: [],
+      Layers: (_) => _json(_),
+      MemorySize: [],
+      PackageType: [],
+      Publish: [],
+      Role: [],
+      Runtime: [],
+      SnapStart: (_) => _json(_),
+      Tags: (_) => _json(_),
+      Timeout: [],
+      TracingConfig: (_) => _json(_),
+      VpcConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -631,11 +593,13 @@ export const se_CreateFunctionUrlConfigCommand = async (
     Qualifier: [, input.Qualifier!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuthType != null && { AuthType: input.AuthType }),
-    ...(input.Cors != null && { Cors: se_Cors(input.Cors, context) }),
-    ...(input.InvokeMode != null && { InvokeMode: input.InvokeMode }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AuthType: [],
+      Cors: (_) => _json(_),
+      InvokeMode: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2029,17 +1993,15 @@ export const se_PublishLayerVersionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers/{LayerName}/versions";
   resolvedPath = __resolvedPath(resolvedPath, input, "LayerName", () => input.LayerName!, "{LayerName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CompatibleArchitectures != null && {
-      CompatibleArchitectures: se_CompatibleArchitectures(input.CompatibleArchitectures, context),
-    }),
-    ...(input.CompatibleRuntimes != null && {
-      CompatibleRuntimes: se_CompatibleRuntimes(input.CompatibleRuntimes, context),
-    }),
-    ...(input.Content != null && { Content: se_LayerVersionContentInput(input.Content, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.LicenseInfo != null && { LicenseInfo: input.LicenseInfo }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CompatibleArchitectures: (_) => _json(_),
+      CompatibleRuntimes: (_) => _json(_),
+      Content: (_) => se_LayerVersionContentInput(_, context),
+      Description: [],
+      LicenseInfo: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2074,11 +2036,13 @@ export const se_PublishVersionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.CodeSha256 != null && { CodeSha256: input.CodeSha256 }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CodeSha256: [],
+      Description: [],
+      RevisionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2113,9 +2077,11 @@ export const se_PutFunctionCodeSigningConfigCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.CodeSigningConfigArn != null && { CodeSigningConfigArn: input.CodeSigningConfigArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CodeSigningConfigArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2150,11 +2116,11 @@ export const se_PutFunctionConcurrencyCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ReservedConcurrentExecutions != null && {
-      ReservedConcurrentExecutions: input.ReservedConcurrentExecutions,
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ReservedConcurrentExecutions: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2192,13 +2158,13 @@ export const se_PutFunctionEventInvokeConfigCommand = async (
     Qualifier: [, input.Qualifier!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.DestinationConfig != null && {
-      DestinationConfig: se_DestinationConfig(input.DestinationConfig, context),
-    }),
-    ...(input.MaximumEventAgeInSeconds != null && { MaximumEventAgeInSeconds: input.MaximumEventAgeInSeconds }),
-    ...(input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DestinationConfig: (_) => _json(_),
+      MaximumEventAgeInSeconds: [],
+      MaximumRetryAttempts: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2237,11 +2203,11 @@ export const se_PutProvisionedConcurrencyConfigCommand = async (
     Qualifier: [, __expectNonNull(input.Qualifier!, `Qualifier`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ProvisionedConcurrentExecutions != null && {
-      ProvisionedConcurrentExecutions: input.ProvisionedConcurrentExecutions,
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ProvisionedConcurrentExecutions: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2280,10 +2246,12 @@ export const se_PutRuntimeManagementConfigCommand = async (
     Qualifier: [, input.Qualifier!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.RuntimeVersionArn != null && { RuntimeVersionArn: input.RuntimeVersionArn }),
-    ...(input.UpdateRuntimeOn != null && { UpdateRuntimeOn: input.UpdateRuntimeOn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      RuntimeVersionArn: [],
+      UpdateRuntimeOn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2387,9 +2355,11 @@ export const se_TagResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Resource", () => input.Resource!, "{Resource}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2456,12 +2426,14 @@ export const se_UpdateAliasCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FunctionVersion != null && { FunctionVersion: input.FunctionVersion }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-    ...(input.RoutingConfig != null && { RoutingConfig: se_AliasRoutingConfiguration(input.RoutingConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      FunctionVersion: [],
+      RevisionId: [],
+      RoutingConfig: (_) => se_AliasRoutingConfiguration(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2496,15 +2468,13 @@ export const se_UpdateCodeSigningConfigCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AllowedPublishers != null && {
-      AllowedPublishers: se_AllowedPublishers(input.AllowedPublishers, context),
-    }),
-    ...(input.CodeSigningPolicies != null && {
-      CodeSigningPolicies: se_CodeSigningPolicies(input.CodeSigningPolicies, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AllowedPublishers: (_) => _json(_),
+      CodeSigningPolicies: (_) => _json(_),
+      Description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2531,33 +2501,25 @@ export const se_UpdateEventSourceMappingCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
   resolvedPath = __resolvedPath(resolvedPath, input, "UUID", () => input.UUID!, "{UUID}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BatchSize != null && { BatchSize: input.BatchSize }),
-    ...(input.BisectBatchOnFunctionError != null && { BisectBatchOnFunctionError: input.BisectBatchOnFunctionError }),
-    ...(input.DestinationConfig != null && {
-      DestinationConfig: se_DestinationConfig(input.DestinationConfig, context),
-    }),
-    ...(input.DocumentDBEventSourceConfig != null && {
-      DocumentDBEventSourceConfig: se_DocumentDBEventSourceConfig(input.DocumentDBEventSourceConfig, context),
-    }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.FilterCriteria != null && { FilterCriteria: se_FilterCriteria(input.FilterCriteria, context) }),
-    ...(input.FunctionName != null && { FunctionName: input.FunctionName }),
-    ...(input.FunctionResponseTypes != null && {
-      FunctionResponseTypes: se_FunctionResponseTypeList(input.FunctionResponseTypes, context),
-    }),
-    ...(input.MaximumBatchingWindowInSeconds != null && {
-      MaximumBatchingWindowInSeconds: input.MaximumBatchingWindowInSeconds,
-    }),
-    ...(input.MaximumRecordAgeInSeconds != null && { MaximumRecordAgeInSeconds: input.MaximumRecordAgeInSeconds }),
-    ...(input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
-    ...(input.ParallelizationFactor != null && { ParallelizationFactor: input.ParallelizationFactor }),
-    ...(input.ScalingConfig != null && { ScalingConfig: se_ScalingConfig(input.ScalingConfig, context) }),
-    ...(input.SourceAccessConfigurations != null && {
-      SourceAccessConfigurations: se_SourceAccessConfigurations(input.SourceAccessConfigurations, context),
-    }),
-    ...(input.TumblingWindowInSeconds != null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BatchSize: [],
+      BisectBatchOnFunctionError: [],
+      DestinationConfig: (_) => _json(_),
+      DocumentDBEventSourceConfig: (_) => _json(_),
+      Enabled: [],
+      FilterCriteria: (_) => _json(_),
+      FunctionName: [],
+      FunctionResponseTypes: (_) => _json(_),
+      MaximumBatchingWindowInSeconds: [],
+      MaximumRecordAgeInSeconds: [],
+      MaximumRetryAttempts: [],
+      ParallelizationFactor: [],
+      ScalingConfig: (_) => _json(_),
+      SourceAccessConfigurations: (_) => _json(_),
+      TumblingWindowInSeconds: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2591,17 +2553,19 @@ export const se_UpdateFunctionCodeCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Architectures != null && { Architectures: se_ArchitecturesList(input.Architectures, context) }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.ImageUri != null && { ImageUri: input.ImageUri }),
-    ...(input.Publish != null && { Publish: input.Publish }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Key != null && { S3Key: input.S3Key }),
-    ...(input.S3ObjectVersion != null && { S3ObjectVersion: input.S3ObjectVersion }),
-    ...(input.ZipFile != null && { ZipFile: context.base64Encoder(input.ZipFile) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Architectures: (_) => _json(_),
+      DryRun: [],
+      ImageUri: [],
+      Publish: [],
+      RevisionId: [],
+      S3Bucket: [],
+      S3Key: [],
+      S3ObjectVersion: [],
+      ZipFile: (_) => context.base64Encoder(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2636,27 +2600,27 @@ export const se_UpdateFunctionConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeadLetterConfig != null && { DeadLetterConfig: se_DeadLetterConfig(input.DeadLetterConfig, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Environment != null && { Environment: se_Environment(input.Environment, context) }),
-    ...(input.EphemeralStorage != null && { EphemeralStorage: se_EphemeralStorage(input.EphemeralStorage, context) }),
-    ...(input.FileSystemConfigs != null && {
-      FileSystemConfigs: se_FileSystemConfigList(input.FileSystemConfigs, context),
-    }),
-    ...(input.Handler != null && { Handler: input.Handler }),
-    ...(input.ImageConfig != null && { ImageConfig: se_ImageConfig(input.ImageConfig, context) }),
-    ...(input.KMSKeyArn != null && { KMSKeyArn: input.KMSKeyArn }),
-    ...(input.Layers != null && { Layers: se_LayerList(input.Layers, context) }),
-    ...(input.MemorySize != null && { MemorySize: input.MemorySize }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-    ...(input.Role != null && { Role: input.Role }),
-    ...(input.Runtime != null && { Runtime: input.Runtime }),
-    ...(input.SnapStart != null && { SnapStart: se_SnapStart(input.SnapStart, context) }),
-    ...(input.Timeout != null && { Timeout: input.Timeout }),
-    ...(input.TracingConfig != null && { TracingConfig: se_TracingConfig(input.TracingConfig, context) }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfig(input.VpcConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeadLetterConfig: (_) => _json(_),
+      Description: [],
+      Environment: (_) => _json(_),
+      EphemeralStorage: (_) => _json(_),
+      FileSystemConfigs: (_) => _json(_),
+      Handler: [],
+      ImageConfig: (_) => _json(_),
+      KMSKeyArn: [],
+      Layers: (_) => _json(_),
+      MemorySize: [],
+      RevisionId: [],
+      Role: [],
+      Runtime: [],
+      SnapStart: (_) => _json(_),
+      Timeout: [],
+      TracingConfig: (_) => _json(_),
+      VpcConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2694,13 +2658,13 @@ export const se_UpdateFunctionEventInvokeConfigCommand = async (
     Qualifier: [, input.Qualifier!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.DestinationConfig != null && {
-      DestinationConfig: se_DestinationConfig(input.DestinationConfig, context),
-    }),
-    ...(input.MaximumEventAgeInSeconds != null && { MaximumEventAgeInSeconds: input.MaximumEventAgeInSeconds }),
-    ...(input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DestinationConfig: (_) => _json(_),
+      MaximumEventAgeInSeconds: [],
+      MaximumRetryAttempts: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2738,11 +2702,13 @@ export const se_UpdateFunctionUrlConfigCommand = async (
     Qualifier: [, input.Qualifier!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.AuthType != null && { AuthType: input.AuthType }),
-    ...(input.Cors != null && { Cors: se_Cors(input.Cors, context) }),
-    ...(input.InvokeMode != null && { InvokeMode: input.InvokeMode }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AuthType: [],
+      Cors: (_) => _json(_),
+      InvokeMode: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2769,12 +2735,11 @@ export const de_AddLayerVersionPermissionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.Statement != null) {
-    contents.Statement = __expectString(data.Statement);
-  }
+  const doc = take(data, {
+    RevisionId: __expectString,
+    Statement: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2814,10 +2779,9 @@ const de_AddLayerVersionPermissionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2837,9 +2801,10 @@ export const de_AddPermissionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Statement != null) {
-    contents.Statement = __expectString(data.Statement);
-  }
+  const doc = take(data, {
+    Statement: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2879,10 +2844,9 @@ const de_AddPermissionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2902,24 +2866,15 @@ export const de_CreateAliasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AliasArn != null) {
-    contents.AliasArn = __expectString(data.AliasArn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FunctionVersion != null) {
-    contents.FunctionVersion = __expectString(data.FunctionVersion);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.RoutingConfig != null) {
-    contents.RoutingConfig = de_AliasRoutingConfiguration(data.RoutingConfig, context);
-  }
+  const doc = take(data, {
+    AliasArn: __expectString,
+    Description: __expectString,
+    FunctionVersion: __expectString,
+    Name: __expectString,
+    RevisionId: __expectString,
+    RoutingConfig: (_) => de_AliasRoutingConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2953,10 +2908,9 @@ const de_CreateAliasCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2976,9 +2930,10 @@ export const de_CreateCodeSigningConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CodeSigningConfig != null) {
-    contents.CodeSigningConfig = de_CodeSigningConfig(data.CodeSigningConfig, context);
-  }
+  const doc = take(data, {
+    CodeSigningConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3003,10 +2958,9 @@ const de_CreateCodeSigningConfigCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3026,95 +2980,36 @@ export const de_CreateEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AmazonManagedKafkaEventSourceConfig != null) {
-    contents.AmazonManagedKafkaEventSourceConfig = de_AmazonManagedKafkaEventSourceConfig(
-      data.AmazonManagedKafkaEventSourceConfig,
-      context
-    );
-  }
-  if (data.BatchSize != null) {
-    contents.BatchSize = __expectInt32(data.BatchSize);
-  }
-  if (data.BisectBatchOnFunctionError != null) {
-    contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
-  }
-  if (data.DestinationConfig != null) {
-    contents.DestinationConfig = de_DestinationConfig(data.DestinationConfig, context);
-  }
-  if (data.DocumentDBEventSourceConfig != null) {
-    contents.DocumentDBEventSourceConfig = de_DocumentDBEventSourceConfig(data.DocumentDBEventSourceConfig, context);
-  }
-  if (data.EventSourceArn != null) {
-    contents.EventSourceArn = __expectString(data.EventSourceArn);
-  }
-  if (data.FilterCriteria != null) {
-    contents.FilterCriteria = de_FilterCriteria(data.FilterCriteria, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionResponseTypes != null) {
-    contents.FunctionResponseTypes = de_FunctionResponseTypeList(data.FunctionResponseTypes, context);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
-  }
-  if (data.LastProcessingResult != null) {
-    contents.LastProcessingResult = __expectString(data.LastProcessingResult);
-  }
-  if (data.MaximumBatchingWindowInSeconds != null) {
-    contents.MaximumBatchingWindowInSeconds = __expectInt32(data.MaximumBatchingWindowInSeconds);
-  }
-  if (data.MaximumRecordAgeInSeconds != null) {
-    contents.MaximumRecordAgeInSeconds = __expectInt32(data.MaximumRecordAgeInSeconds);
-  }
-  if (data.MaximumRetryAttempts != null) {
-    contents.MaximumRetryAttempts = __expectInt32(data.MaximumRetryAttempts);
-  }
-  if (data.ParallelizationFactor != null) {
-    contents.ParallelizationFactor = __expectInt32(data.ParallelizationFactor);
-  }
-  if (data.Queues != null) {
-    contents.Queues = de_Queues(data.Queues, context);
-  }
-  if (data.ScalingConfig != null) {
-    contents.ScalingConfig = de_ScalingConfig(data.ScalingConfig, context);
-  }
-  if (data.SelfManagedEventSource != null) {
-    contents.SelfManagedEventSource = de_SelfManagedEventSource(data.SelfManagedEventSource, context);
-  }
-  if (data.SelfManagedKafkaEventSourceConfig != null) {
-    contents.SelfManagedKafkaEventSourceConfig = de_SelfManagedKafkaEventSourceConfig(
-      data.SelfManagedKafkaEventSourceConfig,
-      context
-    );
-  }
-  if (data.SourceAccessConfigurations != null) {
-    contents.SourceAccessConfigurations = de_SourceAccessConfigurations(data.SourceAccessConfigurations, context);
-  }
-  if (data.StartingPosition != null) {
-    contents.StartingPosition = __expectString(data.StartingPosition);
-  }
-  if (data.StartingPositionTimestamp != null) {
-    contents.StartingPositionTimestamp = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.StartingPositionTimestamp))
-    );
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StateTransitionReason != null) {
-    contents.StateTransitionReason = __expectString(data.StateTransitionReason);
-  }
-  if (data.Topics != null) {
-    contents.Topics = de_Topics(data.Topics, context);
-  }
-  if (data.TumblingWindowInSeconds != null) {
-    contents.TumblingWindowInSeconds = __expectInt32(data.TumblingWindowInSeconds);
-  }
-  if (data.UUID != null) {
-    contents.UUID = __expectString(data.UUID);
-  }
+  const doc = take(data, {
+    AmazonManagedKafkaEventSourceConfig: _json,
+    BatchSize: __expectInt32,
+    BisectBatchOnFunctionError: __expectBoolean,
+    DestinationConfig: _json,
+    DocumentDBEventSourceConfig: _json,
+    EventSourceArn: __expectString,
+    FilterCriteria: _json,
+    FunctionArn: __expectString,
+    FunctionResponseTypes: _json,
+    LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastProcessingResult: __expectString,
+    MaximumBatchingWindowInSeconds: __expectInt32,
+    MaximumRecordAgeInSeconds: __expectInt32,
+    MaximumRetryAttempts: __expectInt32,
+    ParallelizationFactor: __expectInt32,
+    Queues: _json,
+    ScalingConfig: _json,
+    SelfManagedEventSource: _json,
+    SelfManagedKafkaEventSourceConfig: _json,
+    SourceAccessConfigurations: _json,
+    StartingPosition: __expectString,
+    StartingPositionTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateTransitionReason: __expectString,
+    Topics: _json,
+    TumblingWindowInSeconds: __expectInt32,
+    UUID: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3148,10 +3043,9 @@ const de_CreateEventSourceMappingCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3171,111 +3065,44 @@ export const de_CreateFunctionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Architectures != null) {
-    contents.Architectures = de_ArchitecturesList(data.Architectures, context);
-  }
-  if (data.CodeSha256 != null) {
-    contents.CodeSha256 = __expectString(data.CodeSha256);
-  }
-  if (data.CodeSize != null) {
-    contents.CodeSize = __expectLong(data.CodeSize);
-  }
-  if (data.DeadLetterConfig != null) {
-    contents.DeadLetterConfig = de_DeadLetterConfig(data.DeadLetterConfig, context);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Environment != null) {
-    contents.Environment = de_EnvironmentResponse(data.Environment, context);
-  }
-  if (data.EphemeralStorage != null) {
-    contents.EphemeralStorage = de_EphemeralStorage(data.EphemeralStorage, context);
-  }
-  if (data.FileSystemConfigs != null) {
-    contents.FileSystemConfigs = de_FileSystemConfigList(data.FileSystemConfigs, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionName != null) {
-    contents.FunctionName = __expectString(data.FunctionName);
-  }
-  if (data.Handler != null) {
-    contents.Handler = __expectString(data.Handler);
-  }
-  if (data.ImageConfigResponse != null) {
-    contents.ImageConfigResponse = de_ImageConfigResponse(data.ImageConfigResponse, context);
-  }
-  if (data.KMSKeyArn != null) {
-    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectString(data.LastModified);
-  }
-  if (data.LastUpdateStatus != null) {
-    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
-  }
-  if (data.LastUpdateStatusReason != null) {
-    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
-  }
-  if (data.LastUpdateStatusReasonCode != null) {
-    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
-  }
-  if (data.Layers != null) {
-    contents.Layers = de_LayersReferenceList(data.Layers, context);
-  }
-  if (data.MasterArn != null) {
-    contents.MasterArn = __expectString(data.MasterArn);
-  }
-  if (data.MemorySize != null) {
-    contents.MemorySize = __expectInt32(data.MemorySize);
-  }
-  if (data.PackageType != null) {
-    contents.PackageType = __expectString(data.PackageType);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.Role != null) {
-    contents.Role = __expectString(data.Role);
-  }
-  if (data.Runtime != null) {
-    contents.Runtime = __expectString(data.Runtime);
-  }
-  if (data.RuntimeVersionConfig != null) {
-    contents.RuntimeVersionConfig = de_RuntimeVersionConfig(data.RuntimeVersionConfig, context);
-  }
-  if (data.SigningJobArn != null) {
-    contents.SigningJobArn = __expectString(data.SigningJobArn);
-  }
-  if (data.SigningProfileVersionArn != null) {
-    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
-  }
-  if (data.SnapStart != null) {
-    contents.SnapStart = de_SnapStartResponse(data.SnapStart, context);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StateReason != null) {
-    contents.StateReason = __expectString(data.StateReason);
-  }
-  if (data.StateReasonCode != null) {
-    contents.StateReasonCode = __expectString(data.StateReasonCode);
-  }
-  if (data.Timeout != null) {
-    contents.Timeout = __expectInt32(data.Timeout);
-  }
-  if (data.TracingConfig != null) {
-    contents.TracingConfig = de_TracingConfigResponse(data.TracingConfig, context);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
-  if (data.VpcConfig != null) {
-    contents.VpcConfig = de_VpcConfigResponse(data.VpcConfig, context);
-  }
+  const doc = take(data, {
+    Architectures: _json,
+    CodeSha256: __expectString,
+    CodeSize: __expectLong,
+    DeadLetterConfig: _json,
+    Description: __expectString,
+    Environment: _json,
+    EphemeralStorage: _json,
+    FileSystemConfigs: _json,
+    FunctionArn: __expectString,
+    FunctionName: __expectString,
+    Handler: __expectString,
+    ImageConfigResponse: _json,
+    KMSKeyArn: __expectString,
+    LastModified: __expectString,
+    LastUpdateStatus: __expectString,
+    LastUpdateStatusReason: __expectString,
+    LastUpdateStatusReasonCode: __expectString,
+    Layers: _json,
+    MasterArn: __expectString,
+    MemorySize: __expectInt32,
+    PackageType: __expectString,
+    RevisionId: __expectString,
+    Role: __expectString,
+    Runtime: __expectString,
+    RuntimeVersionConfig: _json,
+    SigningJobArn: __expectString,
+    SigningProfileVersionArn: __expectString,
+    SnapStart: _json,
+    State: __expectString,
+    StateReason: __expectString,
+    StateReasonCode: __expectString,
+    Timeout: __expectInt32,
+    TracingConfig: _json,
+    Version: __expectString,
+    VpcConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3321,10 +3148,9 @@ const de_CreateFunctionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3344,24 +3170,15 @@ export const de_CreateFunctionUrlConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AuthType != null) {
-    contents.AuthType = __expectString(data.AuthType);
-  }
-  if (data.Cors != null) {
-    contents.Cors = de_Cors(data.Cors, context);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectString(data.CreationTime);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionUrl != null) {
-    contents.FunctionUrl = __expectString(data.FunctionUrl);
-  }
-  if (data.InvokeMode != null) {
-    contents.InvokeMode = __expectString(data.InvokeMode);
-  }
+  const doc = take(data, {
+    AuthType: __expectString,
+    Cors: _json,
+    CreationTime: __expectString,
+    FunctionArn: __expectString,
+    FunctionUrl: __expectString,
+    InvokeMode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3395,10 +3212,9 @@ const de_CreateFunctionUrlConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3448,10 +3264,9 @@ const de_DeleteAliasCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3501,10 +3316,9 @@ const de_DeleteCodeSigningConfigCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3524,95 +3338,36 @@ export const de_DeleteEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AmazonManagedKafkaEventSourceConfig != null) {
-    contents.AmazonManagedKafkaEventSourceConfig = de_AmazonManagedKafkaEventSourceConfig(
-      data.AmazonManagedKafkaEventSourceConfig,
-      context
-    );
-  }
-  if (data.BatchSize != null) {
-    contents.BatchSize = __expectInt32(data.BatchSize);
-  }
-  if (data.BisectBatchOnFunctionError != null) {
-    contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
-  }
-  if (data.DestinationConfig != null) {
-    contents.DestinationConfig = de_DestinationConfig(data.DestinationConfig, context);
-  }
-  if (data.DocumentDBEventSourceConfig != null) {
-    contents.DocumentDBEventSourceConfig = de_DocumentDBEventSourceConfig(data.DocumentDBEventSourceConfig, context);
-  }
-  if (data.EventSourceArn != null) {
-    contents.EventSourceArn = __expectString(data.EventSourceArn);
-  }
-  if (data.FilterCriteria != null) {
-    contents.FilterCriteria = de_FilterCriteria(data.FilterCriteria, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionResponseTypes != null) {
-    contents.FunctionResponseTypes = de_FunctionResponseTypeList(data.FunctionResponseTypes, context);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
-  }
-  if (data.LastProcessingResult != null) {
-    contents.LastProcessingResult = __expectString(data.LastProcessingResult);
-  }
-  if (data.MaximumBatchingWindowInSeconds != null) {
-    contents.MaximumBatchingWindowInSeconds = __expectInt32(data.MaximumBatchingWindowInSeconds);
-  }
-  if (data.MaximumRecordAgeInSeconds != null) {
-    contents.MaximumRecordAgeInSeconds = __expectInt32(data.MaximumRecordAgeInSeconds);
-  }
-  if (data.MaximumRetryAttempts != null) {
-    contents.MaximumRetryAttempts = __expectInt32(data.MaximumRetryAttempts);
-  }
-  if (data.ParallelizationFactor != null) {
-    contents.ParallelizationFactor = __expectInt32(data.ParallelizationFactor);
-  }
-  if (data.Queues != null) {
-    contents.Queues = de_Queues(data.Queues, context);
-  }
-  if (data.ScalingConfig != null) {
-    contents.ScalingConfig = de_ScalingConfig(data.ScalingConfig, context);
-  }
-  if (data.SelfManagedEventSource != null) {
-    contents.SelfManagedEventSource = de_SelfManagedEventSource(data.SelfManagedEventSource, context);
-  }
-  if (data.SelfManagedKafkaEventSourceConfig != null) {
-    contents.SelfManagedKafkaEventSourceConfig = de_SelfManagedKafkaEventSourceConfig(
-      data.SelfManagedKafkaEventSourceConfig,
-      context
-    );
-  }
-  if (data.SourceAccessConfigurations != null) {
-    contents.SourceAccessConfigurations = de_SourceAccessConfigurations(data.SourceAccessConfigurations, context);
-  }
-  if (data.StartingPosition != null) {
-    contents.StartingPosition = __expectString(data.StartingPosition);
-  }
-  if (data.StartingPositionTimestamp != null) {
-    contents.StartingPositionTimestamp = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.StartingPositionTimestamp))
-    );
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StateTransitionReason != null) {
-    contents.StateTransitionReason = __expectString(data.StateTransitionReason);
-  }
-  if (data.Topics != null) {
-    contents.Topics = de_Topics(data.Topics, context);
-  }
-  if (data.TumblingWindowInSeconds != null) {
-    contents.TumblingWindowInSeconds = __expectInt32(data.TumblingWindowInSeconds);
-  }
-  if (data.UUID != null) {
-    contents.UUID = __expectString(data.UUID);
-  }
+  const doc = take(data, {
+    AmazonManagedKafkaEventSourceConfig: _json,
+    BatchSize: __expectInt32,
+    BisectBatchOnFunctionError: __expectBoolean,
+    DestinationConfig: _json,
+    DocumentDBEventSourceConfig: _json,
+    EventSourceArn: __expectString,
+    FilterCriteria: _json,
+    FunctionArn: __expectString,
+    FunctionResponseTypes: _json,
+    LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastProcessingResult: __expectString,
+    MaximumBatchingWindowInSeconds: __expectInt32,
+    MaximumRecordAgeInSeconds: __expectInt32,
+    MaximumRetryAttempts: __expectInt32,
+    ParallelizationFactor: __expectInt32,
+    Queues: _json,
+    ScalingConfig: _json,
+    SelfManagedEventSource: _json,
+    SelfManagedKafkaEventSourceConfig: _json,
+    SourceAccessConfigurations: _json,
+    StartingPosition: __expectString,
+    StartingPositionTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateTransitionReason: __expectString,
+    Topics: _json,
+    TumblingWindowInSeconds: __expectInt32,
+    UUID: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3646,10 +3401,9 @@ const de_DeleteEventSourceMappingCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3702,10 +3456,9 @@ const de_DeleteFunctionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3761,10 +3514,9 @@ const de_DeleteFunctionCodeSigningConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3817,10 +3569,9 @@ const de_DeleteFunctionConcurrencyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3873,10 +3624,9 @@ const de_DeleteFunctionEventInvokeConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3926,10 +3676,9 @@ const de_DeleteFunctionUrlConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3973,10 +3722,9 @@ const de_DeleteLayerVersionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4029,10 +3777,9 @@ const de_DeleteProvisionedConcurrencyConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4052,12 +3799,11 @@ export const de_GetAccountSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountLimit != null) {
-    contents.AccountLimit = de_AccountLimit(data.AccountLimit, context);
-  }
-  if (data.AccountUsage != null) {
-    contents.AccountUsage = de_AccountUsage(data.AccountUsage, context);
-  }
+  const doc = take(data, {
+    AccountLimit: _json,
+    AccountUsage: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4082,10 +3828,9 @@ const de_GetAccountSettingsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4105,24 +3850,15 @@ export const de_GetAliasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AliasArn != null) {
-    contents.AliasArn = __expectString(data.AliasArn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FunctionVersion != null) {
-    contents.FunctionVersion = __expectString(data.FunctionVersion);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.RoutingConfig != null) {
-    contents.RoutingConfig = de_AliasRoutingConfiguration(data.RoutingConfig, context);
-  }
+  const doc = take(data, {
+    AliasArn: __expectString,
+    Description: __expectString,
+    FunctionVersion: __expectString,
+    Name: __expectString,
+    RevisionId: __expectString,
+    RoutingConfig: (_) => de_AliasRoutingConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4153,10 +3889,9 @@ const de_GetAliasCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4176,9 +3911,10 @@ export const de_GetCodeSigningConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CodeSigningConfig != null) {
-    contents.CodeSigningConfig = de_CodeSigningConfig(data.CodeSigningConfig, context);
-  }
+  const doc = take(data, {
+    CodeSigningConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4206,10 +3942,9 @@ const de_GetCodeSigningConfigCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4229,95 +3964,36 @@ export const de_GetEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AmazonManagedKafkaEventSourceConfig != null) {
-    contents.AmazonManagedKafkaEventSourceConfig = de_AmazonManagedKafkaEventSourceConfig(
-      data.AmazonManagedKafkaEventSourceConfig,
-      context
-    );
-  }
-  if (data.BatchSize != null) {
-    contents.BatchSize = __expectInt32(data.BatchSize);
-  }
-  if (data.BisectBatchOnFunctionError != null) {
-    contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
-  }
-  if (data.DestinationConfig != null) {
-    contents.DestinationConfig = de_DestinationConfig(data.DestinationConfig, context);
-  }
-  if (data.DocumentDBEventSourceConfig != null) {
-    contents.DocumentDBEventSourceConfig = de_DocumentDBEventSourceConfig(data.DocumentDBEventSourceConfig, context);
-  }
-  if (data.EventSourceArn != null) {
-    contents.EventSourceArn = __expectString(data.EventSourceArn);
-  }
-  if (data.FilterCriteria != null) {
-    contents.FilterCriteria = de_FilterCriteria(data.FilterCriteria, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionResponseTypes != null) {
-    contents.FunctionResponseTypes = de_FunctionResponseTypeList(data.FunctionResponseTypes, context);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
-  }
-  if (data.LastProcessingResult != null) {
-    contents.LastProcessingResult = __expectString(data.LastProcessingResult);
-  }
-  if (data.MaximumBatchingWindowInSeconds != null) {
-    contents.MaximumBatchingWindowInSeconds = __expectInt32(data.MaximumBatchingWindowInSeconds);
-  }
-  if (data.MaximumRecordAgeInSeconds != null) {
-    contents.MaximumRecordAgeInSeconds = __expectInt32(data.MaximumRecordAgeInSeconds);
-  }
-  if (data.MaximumRetryAttempts != null) {
-    contents.MaximumRetryAttempts = __expectInt32(data.MaximumRetryAttempts);
-  }
-  if (data.ParallelizationFactor != null) {
-    contents.ParallelizationFactor = __expectInt32(data.ParallelizationFactor);
-  }
-  if (data.Queues != null) {
-    contents.Queues = de_Queues(data.Queues, context);
-  }
-  if (data.ScalingConfig != null) {
-    contents.ScalingConfig = de_ScalingConfig(data.ScalingConfig, context);
-  }
-  if (data.SelfManagedEventSource != null) {
-    contents.SelfManagedEventSource = de_SelfManagedEventSource(data.SelfManagedEventSource, context);
-  }
-  if (data.SelfManagedKafkaEventSourceConfig != null) {
-    contents.SelfManagedKafkaEventSourceConfig = de_SelfManagedKafkaEventSourceConfig(
-      data.SelfManagedKafkaEventSourceConfig,
-      context
-    );
-  }
-  if (data.SourceAccessConfigurations != null) {
-    contents.SourceAccessConfigurations = de_SourceAccessConfigurations(data.SourceAccessConfigurations, context);
-  }
-  if (data.StartingPosition != null) {
-    contents.StartingPosition = __expectString(data.StartingPosition);
-  }
-  if (data.StartingPositionTimestamp != null) {
-    contents.StartingPositionTimestamp = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.StartingPositionTimestamp))
-    );
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StateTransitionReason != null) {
-    contents.StateTransitionReason = __expectString(data.StateTransitionReason);
-  }
-  if (data.Topics != null) {
-    contents.Topics = de_Topics(data.Topics, context);
-  }
-  if (data.TumblingWindowInSeconds != null) {
-    contents.TumblingWindowInSeconds = __expectInt32(data.TumblingWindowInSeconds);
-  }
-  if (data.UUID != null) {
-    contents.UUID = __expectString(data.UUID);
-  }
+  const doc = take(data, {
+    AmazonManagedKafkaEventSourceConfig: _json,
+    BatchSize: __expectInt32,
+    BisectBatchOnFunctionError: __expectBoolean,
+    DestinationConfig: _json,
+    DocumentDBEventSourceConfig: _json,
+    EventSourceArn: __expectString,
+    FilterCriteria: _json,
+    FunctionArn: __expectString,
+    FunctionResponseTypes: _json,
+    LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastProcessingResult: __expectString,
+    MaximumBatchingWindowInSeconds: __expectInt32,
+    MaximumRecordAgeInSeconds: __expectInt32,
+    MaximumRetryAttempts: __expectInt32,
+    ParallelizationFactor: __expectInt32,
+    Queues: _json,
+    ScalingConfig: _json,
+    SelfManagedEventSource: _json,
+    SelfManagedKafkaEventSourceConfig: _json,
+    SourceAccessConfigurations: _json,
+    StartingPosition: __expectString,
+    StartingPositionTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateTransitionReason: __expectString,
+    Topics: _json,
+    TumblingWindowInSeconds: __expectInt32,
+    UUID: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4348,10 +4024,9 @@ const de_GetEventSourceMappingCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4371,18 +4046,13 @@ export const de_GetFunctionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Code != null) {
-    contents.Code = de_FunctionCodeLocation(data.Code, context);
-  }
-  if (data.Concurrency != null) {
-    contents.Concurrency = de_Concurrency(data.Concurrency, context);
-  }
-  if (data.Configuration != null) {
-    contents.Configuration = de_FunctionConfiguration(data.Configuration, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    Code: _json,
+    Concurrency: _json,
+    Configuration: _json,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4413,10 +4083,9 @@ const de_GetFunctionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4436,12 +4105,11 @@ export const de_GetFunctionCodeSigningConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CodeSigningConfigArn != null) {
-    contents.CodeSigningConfigArn = __expectString(data.CodeSigningConfigArn);
-  }
-  if (data.FunctionName != null) {
-    contents.FunctionName = __expectString(data.FunctionName);
-  }
+  const doc = take(data, {
+    CodeSigningConfigArn: __expectString,
+    FunctionName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4472,10 +4140,9 @@ const de_GetFunctionCodeSigningConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4495,9 +4162,10 @@ export const de_GetFunctionConcurrencyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReservedConcurrentExecutions != null) {
-    contents.ReservedConcurrentExecutions = __expectInt32(data.ReservedConcurrentExecutions);
-  }
+  const doc = take(data, {
+    ReservedConcurrentExecutions: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4528,10 +4196,9 @@ const de_GetFunctionConcurrencyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4551,111 +4218,44 @@ export const de_GetFunctionConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Architectures != null) {
-    contents.Architectures = de_ArchitecturesList(data.Architectures, context);
-  }
-  if (data.CodeSha256 != null) {
-    contents.CodeSha256 = __expectString(data.CodeSha256);
-  }
-  if (data.CodeSize != null) {
-    contents.CodeSize = __expectLong(data.CodeSize);
-  }
-  if (data.DeadLetterConfig != null) {
-    contents.DeadLetterConfig = de_DeadLetterConfig(data.DeadLetterConfig, context);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Environment != null) {
-    contents.Environment = de_EnvironmentResponse(data.Environment, context);
-  }
-  if (data.EphemeralStorage != null) {
-    contents.EphemeralStorage = de_EphemeralStorage(data.EphemeralStorage, context);
-  }
-  if (data.FileSystemConfigs != null) {
-    contents.FileSystemConfigs = de_FileSystemConfigList(data.FileSystemConfigs, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionName != null) {
-    contents.FunctionName = __expectString(data.FunctionName);
-  }
-  if (data.Handler != null) {
-    contents.Handler = __expectString(data.Handler);
-  }
-  if (data.ImageConfigResponse != null) {
-    contents.ImageConfigResponse = de_ImageConfigResponse(data.ImageConfigResponse, context);
-  }
-  if (data.KMSKeyArn != null) {
-    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectString(data.LastModified);
-  }
-  if (data.LastUpdateStatus != null) {
-    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
-  }
-  if (data.LastUpdateStatusReason != null) {
-    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
-  }
-  if (data.LastUpdateStatusReasonCode != null) {
-    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
-  }
-  if (data.Layers != null) {
-    contents.Layers = de_LayersReferenceList(data.Layers, context);
-  }
-  if (data.MasterArn != null) {
-    contents.MasterArn = __expectString(data.MasterArn);
-  }
-  if (data.MemorySize != null) {
-    contents.MemorySize = __expectInt32(data.MemorySize);
-  }
-  if (data.PackageType != null) {
-    contents.PackageType = __expectString(data.PackageType);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.Role != null) {
-    contents.Role = __expectString(data.Role);
-  }
-  if (data.Runtime != null) {
-    contents.Runtime = __expectString(data.Runtime);
-  }
-  if (data.RuntimeVersionConfig != null) {
-    contents.RuntimeVersionConfig = de_RuntimeVersionConfig(data.RuntimeVersionConfig, context);
-  }
-  if (data.SigningJobArn != null) {
-    contents.SigningJobArn = __expectString(data.SigningJobArn);
-  }
-  if (data.SigningProfileVersionArn != null) {
-    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
-  }
-  if (data.SnapStart != null) {
-    contents.SnapStart = de_SnapStartResponse(data.SnapStart, context);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StateReason != null) {
-    contents.StateReason = __expectString(data.StateReason);
-  }
-  if (data.StateReasonCode != null) {
-    contents.StateReasonCode = __expectString(data.StateReasonCode);
-  }
-  if (data.Timeout != null) {
-    contents.Timeout = __expectInt32(data.Timeout);
-  }
-  if (data.TracingConfig != null) {
-    contents.TracingConfig = de_TracingConfigResponse(data.TracingConfig, context);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
-  if (data.VpcConfig != null) {
-    contents.VpcConfig = de_VpcConfigResponse(data.VpcConfig, context);
-  }
+  const doc = take(data, {
+    Architectures: _json,
+    CodeSha256: __expectString,
+    CodeSize: __expectLong,
+    DeadLetterConfig: _json,
+    Description: __expectString,
+    Environment: _json,
+    EphemeralStorage: _json,
+    FileSystemConfigs: _json,
+    FunctionArn: __expectString,
+    FunctionName: __expectString,
+    Handler: __expectString,
+    ImageConfigResponse: _json,
+    KMSKeyArn: __expectString,
+    LastModified: __expectString,
+    LastUpdateStatus: __expectString,
+    LastUpdateStatusReason: __expectString,
+    LastUpdateStatusReasonCode: __expectString,
+    Layers: _json,
+    MasterArn: __expectString,
+    MemorySize: __expectInt32,
+    PackageType: __expectString,
+    RevisionId: __expectString,
+    Role: __expectString,
+    Runtime: __expectString,
+    RuntimeVersionConfig: _json,
+    SigningJobArn: __expectString,
+    SigningProfileVersionArn: __expectString,
+    SnapStart: _json,
+    State: __expectString,
+    StateReason: __expectString,
+    StateReasonCode: __expectString,
+    Timeout: __expectInt32,
+    TracingConfig: _json,
+    Version: __expectString,
+    VpcConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4686,10 +4286,9 @@ const de_GetFunctionConfigurationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4709,21 +4308,14 @@ export const de_GetFunctionEventInvokeConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DestinationConfig != null) {
-    contents.DestinationConfig = de_DestinationConfig(data.DestinationConfig, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
-  }
-  if (data.MaximumEventAgeInSeconds != null) {
-    contents.MaximumEventAgeInSeconds = __expectInt32(data.MaximumEventAgeInSeconds);
-  }
-  if (data.MaximumRetryAttempts != null) {
-    contents.MaximumRetryAttempts = __expectInt32(data.MaximumRetryAttempts);
-  }
+  const doc = take(data, {
+    DestinationConfig: _json,
+    FunctionArn: __expectString,
+    LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaximumEventAgeInSeconds: __expectInt32,
+    MaximumRetryAttempts: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4754,10 +4346,9 @@ const de_GetFunctionEventInvokeConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4777,27 +4368,16 @@ export const de_GetFunctionUrlConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AuthType != null) {
-    contents.AuthType = __expectString(data.AuthType);
-  }
-  if (data.Cors != null) {
-    contents.Cors = de_Cors(data.Cors, context);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectString(data.CreationTime);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionUrl != null) {
-    contents.FunctionUrl = __expectString(data.FunctionUrl);
-  }
-  if (data.InvokeMode != null) {
-    contents.InvokeMode = __expectString(data.InvokeMode);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectString(data.LastModifiedTime);
-  }
+  const doc = take(data, {
+    AuthType: __expectString,
+    Cors: _json,
+    CreationTime: __expectString,
+    FunctionArn: __expectString,
+    FunctionUrl: __expectString,
+    InvokeMode: __expectString,
+    LastModifiedTime: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4828,10 +4408,9 @@ const de_GetFunctionUrlConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4851,33 +4430,18 @@ export const de_GetLayerVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CompatibleArchitectures != null) {
-    contents.CompatibleArchitectures = de_CompatibleArchitectures(data.CompatibleArchitectures, context);
-  }
-  if (data.CompatibleRuntimes != null) {
-    contents.CompatibleRuntimes = de_CompatibleRuntimes(data.CompatibleRuntimes, context);
-  }
-  if (data.Content != null) {
-    contents.Content = de_LayerVersionContentOutput(data.Content, context);
-  }
-  if (data.CreatedDate != null) {
-    contents.CreatedDate = __expectString(data.CreatedDate);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LayerArn != null) {
-    contents.LayerArn = __expectString(data.LayerArn);
-  }
-  if (data.LayerVersionArn != null) {
-    contents.LayerVersionArn = __expectString(data.LayerVersionArn);
-  }
-  if (data.LicenseInfo != null) {
-    contents.LicenseInfo = __expectString(data.LicenseInfo);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectLong(data.Version);
-  }
+  const doc = take(data, {
+    CompatibleArchitectures: _json,
+    CompatibleRuntimes: _json,
+    Content: _json,
+    CreatedDate: __expectString,
+    Description: __expectString,
+    LayerArn: __expectString,
+    LayerVersionArn: __expectString,
+    LicenseInfo: __expectString,
+    Version: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4908,10 +4472,9 @@ const de_GetLayerVersionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4931,33 +4494,18 @@ export const de_GetLayerVersionByArnCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CompatibleArchitectures != null) {
-    contents.CompatibleArchitectures = de_CompatibleArchitectures(data.CompatibleArchitectures, context);
-  }
-  if (data.CompatibleRuntimes != null) {
-    contents.CompatibleRuntimes = de_CompatibleRuntimes(data.CompatibleRuntimes, context);
-  }
-  if (data.Content != null) {
-    contents.Content = de_LayerVersionContentOutput(data.Content, context);
-  }
-  if (data.CreatedDate != null) {
-    contents.CreatedDate = __expectString(data.CreatedDate);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LayerArn != null) {
-    contents.LayerArn = __expectString(data.LayerArn);
-  }
-  if (data.LayerVersionArn != null) {
-    contents.LayerVersionArn = __expectString(data.LayerVersionArn);
-  }
-  if (data.LicenseInfo != null) {
-    contents.LicenseInfo = __expectString(data.LicenseInfo);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectLong(data.Version);
-  }
+  const doc = take(data, {
+    CompatibleArchitectures: _json,
+    CompatibleRuntimes: _json,
+    Content: _json,
+    CreatedDate: __expectString,
+    Description: __expectString,
+    LayerArn: __expectString,
+    LayerVersionArn: __expectString,
+    LicenseInfo: __expectString,
+    Version: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4988,10 +4536,9 @@ const de_GetLayerVersionByArnCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5011,12 +4558,11 @@ export const de_GetLayerVersionPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
+  const doc = take(data, {
+    Policy: __expectString,
+    RevisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5047,10 +4593,9 @@ const de_GetLayerVersionPolicyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5070,12 +4615,11 @@ export const de_GetPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
+  const doc = take(data, {
+    Policy: __expectString,
+    RevisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5106,10 +4650,9 @@ const de_GetPolicyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5129,24 +4672,15 @@ export const de_GetProvisionedConcurrencyConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AllocatedProvisionedConcurrentExecutions != null) {
-    contents.AllocatedProvisionedConcurrentExecutions = __expectInt32(data.AllocatedProvisionedConcurrentExecutions);
-  }
-  if (data.AvailableProvisionedConcurrentExecutions != null) {
-    contents.AvailableProvisionedConcurrentExecutions = __expectInt32(data.AvailableProvisionedConcurrentExecutions);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectString(data.LastModified);
-  }
-  if (data.RequestedProvisionedConcurrentExecutions != null) {
-    contents.RequestedProvisionedConcurrentExecutions = __expectInt32(data.RequestedProvisionedConcurrentExecutions);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusReason != null) {
-    contents.StatusReason = __expectString(data.StatusReason);
-  }
+  const doc = take(data, {
+    AllocatedProvisionedConcurrentExecutions: __expectInt32,
+    AvailableProvisionedConcurrentExecutions: __expectInt32,
+    LastModified: __expectString,
+    RequestedProvisionedConcurrentExecutions: __expectInt32,
+    Status: __expectString,
+    StatusReason: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5180,10 +4714,9 @@ const de_GetProvisionedConcurrencyConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5203,15 +4736,12 @@ export const de_GetRuntimeManagementConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.RuntimeVersionArn != null) {
-    contents.RuntimeVersionArn = __expectString(data.RuntimeVersionArn);
-  }
-  if (data.UpdateRuntimeOn != null) {
-    contents.UpdateRuntimeOn = __expectString(data.UpdateRuntimeOn);
-  }
+  const doc = take(data, {
+    FunctionArn: __expectString,
+    RuntimeVersionArn: __expectString,
+    UpdateRuntimeOn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5242,10 +4772,9 @@ const de_GetRuntimeManagementConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5374,10 +4903,9 @@ const de_InvokeCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5433,10 +4961,9 @@ const de_InvokeAsyncCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5567,10 +5094,9 @@ const de_InvokeWithResponseStreamCommandError = async (
       throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5590,12 +5116,11 @@ export const de_ListAliasesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Aliases != null) {
-    contents.Aliases = de_AliasList(data.Aliases, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    Aliases: (_) => de_AliasList(_, context),
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5626,10 +5151,9 @@ const de_ListAliasesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5649,12 +5173,11 @@ export const de_ListCodeSigningConfigsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CodeSigningConfigs != null) {
-    contents.CodeSigningConfigs = de_CodeSigningConfigList(data.CodeSigningConfigs, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    CodeSigningConfigs: _json,
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5679,10 +5202,9 @@ const de_ListCodeSigningConfigsCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5702,12 +5224,11 @@ export const de_ListEventSourceMappingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventSourceMappings != null) {
-    contents.EventSourceMappings = de_EventSourceMappingsList(data.EventSourceMappings, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    EventSourceMappings: (_) => de_EventSourceMappingsList(_, context),
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5738,10 +5259,9 @@ const de_ListEventSourceMappingsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5761,12 +5281,11 @@ export const de_ListFunctionEventInvokeConfigsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FunctionEventInvokeConfigs != null) {
-    contents.FunctionEventInvokeConfigs = de_FunctionEventInvokeConfigList(data.FunctionEventInvokeConfigs, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    FunctionEventInvokeConfigs: (_) => de_FunctionEventInvokeConfigList(_, context),
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5797,10 +5316,9 @@ const de_ListFunctionEventInvokeConfigsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5820,12 +5338,11 @@ export const de_ListFunctionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Functions != null) {
-    contents.Functions = de_FunctionList(data.Functions, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    Functions: _json,
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5853,10 +5370,9 @@ const de_ListFunctionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5876,12 +5392,11 @@ export const de_ListFunctionsByCodeSigningConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FunctionArns != null) {
-    contents.FunctionArns = de_FunctionArnList(data.FunctionArns, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    FunctionArns: _json,
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5909,10 +5424,9 @@ const de_ListFunctionsByCodeSigningConfigCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5932,12 +5446,11 @@ export const de_ListFunctionUrlConfigsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FunctionUrlConfigs != null) {
-    contents.FunctionUrlConfigs = de_FunctionUrlConfigList(data.FunctionUrlConfigs, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    FunctionUrlConfigs: _json,
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5968,10 +5481,9 @@ const de_ListFunctionUrlConfigsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5991,12 +5503,11 @@ export const de_ListLayersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Layers != null) {
-    contents.Layers = de_LayersList(data.Layers, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    Layers: _json,
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6024,10 +5535,9 @@ const de_ListLayersCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6047,12 +5557,11 @@ export const de_ListLayerVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LayerVersions != null) {
-    contents.LayerVersions = de_LayerVersionsList(data.LayerVersions, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    LayerVersions: _json,
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6083,10 +5592,9 @@ const de_ListLayerVersionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6106,15 +5614,11 @@ export const de_ListProvisionedConcurrencyConfigsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
-  if (data.ProvisionedConcurrencyConfigs != null) {
-    contents.ProvisionedConcurrencyConfigs = de_ProvisionedConcurrencyConfigList(
-      data.ProvisionedConcurrencyConfigs,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextMarker: __expectString,
+    ProvisionedConcurrencyConfigs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6145,10 +5649,9 @@ const de_ListProvisionedConcurrencyConfigsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6168,9 +5671,10 @@ export const de_ListTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6201,10 +5705,9 @@ const de_ListTagsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6224,12 +5727,11 @@ export const de_ListVersionsByFunctionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
-  if (data.Versions != null) {
-    contents.Versions = de_FunctionList(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextMarker: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6260,10 +5762,9 @@ const de_ListVersionsByFunctionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6283,33 +5784,18 @@ export const de_PublishLayerVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CompatibleArchitectures != null) {
-    contents.CompatibleArchitectures = de_CompatibleArchitectures(data.CompatibleArchitectures, context);
-  }
-  if (data.CompatibleRuntimes != null) {
-    contents.CompatibleRuntimes = de_CompatibleRuntimes(data.CompatibleRuntimes, context);
-  }
-  if (data.Content != null) {
-    contents.Content = de_LayerVersionContentOutput(data.Content, context);
-  }
-  if (data.CreatedDate != null) {
-    contents.CreatedDate = __expectString(data.CreatedDate);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LayerArn != null) {
-    contents.LayerArn = __expectString(data.LayerArn);
-  }
-  if (data.LayerVersionArn != null) {
-    contents.LayerVersionArn = __expectString(data.LayerVersionArn);
-  }
-  if (data.LicenseInfo != null) {
-    contents.LicenseInfo = __expectString(data.LicenseInfo);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectLong(data.Version);
-  }
+  const doc = take(data, {
+    CompatibleArchitectures: _json,
+    CompatibleRuntimes: _json,
+    Content: _json,
+    CreatedDate: __expectString,
+    Description: __expectString,
+    LayerArn: __expectString,
+    LayerVersionArn: __expectString,
+    LicenseInfo: __expectString,
+    Version: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6343,10 +5829,9 @@ const de_PublishLayerVersionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6366,111 +5851,44 @@ export const de_PublishVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Architectures != null) {
-    contents.Architectures = de_ArchitecturesList(data.Architectures, context);
-  }
-  if (data.CodeSha256 != null) {
-    contents.CodeSha256 = __expectString(data.CodeSha256);
-  }
-  if (data.CodeSize != null) {
-    contents.CodeSize = __expectLong(data.CodeSize);
-  }
-  if (data.DeadLetterConfig != null) {
-    contents.DeadLetterConfig = de_DeadLetterConfig(data.DeadLetterConfig, context);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Environment != null) {
-    contents.Environment = de_EnvironmentResponse(data.Environment, context);
-  }
-  if (data.EphemeralStorage != null) {
-    contents.EphemeralStorage = de_EphemeralStorage(data.EphemeralStorage, context);
-  }
-  if (data.FileSystemConfigs != null) {
-    contents.FileSystemConfigs = de_FileSystemConfigList(data.FileSystemConfigs, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionName != null) {
-    contents.FunctionName = __expectString(data.FunctionName);
-  }
-  if (data.Handler != null) {
-    contents.Handler = __expectString(data.Handler);
-  }
-  if (data.ImageConfigResponse != null) {
-    contents.ImageConfigResponse = de_ImageConfigResponse(data.ImageConfigResponse, context);
-  }
-  if (data.KMSKeyArn != null) {
-    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectString(data.LastModified);
-  }
-  if (data.LastUpdateStatus != null) {
-    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
-  }
-  if (data.LastUpdateStatusReason != null) {
-    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
-  }
-  if (data.LastUpdateStatusReasonCode != null) {
-    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
-  }
-  if (data.Layers != null) {
-    contents.Layers = de_LayersReferenceList(data.Layers, context);
-  }
-  if (data.MasterArn != null) {
-    contents.MasterArn = __expectString(data.MasterArn);
-  }
-  if (data.MemorySize != null) {
-    contents.MemorySize = __expectInt32(data.MemorySize);
-  }
-  if (data.PackageType != null) {
-    contents.PackageType = __expectString(data.PackageType);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.Role != null) {
-    contents.Role = __expectString(data.Role);
-  }
-  if (data.Runtime != null) {
-    contents.Runtime = __expectString(data.Runtime);
-  }
-  if (data.RuntimeVersionConfig != null) {
-    contents.RuntimeVersionConfig = de_RuntimeVersionConfig(data.RuntimeVersionConfig, context);
-  }
-  if (data.SigningJobArn != null) {
-    contents.SigningJobArn = __expectString(data.SigningJobArn);
-  }
-  if (data.SigningProfileVersionArn != null) {
-    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
-  }
-  if (data.SnapStart != null) {
-    contents.SnapStart = de_SnapStartResponse(data.SnapStart, context);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StateReason != null) {
-    contents.StateReason = __expectString(data.StateReason);
-  }
-  if (data.StateReasonCode != null) {
-    contents.StateReasonCode = __expectString(data.StateReasonCode);
-  }
-  if (data.Timeout != null) {
-    contents.Timeout = __expectInt32(data.Timeout);
-  }
-  if (data.TracingConfig != null) {
-    contents.TracingConfig = de_TracingConfigResponse(data.TracingConfig, context);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
-  if (data.VpcConfig != null) {
-    contents.VpcConfig = de_VpcConfigResponse(data.VpcConfig, context);
-  }
+  const doc = take(data, {
+    Architectures: _json,
+    CodeSha256: __expectString,
+    CodeSize: __expectLong,
+    DeadLetterConfig: _json,
+    Description: __expectString,
+    Environment: _json,
+    EphemeralStorage: _json,
+    FileSystemConfigs: _json,
+    FunctionArn: __expectString,
+    FunctionName: __expectString,
+    Handler: __expectString,
+    ImageConfigResponse: _json,
+    KMSKeyArn: __expectString,
+    LastModified: __expectString,
+    LastUpdateStatus: __expectString,
+    LastUpdateStatusReason: __expectString,
+    LastUpdateStatusReasonCode: __expectString,
+    Layers: _json,
+    MasterArn: __expectString,
+    MemorySize: __expectInt32,
+    PackageType: __expectString,
+    RevisionId: __expectString,
+    Role: __expectString,
+    Runtime: __expectString,
+    RuntimeVersionConfig: _json,
+    SigningJobArn: __expectString,
+    SigningProfileVersionArn: __expectString,
+    SnapStart: _json,
+    State: __expectString,
+    StateReason: __expectString,
+    StateReasonCode: __expectString,
+    Timeout: __expectInt32,
+    TracingConfig: _json,
+    Version: __expectString,
+    VpcConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6510,10 +5928,9 @@ const de_PublishVersionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6533,12 +5950,11 @@ export const de_PutFunctionCodeSigningConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CodeSigningConfigArn != null) {
-    contents.CodeSigningConfigArn = __expectString(data.CodeSigningConfigArn);
-  }
-  if (data.FunctionName != null) {
-    contents.FunctionName = __expectString(data.FunctionName);
-  }
+  const doc = take(data, {
+    CodeSigningConfigArn: __expectString,
+    FunctionName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6575,10 +5991,9 @@ const de_PutFunctionCodeSigningConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6598,9 +6013,10 @@ export const de_PutFunctionConcurrencyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReservedConcurrentExecutions != null) {
-    contents.ReservedConcurrentExecutions = __expectInt32(data.ReservedConcurrentExecutions);
-  }
+  const doc = take(data, {
+    ReservedConcurrentExecutions: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6634,10 +6050,9 @@ const de_PutFunctionConcurrencyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6657,21 +6072,14 @@ export const de_PutFunctionEventInvokeConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DestinationConfig != null) {
-    contents.DestinationConfig = de_DestinationConfig(data.DestinationConfig, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
-  }
-  if (data.MaximumEventAgeInSeconds != null) {
-    contents.MaximumEventAgeInSeconds = __expectInt32(data.MaximumEventAgeInSeconds);
-  }
-  if (data.MaximumRetryAttempts != null) {
-    contents.MaximumRetryAttempts = __expectInt32(data.MaximumRetryAttempts);
-  }
+  const doc = take(data, {
+    DestinationConfig: _json,
+    FunctionArn: __expectString,
+    LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaximumEventAgeInSeconds: __expectInt32,
+    MaximumRetryAttempts: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6705,10 +6113,9 @@ const de_PutFunctionEventInvokeConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6728,24 +6135,15 @@ export const de_PutProvisionedConcurrencyConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AllocatedProvisionedConcurrentExecutions != null) {
-    contents.AllocatedProvisionedConcurrentExecutions = __expectInt32(data.AllocatedProvisionedConcurrentExecutions);
-  }
-  if (data.AvailableProvisionedConcurrentExecutions != null) {
-    contents.AvailableProvisionedConcurrentExecutions = __expectInt32(data.AvailableProvisionedConcurrentExecutions);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectString(data.LastModified);
-  }
-  if (data.RequestedProvisionedConcurrentExecutions != null) {
-    contents.RequestedProvisionedConcurrentExecutions = __expectInt32(data.RequestedProvisionedConcurrentExecutions);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusReason != null) {
-    contents.StatusReason = __expectString(data.StatusReason);
-  }
+  const doc = take(data, {
+    AllocatedProvisionedConcurrentExecutions: __expectInt32,
+    AvailableProvisionedConcurrentExecutions: __expectInt32,
+    LastModified: __expectString,
+    RequestedProvisionedConcurrentExecutions: __expectInt32,
+    Status: __expectString,
+    StatusReason: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6779,10 +6177,9 @@ const de_PutProvisionedConcurrencyConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6802,15 +6199,12 @@ export const de_PutRuntimeManagementConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.RuntimeVersionArn != null) {
-    contents.RuntimeVersionArn = __expectString(data.RuntimeVersionArn);
-  }
-  if (data.UpdateRuntimeOn != null) {
-    contents.UpdateRuntimeOn = __expectString(data.UpdateRuntimeOn);
-  }
+  const doc = take(data, {
+    FunctionArn: __expectString,
+    RuntimeVersionArn: __expectString,
+    UpdateRuntimeOn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6844,10 +6238,9 @@ const de_PutRuntimeManagementConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6900,10 +6293,9 @@ const de_RemoveLayerVersionPermissionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6956,10 +6348,9 @@ const de_RemovePermissionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7012,10 +6403,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7068,10 +6458,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7091,24 +6480,15 @@ export const de_UpdateAliasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AliasArn != null) {
-    contents.AliasArn = __expectString(data.AliasArn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FunctionVersion != null) {
-    contents.FunctionVersion = __expectString(data.FunctionVersion);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.RoutingConfig != null) {
-    contents.RoutingConfig = de_AliasRoutingConfiguration(data.RoutingConfig, context);
-  }
+  const doc = take(data, {
+    AliasArn: __expectString,
+    Description: __expectString,
+    FunctionVersion: __expectString,
+    Name: __expectString,
+    RevisionId: __expectString,
+    RoutingConfig: (_) => de_AliasRoutingConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7145,10 +6525,9 @@ const de_UpdateAliasCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7168,9 +6547,10 @@ export const de_UpdateCodeSigningConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CodeSigningConfig != null) {
-    contents.CodeSigningConfig = de_CodeSigningConfig(data.CodeSigningConfig, context);
-  }
+  const doc = take(data, {
+    CodeSigningConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7198,10 +6578,9 @@ const de_UpdateCodeSigningConfigCommandError = async (
       throw await de_ServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7221,95 +6600,36 @@ export const de_UpdateEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AmazonManagedKafkaEventSourceConfig != null) {
-    contents.AmazonManagedKafkaEventSourceConfig = de_AmazonManagedKafkaEventSourceConfig(
-      data.AmazonManagedKafkaEventSourceConfig,
-      context
-    );
-  }
-  if (data.BatchSize != null) {
-    contents.BatchSize = __expectInt32(data.BatchSize);
-  }
-  if (data.BisectBatchOnFunctionError != null) {
-    contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
-  }
-  if (data.DestinationConfig != null) {
-    contents.DestinationConfig = de_DestinationConfig(data.DestinationConfig, context);
-  }
-  if (data.DocumentDBEventSourceConfig != null) {
-    contents.DocumentDBEventSourceConfig = de_DocumentDBEventSourceConfig(data.DocumentDBEventSourceConfig, context);
-  }
-  if (data.EventSourceArn != null) {
-    contents.EventSourceArn = __expectString(data.EventSourceArn);
-  }
-  if (data.FilterCriteria != null) {
-    contents.FilterCriteria = de_FilterCriteria(data.FilterCriteria, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionResponseTypes != null) {
-    contents.FunctionResponseTypes = de_FunctionResponseTypeList(data.FunctionResponseTypes, context);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
-  }
-  if (data.LastProcessingResult != null) {
-    contents.LastProcessingResult = __expectString(data.LastProcessingResult);
-  }
-  if (data.MaximumBatchingWindowInSeconds != null) {
-    contents.MaximumBatchingWindowInSeconds = __expectInt32(data.MaximumBatchingWindowInSeconds);
-  }
-  if (data.MaximumRecordAgeInSeconds != null) {
-    contents.MaximumRecordAgeInSeconds = __expectInt32(data.MaximumRecordAgeInSeconds);
-  }
-  if (data.MaximumRetryAttempts != null) {
-    contents.MaximumRetryAttempts = __expectInt32(data.MaximumRetryAttempts);
-  }
-  if (data.ParallelizationFactor != null) {
-    contents.ParallelizationFactor = __expectInt32(data.ParallelizationFactor);
-  }
-  if (data.Queues != null) {
-    contents.Queues = de_Queues(data.Queues, context);
-  }
-  if (data.ScalingConfig != null) {
-    contents.ScalingConfig = de_ScalingConfig(data.ScalingConfig, context);
-  }
-  if (data.SelfManagedEventSource != null) {
-    contents.SelfManagedEventSource = de_SelfManagedEventSource(data.SelfManagedEventSource, context);
-  }
-  if (data.SelfManagedKafkaEventSourceConfig != null) {
-    contents.SelfManagedKafkaEventSourceConfig = de_SelfManagedKafkaEventSourceConfig(
-      data.SelfManagedKafkaEventSourceConfig,
-      context
-    );
-  }
-  if (data.SourceAccessConfigurations != null) {
-    contents.SourceAccessConfigurations = de_SourceAccessConfigurations(data.SourceAccessConfigurations, context);
-  }
-  if (data.StartingPosition != null) {
-    contents.StartingPosition = __expectString(data.StartingPosition);
-  }
-  if (data.StartingPositionTimestamp != null) {
-    contents.StartingPositionTimestamp = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.StartingPositionTimestamp))
-    );
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StateTransitionReason != null) {
-    contents.StateTransitionReason = __expectString(data.StateTransitionReason);
-  }
-  if (data.Topics != null) {
-    contents.Topics = de_Topics(data.Topics, context);
-  }
-  if (data.TumblingWindowInSeconds != null) {
-    contents.TumblingWindowInSeconds = __expectInt32(data.TumblingWindowInSeconds);
-  }
-  if (data.UUID != null) {
-    contents.UUID = __expectString(data.UUID);
-  }
+  const doc = take(data, {
+    AmazonManagedKafkaEventSourceConfig: _json,
+    BatchSize: __expectInt32,
+    BisectBatchOnFunctionError: __expectBoolean,
+    DestinationConfig: _json,
+    DocumentDBEventSourceConfig: _json,
+    EventSourceArn: __expectString,
+    FilterCriteria: _json,
+    FunctionArn: __expectString,
+    FunctionResponseTypes: _json,
+    LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastProcessingResult: __expectString,
+    MaximumBatchingWindowInSeconds: __expectInt32,
+    MaximumRecordAgeInSeconds: __expectInt32,
+    MaximumRetryAttempts: __expectInt32,
+    ParallelizationFactor: __expectInt32,
+    Queues: _json,
+    ScalingConfig: _json,
+    SelfManagedEventSource: _json,
+    SelfManagedKafkaEventSourceConfig: _json,
+    SourceAccessConfigurations: _json,
+    StartingPosition: __expectString,
+    StartingPositionTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateTransitionReason: __expectString,
+    Topics: _json,
+    TumblingWindowInSeconds: __expectInt32,
+    UUID: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7346,10 +6666,9 @@ const de_UpdateEventSourceMappingCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7369,111 +6688,44 @@ export const de_UpdateFunctionCodeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Architectures != null) {
-    contents.Architectures = de_ArchitecturesList(data.Architectures, context);
-  }
-  if (data.CodeSha256 != null) {
-    contents.CodeSha256 = __expectString(data.CodeSha256);
-  }
-  if (data.CodeSize != null) {
-    contents.CodeSize = __expectLong(data.CodeSize);
-  }
-  if (data.DeadLetterConfig != null) {
-    contents.DeadLetterConfig = de_DeadLetterConfig(data.DeadLetterConfig, context);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Environment != null) {
-    contents.Environment = de_EnvironmentResponse(data.Environment, context);
-  }
-  if (data.EphemeralStorage != null) {
-    contents.EphemeralStorage = de_EphemeralStorage(data.EphemeralStorage, context);
-  }
-  if (data.FileSystemConfigs != null) {
-    contents.FileSystemConfigs = de_FileSystemConfigList(data.FileSystemConfigs, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionName != null) {
-    contents.FunctionName = __expectString(data.FunctionName);
-  }
-  if (data.Handler != null) {
-    contents.Handler = __expectString(data.Handler);
-  }
-  if (data.ImageConfigResponse != null) {
-    contents.ImageConfigResponse = de_ImageConfigResponse(data.ImageConfigResponse, context);
-  }
-  if (data.KMSKeyArn != null) {
-    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectString(data.LastModified);
-  }
-  if (data.LastUpdateStatus != null) {
-    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
-  }
-  if (data.LastUpdateStatusReason != null) {
-    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
-  }
-  if (data.LastUpdateStatusReasonCode != null) {
-    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
-  }
-  if (data.Layers != null) {
-    contents.Layers = de_LayersReferenceList(data.Layers, context);
-  }
-  if (data.MasterArn != null) {
-    contents.MasterArn = __expectString(data.MasterArn);
-  }
-  if (data.MemorySize != null) {
-    contents.MemorySize = __expectInt32(data.MemorySize);
-  }
-  if (data.PackageType != null) {
-    contents.PackageType = __expectString(data.PackageType);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.Role != null) {
-    contents.Role = __expectString(data.Role);
-  }
-  if (data.Runtime != null) {
-    contents.Runtime = __expectString(data.Runtime);
-  }
-  if (data.RuntimeVersionConfig != null) {
-    contents.RuntimeVersionConfig = de_RuntimeVersionConfig(data.RuntimeVersionConfig, context);
-  }
-  if (data.SigningJobArn != null) {
-    contents.SigningJobArn = __expectString(data.SigningJobArn);
-  }
-  if (data.SigningProfileVersionArn != null) {
-    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
-  }
-  if (data.SnapStart != null) {
-    contents.SnapStart = de_SnapStartResponse(data.SnapStart, context);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StateReason != null) {
-    contents.StateReason = __expectString(data.StateReason);
-  }
-  if (data.StateReasonCode != null) {
-    contents.StateReasonCode = __expectString(data.StateReasonCode);
-  }
-  if (data.Timeout != null) {
-    contents.Timeout = __expectInt32(data.Timeout);
-  }
-  if (data.TracingConfig != null) {
-    contents.TracingConfig = de_TracingConfigResponse(data.TracingConfig, context);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
-  if (data.VpcConfig != null) {
-    contents.VpcConfig = de_VpcConfigResponse(data.VpcConfig, context);
-  }
+  const doc = take(data, {
+    Architectures: _json,
+    CodeSha256: __expectString,
+    CodeSize: __expectLong,
+    DeadLetterConfig: _json,
+    Description: __expectString,
+    Environment: _json,
+    EphemeralStorage: _json,
+    FileSystemConfigs: _json,
+    FunctionArn: __expectString,
+    FunctionName: __expectString,
+    Handler: __expectString,
+    ImageConfigResponse: _json,
+    KMSKeyArn: __expectString,
+    LastModified: __expectString,
+    LastUpdateStatus: __expectString,
+    LastUpdateStatusReason: __expectString,
+    LastUpdateStatusReasonCode: __expectString,
+    Layers: _json,
+    MasterArn: __expectString,
+    MemorySize: __expectInt32,
+    PackageType: __expectString,
+    RevisionId: __expectString,
+    Role: __expectString,
+    Runtime: __expectString,
+    RuntimeVersionConfig: _json,
+    SigningJobArn: __expectString,
+    SigningProfileVersionArn: __expectString,
+    SnapStart: _json,
+    State: __expectString,
+    StateReason: __expectString,
+    StateReasonCode: __expectString,
+    Timeout: __expectInt32,
+    TracingConfig: _json,
+    Version: __expectString,
+    VpcConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7522,10 +6774,9 @@ const de_UpdateFunctionCodeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7545,111 +6796,44 @@ export const de_UpdateFunctionConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Architectures != null) {
-    contents.Architectures = de_ArchitecturesList(data.Architectures, context);
-  }
-  if (data.CodeSha256 != null) {
-    contents.CodeSha256 = __expectString(data.CodeSha256);
-  }
-  if (data.CodeSize != null) {
-    contents.CodeSize = __expectLong(data.CodeSize);
-  }
-  if (data.DeadLetterConfig != null) {
-    contents.DeadLetterConfig = de_DeadLetterConfig(data.DeadLetterConfig, context);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Environment != null) {
-    contents.Environment = de_EnvironmentResponse(data.Environment, context);
-  }
-  if (data.EphemeralStorage != null) {
-    contents.EphemeralStorage = de_EphemeralStorage(data.EphemeralStorage, context);
-  }
-  if (data.FileSystemConfigs != null) {
-    contents.FileSystemConfigs = de_FileSystemConfigList(data.FileSystemConfigs, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionName != null) {
-    contents.FunctionName = __expectString(data.FunctionName);
-  }
-  if (data.Handler != null) {
-    contents.Handler = __expectString(data.Handler);
-  }
-  if (data.ImageConfigResponse != null) {
-    contents.ImageConfigResponse = de_ImageConfigResponse(data.ImageConfigResponse, context);
-  }
-  if (data.KMSKeyArn != null) {
-    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectString(data.LastModified);
-  }
-  if (data.LastUpdateStatus != null) {
-    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
-  }
-  if (data.LastUpdateStatusReason != null) {
-    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
-  }
-  if (data.LastUpdateStatusReasonCode != null) {
-    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
-  }
-  if (data.Layers != null) {
-    contents.Layers = de_LayersReferenceList(data.Layers, context);
-  }
-  if (data.MasterArn != null) {
-    contents.MasterArn = __expectString(data.MasterArn);
-  }
-  if (data.MemorySize != null) {
-    contents.MemorySize = __expectInt32(data.MemorySize);
-  }
-  if (data.PackageType != null) {
-    contents.PackageType = __expectString(data.PackageType);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
-  if (data.Role != null) {
-    contents.Role = __expectString(data.Role);
-  }
-  if (data.Runtime != null) {
-    contents.Runtime = __expectString(data.Runtime);
-  }
-  if (data.RuntimeVersionConfig != null) {
-    contents.RuntimeVersionConfig = de_RuntimeVersionConfig(data.RuntimeVersionConfig, context);
-  }
-  if (data.SigningJobArn != null) {
-    contents.SigningJobArn = __expectString(data.SigningJobArn);
-  }
-  if (data.SigningProfileVersionArn != null) {
-    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
-  }
-  if (data.SnapStart != null) {
-    contents.SnapStart = de_SnapStartResponse(data.SnapStart, context);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StateReason != null) {
-    contents.StateReason = __expectString(data.StateReason);
-  }
-  if (data.StateReasonCode != null) {
-    contents.StateReasonCode = __expectString(data.StateReasonCode);
-  }
-  if (data.Timeout != null) {
-    contents.Timeout = __expectInt32(data.Timeout);
-  }
-  if (data.TracingConfig != null) {
-    contents.TracingConfig = de_TracingConfigResponse(data.TracingConfig, context);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
-  if (data.VpcConfig != null) {
-    contents.VpcConfig = de_VpcConfigResponse(data.VpcConfig, context);
-  }
+  const doc = take(data, {
+    Architectures: _json,
+    CodeSha256: __expectString,
+    CodeSize: __expectLong,
+    DeadLetterConfig: _json,
+    Description: __expectString,
+    Environment: _json,
+    EphemeralStorage: _json,
+    FileSystemConfigs: _json,
+    FunctionArn: __expectString,
+    FunctionName: __expectString,
+    Handler: __expectString,
+    ImageConfigResponse: _json,
+    KMSKeyArn: __expectString,
+    LastModified: __expectString,
+    LastUpdateStatus: __expectString,
+    LastUpdateStatusReason: __expectString,
+    LastUpdateStatusReasonCode: __expectString,
+    Layers: _json,
+    MasterArn: __expectString,
+    MemorySize: __expectInt32,
+    PackageType: __expectString,
+    RevisionId: __expectString,
+    Role: __expectString,
+    Runtime: __expectString,
+    RuntimeVersionConfig: _json,
+    SigningJobArn: __expectString,
+    SigningProfileVersionArn: __expectString,
+    SnapStart: _json,
+    State: __expectString,
+    StateReason: __expectString,
+    StateReasonCode: __expectString,
+    Timeout: __expectInt32,
+    TracingConfig: _json,
+    Version: __expectString,
+    VpcConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7695,10 +6879,9 @@ const de_UpdateFunctionConfigurationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7718,21 +6901,14 @@ export const de_UpdateFunctionEventInvokeConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DestinationConfig != null) {
-    contents.DestinationConfig = de_DestinationConfig(data.DestinationConfig, context);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
-  }
-  if (data.MaximumEventAgeInSeconds != null) {
-    contents.MaximumEventAgeInSeconds = __expectInt32(data.MaximumEventAgeInSeconds);
-  }
-  if (data.MaximumRetryAttempts != null) {
-    contents.MaximumRetryAttempts = __expectInt32(data.MaximumRetryAttempts);
-  }
+  const doc = take(data, {
+    DestinationConfig: _json,
+    FunctionArn: __expectString,
+    LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaximumEventAgeInSeconds: __expectInt32,
+    MaximumRetryAttempts: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7766,10 +6942,9 @@ const de_UpdateFunctionEventInvokeConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7789,27 +6964,16 @@ export const de_UpdateFunctionUrlConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AuthType != null) {
-    contents.AuthType = __expectString(data.AuthType);
-  }
-  if (data.Cors != null) {
-    contents.Cors = de_Cors(data.Cors, context);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectString(data.CreationTime);
-  }
-  if (data.FunctionArn != null) {
-    contents.FunctionArn = __expectString(data.FunctionArn);
-  }
-  if (data.FunctionUrl != null) {
-    contents.FunctionUrl = __expectString(data.FunctionUrl);
-  }
-  if (data.InvokeMode != null) {
-    contents.InvokeMode = __expectString(data.InvokeMode);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectString(data.LastModifiedTime);
-  }
+  const doc = take(data, {
+    AuthType: __expectString,
+    Cors: _json,
+    CreationTime: __expectString,
+    FunctionArn: __expectString,
+    FunctionUrl: __expectString,
+    InvokeMode: __expectString,
+    LastModifiedTime: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7843,16 +7007,15 @@ const de_UpdateFunctionUrlConfigCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1CodeSigningConfigNotFoundExceptionRes
  */
@@ -7862,12 +7025,11 @@ const de_CodeSigningConfigNotFoundExceptionRes = async (
 ): Promise<CodeSigningConfigNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new CodeSigningConfigNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7884,12 +7046,11 @@ const de_CodeStorageExceededExceptionRes = async (
 ): Promise<CodeStorageExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new CodeStorageExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7906,12 +7067,11 @@ const de_CodeVerificationFailedExceptionRes = async (
 ): Promise<CodeVerificationFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new CodeVerificationFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7928,12 +7088,11 @@ const de_EC2AccessDeniedExceptionRes = async (
 ): Promise<EC2AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EC2AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7950,12 +7109,11 @@ const de_EC2ThrottledExceptionRes = async (
 ): Promise<EC2ThrottledException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EC2ThrottledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7972,15 +7130,12 @@ const de_EC2UnexpectedExceptionRes = async (
 ): Promise<EC2UnexpectedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.EC2ErrorCode != null) {
-    contents.EC2ErrorCode = __expectString(data.EC2ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    EC2ErrorCode: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EC2UnexpectedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7994,12 +7149,11 @@ const de_EC2UnexpectedExceptionRes = async (
 const de_EFSIOExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<EFSIOException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EFSIOException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8016,12 +7170,11 @@ const de_EFSMountConnectivityExceptionRes = async (
 ): Promise<EFSMountConnectivityException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EFSMountConnectivityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8038,12 +7191,11 @@ const de_EFSMountFailureExceptionRes = async (
 ): Promise<EFSMountFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EFSMountFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8060,12 +7212,11 @@ const de_EFSMountTimeoutExceptionRes = async (
 ): Promise<EFSMountTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EFSMountTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8082,12 +7233,11 @@ const de_ENILimitReachedExceptionRes = async (
 ): Promise<ENILimitReachedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ENILimitReachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8104,12 +7254,11 @@ const de_InvalidCodeSignatureExceptionRes = async (
 ): Promise<InvalidCodeSignatureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidCodeSignatureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8126,12 +7275,11 @@ const de_InvalidParameterValueExceptionRes = async (
 ): Promise<InvalidParameterValueException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8148,12 +7296,11 @@ const de_InvalidRequestContentExceptionRes = async (
 ): Promise<InvalidRequestContentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8170,12 +7317,11 @@ const de_InvalidRuntimeExceptionRes = async (
 ): Promise<InvalidRuntimeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRuntimeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8192,12 +7338,11 @@ const de_InvalidSecurityGroupIDExceptionRes = async (
 ): Promise<InvalidSecurityGroupIDException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidSecurityGroupIDException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8214,12 +7359,11 @@ const de_InvalidSubnetIDExceptionRes = async (
 ): Promise<InvalidSubnetIDException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidSubnetIDException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8236,12 +7380,11 @@ const de_InvalidZipFileExceptionRes = async (
 ): Promise<InvalidZipFileException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidZipFileException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8258,12 +7401,11 @@ const de_KMSAccessDeniedExceptionRes = async (
 ): Promise<KMSAccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new KMSAccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8280,12 +7422,11 @@ const de_KMSDisabledExceptionRes = async (
 ): Promise<KMSDisabledException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new KMSDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8302,12 +7443,11 @@ const de_KMSInvalidStateExceptionRes = async (
 ): Promise<KMSInvalidStateException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new KMSInvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8324,12 +7464,11 @@ const de_KMSNotFoundExceptionRes = async (
 ): Promise<KMSNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new KMSNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8346,12 +7485,11 @@ const de_PolicyLengthExceededExceptionRes = async (
 ): Promise<PolicyLengthExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PolicyLengthExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8368,12 +7506,11 @@ const de_PreconditionFailedExceptionRes = async (
 ): Promise<PreconditionFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PreconditionFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8390,12 +7527,11 @@ const de_ProvisionedConcurrencyConfigNotFoundExceptionRes = async (
 ): Promise<ProvisionedConcurrencyConfigNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ProvisionedConcurrencyConfigNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8412,12 +7548,11 @@ const de_RequestTooLargeExceptionRes = async (
 ): Promise<RequestTooLargeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8434,12 +7569,11 @@ const de_ResourceConflictExceptionRes = async (
 ): Promise<ResourceConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8456,12 +7590,11 @@ const de_ResourceInUseExceptionRes = async (
 ): Promise<ResourceInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8478,12 +7611,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8500,12 +7632,11 @@ const de_ResourceNotReadyExceptionRes = async (
 ): Promise<ResourceNotReadyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8519,12 +7650,11 @@ const de_ResourceNotReadyExceptionRes = async (
 const de_ServiceExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8538,12 +7668,11 @@ const de_ServiceExceptionRes = async (parsedOutput: any, context: __SerdeContext
 const de_SnapStartExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<SnapStartException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SnapStartException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8560,12 +7689,11 @@ const de_SnapStartNotReadyExceptionRes = async (
 ): Promise<SnapStartNotReadyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SnapStartNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8582,12 +7710,11 @@ const de_SnapStartTimeoutExceptionRes = async (
 ): Promise<SnapStartTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SnapStartTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8604,12 +7731,11 @@ const de_SubnetIPAddressLimitReachedExceptionRes = async (
 ): Promise<SubnetIPAddressLimitReachedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SubnetIPAddressLimitReachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8628,15 +7754,12 @@ const de_TooManyRequestsExceptionRes = async (
     retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Reason: __expectString,
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8653,12 +7776,11 @@ const de_UnsupportedMediaTypeExceptionRes = async (
 ): Promise<UnsupportedMediaTypeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedMediaTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8701,7 +7823,7 @@ const de_InvokeWithResponseStreamCompleteEvent_event = async (
 ): Promise<InvokeWithResponseStreamCompleteEvent> => {
   const contents: InvokeWithResponseStreamCompleteEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, de_InvokeWithResponseStreamCompleteEvent(data, context));
+  Object.assign(contents, _json(data));
   return contents;
 };
 /**
@@ -8721,518 +7843,125 @@ const se_AdditionalVersionWeights = (input: Record<string, number>, context: __S
  * serializeAws_restJson1AliasRoutingConfiguration
  */
 const se_AliasRoutingConfiguration = (input: AliasRoutingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalVersionWeights != null && {
-      AdditionalVersionWeights: se_AdditionalVersionWeights(input.AdditionalVersionWeights, context),
-    }),
-  };
+  return take(input, {
+    AdditionalVersionWeights: (_) => se_AdditionalVersionWeights(_, context),
+  });
 };
 
-/**
- * serializeAws_restJson1AllowedPublishers
- */
-const se_AllowedPublishers = (input: AllowedPublishers, context: __SerdeContext): any => {
-  return {
-    ...(input.SigningProfileVersionArns != null && {
-      SigningProfileVersionArns: se_SigningProfileVersionArns(input.SigningProfileVersionArns, context),
-    }),
-  };
-};
+// se_AllowedPublishers omitted.
 
-/**
- * serializeAws_restJson1AllowMethodsList
- */
-const se_AllowMethodsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AllowMethodsList omitted.
 
-/**
- * serializeAws_restJson1AllowOriginsList
- */
-const se_AllowOriginsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AllowOriginsList omitted.
 
-/**
- * serializeAws_restJson1AmazonManagedKafkaEventSourceConfig
- */
-const se_AmazonManagedKafkaEventSourceConfig = (
-  input: AmazonManagedKafkaEventSourceConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConsumerGroupId != null && { ConsumerGroupId: input.ConsumerGroupId }),
-  };
-};
+// se_AmazonManagedKafkaEventSourceConfig omitted.
 
-/**
- * serializeAws_restJson1ArchitecturesList
- */
-const se_ArchitecturesList = (input: (Architecture | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ArchitecturesList omitted.
 
-/**
- * serializeAws_restJson1CodeSigningPolicies
- */
-const se_CodeSigningPolicies = (input: CodeSigningPolicies, context: __SerdeContext): any => {
-  return {
-    ...(input.UntrustedArtifactOnDeployment != null && {
-      UntrustedArtifactOnDeployment: input.UntrustedArtifactOnDeployment,
-    }),
-  };
-};
+// se_CodeSigningPolicies omitted.
 
-/**
- * serializeAws_restJson1CompatibleArchitectures
- */
-const se_CompatibleArchitectures = (input: (Architecture | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CompatibleArchitectures omitted.
 
-/**
- * serializeAws_restJson1CompatibleRuntimes
- */
-const se_CompatibleRuntimes = (input: (Runtime | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CompatibleRuntimes omitted.
 
-/**
- * serializeAws_restJson1Cors
- */
-const se_Cors = (input: Cors, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowCredentials != null && { AllowCredentials: input.AllowCredentials }),
-    ...(input.AllowHeaders != null && { AllowHeaders: se_HeadersList(input.AllowHeaders, context) }),
-    ...(input.AllowMethods != null && { AllowMethods: se_AllowMethodsList(input.AllowMethods, context) }),
-    ...(input.AllowOrigins != null && { AllowOrigins: se_AllowOriginsList(input.AllowOrigins, context) }),
-    ...(input.ExposeHeaders != null && { ExposeHeaders: se_HeadersList(input.ExposeHeaders, context) }),
-    ...(input.MaxAge != null && { MaxAge: input.MaxAge }),
-  };
-};
+// se_Cors omitted.
 
-/**
- * serializeAws_restJson1DeadLetterConfig
- */
-const se_DeadLetterConfig = (input: DeadLetterConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.TargetArn != null && { TargetArn: input.TargetArn }),
-  };
-};
+// se_DeadLetterConfig omitted.
 
-/**
- * serializeAws_restJson1DestinationConfig
- */
-const se_DestinationConfig = (input: DestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.OnFailure != null && { OnFailure: se_OnFailure(input.OnFailure, context) }),
-    ...(input.OnSuccess != null && { OnSuccess: se_OnSuccess(input.OnSuccess, context) }),
-  };
-};
+// se_DestinationConfig omitted.
 
-/**
- * serializeAws_restJson1DocumentDBEventSourceConfig
- */
-const se_DocumentDBEventSourceConfig = (input: DocumentDBEventSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.CollectionName != null && { CollectionName: input.CollectionName }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.FullDocument != null && { FullDocument: input.FullDocument }),
-  };
-};
+// se_DocumentDBEventSourceConfig omitted.
 
-/**
- * serializeAws_restJson1EndpointLists
- */
-const se_EndpointLists = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EndpointLists omitted.
 
-/**
- * serializeAws_restJson1Endpoints
- */
-const se_Endpoints = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [EndPointType | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_EndpointLists(value, context);
-    return acc;
-  }, {});
-};
+// se_Endpoints omitted.
 
-/**
- * serializeAws_restJson1Environment
- */
-const se_Environment = (input: Environment, context: __SerdeContext): any => {
-  return {
-    ...(input.Variables != null && { Variables: se_EnvironmentVariables(input.Variables, context) }),
-  };
-};
+// se_Environment omitted.
 
-/**
- * serializeAws_restJson1EnvironmentVariables
- */
-const se_EnvironmentVariables = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_EnvironmentVariables omitted.
 
-/**
- * serializeAws_restJson1EphemeralStorage
- */
-const se_EphemeralStorage = (input: EphemeralStorage, context: __SerdeContext): any => {
-  return {
-    ...(input.Size != null && { Size: input.Size }),
-  };
-};
+// se_EphemeralStorage omitted.
 
-/**
- * serializeAws_restJson1FileSystemConfig
- */
-const se_FileSystemConfig = (input: FileSystemConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.LocalMountPath != null && { LocalMountPath: input.LocalMountPath }),
-  };
-};
+// se_FileSystemConfig omitted.
 
-/**
- * serializeAws_restJson1FileSystemConfigList
- */
-const se_FileSystemConfigList = (input: FileSystemConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FileSystemConfig(entry, context);
-    });
-};
+// se_FileSystemConfigList omitted.
 
-/**
- * serializeAws_restJson1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Pattern != null && { Pattern: input.Pattern }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_restJson1FilterCriteria
- */
-const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-  };
-};
+// se_FilterCriteria omitted.
 
-/**
- * serializeAws_restJson1FilterList
- */
-const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_FilterList omitted.
 
 /**
  * serializeAws_restJson1FunctionCode
  */
 const se_FunctionCode = (input: FunctionCode, context: __SerdeContext): any => {
-  return {
-    ...(input.ImageUri != null && { ImageUri: input.ImageUri }),
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Key != null && { S3Key: input.S3Key }),
-    ...(input.S3ObjectVersion != null && { S3ObjectVersion: input.S3ObjectVersion }),
-    ...(input.ZipFile != null && { ZipFile: context.base64Encoder(input.ZipFile) }),
-  };
+  return take(input, {
+    ImageUri: [],
+    S3Bucket: [],
+    S3Key: [],
+    S3ObjectVersion: [],
+    ZipFile: context.base64Encoder,
+  });
 };
 
-/**
- * serializeAws_restJson1FunctionResponseTypeList
- */
-const se_FunctionResponseTypeList = (input: (FunctionResponseType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FunctionResponseTypeList omitted.
 
-/**
- * serializeAws_restJson1HeadersList
- */
-const se_HeadersList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_HeadersList omitted.
 
-/**
- * serializeAws_restJson1ImageConfig
- */
-const se_ImageConfig = (input: ImageConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Command != null && { Command: se_StringList(input.Command, context) }),
-    ...(input.EntryPoint != null && { EntryPoint: se_StringList(input.EntryPoint, context) }),
-    ...(input.WorkingDirectory != null && { WorkingDirectory: input.WorkingDirectory }),
-  };
-};
+// se_ImageConfig omitted.
 
-/**
- * serializeAws_restJson1LayerList
- */
-const se_LayerList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LayerList omitted.
 
 /**
  * serializeAws_restJson1LayerVersionContentInput
  */
 const se_LayerVersionContentInput = (input: LayerVersionContentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Key != null && { S3Key: input.S3Key }),
-    ...(input.S3ObjectVersion != null && { S3ObjectVersion: input.S3ObjectVersion }),
-    ...(input.ZipFile != null && { ZipFile: context.base64Encoder(input.ZipFile) }),
-  };
+  return take(input, {
+    S3Bucket: [],
+    S3Key: [],
+    S3ObjectVersion: [],
+    ZipFile: context.base64Encoder,
+  });
 };
 
-/**
- * serializeAws_restJson1OnFailure
- */
-const se_OnFailure = (input: OnFailure, context: __SerdeContext): any => {
-  return {
-    ...(input.Destination != null && { Destination: input.Destination }),
-  };
-};
+// se_OnFailure omitted.
 
-/**
- * serializeAws_restJson1OnSuccess
- */
-const se_OnSuccess = (input: OnSuccess, context: __SerdeContext): any => {
-  return {
-    ...(input.Destination != null && { Destination: input.Destination }),
-  };
-};
+// se_OnSuccess omitted.
 
-/**
- * serializeAws_restJson1Queues
- */
-const se_Queues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Queues omitted.
 
-/**
- * serializeAws_restJson1ScalingConfig
- */
-const se_ScalingConfig = (input: ScalingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.MaximumConcurrency != null && { MaximumConcurrency: input.MaximumConcurrency }),
-  };
-};
+// se_ScalingConfig omitted.
 
-/**
- * serializeAws_restJson1SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
-/**
- * serializeAws_restJson1SelfManagedEventSource
- */
-const se_SelfManagedEventSource = (input: SelfManagedEventSource, context: __SerdeContext): any => {
-  return {
-    ...(input.Endpoints != null && { Endpoints: se_Endpoints(input.Endpoints, context) }),
-  };
-};
+// se_SelfManagedEventSource omitted.
 
-/**
- * serializeAws_restJson1SelfManagedKafkaEventSourceConfig
- */
-const se_SelfManagedKafkaEventSourceConfig = (
-  input: SelfManagedKafkaEventSourceConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConsumerGroupId != null && { ConsumerGroupId: input.ConsumerGroupId }),
-  };
-};
+// se_SelfManagedKafkaEventSourceConfig omitted.
 
-/**
- * serializeAws_restJson1SigningProfileVersionArns
- */
-const se_SigningProfileVersionArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SigningProfileVersionArns omitted.
 
-/**
- * serializeAws_restJson1SnapStart
- */
-const se_SnapStart = (input: SnapStart, context: __SerdeContext): any => {
-  return {
-    ...(input.ApplyOn != null && { ApplyOn: input.ApplyOn }),
-  };
-};
+// se_SnapStart omitted.
 
-/**
- * serializeAws_restJson1SourceAccessConfiguration
- */
-const se_SourceAccessConfiguration = (input: SourceAccessConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.URI != null && { URI: input.URI }),
-  };
-};
+// se_SourceAccessConfiguration omitted.
 
-/**
- * serializeAws_restJson1SourceAccessConfigurations
- */
-const se_SourceAccessConfigurations = (input: SourceAccessConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SourceAccessConfiguration(entry, context);
-    });
-};
+// se_SourceAccessConfigurations omitted.
 
-/**
- * serializeAws_restJson1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
-/**
- * serializeAws_restJson1SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIds omitted.
 
-/**
- * serializeAws_restJson1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_restJson1Topics
- */
-const se_Topics = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Topics omitted.
 
-/**
- * serializeAws_restJson1TracingConfig
- */
-const se_TracingConfig = (input: TracingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Mode != null && { Mode: input.Mode }),
-  };
-};
+// se_TracingConfig omitted.
 
-/**
- * serializeAws_restJson1VpcConfig
- */
-const se_VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupIds != null && { SecurityGroupIds: se_SecurityGroupIds(input.SecurityGroupIds, context) }),
-    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIds(input.SubnetIds, context) }),
-  };
-};
+// se_VpcConfig omitted.
 
-/**
- * deserializeAws_restJson1AccountLimit
- */
-const de_AccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
-  return {
-    CodeSizeUnzipped: __expectLong(output.CodeSizeUnzipped),
-    CodeSizeZipped: __expectLong(output.CodeSizeZipped),
-    ConcurrentExecutions: __expectInt32(output.ConcurrentExecutions),
-    TotalCodeSize: __expectLong(output.TotalCodeSize),
-    UnreservedConcurrentExecutions: __expectInt32(output.UnreservedConcurrentExecutions),
-  } as any;
-};
+// de_AccountLimit omitted.
 
-/**
- * deserializeAws_restJson1AccountUsage
- */
-const de_AccountUsage = (output: any, context: __SerdeContext): AccountUsage => {
-  return {
-    FunctionCount: __expectLong(output.FunctionCount),
-    TotalCodeSize: __expectLong(output.TotalCodeSize),
-  } as any;
-};
+// de_AccountUsage omitted.
 
 /**
  * deserializeAws_restJson1AdditionalVersionWeights
@@ -9251,15 +7980,14 @@ const de_AdditionalVersionWeights = (output: any, context: __SerdeContext): Reco
  * deserializeAws_restJson1AliasConfiguration
  */
 const de_AliasConfiguration = (output: any, context: __SerdeContext): AliasConfiguration => {
-  return {
-    AliasArn: __expectString(output.AliasArn),
-    Description: __expectString(output.Description),
-    FunctionVersion: __expectString(output.FunctionVersion),
-    Name: __expectString(output.Name),
-    RevisionId: __expectString(output.RevisionId),
-    RoutingConfig:
-      output.RoutingConfig != null ? de_AliasRoutingConfiguration(output.RoutingConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    AliasArn: __expectString,
+    Description: __expectString,
+    FunctionVersion: __expectString,
+    Name: __expectString,
+    RevisionId: __expectString,
+    RoutingConfig: (_: any) => de_AliasRoutingConfiguration(_, context),
+  }) as any;
 };
 
 /**
@@ -9269,9 +7997,6 @@ const de_AliasList = (output: any, context: __SerdeContext): AliasConfiguration[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AliasConfiguration(entry, context);
     });
   return retVal;
@@ -9281,334 +8006,86 @@ const de_AliasList = (output: any, context: __SerdeContext): AliasConfiguration[
  * deserializeAws_restJson1AliasRoutingConfiguration
  */
 const de_AliasRoutingConfiguration = (output: any, context: __SerdeContext): AliasRoutingConfiguration => {
-  return {
-    AdditionalVersionWeights:
-      output.AdditionalVersionWeights != null
-        ? de_AdditionalVersionWeights(output.AdditionalVersionWeights, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AdditionalVersionWeights: (_: any) => de_AdditionalVersionWeights(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AllowedPublishers
- */
-const de_AllowedPublishers = (output: any, context: __SerdeContext): AllowedPublishers => {
-  return {
-    SigningProfileVersionArns:
-      output.SigningProfileVersionArns != null
-        ? de_SigningProfileVersionArns(output.SigningProfileVersionArns, context)
-        : undefined,
-  } as any;
-};
+// de_AllowedPublishers omitted.
 
-/**
- * deserializeAws_restJson1AllowMethodsList
- */
-const de_AllowMethodsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AllowMethodsList omitted.
 
-/**
- * deserializeAws_restJson1AllowOriginsList
- */
-const de_AllowOriginsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AllowOriginsList omitted.
 
-/**
- * deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig
- */
-const de_AmazonManagedKafkaEventSourceConfig = (
-  output: any,
-  context: __SerdeContext
-): AmazonManagedKafkaEventSourceConfig => {
-  return {
-    ConsumerGroupId: __expectString(output.ConsumerGroupId),
-  } as any;
-};
+// de_AmazonManagedKafkaEventSourceConfig omitted.
 
-/**
- * deserializeAws_restJson1ArchitecturesList
- */
-const de_ArchitecturesList = (output: any, context: __SerdeContext): (Architecture | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ArchitecturesList omitted.
 
-/**
- * deserializeAws_restJson1CodeSigningConfig
- */
-const de_CodeSigningConfig = (output: any, context: __SerdeContext): CodeSigningConfig => {
-  return {
-    AllowedPublishers:
-      output.AllowedPublishers != null ? de_AllowedPublishers(output.AllowedPublishers, context) : undefined,
-    CodeSigningConfigArn: __expectString(output.CodeSigningConfigArn),
-    CodeSigningConfigId: __expectString(output.CodeSigningConfigId),
-    CodeSigningPolicies:
-      output.CodeSigningPolicies != null ? de_CodeSigningPolicies(output.CodeSigningPolicies, context) : undefined,
-    Description: __expectString(output.Description),
-    LastModified: __expectString(output.LastModified),
-  } as any;
-};
+// de_CodeSigningConfig omitted.
 
-/**
- * deserializeAws_restJson1CodeSigningConfigList
- */
-const de_CodeSigningConfigList = (output: any, context: __SerdeContext): CodeSigningConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CodeSigningConfig(entry, context);
-    });
-  return retVal;
-};
+// de_CodeSigningConfigList omitted.
 
-/**
- * deserializeAws_restJson1CodeSigningPolicies
- */
-const de_CodeSigningPolicies = (output: any, context: __SerdeContext): CodeSigningPolicies => {
-  return {
-    UntrustedArtifactOnDeployment: __expectString(output.UntrustedArtifactOnDeployment),
-  } as any;
-};
+// de_CodeSigningPolicies omitted.
 
-/**
- * deserializeAws_restJson1CompatibleArchitectures
- */
-const de_CompatibleArchitectures = (output: any, context: __SerdeContext): (Architecture | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CompatibleArchitectures omitted.
 
-/**
- * deserializeAws_restJson1CompatibleRuntimes
- */
-const de_CompatibleRuntimes = (output: any, context: __SerdeContext): (Runtime | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CompatibleRuntimes omitted.
 
-/**
- * deserializeAws_restJson1Concurrency
- */
-const de_Concurrency = (output: any, context: __SerdeContext): Concurrency => {
-  return {
-    ReservedConcurrentExecutions: __expectInt32(output.ReservedConcurrentExecutions),
-  } as any;
-};
+// de_Concurrency omitted.
 
-/**
- * deserializeAws_restJson1Cors
- */
-const de_Cors = (output: any, context: __SerdeContext): Cors => {
-  return {
-    AllowCredentials: __expectBoolean(output.AllowCredentials),
-    AllowHeaders: output.AllowHeaders != null ? de_HeadersList(output.AllowHeaders, context) : undefined,
-    AllowMethods: output.AllowMethods != null ? de_AllowMethodsList(output.AllowMethods, context) : undefined,
-    AllowOrigins: output.AllowOrigins != null ? de_AllowOriginsList(output.AllowOrigins, context) : undefined,
-    ExposeHeaders: output.ExposeHeaders != null ? de_HeadersList(output.ExposeHeaders, context) : undefined,
-    MaxAge: __expectInt32(output.MaxAge),
-  } as any;
-};
+// de_Cors omitted.
 
-/**
- * deserializeAws_restJson1DeadLetterConfig
- */
-const de_DeadLetterConfig = (output: any, context: __SerdeContext): DeadLetterConfig => {
-  return {
-    TargetArn: __expectString(output.TargetArn),
-  } as any;
-};
+// de_DeadLetterConfig omitted.
 
-/**
- * deserializeAws_restJson1DestinationConfig
- */
-const de_DestinationConfig = (output: any, context: __SerdeContext): DestinationConfig => {
-  return {
-    OnFailure: output.OnFailure != null ? de_OnFailure(output.OnFailure, context) : undefined,
-    OnSuccess: output.OnSuccess != null ? de_OnSuccess(output.OnSuccess, context) : undefined,
-  } as any;
-};
+// de_DestinationConfig omitted.
 
-/**
- * deserializeAws_restJson1DocumentDBEventSourceConfig
- */
-const de_DocumentDBEventSourceConfig = (output: any, context: __SerdeContext): DocumentDBEventSourceConfig => {
-  return {
-    CollectionName: __expectString(output.CollectionName),
-    DatabaseName: __expectString(output.DatabaseName),
-    FullDocument: __expectString(output.FullDocument),
-  } as any;
-};
+// de_DocumentDBEventSourceConfig omitted.
 
-/**
- * deserializeAws_restJson1EndpointLists
- */
-const de_EndpointLists = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EndpointLists omitted.
 
-/**
- * deserializeAws_restJson1Endpoints
- */
-const de_Endpoints = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [EndPointType | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_EndpointLists(value, context);
-    return acc;
-  }, {});
-};
+// de_Endpoints omitted.
 
-/**
- * deserializeAws_restJson1EnvironmentError
- */
-const de_EnvironmentError = (output: any, context: __SerdeContext): EnvironmentError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EnvironmentError omitted.
 
-/**
- * deserializeAws_restJson1EnvironmentResponse
- */
-const de_EnvironmentResponse = (output: any, context: __SerdeContext): EnvironmentResponse => {
-  return {
-    Error: output.Error != null ? de_EnvironmentError(output.Error, context) : undefined,
-    Variables: output.Variables != null ? de_EnvironmentVariables(output.Variables, context) : undefined,
-  } as any;
-};
+// de_EnvironmentResponse omitted.
 
-/**
- * deserializeAws_restJson1EnvironmentVariables
- */
-const de_EnvironmentVariables = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_EnvironmentVariables omitted.
 
-/**
- * deserializeAws_restJson1EphemeralStorage
- */
-const de_EphemeralStorage = (output: any, context: __SerdeContext): EphemeralStorage => {
-  return {
-    Size: __expectInt32(output.Size),
-  } as any;
-};
+// de_EphemeralStorage omitted.
 
 /**
  * deserializeAws_restJson1EventSourceMappingConfiguration
  */
 const de_EventSourceMappingConfiguration = (output: any, context: __SerdeContext): EventSourceMappingConfiguration => {
-  return {
-    AmazonManagedKafkaEventSourceConfig:
-      output.AmazonManagedKafkaEventSourceConfig != null
-        ? de_AmazonManagedKafkaEventSourceConfig(output.AmazonManagedKafkaEventSourceConfig, context)
-        : undefined,
-    BatchSize: __expectInt32(output.BatchSize),
-    BisectBatchOnFunctionError: __expectBoolean(output.BisectBatchOnFunctionError),
-    DestinationConfig:
-      output.DestinationConfig != null ? de_DestinationConfig(output.DestinationConfig, context) : undefined,
-    DocumentDBEventSourceConfig:
-      output.DocumentDBEventSourceConfig != null
-        ? de_DocumentDBEventSourceConfig(output.DocumentDBEventSourceConfig, context)
-        : undefined,
-    EventSourceArn: __expectString(output.EventSourceArn),
-    FilterCriteria: output.FilterCriteria != null ? de_FilterCriteria(output.FilterCriteria, context) : undefined,
-    FunctionArn: __expectString(output.FunctionArn),
-    FunctionResponseTypes:
-      output.FunctionResponseTypes != null
-        ? de_FunctionResponseTypeList(output.FunctionResponseTypes, context)
-        : undefined,
-    LastModified:
-      output.LastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
-        : undefined,
-    LastProcessingResult: __expectString(output.LastProcessingResult),
-    MaximumBatchingWindowInSeconds: __expectInt32(output.MaximumBatchingWindowInSeconds),
-    MaximumRecordAgeInSeconds: __expectInt32(output.MaximumRecordAgeInSeconds),
-    MaximumRetryAttempts: __expectInt32(output.MaximumRetryAttempts),
-    ParallelizationFactor: __expectInt32(output.ParallelizationFactor),
-    Queues: output.Queues != null ? de_Queues(output.Queues, context) : undefined,
-    ScalingConfig: output.ScalingConfig != null ? de_ScalingConfig(output.ScalingConfig, context) : undefined,
-    SelfManagedEventSource:
-      output.SelfManagedEventSource != null
-        ? de_SelfManagedEventSource(output.SelfManagedEventSource, context)
-        : undefined,
-    SelfManagedKafkaEventSourceConfig:
-      output.SelfManagedKafkaEventSourceConfig != null
-        ? de_SelfManagedKafkaEventSourceConfig(output.SelfManagedKafkaEventSourceConfig, context)
-        : undefined,
-    SourceAccessConfigurations:
-      output.SourceAccessConfigurations != null
-        ? de_SourceAccessConfigurations(output.SourceAccessConfigurations, context)
-        : undefined,
-    StartingPosition: __expectString(output.StartingPosition),
-    StartingPositionTimestamp:
-      output.StartingPositionTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartingPositionTimestamp)))
-        : undefined,
-    State: __expectString(output.State),
-    StateTransitionReason: __expectString(output.StateTransitionReason),
-    Topics: output.Topics != null ? de_Topics(output.Topics, context) : undefined,
-    TumblingWindowInSeconds: __expectInt32(output.TumblingWindowInSeconds),
-    UUID: __expectString(output.UUID),
-  } as any;
+  return take(output, {
+    AmazonManagedKafkaEventSourceConfig: _json,
+    BatchSize: __expectInt32,
+    BisectBatchOnFunctionError: __expectBoolean,
+    DestinationConfig: _json,
+    DocumentDBEventSourceConfig: _json,
+    EventSourceArn: __expectString,
+    FilterCriteria: _json,
+    FunctionArn: __expectString,
+    FunctionResponseTypes: _json,
+    LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastProcessingResult: __expectString,
+    MaximumBatchingWindowInSeconds: __expectInt32,
+    MaximumRecordAgeInSeconds: __expectInt32,
+    MaximumRetryAttempts: __expectInt32,
+    ParallelizationFactor: __expectInt32,
+    Queues: _json,
+    ScalingConfig: _json,
+    SelfManagedEventSource: _json,
+    SelfManagedKafkaEventSourceConfig: _json,
+    SourceAccessConfigurations: _json,
+    StartingPosition: __expectString,
+    StartingPositionTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateTransitionReason: __expectString,
+    Topics: _json,
+    TumblingWindowInSeconds: __expectInt32,
+    UUID: __expectString,
+  }) as any;
 };
 
 /**
@@ -9618,162 +8095,38 @@ const de_EventSourceMappingsList = (output: any, context: __SerdeContext): Event
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EventSourceMappingConfiguration(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1FileSystemConfig
- */
-const de_FileSystemConfig = (output: any, context: __SerdeContext): FileSystemConfig => {
-  return {
-    Arn: __expectString(output.Arn),
-    LocalMountPath: __expectString(output.LocalMountPath),
-  } as any;
-};
+// de_FileSystemConfig omitted.
 
-/**
- * deserializeAws_restJson1FileSystemConfigList
- */
-const de_FileSystemConfigList = (output: any, context: __SerdeContext): FileSystemConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FileSystemConfig(entry, context);
-    });
-  return retVal;
-};
+// de_FileSystemConfigList omitted.
 
-/**
- * deserializeAws_restJson1Filter
- */
-const de_Filter = (output: any, context: __SerdeContext): Filter => {
-  return {
-    Pattern: __expectString(output.Pattern),
-  } as any;
-};
+// de_Filter omitted.
 
-/**
- * deserializeAws_restJson1FilterCriteria
- */
-const de_FilterCriteria = (output: any, context: __SerdeContext): FilterCriteria => {
-  return {
-    Filters: output.Filters != null ? de_FilterList(output.Filters, context) : undefined,
-  } as any;
-};
+// de_FilterCriteria omitted.
 
-/**
- * deserializeAws_restJson1FilterList
- */
-const de_FilterList = (output: any, context: __SerdeContext): Filter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Filter(entry, context);
-    });
-  return retVal;
-};
+// de_FilterList omitted.
 
-/**
- * deserializeAws_restJson1FunctionArnList
- */
-const de_FunctionArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FunctionArnList omitted.
 
-/**
- * deserializeAws_restJson1FunctionCodeLocation
- */
-const de_FunctionCodeLocation = (output: any, context: __SerdeContext): FunctionCodeLocation => {
-  return {
-    ImageUri: __expectString(output.ImageUri),
-    Location: __expectString(output.Location),
-    RepositoryType: __expectString(output.RepositoryType),
-    ResolvedImageUri: __expectString(output.ResolvedImageUri),
-  } as any;
-};
+// de_FunctionCodeLocation omitted.
 
-/**
- * deserializeAws_restJson1FunctionConfiguration
- */
-const de_FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
-  return {
-    Architectures: output.Architectures != null ? de_ArchitecturesList(output.Architectures, context) : undefined,
-    CodeSha256: __expectString(output.CodeSha256),
-    CodeSize: __expectLong(output.CodeSize),
-    DeadLetterConfig:
-      output.DeadLetterConfig != null ? de_DeadLetterConfig(output.DeadLetterConfig, context) : undefined,
-    Description: __expectString(output.Description),
-    Environment: output.Environment != null ? de_EnvironmentResponse(output.Environment, context) : undefined,
-    EphemeralStorage:
-      output.EphemeralStorage != null ? de_EphemeralStorage(output.EphemeralStorage, context) : undefined,
-    FileSystemConfigs:
-      output.FileSystemConfigs != null ? de_FileSystemConfigList(output.FileSystemConfigs, context) : undefined,
-    FunctionArn: __expectString(output.FunctionArn),
-    FunctionName: __expectString(output.FunctionName),
-    Handler: __expectString(output.Handler),
-    ImageConfigResponse:
-      output.ImageConfigResponse != null ? de_ImageConfigResponse(output.ImageConfigResponse, context) : undefined,
-    KMSKeyArn: __expectString(output.KMSKeyArn),
-    LastModified: __expectString(output.LastModified),
-    LastUpdateStatus: __expectString(output.LastUpdateStatus),
-    LastUpdateStatusReason: __expectString(output.LastUpdateStatusReason),
-    LastUpdateStatusReasonCode: __expectString(output.LastUpdateStatusReasonCode),
-    Layers: output.Layers != null ? de_LayersReferenceList(output.Layers, context) : undefined,
-    MasterArn: __expectString(output.MasterArn),
-    MemorySize: __expectInt32(output.MemorySize),
-    PackageType: __expectString(output.PackageType),
-    RevisionId: __expectString(output.RevisionId),
-    Role: __expectString(output.Role),
-    Runtime: __expectString(output.Runtime),
-    RuntimeVersionConfig:
-      output.RuntimeVersionConfig != null ? de_RuntimeVersionConfig(output.RuntimeVersionConfig, context) : undefined,
-    SigningJobArn: __expectString(output.SigningJobArn),
-    SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
-    SnapStart: output.SnapStart != null ? de_SnapStartResponse(output.SnapStart, context) : undefined,
-    State: __expectString(output.State),
-    StateReason: __expectString(output.StateReason),
-    StateReasonCode: __expectString(output.StateReasonCode),
-    Timeout: __expectInt32(output.Timeout),
-    TracingConfig: output.TracingConfig != null ? de_TracingConfigResponse(output.TracingConfig, context) : undefined,
-    Version: __expectString(output.Version),
-    VpcConfig: output.VpcConfig != null ? de_VpcConfigResponse(output.VpcConfig, context) : undefined,
-  } as any;
-};
+// de_FunctionConfiguration omitted.
 
 /**
  * deserializeAws_restJson1FunctionEventInvokeConfig
  */
 const de_FunctionEventInvokeConfig = (output: any, context: __SerdeContext): FunctionEventInvokeConfig => {
-  return {
-    DestinationConfig:
-      output.DestinationConfig != null ? de_DestinationConfig(output.DestinationConfig, context) : undefined,
-    FunctionArn: __expectString(output.FunctionArn),
-    LastModified:
-      output.LastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
-        : undefined,
-    MaximumEventAgeInSeconds: __expectInt32(output.MaximumEventAgeInSeconds),
-    MaximumRetryAttempts: __expectInt32(output.MaximumRetryAttempts),
-  } as any;
+  return take(output, {
+    DestinationConfig: _json,
+    FunctionArn: __expectString,
+    LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaximumEventAgeInSeconds: __expectInt32,
+    MaximumRetryAttempts: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -9783,499 +8136,84 @@ const de_FunctionEventInvokeConfigList = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FunctionEventInvokeConfig(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1FunctionList
- */
-const de_FunctionList = (output: any, context: __SerdeContext): FunctionConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FunctionConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_FunctionList omitted.
 
-/**
- * deserializeAws_restJson1FunctionResponseTypeList
- */
-const de_FunctionResponseTypeList = (output: any, context: __SerdeContext): (FunctionResponseType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FunctionResponseTypeList omitted.
 
-/**
- * deserializeAws_restJson1FunctionUrlConfig
- */
-const de_FunctionUrlConfig = (output: any, context: __SerdeContext): FunctionUrlConfig => {
-  return {
-    AuthType: __expectString(output.AuthType),
-    Cors: output.Cors != null ? de_Cors(output.Cors, context) : undefined,
-    CreationTime: __expectString(output.CreationTime),
-    FunctionArn: __expectString(output.FunctionArn),
-    FunctionUrl: __expectString(output.FunctionUrl),
-    InvokeMode: __expectString(output.InvokeMode),
-    LastModifiedTime: __expectString(output.LastModifiedTime),
-  } as any;
-};
+// de_FunctionUrlConfig omitted.
 
-/**
- * deserializeAws_restJson1FunctionUrlConfigList
- */
-const de_FunctionUrlConfigList = (output: any, context: __SerdeContext): FunctionUrlConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FunctionUrlConfig(entry, context);
-    });
-  return retVal;
-};
+// de_FunctionUrlConfigList omitted.
 
-/**
- * deserializeAws_restJson1HeadersList
- */
-const de_HeadersList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HeadersList omitted.
 
-/**
- * deserializeAws_restJson1ImageConfig
- */
-const de_ImageConfig = (output: any, context: __SerdeContext): ImageConfig => {
-  return {
-    Command: output.Command != null ? de_StringList(output.Command, context) : undefined,
-    EntryPoint: output.EntryPoint != null ? de_StringList(output.EntryPoint, context) : undefined,
-    WorkingDirectory: __expectString(output.WorkingDirectory),
-  } as any;
-};
+// de_ImageConfig omitted.
 
-/**
- * deserializeAws_restJson1ImageConfigError
- */
-const de_ImageConfigError = (output: any, context: __SerdeContext): ImageConfigError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ImageConfigError omitted.
 
-/**
- * deserializeAws_restJson1ImageConfigResponse
- */
-const de_ImageConfigResponse = (output: any, context: __SerdeContext): ImageConfigResponse => {
-  return {
-    Error: output.Error != null ? de_ImageConfigError(output.Error, context) : undefined,
-    ImageConfig: output.ImageConfig != null ? de_ImageConfig(output.ImageConfig, context) : undefined,
-  } as any;
-};
+// de_ImageConfigResponse omitted.
 
-/**
- * deserializeAws_restJson1InvokeWithResponseStreamCompleteEvent
- */
-const de_InvokeWithResponseStreamCompleteEvent = (
-  output: any,
-  context: __SerdeContext
-): InvokeWithResponseStreamCompleteEvent => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorDetails: __expectString(output.ErrorDetails),
-    LogResult: __expectString(output.LogResult),
-  } as any;
-};
+// de_InvokeWithResponseStreamCompleteEvent omitted.
 
-/**
- * deserializeAws_restJson1Layer
- */
-const de_Layer = (output: any, context: __SerdeContext): Layer => {
-  return {
-    Arn: __expectString(output.Arn),
-    CodeSize: __expectLong(output.CodeSize),
-    SigningJobArn: __expectString(output.SigningJobArn),
-    SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
-  } as any;
-};
+// de_Layer omitted.
 
-/**
- * deserializeAws_restJson1LayersList
- */
-const de_LayersList = (output: any, context: __SerdeContext): LayersListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LayersListItem(entry, context);
-    });
-  return retVal;
-};
+// de_LayersList omitted.
 
-/**
- * deserializeAws_restJson1LayersListItem
- */
-const de_LayersListItem = (output: any, context: __SerdeContext): LayersListItem => {
-  return {
-    LatestMatchingVersion:
-      output.LatestMatchingVersion != null
-        ? de_LayerVersionsListItem(output.LatestMatchingVersion, context)
-        : undefined,
-    LayerArn: __expectString(output.LayerArn),
-    LayerName: __expectString(output.LayerName),
-  } as any;
-};
+// de_LayersListItem omitted.
 
-/**
- * deserializeAws_restJson1LayersReferenceList
- */
-const de_LayersReferenceList = (output: any, context: __SerdeContext): Layer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Layer(entry, context);
-    });
-  return retVal;
-};
+// de_LayersReferenceList omitted.
 
-/**
- * deserializeAws_restJson1LayerVersionContentOutput
- */
-const de_LayerVersionContentOutput = (output: any, context: __SerdeContext): LayerVersionContentOutput => {
-  return {
-    CodeSha256: __expectString(output.CodeSha256),
-    CodeSize: __expectLong(output.CodeSize),
-    Location: __expectString(output.Location),
-    SigningJobArn: __expectString(output.SigningJobArn),
-    SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
-  } as any;
-};
+// de_LayerVersionContentOutput omitted.
 
-/**
- * deserializeAws_restJson1LayerVersionsList
- */
-const de_LayerVersionsList = (output: any, context: __SerdeContext): LayerVersionsListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LayerVersionsListItem(entry, context);
-    });
-  return retVal;
-};
+// de_LayerVersionsList omitted.
 
-/**
- * deserializeAws_restJson1LayerVersionsListItem
- */
-const de_LayerVersionsListItem = (output: any, context: __SerdeContext): LayerVersionsListItem => {
-  return {
-    CompatibleArchitectures:
-      output.CompatibleArchitectures != null
-        ? de_CompatibleArchitectures(output.CompatibleArchitectures, context)
-        : undefined,
-    CompatibleRuntimes:
-      output.CompatibleRuntimes != null ? de_CompatibleRuntimes(output.CompatibleRuntimes, context) : undefined,
-    CreatedDate: __expectString(output.CreatedDate),
-    Description: __expectString(output.Description),
-    LayerVersionArn: __expectString(output.LayerVersionArn),
-    LicenseInfo: __expectString(output.LicenseInfo),
-    Version: __expectLong(output.Version),
-  } as any;
-};
+// de_LayerVersionsListItem omitted.
 
-/**
- * deserializeAws_restJson1OnFailure
- */
-const de_OnFailure = (output: any, context: __SerdeContext): OnFailure => {
-  return {
-    Destination: __expectString(output.Destination),
-  } as any;
-};
+// de_OnFailure omitted.
 
-/**
- * deserializeAws_restJson1OnSuccess
- */
-const de_OnSuccess = (output: any, context: __SerdeContext): OnSuccess => {
-  return {
-    Destination: __expectString(output.Destination),
-  } as any;
-};
+// de_OnSuccess omitted.
 
-/**
- * deserializeAws_restJson1ProvisionedConcurrencyConfigList
- */
-const de_ProvisionedConcurrencyConfigList = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedConcurrencyConfigListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProvisionedConcurrencyConfigListItem(entry, context);
-    });
-  return retVal;
-};
+// de_ProvisionedConcurrencyConfigList omitted.
 
-/**
- * deserializeAws_restJson1ProvisionedConcurrencyConfigListItem
- */
-const de_ProvisionedConcurrencyConfigListItem = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedConcurrencyConfigListItem => {
-  return {
-    AllocatedProvisionedConcurrentExecutions: __expectInt32(output.AllocatedProvisionedConcurrentExecutions),
-    AvailableProvisionedConcurrentExecutions: __expectInt32(output.AvailableProvisionedConcurrentExecutions),
-    FunctionArn: __expectString(output.FunctionArn),
-    LastModified: __expectString(output.LastModified),
-    RequestedProvisionedConcurrentExecutions: __expectInt32(output.RequestedProvisionedConcurrentExecutions),
-    Status: __expectString(output.Status),
-    StatusReason: __expectString(output.StatusReason),
-  } as any;
-};
+// de_ProvisionedConcurrencyConfigListItem omitted.
 
-/**
- * deserializeAws_restJson1Queues
- */
-const de_Queues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Queues omitted.
 
-/**
- * deserializeAws_restJson1RuntimeVersionConfig
- */
-const de_RuntimeVersionConfig = (output: any, context: __SerdeContext): RuntimeVersionConfig => {
-  return {
-    Error: output.Error != null ? de_RuntimeVersionError(output.Error, context) : undefined,
-    RuntimeVersionArn: __expectString(output.RuntimeVersionArn),
-  } as any;
-};
+// de_RuntimeVersionConfig omitted.
 
-/**
- * deserializeAws_restJson1RuntimeVersionError
- */
-const de_RuntimeVersionError = (output: any, context: __SerdeContext): RuntimeVersionError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_RuntimeVersionError omitted.
 
-/**
- * deserializeAws_restJson1ScalingConfig
- */
-const de_ScalingConfig = (output: any, context: __SerdeContext): ScalingConfig => {
-  return {
-    MaximumConcurrency: __expectInt32(output.MaximumConcurrency),
-  } as any;
-};
+// de_ScalingConfig omitted.
 
-/**
- * deserializeAws_restJson1SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
-/**
- * deserializeAws_restJson1SelfManagedEventSource
- */
-const de_SelfManagedEventSource = (output: any, context: __SerdeContext): SelfManagedEventSource => {
-  return {
-    Endpoints: output.Endpoints != null ? de_Endpoints(output.Endpoints, context) : undefined,
-  } as any;
-};
+// de_SelfManagedEventSource omitted.
 
-/**
- * deserializeAws_restJson1SelfManagedKafkaEventSourceConfig
- */
-const de_SelfManagedKafkaEventSourceConfig = (
-  output: any,
-  context: __SerdeContext
-): SelfManagedKafkaEventSourceConfig => {
-  return {
-    ConsumerGroupId: __expectString(output.ConsumerGroupId),
-  } as any;
-};
+// de_SelfManagedKafkaEventSourceConfig omitted.
 
-/**
- * deserializeAws_restJson1SigningProfileVersionArns
- */
-const de_SigningProfileVersionArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SigningProfileVersionArns omitted.
 
-/**
- * deserializeAws_restJson1SnapStartResponse
- */
-const de_SnapStartResponse = (output: any, context: __SerdeContext): SnapStartResponse => {
-  return {
-    ApplyOn: __expectString(output.ApplyOn),
-    OptimizationStatus: __expectString(output.OptimizationStatus),
-  } as any;
-};
+// de_SnapStartResponse omitted.
 
-/**
- * deserializeAws_restJson1SourceAccessConfiguration
- */
-const de_SourceAccessConfiguration = (output: any, context: __SerdeContext): SourceAccessConfiguration => {
-  return {
-    Type: __expectString(output.Type),
-    URI: __expectString(output.URI),
-  } as any;
-};
+// de_SourceAccessConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SourceAccessConfigurations
- */
-const de_SourceAccessConfigurations = (output: any, context: __SerdeContext): SourceAccessConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SourceAccessConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_SourceAccessConfigurations omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_restJson1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_restJson1Topics
- */
-const de_Topics = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Topics omitted.
 
-/**
- * deserializeAws_restJson1TracingConfigResponse
- */
-const de_TracingConfigResponse = (output: any, context: __SerdeContext): TracingConfigResponse => {
-  return {
-    Mode: __expectString(output.Mode),
-  } as any;
-};
+// de_TracingConfigResponse omitted.
 
-/**
- * deserializeAws_restJson1VpcConfigResponse
- */
-const de_VpcConfigResponse = (output: any, context: __SerdeContext): VpcConfigResponse => {
-  return {
-    SecurityGroupIds:
-      output.SecurityGroupIds != null ? de_SecurityGroupIds(output.SecurityGroupIds, context) : undefined,
-    SubnetIds: output.SubnetIds != null ? de_SubnetIds(output.SubnetIds, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_VpcConfigResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

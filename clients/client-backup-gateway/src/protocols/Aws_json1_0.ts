@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -88,70 +88,47 @@ import { BackupGatewayServiceException as __BaseException } from "../models/Back
 import {
   AccessDeniedException,
   AssociateGatewayToServerInput,
-  AssociateGatewayToServerOutput,
   BandwidthRateLimitInterval,
   ConflictException,
   CreateGatewayInput,
-  CreateGatewayOutput,
   DeleteGatewayInput,
-  DeleteGatewayOutput,
   DeleteHypervisorInput,
-  DeleteHypervisorOutput,
   DisassociateGatewayFromServerInput,
-  DisassociateGatewayFromServerOutput,
   Gateway,
   GatewayDetails,
   GetBandwidthRateLimitScheduleInput,
-  GetBandwidthRateLimitScheduleOutput,
   GetGatewayInput,
   GetGatewayOutput,
   GetHypervisorInput,
   GetHypervisorOutput,
   GetHypervisorPropertyMappingsInput,
-  GetHypervisorPropertyMappingsOutput,
   GetVirtualMachineInput,
   GetVirtualMachineOutput,
-  Hypervisor,
   HypervisorDetails,
   ImportHypervisorConfigurationInput,
-  ImportHypervisorConfigurationOutput,
   InternalServerException,
   ListGatewaysInput,
   ListGatewaysOutput,
   ListHypervisorsInput,
-  ListHypervisorsOutput,
   ListTagsForResourceInput,
-  ListTagsForResourceOutput,
   ListVirtualMachinesInput,
   ListVirtualMachinesOutput,
-  MaintenanceStartTime,
   PutBandwidthRateLimitScheduleInput,
-  PutBandwidthRateLimitScheduleOutput,
   PutHypervisorPropertyMappingsInput,
-  PutHypervisorPropertyMappingsOutput,
   PutMaintenanceStartTimeInput,
-  PutMaintenanceStartTimeOutput,
   ResourceNotFoundException,
   StartVirtualMachinesMetadataSyncInput,
-  StartVirtualMachinesMetadataSyncOutput,
   Tag,
   TagResourceInput,
-  TagResourceOutput,
   TestHypervisorConfigurationInput,
-  TestHypervisorConfigurationOutput,
   ThrottlingException,
   UntagResourceInput,
-  UntagResourceOutput,
   UpdateGatewayInformationInput,
-  UpdateGatewayInformationOutput,
   UpdateGatewaySoftwareNowInput,
-  UpdateGatewaySoftwareNowOutput,
   UpdateHypervisorInput,
-  UpdateHypervisorOutput,
   ValidationException,
   VirtualMachine,
   VirtualMachineDetails,
-  VmwareTag,
   VmwareToAwsTagMapping,
 } from "../models/models_0";
 
@@ -164,7 +141,7 @@ export const se_AssociateGatewayToServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateGatewayToServer");
   let body: any;
-  body = JSON.stringify(se_AssociateGatewayToServerInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -177,7 +154,7 @@ export const se_CreateGatewayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateGateway");
   let body: any;
-  body = JSON.stringify(se_CreateGatewayInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -190,7 +167,7 @@ export const se_DeleteGatewayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteGateway");
   let body: any;
-  body = JSON.stringify(se_DeleteGatewayInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -203,7 +180,7 @@ export const se_DeleteHypervisorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteHypervisor");
   let body: any;
-  body = JSON.stringify(se_DeleteHypervisorInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -216,7 +193,7 @@ export const se_DisassociateGatewayFromServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateGatewayFromServer");
   let body: any;
-  body = JSON.stringify(se_DisassociateGatewayFromServerInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -229,7 +206,7 @@ export const se_GetBandwidthRateLimitScheduleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetBandwidthRateLimitSchedule");
   let body: any;
-  body = JSON.stringify(se_GetBandwidthRateLimitScheduleInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -242,7 +219,7 @@ export const se_GetGatewayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetGateway");
   let body: any;
-  body = JSON.stringify(se_GetGatewayInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -255,7 +232,7 @@ export const se_GetHypervisorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetHypervisor");
   let body: any;
-  body = JSON.stringify(se_GetHypervisorInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -268,7 +245,7 @@ export const se_GetHypervisorPropertyMappingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetHypervisorPropertyMappings");
   let body: any;
-  body = JSON.stringify(se_GetHypervisorPropertyMappingsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -281,7 +258,7 @@ export const se_GetVirtualMachineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetVirtualMachine");
   let body: any;
-  body = JSON.stringify(se_GetVirtualMachineInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -294,7 +271,7 @@ export const se_ImportHypervisorConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportHypervisorConfiguration");
   let body: any;
-  body = JSON.stringify(se_ImportHypervisorConfigurationInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -307,7 +284,7 @@ export const se_ListGatewaysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListGateways");
   let body: any;
-  body = JSON.stringify(se_ListGatewaysInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -320,7 +297,7 @@ export const se_ListHypervisorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHypervisors");
   let body: any;
-  body = JSON.stringify(se_ListHypervisorsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -333,7 +310,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -346,7 +323,7 @@ export const se_ListVirtualMachinesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListVirtualMachines");
   let body: any;
-  body = JSON.stringify(se_ListVirtualMachinesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -359,7 +336,7 @@ export const se_PutBandwidthRateLimitScheduleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutBandwidthRateLimitSchedule");
   let body: any;
-  body = JSON.stringify(se_PutBandwidthRateLimitScheduleInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -372,7 +349,7 @@ export const se_PutHypervisorPropertyMappingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutHypervisorPropertyMappings");
   let body: any;
-  body = JSON.stringify(se_PutHypervisorPropertyMappingsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -385,7 +362,7 @@ export const se_PutMaintenanceStartTimeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutMaintenanceStartTime");
   let body: any;
-  body = JSON.stringify(se_PutMaintenanceStartTimeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -398,7 +375,7 @@ export const se_StartVirtualMachinesMetadataSyncCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartVirtualMachinesMetadataSync");
   let body: any;
-  body = JSON.stringify(se_StartVirtualMachinesMetadataSyncInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -411,7 +388,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -424,7 +401,7 @@ export const se_TestHypervisorConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TestHypervisorConfiguration");
   let body: any;
-  body = JSON.stringify(se_TestHypervisorConfigurationInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -437,7 +414,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -450,7 +427,7 @@ export const se_UpdateGatewayInformationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateGatewayInformation");
   let body: any;
-  body = JSON.stringify(se_UpdateGatewayInformationInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -463,7 +440,7 @@ export const se_UpdateGatewaySoftwareNowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateGatewaySoftwareNow");
   let body: any;
-  body = JSON.stringify(se_UpdateGatewaySoftwareNowInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -476,7 +453,7 @@ export const se_UpdateHypervisorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateHypervisor");
   let body: any;
-  body = JSON.stringify(se_UpdateHypervisorInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -492,12 +469,12 @@ export const de_AssociateGatewayToServerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateGatewayToServerOutput(data, context);
+  contents = _json(data);
   const response: AssociateGatewayToServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -527,10 +504,9 @@ const de_AssociateGatewayToServerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -548,12 +524,12 @@ export const de_CreateGatewayCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateGatewayOutput(data, context);
+  contents = _json(data);
   const response: CreateGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -580,10 +556,9 @@ const de_CreateGatewayCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -601,12 +576,12 @@ export const de_DeleteGatewayCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteGatewayOutput(data, context);
+  contents = _json(data);
   const response: DeleteGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -636,10 +611,9 @@ const de_DeleteGatewayCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -657,12 +631,12 @@ export const de_DeleteHypervisorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteHypervisorOutput(data, context);
+  contents = _json(data);
   const response: DeleteHypervisorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -698,10 +672,9 @@ const de_DeleteHypervisorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -719,12 +692,12 @@ export const de_DisassociateGatewayFromServerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateGatewayFromServerOutput(data, context);
+  contents = _json(data);
   const response: DisassociateGatewayFromServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -757,10 +730,9 @@ const de_DisassociateGatewayFromServerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -778,12 +750,12 @@ export const de_GetBandwidthRateLimitScheduleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetBandwidthRateLimitScheduleOutput(data, context);
+  contents = _json(data);
   const response: GetBandwidthRateLimitScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -813,10 +785,9 @@ const de_GetBandwidthRateLimitScheduleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -839,7 +810,7 @@ export const de_GetGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -869,10 +840,9 @@ const de_GetGatewayCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -895,7 +865,7 @@ export const de_GetHypervisorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -925,10 +895,9 @@ const de_GetHypervisorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -946,12 +915,12 @@ export const de_GetHypervisorPropertyMappingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetHypervisorPropertyMappingsOutput(data, context);
+  contents = _json(data);
   const response: GetHypervisorPropertyMappingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -981,10 +950,9 @@ const de_GetHypervisorPropertyMappingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1007,7 +975,7 @@ export const de_GetVirtualMachineCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1037,10 +1005,9 @@ const de_GetVirtualMachineCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1058,12 +1025,12 @@ export const de_ImportHypervisorConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportHypervisorConfigurationOutput(data, context);
+  contents = _json(data);
   const response: ImportHypervisorConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1096,10 +1063,9 @@ const de_ImportHypervisorConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1122,7 +1088,7 @@ export const de_ListGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1149,10 +1115,9 @@ const de_ListGatewaysCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1170,12 +1135,12 @@ export const de_ListHypervisorsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListHypervisorsOutput(data, context);
+  contents = _json(data);
   const response: ListHypervisorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1202,10 +1167,9 @@ const de_ListHypervisorsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1223,12 +1187,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceOutput(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1258,10 +1222,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1284,7 +1247,7 @@ export const de_ListVirtualMachinesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1311,10 +1274,9 @@ const de_ListVirtualMachinesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1332,12 +1294,12 @@ export const de_PutBandwidthRateLimitScheduleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutBandwidthRateLimitScheduleOutput(data, context);
+  contents = _json(data);
   const response: PutBandwidthRateLimitScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1367,10 +1329,9 @@ const de_PutBandwidthRateLimitScheduleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1388,12 +1349,12 @@ export const de_PutHypervisorPropertyMappingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutHypervisorPropertyMappingsOutput(data, context);
+  contents = _json(data);
   const response: PutHypervisorPropertyMappingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1429,10 +1390,9 @@ const de_PutHypervisorPropertyMappingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1450,12 +1410,12 @@ export const de_PutMaintenanceStartTimeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutMaintenanceStartTimeOutput(data, context);
+  contents = _json(data);
   const response: PutMaintenanceStartTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1488,10 +1448,9 @@ const de_PutMaintenanceStartTimeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1509,12 +1468,12 @@ export const de_StartVirtualMachinesMetadataSyncCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartVirtualMachinesMetadataSyncOutput(data, context);
+  contents = _json(data);
   const response: StartVirtualMachinesMetadataSyncCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1547,10 +1506,9 @@ const de_StartVirtualMachinesMetadataSyncCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1568,12 +1526,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceOutput(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1603,10 +1561,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1624,12 +1581,12 @@ export const de_TestHypervisorConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TestHypervisorConfigurationOutput(data, context);
+  contents = _json(data);
   const response: TestHypervisorConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1662,10 +1619,9 @@ const de_TestHypervisorConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1683,12 +1639,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceOutput(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1718,10 +1674,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1739,12 +1694,12 @@ export const de_UpdateGatewayInformationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateGatewayInformationOutput(data, context);
+  contents = _json(data);
   const response: UpdateGatewayInformationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1777,10 +1732,9 @@ const de_UpdateGatewayInformationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1798,12 +1752,12 @@ export const de_UpdateGatewaySoftwareNowCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateGatewaySoftwareNowOutput(data, context);
+  contents = _json(data);
   const response: UpdateGatewaySoftwareNowCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1833,10 +1787,9 @@ const de_UpdateGatewaySoftwareNowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1854,12 +1807,12 @@ export const de_UpdateHypervisorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateHypervisorOutput(data, context);
+  contents = _json(data);
   const response: UpdateHypervisorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1895,10 +1848,9 @@ const de_UpdateHypervisorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1912,7 +1864,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1925,7 +1877,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1941,7 +1893,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1957,7 +1909,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1970,7 +1922,7 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1983,7 +1935,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1991,529 +1943,119 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0AssociateGatewayToServerInput
- */
-const se_AssociateGatewayToServerInput = (input: AssociateGatewayToServerInput, context: __SerdeContext): any => {
-  return {
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-    ...(input.ServerArn != null && { ServerArn: input.ServerArn }),
-  };
-};
+// se_AssociateGatewayToServerInput omitted.
 
-/**
- * serializeAws_json1_0BandwidthRateLimitInterval
- */
-const se_BandwidthRateLimitInterval = (input: BandwidthRateLimitInterval, context: __SerdeContext): any => {
-  return {
-    ...(input.AverageUploadRateLimitInBitsPerSec != null && {
-      AverageUploadRateLimitInBitsPerSec: input.AverageUploadRateLimitInBitsPerSec,
-    }),
-    ...(input.DaysOfWeek != null && { DaysOfWeek: se_DaysOfWeek(input.DaysOfWeek, context) }),
-    ...(input.EndHourOfDay != null && { EndHourOfDay: input.EndHourOfDay }),
-    ...(input.EndMinuteOfHour != null && { EndMinuteOfHour: input.EndMinuteOfHour }),
-    ...(input.StartHourOfDay != null && { StartHourOfDay: input.StartHourOfDay }),
-    ...(input.StartMinuteOfHour != null && { StartMinuteOfHour: input.StartMinuteOfHour }),
-  };
-};
+// se_BandwidthRateLimitInterval omitted.
 
-/**
- * serializeAws_json1_0BandwidthRateLimitIntervals
- */
-const se_BandwidthRateLimitIntervals = (input: BandwidthRateLimitInterval[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_BandwidthRateLimitInterval(entry, context);
-    });
-};
+// se_BandwidthRateLimitIntervals omitted.
 
-/**
- * serializeAws_json1_0CreateGatewayInput
- */
-const se_CreateGatewayInput = (input: CreateGatewayInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ActivationKey != null && { ActivationKey: input.ActivationKey }),
-    ...(input.GatewayDisplayName != null && { GatewayDisplayName: input.GatewayDisplayName }),
-    ...(input.GatewayType != null && { GatewayType: input.GatewayType }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateGatewayInput omitted.
 
-/**
- * serializeAws_json1_0DaysOfWeek
- */
-const se_DaysOfWeek = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DaysOfWeek omitted.
 
-/**
- * serializeAws_json1_0DeleteGatewayInput
- */
-const se_DeleteGatewayInput = (input: DeleteGatewayInput, context: __SerdeContext): any => {
-  return {
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-  };
-};
+// se_DeleteGatewayInput omitted.
 
-/**
- * serializeAws_json1_0DeleteHypervisorInput
- */
-const se_DeleteHypervisorInput = (input: DeleteHypervisorInput, context: __SerdeContext): any => {
-  return {
-    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
-  };
-};
+// se_DeleteHypervisorInput omitted.
 
-/**
- * serializeAws_json1_0DisassociateGatewayFromServerInput
- */
-const se_DisassociateGatewayFromServerInput = (
-  input: DisassociateGatewayFromServerInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-  };
-};
+// se_DisassociateGatewayFromServerInput omitted.
 
-/**
- * serializeAws_json1_0GetBandwidthRateLimitScheduleInput
- */
-const se_GetBandwidthRateLimitScheduleInput = (
-  input: GetBandwidthRateLimitScheduleInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-  };
-};
+// se_GetBandwidthRateLimitScheduleInput omitted.
 
-/**
- * serializeAws_json1_0GetGatewayInput
- */
-const se_GetGatewayInput = (input: GetGatewayInput, context: __SerdeContext): any => {
-  return {
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-  };
-};
+// se_GetGatewayInput omitted.
 
-/**
- * serializeAws_json1_0GetHypervisorInput
- */
-const se_GetHypervisorInput = (input: GetHypervisorInput, context: __SerdeContext): any => {
-  return {
-    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
-  };
-};
+// se_GetHypervisorInput omitted.
 
-/**
- * serializeAws_json1_0GetHypervisorPropertyMappingsInput
- */
-const se_GetHypervisorPropertyMappingsInput = (
-  input: GetHypervisorPropertyMappingsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
-  };
-};
+// se_GetHypervisorPropertyMappingsInput omitted.
 
-/**
- * serializeAws_json1_0GetVirtualMachineInput
- */
-const se_GetVirtualMachineInput = (input: GetVirtualMachineInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_GetVirtualMachineInput omitted.
 
-/**
- * serializeAws_json1_0ImportHypervisorConfigurationInput
- */
-const se_ImportHypervisorConfigurationInput = (
-  input: ImportHypervisorConfigurationInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Host != null && { Host: input.Host }),
-    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
+// se_ImportHypervisorConfigurationInput omitted.
 
-/**
- * serializeAws_json1_0ListGatewaysInput
- */
-const se_ListGatewaysInput = (input: ListGatewaysInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListGatewaysInput omitted.
 
-/**
- * serializeAws_json1_0ListHypervisorsInput
- */
-const se_ListHypervisorsInput = (input: ListHypervisorsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListHypervisorsInput omitted.
 
-/**
- * serializeAws_json1_0ListTagsForResourceInput
- */
-const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceInput omitted.
 
-/**
- * serializeAws_json1_0ListVirtualMachinesInput
- */
-const se_ListVirtualMachinesInput = (input: ListVirtualMachinesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListVirtualMachinesInput omitted.
 
-/**
- * serializeAws_json1_0PutBandwidthRateLimitScheduleInput
- */
-const se_PutBandwidthRateLimitScheduleInput = (
-  input: PutBandwidthRateLimitScheduleInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BandwidthRateLimitIntervals != null && {
-      BandwidthRateLimitIntervals: se_BandwidthRateLimitIntervals(input.BandwidthRateLimitIntervals, context),
-    }),
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-  };
-};
+// se_PutBandwidthRateLimitScheduleInput omitted.
 
-/**
- * serializeAws_json1_0PutHypervisorPropertyMappingsInput
- */
-const se_PutHypervisorPropertyMappingsInput = (
-  input: PutHypervisorPropertyMappingsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.VmwareToAwsTagMappings != null && {
-      VmwareToAwsTagMappings: se_VmwareToAwsTagMappings(input.VmwareToAwsTagMappings, context),
-    }),
-  };
-};
+// se_PutHypervisorPropertyMappingsInput omitted.
 
-/**
- * serializeAws_json1_0PutMaintenanceStartTimeInput
- */
-const se_PutMaintenanceStartTimeInput = (input: PutMaintenanceStartTimeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DayOfMonth != null && { DayOfMonth: input.DayOfMonth }),
-    ...(input.DayOfWeek != null && { DayOfWeek: input.DayOfWeek }),
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-    ...(input.HourOfDay != null && { HourOfDay: input.HourOfDay }),
-    ...(input.MinuteOfHour != null && { MinuteOfHour: input.MinuteOfHour }),
-  };
-};
+// se_PutMaintenanceStartTimeInput omitted.
 
-/**
- * serializeAws_json1_0StartVirtualMachinesMetadataSyncInput
- */
-const se_StartVirtualMachinesMetadataSyncInput = (
-  input: StartVirtualMachinesMetadataSyncInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
-  };
-};
+// se_StartVirtualMachinesMetadataSyncInput omitted.
 
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_0TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-/**
- * serializeAws_json1_0TagResourceInput
- */
-const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_TagResourceInput omitted.
 
-/**
- * serializeAws_json1_0Tags
- */
-const se_Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_0TestHypervisorConfigurationInput
- */
-const se_TestHypervisorConfigurationInput = (input: TestHypervisorConfigurationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-    ...(input.Host != null && { Host: input.Host }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
+// se_TestHypervisorConfigurationInput omitted.
 
-/**
- * serializeAws_json1_0UntagResourceInput
- */
-const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceInput omitted.
 
-/**
- * serializeAws_json1_0UpdateGatewayInformationInput
- */
-const se_UpdateGatewayInformationInput = (input: UpdateGatewayInformationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-    ...(input.GatewayDisplayName != null && { GatewayDisplayName: input.GatewayDisplayName }),
-  };
-};
+// se_UpdateGatewayInformationInput omitted.
 
-/**
- * serializeAws_json1_0UpdateGatewaySoftwareNowInput
- */
-const se_UpdateGatewaySoftwareNowInput = (input: UpdateGatewaySoftwareNowInput, context: __SerdeContext): any => {
-  return {
-    ...(input.GatewayArn != null && { GatewayArn: input.GatewayArn }),
-  };
-};
+// se_UpdateGatewaySoftwareNowInput omitted.
 
-/**
- * serializeAws_json1_0UpdateHypervisorInput
- */
-const se_UpdateHypervisorInput = (input: UpdateHypervisorInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Host != null && { Host: input.Host }),
-    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
-    ...(input.LogGroupArn != null && { LogGroupArn: input.LogGroupArn }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
+// se_UpdateHypervisorInput omitted.
 
-/**
- * serializeAws_json1_0VmwareToAwsTagMapping
- */
-const se_VmwareToAwsTagMapping = (input: VmwareToAwsTagMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.AwsTagKey != null && { AwsTagKey: input.AwsTagKey }),
-    ...(input.AwsTagValue != null && { AwsTagValue: input.AwsTagValue }),
-    ...(input.VmwareCategory != null && { VmwareCategory: input.VmwareCategory }),
-    ...(input.VmwareTagName != null && { VmwareTagName: input.VmwareTagName }),
-  };
-};
+// se_VmwareToAwsTagMapping omitted.
 
-/**
- * serializeAws_json1_0VmwareToAwsTagMappings
- */
-const se_VmwareToAwsTagMappings = (input: VmwareToAwsTagMapping[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_VmwareToAwsTagMapping(entry, context);
-    });
-};
+// se_VmwareToAwsTagMappings omitted.
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_0AssociateGatewayToServerOutput
- */
-const de_AssociateGatewayToServerOutput = (output: any, context: __SerdeContext): AssociateGatewayToServerOutput => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-  } as any;
-};
+// de_AssociateGatewayToServerOutput omitted.
 
-/**
- * deserializeAws_json1_0BandwidthRateLimitInterval
- */
-const de_BandwidthRateLimitInterval = (output: any, context: __SerdeContext): BandwidthRateLimitInterval => {
-  return {
-    AverageUploadRateLimitInBitsPerSec: __expectLong(output.AverageUploadRateLimitInBitsPerSec),
-    DaysOfWeek: output.DaysOfWeek != null ? de_DaysOfWeek(output.DaysOfWeek, context) : undefined,
-    EndHourOfDay: __expectInt32(output.EndHourOfDay),
-    EndMinuteOfHour: __expectInt32(output.EndMinuteOfHour),
-    StartHourOfDay: __expectInt32(output.StartHourOfDay),
-    StartMinuteOfHour: __expectInt32(output.StartMinuteOfHour),
-  } as any;
-};
+// de_BandwidthRateLimitInterval omitted.
 
-/**
- * deserializeAws_json1_0BandwidthRateLimitIntervals
- */
-const de_BandwidthRateLimitIntervals = (output: any, context: __SerdeContext): BandwidthRateLimitInterval[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BandwidthRateLimitInterval(entry, context);
-    });
-  return retVal;
-};
+// de_BandwidthRateLimitIntervals omitted.
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_0CreateGatewayOutput
- */
-const de_CreateGatewayOutput = (output: any, context: __SerdeContext): CreateGatewayOutput => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-  } as any;
-};
+// de_CreateGatewayOutput omitted.
 
-/**
- * deserializeAws_json1_0DaysOfWeek
- */
-const de_DaysOfWeek = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_DaysOfWeek omitted.
 
-/**
- * deserializeAws_json1_0DeleteGatewayOutput
- */
-const de_DeleteGatewayOutput = (output: any, context: __SerdeContext): DeleteGatewayOutput => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-  } as any;
-};
+// de_DeleteGatewayOutput omitted.
 
-/**
- * deserializeAws_json1_0DeleteHypervisorOutput
- */
-const de_DeleteHypervisorOutput = (output: any, context: __SerdeContext): DeleteHypervisorOutput => {
-  return {
-    HypervisorArn: __expectString(output.HypervisorArn),
-  } as any;
-};
+// de_DeleteHypervisorOutput omitted.
 
-/**
- * deserializeAws_json1_0DisassociateGatewayFromServerOutput
- */
-const de_DisassociateGatewayFromServerOutput = (
-  output: any,
-  context: __SerdeContext
-): DisassociateGatewayFromServerOutput => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-  } as any;
-};
+// de_DisassociateGatewayFromServerOutput omitted.
 
 /**
  * deserializeAws_json1_0Gateway
  */
 const de_Gateway = (output: any, context: __SerdeContext): Gateway => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-    GatewayDisplayName: __expectString(output.GatewayDisplayName),
-    GatewayType: __expectString(output.GatewayType),
-    HypervisorId: __expectString(output.HypervisorId),
-    LastSeenTime:
-      output.LastSeenTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    GatewayArn: __expectString,
+    GatewayDisplayName: __expectString,
+    GatewayType: __expectString,
+    HypervisorId: __expectString,
+    LastSeenTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GatewayDetails
  */
 const de_GatewayDetails = (output: any, context: __SerdeContext): GatewayDetails => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-    GatewayDisplayName: __expectString(output.GatewayDisplayName),
-    GatewayType: __expectString(output.GatewayType),
-    HypervisorId: __expectString(output.HypervisorId),
-    LastSeenTime:
-      output.LastSeenTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenTime)))
-        : undefined,
-    MaintenanceStartTime:
-      output.MaintenanceStartTime != null ? de_MaintenanceStartTime(output.MaintenanceStartTime, context) : undefined,
-    NextUpdateAvailabilityTime:
-      output.NextUpdateAvailabilityTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextUpdateAvailabilityTime)))
-        : undefined,
-    VpcEndpoint: __expectString(output.VpcEndpoint),
-  } as any;
+  return take(output, {
+    GatewayArn: __expectString,
+    GatewayDisplayName: __expectString,
+    GatewayType: __expectString,
+    HypervisorId: __expectString,
+    LastSeenTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaintenanceStartTime: _json,
+    NextUpdateAvailabilityTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VpcEndpoint: __expectString,
+  }) as any;
 };
 
 /**
@@ -2523,385 +2065,150 @@ const de_Gateways = (output: any, context: __SerdeContext): Gateway[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Gateway(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0GetBandwidthRateLimitScheduleOutput
- */
-const de_GetBandwidthRateLimitScheduleOutput = (
-  output: any,
-  context: __SerdeContext
-): GetBandwidthRateLimitScheduleOutput => {
-  return {
-    BandwidthRateLimitIntervals:
-      output.BandwidthRateLimitIntervals != null
-        ? de_BandwidthRateLimitIntervals(output.BandwidthRateLimitIntervals, context)
-        : undefined,
-    GatewayArn: __expectString(output.GatewayArn),
-  } as any;
-};
+// de_GetBandwidthRateLimitScheduleOutput omitted.
 
 /**
  * deserializeAws_json1_0GetGatewayOutput
  */
 const de_GetGatewayOutput = (output: any, context: __SerdeContext): GetGatewayOutput => {
-  return {
-    Gateway: output.Gateway != null ? de_GatewayDetails(output.Gateway, context) : undefined,
-  } as any;
+  return take(output, {
+    Gateway: (_: any) => de_GatewayDetails(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0GetHypervisorOutput
  */
 const de_GetHypervisorOutput = (output: any, context: __SerdeContext): GetHypervisorOutput => {
-  return {
-    Hypervisor: output.Hypervisor != null ? de_HypervisorDetails(output.Hypervisor, context) : undefined,
-  } as any;
+  return take(output, {
+    Hypervisor: (_: any) => de_HypervisorDetails(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetHypervisorPropertyMappingsOutput
- */
-const de_GetHypervisorPropertyMappingsOutput = (
-  output: any,
-  context: __SerdeContext
-): GetHypervisorPropertyMappingsOutput => {
-  return {
-    HypervisorArn: __expectString(output.HypervisorArn),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    VmwareToAwsTagMappings:
-      output.VmwareToAwsTagMappings != null
-        ? de_VmwareToAwsTagMappings(output.VmwareToAwsTagMappings, context)
-        : undefined,
-  } as any;
-};
+// de_GetHypervisorPropertyMappingsOutput omitted.
 
 /**
  * deserializeAws_json1_0GetVirtualMachineOutput
  */
 const de_GetVirtualMachineOutput = (output: any, context: __SerdeContext): GetVirtualMachineOutput => {
-  return {
-    VirtualMachine:
-      output.VirtualMachine != null ? de_VirtualMachineDetails(output.VirtualMachine, context) : undefined,
-  } as any;
+  return take(output, {
+    VirtualMachine: (_: any) => de_VirtualMachineDetails(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0Hypervisor
- */
-const de_Hypervisor = (output: any, context: __SerdeContext): Hypervisor => {
-  return {
-    Host: __expectString(output.Host),
-    HypervisorArn: __expectString(output.HypervisorArn),
-    KmsKeyArn: __expectString(output.KmsKeyArn),
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_Hypervisor omitted.
 
 /**
  * deserializeAws_json1_0HypervisorDetails
  */
 const de_HypervisorDetails = (output: any, context: __SerdeContext): HypervisorDetails => {
-  return {
-    Host: __expectString(output.Host),
-    HypervisorArn: __expectString(output.HypervisorArn),
-    KmsKeyArn: __expectString(output.KmsKeyArn),
-    LastSuccessfulMetadataSyncTime:
-      output.LastSuccessfulMetadataSyncTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulMetadataSyncTime)))
-        : undefined,
-    LatestMetadataSyncStatus: __expectString(output.LatestMetadataSyncStatus),
-    LatestMetadataSyncStatusMessage: __expectString(output.LatestMetadataSyncStatusMessage),
-    LogGroupArn: __expectString(output.LogGroupArn),
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    Host: __expectString,
+    HypervisorArn: __expectString,
+    KmsKeyArn: __expectString,
+    LastSuccessfulMetadataSyncTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestMetadataSyncStatus: __expectString,
+    LatestMetadataSyncStatusMessage: __expectString,
+    LogGroupArn: __expectString,
+    Name: __expectString,
+    State: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0Hypervisors
- */
-const de_Hypervisors = (output: any, context: __SerdeContext): Hypervisor[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Hypervisor(entry, context);
-    });
-  return retVal;
-};
+// de_Hypervisors omitted.
 
-/**
- * deserializeAws_json1_0ImportHypervisorConfigurationOutput
- */
-const de_ImportHypervisorConfigurationOutput = (
-  output: any,
-  context: __SerdeContext
-): ImportHypervisorConfigurationOutput => {
-  return {
-    HypervisorArn: __expectString(output.HypervisorArn),
-  } as any;
-};
+// de_ImportHypervisorConfigurationOutput omitted.
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
 /**
  * deserializeAws_json1_0ListGatewaysOutput
  */
 const de_ListGatewaysOutput = (output: any, context: __SerdeContext): ListGatewaysOutput => {
-  return {
-    Gateways: output.Gateways != null ? de_Gateways(output.Gateways, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Gateways: (_: any) => de_Gateways(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListHypervisorsOutput
- */
-const de_ListHypervisorsOutput = (output: any, context: __SerdeContext): ListHypervisorsOutput => {
-  return {
-    Hypervisors: output.Hypervisors != null ? de_Hypervisors(output.Hypervisors, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListHypervisorsOutput omitted.
 
-/**
- * deserializeAws_json1_0ListTagsForResourceOutput
- */
-const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
-  return {
-    ResourceArn: __expectString(output.ResourceArn),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceOutput omitted.
 
 /**
  * deserializeAws_json1_0ListVirtualMachinesOutput
  */
 const de_ListVirtualMachinesOutput = (output: any, context: __SerdeContext): ListVirtualMachinesOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    VirtualMachines: output.VirtualMachines != null ? de_VirtualMachines(output.VirtualMachines, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    VirtualMachines: (_: any) => de_VirtualMachines(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0MaintenanceStartTime
- */
-const de_MaintenanceStartTime = (output: any, context: __SerdeContext): MaintenanceStartTime => {
-  return {
-    DayOfMonth: __expectInt32(output.DayOfMonth),
-    DayOfWeek: __expectInt32(output.DayOfWeek),
-    HourOfDay: __expectInt32(output.HourOfDay),
-    MinuteOfHour: __expectInt32(output.MinuteOfHour),
-  } as any;
-};
+// de_MaintenanceStartTime omitted.
 
-/**
- * deserializeAws_json1_0PutBandwidthRateLimitScheduleOutput
- */
-const de_PutBandwidthRateLimitScheduleOutput = (
-  output: any,
-  context: __SerdeContext
-): PutBandwidthRateLimitScheduleOutput => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-  } as any;
-};
+// de_PutBandwidthRateLimitScheduleOutput omitted.
 
-/**
- * deserializeAws_json1_0PutHypervisorPropertyMappingsOutput
- */
-const de_PutHypervisorPropertyMappingsOutput = (
-  output: any,
-  context: __SerdeContext
-): PutHypervisorPropertyMappingsOutput => {
-  return {
-    HypervisorArn: __expectString(output.HypervisorArn),
-  } as any;
-};
+// de_PutHypervisorPropertyMappingsOutput omitted.
 
-/**
- * deserializeAws_json1_0PutMaintenanceStartTimeOutput
- */
-const de_PutMaintenanceStartTimeOutput = (output: any, context: __SerdeContext): PutMaintenanceStartTimeOutput => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-  } as any;
-};
+// de_PutMaintenanceStartTimeOutput omitted.
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0StartVirtualMachinesMetadataSyncOutput
- */
-const de_StartVirtualMachinesMetadataSyncOutput = (
-  output: any,
-  context: __SerdeContext
-): StartVirtualMachinesMetadataSyncOutput => {
-  return {
-    HypervisorArn: __expectString(output.HypervisorArn),
-  } as any;
-};
+// de_StartVirtualMachinesMetadataSyncOutput omitted.
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagResourceOutput
- */
-const de_TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
-  return {
-    ResourceARN: __expectString(output.ResourceARN),
-  } as any;
-};
+// de_TagResourceOutput omitted.
 
-/**
- * deserializeAws_json1_0Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_0TestHypervisorConfigurationOutput
- */
-const de_TestHypervisorConfigurationOutput = (
-  output: any,
-  context: __SerdeContext
-): TestHypervisorConfigurationOutput => {
-  return {} as any;
-};
+// de_TestHypervisorConfigurationOutput omitted.
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceOutput
- */
-const de_UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
-  return {
-    ResourceARN: __expectString(output.ResourceARN),
-  } as any;
-};
+// de_UntagResourceOutput omitted.
 
-/**
- * deserializeAws_json1_0UpdateGatewayInformationOutput
- */
-const de_UpdateGatewayInformationOutput = (output: any, context: __SerdeContext): UpdateGatewayInformationOutput => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-  } as any;
-};
+// de_UpdateGatewayInformationOutput omitted.
 
-/**
- * deserializeAws_json1_0UpdateGatewaySoftwareNowOutput
- */
-const de_UpdateGatewaySoftwareNowOutput = (output: any, context: __SerdeContext): UpdateGatewaySoftwareNowOutput => {
-  return {
-    GatewayArn: __expectString(output.GatewayArn),
-  } as any;
-};
+// de_UpdateGatewaySoftwareNowOutput omitted.
 
-/**
- * deserializeAws_json1_0UpdateHypervisorOutput
- */
-const de_UpdateHypervisorOutput = (output: any, context: __SerdeContext): UpdateHypervisorOutput => {
-  return {
-    HypervisorArn: __expectString(output.HypervisorArn),
-  } as any;
-};
+// de_UpdateHypervisorOutput omitted.
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 /**
  * deserializeAws_json1_0VirtualMachine
  */
 const de_VirtualMachine = (output: any, context: __SerdeContext): VirtualMachine => {
-  return {
-    HostName: __expectString(output.HostName),
-    HypervisorId: __expectString(output.HypervisorId),
-    LastBackupDate:
-      output.LastBackupDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastBackupDate)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Path: __expectString(output.Path),
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
+  return take(output, {
+    HostName: __expectString,
+    HypervisorId: __expectString,
+    LastBackupDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Path: __expectString,
+    ResourceArn: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0VirtualMachineDetails
  */
 const de_VirtualMachineDetails = (output: any, context: __SerdeContext): VirtualMachineDetails => {
-  return {
-    HostName: __expectString(output.HostName),
-    HypervisorId: __expectString(output.HypervisorId),
-    LastBackupDate:
-      output.LastBackupDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastBackupDate)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Path: __expectString(output.Path),
-    ResourceArn: __expectString(output.ResourceArn),
-    VmwareTags: output.VmwareTags != null ? de_VmwareTags(output.VmwareTags, context) : undefined,
-  } as any;
+  return take(output, {
+    HostName: __expectString,
+    HypervisorId: __expectString,
+    LastBackupDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Path: __expectString,
+    ResourceArn: __expectString,
+    VmwareTags: _json,
+  }) as any;
 };
 
 /**
@@ -2911,66 +2218,18 @@ const de_VirtualMachines = (output: any, context: __SerdeContext): VirtualMachin
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VirtualMachine(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0VmwareTag
- */
-const de_VmwareTag = (output: any, context: __SerdeContext): VmwareTag => {
-  return {
-    VmwareCategory: __expectString(output.VmwareCategory),
-    VmwareTagDescription: __expectString(output.VmwareTagDescription),
-    VmwareTagName: __expectString(output.VmwareTagName),
-  } as any;
-};
+// de_VmwareTag omitted.
 
-/**
- * deserializeAws_json1_0VmwareTags
- */
-const de_VmwareTags = (output: any, context: __SerdeContext): VmwareTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VmwareTag(entry, context);
-    });
-  return retVal;
-};
+// de_VmwareTags omitted.
 
-/**
- * deserializeAws_json1_0VmwareToAwsTagMapping
- */
-const de_VmwareToAwsTagMapping = (output: any, context: __SerdeContext): VmwareToAwsTagMapping => {
-  return {
-    AwsTagKey: __expectString(output.AwsTagKey),
-    AwsTagValue: __expectString(output.AwsTagValue),
-    VmwareCategory: __expectString(output.VmwareCategory),
-    VmwareTagName: __expectString(output.VmwareTagName),
-  } as any;
-};
+// de_VmwareToAwsTagMapping omitted.
 
-/**
- * deserializeAws_json1_0VmwareToAwsTagMappings
- */
-const de_VmwareToAwsTagMappings = (output: any, context: __SerdeContext): VmwareToAwsTagMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VmwareToAwsTagMapping(entry, context);
-    });
-  return retVal;
-};
+// de_VmwareToAwsTagMappings omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2992,6 +2251,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

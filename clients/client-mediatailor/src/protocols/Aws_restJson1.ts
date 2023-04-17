@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -10,10 +10,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -129,18 +130,14 @@ import {
   CdnConfiguration,
   Channel,
   ClipRange,
-  DashConfiguration,
   DashConfigurationForPut,
   DashPlaylistSettings,
   DefaultSegmentDeliveryConfiguration,
-  HlsConfiguration,
   HlsPlaylistSettings,
   HttpConfiguration,
   HttpPackageConfiguration,
   LivePreRollConfiguration,
   LiveSource,
-  LogConfiguration,
-  LogConfigurationForChannel,
   LogType,
   ManifestProcessingRules,
   PlaybackConfiguration,
@@ -148,7 +145,6 @@ import {
   PrefetchRetrieval,
   PrefetchSchedule,
   RequestOutputItem,
-  ResponseOutputItem,
   ScheduleAdBreak,
   ScheduleConfiguration,
   ScheduleEntry,
@@ -178,10 +174,12 @@ export const se_ConfigureLogsForChannelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configureLogs/channel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelName != null && { ChannelName: input.ChannelName }),
-    ...(input.LogTypes != null && { LogTypes: se_LogTypes(input.LogTypes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelName: [],
+      LogTypes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -207,10 +205,12 @@ export const se_ConfigureLogsForPlaybackConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configureLogs/playbackConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.PercentEnabled != null && { PercentEnabled: input.PercentEnabled }),
-    ...(input.PlaybackConfigurationName != null && { PlaybackConfigurationName: input.PlaybackConfigurationName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PercentEnabled: [],
+      PlaybackConfigurationName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -236,13 +236,15 @@ export const se_CreateChannelCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FillerSlate != null && { FillerSlate: se_SlateSource(input.FillerSlate, context) }),
-    ...(input.Outputs != null && { Outputs: se_RequestOutputs(input.Outputs, context) }),
-    ...(input.PlaybackMode != null && { PlaybackMode: input.PlaybackMode }),
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-    ...(input.Tier != null && { Tier: input.Tier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FillerSlate: (_) => _json(_),
+      Outputs: (_) => _json(_),
+      PlaybackMode: [],
+      tags: [, (_) => _json(_), `Tags`],
+      Tier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -285,12 +287,12 @@ export const se_CreateLiveSourceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.HttpPackageConfigurations != null && {
-      HttpPackageConfigurations: se_HttpPackageConfigurations(input.HttpPackageConfigurations, context),
-    }),
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      HttpPackageConfigurations: (_) => _json(_),
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -326,11 +328,13 @@ export const se_CreatePrefetchScheduleCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Consumption != null && { Consumption: se_PrefetchConsumption(input.Consumption, context) }),
-    ...(input.Retrieval != null && { Retrieval: se_PrefetchRetrieval(input.Retrieval, context) }),
-    ...(input.StreamId != null && { StreamId: input.StreamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Consumption: (_) => se_PrefetchConsumption(_, context),
+      Retrieval: (_) => se_PrefetchRetrieval(_, context),
+      StreamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -359,15 +363,15 @@ export const se_CreateProgramCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdBreaks != null && { AdBreaks: se___listOfAdBreak(input.AdBreaks, context) }),
-    ...(input.LiveSourceName != null && { LiveSourceName: input.LiveSourceName }),
-    ...(input.ScheduleConfiguration != null && {
-      ScheduleConfiguration: se_ScheduleConfiguration(input.ScheduleConfiguration, context),
-    }),
-    ...(input.SourceLocationName != null && { SourceLocationName: input.SourceLocationName }),
-    ...(input.VodSourceName != null && { VodSourceName: input.VodSourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdBreaks: (_) => _json(_),
+      LiveSourceName: [],
+      ScheduleConfiguration: (_) => _json(_),
+      SourceLocationName: [],
+      VodSourceName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -401,27 +405,15 @@ export const se_CreateSourceLocationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessConfiguration != null && {
-      AccessConfiguration: se_AccessConfiguration(input.AccessConfiguration, context),
-    }),
-    ...(input.DefaultSegmentDeliveryConfiguration != null && {
-      DefaultSegmentDeliveryConfiguration: se_DefaultSegmentDeliveryConfiguration(
-        input.DefaultSegmentDeliveryConfiguration,
-        context
-      ),
-    }),
-    ...(input.HttpConfiguration != null && {
-      HttpConfiguration: se_HttpConfiguration(input.HttpConfiguration, context),
-    }),
-    ...(input.SegmentDeliveryConfigurations != null && {
-      SegmentDeliveryConfigurations: se___listOfSegmentDeliveryConfiguration(
-        input.SegmentDeliveryConfigurations,
-        context
-      ),
-    }),
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessConfiguration: (_) => _json(_),
+      DefaultSegmentDeliveryConfiguration: (_) => _json(_),
+      HttpConfiguration: (_) => _json(_),
+      SegmentDeliveryConfigurations: (_) => _json(_),
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -464,12 +456,12 @@ export const se_CreateVodSourceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.HttpPackageConfigurations != null && {
-      HttpPackageConfigurations: se_HttpPackageConfigurations(input.HttpPackageConfigurations, context),
-    }),
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      HttpPackageConfigurations: (_) => _json(_),
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1136,11 +1128,13 @@ export const se_ListPrefetchSchedulesCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StreamId != null && { StreamId: input.StreamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      StreamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1254,9 +1248,11 @@ export const se_PutChannelPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy != null && { Policy: input.Policy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1281,32 +1277,24 @@ export const se_PutPlaybackConfigurationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdDecisionServerUrl != null && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
-    ...(input.AvailSuppression != null && { AvailSuppression: se_AvailSuppression(input.AvailSuppression, context) }),
-    ...(input.Bumper != null && { Bumper: se_Bumper(input.Bumper, context) }),
-    ...(input.CdnConfiguration != null && { CdnConfiguration: se_CdnConfiguration(input.CdnConfiguration, context) }),
-    ...(input.ConfigurationAliases != null && {
-      ConfigurationAliases: se_ConfigurationAliasesRequest(input.ConfigurationAliases, context),
-    }),
-    ...(input.DashConfiguration != null && {
-      DashConfiguration: se_DashConfigurationForPut(input.DashConfiguration, context),
-    }),
-    ...(input.LivePreRollConfiguration != null && {
-      LivePreRollConfiguration: se_LivePreRollConfiguration(input.LivePreRollConfiguration, context),
-    }),
-    ...(input.ManifestProcessingRules != null && {
-      ManifestProcessingRules: se_ManifestProcessingRules(input.ManifestProcessingRules, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.PersonalizationThresholdSeconds != null && {
-      PersonalizationThresholdSeconds: input.PersonalizationThresholdSeconds,
-    }),
-    ...(input.SlateAdUrl != null && { SlateAdUrl: input.SlateAdUrl }),
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-    ...(input.TranscodeProfileName != null && { TranscodeProfileName: input.TranscodeProfileName }),
-    ...(input.VideoContentSourceUrl != null && { VideoContentSourceUrl: input.VideoContentSourceUrl }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdDecisionServerUrl: [],
+      AvailSuppression: (_) => _json(_),
+      Bumper: (_) => _json(_),
+      CdnConfiguration: (_) => _json(_),
+      ConfigurationAliases: (_) => _json(_),
+      DashConfiguration: (_) => _json(_),
+      LivePreRollConfiguration: (_) => _json(_),
+      ManifestProcessingRules: (_) => _json(_),
+      Name: [],
+      PersonalizationThresholdSeconds: [],
+      SlateAdUrl: [],
+      tags: [, (_) => _json(_), `Tags`],
+      TranscodeProfileName: [],
+      VideoContentSourceUrl: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1380,9 +1368,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1438,10 +1428,12 @@ export const se_UpdateChannelCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FillerSlate != null && { FillerSlate: se_SlateSource(input.FillerSlate, context) }),
-    ...(input.Outputs != null && { Outputs: se_RequestOutputs(input.Outputs, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FillerSlate: (_) => _json(_),
+      Outputs: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1484,11 +1476,11 @@ export const se_UpdateLiveSourceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.HttpPackageConfigurations != null && {
-      HttpPackageConfigurations: se_HttpPackageConfigurations(input.HttpPackageConfigurations, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      HttpPackageConfigurations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1517,12 +1509,12 @@ export const se_UpdateProgramCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdBreaks != null && { AdBreaks: se___listOfAdBreak(input.AdBreaks, context) }),
-    ...(input.ScheduleConfiguration != null && {
-      ScheduleConfiguration: se_UpdateProgramScheduleConfiguration(input.ScheduleConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdBreaks: (_) => _json(_),
+      ScheduleConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1556,26 +1548,14 @@ export const se_UpdateSourceLocationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessConfiguration != null && {
-      AccessConfiguration: se_AccessConfiguration(input.AccessConfiguration, context),
-    }),
-    ...(input.DefaultSegmentDeliveryConfiguration != null && {
-      DefaultSegmentDeliveryConfiguration: se_DefaultSegmentDeliveryConfiguration(
-        input.DefaultSegmentDeliveryConfiguration,
-        context
-      ),
-    }),
-    ...(input.HttpConfiguration != null && {
-      HttpConfiguration: se_HttpConfiguration(input.HttpConfiguration, context),
-    }),
-    ...(input.SegmentDeliveryConfigurations != null && {
-      SegmentDeliveryConfigurations: se___listOfSegmentDeliveryConfiguration(
-        input.SegmentDeliveryConfigurations,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessConfiguration: (_) => _json(_),
+      DefaultSegmentDeliveryConfiguration: (_) => _json(_),
+      HttpConfiguration: (_) => _json(_),
+      SegmentDeliveryConfigurations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1618,11 +1598,11 @@ export const se_UpdateVodSourceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.HttpPackageConfigurations != null && {
-      HttpPackageConfigurations: se_HttpPackageConfigurations(input.HttpPackageConfigurations, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      HttpPackageConfigurations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1648,12 +1628,11 @@ export const de_ConfigureLogsForChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelName != null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.LogTypes != null) {
-    contents.LogTypes = de_LogTypes(data.LogTypes, context);
-  }
+  const doc = take(data, {
+    ChannelName: __expectString,
+    LogTypes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1670,10 +1649,9 @@ const de_ConfigureLogsForChannelCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1692,12 +1670,11 @@ export const de_ConfigureLogsForPlaybackConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PercentEnabled != null) {
-    contents.PercentEnabled = __expectInt32(data.PercentEnabled);
-  }
-  if (data.PlaybackConfigurationName != null) {
-    contents.PlaybackConfigurationName = __expectString(data.PlaybackConfigurationName);
-  }
+  const doc = take(data, {
+    PercentEnabled: __expectInt32,
+    PlaybackConfigurationName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1714,10 +1691,9 @@ const de_ConfigureLogsForPlaybackConfigurationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1736,36 +1712,19 @@ export const de_CreateChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName != null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.ChannelState != null) {
-    contents.ChannelState = __expectString(data.ChannelState);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.FillerSlate != null) {
-    contents.FillerSlate = de_SlateSource(data.FillerSlate, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.Outputs != null) {
-    contents.Outputs = de_ResponseOutputs(data.Outputs, context);
-  }
-  if (data.PlaybackMode != null) {
-    contents.PlaybackMode = __expectString(data.PlaybackMode);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
-  if (data.Tier != null) {
-    contents.Tier = __expectString(data.Tier);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ChannelState: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FillerSlate: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Outputs: _json,
+    PlaybackMode: __expectString,
+    Tags: [, _json, `tags`],
+    Tier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1782,10 +1741,9 @@ const de_CreateChannelCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1804,27 +1762,16 @@ export const de_CreateLiveSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.HttpPackageConfigurations != null) {
-    contents.HttpPackageConfigurations = de_HttpPackageConfigurations(data.HttpPackageConfigurations, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.LiveSourceName != null) {
-    contents.LiveSourceName = __expectString(data.LiveSourceName);
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LiveSourceName: __expectString,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1841,10 +1788,9 @@ const de_CreateLiveSourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1863,24 +1809,15 @@ export const de_CreatePrefetchScheduleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Consumption != null) {
-    contents.Consumption = de_PrefetchConsumption(data.Consumption, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PlaybackConfigurationName != null) {
-    contents.PlaybackConfigurationName = __expectString(data.PlaybackConfigurationName);
-  }
-  if (data.Retrieval != null) {
-    contents.Retrieval = de_PrefetchRetrieval(data.Retrieval, context);
-  }
-  if (data.StreamId != null) {
-    contents.StreamId = __expectString(data.StreamId);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Consumption: (_) => de_PrefetchConsumption(_, context),
+    Name: __expectString,
+    PlaybackConfigurationName: __expectString,
+    Retrieval: (_) => de_PrefetchRetrieval(_, context),
+    StreamId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1897,10 +1834,9 @@ const de_CreatePrefetchScheduleCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1919,39 +1855,20 @@ export const de_CreateProgramCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdBreaks != null) {
-    contents.AdBreaks = de___listOfAdBreak(data.AdBreaks, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName != null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.ClipRange != null) {
-    contents.ClipRange = de_ClipRange(data.ClipRange, context);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DurationMillis != null) {
-    contents.DurationMillis = __expectLong(data.DurationMillis);
-  }
-  if (data.LiveSourceName != null) {
-    contents.LiveSourceName = __expectString(data.LiveSourceName);
-  }
-  if (data.ProgramName != null) {
-    contents.ProgramName = __expectString(data.ProgramName);
-  }
-  if (data.ScheduledStartTime != null) {
-    contents.ScheduledStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ScheduledStartTime)));
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.VodSourceName != null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
+  const doc = take(data, {
+    AdBreaks: _json,
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ClipRange: _json,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DurationMillis: __expectLong,
+    LiveSourceName: __expectString,
+    ProgramName: __expectString,
+    ScheduledStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1968,10 +1885,9 @@ const de_CreateProgramCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1990,39 +1906,18 @@ export const de_CreateSourceLocationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessConfiguration != null) {
-    contents.AccessConfiguration = de_AccessConfiguration(data.AccessConfiguration, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DefaultSegmentDeliveryConfiguration != null) {
-    contents.DefaultSegmentDeliveryConfiguration = de_DefaultSegmentDeliveryConfiguration(
-      data.DefaultSegmentDeliveryConfiguration,
-      context
-    );
-  }
-  if (data.HttpConfiguration != null) {
-    contents.HttpConfiguration = de_HttpConfiguration(data.HttpConfiguration, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SegmentDeliveryConfigurations != null) {
-    contents.SegmentDeliveryConfigurations = de___listOfSegmentDeliveryConfiguration(
-      data.SegmentDeliveryConfigurations,
-      context
-    );
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    AccessConfiguration: _json,
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultSegmentDeliveryConfiguration: _json,
+    HttpConfiguration: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentDeliveryConfigurations: _json,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2039,10 +1934,9 @@ const de_CreateSourceLocationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2061,27 +1955,16 @@ export const de_CreateVodSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.HttpPackageConfigurations != null) {
-    contents.HttpPackageConfigurations = de_HttpPackageConfigurations(data.HttpPackageConfigurations, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
-  if (data.VodSourceName != null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2098,10 +1981,9 @@ const de_CreateVodSourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2136,10 +2018,9 @@ const de_DeleteChannelCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2174,10 +2055,9 @@ const de_DeleteChannelPolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2212,10 +2092,9 @@ const de_DeleteLiveSourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2250,10 +2129,9 @@ const de_DeletePlaybackConfigurationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2288,10 +2166,9 @@ const de_DeletePrefetchScheduleCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2326,10 +2203,9 @@ const de_DeleteProgramCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2364,10 +2240,9 @@ const de_DeleteSourceLocationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2402,10 +2277,9 @@ const de_DeleteVodSourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2424,39 +2298,20 @@ export const de_DescribeChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName != null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.ChannelState != null) {
-    contents.ChannelState = __expectString(data.ChannelState);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.FillerSlate != null) {
-    contents.FillerSlate = de_SlateSource(data.FillerSlate, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.LogConfiguration != null) {
-    contents.LogConfiguration = de_LogConfigurationForChannel(data.LogConfiguration, context);
-  }
-  if (data.Outputs != null) {
-    contents.Outputs = de_ResponseOutputs(data.Outputs, context);
-  }
-  if (data.PlaybackMode != null) {
-    contents.PlaybackMode = __expectString(data.PlaybackMode);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
-  if (data.Tier != null) {
-    contents.Tier = __expectString(data.Tier);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ChannelState: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FillerSlate: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogConfiguration: _json,
+    Outputs: _json,
+    PlaybackMode: __expectString,
+    Tags: [, _json, `tags`],
+    Tier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2473,10 +2328,9 @@ const de_DescribeChannelCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2495,27 +2349,16 @@ export const de_DescribeLiveSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.HttpPackageConfigurations != null) {
-    contents.HttpPackageConfigurations = de_HttpPackageConfigurations(data.HttpPackageConfigurations, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.LiveSourceName != null) {
-    contents.LiveSourceName = __expectString(data.LiveSourceName);
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LiveSourceName: __expectString,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2532,10 +2375,9 @@ const de_DescribeLiveSourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2554,39 +2396,20 @@ export const de_DescribeProgramCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdBreaks != null) {
-    contents.AdBreaks = de___listOfAdBreak(data.AdBreaks, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName != null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.ClipRange != null) {
-    contents.ClipRange = de_ClipRange(data.ClipRange, context);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DurationMillis != null) {
-    contents.DurationMillis = __expectLong(data.DurationMillis);
-  }
-  if (data.LiveSourceName != null) {
-    contents.LiveSourceName = __expectString(data.LiveSourceName);
-  }
-  if (data.ProgramName != null) {
-    contents.ProgramName = __expectString(data.ProgramName);
-  }
-  if (data.ScheduledStartTime != null) {
-    contents.ScheduledStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ScheduledStartTime)));
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.VodSourceName != null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
+  const doc = take(data, {
+    AdBreaks: _json,
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ClipRange: _json,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DurationMillis: __expectLong,
+    LiveSourceName: __expectString,
+    ProgramName: __expectString,
+    ScheduledStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2603,10 +2426,9 @@ const de_DescribeProgramCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2625,39 +2447,18 @@ export const de_DescribeSourceLocationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessConfiguration != null) {
-    contents.AccessConfiguration = de_AccessConfiguration(data.AccessConfiguration, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DefaultSegmentDeliveryConfiguration != null) {
-    contents.DefaultSegmentDeliveryConfiguration = de_DefaultSegmentDeliveryConfiguration(
-      data.DefaultSegmentDeliveryConfiguration,
-      context
-    );
-  }
-  if (data.HttpConfiguration != null) {
-    contents.HttpConfiguration = de_HttpConfiguration(data.HttpConfiguration, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SegmentDeliveryConfigurations != null) {
-    contents.SegmentDeliveryConfigurations = de___listOfSegmentDeliveryConfiguration(
-      data.SegmentDeliveryConfigurations,
-      context
-    );
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    AccessConfiguration: _json,
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultSegmentDeliveryConfiguration: _json,
+    HttpConfiguration: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentDeliveryConfigurations: _json,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2674,10 +2475,9 @@ const de_DescribeSourceLocationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2696,27 +2496,16 @@ export const de_DescribeVodSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.HttpPackageConfigurations != null) {
-    contents.HttpPackageConfigurations = de_HttpPackageConfigurations(data.HttpPackageConfigurations, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
-  if (data.VodSourceName != null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2733,10 +2522,9 @@ const de_DescribeVodSourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2755,9 +2543,10 @@ export const de_GetChannelPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
+  const doc = take(data, {
+    Policy: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2774,10 +2563,9 @@ const de_GetChannelPolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2796,12 +2584,11 @@ export const de_GetChannelScheduleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de___listOfScheduleEntry(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de___listOfScheduleEntry(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2818,10 +2605,9 @@ const de_GetChannelScheduleCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2840,63 +2626,28 @@ export const de_GetPlaybackConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdDecisionServerUrl != null) {
-    contents.AdDecisionServerUrl = __expectString(data.AdDecisionServerUrl);
-  }
-  if (data.AvailSuppression != null) {
-    contents.AvailSuppression = de_AvailSuppression(data.AvailSuppression, context);
-  }
-  if (data.Bumper != null) {
-    contents.Bumper = de_Bumper(data.Bumper, context);
-  }
-  if (data.CdnConfiguration != null) {
-    contents.CdnConfiguration = de_CdnConfiguration(data.CdnConfiguration, context);
-  }
-  if (data.ConfigurationAliases != null) {
-    contents.ConfigurationAliases = de_ConfigurationAliasesResponse(data.ConfigurationAliases, context);
-  }
-  if (data.DashConfiguration != null) {
-    contents.DashConfiguration = de_DashConfiguration(data.DashConfiguration, context);
-  }
-  if (data.HlsConfiguration != null) {
-    contents.HlsConfiguration = de_HlsConfiguration(data.HlsConfiguration, context);
-  }
-  if (data.LivePreRollConfiguration != null) {
-    contents.LivePreRollConfiguration = de_LivePreRollConfiguration(data.LivePreRollConfiguration, context);
-  }
-  if (data.LogConfiguration != null) {
-    contents.LogConfiguration = de_LogConfiguration(data.LogConfiguration, context);
-  }
-  if (data.ManifestProcessingRules != null) {
-    contents.ManifestProcessingRules = de_ManifestProcessingRules(data.ManifestProcessingRules, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PersonalizationThresholdSeconds != null) {
-    contents.PersonalizationThresholdSeconds = __expectInt32(data.PersonalizationThresholdSeconds);
-  }
-  if (data.PlaybackConfigurationArn != null) {
-    contents.PlaybackConfigurationArn = __expectString(data.PlaybackConfigurationArn);
-  }
-  if (data.PlaybackEndpointPrefix != null) {
-    contents.PlaybackEndpointPrefix = __expectString(data.PlaybackEndpointPrefix);
-  }
-  if (data.SessionInitializationEndpointPrefix != null) {
-    contents.SessionInitializationEndpointPrefix = __expectString(data.SessionInitializationEndpointPrefix);
-  }
-  if (data.SlateAdUrl != null) {
-    contents.SlateAdUrl = __expectString(data.SlateAdUrl);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
-  if (data.TranscodeProfileName != null) {
-    contents.TranscodeProfileName = __expectString(data.TranscodeProfileName);
-  }
-  if (data.VideoContentSourceUrl != null) {
-    contents.VideoContentSourceUrl = __expectString(data.VideoContentSourceUrl);
-  }
+  const doc = take(data, {
+    AdDecisionServerUrl: __expectString,
+    AvailSuppression: _json,
+    Bumper: _json,
+    CdnConfiguration: _json,
+    ConfigurationAliases: _json,
+    DashConfiguration: _json,
+    HlsConfiguration: _json,
+    LivePreRollConfiguration: _json,
+    LogConfiguration: _json,
+    ManifestProcessingRules: _json,
+    Name: __expectString,
+    PersonalizationThresholdSeconds: __expectInt32,
+    PlaybackConfigurationArn: __expectString,
+    PlaybackEndpointPrefix: __expectString,
+    SessionInitializationEndpointPrefix: __expectString,
+    SlateAdUrl: __expectString,
+    Tags: [, _json, `tags`],
+    TranscodeProfileName: __expectString,
+    VideoContentSourceUrl: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2913,10 +2664,9 @@ const de_GetPlaybackConfigurationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2935,24 +2685,15 @@ export const de_GetPrefetchScheduleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Consumption != null) {
-    contents.Consumption = de_PrefetchConsumption(data.Consumption, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PlaybackConfigurationName != null) {
-    contents.PlaybackConfigurationName = __expectString(data.PlaybackConfigurationName);
-  }
-  if (data.Retrieval != null) {
-    contents.Retrieval = de_PrefetchRetrieval(data.Retrieval, context);
-  }
-  if (data.StreamId != null) {
-    contents.StreamId = __expectString(data.StreamId);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Consumption: (_) => de_PrefetchConsumption(_, context),
+    Name: __expectString,
+    PlaybackConfigurationName: __expectString,
+    Retrieval: (_) => de_PrefetchRetrieval(_, context),
+    StreamId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2969,10 +2710,9 @@ const de_GetPrefetchScheduleCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -2991,12 +2731,11 @@ export const de_ListAlertsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de___listOfAlert(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de___listOfAlert(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3013,10 +2752,9 @@ const de_ListAlertsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3035,12 +2773,11 @@ export const de_ListChannelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de___listOfChannel(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de___listOfChannel(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3057,10 +2794,9 @@ const de_ListChannelsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3079,12 +2815,11 @@ export const de_ListLiveSourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de___listOfLiveSource(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de___listOfLiveSource(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3101,10 +2836,9 @@ const de_ListLiveSourcesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3123,12 +2857,11 @@ export const de_ListPlaybackConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de___listOfPlaybackConfiguration(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de___listOfPlaybackConfiguration(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3145,10 +2878,9 @@ const de_ListPlaybackConfigurationsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3167,12 +2899,11 @@ export const de_ListPrefetchSchedulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de___listOfPrefetchSchedule(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de___listOfPrefetchSchedule(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3189,10 +2920,9 @@ const de_ListPrefetchSchedulesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3211,12 +2941,11 @@ export const de_ListSourceLocationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de___listOfSourceLocation(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de___listOfSourceLocation(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3233,10 +2962,9 @@ const de_ListSourceLocationsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3255,9 +2983,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3279,10 +3008,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3302,12 +3030,11 @@ export const de_ListVodSourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de___listOfVodSource(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de___listOfVodSource(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3324,10 +3051,9 @@ const de_ListVodSourcesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3362,10 +3088,9 @@ const de_PutChannelPolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3384,63 +3109,28 @@ export const de_PutPlaybackConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdDecisionServerUrl != null) {
-    contents.AdDecisionServerUrl = __expectString(data.AdDecisionServerUrl);
-  }
-  if (data.AvailSuppression != null) {
-    contents.AvailSuppression = de_AvailSuppression(data.AvailSuppression, context);
-  }
-  if (data.Bumper != null) {
-    contents.Bumper = de_Bumper(data.Bumper, context);
-  }
-  if (data.CdnConfiguration != null) {
-    contents.CdnConfiguration = de_CdnConfiguration(data.CdnConfiguration, context);
-  }
-  if (data.ConfigurationAliases != null) {
-    contents.ConfigurationAliases = de_ConfigurationAliasesResponse(data.ConfigurationAliases, context);
-  }
-  if (data.DashConfiguration != null) {
-    contents.DashConfiguration = de_DashConfiguration(data.DashConfiguration, context);
-  }
-  if (data.HlsConfiguration != null) {
-    contents.HlsConfiguration = de_HlsConfiguration(data.HlsConfiguration, context);
-  }
-  if (data.LivePreRollConfiguration != null) {
-    contents.LivePreRollConfiguration = de_LivePreRollConfiguration(data.LivePreRollConfiguration, context);
-  }
-  if (data.LogConfiguration != null) {
-    contents.LogConfiguration = de_LogConfiguration(data.LogConfiguration, context);
-  }
-  if (data.ManifestProcessingRules != null) {
-    contents.ManifestProcessingRules = de_ManifestProcessingRules(data.ManifestProcessingRules, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PersonalizationThresholdSeconds != null) {
-    contents.PersonalizationThresholdSeconds = __expectInt32(data.PersonalizationThresholdSeconds);
-  }
-  if (data.PlaybackConfigurationArn != null) {
-    contents.PlaybackConfigurationArn = __expectString(data.PlaybackConfigurationArn);
-  }
-  if (data.PlaybackEndpointPrefix != null) {
-    contents.PlaybackEndpointPrefix = __expectString(data.PlaybackEndpointPrefix);
-  }
-  if (data.SessionInitializationEndpointPrefix != null) {
-    contents.SessionInitializationEndpointPrefix = __expectString(data.SessionInitializationEndpointPrefix);
-  }
-  if (data.SlateAdUrl != null) {
-    contents.SlateAdUrl = __expectString(data.SlateAdUrl);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
-  if (data.TranscodeProfileName != null) {
-    contents.TranscodeProfileName = __expectString(data.TranscodeProfileName);
-  }
-  if (data.VideoContentSourceUrl != null) {
-    contents.VideoContentSourceUrl = __expectString(data.VideoContentSourceUrl);
-  }
+  const doc = take(data, {
+    AdDecisionServerUrl: __expectString,
+    AvailSuppression: _json,
+    Bumper: _json,
+    CdnConfiguration: _json,
+    ConfigurationAliases: _json,
+    DashConfiguration: _json,
+    HlsConfiguration: _json,
+    LivePreRollConfiguration: _json,
+    LogConfiguration: _json,
+    ManifestProcessingRules: _json,
+    Name: __expectString,
+    PersonalizationThresholdSeconds: __expectInt32,
+    PlaybackConfigurationArn: __expectString,
+    PlaybackEndpointPrefix: __expectString,
+    SessionInitializationEndpointPrefix: __expectString,
+    SlateAdUrl: __expectString,
+    Tags: [, _json, `tags`],
+    TranscodeProfileName: __expectString,
+    VideoContentSourceUrl: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3457,10 +3147,9 @@ const de_PutPlaybackConfigurationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3495,10 +3184,9 @@ const de_StartChannelCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3533,10 +3221,9 @@ const de_StopChannelCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3576,10 +3263,9 @@ const de_TagResourceCommandError = async (
       throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3620,10 +3306,9 @@ const de_UntagResourceCommandError = async (
       throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3643,36 +3328,19 @@ export const de_UpdateChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName != null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.ChannelState != null) {
-    contents.ChannelState = __expectString(data.ChannelState);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.FillerSlate != null) {
-    contents.FillerSlate = de_SlateSource(data.FillerSlate, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.Outputs != null) {
-    contents.Outputs = de_ResponseOutputs(data.Outputs, context);
-  }
-  if (data.PlaybackMode != null) {
-    contents.PlaybackMode = __expectString(data.PlaybackMode);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
-  if (data.Tier != null) {
-    contents.Tier = __expectString(data.Tier);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ChannelState: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FillerSlate: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Outputs: _json,
+    PlaybackMode: __expectString,
+    Tags: [, _json, `tags`],
+    Tier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3689,10 +3357,9 @@ const de_UpdateChannelCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3711,27 +3378,16 @@ export const de_UpdateLiveSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.HttpPackageConfigurations != null) {
-    contents.HttpPackageConfigurations = de_HttpPackageConfigurations(data.HttpPackageConfigurations, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.LiveSourceName != null) {
-    contents.LiveSourceName = __expectString(data.LiveSourceName);
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LiveSourceName: __expectString,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3748,10 +3404,9 @@ const de_UpdateLiveSourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3770,39 +3425,20 @@ export const de_UpdateProgramCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdBreaks != null) {
-    contents.AdBreaks = de___listOfAdBreak(data.AdBreaks, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName != null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.ClipRange != null) {
-    contents.ClipRange = de_ClipRange(data.ClipRange, context);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DurationMillis != null) {
-    contents.DurationMillis = __expectLong(data.DurationMillis);
-  }
-  if (data.LiveSourceName != null) {
-    contents.LiveSourceName = __expectString(data.LiveSourceName);
-  }
-  if (data.ProgramName != null) {
-    contents.ProgramName = __expectString(data.ProgramName);
-  }
-  if (data.ScheduledStartTime != null) {
-    contents.ScheduledStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ScheduledStartTime)));
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.VodSourceName != null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
+  const doc = take(data, {
+    AdBreaks: _json,
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ClipRange: _json,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DurationMillis: __expectLong,
+    LiveSourceName: __expectString,
+    ProgramName: __expectString,
+    ScheduledStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3819,10 +3455,9 @@ const de_UpdateProgramCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3841,39 +3476,18 @@ export const de_UpdateSourceLocationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessConfiguration != null) {
-    contents.AccessConfiguration = de_AccessConfiguration(data.AccessConfiguration, context);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DefaultSegmentDeliveryConfiguration != null) {
-    contents.DefaultSegmentDeliveryConfiguration = de_DefaultSegmentDeliveryConfiguration(
-      data.DefaultSegmentDeliveryConfiguration,
-      context
-    );
-  }
-  if (data.HttpConfiguration != null) {
-    contents.HttpConfiguration = de_HttpConfiguration(data.HttpConfiguration, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SegmentDeliveryConfigurations != null) {
-    contents.SegmentDeliveryConfigurations = de___listOfSegmentDeliveryConfiguration(
-      data.SegmentDeliveryConfigurations,
-      context
-    );
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
+  const doc = take(data, {
+    AccessConfiguration: _json,
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultSegmentDeliveryConfiguration: _json,
+    HttpConfiguration: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentDeliveryConfigurations: _json,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3890,10 +3504,9 @@ const de_UpdateSourceLocationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3912,27 +3525,16 @@ export const de_UpdateVodSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.HttpPackageConfigurations != null) {
-    contents.HttpPackageConfigurations = de_HttpPackageConfigurations(data.HttpPackageConfigurations, context);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SourceLocationName != null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de___mapOf__string(data.tags, context);
-  }
-  if (data.VodSourceName != null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3949,24 +3551,24 @@ const de_UpdateVodSourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3974,479 +3576,103 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__listOfAdBreak
- */
-const se___listOfAdBreak = (input: AdBreak[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AdBreak(entry, context);
-    });
-};
+// se___listOfAdBreak omitted.
 
-/**
- * serializeAws_restJson1__listOfAvailMatchingCriteria
- */
-const se___listOfAvailMatchingCriteria = (input: AvailMatchingCriteria[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AvailMatchingCriteria(entry, context);
-    });
-};
+// se___listOfAvailMatchingCriteria omitted.
 
-/**
- * serializeAws_restJson1__listOfSegmentDeliveryConfiguration
- */
-const se___listOfSegmentDeliveryConfiguration = (
-  input: SegmentDeliveryConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SegmentDeliveryConfiguration(entry, context);
-    });
-};
+// se___listOfSegmentDeliveryConfiguration omitted.
 
-/**
- * serializeAws_restJson1__mapOf__string
- */
-const se___mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se___mapOf__string omitted.
 
-/**
- * serializeAws_restJson1AccessConfiguration
- */
-const se_AccessConfiguration = (input: AccessConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessType != null && { AccessType: input.AccessType }),
-    ...(input.SecretsManagerAccessTokenConfiguration != null && {
-      SecretsManagerAccessTokenConfiguration: se_SecretsManagerAccessTokenConfiguration(
-        input.SecretsManagerAccessTokenConfiguration,
-        context
-      ),
-    }),
-  };
-};
+// se_AccessConfiguration omitted.
 
-/**
- * serializeAws_restJson1AdBreak
- */
-const se_AdBreak = (input: AdBreak, context: __SerdeContext): any => {
-  return {
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.OffsetMillis != null && { OffsetMillis: input.OffsetMillis }),
-    ...(input.Slate != null && { Slate: se_SlateSource(input.Slate, context) }),
-    ...(input.SpliceInsertMessage != null && {
-      SpliceInsertMessage: se_SpliceInsertMessage(input.SpliceInsertMessage, context),
-    }),
-    ...(input.TimeSignalMessage != null && {
-      TimeSignalMessage: se_TimeSignalMessage(input.TimeSignalMessage, context),
-    }),
-  };
-};
+// se_AdBreak omitted.
 
-/**
- * serializeAws_restJson1AdMarkerPassthrough
- */
-const se_AdMarkerPassthrough = (input: AdMarkerPassthrough, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
+// se_AdMarkerPassthrough omitted.
 
-/**
- * serializeAws_restJson1AvailMatchingCriteria
- */
-const se_AvailMatchingCriteria = (input: AvailMatchingCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.DynamicVariable != null && { DynamicVariable: input.DynamicVariable }),
-    ...(input.Operator != null && { Operator: input.Operator }),
-  };
-};
+// se_AvailMatchingCriteria omitted.
 
-/**
- * serializeAws_restJson1AvailSuppression
- */
-const se_AvailSuppression = (input: AvailSuppression, context: __SerdeContext): any => {
-  return {
-    ...(input.Mode != null && { Mode: input.Mode }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_AvailSuppression omitted.
 
-/**
- * serializeAws_restJson1Bumper
- */
-const se_Bumper = (input: Bumper, context: __SerdeContext): any => {
-  return {
-    ...(input.EndUrl != null && { EndUrl: input.EndUrl }),
-    ...(input.StartUrl != null && { StartUrl: input.StartUrl }),
-  };
-};
+// se_Bumper omitted.
 
-/**
- * serializeAws_restJson1CdnConfiguration
- */
-const se_CdnConfiguration = (input: CdnConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdSegmentUrlPrefix != null && { AdSegmentUrlPrefix: input.AdSegmentUrlPrefix }),
-    ...(input.ContentSegmentUrlPrefix != null && { ContentSegmentUrlPrefix: input.ContentSegmentUrlPrefix }),
-  };
-};
+// se_CdnConfiguration omitted.
 
-/**
- * serializeAws_restJson1ClipRange
- */
-const se_ClipRange = (input: ClipRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndOffsetMillis != null && { EndOffsetMillis: input.EndOffsetMillis }),
-  };
-};
+// se_ClipRange omitted.
 
-/**
- * serializeAws_restJson1ConfigurationAliasesRequest
- */
-const se_ConfigurationAliasesRequest = (
-  input: Record<string, Record<string, string>>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se___mapOf__string(value, context);
-    return acc;
-  }, {});
-};
+// se_ConfigurationAliasesRequest omitted.
 
-/**
- * serializeAws_restJson1DashConfigurationForPut
- */
-const se_DashConfigurationForPut = (input: DashConfigurationForPut, context: __SerdeContext): any => {
-  return {
-    ...(input.MpdLocation != null && { MpdLocation: input.MpdLocation }),
-    ...(input.OriginManifestType != null && { OriginManifestType: input.OriginManifestType }),
-  };
-};
+// se_DashConfigurationForPut omitted.
 
-/**
- * serializeAws_restJson1DashPlaylistSettings
- */
-const se_DashPlaylistSettings = (input: DashPlaylistSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ManifestWindowSeconds != null && { ManifestWindowSeconds: input.ManifestWindowSeconds }),
-    ...(input.MinBufferTimeSeconds != null && { MinBufferTimeSeconds: input.MinBufferTimeSeconds }),
-    ...(input.MinUpdatePeriodSeconds != null && { MinUpdatePeriodSeconds: input.MinUpdatePeriodSeconds }),
-    ...(input.SuggestedPresentationDelaySeconds != null && {
-      SuggestedPresentationDelaySeconds: input.SuggestedPresentationDelaySeconds,
-    }),
-  };
-};
+// se_DashPlaylistSettings omitted.
 
-/**
- * serializeAws_restJson1DefaultSegmentDeliveryConfiguration
- */
-const se_DefaultSegmentDeliveryConfiguration = (
-  input: DefaultSegmentDeliveryConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BaseUrl != null && { BaseUrl: input.BaseUrl }),
-  };
-};
+// se_DefaultSegmentDeliveryConfiguration omitted.
 
-/**
- * serializeAws_restJson1HlsPlaylistSettings
- */
-const se_HlsPlaylistSettings = (input: HlsPlaylistSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ManifestWindowSeconds != null && { ManifestWindowSeconds: input.ManifestWindowSeconds }),
-  };
-};
+// se_HlsPlaylistSettings omitted.
 
-/**
- * serializeAws_restJson1HttpConfiguration
- */
-const se_HttpConfiguration = (input: HttpConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.BaseUrl != null && { BaseUrl: input.BaseUrl }),
-  };
-};
+// se_HttpConfiguration omitted.
 
-/**
- * serializeAws_restJson1HttpPackageConfiguration
- */
-const se_HttpPackageConfiguration = (input: HttpPackageConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Path != null && { Path: input.Path }),
-    ...(input.SourceGroup != null && { SourceGroup: input.SourceGroup }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_HttpPackageConfiguration omitted.
 
-/**
- * serializeAws_restJson1HttpPackageConfigurations
- */
-const se_HttpPackageConfigurations = (input: HttpPackageConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_HttpPackageConfiguration(entry, context);
-    });
-};
+// se_HttpPackageConfigurations omitted.
 
-/**
- * serializeAws_restJson1LivePreRollConfiguration
- */
-const se_LivePreRollConfiguration = (input: LivePreRollConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdDecisionServerUrl != null && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
-    ...(input.MaxDurationSeconds != null && { MaxDurationSeconds: input.MaxDurationSeconds }),
-  };
-};
+// se_LivePreRollConfiguration omitted.
 
-/**
- * serializeAws_restJson1LogTypes
- */
-const se_LogTypes = (input: (LogType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LogTypes omitted.
 
-/**
- * serializeAws_restJson1ManifestProcessingRules
- */
-const se_ManifestProcessingRules = (input: ManifestProcessingRules, context: __SerdeContext): any => {
-  return {
-    ...(input.AdMarkerPassthrough != null && {
-      AdMarkerPassthrough: se_AdMarkerPassthrough(input.AdMarkerPassthrough, context),
-    }),
-  };
-};
+// se_ManifestProcessingRules omitted.
 
 /**
  * serializeAws_restJson1PrefetchConsumption
  */
 const se_PrefetchConsumption = (input: PrefetchConsumption, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailMatchingCriteria != null && {
-      AvailMatchingCriteria: se___listOfAvailMatchingCriteria(input.AvailMatchingCriteria, context),
-    }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    AvailMatchingCriteria: _json,
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_restJson1PrefetchRetrieval
  */
 const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext): any => {
-  return {
-    ...(input.DynamicVariables != null && { DynamicVariables: se___mapOf__string(input.DynamicVariables, context) }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    DynamicVariables: _json,
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_restJson1RequestOutputItem
- */
-const se_RequestOutputItem = (input: RequestOutputItem, context: __SerdeContext): any => {
-  return {
-    ...(input.DashPlaylistSettings != null && {
-      DashPlaylistSettings: se_DashPlaylistSettings(input.DashPlaylistSettings, context),
-    }),
-    ...(input.HlsPlaylistSettings != null && {
-      HlsPlaylistSettings: se_HlsPlaylistSettings(input.HlsPlaylistSettings, context),
-    }),
-    ...(input.ManifestName != null && { ManifestName: input.ManifestName }),
-    ...(input.SourceGroup != null && { SourceGroup: input.SourceGroup }),
-  };
-};
+// se_RequestOutputItem omitted.
 
-/**
- * serializeAws_restJson1RequestOutputs
- */
-const se_RequestOutputs = (input: RequestOutputItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RequestOutputItem(entry, context);
-    });
-};
+// se_RequestOutputs omitted.
 
-/**
- * serializeAws_restJson1ScheduleConfiguration
- */
-const se_ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ClipRange != null && { ClipRange: se_ClipRange(input.ClipRange, context) }),
-    ...(input.Transition != null && { Transition: se_Transition(input.Transition, context) }),
-  };
-};
+// se_ScheduleConfiguration omitted.
 
-/**
- * serializeAws_restJson1SecretsManagerAccessTokenConfiguration
- */
-const se_SecretsManagerAccessTokenConfiguration = (
-  input: SecretsManagerAccessTokenConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HeaderName != null && { HeaderName: input.HeaderName }),
-    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
-    ...(input.SecretStringKey != null && { SecretStringKey: input.SecretStringKey }),
-  };
-};
+// se_SecretsManagerAccessTokenConfiguration omitted.
 
-/**
- * serializeAws_restJson1SegmentationDescriptor
- */
-const se_SegmentationDescriptor = (input: SegmentationDescriptor, context: __SerdeContext): any => {
-  return {
-    ...(input.SegmentNum != null && { SegmentNum: input.SegmentNum }),
-    ...(input.SegmentationEventId != null && { SegmentationEventId: input.SegmentationEventId }),
-    ...(input.SegmentationTypeId != null && { SegmentationTypeId: input.SegmentationTypeId }),
-    ...(input.SegmentationUpid != null && { SegmentationUpid: input.SegmentationUpid }),
-    ...(input.SegmentationUpidType != null && { SegmentationUpidType: input.SegmentationUpidType }),
-    ...(input.SegmentsExpected != null && { SegmentsExpected: input.SegmentsExpected }),
-    ...(input.SubSegmentNum != null && { SubSegmentNum: input.SubSegmentNum }),
-    ...(input.SubSegmentsExpected != null && { SubSegmentsExpected: input.SubSegmentsExpected }),
-  };
-};
+// se_SegmentationDescriptor omitted.
 
-/**
- * serializeAws_restJson1SegmentationDescriptorList
- */
-const se_SegmentationDescriptorList = (input: SegmentationDescriptor[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SegmentationDescriptor(entry, context);
-    });
-};
+// se_SegmentationDescriptorList omitted.
 
-/**
- * serializeAws_restJson1SegmentDeliveryConfiguration
- */
-const se_SegmentDeliveryConfiguration = (input: SegmentDeliveryConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.BaseUrl != null && { BaseUrl: input.BaseUrl }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_SegmentDeliveryConfiguration omitted.
 
-/**
- * serializeAws_restJson1SlateSource
- */
-const se_SlateSource = (input: SlateSource, context: __SerdeContext): any => {
-  return {
-    ...(input.SourceLocationName != null && { SourceLocationName: input.SourceLocationName }),
-    ...(input.VodSourceName != null && { VodSourceName: input.VodSourceName }),
-  };
-};
+// se_SlateSource omitted.
 
-/**
- * serializeAws_restJson1SpliceInsertMessage
- */
-const se_SpliceInsertMessage = (input: SpliceInsertMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailNum != null && { AvailNum: input.AvailNum }),
-    ...(input.AvailsExpected != null && { AvailsExpected: input.AvailsExpected }),
-    ...(input.SpliceEventId != null && { SpliceEventId: input.SpliceEventId }),
-    ...(input.UniqueProgramId != null && { UniqueProgramId: input.UniqueProgramId }),
-  };
-};
+// se_SpliceInsertMessage omitted.
 
-/**
- * serializeAws_restJson1TimeSignalMessage
- */
-const se_TimeSignalMessage = (input: TimeSignalMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.SegmentationDescriptors != null && {
-      SegmentationDescriptors: se_SegmentationDescriptorList(input.SegmentationDescriptors, context),
-    }),
-  };
-};
+// se_TimeSignalMessage omitted.
 
-/**
- * serializeAws_restJson1Transition
- */
-const se_Transition = (input: Transition, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationMillis != null && { DurationMillis: input.DurationMillis }),
-    ...(input.RelativePosition != null && { RelativePosition: input.RelativePosition }),
-    ...(input.RelativeProgram != null && { RelativeProgram: input.RelativeProgram }),
-    ...(input.ScheduledStartTimeMillis != null && { ScheduledStartTimeMillis: input.ScheduledStartTimeMillis }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_Transition omitted.
 
-/**
- * serializeAws_restJson1UpdateProgramScheduleConfiguration
- */
-const se_UpdateProgramScheduleConfiguration = (
-  input: UpdateProgramScheduleConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ClipRange != null && { ClipRange: se_ClipRange(input.ClipRange, context) }),
-    ...(input.Transition != null && { Transition: se_UpdateProgramTransition(input.Transition, context) }),
-  };
-};
+// se_UpdateProgramScheduleConfiguration omitted.
 
-/**
- * serializeAws_restJson1UpdateProgramTransition
- */
-const se_UpdateProgramTransition = (input: UpdateProgramTransition, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationMillis != null && { DurationMillis: input.DurationMillis }),
-    ...(input.ScheduledStartTimeMillis != null && { ScheduledStartTimeMillis: input.ScheduledStartTimeMillis }),
-  };
-};
+// se_UpdateProgramTransition omitted.
 
-/**
- * deserializeAws_restJson1__listOf__string
- */
-const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__string omitted.
 
-/**
- * deserializeAws_restJson1__listOfAdBreak
- */
-const de___listOfAdBreak = (output: any, context: __SerdeContext): AdBreak[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AdBreak(entry, context);
-    });
-  return retVal;
-};
+// de___listOfAdBreak omitted.
 
 /**
  * deserializeAws_restJson1__listOfAlert
@@ -4455,28 +3681,12 @@ const de___listOfAlert = (output: any, context: __SerdeContext): Alert[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Alert(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__listOfAvailMatchingCriteria
- */
-const de___listOfAvailMatchingCriteria = (output: any, context: __SerdeContext): AvailMatchingCriteria[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AvailMatchingCriteria(entry, context);
-    });
-  return retVal;
-};
+// de___listOfAvailMatchingCriteria omitted.
 
 /**
  * deserializeAws_restJson1__listOfChannel
@@ -4485,9 +3695,6 @@ const de___listOfChannel = (output: any, context: __SerdeContext): Channel[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Channel(entry, context);
     });
   return retVal;
@@ -4500,9 +3707,6 @@ const de___listOfLiveSource = (output: any, context: __SerdeContext): LiveSource
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LiveSource(entry, context);
     });
   return retVal;
@@ -4515,9 +3719,6 @@ const de___listOfPlaybackConfiguration = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PlaybackConfiguration(entry, context);
     });
   return retVal;
@@ -4530,9 +3731,6 @@ const de___listOfPrefetchSchedule = (output: any, context: __SerdeContext): Pref
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PrefetchSchedule(entry, context);
     });
   return retVal;
@@ -4545,9 +3743,6 @@ const de___listOfScheduleAdBreak = (output: any, context: __SerdeContext): Sched
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ScheduleAdBreak(entry, context);
     });
   return retVal;
@@ -4560,31 +3755,12 @@ const de___listOfScheduleEntry = (output: any, context: __SerdeContext): Schedul
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ScheduleEntry(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__listOfSegmentDeliveryConfiguration
- */
-const de___listOfSegmentDeliveryConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SegmentDeliveryConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SegmentDeliveryConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de___listOfSegmentDeliveryConfiguration omitted.
 
 /**
  * deserializeAws_restJson1__listOfSourceLocation
@@ -4593,9 +3769,6 @@ const de___listOfSourceLocation = (output: any, context: __SerdeContext): Source
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SourceLocation(entry, context);
     });
   return retVal;
@@ -4608,631 +3781,245 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VodSource(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__mapOf__string
- */
-const de___mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de___mapOf__string omitted.
 
-/**
- * deserializeAws_restJson1AccessConfiguration
- */
-const de_AccessConfiguration = (output: any, context: __SerdeContext): AccessConfiguration => {
-  return {
-    AccessType: __expectString(output.AccessType),
-    SecretsManagerAccessTokenConfiguration:
-      output.SecretsManagerAccessTokenConfiguration != null
-        ? de_SecretsManagerAccessTokenConfiguration(output.SecretsManagerAccessTokenConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_AccessConfiguration omitted.
 
-/**
- * deserializeAws_restJson1AdBreak
- */
-const de_AdBreak = (output: any, context: __SerdeContext): AdBreak => {
-  return {
-    MessageType: __expectString(output.MessageType),
-    OffsetMillis: __expectLong(output.OffsetMillis),
-    Slate: output.Slate != null ? de_SlateSource(output.Slate, context) : undefined,
-    SpliceInsertMessage:
-      output.SpliceInsertMessage != null ? de_SpliceInsertMessage(output.SpliceInsertMessage, context) : undefined,
-    TimeSignalMessage:
-      output.TimeSignalMessage != null ? de_TimeSignalMessage(output.TimeSignalMessage, context) : undefined,
-  } as any;
-};
+// de_AdBreak omitted.
 
-/**
- * deserializeAws_restJson1AdMarkerPassthrough
- */
-const de_AdMarkerPassthrough = (output: any, context: __SerdeContext): AdMarkerPassthrough => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
-};
+// de_AdMarkerPassthrough omitted.
 
 /**
  * deserializeAws_restJson1Alert
  */
 const de_Alert = (output: any, context: __SerdeContext): Alert => {
-  return {
-    AlertCode: __expectString(output.AlertCode),
-    AlertMessage: __expectString(output.AlertMessage),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    RelatedResourceArns:
-      output.RelatedResourceArns != null ? de___listOf__string(output.RelatedResourceArns, context) : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
+  return take(output, {
+    AlertCode: __expectString,
+    AlertMessage: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RelatedResourceArns: _json,
+    ResourceArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AvailMatchingCriteria
- */
-const de_AvailMatchingCriteria = (output: any, context: __SerdeContext): AvailMatchingCriteria => {
-  return {
-    DynamicVariable: __expectString(output.DynamicVariable),
-    Operator: __expectString(output.Operator),
-  } as any;
-};
+// de_AvailMatchingCriteria omitted.
 
-/**
- * deserializeAws_restJson1AvailSuppression
- */
-const de_AvailSuppression = (output: any, context: __SerdeContext): AvailSuppression => {
-  return {
-    Mode: __expectString(output.Mode),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_AvailSuppression omitted.
 
-/**
- * deserializeAws_restJson1Bumper
- */
-const de_Bumper = (output: any, context: __SerdeContext): Bumper => {
-  return {
-    EndUrl: __expectString(output.EndUrl),
-    StartUrl: __expectString(output.StartUrl),
-  } as any;
-};
+// de_Bumper omitted.
 
-/**
- * deserializeAws_restJson1CdnConfiguration
- */
-const de_CdnConfiguration = (output: any, context: __SerdeContext): CdnConfiguration => {
-  return {
-    AdSegmentUrlPrefix: __expectString(output.AdSegmentUrlPrefix),
-    ContentSegmentUrlPrefix: __expectString(output.ContentSegmentUrlPrefix),
-  } as any;
-};
+// de_CdnConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Channel
  */
 const de_Channel = (output: any, context: __SerdeContext): Channel => {
-  return {
-    Arn: __expectString(output.Arn),
-    ChannelName: __expectString(output.ChannelName),
-    ChannelState: __expectString(output.ChannelState),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FillerSlate: output.FillerSlate != null ? de_SlateSource(output.FillerSlate, context) : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    LogConfiguration:
-      output.LogConfiguration != null ? de_LogConfigurationForChannel(output.LogConfiguration, context) : undefined,
-    Outputs: output.Outputs != null ? de_ResponseOutputs(output.Outputs, context) : undefined,
-    PlaybackMode: __expectString(output.PlaybackMode),
-    Tags: output.tags != null ? de___mapOf__string(output.tags, context) : undefined,
-    Tier: __expectString(output.Tier),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ChannelState: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FillerSlate: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogConfiguration: _json,
+    Outputs: _json,
+    PlaybackMode: __expectString,
+    Tags: [, _json, `tags`],
+    Tier: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ClipRange
- */
-const de_ClipRange = (output: any, context: __SerdeContext): ClipRange => {
-  return {
-    EndOffsetMillis: __expectLong(output.EndOffsetMillis),
-  } as any;
-};
+// de_ClipRange omitted.
 
-/**
- * deserializeAws_restJson1ConfigurationAliasesResponse
- */
-const de_ConfigurationAliasesResponse = (
-  output: any,
-  context: __SerdeContext
-): Record<string, Record<string, string>> => {
-  return Object.entries(output).reduce((acc: Record<string, Record<string, string>>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de___mapOf__string(value, context);
-    return acc;
-  }, {});
-};
+// de_ConfigurationAliasesResponse omitted.
 
-/**
- * deserializeAws_restJson1DashConfiguration
- */
-const de_DashConfiguration = (output: any, context: __SerdeContext): DashConfiguration => {
-  return {
-    ManifestEndpointPrefix: __expectString(output.ManifestEndpointPrefix),
-    MpdLocation: __expectString(output.MpdLocation),
-    OriginManifestType: __expectString(output.OriginManifestType),
-  } as any;
-};
+// de_DashConfiguration omitted.
 
-/**
- * deserializeAws_restJson1DashPlaylistSettings
- */
-const de_DashPlaylistSettings = (output: any, context: __SerdeContext): DashPlaylistSettings => {
-  return {
-    ManifestWindowSeconds: __expectInt32(output.ManifestWindowSeconds),
-    MinBufferTimeSeconds: __expectInt32(output.MinBufferTimeSeconds),
-    MinUpdatePeriodSeconds: __expectInt32(output.MinUpdatePeriodSeconds),
-    SuggestedPresentationDelaySeconds: __expectInt32(output.SuggestedPresentationDelaySeconds),
-  } as any;
-};
+// de_DashPlaylistSettings omitted.
 
-/**
- * deserializeAws_restJson1DefaultSegmentDeliveryConfiguration
- */
-const de_DefaultSegmentDeliveryConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DefaultSegmentDeliveryConfiguration => {
-  return {
-    BaseUrl: __expectString(output.BaseUrl),
-  } as any;
-};
+// de_DefaultSegmentDeliveryConfiguration omitted.
 
-/**
- * deserializeAws_restJson1HlsConfiguration
- */
-const de_HlsConfiguration = (output: any, context: __SerdeContext): HlsConfiguration => {
-  return {
-    ManifestEndpointPrefix: __expectString(output.ManifestEndpointPrefix),
-  } as any;
-};
+// de_HlsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1HlsPlaylistSettings
- */
-const de_HlsPlaylistSettings = (output: any, context: __SerdeContext): HlsPlaylistSettings => {
-  return {
-    ManifestWindowSeconds: __expectInt32(output.ManifestWindowSeconds),
-  } as any;
-};
+// de_HlsPlaylistSettings omitted.
 
-/**
- * deserializeAws_restJson1HttpConfiguration
- */
-const de_HttpConfiguration = (output: any, context: __SerdeContext): HttpConfiguration => {
-  return {
-    BaseUrl: __expectString(output.BaseUrl),
-  } as any;
-};
+// de_HttpConfiguration omitted.
 
-/**
- * deserializeAws_restJson1HttpPackageConfiguration
- */
-const de_HttpPackageConfiguration = (output: any, context: __SerdeContext): HttpPackageConfiguration => {
-  return {
-    Path: __expectString(output.Path),
-    SourceGroup: __expectString(output.SourceGroup),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_HttpPackageConfiguration omitted.
 
-/**
- * deserializeAws_restJson1HttpPackageConfigurations
- */
-const de_HttpPackageConfigurations = (output: any, context: __SerdeContext): HttpPackageConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HttpPackageConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_HttpPackageConfigurations omitted.
 
-/**
- * deserializeAws_restJson1LivePreRollConfiguration
- */
-const de_LivePreRollConfiguration = (output: any, context: __SerdeContext): LivePreRollConfiguration => {
-  return {
-    AdDecisionServerUrl: __expectString(output.AdDecisionServerUrl),
-    MaxDurationSeconds: __expectInt32(output.MaxDurationSeconds),
-  } as any;
-};
+// de_LivePreRollConfiguration omitted.
 
 /**
  * deserializeAws_restJson1LiveSource
  */
 const de_LiveSource = (output: any, context: __SerdeContext): LiveSource => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    HttpPackageConfigurations:
-      output.HttpPackageConfigurations != null
-        ? de_HttpPackageConfigurations(output.HttpPackageConfigurations, context)
-        : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    LiveSourceName: __expectString(output.LiveSourceName),
-    SourceLocationName: __expectString(output.SourceLocationName),
-    Tags: output.tags != null ? de___mapOf__string(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LiveSourceName: __expectString,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LogConfiguration
- */
-const de_LogConfiguration = (output: any, context: __SerdeContext): LogConfiguration => {
-  return {
-    PercentEnabled: __expectInt32(output.PercentEnabled),
-  } as any;
-};
+// de_LogConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LogConfigurationForChannel
- */
-const de_LogConfigurationForChannel = (output: any, context: __SerdeContext): LogConfigurationForChannel => {
-  return {
-    LogTypes: output.LogTypes != null ? de_LogTypes(output.LogTypes, context) : undefined,
-  } as any;
-};
+// de_LogConfigurationForChannel omitted.
 
-/**
- * deserializeAws_restJson1LogTypes
- */
-const de_LogTypes = (output: any, context: __SerdeContext): (LogType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LogTypes omitted.
 
-/**
- * deserializeAws_restJson1ManifestProcessingRules
- */
-const de_ManifestProcessingRules = (output: any, context: __SerdeContext): ManifestProcessingRules => {
-  return {
-    AdMarkerPassthrough:
-      output.AdMarkerPassthrough != null ? de_AdMarkerPassthrough(output.AdMarkerPassthrough, context) : undefined,
-  } as any;
-};
+// de_ManifestProcessingRules omitted.
 
 /**
  * deserializeAws_restJson1PlaybackConfiguration
  */
 const de_PlaybackConfiguration = (output: any, context: __SerdeContext): PlaybackConfiguration => {
-  return {
-    AdDecisionServerUrl: __expectString(output.AdDecisionServerUrl),
-    AvailSuppression:
-      output.AvailSuppression != null ? de_AvailSuppression(output.AvailSuppression, context) : undefined,
-    Bumper: output.Bumper != null ? de_Bumper(output.Bumper, context) : undefined,
-    CdnConfiguration:
-      output.CdnConfiguration != null ? de_CdnConfiguration(output.CdnConfiguration, context) : undefined,
-    ConfigurationAliases:
-      output.ConfigurationAliases != null
-        ? de_ConfigurationAliasesResponse(output.ConfigurationAliases, context)
-        : undefined,
-    DashConfiguration:
-      output.DashConfiguration != null ? de_DashConfiguration(output.DashConfiguration, context) : undefined,
-    HlsConfiguration:
-      output.HlsConfiguration != null ? de_HlsConfiguration(output.HlsConfiguration, context) : undefined,
-    LivePreRollConfiguration:
-      output.LivePreRollConfiguration != null
-        ? de_LivePreRollConfiguration(output.LivePreRollConfiguration, context)
-        : undefined,
-    LogConfiguration:
-      output.LogConfiguration != null ? de_LogConfiguration(output.LogConfiguration, context) : undefined,
-    ManifestProcessingRules:
-      output.ManifestProcessingRules != null
-        ? de_ManifestProcessingRules(output.ManifestProcessingRules, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    PersonalizationThresholdSeconds: __expectInt32(output.PersonalizationThresholdSeconds),
-    PlaybackConfigurationArn: __expectString(output.PlaybackConfigurationArn),
-    PlaybackEndpointPrefix: __expectString(output.PlaybackEndpointPrefix),
-    SessionInitializationEndpointPrefix: __expectString(output.SessionInitializationEndpointPrefix),
-    SlateAdUrl: __expectString(output.SlateAdUrl),
-    Tags: output.tags != null ? de___mapOf__string(output.tags, context) : undefined,
-    TranscodeProfileName: __expectString(output.TranscodeProfileName),
-    VideoContentSourceUrl: __expectString(output.VideoContentSourceUrl),
-  } as any;
+  return take(output, {
+    AdDecisionServerUrl: __expectString,
+    AvailSuppression: _json,
+    Bumper: _json,
+    CdnConfiguration: _json,
+    ConfigurationAliases: _json,
+    DashConfiguration: _json,
+    HlsConfiguration: _json,
+    LivePreRollConfiguration: _json,
+    LogConfiguration: _json,
+    ManifestProcessingRules: _json,
+    Name: __expectString,
+    PersonalizationThresholdSeconds: __expectInt32,
+    PlaybackConfigurationArn: __expectString,
+    PlaybackEndpointPrefix: __expectString,
+    SessionInitializationEndpointPrefix: __expectString,
+    SlateAdUrl: __expectString,
+    Tags: [, _json, `tags`],
+    TranscodeProfileName: __expectString,
+    VideoContentSourceUrl: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PrefetchConsumption
  */
 const de_PrefetchConsumption = (output: any, context: __SerdeContext): PrefetchConsumption => {
-  return {
-    AvailMatchingCriteria:
-      output.AvailMatchingCriteria != null
-        ? de___listOfAvailMatchingCriteria(output.AvailMatchingCriteria, context)
-        : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    AvailMatchingCriteria: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PrefetchRetrieval
  */
 const de_PrefetchRetrieval = (output: any, context: __SerdeContext): PrefetchRetrieval => {
-  return {
-    DynamicVariables:
-      output.DynamicVariables != null ? de___mapOf__string(output.DynamicVariables, context) : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    DynamicVariables: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PrefetchSchedule
  */
 const de_PrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSchedule => {
-  return {
-    Arn: __expectString(output.Arn),
-    Consumption: output.Consumption != null ? de_PrefetchConsumption(output.Consumption, context) : undefined,
-    Name: __expectString(output.Name),
-    PlaybackConfigurationName: __expectString(output.PlaybackConfigurationName),
-    Retrieval: output.Retrieval != null ? de_PrefetchRetrieval(output.Retrieval, context) : undefined,
-    StreamId: __expectString(output.StreamId),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    Consumption: (_: any) => de_PrefetchConsumption(_, context),
+    Name: __expectString,
+    PlaybackConfigurationName: __expectString,
+    Retrieval: (_: any) => de_PrefetchRetrieval(_, context),
+    StreamId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ResponseOutputItem
- */
-const de_ResponseOutputItem = (output: any, context: __SerdeContext): ResponseOutputItem => {
-  return {
-    DashPlaylistSettings:
-      output.DashPlaylistSettings != null ? de_DashPlaylistSettings(output.DashPlaylistSettings, context) : undefined,
-    HlsPlaylistSettings:
-      output.HlsPlaylistSettings != null ? de_HlsPlaylistSettings(output.HlsPlaylistSettings, context) : undefined,
-    ManifestName: __expectString(output.ManifestName),
-    PlaybackUrl: __expectString(output.PlaybackUrl),
-    SourceGroup: __expectString(output.SourceGroup),
-  } as any;
-};
+// de_ResponseOutputItem omitted.
 
-/**
- * deserializeAws_restJson1ResponseOutputs
- */
-const de_ResponseOutputs = (output: any, context: __SerdeContext): ResponseOutputItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResponseOutputItem(entry, context);
-    });
-  return retVal;
-};
+// de_ResponseOutputs omitted.
 
 /**
  * deserializeAws_restJson1ScheduleAdBreak
  */
 const de_ScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak => {
-  return {
-    ApproximateDurationSeconds: __expectLong(output.ApproximateDurationSeconds),
-    ApproximateStartTime:
-      output.ApproximateStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApproximateStartTime)))
-        : undefined,
-    SourceLocationName: __expectString(output.SourceLocationName),
-    VodSourceName: __expectString(output.VodSourceName),
-  } as any;
+  return take(output, {
+    ApproximateDurationSeconds: __expectLong,
+    ApproximateStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ScheduleEntry
  */
 const de_ScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry => {
-  return {
-    ApproximateDurationSeconds: __expectLong(output.ApproximateDurationSeconds),
-    ApproximateStartTime:
-      output.ApproximateStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApproximateStartTime)))
-        : undefined,
-    Arn: __expectString(output.Arn),
-    ChannelName: __expectString(output.ChannelName),
-    LiveSourceName: __expectString(output.LiveSourceName),
-    ProgramName: __expectString(output.ProgramName),
-    ScheduleAdBreaks:
-      output.ScheduleAdBreaks != null ? de___listOfScheduleAdBreak(output.ScheduleAdBreaks, context) : undefined,
-    ScheduleEntryType: __expectString(output.ScheduleEntryType),
-    SourceLocationName: __expectString(output.SourceLocationName),
-    VodSourceName: __expectString(output.VodSourceName),
-  } as any;
+  return take(output, {
+    ApproximateDurationSeconds: __expectLong,
+    ApproximateStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Arn: __expectString,
+    ChannelName: __expectString,
+    LiveSourceName: __expectString,
+    ProgramName: __expectString,
+    ScheduleAdBreaks: (_: any) => de___listOfScheduleAdBreak(_, context),
+    ScheduleEntryType: __expectString,
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SecretsManagerAccessTokenConfiguration
- */
-const de_SecretsManagerAccessTokenConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SecretsManagerAccessTokenConfiguration => {
-  return {
-    HeaderName: __expectString(output.HeaderName),
-    SecretArn: __expectString(output.SecretArn),
-    SecretStringKey: __expectString(output.SecretStringKey),
-  } as any;
-};
+// de_SecretsManagerAccessTokenConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SegmentationDescriptor
- */
-const de_SegmentationDescriptor = (output: any, context: __SerdeContext): SegmentationDescriptor => {
-  return {
-    SegmentNum: __expectInt32(output.SegmentNum),
-    SegmentationEventId: __expectInt32(output.SegmentationEventId),
-    SegmentationTypeId: __expectInt32(output.SegmentationTypeId),
-    SegmentationUpid: __expectString(output.SegmentationUpid),
-    SegmentationUpidType: __expectInt32(output.SegmentationUpidType),
-    SegmentsExpected: __expectInt32(output.SegmentsExpected),
-    SubSegmentNum: __expectInt32(output.SubSegmentNum),
-    SubSegmentsExpected: __expectInt32(output.SubSegmentsExpected),
-  } as any;
-};
+// de_SegmentationDescriptor omitted.
 
-/**
- * deserializeAws_restJson1SegmentationDescriptorList
- */
-const de_SegmentationDescriptorList = (output: any, context: __SerdeContext): SegmentationDescriptor[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SegmentationDescriptor(entry, context);
-    });
-  return retVal;
-};
+// de_SegmentationDescriptorList omitted.
 
-/**
- * deserializeAws_restJson1SegmentDeliveryConfiguration
- */
-const de_SegmentDeliveryConfiguration = (output: any, context: __SerdeContext): SegmentDeliveryConfiguration => {
-  return {
-    BaseUrl: __expectString(output.BaseUrl),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_SegmentDeliveryConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SlateSource
- */
-const de_SlateSource = (output: any, context: __SerdeContext): SlateSource => {
-  return {
-    SourceLocationName: __expectString(output.SourceLocationName),
-    VodSourceName: __expectString(output.VodSourceName),
-  } as any;
-};
+// de_SlateSource omitted.
 
 /**
  * deserializeAws_restJson1SourceLocation
  */
 const de_SourceLocation = (output: any, context: __SerdeContext): SourceLocation => {
-  return {
-    AccessConfiguration:
-      output.AccessConfiguration != null ? de_AccessConfiguration(output.AccessConfiguration, context) : undefined,
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DefaultSegmentDeliveryConfiguration:
-      output.DefaultSegmentDeliveryConfiguration != null
-        ? de_DefaultSegmentDeliveryConfiguration(output.DefaultSegmentDeliveryConfiguration, context)
-        : undefined,
-    HttpConfiguration:
-      output.HttpConfiguration != null ? de_HttpConfiguration(output.HttpConfiguration, context) : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    SegmentDeliveryConfigurations:
-      output.SegmentDeliveryConfigurations != null
-        ? de___listOfSegmentDeliveryConfiguration(output.SegmentDeliveryConfigurations, context)
-        : undefined,
-    SourceLocationName: __expectString(output.SourceLocationName),
-    Tags: output.tags != null ? de___mapOf__string(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    AccessConfiguration: _json,
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultSegmentDeliveryConfiguration: _json,
+    HttpConfiguration: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentDeliveryConfigurations: _json,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SpliceInsertMessage
- */
-const de_SpliceInsertMessage = (output: any, context: __SerdeContext): SpliceInsertMessage => {
-  return {
-    AvailNum: __expectInt32(output.AvailNum),
-    AvailsExpected: __expectInt32(output.AvailsExpected),
-    SpliceEventId: __expectInt32(output.SpliceEventId),
-    UniqueProgramId: __expectInt32(output.UniqueProgramId),
-  } as any;
-};
+// de_SpliceInsertMessage omitted.
 
-/**
- * deserializeAws_restJson1TimeSignalMessage
- */
-const de_TimeSignalMessage = (output: any, context: __SerdeContext): TimeSignalMessage => {
-  return {
-    SegmentationDescriptors:
-      output.SegmentationDescriptors != null
-        ? de_SegmentationDescriptorList(output.SegmentationDescriptors, context)
-        : undefined,
-  } as any;
-};
+// de_TimeSignalMessage omitted.
 
 /**
  * deserializeAws_restJson1VodSource
  */
 const de_VodSource = (output: any, context: __SerdeContext): VodSource => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    HttpPackageConfigurations:
-      output.HttpPackageConfigurations != null
-        ? de_HttpPackageConfigurations(output.HttpPackageConfigurations, context)
-        : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    SourceLocationName: __expectString(output.SourceLocationName),
-    Tags: output.tags != null ? de___mapOf__string(output.tags, context) : undefined,
-    VodSourceName: __expectString(output.VodSourceName),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+    VodSourceName: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

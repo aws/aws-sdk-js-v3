@@ -1,17 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -31,11 +32,9 @@ import {
   ActiveContextTimeToLive,
   BadGatewayException,
   BadRequestException,
-  Button,
   ConflictException,
   DependencyFailedException,
   DialogAction,
-  GenericAttachment,
   IntentConfidence,
   IntentSummary,
   InternalFailureException,
@@ -45,8 +44,6 @@ import {
   NotFoundException,
   PredictedIntent,
   RequestTimeoutException,
-  ResponseCard,
-  SentimentResponse,
   UnsupportedMediaTypeException,
 } from "../models/models_0";
 
@@ -172,12 +169,14 @@ export const se_PostTextCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.activeContexts != null && { activeContexts: se_ActiveContextsList(input.activeContexts, context) }),
-    ...(input.inputText != null && { inputText: input.inputText }),
-    ...(input.requestAttributes != null && { requestAttributes: se_StringMap(input.requestAttributes, context) }),
-    ...(input.sessionAttributes != null && { sessionAttributes: se_StringMap(input.sessionAttributes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      activeContexts: (_) => _json(_),
+      inputText: [],
+      requestAttributes: (_) => _json(_),
+      sessionAttributes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -208,14 +207,14 @@ export const se_PutSessionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.activeContexts != null && { activeContexts: se_ActiveContextsList(input.activeContexts, context) }),
-    ...(input.dialogAction != null && { dialogAction: se_DialogAction(input.dialogAction, context) }),
-    ...(input.recentIntentSummaryView != null && {
-      recentIntentSummaryView: se_IntentSummaryList(input.recentIntentSummaryView, context),
-    }),
-    ...(input.sessionAttributes != null && { sessionAttributes: se_StringMap(input.sessionAttributes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      activeContexts: (_) => _json(_),
+      dialogAction: (_) => _json(_),
+      recentIntentSummaryView: (_) => _json(_),
+      sessionAttributes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -241,18 +240,13 @@ export const de_DeleteSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAlias != null) {
-    contents.botAlias = __expectString(data.botAlias);
-  }
-  if (data.botName != null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.sessionId != null) {
-    contents.sessionId = __expectString(data.sessionId);
-  }
-  if (data.userId != null) {
-    contents.userId = __expectString(data.userId);
-  }
+  const doc = take(data, {
+    botAlias: __expectString,
+    botName: __expectString,
+    sessionId: __expectString,
+    userId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -286,10 +280,9 @@ const de_DeleteSessionCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -309,21 +302,14 @@ export const de_GetSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.activeContexts != null) {
-    contents.activeContexts = de_ActiveContextsList(data.activeContexts, context);
-  }
-  if (data.dialogAction != null) {
-    contents.dialogAction = de_DialogAction(data.dialogAction, context);
-  }
-  if (data.recentIntentSummaryView != null) {
-    contents.recentIntentSummaryView = de_IntentSummaryList(data.recentIntentSummaryView, context);
-  }
-  if (data.sessionAttributes != null) {
-    contents.sessionAttributes = de_StringMap(data.sessionAttributes, context);
-  }
-  if (data.sessionId != null) {
-    contents.sessionId = __expectString(data.sessionId);
-  }
+  const doc = take(data, {
+    activeContexts: _json,
+    dialogAction: _json,
+    recentIntentSummaryView: _json,
+    sessionAttributes: _json,
+    sessionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -354,10 +340,9 @@ const de_GetSessionCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -475,10 +460,9 @@ const de_PostContentCommandError = async (
       throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -498,48 +482,23 @@ export const de_PostTextCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.activeContexts != null) {
-    contents.activeContexts = de_ActiveContextsList(data.activeContexts, context);
-  }
-  if (data.alternativeIntents != null) {
-    contents.alternativeIntents = de_IntentList(data.alternativeIntents, context);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.dialogState != null) {
-    contents.dialogState = __expectString(data.dialogState);
-  }
-  if (data.intentName != null) {
-    contents.intentName = __expectString(data.intentName);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.messageFormat != null) {
-    contents.messageFormat = __expectString(data.messageFormat);
-  }
-  if (data.nluIntentConfidence != null) {
-    contents.nluIntentConfidence = de_IntentConfidence(data.nluIntentConfidence, context);
-  }
-  if (data.responseCard != null) {
-    contents.responseCard = de_ResponseCard(data.responseCard, context);
-  }
-  if (data.sentimentResponse != null) {
-    contents.sentimentResponse = de_SentimentResponse(data.sentimentResponse, context);
-  }
-  if (data.sessionAttributes != null) {
-    contents.sessionAttributes = de_StringMap(data.sessionAttributes, context);
-  }
-  if (data.sessionId != null) {
-    contents.sessionId = __expectString(data.sessionId);
-  }
-  if (data.slotToElicit != null) {
-    contents.slotToElicit = __expectString(data.slotToElicit);
-  }
-  if (data.slots != null) {
-    contents.slots = de_StringMap(data.slots, context);
-  }
+  const doc = take(data, {
+    activeContexts: _json,
+    alternativeIntents: (_) => de_IntentList(_, context),
+    botVersion: __expectString,
+    dialogState: __expectString,
+    intentName: __expectString,
+    message: __expectString,
+    messageFormat: __expectString,
+    nluIntentConfidence: (_) => de_IntentConfidence(_, context),
+    responseCard: _json,
+    sentimentResponse: _json,
+    sessionAttributes: _json,
+    sessionId: __expectString,
+    slotToElicit: __expectString,
+    slots: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -582,10 +541,9 @@ const de_PostTextCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -676,25 +634,25 @@ const de_PutSessionCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadGatewayExceptionRes
  */
 const de_BadGatewayExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadGatewayException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadGatewayException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -708,9 +666,10 @@ const de_BadGatewayExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -724,9 +683,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -743,9 +703,10 @@ const de_DependencyFailedExceptionRes = async (
 ): Promise<DependencyFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DependencyFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -762,9 +723,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -783,9 +745,10 @@ const de_LimitExceededExceptionRes = async (
     retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -802,9 +765,10 @@ const de_LoopDetectedExceptionRes = async (
 ): Promise<LoopDetectedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LoopDetectedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -821,9 +785,10 @@ const de_NotAcceptableExceptionRes = async (
 ): Promise<NotAcceptableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotAcceptableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -837,9 +802,10 @@ const de_NotAcceptableExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -856,9 +822,10 @@ const de_RequestTimeoutExceptionRes = async (
 ): Promise<RequestTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -875,9 +842,10 @@ const de_UnsupportedMediaTypeExceptionRes = async (
 ): Promise<UnsupportedMediaTypeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedMediaTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -885,214 +853,45 @@ const de_UnsupportedMediaTypeExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ActiveContext
- */
-const se_ActiveContext = (input: ActiveContext, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.parameters != null && { parameters: se_ActiveContextParametersMap(input.parameters, context) }),
-    ...(input.timeToLive != null && { timeToLive: se_ActiveContextTimeToLive(input.timeToLive, context) }),
-  };
-};
+// se_ActiveContext omitted.
 
-/**
- * serializeAws_restJson1ActiveContextParametersMap
- */
-const se_ActiveContextParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ActiveContextParametersMap omitted.
 
-/**
- * serializeAws_restJson1ActiveContextsList
- */
-const se_ActiveContextsList = (input: ActiveContext[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ActiveContext(entry, context);
-    });
-};
+// se_ActiveContextsList omitted.
 
-/**
- * serializeAws_restJson1ActiveContextTimeToLive
- */
-const se_ActiveContextTimeToLive = (input: ActiveContextTimeToLive, context: __SerdeContext): any => {
-  return {
-    ...(input.timeToLiveInSeconds != null && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
-    ...(input.turnsToLive != null && { turnsToLive: input.turnsToLive }),
-  };
-};
+// se_ActiveContextTimeToLive omitted.
 
-/**
- * serializeAws_restJson1DialogAction
- */
-const se_DialogAction = (input: DialogAction, context: __SerdeContext): any => {
-  return {
-    ...(input.fulfillmentState != null && { fulfillmentState: input.fulfillmentState }),
-    ...(input.intentName != null && { intentName: input.intentName }),
-    ...(input.message != null && { message: input.message }),
-    ...(input.messageFormat != null && { messageFormat: input.messageFormat }),
-    ...(input.slotToElicit != null && { slotToElicit: input.slotToElicit }),
-    ...(input.slots != null && { slots: se_StringMap(input.slots, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_DialogAction omitted.
 
-/**
- * serializeAws_restJson1IntentSummary
- */
-const se_IntentSummary = (input: IntentSummary, context: __SerdeContext): any => {
-  return {
-    ...(input.checkpointLabel != null && { checkpointLabel: input.checkpointLabel }),
-    ...(input.confirmationStatus != null && { confirmationStatus: input.confirmationStatus }),
-    ...(input.dialogActionType != null && { dialogActionType: input.dialogActionType }),
-    ...(input.fulfillmentState != null && { fulfillmentState: input.fulfillmentState }),
-    ...(input.intentName != null && { intentName: input.intentName }),
-    ...(input.slotToElicit != null && { slotToElicit: input.slotToElicit }),
-    ...(input.slots != null && { slots: se_StringMap(input.slots, context) }),
-  };
-};
+// se_IntentSummary omitted.
 
-/**
- * serializeAws_restJson1IntentSummaryList
- */
-const se_IntentSummaryList = (input: IntentSummary[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_IntentSummary(entry, context);
-    });
-};
+// se_IntentSummaryList omitted.
 
-/**
- * serializeAws_restJson1StringMap
- */
-const se_StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_StringMap omitted.
 
-/**
- * deserializeAws_restJson1ActiveContext
- */
-const de_ActiveContext = (output: any, context: __SerdeContext): ActiveContext => {
-  return {
-    name: __expectString(output.name),
-    parameters: output.parameters != null ? de_ActiveContextParametersMap(output.parameters, context) : undefined,
-    timeToLive: output.timeToLive != null ? de_ActiveContextTimeToLive(output.timeToLive, context) : undefined,
-  } as any;
-};
+// de_ActiveContext omitted.
 
-/**
- * deserializeAws_restJson1ActiveContextParametersMap
- */
-const de_ActiveContextParametersMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ActiveContextParametersMap omitted.
 
-/**
- * deserializeAws_restJson1ActiveContextsList
- */
-const de_ActiveContextsList = (output: any, context: __SerdeContext): ActiveContext[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ActiveContext(entry, context);
-    });
-  return retVal;
-};
+// de_ActiveContextsList omitted.
 
-/**
- * deserializeAws_restJson1ActiveContextTimeToLive
- */
-const de_ActiveContextTimeToLive = (output: any, context: __SerdeContext): ActiveContextTimeToLive => {
-  return {
-    timeToLiveInSeconds: __expectInt32(output.timeToLiveInSeconds),
-    turnsToLive: __expectInt32(output.turnsToLive),
-  } as any;
-};
+// de_ActiveContextTimeToLive omitted.
 
-/**
- * deserializeAws_restJson1Button
- */
-const de_Button = (output: any, context: __SerdeContext): Button => {
-  return {
-    text: __expectString(output.text),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Button omitted.
 
-/**
- * deserializeAws_restJson1DialogAction
- */
-const de_DialogAction = (output: any, context: __SerdeContext): DialogAction => {
-  return {
-    fulfillmentState: __expectString(output.fulfillmentState),
-    intentName: __expectString(output.intentName),
-    message: __expectString(output.message),
-    messageFormat: __expectString(output.messageFormat),
-    slotToElicit: __expectString(output.slotToElicit),
-    slots: output.slots != null ? de_StringMap(output.slots, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_DialogAction omitted.
 
-/**
- * deserializeAws_restJson1GenericAttachment
- */
-const de_GenericAttachment = (output: any, context: __SerdeContext): GenericAttachment => {
-  return {
-    attachmentLinkUrl: __expectString(output.attachmentLinkUrl),
-    buttons: output.buttons != null ? de_listOfButtons(output.buttons, context) : undefined,
-    imageUrl: __expectString(output.imageUrl),
-    subTitle: __expectString(output.subTitle),
-    title: __expectString(output.title),
-  } as any;
-};
+// de_GenericAttachment omitted.
 
-/**
- * deserializeAws_restJson1genericAttachmentList
- */
-const de_genericAttachmentList = (output: any, context: __SerdeContext): GenericAttachment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GenericAttachment(entry, context);
-    });
-  return retVal;
-};
+// de_genericAttachmentList omitted.
 
 /**
  * deserializeAws_restJson1IntentConfidence
  */
 const de_IntentConfidence = (output: any, context: __SerdeContext): IntentConfidence => {
-  return {
-    score: __limitedParseDouble(output.score),
-  } as any;
+  return take(output, {
+    score: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -1102,105 +901,33 @@ const de_IntentList = (output: any, context: __SerdeContext): PredictedIntent[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PredictedIntent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1IntentSummary
- */
-const de_IntentSummary = (output: any, context: __SerdeContext): IntentSummary => {
-  return {
-    checkpointLabel: __expectString(output.checkpointLabel),
-    confirmationStatus: __expectString(output.confirmationStatus),
-    dialogActionType: __expectString(output.dialogActionType),
-    fulfillmentState: __expectString(output.fulfillmentState),
-    intentName: __expectString(output.intentName),
-    slotToElicit: __expectString(output.slotToElicit),
-    slots: output.slots != null ? de_StringMap(output.slots, context) : undefined,
-  } as any;
-};
+// de_IntentSummary omitted.
 
-/**
- * deserializeAws_restJson1IntentSummaryList
- */
-const de_IntentSummaryList = (output: any, context: __SerdeContext): IntentSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IntentSummary(entry, context);
-    });
-  return retVal;
-};
+// de_IntentSummaryList omitted.
 
-/**
- * deserializeAws_restJson1listOfButtons
- */
-const de_listOfButtons = (output: any, context: __SerdeContext): Button[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Button(entry, context);
-    });
-  return retVal;
-};
+// de_listOfButtons omitted.
 
 /**
  * deserializeAws_restJson1PredictedIntent
  */
 const de_PredictedIntent = (output: any, context: __SerdeContext): PredictedIntent => {
-  return {
-    intentName: __expectString(output.intentName),
-    nluIntentConfidence:
-      output.nluIntentConfidence != null ? de_IntentConfidence(output.nluIntentConfidence, context) : undefined,
-    slots: output.slots != null ? de_StringMap(output.slots, context) : undefined,
-  } as any;
+  return take(output, {
+    intentName: __expectString,
+    nluIntentConfidence: (_: any) => de_IntentConfidence(_, context),
+    slots: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ResponseCard
- */
-const de_ResponseCard = (output: any, context: __SerdeContext): ResponseCard => {
-  return {
-    contentType: __expectString(output.contentType),
-    genericAttachments:
-      output.genericAttachments != null ? de_genericAttachmentList(output.genericAttachments, context) : undefined,
-    version: __expectString(output.version),
-  } as any;
-};
+// de_ResponseCard omitted.
 
-/**
- * deserializeAws_restJson1SentimentResponse
- */
-const de_SentimentResponse = (output: any, context: __SerdeContext): SentimentResponse => {
-  return {
-    sentimentLabel: __expectString(output.sentimentLabel),
-    sentimentScore: __expectString(output.sentimentScore),
-  } as any;
-};
+// de_SentimentResponse omitted.
 
-/**
- * deserializeAws_restJson1StringMap
- */
-const de_StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_StringMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,12 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -38,20 +40,13 @@ import {
 import { ConnectParticipantServiceException as __BaseException } from "../models/ConnectParticipantServiceException";
 import {
   AccessDeniedException,
-  AttachmentItem,
   ConflictException,
-  ConnectionCredentials,
   ConnectionType,
   InternalServerException,
-  Item,
-  MessageMetadata,
-  Receipt,
   ServiceQuotaExceededException,
   StartPosition,
   ThrottlingException,
-  UploadMetadata,
   ValidationException,
-  Websocket,
 } from "../models/models_0";
 
 /**
@@ -69,10 +64,12 @@ export const se_CompleteAttachmentUploadCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/complete-attachment-upload";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttachmentIds != null && { AttachmentIds: se_AttachmentIdList(input.AttachmentIds, context) }),
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttachmentIds: (_) => _json(_),
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -99,10 +96,12 @@ export const se_CreateParticipantConnectionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/connection";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConnectParticipant != null && { ConnectParticipant: input.ConnectParticipant }),
-    ...(input.Type != null && { Type: se_ConnectionTypeList(input.Type, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConnectParticipant: [],
+      Type: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -129,9 +128,11 @@ export const se_DisconnectParticipantCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/disconnect";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -158,9 +159,11 @@ export const se_GetAttachmentCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/attachment";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttachmentId != null && { AttachmentId: input.AttachmentId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttachmentId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -187,14 +190,16 @@ export const se_GetTranscriptCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/transcript";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ScanDirection != null && { ScanDirection: input.ScanDirection }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-    ...(input.StartPosition != null && { StartPosition: se_StartPosition(input.StartPosition, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ContactId: [],
+      MaxResults: [],
+      NextToken: [],
+      ScanDirection: [],
+      SortOrder: [],
+      StartPosition: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -220,11 +225,13 @@ export const se_SendEventCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/event";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.ContentType != null && { ContentType: input.ContentType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Content: [],
+      ContentType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -250,11 +257,13 @@ export const se_SendMessageCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/message";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.ContentType != null && { ContentType: input.ContentType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Content: [],
+      ContentType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -281,12 +290,14 @@ export const se_StartAttachmentUploadCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/start-attachment-upload";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttachmentName != null && { AttachmentName: input.AttachmentName }),
-    ...(input.AttachmentSizeInBytes != null && { AttachmentSizeInBytes: input.AttachmentSizeInBytes }),
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ContentType != null && { ContentType: input.ContentType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttachmentName: [],
+      AttachmentSizeInBytes: [],
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ContentType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -348,10 +359,9 @@ const de_CompleteAttachmentUploadCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -371,12 +381,11 @@ export const de_CreateParticipantConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectionCredentials != null) {
-    contents.ConnectionCredentials = de_ConnectionCredentials(data.ConnectionCredentials, context);
-  }
-  if (data.Websocket != null) {
-    contents.Websocket = de_Websocket(data.Websocket, context);
-  }
+  const doc = take(data, {
+    ConnectionCredentials: _json,
+    Websocket: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -407,10 +416,9 @@ const de_CreateParticipantConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -460,10 +468,9 @@ const de_DisconnectParticipantCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -483,12 +490,11 @@ export const de_GetAttachmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Url != null) {
-    contents.Url = __expectString(data.Url);
-  }
-  if (data.UrlExpiry != null) {
-    contents.UrlExpiry = __expectString(data.UrlExpiry);
-  }
+  const doc = take(data, {
+    Url: __expectString,
+    UrlExpiry: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -519,10 +525,9 @@ const de_GetAttachmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -542,15 +547,12 @@ export const de_GetTranscriptCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InitialContactId != null) {
-    contents.InitialContactId = __expectString(data.InitialContactId);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Transcript != null) {
-    contents.Transcript = de_Transcript(data.Transcript, context);
-  }
+  const doc = take(data, {
+    InitialContactId: __expectString,
+    NextToken: __expectString,
+    Transcript: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -581,10 +583,9 @@ const de_GetTranscriptCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -604,12 +605,11 @@ export const de_SendEventCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AbsoluteTime != null) {
-    contents.AbsoluteTime = __expectString(data.AbsoluteTime);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    AbsoluteTime: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -640,10 +640,9 @@ const de_SendEventCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -663,12 +662,11 @@ export const de_SendMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AbsoluteTime != null) {
-    contents.AbsoluteTime = __expectString(data.AbsoluteTime);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    AbsoluteTime: __expectString,
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -699,10 +697,9 @@ const de_SendMessageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -722,12 +719,11 @@ export const de_StartAttachmentUploadCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AttachmentId != null) {
-    contents.AttachmentId = __expectString(data.AttachmentId);
-  }
-  if (data.UploadMetadata != null) {
-    contents.UploadMetadata = de_UploadMetadata(data.UploadMetadata, context);
-  }
+  const doc = take(data, {
+    AttachmentId: __expectString,
+    UploadMetadata: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -761,16 +757,15 @@ const de_StartAttachmentUploadCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -780,9 +775,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -796,9 +792,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -815,9 +812,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -834,9 +832,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -850,9 +849,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -866,9 +866,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -876,181 +877,33 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AttachmentIdList
- */
-const se_AttachmentIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AttachmentIdList omitted.
 
-/**
- * serializeAws_restJson1ConnectionTypeList
- */
-const se_ConnectionTypeList = (input: (ConnectionType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ConnectionTypeList omitted.
 
-/**
- * serializeAws_restJson1StartPosition
- */
-const se_StartPosition = (input: StartPosition, context: __SerdeContext): any => {
-  return {
-    ...(input.AbsoluteTime != null && { AbsoluteTime: input.AbsoluteTime }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.MostRecent != null && { MostRecent: input.MostRecent }),
-  };
-};
+// se_StartPosition omitted.
 
-/**
- * deserializeAws_restJson1AttachmentItem
- */
-const de_AttachmentItem = (output: any, context: __SerdeContext): AttachmentItem => {
-  return {
-    AttachmentId: __expectString(output.AttachmentId),
-    AttachmentName: __expectString(output.AttachmentName),
-    ContentType: __expectString(output.ContentType),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_AttachmentItem omitted.
 
-/**
- * deserializeAws_restJson1Attachments
- */
-const de_Attachments = (output: any, context: __SerdeContext): AttachmentItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AttachmentItem(entry, context);
-    });
-  return retVal;
-};
+// de_Attachments omitted.
 
-/**
- * deserializeAws_restJson1ConnectionCredentials
- */
-const de_ConnectionCredentials = (output: any, context: __SerdeContext): ConnectionCredentials => {
-  return {
-    ConnectionToken: __expectString(output.ConnectionToken),
-    Expiry: __expectString(output.Expiry),
-  } as any;
-};
+// de_ConnectionCredentials omitted.
 
-/**
- * deserializeAws_restJson1Item
- */
-const de_Item = (output: any, context: __SerdeContext): Item => {
-  return {
-    AbsoluteTime: __expectString(output.AbsoluteTime),
-    Attachments: output.Attachments != null ? de_Attachments(output.Attachments, context) : undefined,
-    ContactId: __expectString(output.ContactId),
-    Content: __expectString(output.Content),
-    ContentType: __expectString(output.ContentType),
-    DisplayName: __expectString(output.DisplayName),
-    Id: __expectString(output.Id),
-    MessageMetadata: output.MessageMetadata != null ? de_MessageMetadata(output.MessageMetadata, context) : undefined,
-    ParticipantId: __expectString(output.ParticipantId),
-    ParticipantRole: __expectString(output.ParticipantRole),
-    RelatedContactId: __expectString(output.RelatedContactId),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Item omitted.
 
-/**
- * deserializeAws_restJson1MessageMetadata
- */
-const de_MessageMetadata = (output: any, context: __SerdeContext): MessageMetadata => {
-  return {
-    MessageId: __expectString(output.MessageId),
-    Receipts: output.Receipts != null ? de_Receipts(output.Receipts, context) : undefined,
-  } as any;
-};
+// de_MessageMetadata omitted.
 
-/**
- * deserializeAws_restJson1Receipt
- */
-const de_Receipt = (output: any, context: __SerdeContext): Receipt => {
-  return {
-    DeliveredTimestamp: __expectString(output.DeliveredTimestamp),
-    ReadTimestamp: __expectString(output.ReadTimestamp),
-    RecipientParticipantId: __expectString(output.RecipientParticipantId),
-  } as any;
-};
+// de_Receipt omitted.
 
-/**
- * deserializeAws_restJson1Receipts
- */
-const de_Receipts = (output: any, context: __SerdeContext): Receipt[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Receipt(entry, context);
-    });
-  return retVal;
-};
+// de_Receipts omitted.
 
-/**
- * deserializeAws_restJson1Transcript
- */
-const de_Transcript = (output: any, context: __SerdeContext): Item[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Item(entry, context);
-    });
-  return retVal;
-};
+// de_Transcript omitted.
 
-/**
- * deserializeAws_restJson1UploadMetadata
- */
-const de_UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {
-  return {
-    HeadersToInclude:
-      output.HeadersToInclude != null ? de_UploadMetadataSignedHeaders(output.HeadersToInclude, context) : undefined,
-    Url: __expectString(output.Url),
-    UrlExpiry: __expectString(output.UrlExpiry),
-  } as any;
-};
+// de_UploadMetadata omitted.
 
-/**
- * deserializeAws_restJson1UploadMetadataSignedHeaders
- */
-const de_UploadMetadataSignedHeaders = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_UploadMetadataSignedHeaders omitted.
 
-/**
- * deserializeAws_restJson1Websocket
- */
-const de_Websocket = (output: any, context: __SerdeContext): Websocket => {
-  return {
-    ConnectionExpiry: __expectString(output.ConnectionExpiry),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_Websocket omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

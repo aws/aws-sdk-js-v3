@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -151,67 +151,40 @@ import { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "../co
 import { AthenaServiceException as __BaseException } from "../models/AthenaServiceException";
 import {
   AclConfiguration,
-  ApplicationDPUSizes,
-  AthenaError,
   BatchGetNamedQueryInput,
-  BatchGetNamedQueryOutput,
   BatchGetPreparedStatementInput,
   BatchGetPreparedStatementOutput,
   BatchGetQueryExecutionInput,
   BatchGetQueryExecutionOutput,
   CalculationConfiguration,
-  CalculationResult,
-  CalculationStatistics,
   CalculationStatus,
   CalculationSummary,
-  Column,
-  ColumnInfo,
   CreateDataCatalogInput,
-  CreateDataCatalogOutput,
   CreateNamedQueryInput,
-  CreateNamedQueryOutput,
   CreateNotebookInput,
-  CreateNotebookOutput,
   CreatePreparedStatementInput,
-  CreatePreparedStatementOutput,
   CreatePresignedNotebookUrlRequest,
-  CreatePresignedNotebookUrlResponse,
   CreateWorkGroupInput,
-  CreateWorkGroupOutput,
   CustomerContentEncryptionConfiguration,
-  Database,
-  DataCatalog,
-  DataCatalogSummary,
-  Datum,
   DeleteDataCatalogInput,
-  DeleteDataCatalogOutput,
   DeleteNamedQueryInput,
-  DeleteNamedQueryOutput,
   DeleteNotebookInput,
-  DeleteNotebookOutput,
   DeletePreparedStatementInput,
-  DeletePreparedStatementOutput,
   DeleteWorkGroupInput,
-  DeleteWorkGroupOutput,
   EncryptionConfiguration,
   EngineConfiguration,
   EngineVersion,
-  ExecutorsSummary,
   ExportNotebookInput,
   ExportNotebookOutput,
   FilterDefinition,
   GetCalculationExecutionCodeRequest,
-  GetCalculationExecutionCodeResponse,
   GetCalculationExecutionRequest,
   GetCalculationExecutionResponse,
   GetCalculationExecutionStatusRequest,
   GetCalculationExecutionStatusResponse,
   GetDatabaseInput,
-  GetDatabaseOutput,
   GetDataCatalogInput,
-  GetDataCatalogOutput,
   GetNamedQueryInput,
-  GetNamedQueryOutput,
   GetNotebookMetadataInput,
   GetNotebookMetadataOutput,
   GetPreparedStatementInput,
@@ -219,7 +192,6 @@ import {
   GetQueryExecutionInput,
   GetQueryExecutionOutput,
   GetQueryResultsInput,
-  GetQueryResultsOutput,
   GetQueryRuntimeStatisticsInput,
   GetQueryRuntimeStatisticsOutput,
   GetSessionRequest,
@@ -231,23 +203,16 @@ import {
   GetWorkGroupInput,
   GetWorkGroupOutput,
   ImportNotebookInput,
-  ImportNotebookOutput,
   InternalServerException,
   InvalidRequestException,
   ListApplicationDPUSizesInput,
-  ListApplicationDPUSizesOutput,
   ListCalculationExecutionsRequest,
   ListCalculationExecutionsResponse,
   ListDatabasesInput,
-  ListDatabasesOutput,
   ListDataCatalogsInput,
-  ListDataCatalogsOutput,
   ListEngineVersionsInput,
-  ListEngineVersionsOutput,
   ListExecutorsRequest,
-  ListExecutorsResponse,
   ListNamedQueriesInput,
-  ListNamedQueriesOutput,
   ListNotebookMetadataInput,
   ListNotebookMetadataOutput,
   ListNotebookSessionsRequest,
@@ -255,28 +220,22 @@ import {
   ListPreparedStatementsInput,
   ListPreparedStatementsOutput,
   ListQueryExecutionsInput,
-  ListQueryExecutionsOutput,
   ListSessionsRequest,
   ListSessionsResponse,
   ListTableMetadataInput,
   ListTableMetadataOutput,
   ListTagsForResourceInput,
-  ListTagsForResourceOutput,
   ListWorkGroupsInput,
   ListWorkGroupsOutput,
   MetadataException,
-  NamedQuery,
   NotebookMetadata,
   NotebookSessionSummary,
   PreparedStatement,
   PreparedStatementSummary,
   QueryExecution,
   QueryExecutionContext,
-  QueryExecutionStatistics,
   QueryExecutionStatus,
   QueryRuntimeStatistics,
-  QueryRuntimeStatisticsRows,
-  QueryRuntimeStatisticsTimeline,
   QueryStage,
   QueryStagePlanNode,
   ResourceNotFoundException,
@@ -284,49 +243,26 @@ import {
   ResultConfigurationUpdates,
   ResultReuseByAgeConfiguration,
   ResultReuseConfiguration,
-  ResultReuseInformation,
-  ResultSet,
-  ResultSetMetadata,
-  Row,
   SessionAlreadyExistsException,
-  SessionConfiguration,
-  SessionStatistics,
   SessionStatus,
   SessionSummary,
   StartCalculationExecutionRequest,
-  StartCalculationExecutionResponse,
   StartQueryExecutionInput,
-  StartQueryExecutionOutput,
   StartSessionRequest,
-  StartSessionResponse,
   StopCalculationExecutionRequest,
-  StopCalculationExecutionResponse,
   StopQueryExecutionInput,
-  StopQueryExecutionOutput,
   TableMetadata,
   Tag,
   TagResourceInput,
-  TagResourceOutput,
   TerminateSessionRequest,
-  TerminateSessionResponse,
   TooManyRequestsException,
-  UnprocessedNamedQueryId,
-  UnprocessedPreparedStatementName,
-  UnprocessedQueryExecutionId,
   UntagResourceInput,
-  UntagResourceOutput,
   UpdateDataCatalogInput,
-  UpdateDataCatalogOutput,
   UpdateNamedQueryInput,
-  UpdateNamedQueryOutput,
   UpdateNotebookInput,
   UpdateNotebookMetadataInput,
-  UpdateNotebookMetadataOutput,
-  UpdateNotebookOutput,
   UpdatePreparedStatementInput,
-  UpdatePreparedStatementOutput,
   UpdateWorkGroupInput,
-  UpdateWorkGroupOutput,
   WorkGroup,
   WorkGroupConfiguration,
   WorkGroupConfigurationUpdates,
@@ -342,7 +278,7 @@ export const se_BatchGetNamedQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetNamedQuery");
   let body: any;
-  body = JSON.stringify(se_BatchGetNamedQueryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -355,7 +291,7 @@ export const se_BatchGetPreparedStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetPreparedStatement");
   let body: any;
-  body = JSON.stringify(se_BatchGetPreparedStatementInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -368,7 +304,7 @@ export const se_BatchGetQueryExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetQueryExecution");
   let body: any;
-  body = JSON.stringify(se_BatchGetQueryExecutionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -381,7 +317,7 @@ export const se_CreateDataCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDataCatalog");
   let body: any;
-  body = JSON.stringify(se_CreateDataCatalogInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -407,7 +343,7 @@ export const se_CreateNotebookCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateNotebook");
   let body: any;
-  body = JSON.stringify(se_CreateNotebookInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -420,7 +356,7 @@ export const se_CreatePreparedStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePreparedStatement");
   let body: any;
-  body = JSON.stringify(se_CreatePreparedStatementInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -433,7 +369,7 @@ export const se_CreatePresignedNotebookUrlCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePresignedNotebookUrl");
   let body: any;
-  body = JSON.stringify(se_CreatePresignedNotebookUrlRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -446,7 +382,7 @@ export const se_CreateWorkGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWorkGroup");
   let body: any;
-  body = JSON.stringify(se_CreateWorkGroupInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -459,7 +395,7 @@ export const se_DeleteDataCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDataCatalog");
   let body: any;
-  body = JSON.stringify(se_DeleteDataCatalogInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -485,7 +421,7 @@ export const se_DeleteNotebookCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteNotebook");
   let body: any;
-  body = JSON.stringify(se_DeleteNotebookInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -498,7 +434,7 @@ export const se_DeletePreparedStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePreparedStatement");
   let body: any;
-  body = JSON.stringify(se_DeletePreparedStatementInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -511,7 +447,7 @@ export const se_DeleteWorkGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteWorkGroup");
   let body: any;
-  body = JSON.stringify(se_DeleteWorkGroupInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -524,7 +460,7 @@ export const se_ExportNotebookCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExportNotebook");
   let body: any;
-  body = JSON.stringify(se_ExportNotebookInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -537,7 +473,7 @@ export const se_GetCalculationExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCalculationExecution");
   let body: any;
-  body = JSON.stringify(se_GetCalculationExecutionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -550,7 +486,7 @@ export const se_GetCalculationExecutionCodeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCalculationExecutionCode");
   let body: any;
-  body = JSON.stringify(se_GetCalculationExecutionCodeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -563,7 +499,7 @@ export const se_GetCalculationExecutionStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCalculationExecutionStatus");
   let body: any;
-  body = JSON.stringify(se_GetCalculationExecutionStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -576,7 +512,7 @@ export const se_GetDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDatabase");
   let body: any;
-  body = JSON.stringify(se_GetDatabaseInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -589,7 +525,7 @@ export const se_GetDataCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDataCatalog");
   let body: any;
-  body = JSON.stringify(se_GetDataCatalogInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -602,7 +538,7 @@ export const se_GetNamedQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetNamedQuery");
   let body: any;
-  body = JSON.stringify(se_GetNamedQueryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -615,7 +551,7 @@ export const se_GetNotebookMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetNotebookMetadata");
   let body: any;
-  body = JSON.stringify(se_GetNotebookMetadataInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -628,7 +564,7 @@ export const se_GetPreparedStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPreparedStatement");
   let body: any;
-  body = JSON.stringify(se_GetPreparedStatementInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -641,7 +577,7 @@ export const se_GetQueryExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetQueryExecution");
   let body: any;
-  body = JSON.stringify(se_GetQueryExecutionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -654,7 +590,7 @@ export const se_GetQueryResultsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetQueryResults");
   let body: any;
-  body = JSON.stringify(se_GetQueryResultsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -667,7 +603,7 @@ export const se_GetQueryRuntimeStatisticsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetQueryRuntimeStatistics");
   let body: any;
-  body = JSON.stringify(se_GetQueryRuntimeStatisticsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -680,7 +616,7 @@ export const se_GetSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSession");
   let body: any;
-  body = JSON.stringify(se_GetSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -693,7 +629,7 @@ export const se_GetSessionStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSessionStatus");
   let body: any;
-  body = JSON.stringify(se_GetSessionStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -706,7 +642,7 @@ export const se_GetTableMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTableMetadata");
   let body: any;
-  body = JSON.stringify(se_GetTableMetadataInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -719,7 +655,7 @@ export const se_GetWorkGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetWorkGroup");
   let body: any;
-  body = JSON.stringify(se_GetWorkGroupInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -732,7 +668,7 @@ export const se_ImportNotebookCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportNotebook");
   let body: any;
-  body = JSON.stringify(se_ImportNotebookInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -745,7 +681,7 @@ export const se_ListApplicationDPUSizesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListApplicationDPUSizes");
   let body: any;
-  body = JSON.stringify(se_ListApplicationDPUSizesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -758,7 +694,7 @@ export const se_ListCalculationExecutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCalculationExecutions");
   let body: any;
-  body = JSON.stringify(se_ListCalculationExecutionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -771,7 +707,7 @@ export const se_ListDatabasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDatabases");
   let body: any;
-  body = JSON.stringify(se_ListDatabasesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -784,7 +720,7 @@ export const se_ListDataCatalogsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDataCatalogs");
   let body: any;
-  body = JSON.stringify(se_ListDataCatalogsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -797,7 +733,7 @@ export const se_ListEngineVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEngineVersions");
   let body: any;
-  body = JSON.stringify(se_ListEngineVersionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -810,7 +746,7 @@ export const se_ListExecutorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListExecutors");
   let body: any;
-  body = JSON.stringify(se_ListExecutorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -823,7 +759,7 @@ export const se_ListNamedQueriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListNamedQueries");
   let body: any;
-  body = JSON.stringify(se_ListNamedQueriesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -836,7 +772,7 @@ export const se_ListNotebookMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListNotebookMetadata");
   let body: any;
-  body = JSON.stringify(se_ListNotebookMetadataInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -849,7 +785,7 @@ export const se_ListNotebookSessionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListNotebookSessions");
   let body: any;
-  body = JSON.stringify(se_ListNotebookSessionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -862,7 +798,7 @@ export const se_ListPreparedStatementsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPreparedStatements");
   let body: any;
-  body = JSON.stringify(se_ListPreparedStatementsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -875,7 +811,7 @@ export const se_ListQueryExecutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListQueryExecutions");
   let body: any;
-  body = JSON.stringify(se_ListQueryExecutionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -888,7 +824,7 @@ export const se_ListSessionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSessions");
   let body: any;
-  body = JSON.stringify(se_ListSessionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -901,7 +837,7 @@ export const se_ListTableMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTableMetadata");
   let body: any;
-  body = JSON.stringify(se_ListTableMetadataInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -914,7 +850,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -927,7 +863,7 @@ export const se_ListWorkGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWorkGroups");
   let body: any;
-  body = JSON.stringify(se_ListWorkGroupsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -940,7 +876,7 @@ export const se_StartCalculationExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartCalculationExecution");
   let body: any;
-  body = JSON.stringify(se_StartCalculationExecutionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -966,7 +902,7 @@ export const se_StartSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartSession");
   let body: any;
-  body = JSON.stringify(se_StartSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -979,7 +915,7 @@ export const se_StopCalculationExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopCalculationExecution");
   let body: any;
-  body = JSON.stringify(se_StopCalculationExecutionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1005,7 +941,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1018,7 +954,7 @@ export const se_TerminateSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TerminateSession");
   let body: any;
-  body = JSON.stringify(se_TerminateSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1031,7 +967,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1044,7 +980,7 @@ export const se_UpdateDataCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDataCatalog");
   let body: any;
-  body = JSON.stringify(se_UpdateDataCatalogInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1057,7 +993,7 @@ export const se_UpdateNamedQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateNamedQuery");
   let body: any;
-  body = JSON.stringify(se_UpdateNamedQueryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1070,7 +1006,7 @@ export const se_UpdateNotebookCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateNotebook");
   let body: any;
-  body = JSON.stringify(se_UpdateNotebookInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1083,7 +1019,7 @@ export const se_UpdateNotebookMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateNotebookMetadata");
   let body: any;
-  body = JSON.stringify(se_UpdateNotebookMetadataInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1096,7 +1032,7 @@ export const se_UpdatePreparedStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePreparedStatement");
   let body: any;
-  body = JSON.stringify(se_UpdatePreparedStatementInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1109,7 +1045,7 @@ export const se_UpdateWorkGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateWorkGroup");
   let body: any;
-  body = JSON.stringify(se_UpdateWorkGroupInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1125,12 +1061,12 @@ export const de_BatchGetNamedQueryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchGetNamedQueryOutput(data, context);
+  contents = _json(data);
   const response: BatchGetNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1154,10 +1090,9 @@ const de_BatchGetNamedQueryCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1180,7 +1115,7 @@ export const de_BatchGetPreparedStatementCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1204,10 +1139,9 @@ const de_BatchGetPreparedStatementCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1230,7 +1164,7 @@ export const de_BatchGetQueryExecutionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1254,10 +1188,9 @@ const de_BatchGetQueryExecutionCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1275,12 +1208,12 @@ export const de_CreateDataCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDataCatalogOutput(data, context);
+  contents = _json(data);
   const response: CreateDataCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1304,10 +1237,9 @@ const de_CreateDataCatalogCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1325,12 +1257,12 @@ export const de_CreateNamedQueryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateNamedQueryOutput(data, context);
+  contents = _json(data);
   const response: CreateNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1354,10 +1286,9 @@ const de_CreateNamedQueryCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1375,12 +1306,12 @@ export const de_CreateNotebookCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateNotebookOutput(data, context);
+  contents = _json(data);
   const response: CreateNotebookCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1407,10 +1338,9 @@ const de_CreateNotebookCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1428,12 +1358,12 @@ export const de_CreatePreparedStatementCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreatePreparedStatementOutput(data, context);
+  contents = _json(data);
   const response: CreatePreparedStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1457,10 +1387,9 @@ const de_CreatePreparedStatementCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1478,12 +1407,12 @@ export const de_CreatePresignedNotebookUrlCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreatePresignedNotebookUrlResponse(data, context);
+  contents = _json(data);
   const response: CreatePresignedNotebookUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1510,10 +1439,9 @@ const de_CreatePresignedNotebookUrlCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1531,12 +1459,12 @@ export const de_CreateWorkGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateWorkGroupOutput(data, context);
+  contents = _json(data);
   const response: CreateWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1560,10 +1488,9 @@ const de_CreateWorkGroupCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1581,12 +1508,12 @@ export const de_DeleteDataCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDataCatalogOutput(data, context);
+  contents = _json(data);
   const response: DeleteDataCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1610,10 +1537,9 @@ const de_DeleteDataCatalogCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1631,12 +1557,12 @@ export const de_DeleteNamedQueryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteNamedQueryOutput(data, context);
+  contents = _json(data);
   const response: DeleteNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1660,10 +1586,9 @@ const de_DeleteNamedQueryCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1681,12 +1606,12 @@ export const de_DeleteNotebookCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteNotebookOutput(data, context);
+  contents = _json(data);
   const response: DeleteNotebookCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1713,10 +1638,9 @@ const de_DeleteNotebookCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1734,12 +1658,12 @@ export const de_DeletePreparedStatementCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeletePreparedStatementOutput(data, context);
+  contents = _json(data);
   const response: DeletePreparedStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1766,10 +1690,9 @@ const de_DeletePreparedStatementCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1787,12 +1710,12 @@ export const de_DeleteWorkGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteWorkGroupOutput(data, context);
+  contents = _json(data);
   const response: DeleteWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1816,10 +1739,9 @@ const de_DeleteWorkGroupCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1842,7 +1764,7 @@ export const de_ExportNotebookCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1869,10 +1791,9 @@ const de_ExportNotebookCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1895,7 +1816,7 @@ export const de_GetCalculationExecutionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1922,10 +1843,9 @@ const de_GetCalculationExecutionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1943,12 +1863,12 @@ export const de_GetCalculationExecutionCodeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCalculationExecutionCodeResponse(data, context);
+  contents = _json(data);
   const response: GetCalculationExecutionCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1975,10 +1895,9 @@ const de_GetCalculationExecutionCodeCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2001,7 +1920,7 @@ export const de_GetCalculationExecutionStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2028,10 +1947,9 @@ const de_GetCalculationExecutionStatusCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2049,12 +1967,12 @@ export const de_GetDatabaseCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDatabaseOutput(data, context);
+  contents = _json(data);
   const response: GetDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2081,10 +1999,9 @@ const de_GetDatabaseCommandError = async (
       throw await de_MetadataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2102,12 +2019,12 @@ export const de_GetDataCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDataCatalogOutput(data, context);
+  contents = _json(data);
   const response: GetDataCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2131,10 +2048,9 @@ const de_GetDataCatalogCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2152,12 +2068,12 @@ export const de_GetNamedQueryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetNamedQueryOutput(data, context);
+  contents = _json(data);
   const response: GetNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2181,10 +2097,9 @@ const de_GetNamedQueryCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2207,7 +2122,7 @@ export const de_GetNotebookMetadataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2234,10 +2149,9 @@ const de_GetNotebookMetadataCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2260,7 +2174,7 @@ export const de_GetPreparedStatementCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2287,10 +2201,9 @@ const de_GetPreparedStatementCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2313,7 +2226,7 @@ export const de_GetQueryExecutionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2337,10 +2250,9 @@ const de_GetQueryExecutionCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2358,12 +2270,12 @@ export const de_GetQueryResultsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetQueryResultsOutput(data, context);
+  contents = _json(data);
   const response: GetQueryResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2390,10 +2302,9 @@ const de_GetQueryResultsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2416,7 +2327,7 @@ export const de_GetQueryRuntimeStatisticsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2440,10 +2351,9 @@ const de_GetQueryRuntimeStatisticsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2466,7 +2376,7 @@ export const de_GetSessionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2493,10 +2403,9 @@ const de_GetSessionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2519,7 +2428,7 @@ export const de_GetSessionStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2546,10 +2455,9 @@ const de_GetSessionStatusCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2572,7 +2480,7 @@ export const de_GetTableMetadataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2599,10 +2507,9 @@ const de_GetTableMetadataCommandError = async (
       throw await de_MetadataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2625,7 +2532,7 @@ export const de_GetWorkGroupCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2649,10 +2556,9 @@ const de_GetWorkGroupCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2670,12 +2576,12 @@ export const de_ImportNotebookCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ImportNotebookOutput(data, context);
+  contents = _json(data);
   const response: ImportNotebookCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2702,10 +2608,9 @@ const de_ImportNotebookCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2723,12 +2628,12 @@ export const de_ListApplicationDPUSizesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListApplicationDPUSizesOutput(data, context);
+  contents = _json(data);
   const response: ListApplicationDPUSizesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2755,10 +2660,9 @@ const de_ListApplicationDPUSizesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2781,7 +2685,7 @@ export const de_ListCalculationExecutionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2808,10 +2712,9 @@ const de_ListCalculationExecutionsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2829,12 +2732,12 @@ export const de_ListDatabasesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDatabasesOutput(data, context);
+  contents = _json(data);
   const response: ListDatabasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2861,10 +2764,9 @@ const de_ListDatabasesCommandError = async (
       throw await de_MetadataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2882,12 +2784,12 @@ export const de_ListDataCatalogsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDataCatalogsOutput(data, context);
+  contents = _json(data);
   const response: ListDataCatalogsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2911,10 +2813,9 @@ const de_ListDataCatalogsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2932,12 +2833,12 @@ export const de_ListEngineVersionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListEngineVersionsOutput(data, context);
+  contents = _json(data);
   const response: ListEngineVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2961,10 +2862,9 @@ const de_ListEngineVersionsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2982,12 +2882,12 @@ export const de_ListExecutorsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListExecutorsResponse(data, context);
+  contents = _json(data);
   const response: ListExecutorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3014,10 +2914,9 @@ const de_ListExecutorsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3035,12 +2934,12 @@ export const de_ListNamedQueriesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListNamedQueriesOutput(data, context);
+  contents = _json(data);
   const response: ListNamedQueriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3064,10 +2963,9 @@ const de_ListNamedQueriesCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3090,7 +2988,7 @@ export const de_ListNotebookMetadataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3117,10 +3015,9 @@ const de_ListNotebookMetadataCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3143,7 +3040,7 @@ export const de_ListNotebookSessionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3170,10 +3067,9 @@ const de_ListNotebookSessionsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3196,7 +3092,7 @@ export const de_ListPreparedStatementsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3220,10 +3116,9 @@ const de_ListPreparedStatementsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3241,12 +3136,12 @@ export const de_ListQueryExecutionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListQueryExecutionsOutput(data, context);
+  contents = _json(data);
   const response: ListQueryExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3270,10 +3165,9 @@ const de_ListQueryExecutionsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3296,7 +3190,7 @@ export const de_ListSessionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3323,10 +3217,9 @@ const de_ListSessionsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3349,7 +3242,7 @@ export const de_ListTableMetadataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3376,10 +3269,9 @@ const de_ListTableMetadataCommandError = async (
       throw await de_MetadataExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3397,12 +3289,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceOutput(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3429,10 +3321,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3455,7 +3346,7 @@ export const de_ListWorkGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3479,10 +3370,9 @@ const de_ListWorkGroupsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3500,12 +3390,12 @@ export const de_StartCalculationExecutionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartCalculationExecutionResponse(data, context);
+  contents = _json(data);
   const response: StartCalculationExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3532,10 +3422,9 @@ const de_StartCalculationExecutionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3553,12 +3442,12 @@ export const de_StartQueryExecutionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartQueryExecutionOutput(data, context);
+  contents = _json(data);
   const response: StartQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3585,10 +3474,9 @@ const de_StartQueryExecutionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3606,12 +3494,12 @@ export const de_StartSessionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartSessionResponse(data, context);
+  contents = _json(data);
   const response: StartSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3644,10 +3532,9 @@ const de_StartSessionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3665,12 +3552,12 @@ export const de_StopCalculationExecutionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopCalculationExecutionResponse(data, context);
+  contents = _json(data);
   const response: StopCalculationExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3697,10 +3584,9 @@ const de_StopCalculationExecutionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3718,12 +3604,12 @@ export const de_StopQueryExecutionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopQueryExecutionOutput(data, context);
+  contents = _json(data);
   const response: StopQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3747,10 +3633,9 @@ const de_StopQueryExecutionCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3768,12 +3653,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceOutput(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3800,10 +3685,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3821,12 +3705,12 @@ export const de_TerminateSessionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TerminateSessionResponse(data, context);
+  contents = _json(data);
   const response: TerminateSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3853,10 +3737,9 @@ const de_TerminateSessionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3874,12 +3757,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceOutput(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3906,10 +3789,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3927,12 +3809,12 @@ export const de_UpdateDataCatalogCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDataCatalogOutput(data, context);
+  contents = _json(data);
   const response: UpdateDataCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3956,10 +3838,9 @@ const de_UpdateDataCatalogCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3977,12 +3858,12 @@ export const de_UpdateNamedQueryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateNamedQueryOutput(data, context);
+  contents = _json(data);
   const response: UpdateNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4006,10 +3887,9 @@ const de_UpdateNamedQueryCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4027,12 +3907,12 @@ export const de_UpdateNotebookCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateNotebookOutput(data, context);
+  contents = _json(data);
   const response: UpdateNotebookCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4059,10 +3939,9 @@ const de_UpdateNotebookCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4080,12 +3959,12 @@ export const de_UpdateNotebookMetadataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateNotebookMetadataOutput(data, context);
+  contents = _json(data);
   const response: UpdateNotebookMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4112,10 +3991,9 @@ const de_UpdateNotebookMetadataCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4133,12 +4011,12 @@ export const de_UpdatePreparedStatementCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdatePreparedStatementOutput(data, context);
+  contents = _json(data);
   const response: UpdatePreparedStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4165,10 +4043,9 @@ const de_UpdatePreparedStatementCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4186,12 +4063,12 @@ export const de_UpdateWorkGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateWorkGroupOutput(data, context);
+  contents = _json(data);
   const response: UpdateWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4215,10 +4092,9 @@ const de_UpdateWorkGroupCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4232,7 +4108,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4248,7 +4124,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4261,7 +4137,7 @@ const de_InvalidRequestExceptionRes = async (
  */
 const de_MetadataExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<MetadataException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MetadataException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MetadataException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4277,7 +4153,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4293,7 +4169,7 @@ const de_SessionAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<SessionAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SessionAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SessionAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4309,7 +4185,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyRequestsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4317,1066 +4193,240 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AclConfiguration
- */
-const se_AclConfiguration = (input: AclConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.S3AclOption != null && { S3AclOption: input.S3AclOption }),
-  };
-};
+// se_AclConfiguration omitted.
 
-/**
- * serializeAws_json1_1BatchGetNamedQueryInput
- */
-const se_BatchGetNamedQueryInput = (input: BatchGetNamedQueryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.NamedQueryIds != null && { NamedQueryIds: se_NamedQueryIdList(input.NamedQueryIds, context) }),
-  };
-};
+// se_BatchGetNamedQueryInput omitted.
 
-/**
- * serializeAws_json1_1BatchGetPreparedStatementInput
- */
-const se_BatchGetPreparedStatementInput = (input: BatchGetPreparedStatementInput, context: __SerdeContext): any => {
-  return {
-    ...(input.PreparedStatementNames != null && {
-      PreparedStatementNames: se_PreparedStatementNameList(input.PreparedStatementNames, context),
-    }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_BatchGetPreparedStatementInput omitted.
 
-/**
- * serializeAws_json1_1BatchGetQueryExecutionInput
- */
-const se_BatchGetQueryExecutionInput = (input: BatchGetQueryExecutionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.QueryExecutionIds != null && {
-      QueryExecutionIds: se_QueryExecutionIdList(input.QueryExecutionIds, context),
-    }),
-  };
-};
+// se_BatchGetQueryExecutionInput omitted.
 
-/**
- * serializeAws_json1_1CalculationConfiguration
- */
-const se_CalculationConfiguration = (input: CalculationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.CodeBlock != null && { CodeBlock: input.CodeBlock }),
-  };
-};
+// se_CalculationConfiguration omitted.
 
-/**
- * serializeAws_json1_1CreateDataCatalogInput
- */
-const se_CreateDataCatalogInput = (input: CreateDataCatalogInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Parameters != null && { Parameters: se_ParametersMap(input.Parameters, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_CreateDataCatalogInput omitted.
 
 /**
  * serializeAws_json1_1CreateNamedQueryInput
  */
 const se_CreateNamedQueryInput = (input: CreateNamedQueryInput, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Database != null && { Database: input.Database }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.QueryString != null && { QueryString: input.QueryString }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    Database: [],
+    Description: [],
+    Name: [],
+    QueryString: [],
+    WorkGroup: [],
+  });
 };
 
-/**
- * serializeAws_json1_1CreateNotebookInput
- */
-const se_CreateNotebookInput = (input: CreateNotebookInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_CreateNotebookInput omitted.
 
-/**
- * serializeAws_json1_1CreatePreparedStatementInput
- */
-const se_CreatePreparedStatementInput = (input: CreatePreparedStatementInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.QueryStatement != null && { QueryStatement: input.QueryStatement }),
-    ...(input.StatementName != null && { StatementName: input.StatementName }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_CreatePreparedStatementInput omitted.
 
-/**
- * serializeAws_json1_1CreatePresignedNotebookUrlRequest
- */
-const se_CreatePresignedNotebookUrlRequest = (
-  input: CreatePresignedNotebookUrlRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-  };
-};
+// se_CreatePresignedNotebookUrlRequest omitted.
 
-/**
- * serializeAws_json1_1CreateWorkGroupInput
- */
-const se_CreateWorkGroupInput = (input: CreateWorkGroupInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Configuration != null && { Configuration: se_WorkGroupConfiguration(input.Configuration, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateWorkGroupInput omitted.
 
-/**
- * serializeAws_json1_1CustomerContentEncryptionConfiguration
- */
-const se_CustomerContentEncryptionConfiguration = (
-  input: CustomerContentEncryptionConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
-  };
-};
+// se_CustomerContentEncryptionConfiguration omitted.
 
-/**
- * serializeAws_json1_1DeleteDataCatalogInput
- */
-const se_DeleteDataCatalogInput = (input: DeleteDataCatalogInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteDataCatalogInput omitted.
 
 /**
  * serializeAws_json1_1DeleteNamedQueryInput
  */
 const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __SerdeContext): any => {
-  return {
-    NamedQueryId: input.NamedQueryId ?? generateIdempotencyToken(),
-  };
+  return take(input, {
+    NamedQueryId: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
-/**
- * serializeAws_json1_1DeleteNotebookInput
- */
-const se_DeleteNotebookInput = (input: DeleteNotebookInput, context: __SerdeContext): any => {
-  return {
-    ...(input.NotebookId != null && { NotebookId: input.NotebookId }),
-  };
-};
+// se_DeleteNotebookInput omitted.
 
-/**
- * serializeAws_json1_1DeletePreparedStatementInput
- */
-const se_DeletePreparedStatementInput = (input: DeletePreparedStatementInput, context: __SerdeContext): any => {
-  return {
-    ...(input.StatementName != null && { StatementName: input.StatementName }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_DeletePreparedStatementInput omitted.
 
-/**
- * serializeAws_json1_1DeleteWorkGroupInput
- */
-const se_DeleteWorkGroupInput = (input: DeleteWorkGroupInput, context: __SerdeContext): any => {
-  return {
-    ...(input.RecursiveDeleteOption != null && { RecursiveDeleteOption: input.RecursiveDeleteOption }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_DeleteWorkGroupInput omitted.
 
-/**
- * serializeAws_json1_1EncryptionConfiguration
- */
-const se_EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionOption != null && { EncryptionOption: input.EncryptionOption }),
-    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
-  };
-};
+// se_EncryptionConfiguration omitted.
 
-/**
- * serializeAws_json1_1EngineConfiguration
- */
-const se_EngineConfiguration = (input: EngineConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalConfigs != null && { AdditionalConfigs: se_ParametersMap(input.AdditionalConfigs, context) }),
-    ...(input.CoordinatorDpuSize != null && { CoordinatorDpuSize: input.CoordinatorDpuSize }),
-    ...(input.DefaultExecutorDpuSize != null && { DefaultExecutorDpuSize: input.DefaultExecutorDpuSize }),
-    ...(input.MaxConcurrentDpus != null && { MaxConcurrentDpus: input.MaxConcurrentDpus }),
-  };
-};
+// se_EngineConfiguration omitted.
 
-/**
- * serializeAws_json1_1EngineVersion
- */
-const se_EngineVersion = (input: EngineVersion, context: __SerdeContext): any => {
-  return {
-    ...(input.EffectiveEngineVersion != null && { EffectiveEngineVersion: input.EffectiveEngineVersion }),
-    ...(input.SelectedEngineVersion != null && { SelectedEngineVersion: input.SelectedEngineVersion }),
-  };
-};
+// se_EngineVersion omitted.
 
-/**
- * serializeAws_json1_1ExecutionParameters
- */
-const se_ExecutionParameters = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExecutionParameters omitted.
 
-/**
- * serializeAws_json1_1ExportNotebookInput
- */
-const se_ExportNotebookInput = (input: ExportNotebookInput, context: __SerdeContext): any => {
-  return {
-    ...(input.NotebookId != null && { NotebookId: input.NotebookId }),
-  };
-};
+// se_ExportNotebookInput omitted.
 
-/**
- * serializeAws_json1_1FilterDefinition
- */
-const se_FilterDefinition = (input: FilterDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_FilterDefinition omitted.
 
-/**
- * serializeAws_json1_1GetCalculationExecutionCodeRequest
- */
-const se_GetCalculationExecutionCodeRequest = (
-  input: GetCalculationExecutionCodeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CalculationExecutionId != null && { CalculationExecutionId: input.CalculationExecutionId }),
-  };
-};
+// se_GetCalculationExecutionCodeRequest omitted.
 
-/**
- * serializeAws_json1_1GetCalculationExecutionRequest
- */
-const se_GetCalculationExecutionRequest = (input: GetCalculationExecutionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CalculationExecutionId != null && { CalculationExecutionId: input.CalculationExecutionId }),
-  };
-};
+// se_GetCalculationExecutionRequest omitted.
 
-/**
- * serializeAws_json1_1GetCalculationExecutionStatusRequest
- */
-const se_GetCalculationExecutionStatusRequest = (
-  input: GetCalculationExecutionStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CalculationExecutionId != null && { CalculationExecutionId: input.CalculationExecutionId }),
-  };
-};
+// se_GetCalculationExecutionStatusRequest omitted.
 
-/**
- * serializeAws_json1_1GetDatabaseInput
- */
-const se_GetDatabaseInput = (input: GetDatabaseInput, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogName != null && { CatalogName: input.CatalogName }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-  };
-};
+// se_GetDatabaseInput omitted.
 
-/**
- * serializeAws_json1_1GetDataCatalogInput
- */
-const se_GetDataCatalogInput = (input: GetDataCatalogInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_GetDataCatalogInput omitted.
 
-/**
- * serializeAws_json1_1GetNamedQueryInput
- */
-const se_GetNamedQueryInput = (input: GetNamedQueryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.NamedQueryId != null && { NamedQueryId: input.NamedQueryId }),
-  };
-};
+// se_GetNamedQueryInput omitted.
 
-/**
- * serializeAws_json1_1GetNotebookMetadataInput
- */
-const se_GetNotebookMetadataInput = (input: GetNotebookMetadataInput, context: __SerdeContext): any => {
-  return {
-    ...(input.NotebookId != null && { NotebookId: input.NotebookId }),
-  };
-};
+// se_GetNotebookMetadataInput omitted.
 
-/**
- * serializeAws_json1_1GetPreparedStatementInput
- */
-const se_GetPreparedStatementInput = (input: GetPreparedStatementInput, context: __SerdeContext): any => {
-  return {
-    ...(input.StatementName != null && { StatementName: input.StatementName }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_GetPreparedStatementInput omitted.
 
-/**
- * serializeAws_json1_1GetQueryExecutionInput
- */
-const se_GetQueryExecutionInput = (input: GetQueryExecutionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.QueryExecutionId != null && { QueryExecutionId: input.QueryExecutionId }),
-  };
-};
+// se_GetQueryExecutionInput omitted.
 
-/**
- * serializeAws_json1_1GetQueryResultsInput
- */
-const se_GetQueryResultsInput = (input: GetQueryResultsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.QueryExecutionId != null && { QueryExecutionId: input.QueryExecutionId }),
-  };
-};
+// se_GetQueryResultsInput omitted.
 
-/**
- * serializeAws_json1_1GetQueryRuntimeStatisticsInput
- */
-const se_GetQueryRuntimeStatisticsInput = (input: GetQueryRuntimeStatisticsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.QueryExecutionId != null && { QueryExecutionId: input.QueryExecutionId }),
-  };
-};
+// se_GetQueryRuntimeStatisticsInput omitted.
 
-/**
- * serializeAws_json1_1GetSessionRequest
- */
-const se_GetSessionRequest = (input: GetSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-  };
-};
+// se_GetSessionRequest omitted.
 
-/**
- * serializeAws_json1_1GetSessionStatusRequest
- */
-const se_GetSessionStatusRequest = (input: GetSessionStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-  };
-};
+// se_GetSessionStatusRequest omitted.
 
-/**
- * serializeAws_json1_1GetTableMetadataInput
- */
-const se_GetTableMetadataInput = (input: GetTableMetadataInput, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogName != null && { CatalogName: input.CatalogName }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  };
-};
+// se_GetTableMetadataInput omitted.
 
-/**
- * serializeAws_json1_1GetWorkGroupInput
- */
-const se_GetWorkGroupInput = (input: GetWorkGroupInput, context: __SerdeContext): any => {
-  return {
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_GetWorkGroupInput omitted.
 
-/**
- * serializeAws_json1_1ImportNotebookInput
- */
-const se_ImportNotebookInput = (input: ImportNotebookInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Payload != null && { Payload: input.Payload }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_ImportNotebookInput omitted.
 
-/**
- * serializeAws_json1_1ListApplicationDPUSizesInput
- */
-const se_ListApplicationDPUSizesInput = (input: ListApplicationDPUSizesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListApplicationDPUSizesInput omitted.
 
-/**
- * serializeAws_json1_1ListCalculationExecutionsRequest
- */
-const se_ListCalculationExecutionsRequest = (input: ListCalculationExecutionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-    ...(input.StateFilter != null && { StateFilter: input.StateFilter }),
-  };
-};
+// se_ListCalculationExecutionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListDatabasesInput
- */
-const se_ListDatabasesInput = (input: ListDatabasesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogName != null && { CatalogName: input.CatalogName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDatabasesInput omitted.
 
-/**
- * serializeAws_json1_1ListDataCatalogsInput
- */
-const se_ListDataCatalogsInput = (input: ListDataCatalogsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDataCatalogsInput omitted.
 
-/**
- * serializeAws_json1_1ListEngineVersionsInput
- */
-const se_ListEngineVersionsInput = (input: ListEngineVersionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListEngineVersionsInput omitted.
 
-/**
- * serializeAws_json1_1ListExecutorsRequest
- */
-const se_ListExecutorsRequest = (input: ListExecutorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExecutorStateFilter != null && { ExecutorStateFilter: input.ExecutorStateFilter }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-  };
-};
+// se_ListExecutorsRequest omitted.
 
-/**
- * serializeAws_json1_1ListNamedQueriesInput
- */
-const se_ListNamedQueriesInput = (input: ListNamedQueriesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_ListNamedQueriesInput omitted.
 
-/**
- * serializeAws_json1_1ListNotebookMetadataInput
- */
-const se_ListNotebookMetadataInput = (input: ListNotebookMetadataInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FilterDefinition(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_ListNotebookMetadataInput omitted.
 
-/**
- * serializeAws_json1_1ListNotebookSessionsRequest
- */
-const se_ListNotebookSessionsRequest = (input: ListNotebookSessionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.NotebookId != null && { NotebookId: input.NotebookId }),
-  };
-};
+// se_ListNotebookSessionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListPreparedStatementsInput
- */
-const se_ListPreparedStatementsInput = (input: ListPreparedStatementsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_ListPreparedStatementsInput omitted.
 
-/**
- * serializeAws_json1_1ListQueryExecutionsInput
- */
-const se_ListQueryExecutionsInput = (input: ListQueryExecutionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_ListQueryExecutionsInput omitted.
 
-/**
- * serializeAws_json1_1ListSessionsRequest
- */
-const se_ListSessionsRequest = (input: ListSessionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StateFilter != null && { StateFilter: input.StateFilter }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_ListSessionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTableMetadataInput
- */
-const se_ListTableMetadataInput = (input: ListTableMetadataInput, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogName != null && { CatalogName: input.CatalogName }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Expression != null && { Expression: input.Expression }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListTableMetadataInput omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceInput
- */
-const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceInput omitted.
 
-/**
- * serializeAws_json1_1ListWorkGroupsInput
- */
-const se_ListWorkGroupsInput = (input: ListWorkGroupsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListWorkGroupsInput omitted.
 
-/**
- * serializeAws_json1_1NamedQueryIdList
- */
-const se_NamedQueryIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NamedQueryIdList omitted.
 
-/**
- * serializeAws_json1_1ParametersMap
- */
-const se_ParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ParametersMap omitted.
 
-/**
- * serializeAws_json1_1PreparedStatementNameList
- */
-const se_PreparedStatementNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PreparedStatementNameList omitted.
 
-/**
- * serializeAws_json1_1QueryExecutionContext
- */
-const se_QueryExecutionContext = (input: QueryExecutionContext, context: __SerdeContext): any => {
-  return {
-    ...(input.Catalog != null && { Catalog: input.Catalog }),
-    ...(input.Database != null && { Database: input.Database }),
-  };
-};
+// se_QueryExecutionContext omitted.
 
-/**
- * serializeAws_json1_1QueryExecutionIdList
- */
-const se_QueryExecutionIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_QueryExecutionIdList omitted.
 
-/**
- * serializeAws_json1_1ResultConfiguration
- */
-const se_ResultConfiguration = (input: ResultConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AclConfiguration != null && { AclConfiguration: se_AclConfiguration(input.AclConfiguration, context) }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.ExpectedBucketOwner != null && { ExpectedBucketOwner: input.ExpectedBucketOwner }),
-    ...(input.OutputLocation != null && { OutputLocation: input.OutputLocation }),
-  };
-};
+// se_ResultConfiguration omitted.
 
-/**
- * serializeAws_json1_1ResultConfigurationUpdates
- */
-const se_ResultConfigurationUpdates = (input: ResultConfigurationUpdates, context: __SerdeContext): any => {
-  return {
-    ...(input.AclConfiguration != null && { AclConfiguration: se_AclConfiguration(input.AclConfiguration, context) }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.ExpectedBucketOwner != null && { ExpectedBucketOwner: input.ExpectedBucketOwner }),
-    ...(input.OutputLocation != null && { OutputLocation: input.OutputLocation }),
-    ...(input.RemoveAclConfiguration != null && { RemoveAclConfiguration: input.RemoveAclConfiguration }),
-    ...(input.RemoveEncryptionConfiguration != null && {
-      RemoveEncryptionConfiguration: input.RemoveEncryptionConfiguration,
-    }),
-    ...(input.RemoveExpectedBucketOwner != null && { RemoveExpectedBucketOwner: input.RemoveExpectedBucketOwner }),
-    ...(input.RemoveOutputLocation != null && { RemoveOutputLocation: input.RemoveOutputLocation }),
-  };
-};
+// se_ResultConfigurationUpdates omitted.
 
-/**
- * serializeAws_json1_1ResultReuseByAgeConfiguration
- */
-const se_ResultReuseByAgeConfiguration = (input: ResultReuseByAgeConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.MaxAgeInMinutes != null && { MaxAgeInMinutes: input.MaxAgeInMinutes }),
-  };
-};
+// se_ResultReuseByAgeConfiguration omitted.
 
-/**
- * serializeAws_json1_1ResultReuseConfiguration
- */
-const se_ResultReuseConfiguration = (input: ResultReuseConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ResultReuseByAgeConfiguration != null && {
-      ResultReuseByAgeConfiguration: se_ResultReuseByAgeConfiguration(input.ResultReuseByAgeConfiguration, context),
-    }),
-  };
-};
+// se_ResultReuseConfiguration omitted.
 
-/**
- * serializeAws_json1_1StartCalculationExecutionRequest
- */
-const se_StartCalculationExecutionRequest = (input: StartCalculationExecutionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CalculationConfiguration != null && {
-      CalculationConfiguration: se_CalculationConfiguration(input.CalculationConfiguration, context),
-    }),
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.CodeBlock != null && { CodeBlock: input.CodeBlock }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-  };
-};
+// se_StartCalculationExecutionRequest omitted.
 
 /**
  * serializeAws_json1_1StartQueryExecutionInput
  */
 const se_StartQueryExecutionInput = (input: StartQueryExecutionInput, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExecutionParameters != null && {
-      ExecutionParameters: se_ExecutionParameters(input.ExecutionParameters, context),
-    }),
-    ...(input.QueryExecutionContext != null && {
-      QueryExecutionContext: se_QueryExecutionContext(input.QueryExecutionContext, context),
-    }),
-    ...(input.QueryString != null && { QueryString: input.QueryString }),
-    ...(input.ResultConfiguration != null && {
-      ResultConfiguration: se_ResultConfiguration(input.ResultConfiguration, context),
-    }),
-    ...(input.ResultReuseConfiguration != null && {
-      ResultReuseConfiguration: se_ResultReuseConfiguration(input.ResultReuseConfiguration, context),
-    }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ExecutionParameters: _json,
+    QueryExecutionContext: _json,
+    QueryString: [],
+    ResultConfiguration: _json,
+    ResultReuseConfiguration: _json,
+    WorkGroup: [],
+  });
 };
 
-/**
- * serializeAws_json1_1StartSessionRequest
- */
-const se_StartSessionRequest = (input: StartSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EngineConfiguration != null && {
-      EngineConfiguration: se_EngineConfiguration(input.EngineConfiguration, context),
-    }),
-    ...(input.NotebookVersion != null && { NotebookVersion: input.NotebookVersion }),
-    ...(input.SessionIdleTimeoutInMinutes != null && {
-      SessionIdleTimeoutInMinutes: input.SessionIdleTimeoutInMinutes,
-    }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_StartSessionRequest omitted.
 
-/**
- * serializeAws_json1_1StopCalculationExecutionRequest
- */
-const se_StopCalculationExecutionRequest = (input: StopCalculationExecutionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CalculationExecutionId != null && { CalculationExecutionId: input.CalculationExecutionId }),
-  };
-};
+// se_StopCalculationExecutionRequest omitted.
 
 /**
  * serializeAws_json1_1StopQueryExecutionInput
  */
 const se_StopQueryExecutionInput = (input: StopQueryExecutionInput, context: __SerdeContext): any => {
-  return {
-    QueryExecutionId: input.QueryExecutionId ?? generateIdempotencyToken(),
-  };
+  return take(input, {
+    QueryExecutionId: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceInput
- */
-const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceInput omitted.
 
-/**
- * serializeAws_json1_1TerminateSessionRequest
- */
-const se_TerminateSessionRequest = (input: TerminateSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-  };
-};
+// se_TerminateSessionRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceInput
- */
-const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceInput omitted.
 
-/**
- * serializeAws_json1_1UpdateDataCatalogInput
- */
-const se_UpdateDataCatalogInput = (input: UpdateDataCatalogInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Parameters != null && { Parameters: se_ParametersMap(input.Parameters, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_UpdateDataCatalogInput omitted.
 
-/**
- * serializeAws_json1_1UpdateNamedQueryInput
- */
-const se_UpdateNamedQueryInput = (input: UpdateNamedQueryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NamedQueryId != null && { NamedQueryId: input.NamedQueryId }),
-    ...(input.QueryString != null && { QueryString: input.QueryString }),
-  };
-};
+// se_UpdateNamedQueryInput omitted.
 
-/**
- * serializeAws_json1_1UpdateNotebookInput
- */
-const se_UpdateNotebookInput = (input: UpdateNotebookInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.NotebookId != null && { NotebookId: input.NotebookId }),
-    ...(input.Payload != null && { Payload: input.Payload }),
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_UpdateNotebookInput omitted.
 
-/**
- * serializeAws_json1_1UpdateNotebookMetadataInput
- */
-const se_UpdateNotebookMetadataInput = (input: UpdateNotebookMetadataInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NotebookId != null && { NotebookId: input.NotebookId }),
-  };
-};
+// se_UpdateNotebookMetadataInput omitted.
 
-/**
- * serializeAws_json1_1UpdatePreparedStatementInput
- */
-const se_UpdatePreparedStatementInput = (input: UpdatePreparedStatementInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.QueryStatement != null && { QueryStatement: input.QueryStatement }),
-    ...(input.StatementName != null && { StatementName: input.StatementName }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_UpdatePreparedStatementInput omitted.
 
-/**
- * serializeAws_json1_1UpdateWorkGroupInput
- */
-const se_UpdateWorkGroupInput = (input: UpdateWorkGroupInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationUpdates != null && {
-      ConfigurationUpdates: se_WorkGroupConfigurationUpdates(input.ConfigurationUpdates, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.State != null && { State: input.State }),
-    ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
-  };
-};
+// se_UpdateWorkGroupInput omitted.
 
-/**
- * serializeAws_json1_1WorkGroupConfiguration
- */
-const se_WorkGroupConfiguration = (input: WorkGroupConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalConfiguration != null && { AdditionalConfiguration: input.AdditionalConfiguration }),
-    ...(input.BytesScannedCutoffPerQuery != null && { BytesScannedCutoffPerQuery: input.BytesScannedCutoffPerQuery }),
-    ...(input.CustomerContentEncryptionConfiguration != null && {
-      CustomerContentEncryptionConfiguration: se_CustomerContentEncryptionConfiguration(
-        input.CustomerContentEncryptionConfiguration,
-        context
-      ),
-    }),
-    ...(input.EnableMinimumEncryptionConfiguration != null && {
-      EnableMinimumEncryptionConfiguration: input.EnableMinimumEncryptionConfiguration,
-    }),
-    ...(input.EnforceWorkGroupConfiguration != null && {
-      EnforceWorkGroupConfiguration: input.EnforceWorkGroupConfiguration,
-    }),
-    ...(input.EngineVersion != null && { EngineVersion: se_EngineVersion(input.EngineVersion, context) }),
-    ...(input.ExecutionRole != null && { ExecutionRole: input.ExecutionRole }),
-    ...(input.PublishCloudWatchMetricsEnabled != null && {
-      PublishCloudWatchMetricsEnabled: input.PublishCloudWatchMetricsEnabled,
-    }),
-    ...(input.RequesterPaysEnabled != null && { RequesterPaysEnabled: input.RequesterPaysEnabled }),
-    ...(input.ResultConfiguration != null && {
-      ResultConfiguration: se_ResultConfiguration(input.ResultConfiguration, context),
-    }),
-  };
-};
+// se_WorkGroupConfiguration omitted.
 
-/**
- * serializeAws_json1_1WorkGroupConfigurationUpdates
- */
-const se_WorkGroupConfigurationUpdates = (input: WorkGroupConfigurationUpdates, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalConfiguration != null && { AdditionalConfiguration: input.AdditionalConfiguration }),
-    ...(input.BytesScannedCutoffPerQuery != null && { BytesScannedCutoffPerQuery: input.BytesScannedCutoffPerQuery }),
-    ...(input.CustomerContentEncryptionConfiguration != null && {
-      CustomerContentEncryptionConfiguration: se_CustomerContentEncryptionConfiguration(
-        input.CustomerContentEncryptionConfiguration,
-        context
-      ),
-    }),
-    ...(input.EnableMinimumEncryptionConfiguration != null && {
-      EnableMinimumEncryptionConfiguration: input.EnableMinimumEncryptionConfiguration,
-    }),
-    ...(input.EnforceWorkGroupConfiguration != null && {
-      EnforceWorkGroupConfiguration: input.EnforceWorkGroupConfiguration,
-    }),
-    ...(input.EngineVersion != null && { EngineVersion: se_EngineVersion(input.EngineVersion, context) }),
-    ...(input.ExecutionRole != null && { ExecutionRole: input.ExecutionRole }),
-    ...(input.PublishCloudWatchMetricsEnabled != null && {
-      PublishCloudWatchMetricsEnabled: input.PublishCloudWatchMetricsEnabled,
-    }),
-    ...(input.RemoveBytesScannedCutoffPerQuery != null && {
-      RemoveBytesScannedCutoffPerQuery: input.RemoveBytesScannedCutoffPerQuery,
-    }),
-    ...(input.RemoveCustomerContentEncryptionConfiguration != null && {
-      RemoveCustomerContentEncryptionConfiguration: input.RemoveCustomerContentEncryptionConfiguration,
-    }),
-    ...(input.RequesterPaysEnabled != null && { RequesterPaysEnabled: input.RequesterPaysEnabled }),
-    ...(input.ResultConfigurationUpdates != null && {
-      ResultConfigurationUpdates: se_ResultConfigurationUpdates(input.ResultConfigurationUpdates, context),
-    }),
-  };
-};
+// se_WorkGroupConfigurationUpdates omitted.
 
-/**
- * deserializeAws_json1_1AclConfiguration
- */
-const de_AclConfiguration = (output: any, context: __SerdeContext): AclConfiguration => {
-  return {
-    S3AclOption: __expectString(output.S3AclOption),
-  } as any;
-};
+// de_AclConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ApplicationDPUSizes
- */
-const de_ApplicationDPUSizes = (output: any, context: __SerdeContext): ApplicationDPUSizes => {
-  return {
-    ApplicationRuntimeId: __expectString(output.ApplicationRuntimeId),
-    SupportedDPUSizes:
-      output.SupportedDPUSizes != null ? de_SupportedDPUSizeList(output.SupportedDPUSizes, context) : undefined,
-  } as any;
-};
+// de_ApplicationDPUSizes omitted.
 
-/**
- * deserializeAws_json1_1ApplicationDPUSizesList
- */
-const de_ApplicationDPUSizesList = (output: any, context: __SerdeContext): ApplicationDPUSizes[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ApplicationDPUSizes(entry, context);
-    });
-  return retVal;
-};
+// de_ApplicationDPUSizesList omitted.
 
-/**
- * deserializeAws_json1_1AthenaError
- */
-const de_AthenaError = (output: any, context: __SerdeContext): AthenaError => {
-  return {
-    ErrorCategory: __expectInt32(output.ErrorCategory),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ErrorType: __expectInt32(output.ErrorType),
-    Retryable: __expectBoolean(output.Retryable),
-  } as any;
-};
+// de_AthenaError omitted.
 
-/**
- * deserializeAws_json1_1BatchGetNamedQueryOutput
- */
-const de_BatchGetNamedQueryOutput = (output: any, context: __SerdeContext): BatchGetNamedQueryOutput => {
-  return {
-    NamedQueries: output.NamedQueries != null ? de_NamedQueryList(output.NamedQueries, context) : undefined,
-    UnprocessedNamedQueryIds:
-      output.UnprocessedNamedQueryIds != null
-        ? de_UnprocessedNamedQueryIdList(output.UnprocessedNamedQueryIds, context)
-        : undefined,
-  } as any;
-};
+// de_BatchGetNamedQueryOutput omitted.
 
 /**
  * deserializeAws_json1_1BatchGetPreparedStatementOutput
  */
 const de_BatchGetPreparedStatementOutput = (output: any, context: __SerdeContext): BatchGetPreparedStatementOutput => {
-  return {
-    PreparedStatements:
-      output.PreparedStatements != null
-        ? de_PreparedStatementDetailsList(output.PreparedStatements, context)
-        : undefined,
-    UnprocessedPreparedStatementNames:
-      output.UnprocessedPreparedStatementNames != null
-        ? de_UnprocessedPreparedStatementNameList(output.UnprocessedPreparedStatementNames, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    PreparedStatements: (_: any) => de_PreparedStatementDetailsList(_, context),
+    UnprocessedPreparedStatementNames: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchGetQueryExecutionOutput
  */
 const de_BatchGetQueryExecutionOutput = (output: any, context: __SerdeContext): BatchGetQueryExecutionOutput => {
-  return {
-    QueryExecutions:
-      output.QueryExecutions != null ? de_QueryExecutionList(output.QueryExecutions, context) : undefined,
-    UnprocessedQueryExecutionIds:
-      output.UnprocessedQueryExecutionIds != null
-        ? de_UnprocessedQueryExecutionIdList(output.UnprocessedQueryExecutionIds, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    QueryExecutions: (_: any) => de_QueryExecutionList(_, context),
+    UnprocessedQueryExecutionIds: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CalculationResult
- */
-const de_CalculationResult = (output: any, context: __SerdeContext): CalculationResult => {
-  return {
-    ResultS3Uri: __expectString(output.ResultS3Uri),
-    ResultType: __expectString(output.ResultType),
-    StdErrorS3Uri: __expectString(output.StdErrorS3Uri),
-    StdOutS3Uri: __expectString(output.StdOutS3Uri),
-  } as any;
-};
+// de_CalculationResult omitted.
 
 /**
  * deserializeAws_json1_1CalculationsList
@@ -5385,427 +4435,121 @@ const de_CalculationsList = (output: any, context: __SerdeContext): CalculationS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CalculationSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CalculationStatistics
- */
-const de_CalculationStatistics = (output: any, context: __SerdeContext): CalculationStatistics => {
-  return {
-    DpuExecutionInMillis: __expectLong(output.DpuExecutionInMillis),
-    Progress: __expectString(output.Progress),
-  } as any;
-};
+// de_CalculationStatistics omitted.
 
 /**
  * deserializeAws_json1_1CalculationStatus
  */
 const de_CalculationStatus = (output: any, context: __SerdeContext): CalculationStatus => {
-  return {
-    CompletionDateTime:
-      output.CompletionDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDateTime)))
-        : undefined,
-    State: __expectString(output.State),
-    StateChangeReason: __expectString(output.StateChangeReason),
-    SubmissionDateTime:
-      output.SubmissionDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmissionDateTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    CompletionDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateChangeReason: __expectString,
+    SubmissionDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CalculationSummary
  */
 const de_CalculationSummary = (output: any, context: __SerdeContext): CalculationSummary => {
-  return {
-    CalculationExecutionId: __expectString(output.CalculationExecutionId),
-    Description: __expectString(output.Description),
-    Status: output.Status != null ? de_CalculationStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    CalculationExecutionId: __expectString,
+    Description: __expectString,
+    Status: (_: any) => de_CalculationStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Column
- */
-const de_Column = (output: any, context: __SerdeContext): Column => {
-  return {
-    Comment: __expectString(output.Comment),
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Column omitted.
 
-/**
- * deserializeAws_json1_1ColumnInfo
- */
-const de_ColumnInfo = (output: any, context: __SerdeContext): ColumnInfo => {
-  return {
-    CaseSensitive: __expectBoolean(output.CaseSensitive),
-    CatalogName: __expectString(output.CatalogName),
-    Label: __expectString(output.Label),
-    Name: __expectString(output.Name),
-    Nullable: __expectString(output.Nullable),
-    Precision: __expectInt32(output.Precision),
-    Scale: __expectInt32(output.Scale),
-    SchemaName: __expectString(output.SchemaName),
-    TableName: __expectString(output.TableName),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ColumnInfo omitted.
 
-/**
- * deserializeAws_json1_1ColumnInfoList
- */
-const de_ColumnInfoList = (output: any, context: __SerdeContext): ColumnInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ColumnInfo(entry, context);
-    });
-  return retVal;
-};
+// de_ColumnInfoList omitted.
 
-/**
- * deserializeAws_json1_1ColumnList
- */
-const de_ColumnList = (output: any, context: __SerdeContext): Column[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Column(entry, context);
-    });
-  return retVal;
-};
+// de_ColumnList omitted.
 
-/**
- * deserializeAws_json1_1CreateDataCatalogOutput
- */
-const de_CreateDataCatalogOutput = (output: any, context: __SerdeContext): CreateDataCatalogOutput => {
-  return {} as any;
-};
+// de_CreateDataCatalogOutput omitted.
 
-/**
- * deserializeAws_json1_1CreateNamedQueryOutput
- */
-const de_CreateNamedQueryOutput = (output: any, context: __SerdeContext): CreateNamedQueryOutput => {
-  return {
-    NamedQueryId: __expectString(output.NamedQueryId),
-  } as any;
-};
+// de_CreateNamedQueryOutput omitted.
 
-/**
- * deserializeAws_json1_1CreateNotebookOutput
- */
-const de_CreateNotebookOutput = (output: any, context: __SerdeContext): CreateNotebookOutput => {
-  return {
-    NotebookId: __expectString(output.NotebookId),
-  } as any;
-};
+// de_CreateNotebookOutput omitted.
 
-/**
- * deserializeAws_json1_1CreatePreparedStatementOutput
- */
-const de_CreatePreparedStatementOutput = (output: any, context: __SerdeContext): CreatePreparedStatementOutput => {
-  return {} as any;
-};
+// de_CreatePreparedStatementOutput omitted.
 
-/**
- * deserializeAws_json1_1CreatePresignedNotebookUrlResponse
- */
-const de_CreatePresignedNotebookUrlResponse = (
-  output: any,
-  context: __SerdeContext
-): CreatePresignedNotebookUrlResponse => {
-  return {
-    AuthToken: __expectString(output.AuthToken),
-    AuthTokenExpirationTime: __expectLong(output.AuthTokenExpirationTime),
-    NotebookUrl: __expectString(output.NotebookUrl),
-  } as any;
-};
+// de_CreatePresignedNotebookUrlResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateWorkGroupOutput
- */
-const de_CreateWorkGroupOutput = (output: any, context: __SerdeContext): CreateWorkGroupOutput => {
-  return {} as any;
-};
+// de_CreateWorkGroupOutput omitted.
 
-/**
- * deserializeAws_json1_1CustomerContentEncryptionConfiguration
- */
-const de_CustomerContentEncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CustomerContentEncryptionConfiguration => {
-  return {
-    KmsKey: __expectString(output.KmsKey),
-  } as any;
-};
+// de_CustomerContentEncryptionConfiguration omitted.
 
-/**
- * deserializeAws_json1_1Database
- */
-const de_Database = (output: any, context: __SerdeContext): Database => {
-  return {
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-    Parameters: output.Parameters != null ? de_ParametersMap(output.Parameters, context) : undefined,
-  } as any;
-};
+// de_Database omitted.
 
-/**
- * deserializeAws_json1_1DatabaseList
- */
-const de_DatabaseList = (output: any, context: __SerdeContext): Database[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Database(entry, context);
-    });
-  return retVal;
-};
+// de_DatabaseList omitted.
 
-/**
- * deserializeAws_json1_1DataCatalog
- */
-const de_DataCatalog = (output: any, context: __SerdeContext): DataCatalog => {
-  return {
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-    Parameters: output.Parameters != null ? de_ParametersMap(output.Parameters, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_DataCatalog omitted.
 
-/**
- * deserializeAws_json1_1DataCatalogSummary
- */
-const de_DataCatalogSummary = (output: any, context: __SerdeContext): DataCatalogSummary => {
-  return {
-    CatalogName: __expectString(output.CatalogName),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_DataCatalogSummary omitted.
 
-/**
- * deserializeAws_json1_1DataCatalogSummaryList
- */
-const de_DataCatalogSummaryList = (output: any, context: __SerdeContext): DataCatalogSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataCatalogSummary(entry, context);
-    });
-  return retVal;
-};
+// de_DataCatalogSummaryList omitted.
 
-/**
- * deserializeAws_json1_1Datum
- */
-const de_Datum = (output: any, context: __SerdeContext): Datum => {
-  return {
-    VarCharValue: __expectString(output.VarCharValue),
-  } as any;
-};
+// de_Datum omitted.
 
-/**
- * deserializeAws_json1_1datumList
- */
-const de_datumList = (output: any, context: __SerdeContext): Datum[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Datum(entry, context);
-    });
-  return retVal;
-};
+// de_datumList omitted.
 
-/**
- * deserializeAws_json1_1DeleteDataCatalogOutput
- */
-const de_DeleteDataCatalogOutput = (output: any, context: __SerdeContext): DeleteDataCatalogOutput => {
-  return {} as any;
-};
+// de_DeleteDataCatalogOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteNamedQueryOutput
- */
-const de_DeleteNamedQueryOutput = (output: any, context: __SerdeContext): DeleteNamedQueryOutput => {
-  return {} as any;
-};
+// de_DeleteNamedQueryOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteNotebookOutput
- */
-const de_DeleteNotebookOutput = (output: any, context: __SerdeContext): DeleteNotebookOutput => {
-  return {} as any;
-};
+// de_DeleteNotebookOutput omitted.
 
-/**
- * deserializeAws_json1_1DeletePreparedStatementOutput
- */
-const de_DeletePreparedStatementOutput = (output: any, context: __SerdeContext): DeletePreparedStatementOutput => {
-  return {} as any;
-};
+// de_DeletePreparedStatementOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteWorkGroupOutput
- */
-const de_DeleteWorkGroupOutput = (output: any, context: __SerdeContext): DeleteWorkGroupOutput => {
-  return {} as any;
-};
+// de_DeleteWorkGroupOutput omitted.
 
-/**
- * deserializeAws_json1_1EncryptionConfiguration
- */
-const de_EncryptionConfiguration = (output: any, context: __SerdeContext): EncryptionConfiguration => {
-  return {
-    EncryptionOption: __expectString(output.EncryptionOption),
-    KmsKey: __expectString(output.KmsKey),
-  } as any;
-};
+// de_EncryptionConfiguration omitted.
 
-/**
- * deserializeAws_json1_1EngineConfiguration
- */
-const de_EngineConfiguration = (output: any, context: __SerdeContext): EngineConfiguration => {
-  return {
-    AdditionalConfigs:
-      output.AdditionalConfigs != null ? de_ParametersMap(output.AdditionalConfigs, context) : undefined,
-    CoordinatorDpuSize: __expectInt32(output.CoordinatorDpuSize),
-    DefaultExecutorDpuSize: __expectInt32(output.DefaultExecutorDpuSize),
-    MaxConcurrentDpus: __expectInt32(output.MaxConcurrentDpus),
-  } as any;
-};
+// de_EngineConfiguration omitted.
 
-/**
- * deserializeAws_json1_1EngineVersion
- */
-const de_EngineVersion = (output: any, context: __SerdeContext): EngineVersion => {
-  return {
-    EffectiveEngineVersion: __expectString(output.EffectiveEngineVersion),
-    SelectedEngineVersion: __expectString(output.SelectedEngineVersion),
-  } as any;
-};
+// de_EngineVersion omitted.
 
-/**
- * deserializeAws_json1_1EngineVersionsList
- */
-const de_EngineVersionsList = (output: any, context: __SerdeContext): EngineVersion[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EngineVersion(entry, context);
-    });
-  return retVal;
-};
+// de_EngineVersionsList omitted.
 
-/**
- * deserializeAws_json1_1ExecutionParameters
- */
-const de_ExecutionParameters = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ExecutionParameters omitted.
 
-/**
- * deserializeAws_json1_1ExecutorsSummary
- */
-const de_ExecutorsSummary = (output: any, context: __SerdeContext): ExecutorsSummary => {
-  return {
-    ExecutorId: __expectString(output.ExecutorId),
-    ExecutorSize: __expectLong(output.ExecutorSize),
-    ExecutorState: __expectString(output.ExecutorState),
-    ExecutorType: __expectString(output.ExecutorType),
-    StartDateTime: __expectLong(output.StartDateTime),
-    TerminationDateTime: __expectLong(output.TerminationDateTime),
-  } as any;
-};
+// de_ExecutorsSummary omitted.
 
-/**
- * deserializeAws_json1_1ExecutorsSummaryList
- */
-const de_ExecutorsSummaryList = (output: any, context: __SerdeContext): ExecutorsSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExecutorsSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ExecutorsSummaryList omitted.
 
 /**
  * deserializeAws_json1_1ExportNotebookOutput
  */
 const de_ExportNotebookOutput = (output: any, context: __SerdeContext): ExportNotebookOutput => {
-  return {
-    NotebookMetadata:
-      output.NotebookMetadata != null ? de_NotebookMetadata(output.NotebookMetadata, context) : undefined,
-    Payload: __expectString(output.Payload),
-  } as any;
+  return take(output, {
+    NotebookMetadata: (_: any) => de_NotebookMetadata(_, context),
+    Payload: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetCalculationExecutionCodeResponse
- */
-const de_GetCalculationExecutionCodeResponse = (
-  output: any,
-  context: __SerdeContext
-): GetCalculationExecutionCodeResponse => {
-  return {
-    CodeBlock: __expectString(output.CodeBlock),
-  } as any;
-};
+// de_GetCalculationExecutionCodeResponse omitted.
 
 /**
  * deserializeAws_json1_1GetCalculationExecutionResponse
  */
 const de_GetCalculationExecutionResponse = (output: any, context: __SerdeContext): GetCalculationExecutionResponse => {
-  return {
-    CalculationExecutionId: __expectString(output.CalculationExecutionId),
-    Description: __expectString(output.Description),
-    Result: output.Result != null ? de_CalculationResult(output.Result, context) : undefined,
-    SessionId: __expectString(output.SessionId),
-    Statistics: output.Statistics != null ? de_CalculationStatistics(output.Statistics, context) : undefined,
-    Status: output.Status != null ? de_CalculationStatus(output.Status, context) : undefined,
-    WorkingDirectory: __expectString(output.WorkingDirectory),
-  } as any;
+  return take(output, {
+    CalculationExecutionId: __expectString,
+    Description: __expectString,
+    Result: _json,
+    SessionId: __expectString,
+    Statistics: _json,
+    Status: (_: any) => de_CalculationStatus(_, context),
+    WorkingDirectory: __expectString,
+  }) as any;
 };
 
 /**
@@ -5815,176 +4559,108 @@ const de_GetCalculationExecutionStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetCalculationExecutionStatusResponse => {
-  return {
-    Statistics: output.Statistics != null ? de_CalculationStatistics(output.Statistics, context) : undefined,
-    Status: output.Status != null ? de_CalculationStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Statistics: _json,
+    Status: (_: any) => de_CalculationStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetDatabaseOutput
- */
-const de_GetDatabaseOutput = (output: any, context: __SerdeContext): GetDatabaseOutput => {
-  return {
-    Database: output.Database != null ? de_Database(output.Database, context) : undefined,
-  } as any;
-};
+// de_GetDatabaseOutput omitted.
 
-/**
- * deserializeAws_json1_1GetDataCatalogOutput
- */
-const de_GetDataCatalogOutput = (output: any, context: __SerdeContext): GetDataCatalogOutput => {
-  return {
-    DataCatalog: output.DataCatalog != null ? de_DataCatalog(output.DataCatalog, context) : undefined,
-  } as any;
-};
+// de_GetDataCatalogOutput omitted.
 
-/**
- * deserializeAws_json1_1GetNamedQueryOutput
- */
-const de_GetNamedQueryOutput = (output: any, context: __SerdeContext): GetNamedQueryOutput => {
-  return {
-    NamedQuery: output.NamedQuery != null ? de_NamedQuery(output.NamedQuery, context) : undefined,
-  } as any;
-};
+// de_GetNamedQueryOutput omitted.
 
 /**
  * deserializeAws_json1_1GetNotebookMetadataOutput
  */
 const de_GetNotebookMetadataOutput = (output: any, context: __SerdeContext): GetNotebookMetadataOutput => {
-  return {
-    NotebookMetadata:
-      output.NotebookMetadata != null ? de_NotebookMetadata(output.NotebookMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    NotebookMetadata: (_: any) => de_NotebookMetadata(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetPreparedStatementOutput
  */
 const de_GetPreparedStatementOutput = (output: any, context: __SerdeContext): GetPreparedStatementOutput => {
-  return {
-    PreparedStatement:
-      output.PreparedStatement != null ? de_PreparedStatement(output.PreparedStatement, context) : undefined,
-  } as any;
+  return take(output, {
+    PreparedStatement: (_: any) => de_PreparedStatement(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetQueryExecutionOutput
  */
 const de_GetQueryExecutionOutput = (output: any, context: __SerdeContext): GetQueryExecutionOutput => {
-  return {
-    QueryExecution: output.QueryExecution != null ? de_QueryExecution(output.QueryExecution, context) : undefined,
-  } as any;
+  return take(output, {
+    QueryExecution: (_: any) => de_QueryExecution(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetQueryResultsOutput
- */
-const de_GetQueryResultsOutput = (output: any, context: __SerdeContext): GetQueryResultsOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ResultSet: output.ResultSet != null ? de_ResultSet(output.ResultSet, context) : undefined,
-    UpdateCount: __expectLong(output.UpdateCount),
-  } as any;
-};
+// de_GetQueryResultsOutput omitted.
 
 /**
  * deserializeAws_json1_1GetQueryRuntimeStatisticsOutput
  */
 const de_GetQueryRuntimeStatisticsOutput = (output: any, context: __SerdeContext): GetQueryRuntimeStatisticsOutput => {
-  return {
-    QueryRuntimeStatistics:
-      output.QueryRuntimeStatistics != null
-        ? de_QueryRuntimeStatistics(output.QueryRuntimeStatistics, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    QueryRuntimeStatistics: (_: any) => de_QueryRuntimeStatistics(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetSessionResponse
  */
 const de_GetSessionResponse = (output: any, context: __SerdeContext): GetSessionResponse => {
-  return {
-    Description: __expectString(output.Description),
-    EngineConfiguration:
-      output.EngineConfiguration != null ? de_EngineConfiguration(output.EngineConfiguration, context) : undefined,
-    EngineVersion: __expectString(output.EngineVersion),
-    NotebookVersion: __expectString(output.NotebookVersion),
-    SessionConfiguration:
-      output.SessionConfiguration != null ? de_SessionConfiguration(output.SessionConfiguration, context) : undefined,
-    SessionId: __expectString(output.SessionId),
-    Statistics: output.Statistics != null ? de_SessionStatistics(output.Statistics, context) : undefined,
-    Status: output.Status != null ? de_SessionStatus(output.Status, context) : undefined,
-    WorkGroup: __expectString(output.WorkGroup),
-  } as any;
+  return take(output, {
+    Description: __expectString,
+    EngineConfiguration: _json,
+    EngineVersion: __expectString,
+    NotebookVersion: __expectString,
+    SessionConfiguration: _json,
+    SessionId: __expectString,
+    Statistics: _json,
+    Status: (_: any) => de_SessionStatus(_, context),
+    WorkGroup: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetSessionStatusResponse
  */
 const de_GetSessionStatusResponse = (output: any, context: __SerdeContext): GetSessionStatusResponse => {
-  return {
-    SessionId: __expectString(output.SessionId),
-    Status: output.Status != null ? de_SessionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    SessionId: __expectString,
+    Status: (_: any) => de_SessionStatus(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetTableMetadataOutput
  */
 const de_GetTableMetadataOutput = (output: any, context: __SerdeContext): GetTableMetadataOutput => {
-  return {
-    TableMetadata: output.TableMetadata != null ? de_TableMetadata(output.TableMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    TableMetadata: (_: any) => de_TableMetadata(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetWorkGroupOutput
  */
 const de_GetWorkGroupOutput = (output: any, context: __SerdeContext): GetWorkGroupOutput => {
-  return {
-    WorkGroup: output.WorkGroup != null ? de_WorkGroup(output.WorkGroup, context) : undefined,
-  } as any;
+  return take(output, {
+    WorkGroup: (_: any) => de_WorkGroup(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ImportNotebookOutput
- */
-const de_ImportNotebookOutput = (output: any, context: __SerdeContext): ImportNotebookOutput => {
-  return {
-    NotebookId: __expectString(output.NotebookId),
-  } as any;
-};
+// de_ImportNotebookOutput omitted.
 
-/**
- * deserializeAws_json1_1InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    AthenaErrorCode: __expectString(output.AthenaErrorCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
-/**
- * deserializeAws_json1_1ListApplicationDPUSizesOutput
- */
-const de_ListApplicationDPUSizesOutput = (output: any, context: __SerdeContext): ListApplicationDPUSizesOutput => {
-  return {
-    ApplicationDPUSizes:
-      output.ApplicationDPUSizes != null ? de_ApplicationDPUSizesList(output.ApplicationDPUSizes, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListApplicationDPUSizesOutput omitted.
 
 /**
  * deserializeAws_json1_1ListCalculationExecutionsResponse
@@ -5993,221 +4669,106 @@ const de_ListCalculationExecutionsResponse = (
   output: any,
   context: __SerdeContext
 ): ListCalculationExecutionsResponse => {
-  return {
-    Calculations: output.Calculations != null ? de_CalculationsList(output.Calculations, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Calculations: (_: any) => de_CalculationsList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListDatabasesOutput
- */
-const de_ListDatabasesOutput = (output: any, context: __SerdeContext): ListDatabasesOutput => {
-  return {
-    DatabaseList: output.DatabaseList != null ? de_DatabaseList(output.DatabaseList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListDatabasesOutput omitted.
 
-/**
- * deserializeAws_json1_1ListDataCatalogsOutput
- */
-const de_ListDataCatalogsOutput = (output: any, context: __SerdeContext): ListDataCatalogsOutput => {
-  return {
-    DataCatalogsSummary:
-      output.DataCatalogsSummary != null ? de_DataCatalogSummaryList(output.DataCatalogsSummary, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListDataCatalogsOutput omitted.
 
-/**
- * deserializeAws_json1_1ListEngineVersionsOutput
- */
-const de_ListEngineVersionsOutput = (output: any, context: __SerdeContext): ListEngineVersionsOutput => {
-  return {
-    EngineVersions: output.EngineVersions != null ? de_EngineVersionsList(output.EngineVersions, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListEngineVersionsOutput omitted.
 
-/**
- * deserializeAws_json1_1ListExecutorsResponse
- */
-const de_ListExecutorsResponse = (output: any, context: __SerdeContext): ListExecutorsResponse => {
-  return {
-    ExecutorsSummary:
-      output.ExecutorsSummary != null ? de_ExecutorsSummaryList(output.ExecutorsSummary, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    SessionId: __expectString(output.SessionId),
-  } as any;
-};
+// de_ListExecutorsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListNamedQueriesOutput
- */
-const de_ListNamedQueriesOutput = (output: any, context: __SerdeContext): ListNamedQueriesOutput => {
-  return {
-    NamedQueryIds: output.NamedQueryIds != null ? de_NamedQueryIdList(output.NamedQueryIds, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListNamedQueriesOutput omitted.
 
 /**
  * deserializeAws_json1_1ListNotebookMetadataOutput
  */
 const de_ListNotebookMetadataOutput = (output: any, context: __SerdeContext): ListNotebookMetadataOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NotebookMetadataList:
-      output.NotebookMetadataList != null ? de_NotebookMetadataArray(output.NotebookMetadataList, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    NotebookMetadataList: (_: any) => de_NotebookMetadataArray(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListNotebookSessionsResponse
  */
 const de_ListNotebookSessionsResponse = (output: any, context: __SerdeContext): ListNotebookSessionsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NotebookSessionsList:
-      output.NotebookSessionsList != null ? de_NotebookSessionsList(output.NotebookSessionsList, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    NotebookSessionsList: (_: any) => de_NotebookSessionsList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListPreparedStatementsOutput
  */
 const de_ListPreparedStatementsOutput = (output: any, context: __SerdeContext): ListPreparedStatementsOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PreparedStatements:
-      output.PreparedStatements != null ? de_PreparedStatementsList(output.PreparedStatements, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    PreparedStatements: (_: any) => de_PreparedStatementsList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListQueryExecutionsOutput
- */
-const de_ListQueryExecutionsOutput = (output: any, context: __SerdeContext): ListQueryExecutionsOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    QueryExecutionIds:
-      output.QueryExecutionIds != null ? de_QueryExecutionIdList(output.QueryExecutionIds, context) : undefined,
-  } as any;
-};
+// de_ListQueryExecutionsOutput omitted.
 
 /**
  * deserializeAws_json1_1ListSessionsResponse
  */
 const de_ListSessionsResponse = (output: any, context: __SerdeContext): ListSessionsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Sessions: output.Sessions != null ? de_SessionsList(output.Sessions, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Sessions: (_: any) => de_SessionsList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListTableMetadataOutput
  */
 const de_ListTableMetadataOutput = (output: any, context: __SerdeContext): ListTableMetadataOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    TableMetadataList:
-      output.TableMetadataList != null ? de_TableMetadataList(output.TableMetadataList, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    TableMetadataList: (_: any) => de_TableMetadataList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceOutput
- */
-const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceOutput omitted.
 
 /**
  * deserializeAws_json1_1ListWorkGroupsOutput
  */
 const de_ListWorkGroupsOutput = (output: any, context: __SerdeContext): ListWorkGroupsOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    WorkGroups: output.WorkGroups != null ? de_WorkGroupsList(output.WorkGroups, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    WorkGroups: (_: any) => de_WorkGroupsList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1MetadataException
- */
-const de_MetadataException = (output: any, context: __SerdeContext): MetadataException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_MetadataException omitted.
 
-/**
- * deserializeAws_json1_1NamedQuery
- */
-const de_NamedQuery = (output: any, context: __SerdeContext): NamedQuery => {
-  return {
-    Database: __expectString(output.Database),
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-    NamedQueryId: __expectString(output.NamedQueryId),
-    QueryString: __expectString(output.QueryString),
-    WorkGroup: __expectString(output.WorkGroup),
-  } as any;
-};
+// de_NamedQuery omitted.
 
-/**
- * deserializeAws_json1_1NamedQueryIdList
- */
-const de_NamedQueryIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NamedQueryIdList omitted.
 
-/**
- * deserializeAws_json1_1NamedQueryList
- */
-const de_NamedQueryList = (output: any, context: __SerdeContext): NamedQuery[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NamedQuery(entry, context);
-    });
-  return retVal;
-};
+// de_NamedQueryList omitted.
 
 /**
  * deserializeAws_json1_1NotebookMetadata
  */
 const de_NotebookMetadata = (output: any, context: __SerdeContext): NotebookMetadata => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    NotebookId: __expectString(output.NotebookId),
-    Type: __expectString(output.Type),
-    WorkGroup: __expectString(output.WorkGroup),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    NotebookId: __expectString,
+    Type: __expectString,
+    WorkGroup: __expectString,
+  }) as any;
 };
 
 /**
@@ -6217,9 +4778,6 @@ const de_NotebookMetadataArray = (output: any, context: __SerdeContext): Noteboo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_NotebookMetadata(entry, context);
     });
   return retVal;
@@ -6232,9 +4790,6 @@ const de_NotebookSessionsList = (output: any, context: __SerdeContext): Notebook
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_NotebookSessionSummary(entry, context);
     });
   return retVal;
@@ -6244,42 +4799,25 @@ const de_NotebookSessionsList = (output: any, context: __SerdeContext): Notebook
  * deserializeAws_json1_1NotebookSessionSummary
  */
 const de_NotebookSessionSummary = (output: any, context: __SerdeContext): NotebookSessionSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    SessionId: __expectString(output.SessionId),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SessionId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ParametersMap
- */
-const de_ParametersMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ParametersMap omitted.
 
 /**
  * deserializeAws_json1_1PreparedStatement
  */
 const de_PreparedStatement = (output: any, context: __SerdeContext): PreparedStatement => {
-  return {
-    Description: __expectString(output.Description),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    QueryStatement: __expectString(output.QueryStatement),
-    StatementName: __expectString(output.StatementName),
-    WorkGroupName: __expectString(output.WorkGroupName),
-  } as any;
+  return take(output, {
+    Description: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    QueryStatement: __expectString,
+    StatementName: __expectString,
+    WorkGroupName: __expectString,
+  }) as any;
 };
 
 /**
@@ -6289,9 +4827,6 @@ const de_PreparedStatementDetailsList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PreparedStatement(entry, context);
     });
   return retVal;
@@ -6304,9 +4839,6 @@ const de_PreparedStatementsList = (output: any, context: __SerdeContext): Prepar
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PreparedStatementSummary(entry, context);
     });
   return retVal;
@@ -6316,67 +4848,35 @@ const de_PreparedStatementsList = (output: any, context: __SerdeContext): Prepar
  * deserializeAws_json1_1PreparedStatementSummary
  */
 const de_PreparedStatementSummary = (output: any, context: __SerdeContext): PreparedStatementSummary => {
-  return {
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    StatementName: __expectString(output.StatementName),
-  } as any;
+  return take(output, {
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StatementName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1QueryExecution
  */
 const de_QueryExecution = (output: any, context: __SerdeContext): QueryExecution => {
-  return {
-    EngineVersion: output.EngineVersion != null ? de_EngineVersion(output.EngineVersion, context) : undefined,
-    ExecutionParameters:
-      output.ExecutionParameters != null ? de_ExecutionParameters(output.ExecutionParameters, context) : undefined,
-    Query: __expectString(output.Query),
-    QueryExecutionContext:
-      output.QueryExecutionContext != null
-        ? de_QueryExecutionContext(output.QueryExecutionContext, context)
-        : undefined,
-    QueryExecutionId: __expectString(output.QueryExecutionId),
-    ResultConfiguration:
-      output.ResultConfiguration != null ? de_ResultConfiguration(output.ResultConfiguration, context) : undefined,
-    ResultReuseConfiguration:
-      output.ResultReuseConfiguration != null
-        ? de_ResultReuseConfiguration(output.ResultReuseConfiguration, context)
-        : undefined,
-    StatementType: __expectString(output.StatementType),
-    Statistics: output.Statistics != null ? de_QueryExecutionStatistics(output.Statistics, context) : undefined,
-    Status: output.Status != null ? de_QueryExecutionStatus(output.Status, context) : undefined,
-    SubstatementType: __expectString(output.SubstatementType),
-    WorkGroup: __expectString(output.WorkGroup),
-  } as any;
+  return take(output, {
+    EngineVersion: _json,
+    ExecutionParameters: _json,
+    Query: __expectString,
+    QueryExecutionContext: _json,
+    QueryExecutionId: __expectString,
+    ResultConfiguration: _json,
+    ResultReuseConfiguration: _json,
+    StatementType: __expectString,
+    Statistics: _json,
+    Status: (_: any) => de_QueryExecutionStatus(_, context),
+    SubstatementType: __expectString,
+    WorkGroup: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1QueryExecutionContext
- */
-const de_QueryExecutionContext = (output: any, context: __SerdeContext): QueryExecutionContext => {
-  return {
-    Catalog: __expectString(output.Catalog),
-    Database: __expectString(output.Database),
-  } as any;
-};
+// de_QueryExecutionContext omitted.
 
-/**
- * deserializeAws_json1_1QueryExecutionIdList
- */
-const de_QueryExecutionIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_QueryExecutionIdList omitted.
 
 /**
  * deserializeAws_json1_1QueryExecutionList
@@ -6385,115 +4885,68 @@ const de_QueryExecutionList = (output: any, context: __SerdeContext): QueryExecu
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_QueryExecution(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1QueryExecutionStatistics
- */
-const de_QueryExecutionStatistics = (output: any, context: __SerdeContext): QueryExecutionStatistics => {
-  return {
-    DataManifestLocation: __expectString(output.DataManifestLocation),
-    DataScannedInBytes: __expectLong(output.DataScannedInBytes),
-    EngineExecutionTimeInMillis: __expectLong(output.EngineExecutionTimeInMillis),
-    QueryPlanningTimeInMillis: __expectLong(output.QueryPlanningTimeInMillis),
-    QueryQueueTimeInMillis: __expectLong(output.QueryQueueTimeInMillis),
-    ResultReuseInformation:
-      output.ResultReuseInformation != null
-        ? de_ResultReuseInformation(output.ResultReuseInformation, context)
-        : undefined,
-    ServiceProcessingTimeInMillis: __expectLong(output.ServiceProcessingTimeInMillis),
-    TotalExecutionTimeInMillis: __expectLong(output.TotalExecutionTimeInMillis),
-  } as any;
-};
+// de_QueryExecutionStatistics omitted.
 
 /**
  * deserializeAws_json1_1QueryExecutionStatus
  */
 const de_QueryExecutionStatus = (output: any, context: __SerdeContext): QueryExecutionStatus => {
-  return {
-    AthenaError: output.AthenaError != null ? de_AthenaError(output.AthenaError, context) : undefined,
-    CompletionDateTime:
-      output.CompletionDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDateTime)))
-        : undefined,
-    State: __expectString(output.State),
-    StateChangeReason: __expectString(output.StateChangeReason),
-    SubmissionDateTime:
-      output.SubmissionDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmissionDateTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    AthenaError: _json,
+    CompletionDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateChangeReason: __expectString,
+    SubmissionDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1QueryRuntimeStatistics
  */
 const de_QueryRuntimeStatistics = (output: any, context: __SerdeContext): QueryRuntimeStatistics => {
-  return {
-    OutputStage: output.OutputStage != null ? de_QueryStage(output.OutputStage, context) : undefined,
-    Rows: output.Rows != null ? de_QueryRuntimeStatisticsRows(output.Rows, context) : undefined,
-    Timeline: output.Timeline != null ? de_QueryRuntimeStatisticsTimeline(output.Timeline, context) : undefined,
-  } as any;
+  return take(output, {
+    OutputStage: (_: any) => de_QueryStage(_, context),
+    Rows: _json,
+    Timeline: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1QueryRuntimeStatisticsRows
- */
-const de_QueryRuntimeStatisticsRows = (output: any, context: __SerdeContext): QueryRuntimeStatisticsRows => {
-  return {
-    InputBytes: __expectLong(output.InputBytes),
-    InputRows: __expectLong(output.InputRows),
-    OutputBytes: __expectLong(output.OutputBytes),
-    OutputRows: __expectLong(output.OutputRows),
-  } as any;
-};
+// de_QueryRuntimeStatisticsRows omitted.
 
-/**
- * deserializeAws_json1_1QueryRuntimeStatisticsTimeline
- */
-const de_QueryRuntimeStatisticsTimeline = (output: any, context: __SerdeContext): QueryRuntimeStatisticsTimeline => {
-  return {
-    EngineExecutionTimeInMillis: __expectLong(output.EngineExecutionTimeInMillis),
-    QueryPlanningTimeInMillis: __expectLong(output.QueryPlanningTimeInMillis),
-    QueryQueueTimeInMillis: __expectLong(output.QueryQueueTimeInMillis),
-    ServiceProcessingTimeInMillis: __expectLong(output.ServiceProcessingTimeInMillis),
-    TotalExecutionTimeInMillis: __expectLong(output.TotalExecutionTimeInMillis),
-  } as any;
-};
+// de_QueryRuntimeStatisticsTimeline omitted.
 
 /**
  * deserializeAws_json1_1QueryStage
  */
 const de_QueryStage = (output: any, context: __SerdeContext): QueryStage => {
-  return {
-    ExecutionTime: __expectLong(output.ExecutionTime),
-    InputBytes: __expectLong(output.InputBytes),
-    InputRows: __expectLong(output.InputRows),
-    OutputBytes: __expectLong(output.OutputBytes),
-    OutputRows: __expectLong(output.OutputRows),
-    QueryStagePlan: output.QueryStagePlan != null ? de_QueryStagePlanNode(output.QueryStagePlan, context) : undefined,
-    StageId: __expectLong(output.StageId),
-    State: __expectString(output.State),
-    SubStages: output.SubStages != null ? de_QueryStages(output.SubStages, context) : undefined,
-  } as any;
+  return take(output, {
+    ExecutionTime: __expectLong,
+    InputBytes: __expectLong,
+    InputRows: __expectLong,
+    OutputBytes: __expectLong,
+    OutputRows: __expectLong,
+    QueryStagePlan: (_: any) => de_QueryStagePlanNode(_, context),
+    StageId: __expectLong,
+    State: __expectString,
+    SubStages: (_: any) => de_QueryStages(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1QueryStagePlanNode
  */
 const de_QueryStagePlanNode = (output: any, context: __SerdeContext): QueryStagePlanNode => {
-  return {
-    Children: output.Children != null ? de_QueryStagePlanNodes(output.Children, context) : undefined,
-    Identifier: __expectString(output.Identifier),
-    Name: __expectString(output.Name),
-    RemoteSources: output.RemoteSources != null ? de_StringList(output.RemoteSources, context) : undefined,
-  } as any;
+  return take(output, {
+    Children: (_: any) => de_QueryStagePlanNodes(_, context),
+    Identifier: __expectString,
+    Name: __expectString,
+    RemoteSources: _json,
+  }) as any;
 };
 
 /**
@@ -6503,9 +4956,6 @@ const de_QueryStagePlanNodes = (output: any, context: __SerdeContext): QueryStag
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_QueryStagePlanNode(entry, context);
     });
   return retVal;
@@ -6518,138 +4968,32 @@ const de_QueryStages = (output: any, context: __SerdeContext): QueryStage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_QueryStage(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceName: __expectString(output.ResourceName),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ResultConfiguration
- */
-const de_ResultConfiguration = (output: any, context: __SerdeContext): ResultConfiguration => {
-  return {
-    AclConfiguration:
-      output.AclConfiguration != null ? de_AclConfiguration(output.AclConfiguration, context) : undefined,
-    EncryptionConfiguration:
-      output.EncryptionConfiguration != null
-        ? de_EncryptionConfiguration(output.EncryptionConfiguration, context)
-        : undefined,
-    ExpectedBucketOwner: __expectString(output.ExpectedBucketOwner),
-    OutputLocation: __expectString(output.OutputLocation),
-  } as any;
-};
+// de_ResultConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ResultReuseByAgeConfiguration
- */
-const de_ResultReuseByAgeConfiguration = (output: any, context: __SerdeContext): ResultReuseByAgeConfiguration => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    MaxAgeInMinutes: __expectInt32(output.MaxAgeInMinutes),
-  } as any;
-};
+// de_ResultReuseByAgeConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ResultReuseConfiguration
- */
-const de_ResultReuseConfiguration = (output: any, context: __SerdeContext): ResultReuseConfiguration => {
-  return {
-    ResultReuseByAgeConfiguration:
-      output.ResultReuseByAgeConfiguration != null
-        ? de_ResultReuseByAgeConfiguration(output.ResultReuseByAgeConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_ResultReuseConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ResultReuseInformation
- */
-const de_ResultReuseInformation = (output: any, context: __SerdeContext): ResultReuseInformation => {
-  return {
-    ReusedPreviousResult: __expectBoolean(output.ReusedPreviousResult),
-  } as any;
-};
+// de_ResultReuseInformation omitted.
 
-/**
- * deserializeAws_json1_1ResultSet
- */
-const de_ResultSet = (output: any, context: __SerdeContext): ResultSet => {
-  return {
-    ResultSetMetadata:
-      output.ResultSetMetadata != null ? de_ResultSetMetadata(output.ResultSetMetadata, context) : undefined,
-    Rows: output.Rows != null ? de_RowList(output.Rows, context) : undefined,
-  } as any;
-};
+// de_ResultSet omitted.
 
-/**
- * deserializeAws_json1_1ResultSetMetadata
- */
-const de_ResultSetMetadata = (output: any, context: __SerdeContext): ResultSetMetadata => {
-  return {
-    ColumnInfo: output.ColumnInfo != null ? de_ColumnInfoList(output.ColumnInfo, context) : undefined,
-  } as any;
-};
+// de_ResultSetMetadata omitted.
 
-/**
- * deserializeAws_json1_1Row
- */
-const de_Row = (output: any, context: __SerdeContext): Row => {
-  return {
-    Data: output.Data != null ? de_datumList(output.Data, context) : undefined,
-  } as any;
-};
+// de_Row omitted.
 
-/**
- * deserializeAws_json1_1RowList
- */
-const de_RowList = (output: any, context: __SerdeContext): Row[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Row(entry, context);
-    });
-  return retVal;
-};
+// de_RowList omitted.
 
-/**
- * deserializeAws_json1_1SessionAlreadyExistsException
- */
-const de_SessionAlreadyExistsException = (output: any, context: __SerdeContext): SessionAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_SessionAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1SessionConfiguration
- */
-const de_SessionConfiguration = (output: any, context: __SerdeContext): SessionConfiguration => {
-  return {
-    EncryptionConfiguration:
-      output.EncryptionConfiguration != null
-        ? de_EncryptionConfiguration(output.EncryptionConfiguration, context)
-        : undefined,
-    ExecutionRole: __expectString(output.ExecutionRole),
-    IdleTimeoutSeconds: __expectLong(output.IdleTimeoutSeconds),
-    WorkingDirectory: __expectString(output.WorkingDirectory),
-  } as any;
-};
+// de_SessionConfiguration omitted.
 
 /**
  * deserializeAws_json1_1SessionsList
@@ -6658,160 +5002,67 @@ const de_SessionsList = (output: any, context: __SerdeContext): SessionSummary[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SessionSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1SessionStatistics
- */
-const de_SessionStatistics = (output: any, context: __SerdeContext): SessionStatistics => {
-  return {
-    DpuExecutionInMillis: __expectLong(output.DpuExecutionInMillis),
-  } as any;
-};
+// de_SessionStatistics omitted.
 
 /**
  * deserializeAws_json1_1SessionStatus
  */
 const de_SessionStatus = (output: any, context: __SerdeContext): SessionStatus => {
-  return {
-    EndDateTime:
-      output.EndDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndDateTime)))
-        : undefined,
-    IdleSinceDateTime:
-      output.IdleSinceDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.IdleSinceDateTime)))
-        : undefined,
-    LastModifiedDateTime:
-      output.LastModifiedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDateTime)))
-        : undefined,
-    StartDateTime:
-      output.StartDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDateTime)))
-        : undefined,
-    State: __expectString(output.State),
-    StateChangeReason: __expectString(output.StateChangeReason),
-  } as any;
+  return take(output, {
+    EndDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IdleSinceDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateChangeReason: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1SessionSummary
  */
 const de_SessionSummary = (output: any, context: __SerdeContext): SessionSummary => {
-  return {
-    Description: __expectString(output.Description),
-    EngineVersion: output.EngineVersion != null ? de_EngineVersion(output.EngineVersion, context) : undefined,
-    NotebookVersion: __expectString(output.NotebookVersion),
-    SessionId: __expectString(output.SessionId),
-    Status: output.Status != null ? de_SessionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Description: __expectString,
+    EngineVersion: _json,
+    NotebookVersion: __expectString,
+    SessionId: __expectString,
+    Status: (_: any) => de_SessionStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1StartCalculationExecutionResponse
- */
-const de_StartCalculationExecutionResponse = (
-  output: any,
-  context: __SerdeContext
-): StartCalculationExecutionResponse => {
-  return {
-    CalculationExecutionId: __expectString(output.CalculationExecutionId),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_StartCalculationExecutionResponse omitted.
 
-/**
- * deserializeAws_json1_1StartQueryExecutionOutput
- */
-const de_StartQueryExecutionOutput = (output: any, context: __SerdeContext): StartQueryExecutionOutput => {
-  return {
-    QueryExecutionId: __expectString(output.QueryExecutionId),
-  } as any;
-};
+// de_StartQueryExecutionOutput omitted.
 
-/**
- * deserializeAws_json1_1StartSessionResponse
- */
-const de_StartSessionResponse = (output: any, context: __SerdeContext): StartSessionResponse => {
-  return {
-    SessionId: __expectString(output.SessionId),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_StartSessionResponse omitted.
 
-/**
- * deserializeAws_json1_1StopCalculationExecutionResponse
- */
-const de_StopCalculationExecutionResponse = (
-  output: any,
-  context: __SerdeContext
-): StopCalculationExecutionResponse => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_StopCalculationExecutionResponse omitted.
 
-/**
- * deserializeAws_json1_1StopQueryExecutionOutput
- */
-const de_StopQueryExecutionOutput = (output: any, context: __SerdeContext): StopQueryExecutionOutput => {
-  return {} as any;
-};
+// de_StopQueryExecutionOutput omitted.
 
-/**
- * deserializeAws_json1_1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_json1_1SupportedDPUSizeList
- */
-const de_SupportedDPUSizeList = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_SupportedDPUSizeList omitted.
 
 /**
  * deserializeAws_json1_1TableMetadata
  */
 const de_TableMetadata = (output: any, context: __SerdeContext): TableMetadata => {
-  return {
-    Columns: output.Columns != null ? de_ColumnList(output.Columns, context) : undefined,
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
-    LastAccessTime:
-      output.LastAccessTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Parameters: output.Parameters != null ? de_ParametersMap(output.Parameters, context) : undefined,
-    PartitionKeys: output.PartitionKeys != null ? de_ColumnList(output.PartitionKeys, context) : undefined,
-    TableType: __expectString(output.TableType),
-  } as any;
+  return take(output, {
+    Columns: _json,
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastAccessTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Parameters: _json,
+    PartitionKeys: _json,
+    TableType: __expectString,
+  }) as any;
 };
 
 /**
@@ -6821,235 +5072,61 @@ const de_TableMetadataList = (output: any, context: __SerdeContext): TableMetada
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TableMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceOutput
- */
-const de_TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
-  return {} as any;
-};
+// de_TagResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1TerminateSessionResponse
- */
-const de_TerminateSessionResponse = (output: any, context: __SerdeContext): TerminateSessionResponse => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_TerminateSessionResponse omitted.
 
-/**
- * deserializeAws_json1_1TooManyRequestsException
- */
-const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
-  return {
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_TooManyRequestsException omitted.
 
-/**
- * deserializeAws_json1_1UnprocessedNamedQueryId
- */
-const de_UnprocessedNamedQueryId = (output: any, context: __SerdeContext): UnprocessedNamedQueryId => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    NamedQueryId: __expectString(output.NamedQueryId),
-  } as any;
-};
+// de_UnprocessedNamedQueryId omitted.
 
-/**
- * deserializeAws_json1_1UnprocessedNamedQueryIdList
- */
-const de_UnprocessedNamedQueryIdList = (output: any, context: __SerdeContext): UnprocessedNamedQueryId[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UnprocessedNamedQueryId(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedNamedQueryIdList omitted.
 
-/**
- * deserializeAws_json1_1UnprocessedPreparedStatementName
- */
-const de_UnprocessedPreparedStatementName = (
-  output: any,
-  context: __SerdeContext
-): UnprocessedPreparedStatementName => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    StatementName: __expectString(output.StatementName),
-  } as any;
-};
+// de_UnprocessedPreparedStatementName omitted.
 
-/**
- * deserializeAws_json1_1UnprocessedPreparedStatementNameList
- */
-const de_UnprocessedPreparedStatementNameList = (
-  output: any,
-  context: __SerdeContext
-): UnprocessedPreparedStatementName[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UnprocessedPreparedStatementName(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedPreparedStatementNameList omitted.
 
-/**
- * deserializeAws_json1_1UnprocessedQueryExecutionId
- */
-const de_UnprocessedQueryExecutionId = (output: any, context: __SerdeContext): UnprocessedQueryExecutionId => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    QueryExecutionId: __expectString(output.QueryExecutionId),
-  } as any;
-};
+// de_UnprocessedQueryExecutionId omitted.
 
-/**
- * deserializeAws_json1_1UnprocessedQueryExecutionIdList
- */
-const de_UnprocessedQueryExecutionIdList = (output: any, context: __SerdeContext): UnprocessedQueryExecutionId[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UnprocessedQueryExecutionId(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedQueryExecutionIdList omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceOutput
- */
-const de_UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
-  return {} as any;
-};
+// de_UntagResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateDataCatalogOutput
- */
-const de_UpdateDataCatalogOutput = (output: any, context: __SerdeContext): UpdateDataCatalogOutput => {
-  return {} as any;
-};
+// de_UpdateDataCatalogOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateNamedQueryOutput
- */
-const de_UpdateNamedQueryOutput = (output: any, context: __SerdeContext): UpdateNamedQueryOutput => {
-  return {} as any;
-};
+// de_UpdateNamedQueryOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateNotebookMetadataOutput
- */
-const de_UpdateNotebookMetadataOutput = (output: any, context: __SerdeContext): UpdateNotebookMetadataOutput => {
-  return {} as any;
-};
+// de_UpdateNotebookMetadataOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateNotebookOutput
- */
-const de_UpdateNotebookOutput = (output: any, context: __SerdeContext): UpdateNotebookOutput => {
-  return {} as any;
-};
+// de_UpdateNotebookOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdatePreparedStatementOutput
- */
-const de_UpdatePreparedStatementOutput = (output: any, context: __SerdeContext): UpdatePreparedStatementOutput => {
-  return {} as any;
-};
+// de_UpdatePreparedStatementOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateWorkGroupOutput
- */
-const de_UpdateWorkGroupOutput = (output: any, context: __SerdeContext): UpdateWorkGroupOutput => {
-  return {} as any;
-};
+// de_UpdateWorkGroupOutput omitted.
 
 /**
  * deserializeAws_json1_1WorkGroup
  */
 const de_WorkGroup = (output: any, context: __SerdeContext): WorkGroup => {
-  return {
-    Configuration: output.Configuration != null ? de_WorkGroupConfiguration(output.Configuration, context) : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    Configuration: _json,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Name: __expectString,
+    State: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1WorkGroupConfiguration
- */
-const de_WorkGroupConfiguration = (output: any, context: __SerdeContext): WorkGroupConfiguration => {
-  return {
-    AdditionalConfiguration: __expectString(output.AdditionalConfiguration),
-    BytesScannedCutoffPerQuery: __expectLong(output.BytesScannedCutoffPerQuery),
-    CustomerContentEncryptionConfiguration:
-      output.CustomerContentEncryptionConfiguration != null
-        ? de_CustomerContentEncryptionConfiguration(output.CustomerContentEncryptionConfiguration, context)
-        : undefined,
-    EnableMinimumEncryptionConfiguration: __expectBoolean(output.EnableMinimumEncryptionConfiguration),
-    EnforceWorkGroupConfiguration: __expectBoolean(output.EnforceWorkGroupConfiguration),
-    EngineVersion: output.EngineVersion != null ? de_EngineVersion(output.EngineVersion, context) : undefined,
-    ExecutionRole: __expectString(output.ExecutionRole),
-    PublishCloudWatchMetricsEnabled: __expectBoolean(output.PublishCloudWatchMetricsEnabled),
-    RequesterPaysEnabled: __expectBoolean(output.RequesterPaysEnabled),
-    ResultConfiguration:
-      output.ResultConfiguration != null ? de_ResultConfiguration(output.ResultConfiguration, context) : undefined,
-  } as any;
-};
+// de_WorkGroupConfiguration omitted.
 
 /**
  * deserializeAws_json1_1WorkGroupsList
@@ -7058,9 +5135,6 @@ const de_WorkGroupsList = (output: any, context: __SerdeContext): WorkGroupSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorkGroupSummary(entry, context);
     });
   return retVal;
@@ -7070,16 +5144,13 @@ const de_WorkGroupsList = (output: any, context: __SerdeContext): WorkGroupSumma
  * deserializeAws_json1_1WorkGroupSummary
  */
 const de_WorkGroupSummary = (output: any, context: __SerdeContext): WorkGroupSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    EngineVersion: output.EngineVersion != null ? de_EngineVersion(output.EngineVersion, context) : undefined,
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EngineVersion: _json,
+    Name: __expectString,
+    State: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -7102,6 +5173,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

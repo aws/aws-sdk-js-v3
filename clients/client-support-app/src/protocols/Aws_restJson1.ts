@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -52,8 +54,6 @@ import {
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
-  SlackChannelConfiguration,
-  SlackWorkspaceConfiguration,
   ValidationException,
 } from "../models/models_0";
 import { SupportAppServiceException as __BaseException } from "../models/SupportAppServiceException";
@@ -73,18 +73,18 @@ export const se_CreateSlackChannelConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/control/create-slack-channel-configuration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelId != null && { channelId: input.channelId }),
-    ...(input.channelName != null && { channelName: input.channelName }),
-    ...(input.channelRoleArn != null && { channelRoleArn: input.channelRoleArn }),
-    ...(input.notifyOnAddCorrespondenceToCase != null && {
-      notifyOnAddCorrespondenceToCase: input.notifyOnAddCorrespondenceToCase,
-    }),
-    ...(input.notifyOnCaseSeverity != null && { notifyOnCaseSeverity: input.notifyOnCaseSeverity }),
-    ...(input.notifyOnCreateOrReopenCase != null && { notifyOnCreateOrReopenCase: input.notifyOnCreateOrReopenCase }),
-    ...(input.notifyOnResolveCase != null && { notifyOnResolveCase: input.notifyOnResolveCase }),
-    ...(input.teamId != null && { teamId: input.teamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelId: [],
+      channelName: [],
+      channelRoleArn: [],
+      notifyOnAddCorrespondenceToCase: [],
+      notifyOnCaseSeverity: [],
+      notifyOnCreateOrReopenCase: [],
+      notifyOnResolveCase: [],
+      teamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -137,10 +137,12 @@ export const se_DeleteSlackChannelConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/control/delete-slack-channel-configuration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelId != null && { channelId: input.channelId }),
-    ...(input.teamId != null && { teamId: input.teamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelId: [],
+      teamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -167,9 +169,11 @@ export const se_DeleteSlackWorkspaceConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/control/delete-slack-workspace-configuration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.teamId != null && { teamId: input.teamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      teamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -222,9 +226,11 @@ export const se_ListSlackChannelConfigurationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/control/list-slack-channel-configurations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -251,9 +257,11 @@ export const se_ListSlackWorkspaceConfigurationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/control/list-slack-workspace-configurations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -279,9 +287,11 @@ export const se_PutAccountAliasCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/control/put-account-alias";
   let body: any;
-  body = JSON.stringify({
-    ...(input.accountAlias != null && { accountAlias: input.accountAlias }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accountAlias: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -308,9 +318,11 @@ export const se_RegisterSlackWorkspaceForOrganizationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/control/register-slack-workspace-for-organization";
   let body: any;
-  body = JSON.stringify({
-    ...(input.teamId != null && { teamId: input.teamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      teamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -337,18 +349,18 @@ export const se_UpdateSlackChannelConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/control/update-slack-channel-configuration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelId != null && { channelId: input.channelId }),
-    ...(input.channelName != null && { channelName: input.channelName }),
-    ...(input.channelRoleArn != null && { channelRoleArn: input.channelRoleArn }),
-    ...(input.notifyOnAddCorrespondenceToCase != null && {
-      notifyOnAddCorrespondenceToCase: input.notifyOnAddCorrespondenceToCase,
-    }),
-    ...(input.notifyOnCaseSeverity != null && { notifyOnCaseSeverity: input.notifyOnCaseSeverity }),
-    ...(input.notifyOnCreateOrReopenCase != null && { notifyOnCreateOrReopenCase: input.notifyOnCreateOrReopenCase }),
-    ...(input.notifyOnResolveCase != null && { notifyOnResolveCase: input.notifyOnResolveCase }),
-    ...(input.teamId != null && { teamId: input.teamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelId: [],
+      channelName: [],
+      channelRoleArn: [],
+      notifyOnAddCorrespondenceToCase: [],
+      notifyOnCaseSeverity: [],
+      notifyOnCreateOrReopenCase: [],
+      notifyOnResolveCase: [],
+      teamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -407,10 +419,9 @@ const de_CreateSlackChannelConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -457,10 +468,9 @@ const de_DeleteAccountAliasCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -513,10 +523,9 @@ const de_DeleteSlackChannelConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -569,10 +578,9 @@ const de_DeleteSlackWorkspaceConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -592,9 +600,10 @@ export const de_GetAccountAliasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accountAlias != null) {
-    contents.accountAlias = __expectString(data.accountAlias);
-  }
+  const doc = take(data, {
+    accountAlias: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -616,10 +625,9 @@ const de_GetAccountAliasCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -639,12 +647,11 @@ export const de_ListSlackChannelConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slackChannelConfigurations != null) {
-    contents.slackChannelConfigurations = de_slackChannelConfigurationList(data.slackChannelConfigurations, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    slackChannelConfigurations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -669,10 +676,9 @@ const de_ListSlackChannelConfigurationsCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -692,15 +698,11 @@ export const de_ListSlackWorkspaceConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slackWorkspaceConfigurations != null) {
-    contents.slackWorkspaceConfigurations = de_SlackWorkspaceConfigurationList(
-      data.slackWorkspaceConfigurations,
-      context
-    );
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    slackWorkspaceConfigurations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -725,10 +727,9 @@ const de_ListSlackWorkspaceConfigurationsCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -775,10 +776,9 @@ const de_PutAccountAliasCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -798,15 +798,12 @@ export const de_RegisterSlackWorkspaceForOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accountType != null) {
-    contents.accountType = __expectString(data.accountType);
-  }
-  if (data.teamId != null) {
-    contents.teamId = __expectString(data.teamId);
-  }
-  if (data.teamName != null) {
-    contents.teamName = __expectString(data.teamName);
-  }
+  const doc = take(data, {
+    accountType: __expectString,
+    teamId: __expectString,
+    teamName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -840,10 +837,9 @@ const de_RegisterSlackWorkspaceForOrganizationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -863,30 +859,17 @@ export const de_UpdateSlackChannelConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.channelId != null) {
-    contents.channelId = __expectString(data.channelId);
-  }
-  if (data.channelName != null) {
-    contents.channelName = __expectString(data.channelName);
-  }
-  if (data.channelRoleArn != null) {
-    contents.channelRoleArn = __expectString(data.channelRoleArn);
-  }
-  if (data.notifyOnAddCorrespondenceToCase != null) {
-    contents.notifyOnAddCorrespondenceToCase = __expectBoolean(data.notifyOnAddCorrespondenceToCase);
-  }
-  if (data.notifyOnCaseSeverity != null) {
-    contents.notifyOnCaseSeverity = __expectString(data.notifyOnCaseSeverity);
-  }
-  if (data.notifyOnCreateOrReopenCase != null) {
-    contents.notifyOnCreateOrReopenCase = __expectBoolean(data.notifyOnCreateOrReopenCase);
-  }
-  if (data.notifyOnResolveCase != null) {
-    contents.notifyOnResolveCase = __expectBoolean(data.notifyOnResolveCase);
-  }
-  if (data.teamId != null) {
-    contents.teamId = __expectString(data.teamId);
-  }
+  const doc = take(data, {
+    channelId: __expectString,
+    channelName: __expectString,
+    channelRoleArn: __expectString,
+    notifyOnAddCorrespondenceToCase: __expectBoolean,
+    notifyOnCaseSeverity: __expectString,
+    notifyOnCreateOrReopenCase: __expectBoolean,
+    notifyOnResolveCase: __expectBoolean,
+    teamId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -920,16 +903,15 @@ const de_UpdateSlackChannelConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -939,9 +921,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -955,9 +938,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -974,9 +958,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -993,9 +978,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1012,9 +998,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1028,9 +1015,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1038,62 +1026,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * deserializeAws_restJson1SlackChannelConfiguration
- */
-const de_SlackChannelConfiguration = (output: any, context: __SerdeContext): SlackChannelConfiguration => {
-  return {
-    channelId: __expectString(output.channelId),
-    channelName: __expectString(output.channelName),
-    channelRoleArn: __expectString(output.channelRoleArn),
-    notifyOnAddCorrespondenceToCase: __expectBoolean(output.notifyOnAddCorrespondenceToCase),
-    notifyOnCaseSeverity: __expectString(output.notifyOnCaseSeverity),
-    notifyOnCreateOrReopenCase: __expectBoolean(output.notifyOnCreateOrReopenCase),
-    notifyOnResolveCase: __expectBoolean(output.notifyOnResolveCase),
-    teamId: __expectString(output.teamId),
-  } as any;
-};
+// de_SlackChannelConfiguration omitted.
 
-/**
- * deserializeAws_restJson1slackChannelConfigurationList
- */
-const de_slackChannelConfigurationList = (output: any, context: __SerdeContext): SlackChannelConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SlackChannelConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_slackChannelConfigurationList omitted.
 
-/**
- * deserializeAws_restJson1SlackWorkspaceConfiguration
- */
-const de_SlackWorkspaceConfiguration = (output: any, context: __SerdeContext): SlackWorkspaceConfiguration => {
-  return {
-    allowOrganizationMemberAccount: __expectBoolean(output.allowOrganizationMemberAccount),
-    teamId: __expectString(output.teamId),
-    teamName: __expectString(output.teamName),
-  } as any;
-};
+// de_SlackWorkspaceConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SlackWorkspaceConfigurationList
- */
-const de_SlackWorkspaceConfigurationList = (output: any, context: __SerdeContext): SlackWorkspaceConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SlackWorkspaceConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_SlackWorkspaceConfigurationList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

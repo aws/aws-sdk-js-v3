@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,10 +12,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -289,7 +291,6 @@ import {
   UpdateEmailTemplateCommandOutput,
 } from "../commands/UpdateEmailTemplateCommand";
 import {
-  AccountDetails,
   AccountSuspendedException,
   AlreadyExistsException,
   BadRequestException,
@@ -298,7 +299,6 @@ import {
   Body,
   BulkEmailContent,
   BulkEmailEntry,
-  BulkEmailEntryResult,
   CloudWatchDestination,
   CloudWatchDimensionConfiguration,
   ConcurrentModificationException,
@@ -307,12 +307,9 @@ import {
   ContactList,
   ContactListDestination,
   Content,
-  CustomVerificationEmailTemplateMetadata,
   DailyVolume,
   DashboardAttributes,
   DashboardOptions,
-  DedicatedIp,
-  DedicatedIpPool,
   DeliverabilityTestReport,
   DeliveryOptions,
   Destination,
@@ -324,13 +321,10 @@ import {
   EmailContent,
   EmailTemplateContent,
   EmailTemplateMetadata,
-  EventDestination,
   EventDestinationDefinition,
   EventType,
-  FailureInfo,
   GuardianAttributes,
   GuardianOptions,
-  IdentityInfo,
   ImportDataSource,
   ImportDestination,
   ImportJobSummary,
@@ -342,15 +336,11 @@ import {
   LimitExceededException,
   ListContactsFilter,
   ListManagementOptions,
-  ListRecommendationsFilterKey,
-  MailFromAttributes,
   MailFromDomainNotVerifiedException,
   Message,
   MessageRejected,
   MessageTag,
-  MetricDataError,
   MetricDataResult,
-  MetricDimensionName,
   NotFoundException,
   OverallVolume,
   PinpointDestination,
@@ -360,15 +350,12 @@ import {
   ReplacementEmailContent,
   ReplacementTemplate,
   ReputationOptions,
-  ReviewDetails,
   SendingOptions,
   SendingPausedException,
   SendQuota,
   SnsDestination,
   SuppressedDestination,
-  SuppressedDestinationAttributes,
   SuppressedDestinationSummary,
-  SuppressionAttributes,
   SuppressionListDestination,
   SuppressionListReason,
   SuppressionOptions,
@@ -381,7 +368,6 @@ import {
   TrackingOptions,
   VdmAttributes,
   VdmOptions,
-  VolumeStatistics,
 } from "../models/models_0";
 import { SESv2ServiceException as __BaseException } from "../models/SESv2ServiceException";
 
@@ -399,9 +385,11 @@ export const se_BatchGetMetricDataCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/metrics/batch";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Queries != null && { Queries: se_BatchGetMetricDataQueries(input.Queries, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Queries: (_) => se_BatchGetMetricDataQueries(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -427,20 +415,18 @@ export const se_CreateConfigurationSetCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/configuration-sets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.DeliveryOptions != null && { DeliveryOptions: se_DeliveryOptions(input.DeliveryOptions, context) }),
-    ...(input.ReputationOptions != null && {
-      ReputationOptions: se_ReputationOptions(input.ReputationOptions, context),
-    }),
-    ...(input.SendingOptions != null && { SendingOptions: se_SendingOptions(input.SendingOptions, context) }),
-    ...(input.SuppressionOptions != null && {
-      SuppressionOptions: se_SuppressionOptions(input.SuppressionOptions, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.TrackingOptions != null && { TrackingOptions: se_TrackingOptions(input.TrackingOptions, context) }),
-    ...(input.VdmOptions != null && { VdmOptions: se_VdmOptions(input.VdmOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationSetName: [],
+      DeliveryOptions: (_) => _json(_),
+      ReputationOptions: (_) => se_ReputationOptions(_, context),
+      SendingOptions: (_) => _json(_),
+      SuppressionOptions: (_) => _json(_),
+      Tags: (_) => _json(_),
+      TrackingOptions: (_) => _json(_),
+      VdmOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -475,12 +461,12 @@ export const se_CreateConfigurationSetEventDestinationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.EventDestination != null && {
-      EventDestination: se_EventDestinationDefinition(input.EventDestination, context),
-    }),
-    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EventDestination: (_) => _json(_),
+      EventDestinationName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -515,14 +501,14 @@ export const se_CreateContactCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributesData != null && { AttributesData: input.AttributesData }),
-    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
-    ...(input.TopicPreferences != null && {
-      TopicPreferences: se_TopicPreferenceList(input.TopicPreferences, context),
-    }),
-    ...(input.UnsubscribeAll != null && { UnsubscribeAll: input.UnsubscribeAll }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributesData: [],
+      EmailAddress: [],
+      TopicPreferences: (_) => _json(_),
+      UnsubscribeAll: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -548,12 +534,14 @@ export const se_CreateContactListCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/contact-lists";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ContactListName != null && { ContactListName: input.ContactListName }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.Topics != null && { Topics: se_Topics(input.Topics, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ContactListName: [],
+      Description: [],
+      Tags: (_) => _json(_),
+      Topics: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -580,14 +568,16 @@ export const se_CreateCustomVerificationEmailTemplateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v2/email/custom-verification-email-templates";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FailureRedirectionURL != null && { FailureRedirectionURL: input.FailureRedirectionURL }),
-    ...(input.FromEmailAddress != null && { FromEmailAddress: input.FromEmailAddress }),
-    ...(input.SuccessRedirectionURL != null && { SuccessRedirectionURL: input.SuccessRedirectionURL }),
-    ...(input.TemplateContent != null && { TemplateContent: input.TemplateContent }),
-    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
-    ...(input.TemplateSubject != null && { TemplateSubject: input.TemplateSubject }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FailureRedirectionURL: [],
+      FromEmailAddress: [],
+      SuccessRedirectionURL: [],
+      TemplateContent: [],
+      TemplateName: [],
+      TemplateSubject: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -613,11 +603,13 @@ export const se_CreateDedicatedIpPoolCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ip-pools";
   let body: any;
-  body = JSON.stringify({
-    ...(input.PoolName != null && { PoolName: input.PoolName }),
-    ...(input.ScalingMode != null && { ScalingMode: input.ScalingMode }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PoolName: [],
+      ScalingMode: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -643,12 +635,14 @@ export const se_CreateDeliverabilityTestReportCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/deliverability-dashboard/test";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Content != null && { Content: se_EmailContent(input.Content, context) }),
-    ...(input.FromEmailAddress != null && { FromEmailAddress: input.FromEmailAddress }),
-    ...(input.ReportName != null && { ReportName: input.ReportName }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Content: (_) => se_EmailContent(_, context),
+      FromEmailAddress: [],
+      ReportName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -673,14 +667,14 @@ export const se_CreateEmailIdentityCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/identities";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.DkimSigningAttributes != null && {
-      DkimSigningAttributes: se_DkimSigningAttributes(input.DkimSigningAttributes, context),
-    }),
-    ...(input.EmailIdentity != null && { EmailIdentity: input.EmailIdentity }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationSetName: [],
+      DkimSigningAttributes: (_) => _json(_),
+      EmailIdentity: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -716,9 +710,11 @@ export const se_CreateEmailIdentityPolicyCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "PolicyName", () => input.PolicyName!, "{PolicyName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy != null && { Policy: input.Policy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -743,10 +739,12 @@ export const se_CreateEmailTemplateCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/templates";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TemplateContent != null && { TemplateContent: se_EmailTemplateContent(input.TemplateContent, context) }),
-    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TemplateContent: (_) => _json(_),
+      TemplateName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -771,12 +769,12 @@ export const se_CreateImportJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/import-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ImportDataSource != null && { ImportDataSource: se_ImportDataSource(input.ImportDataSource, context) }),
-    ...(input.ImportDestination != null && {
-      ImportDestination: se_ImportDestination(input.ImportDestination, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ImportDataSource: (_) => _json(_),
+      ImportDestination: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1759,9 +1757,11 @@ export const se_ListContactsCommand = async (
     NextToken: [, input.NextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filter != null && { Filter: se_ListContactsFilter(input.Filter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filter: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1976,9 +1976,11 @@ export const se_ListImportJobsCommand = async (
     PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ImportDestinationType != null && { ImportDestinationType: input.ImportDestinationType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ImportDestinationType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2005,11 +2007,13 @@ export const se_ListRecommendationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/vdm/recommendations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filter != null && { Filter: se_ListRecommendationsFilter(input.Filter, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filter: (_) => _json(_),
+      NextToken: [],
+      PageSize: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2095,9 +2099,11 @@ export const se_PutAccountDedicatedIpWarmupAttributesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/dedicated-ips/warmup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AutoWarmupEnabled != null && { AutoWarmupEnabled: input.AutoWarmupEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AutoWarmupEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2123,19 +2129,16 @@ export const se_PutAccountDetailsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/details";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdditionalContactEmailAddresses != null && {
-      AdditionalContactEmailAddresses: se_AdditionalContactEmailAddresses(
-        input.AdditionalContactEmailAddresses,
-        context
-      ),
-    }),
-    ...(input.ContactLanguage != null && { ContactLanguage: input.ContactLanguage }),
-    ...(input.MailType != null && { MailType: input.MailType }),
-    ...(input.ProductionAccessEnabled != null && { ProductionAccessEnabled: input.ProductionAccessEnabled }),
-    ...(input.UseCaseDescription != null && { UseCaseDescription: input.UseCaseDescription }),
-    ...(input.WebsiteURL != null && { WebsiteURL: input.WebsiteURL }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdditionalContactEmailAddresses: (_) => _json(_),
+      ContactLanguage: [],
+      MailType: [],
+      ProductionAccessEnabled: [],
+      UseCaseDescription: [],
+      WebsiteURL: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2161,9 +2164,11 @@ export const se_PutAccountSendingAttributesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/sending";
   let body: any;
-  body = JSON.stringify({
-    ...(input.SendingEnabled != null && { SendingEnabled: input.SendingEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SendingEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2189,11 +2194,11 @@ export const se_PutAccountSuppressionAttributesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/suppression";
   let body: any;
-  body = JSON.stringify({
-    ...(input.SuppressedReasons != null && {
-      SuppressedReasons: se_SuppressionListReasons(input.SuppressedReasons, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SuppressedReasons: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2218,9 +2223,11 @@ export const se_PutAccountVdmAttributesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/vdm";
   let body: any;
-  body = JSON.stringify({
-    ...(input.VdmAttributes != null && { VdmAttributes: se_VdmAttributes(input.VdmAttributes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      VdmAttributes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2255,10 +2262,12 @@ export const se_PutConfigurationSetDeliveryOptionsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SendingPoolName != null && { SendingPoolName: input.SendingPoolName }),
-    ...(input.TlsPolicy != null && { TlsPolicy: input.TlsPolicy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SendingPoolName: [],
+      TlsPolicy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2293,9 +2302,11 @@ export const se_PutConfigurationSetReputationOptionsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ReputationMetricsEnabled != null && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ReputationMetricsEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2330,9 +2341,11 @@ export const se_PutConfigurationSetSendingOptionsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SendingEnabled != null && { SendingEnabled: input.SendingEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SendingEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2367,11 +2380,11 @@ export const se_PutConfigurationSetSuppressionOptionsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SuppressedReasons != null && {
-      SuppressedReasons: se_SuppressionListReasons(input.SuppressedReasons, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SuppressedReasons: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2406,9 +2419,11 @@ export const se_PutConfigurationSetTrackingOptionsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.CustomRedirectDomain != null && { CustomRedirectDomain: input.CustomRedirectDomain }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CustomRedirectDomain: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2443,9 +2458,11 @@ export const se_PutConfigurationSetVdmOptionsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.VdmOptions != null && { VdmOptions: se_VdmOptions(input.VdmOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      VdmOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2472,9 +2489,11 @@ export const se_PutDedicatedIpInPoolCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ips/{Ip}/pool";
   resolvedPath = __resolvedPath(resolvedPath, input, "Ip", () => input.Ip!, "{Ip}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DestinationPoolName != null && { DestinationPoolName: input.DestinationPoolName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DestinationPoolName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2501,9 +2520,11 @@ export const se_PutDedicatedIpWarmupAttributesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ips/{Ip}/warmup";
   resolvedPath = __resolvedPath(resolvedPath, input, "Ip", () => input.Ip!, "{Ip}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.WarmupPercentage != null && { WarmupPercentage: input.WarmupPercentage }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      WarmupPercentage: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2529,12 +2550,12 @@ export const se_PutDeliverabilityDashboardOptionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/deliverability-dashboard";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DashboardEnabled != null && { DashboardEnabled: input.DashboardEnabled }),
-    ...(input.SubscribedDomains != null && {
-      SubscribedDomains: se_DomainDeliverabilityTrackingOptions(input.SubscribedDomains, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DashboardEnabled: [],
+      SubscribedDomains: (_) => se_DomainDeliverabilityTrackingOptions(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2569,9 +2590,11 @@ export const se_PutEmailIdentityConfigurationSetAttributesCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationSetName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2605,9 +2628,11 @@ export const se_PutEmailIdentityDkimAttributesCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SigningEnabled != null && { SigningEnabled: input.SigningEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SigningEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2642,12 +2667,12 @@ export const se_PutEmailIdentityDkimSigningAttributesCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SigningAttributes != null && {
-      SigningAttributes: se_DkimSigningAttributes(input.SigningAttributes, context),
-    }),
-    ...(input.SigningAttributesOrigin != null && { SigningAttributesOrigin: input.SigningAttributesOrigin }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SigningAttributes: (_) => _json(_),
+      SigningAttributesOrigin: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2682,9 +2707,11 @@ export const se_PutEmailIdentityFeedbackAttributesCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.EmailForwardingEnabled != null && { EmailForwardingEnabled: input.EmailForwardingEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EmailForwardingEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2719,10 +2746,12 @@ export const se_PutEmailIdentityMailFromAttributesCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BehaviorOnMxFailure != null && { BehaviorOnMxFailure: input.BehaviorOnMxFailure }),
-    ...(input.MailFromDomain != null && { MailFromDomain: input.MailFromDomain }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BehaviorOnMxFailure: [],
+      MailFromDomain: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2748,10 +2777,12 @@ export const se_PutSuppressedDestinationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/suppression/addresses";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
-    ...(input.Reason != null && { Reason: input.Reason }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EmailAddress: [],
+      Reason: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2777,23 +2808,19 @@ export const se_SendBulkEmailCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/outbound-bulk-emails";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BulkEmailEntries != null && { BulkEmailEntries: se_BulkEmailEntryList(input.BulkEmailEntries, context) }),
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.DefaultContent != null && { DefaultContent: se_BulkEmailContent(input.DefaultContent, context) }),
-    ...(input.DefaultEmailTags != null && { DefaultEmailTags: se_MessageTagList(input.DefaultEmailTags, context) }),
-    ...(input.FeedbackForwardingEmailAddress != null && {
-      FeedbackForwardingEmailAddress: input.FeedbackForwardingEmailAddress,
-    }),
-    ...(input.FeedbackForwardingEmailAddressIdentityArn != null && {
-      FeedbackForwardingEmailAddressIdentityArn: input.FeedbackForwardingEmailAddressIdentityArn,
-    }),
-    ...(input.FromEmailAddress != null && { FromEmailAddress: input.FromEmailAddress }),
-    ...(input.FromEmailAddressIdentityArn != null && {
-      FromEmailAddressIdentityArn: input.FromEmailAddressIdentityArn,
-    }),
-    ...(input.ReplyToAddresses != null && { ReplyToAddresses: se_EmailAddressList(input.ReplyToAddresses, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BulkEmailEntries: (_) => _json(_),
+      ConfigurationSetName: [],
+      DefaultContent: (_) => _json(_),
+      DefaultEmailTags: (_) => _json(_),
+      FeedbackForwardingEmailAddress: [],
+      FeedbackForwardingEmailAddressIdentityArn: [],
+      FromEmailAddress: [],
+      FromEmailAddressIdentityArn: [],
+      ReplyToAddresses: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2820,11 +2847,13 @@ export const se_SendCustomVerificationEmailCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v2/email/outbound-custom-verification-emails";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
-    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationSetName: [],
+      EmailAddress: [],
+      TemplateName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2850,26 +2879,20 @@ export const se_SendEmailCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/outbound-emails";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Content != null && { Content: se_EmailContent(input.Content, context) }),
-    ...(input.Destination != null && { Destination: se_Destination(input.Destination, context) }),
-    ...(input.EmailTags != null && { EmailTags: se_MessageTagList(input.EmailTags, context) }),
-    ...(input.FeedbackForwardingEmailAddress != null && {
-      FeedbackForwardingEmailAddress: input.FeedbackForwardingEmailAddress,
-    }),
-    ...(input.FeedbackForwardingEmailAddressIdentityArn != null && {
-      FeedbackForwardingEmailAddressIdentityArn: input.FeedbackForwardingEmailAddressIdentityArn,
-    }),
-    ...(input.FromEmailAddress != null && { FromEmailAddress: input.FromEmailAddress }),
-    ...(input.FromEmailAddressIdentityArn != null && {
-      FromEmailAddressIdentityArn: input.FromEmailAddressIdentityArn,
-    }),
-    ...(input.ListManagementOptions != null && {
-      ListManagementOptions: se_ListManagementOptions(input.ListManagementOptions, context),
-    }),
-    ...(input.ReplyToAddresses != null && { ReplyToAddresses: se_EmailAddressList(input.ReplyToAddresses, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationSetName: [],
+      Content: (_) => se_EmailContent(_, context),
+      Destination: (_) => _json(_),
+      EmailTags: (_) => _json(_),
+      FeedbackForwardingEmailAddress: [],
+      FeedbackForwardingEmailAddressIdentityArn: [],
+      FromEmailAddress: [],
+      FromEmailAddressIdentityArn: [],
+      ListManagementOptions: (_) => _json(_),
+      ReplyToAddresses: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2894,10 +2917,12 @@ export const se_TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/tags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2931,9 +2956,11 @@ export const se_TestRenderEmailTemplateCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.TemplateData != null && { TemplateData: input.TemplateData }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TemplateData: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3006,11 +3033,11 @@ export const se_UpdateConfigurationSetEventDestinationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.EventDestination != null && {
-      EventDestination: se_EventDestinationDefinition(input.EventDestination, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EventDestination: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3053,13 +3080,13 @@ export const se_UpdateContactCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributesData != null && { AttributesData: input.AttributesData }),
-    ...(input.TopicPreferences != null && {
-      TopicPreferences: se_TopicPreferenceList(input.TopicPreferences, context),
-    }),
-    ...(input.UnsubscribeAll != null && { UnsubscribeAll: input.UnsubscribeAll }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributesData: [],
+      TopicPreferences: (_) => _json(_),
+      UnsubscribeAll: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3093,10 +3120,12 @@ export const se_UpdateContactListCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Topics != null && { Topics: se_Topics(input.Topics, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Topics: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3131,13 +3160,15 @@ export const se_UpdateCustomVerificationEmailTemplateCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.FailureRedirectionURL != null && { FailureRedirectionURL: input.FailureRedirectionURL }),
-    ...(input.FromEmailAddress != null && { FromEmailAddress: input.FromEmailAddress }),
-    ...(input.SuccessRedirectionURL != null && { SuccessRedirectionURL: input.SuccessRedirectionURL }),
-    ...(input.TemplateContent != null && { TemplateContent: input.TemplateContent }),
-    ...(input.TemplateSubject != null && { TemplateSubject: input.TemplateSubject }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FailureRedirectionURL: [],
+      FromEmailAddress: [],
+      SuccessRedirectionURL: [],
+      TemplateContent: [],
+      TemplateSubject: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3173,9 +3204,11 @@ export const se_UpdateEmailIdentityPolicyCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "PolicyName", () => input.PolicyName!, "{PolicyName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy != null && { Policy: input.Policy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3209,9 +3242,11 @@ export const se_UpdateEmailTemplateCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.TemplateContent != null && { TemplateContent: se_EmailTemplateContent(input.TemplateContent, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TemplateContent: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3237,12 +3272,11 @@ export const de_BatchGetMetricDataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_MetricDataErrorList(data.Errors, context);
-  }
-  if (data.Results != null) {
-    contents.Results = de_MetricDataResultList(data.Results, context);
-  }
+  const doc = take(data, {
+    Errors: _json,
+    Results: (_) => de_MetricDataResultList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3273,10 +3307,9 @@ const de_BatchGetMetricDataCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3332,10 +3365,9 @@ const de_CreateConfigurationSetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3388,10 +3420,9 @@ const de_CreateConfigurationSetEventDestinationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3441,10 +3472,9 @@ const de_CreateContactCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3494,10 +3524,9 @@ const de_CreateContactListCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3550,10 +3579,9 @@ const de_CreateCustomVerificationEmailTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3606,10 +3634,9 @@ const de_CreateDedicatedIpPoolCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3629,12 +3656,11 @@ export const de_CreateDeliverabilityTestReportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeliverabilityTestStatus != null) {
-    contents.DeliverabilityTestStatus = __expectString(data.DeliverabilityTestStatus);
-  }
-  if (data.ReportId != null) {
-    contents.ReportId = __expectString(data.ReportId);
-  }
+  const doc = take(data, {
+    DeliverabilityTestStatus: __expectString,
+    ReportId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3680,10 +3706,9 @@ const de_CreateDeliverabilityTestReportCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3703,15 +3728,12 @@ export const de_CreateEmailIdentityCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DkimAttributes != null) {
-    contents.DkimAttributes = de_DkimAttributes(data.DkimAttributes, context);
-  }
-  if (data.IdentityType != null) {
-    contents.IdentityType = __expectString(data.IdentityType);
-  }
-  if (data.VerifiedForSendingStatus != null) {
-    contents.VerifiedForSendingStatus = __expectBoolean(data.VerifiedForSendingStatus);
-  }
+  const doc = take(data, {
+    DkimAttributes: (_) => de_DkimAttributes(_, context),
+    IdentityType: __expectString,
+    VerifiedForSendingStatus: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3748,10 +3770,9 @@ const de_CreateEmailIdentityCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3804,10 +3825,9 @@ const de_CreateEmailIdentityPolicyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3857,10 +3877,9 @@ const de_CreateEmailTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3880,9 +3899,10 @@ export const de_CreateImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.JobId != null) {
-    contents.JobId = __expectString(data.JobId);
-  }
+  const doc = take(data, {
+    JobId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3910,10 +3930,9 @@ const de_CreateImportJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3963,10 +3982,9 @@ const de_DeleteConfigurationSetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4013,10 +4031,9 @@ const de_DeleteConfigurationSetEventDestinationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4063,10 +4080,9 @@ const de_DeleteContactCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4116,10 +4132,9 @@ const de_DeleteContactListCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4166,10 +4181,9 @@ const de_DeleteCustomVerificationEmailTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4219,10 +4233,9 @@ const de_DeleteDedicatedIpPoolCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4272,10 +4285,9 @@ const de_DeleteEmailIdentityCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4322,10 +4334,9 @@ const de_DeleteEmailIdentityPolicyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4372,10 +4383,9 @@ const de_DeleteEmailTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4422,10 +4432,9 @@ const de_DeleteSuppressedDestinationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4445,30 +4454,17 @@ export const de_GetAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DedicatedIpAutoWarmupEnabled != null) {
-    contents.DedicatedIpAutoWarmupEnabled = __expectBoolean(data.DedicatedIpAutoWarmupEnabled);
-  }
-  if (data.Details != null) {
-    contents.Details = de_AccountDetails(data.Details, context);
-  }
-  if (data.EnforcementStatus != null) {
-    contents.EnforcementStatus = __expectString(data.EnforcementStatus);
-  }
-  if (data.ProductionAccessEnabled != null) {
-    contents.ProductionAccessEnabled = __expectBoolean(data.ProductionAccessEnabled);
-  }
-  if (data.SendQuota != null) {
-    contents.SendQuota = de_SendQuota(data.SendQuota, context);
-  }
-  if (data.SendingEnabled != null) {
-    contents.SendingEnabled = __expectBoolean(data.SendingEnabled);
-  }
-  if (data.SuppressionAttributes != null) {
-    contents.SuppressionAttributes = de_SuppressionAttributes(data.SuppressionAttributes, context);
-  }
-  if (data.VdmAttributes != null) {
-    contents.VdmAttributes = de_VdmAttributes(data.VdmAttributes, context);
-  }
+  const doc = take(data, {
+    DedicatedIpAutoWarmupEnabled: __expectBoolean,
+    Details: _json,
+    EnforcementStatus: __expectString,
+    ProductionAccessEnabled: __expectBoolean,
+    SendQuota: (_) => de_SendQuota(_, context),
+    SendingEnabled: __expectBoolean,
+    SuppressionAttributes: _json,
+    VdmAttributes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4493,10 +4489,9 @@ const de_GetAccountCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4516,9 +4511,10 @@ export const de_GetBlacklistReportsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BlacklistReport != null) {
-    contents.BlacklistReport = de_BlacklistReport(data.BlacklistReport, context);
-  }
+  const doc = take(data, {
+    BlacklistReport: (_) => de_BlacklistReport(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4546,10 +4542,9 @@ const de_GetBlacklistReportsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4569,30 +4564,17 @@ export const de_GetConfigurationSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConfigurationSetName != null) {
-    contents.ConfigurationSetName = __expectString(data.ConfigurationSetName);
-  }
-  if (data.DeliveryOptions != null) {
-    contents.DeliveryOptions = de_DeliveryOptions(data.DeliveryOptions, context);
-  }
-  if (data.ReputationOptions != null) {
-    contents.ReputationOptions = de_ReputationOptions(data.ReputationOptions, context);
-  }
-  if (data.SendingOptions != null) {
-    contents.SendingOptions = de_SendingOptions(data.SendingOptions, context);
-  }
-  if (data.SuppressionOptions != null) {
-    contents.SuppressionOptions = de_SuppressionOptions(data.SuppressionOptions, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
-  if (data.TrackingOptions != null) {
-    contents.TrackingOptions = de_TrackingOptions(data.TrackingOptions, context);
-  }
-  if (data.VdmOptions != null) {
-    contents.VdmOptions = de_VdmOptions(data.VdmOptions, context);
-  }
+  const doc = take(data, {
+    ConfigurationSetName: __expectString,
+    DeliveryOptions: _json,
+    ReputationOptions: (_) => de_ReputationOptions(_, context),
+    SendingOptions: _json,
+    SuppressionOptions: _json,
+    Tags: _json,
+    TrackingOptions: _json,
+    VdmOptions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4620,10 +4602,9 @@ const de_GetConfigurationSetCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4643,9 +4624,10 @@ export const de_GetConfigurationSetEventDestinationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventDestinations != null) {
-    contents.EventDestinations = de_EventDestinations(data.EventDestinations, context);
-  }
+  const doc = take(data, {
+    EventDestinations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4673,10 +4655,9 @@ const de_GetConfigurationSetEventDestinationsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4696,30 +4677,17 @@ export const de_GetContactCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AttributesData != null) {
-    contents.AttributesData = __expectString(data.AttributesData);
-  }
-  if (data.ContactListName != null) {
-    contents.ContactListName = __expectString(data.ContactListName);
-  }
-  if (data.CreatedTimestamp != null) {
-    contents.CreatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTimestamp)));
-  }
-  if (data.EmailAddress != null) {
-    contents.EmailAddress = __expectString(data.EmailAddress);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTimestamp)));
-  }
-  if (data.TopicDefaultPreferences != null) {
-    contents.TopicDefaultPreferences = de_TopicPreferenceList(data.TopicDefaultPreferences, context);
-  }
-  if (data.TopicPreferences != null) {
-    contents.TopicPreferences = de_TopicPreferenceList(data.TopicPreferences, context);
-  }
-  if (data.UnsubscribeAll != null) {
-    contents.UnsubscribeAll = __expectBoolean(data.UnsubscribeAll);
-  }
+  const doc = take(data, {
+    AttributesData: __expectString,
+    ContactListName: __expectString,
+    CreatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EmailAddress: __expectString,
+    LastUpdatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TopicDefaultPreferences: _json,
+    TopicPreferences: _json,
+    UnsubscribeAll: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4747,10 +4715,9 @@ const de_GetContactCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4770,24 +4737,15 @@ export const de_GetContactListCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ContactListName != null) {
-    contents.ContactListName = __expectString(data.ContactListName);
-  }
-  if (data.CreatedTimestamp != null) {
-    contents.CreatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTimestamp)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTimestamp)));
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
-  if (data.Topics != null) {
-    contents.Topics = de_Topics(data.Topics, context);
-  }
+  const doc = take(data, {
+    ContactListName: __expectString,
+    CreatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LastUpdatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+    Topics: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4815,10 +4773,9 @@ const de_GetContactListCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4838,24 +4795,15 @@ export const de_GetCustomVerificationEmailTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FailureRedirectionURL != null) {
-    contents.FailureRedirectionURL = __expectString(data.FailureRedirectionURL);
-  }
-  if (data.FromEmailAddress != null) {
-    contents.FromEmailAddress = __expectString(data.FromEmailAddress);
-  }
-  if (data.SuccessRedirectionURL != null) {
-    contents.SuccessRedirectionURL = __expectString(data.SuccessRedirectionURL);
-  }
-  if (data.TemplateContent != null) {
-    contents.TemplateContent = __expectString(data.TemplateContent);
-  }
-  if (data.TemplateName != null) {
-    contents.TemplateName = __expectString(data.TemplateName);
-  }
-  if (data.TemplateSubject != null) {
-    contents.TemplateSubject = __expectString(data.TemplateSubject);
-  }
+  const doc = take(data, {
+    FailureRedirectionURL: __expectString,
+    FromEmailAddress: __expectString,
+    SuccessRedirectionURL: __expectString,
+    TemplateContent: __expectString,
+    TemplateName: __expectString,
+    TemplateSubject: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4883,10 +4831,9 @@ const de_GetCustomVerificationEmailTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4906,9 +4853,10 @@ export const de_GetDedicatedIpCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DedicatedIp != null) {
-    contents.DedicatedIp = de_DedicatedIp(data.DedicatedIp, context);
-  }
+  const doc = take(data, {
+    DedicatedIp: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4936,10 +4884,9 @@ const de_GetDedicatedIpCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4959,9 +4906,10 @@ export const de_GetDedicatedIpPoolCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DedicatedIpPool != null) {
-    contents.DedicatedIpPool = de_DedicatedIpPool(data.DedicatedIpPool, context);
-  }
+  const doc = take(data, {
+    DedicatedIpPool: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4989,10 +4937,9 @@ const de_GetDedicatedIpPoolCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5012,12 +4959,11 @@ export const de_GetDedicatedIpsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DedicatedIps != null) {
-    contents.DedicatedIps = de_DedicatedIpList(data.DedicatedIps, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DedicatedIps: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5045,10 +4991,9 @@ const de_GetDedicatedIpsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5068,26 +5013,14 @@ export const de_GetDeliverabilityDashboardOptionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountStatus != null) {
-    contents.AccountStatus = __expectString(data.AccountStatus);
-  }
-  if (data.ActiveSubscribedDomains != null) {
-    contents.ActiveSubscribedDomains = de_DomainDeliverabilityTrackingOptions(data.ActiveSubscribedDomains, context);
-  }
-  if (data.DashboardEnabled != null) {
-    contents.DashboardEnabled = __expectBoolean(data.DashboardEnabled);
-  }
-  if (data.PendingExpirationSubscribedDomains != null) {
-    contents.PendingExpirationSubscribedDomains = de_DomainDeliverabilityTrackingOptions(
-      data.PendingExpirationSubscribedDomains,
-      context
-    );
-  }
-  if (data.SubscriptionExpiryDate != null) {
-    contents.SubscriptionExpiryDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.SubscriptionExpiryDate))
-    );
-  }
+  const doc = take(data, {
+    AccountStatus: __expectString,
+    ActiveSubscribedDomains: (_) => de_DomainDeliverabilityTrackingOptions(_, context),
+    DashboardEnabled: __expectBoolean,
+    PendingExpirationSubscribedDomains: (_) => de_DomainDeliverabilityTrackingOptions(_, context),
+    SubscriptionExpiryDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5115,10 +5048,9 @@ const de_GetDeliverabilityDashboardOptionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5138,21 +5070,14 @@ export const de_GetDeliverabilityTestReportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeliverabilityTestReport != null) {
-    contents.DeliverabilityTestReport = de_DeliverabilityTestReport(data.DeliverabilityTestReport, context);
-  }
-  if (data.IspPlacements != null) {
-    contents.IspPlacements = de_IspPlacements(data.IspPlacements, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.OverallPlacement != null) {
-    contents.OverallPlacement = de_PlacementStatistics(data.OverallPlacement, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    DeliverabilityTestReport: (_) => de_DeliverabilityTestReport(_, context),
+    IspPlacements: (_) => de_IspPlacements(_, context),
+    Message: __expectString,
+    OverallPlacement: (_) => de_PlacementStatistics(_, context),
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5180,10 +5105,9 @@ const de_GetDeliverabilityTestReportCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5203,9 +5127,10 @@ export const de_GetDomainDeliverabilityCampaignCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainDeliverabilityCampaign != null) {
-    contents.DomainDeliverabilityCampaign = de_DomainDeliverabilityCampaign(data.DomainDeliverabilityCampaign, context);
-  }
+  const doc = take(data, {
+    DomainDeliverabilityCampaign: (_) => de_DomainDeliverabilityCampaign(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5233,10 +5158,9 @@ const de_GetDomainDeliverabilityCampaignCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5256,12 +5180,11 @@ export const de_GetDomainStatisticsReportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DailyVolumes != null) {
-    contents.DailyVolumes = de_DailyVolumes(data.DailyVolumes, context);
-  }
-  if (data.OverallVolume != null) {
-    contents.OverallVolume = de_OverallVolume(data.OverallVolume, context);
-  }
+  const doc = take(data, {
+    DailyVolumes: (_) => de_DailyVolumes(_, context),
+    OverallVolume: (_) => de_OverallVolume(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5289,10 +5212,9 @@ const de_GetDomainStatisticsReportCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5312,33 +5234,18 @@ export const de_GetEmailIdentityCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConfigurationSetName != null) {
-    contents.ConfigurationSetName = __expectString(data.ConfigurationSetName);
-  }
-  if (data.DkimAttributes != null) {
-    contents.DkimAttributes = de_DkimAttributes(data.DkimAttributes, context);
-  }
-  if (data.FeedbackForwardingStatus != null) {
-    contents.FeedbackForwardingStatus = __expectBoolean(data.FeedbackForwardingStatus);
-  }
-  if (data.IdentityType != null) {
-    contents.IdentityType = __expectString(data.IdentityType);
-  }
-  if (data.MailFromAttributes != null) {
-    contents.MailFromAttributes = de_MailFromAttributes(data.MailFromAttributes, context);
-  }
-  if (data.Policies != null) {
-    contents.Policies = de_PolicyMap(data.Policies, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
-  if (data.VerificationStatus != null) {
-    contents.VerificationStatus = __expectString(data.VerificationStatus);
-  }
-  if (data.VerifiedForSendingStatus != null) {
-    contents.VerifiedForSendingStatus = __expectBoolean(data.VerifiedForSendingStatus);
-  }
+  const doc = take(data, {
+    ConfigurationSetName: __expectString,
+    DkimAttributes: (_) => de_DkimAttributes(_, context),
+    FeedbackForwardingStatus: __expectBoolean,
+    IdentityType: __expectString,
+    MailFromAttributes: _json,
+    Policies: _json,
+    Tags: _json,
+    VerificationStatus: __expectString,
+    VerifiedForSendingStatus: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5366,10 +5273,9 @@ const de_GetEmailIdentityCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5389,9 +5295,10 @@ export const de_GetEmailIdentityPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policies != null) {
-    contents.Policies = de_PolicyMap(data.Policies, context);
-  }
+  const doc = take(data, {
+    Policies: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5419,10 +5326,9 @@ const de_GetEmailIdentityPoliciesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5442,12 +5348,11 @@ export const de_GetEmailTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TemplateContent != null) {
-    contents.TemplateContent = de_EmailTemplateContent(data.TemplateContent, context);
-  }
-  if (data.TemplateName != null) {
-    contents.TemplateName = __expectString(data.TemplateName);
-  }
+  const doc = take(data, {
+    TemplateContent: _json,
+    TemplateName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5475,10 +5380,9 @@ const de_GetEmailTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5498,33 +5402,18 @@ export const de_GetImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CompletedTimestamp != null) {
-    contents.CompletedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletedTimestamp)));
-  }
-  if (data.CreatedTimestamp != null) {
-    contents.CreatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTimestamp)));
-  }
-  if (data.FailedRecordsCount != null) {
-    contents.FailedRecordsCount = __expectInt32(data.FailedRecordsCount);
-  }
-  if (data.FailureInfo != null) {
-    contents.FailureInfo = de_FailureInfo(data.FailureInfo, context);
-  }
-  if (data.ImportDataSource != null) {
-    contents.ImportDataSource = de_ImportDataSource(data.ImportDataSource, context);
-  }
-  if (data.ImportDestination != null) {
-    contents.ImportDestination = de_ImportDestination(data.ImportDestination, context);
-  }
-  if (data.JobId != null) {
-    contents.JobId = __expectString(data.JobId);
-  }
-  if (data.JobStatus != null) {
-    contents.JobStatus = __expectString(data.JobStatus);
-  }
-  if (data.ProcessedRecordsCount != null) {
-    contents.ProcessedRecordsCount = __expectInt32(data.ProcessedRecordsCount);
-  }
+  const doc = take(data, {
+    CompletedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailedRecordsCount: __expectInt32,
+    FailureInfo: _json,
+    ImportDataSource: _json,
+    ImportDestination: _json,
+    JobId: __expectString,
+    JobStatus: __expectString,
+    ProcessedRecordsCount: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5552,10 +5441,9 @@ const de_GetImportJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5575,9 +5463,10 @@ export const de_GetSuppressedDestinationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SuppressedDestination != null) {
-    contents.SuppressedDestination = de_SuppressedDestination(data.SuppressedDestination, context);
-  }
+  const doc = take(data, {
+    SuppressedDestination: (_) => de_SuppressedDestination(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5605,10 +5494,9 @@ const de_GetSuppressedDestinationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5628,12 +5516,11 @@ export const de_ListConfigurationSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConfigurationSets != null) {
-    contents.ConfigurationSets = de_ConfigurationSetNameList(data.ConfigurationSets, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ConfigurationSets: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5658,10 +5545,9 @@ const de_ListConfigurationSetsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5681,12 +5567,11 @@ export const de_ListContactListsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ContactLists != null) {
-    contents.ContactLists = de_ListOfContactLists(data.ContactLists, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ContactLists: (_) => de_ListOfContactLists(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5711,10 +5596,9 @@ const de_ListContactListsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5734,12 +5618,11 @@ export const de_ListContactsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Contacts != null) {
-    contents.Contacts = de_ListOfContacts(data.Contacts, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Contacts: (_) => de_ListOfContacts(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5767,10 +5650,9 @@ const de_ListContactsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5790,15 +5672,11 @@ export const de_ListCustomVerificationEmailTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CustomVerificationEmailTemplates != null) {
-    contents.CustomVerificationEmailTemplates = de_CustomVerificationEmailTemplatesList(
-      data.CustomVerificationEmailTemplates,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CustomVerificationEmailTemplates: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5823,10 +5701,9 @@ const de_ListCustomVerificationEmailTemplatesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5846,12 +5723,11 @@ export const de_ListDedicatedIpPoolsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DedicatedIpPools != null) {
-    contents.DedicatedIpPools = de_ListOfDedicatedIpPools(data.DedicatedIpPools, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DedicatedIpPools: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5876,10 +5752,9 @@ const de_ListDedicatedIpPoolsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5899,12 +5774,11 @@ export const de_ListDeliverabilityTestReportsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeliverabilityTestReports != null) {
-    contents.DeliverabilityTestReports = de_DeliverabilityTestReports(data.DeliverabilityTestReports, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DeliverabilityTestReports: (_) => de_DeliverabilityTestReports(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5932,10 +5806,9 @@ const de_ListDeliverabilityTestReportsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5955,15 +5828,11 @@ export const de_ListDomainDeliverabilityCampaignsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainDeliverabilityCampaigns != null) {
-    contents.DomainDeliverabilityCampaigns = de_DomainDeliverabilityCampaignList(
-      data.DomainDeliverabilityCampaigns,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DomainDeliverabilityCampaigns: (_) => de_DomainDeliverabilityCampaignList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5991,10 +5860,9 @@ const de_ListDomainDeliverabilityCampaignsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6014,12 +5882,11 @@ export const de_ListEmailIdentitiesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EmailIdentities != null) {
-    contents.EmailIdentities = de_IdentityInfoList(data.EmailIdentities, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EmailIdentities: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6044,10 +5911,9 @@ const de_ListEmailIdentitiesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6067,12 +5933,11 @@ export const de_ListEmailTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.TemplatesMetadata != null) {
-    contents.TemplatesMetadata = de_EmailTemplateMetadataList(data.TemplatesMetadata, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    TemplatesMetadata: (_) => de_EmailTemplateMetadataList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6097,10 +5962,9 @@ const de_ListEmailTemplatesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6120,12 +5984,11 @@ export const de_ListImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ImportJobs != null) {
-    contents.ImportJobs = de_ImportJobSummaryList(data.ImportJobs, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ImportJobs: (_) => de_ImportJobSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6150,10 +6013,9 @@ const de_ListImportJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6173,12 +6035,11 @@ export const de_ListRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Recommendations != null) {
-    contents.Recommendations = de_RecommendationsList(data.Recommendations, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Recommendations: (_) => de_RecommendationsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6206,10 +6067,9 @@ const de_ListRecommendationsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6229,15 +6089,11 @@ export const de_ListSuppressedDestinationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SuppressedDestinationSummaries != null) {
-    contents.SuppressedDestinationSummaries = de_SuppressedDestinationSummaries(
-      data.SuppressedDestinationSummaries,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SuppressedDestinationSummaries: (_) => de_SuppressedDestinationSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6265,10 +6121,9 @@ const de_ListSuppressedDestinationsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6288,9 +6143,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6318,10 +6174,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6365,10 +6220,9 @@ const de_PutAccountDedicatedIpWarmupAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6415,10 +6269,9 @@ const de_PutAccountDetailsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6462,10 +6315,9 @@ const de_PutAccountSendingAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6509,10 +6361,9 @@ const de_PutAccountSuppressionAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6556,10 +6407,9 @@ const de_PutAccountVdmAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6606,10 +6456,9 @@ const de_PutConfigurationSetDeliveryOptionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6656,10 +6505,9 @@ const de_PutConfigurationSetReputationOptionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6706,10 +6554,9 @@ const de_PutConfigurationSetSendingOptionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6756,10 +6603,9 @@ const de_PutConfigurationSetSuppressionOptionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6806,10 +6652,9 @@ const de_PutConfigurationSetTrackingOptionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6856,10 +6701,9 @@ const de_PutConfigurationSetVdmOptionsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6906,10 +6750,9 @@ const de_PutDedicatedIpInPoolCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6956,10 +6799,9 @@ const de_PutDedicatedIpWarmupAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7012,10 +6854,9 @@ const de_PutDeliverabilityDashboardOptionCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7062,10 +6903,9 @@ const de_PutEmailIdentityConfigurationSetAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7112,10 +6952,9 @@ const de_PutEmailIdentityDkimAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7135,12 +6974,11 @@ export const de_PutEmailIdentityDkimSigningAttributesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DkimStatus != null) {
-    contents.DkimStatus = __expectString(data.DkimStatus);
-  }
-  if (data.DkimTokens != null) {
-    contents.DkimTokens = de_DnsTokenList(data.DkimTokens, context);
-  }
+  const doc = take(data, {
+    DkimStatus: __expectString,
+    DkimTokens: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7168,10 +7006,9 @@ const de_PutEmailIdentityDkimSigningAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7218,10 +7055,9 @@ const de_PutEmailIdentityFeedbackAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7268,10 +7104,9 @@ const de_PutEmailIdentityMailFromAttributesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7315,10 +7150,9 @@ const de_PutSuppressedDestinationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7338,9 +7172,10 @@ export const de_SendBulkEmailCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BulkEmailEntryResults != null) {
-    contents.BulkEmailEntryResults = de_BulkEmailEntryResultList(data.BulkEmailEntryResults, context);
-  }
+  const doc = take(data, {
+    BulkEmailEntryResults: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7383,10 +7218,9 @@ const de_SendBulkEmailCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7406,9 +7240,10 @@ export const de_SendCustomVerificationEmailCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
+  const doc = take(data, {
+    MessageId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7448,10 +7283,9 @@ const de_SendCustomVerificationEmailCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7471,9 +7305,10 @@ export const de_SendEmailCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
+  const doc = take(data, {
+    MessageId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7516,10 +7351,9 @@ const de_SendEmailCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7569,10 +7403,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7592,9 +7425,10 @@ export const de_TestRenderEmailTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RenderedTemplate != null) {
-    contents.RenderedTemplate = __expectString(data.RenderedTemplate);
-  }
+  const doc = take(data, {
+    RenderedTemplate: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7622,10 +7456,9 @@ const de_TestRenderEmailTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7675,10 +7508,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7725,10 +7557,9 @@ const de_UpdateConfigurationSetEventDestinationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7778,10 +7609,9 @@ const de_UpdateContactCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7831,10 +7661,9 @@ const de_UpdateContactListCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7881,10 +7710,9 @@ const de_UpdateCustomVerificationEmailTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7931,10 +7759,9 @@ const de_UpdateEmailIdentityPolicyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7981,16 +7808,15 @@ const de_UpdateEmailTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccountSuspendedExceptionRes
  */
@@ -8000,9 +7826,10 @@ const de_AccountSuspendedExceptionRes = async (
 ): Promise<AccountSuspendedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccountSuspendedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8019,9 +7846,10 @@ const de_AlreadyExistsExceptionRes = async (
 ): Promise<AlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8035,9 +7863,10 @@ const de_AlreadyExistsExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8054,9 +7883,10 @@ const de_ConcurrentModificationExceptionRes = async (
 ): Promise<ConcurrentModificationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8070,9 +7900,10 @@ const de_ConcurrentModificationExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8089,9 +7920,10 @@ const de_InternalServiceErrorExceptionRes = async (
 ): Promise<InternalServiceErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8108,9 +7940,10 @@ const de_InvalidNextTokenExceptionRes = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8127,9 +7960,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8146,9 +7980,10 @@ const de_MailFromDomainNotVerifiedExceptionRes = async (
 ): Promise<MailFromDomainNotVerifiedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MailFromDomainNotVerifiedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8162,9 +7997,10 @@ const de_MailFromDomainNotVerifiedExceptionRes = async (
 const de_MessageRejectedRes = async (parsedOutput: any, context: __SerdeContext): Promise<MessageRejected> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MessageRejected({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8178,9 +8014,10 @@ const de_MessageRejectedRes = async (parsedOutput: any, context: __SerdeContext)
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8197,9 +8034,10 @@ const de_SendingPausedExceptionRes = async (
 ): Promise<SendingPausedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SendingPausedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8216,9 +8054,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -8226,16 +8065,7 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AdditionalContactEmailAddresses
- */
-const se_AdditionalContactEmailAddresses = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AdditionalContactEmailAddresses omitted.
 
 /**
  * serializeAws_restJson1BatchGetMetricDataQueries
@@ -8252,177 +8082,45 @@ const se_BatchGetMetricDataQueries = (input: BatchGetMetricDataQuery[], context:
  * serializeAws_restJson1BatchGetMetricDataQuery
  */
 const se_BatchGetMetricDataQuery = (input: BatchGetMetricDataQuery, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && { Dimensions: se_Dimensions(input.Dimensions, context) }),
-    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Metric != null && { Metric: input.Metric }),
-    ...(input.Namespace != null && { Namespace: input.Namespace }),
-    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
-  };
+  return take(input, {
+    Dimensions: _json,
+    EndDate: (_) => Math.round(_.getTime() / 1000),
+    Id: [],
+    Metric: [],
+    Namespace: [],
+    StartDate: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_restJson1Body
- */
-const se_Body = (input: Body, context: __SerdeContext): any => {
-  return {
-    ...(input.Html != null && { Html: se_Content(input.Html, context) }),
-    ...(input.Text != null && { Text: se_Content(input.Text, context) }),
-  };
-};
+// se_Body omitted.
 
-/**
- * serializeAws_restJson1BulkEmailContent
- */
-const se_BulkEmailContent = (input: BulkEmailContent, context: __SerdeContext): any => {
-  return {
-    ...(input.Template != null && { Template: se_Template(input.Template, context) }),
-  };
-};
+// se_BulkEmailContent omitted.
 
-/**
- * serializeAws_restJson1BulkEmailEntry
- */
-const se_BulkEmailEntry = (input: BulkEmailEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Destination != null && { Destination: se_Destination(input.Destination, context) }),
-    ...(input.ReplacementEmailContent != null && {
-      ReplacementEmailContent: se_ReplacementEmailContent(input.ReplacementEmailContent, context),
-    }),
-    ...(input.ReplacementTags != null && { ReplacementTags: se_MessageTagList(input.ReplacementTags, context) }),
-  };
-};
+// se_BulkEmailEntry omitted.
 
-/**
- * serializeAws_restJson1BulkEmailEntryList
- */
-const se_BulkEmailEntryList = (input: BulkEmailEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_BulkEmailEntry(entry, context);
-    });
-};
+// se_BulkEmailEntryList omitted.
 
-/**
- * serializeAws_restJson1CloudWatchDestination
- */
-const se_CloudWatchDestination = (input: CloudWatchDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.DimensionConfigurations != null && {
-      DimensionConfigurations: se_CloudWatchDimensionConfigurations(input.DimensionConfigurations, context),
-    }),
-  };
-};
+// se_CloudWatchDestination omitted.
 
-/**
- * serializeAws_restJson1CloudWatchDimensionConfiguration
- */
-const se_CloudWatchDimensionConfiguration = (input: CloudWatchDimensionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.DefaultDimensionValue != null && { DefaultDimensionValue: input.DefaultDimensionValue }),
-    ...(input.DimensionName != null && { DimensionName: input.DimensionName }),
-    ...(input.DimensionValueSource != null && { DimensionValueSource: input.DimensionValueSource }),
-  };
-};
+// se_CloudWatchDimensionConfiguration omitted.
 
-/**
- * serializeAws_restJson1CloudWatchDimensionConfigurations
- */
-const se_CloudWatchDimensionConfigurations = (
-  input: CloudWatchDimensionConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CloudWatchDimensionConfiguration(entry, context);
-    });
-};
+// se_CloudWatchDimensionConfigurations omitted.
 
-/**
- * serializeAws_restJson1ContactListDestination
- */
-const se_ContactListDestination = (input: ContactListDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactListImportAction != null && { ContactListImportAction: input.ContactListImportAction }),
-    ...(input.ContactListName != null && { ContactListName: input.ContactListName }),
-  };
-};
+// se_ContactListDestination omitted.
 
-/**
- * serializeAws_restJson1Content
- */
-const se_Content = (input: Content, context: __SerdeContext): any => {
-  return {
-    ...(input.Charset != null && { Charset: input.Charset }),
-    ...(input.Data != null && { Data: input.Data }),
-  };
-};
+// se_Content omitted.
 
-/**
- * serializeAws_restJson1DashboardAttributes
- */
-const se_DashboardAttributes = (input: DashboardAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.EngagementMetrics != null && { EngagementMetrics: input.EngagementMetrics }),
-  };
-};
+// se_DashboardAttributes omitted.
 
-/**
- * serializeAws_restJson1DashboardOptions
- */
-const se_DashboardOptions = (input: DashboardOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.EngagementMetrics != null && { EngagementMetrics: input.EngagementMetrics }),
-  };
-};
+// se_DashboardOptions omitted.
 
-/**
- * serializeAws_restJson1DeliveryOptions
- */
-const se_DeliveryOptions = (input: DeliveryOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.SendingPoolName != null && { SendingPoolName: input.SendingPoolName }),
-    ...(input.TlsPolicy != null && { TlsPolicy: input.TlsPolicy }),
-  };
-};
+// se_DeliveryOptions omitted.
 
-/**
- * serializeAws_restJson1Destination
- */
-const se_Destination = (input: Destination, context: __SerdeContext): any => {
-  return {
-    ...(input.BccAddresses != null && { BccAddresses: se_EmailAddressList(input.BccAddresses, context) }),
-    ...(input.CcAddresses != null && { CcAddresses: se_EmailAddressList(input.CcAddresses, context) }),
-    ...(input.ToAddresses != null && { ToAddresses: se_EmailAddressList(input.ToAddresses, context) }),
-  };
-};
+// se_Destination omitted.
 
-/**
- * serializeAws_restJson1Dimensions
- */
-const se_Dimensions = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [MetricDimensionName | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Dimensions omitted.
 
-/**
- * serializeAws_restJson1DkimSigningAttributes
- */
-const se_DkimSigningAttributes = (input: DkimSigningAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainSigningPrivateKey != null && { DomainSigningPrivateKey: input.DomainSigningPrivateKey }),
-    ...(input.DomainSigningSelector != null && { DomainSigningSelector: input.DomainSigningSelector }),
-    ...(input.NextSigningKeyLength != null && { NextSigningKeyLength: input.NextSigningKeyLength }),
-  };
-};
+// se_DkimSigningAttributes omitted.
 
 /**
  * serializeAws_restJson1DomainDeliverabilityTrackingOption
@@ -8431,15 +8129,11 @@ const se_DomainDeliverabilityTrackingOption = (
   input: DomainDeliverabilityTrackingOption,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.InboxPlacementTrackingOption != null && {
-      InboxPlacementTrackingOption: se_InboxPlacementTrackingOption(input.InboxPlacementTrackingOption, context),
-    }),
-    ...(input.SubscriptionStartDate != null && {
-      SubscriptionStartDate: Math.round(input.SubscriptionStartDate.getTime() / 1000),
-    }),
-  };
+  return take(input, {
+    Domain: [],
+    InboxPlacementTrackingOption: _json,
+    SubscriptionStartDate: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
@@ -8456,462 +8150,111 @@ const se_DomainDeliverabilityTrackingOptions = (
     });
 };
 
-/**
- * serializeAws_restJson1EmailAddressList
- */
-const se_EmailAddressList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EmailAddressList omitted.
 
 /**
  * serializeAws_restJson1EmailContent
  */
 const se_EmailContent = (input: EmailContent, context: __SerdeContext): any => {
-  return {
-    ...(input.Raw != null && { Raw: se_RawMessage(input.Raw, context) }),
-    ...(input.Simple != null && { Simple: se_Message(input.Simple, context) }),
-    ...(input.Template != null && { Template: se_Template(input.Template, context) }),
-  };
+  return take(input, {
+    Raw: (_) => se_RawMessage(_, context),
+    Simple: _json,
+    Template: _json,
+  });
 };
 
-/**
- * serializeAws_restJson1EmailTemplateContent
- */
-const se_EmailTemplateContent = (input: EmailTemplateContent, context: __SerdeContext): any => {
-  return {
-    ...(input.Html != null && { Html: input.Html }),
-    ...(input.Subject != null && { Subject: input.Subject }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_EmailTemplateContent omitted.
 
-/**
- * serializeAws_restJson1EventDestinationDefinition
- */
-const se_EventDestinationDefinition = (input: EventDestinationDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchDestination != null && {
-      CloudWatchDestination: se_CloudWatchDestination(input.CloudWatchDestination, context),
-    }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.KinesisFirehoseDestination != null && {
-      KinesisFirehoseDestination: se_KinesisFirehoseDestination(input.KinesisFirehoseDestination, context),
-    }),
-    ...(input.MatchingEventTypes != null && { MatchingEventTypes: se_EventTypes(input.MatchingEventTypes, context) }),
-    ...(input.PinpointDestination != null && {
-      PinpointDestination: se_PinpointDestination(input.PinpointDestination, context),
-    }),
-    ...(input.SnsDestination != null && { SnsDestination: se_SnsDestination(input.SnsDestination, context) }),
-  };
-};
+// se_EventDestinationDefinition omitted.
 
-/**
- * serializeAws_restJson1EventTypes
- */
-const se_EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EventTypes omitted.
 
-/**
- * serializeAws_restJson1GuardianAttributes
- */
-const se_GuardianAttributes = (input: GuardianAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.OptimizedSharedDelivery != null && { OptimizedSharedDelivery: input.OptimizedSharedDelivery }),
-  };
-};
+// se_GuardianAttributes omitted.
 
-/**
- * serializeAws_restJson1GuardianOptions
- */
-const se_GuardianOptions = (input: GuardianOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.OptimizedSharedDelivery != null && { OptimizedSharedDelivery: input.OptimizedSharedDelivery }),
-  };
-};
+// se_GuardianOptions omitted.
 
-/**
- * serializeAws_restJson1ImportDataSource
- */
-const se_ImportDataSource = (input: ImportDataSource, context: __SerdeContext): any => {
-  return {
-    ...(input.DataFormat != null && { DataFormat: input.DataFormat }),
-    ...(input.S3Url != null && { S3Url: input.S3Url }),
-  };
-};
+// se_ImportDataSource omitted.
 
-/**
- * serializeAws_restJson1ImportDestination
- */
-const se_ImportDestination = (input: ImportDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactListDestination != null && {
-      ContactListDestination: se_ContactListDestination(input.ContactListDestination, context),
-    }),
-    ...(input.SuppressionListDestination != null && {
-      SuppressionListDestination: se_SuppressionListDestination(input.SuppressionListDestination, context),
-    }),
-  };
-};
+// se_ImportDestination omitted.
 
-/**
- * serializeAws_restJson1InboxPlacementTrackingOption
- */
-const se_InboxPlacementTrackingOption = (input: InboxPlacementTrackingOption, context: __SerdeContext): any => {
-  return {
-    ...(input.Global != null && { Global: input.Global }),
-    ...(input.TrackedIsps != null && { TrackedIsps: se_IspNameList(input.TrackedIsps, context) }),
-  };
-};
+// se_InboxPlacementTrackingOption omitted.
 
-/**
- * serializeAws_restJson1IspNameList
- */
-const se_IspNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_IspNameList omitted.
 
-/**
- * serializeAws_restJson1KinesisFirehoseDestination
- */
-const se_KinesisFirehoseDestination = (input: KinesisFirehoseDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamArn != null && { DeliveryStreamArn: input.DeliveryStreamArn }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-  };
-};
+// se_KinesisFirehoseDestination omitted.
 
-/**
- * serializeAws_restJson1ListContactsFilter
- */
-const se_ListContactsFilter = (input: ListContactsFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.FilteredStatus != null && { FilteredStatus: input.FilteredStatus }),
-    ...(input.TopicFilter != null && { TopicFilter: se_TopicFilter(input.TopicFilter, context) }),
-  };
-};
+// se_ListContactsFilter omitted.
 
-/**
- * serializeAws_restJson1ListManagementOptions
- */
-const se_ListManagementOptions = (input: ListManagementOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactListName != null && { ContactListName: input.ContactListName }),
-    ...(input.TopicName != null && { TopicName: input.TopicName }),
-  };
-};
+// se_ListManagementOptions omitted.
 
-/**
- * serializeAws_restJson1ListRecommendationsFilter
- */
-const se_ListRecommendationsFilter = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [ListRecommendationsFilterKey | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = value;
-      return acc;
-    },
-    {}
-  );
-};
+// se_ListRecommendationsFilter omitted.
 
-/**
- * serializeAws_restJson1Message
- */
-const se_Message = (input: Message, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: se_Body(input.Body, context) }),
-    ...(input.Subject != null && { Subject: se_Content(input.Subject, context) }),
-  };
-};
+// se_Message omitted.
 
-/**
- * serializeAws_restJson1MessageTag
- */
-const se_MessageTag = (input: MessageTag, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_MessageTag omitted.
 
-/**
- * serializeAws_restJson1MessageTagList
- */
-const se_MessageTagList = (input: MessageTag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MessageTag(entry, context);
-    });
-};
+// se_MessageTagList omitted.
 
-/**
- * serializeAws_restJson1PinpointDestination
- */
-const se_PinpointDestination = (input: PinpointDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.ApplicationArn != null && { ApplicationArn: input.ApplicationArn }),
-  };
-};
+// se_PinpointDestination omitted.
 
 /**
  * serializeAws_restJson1RawMessage
  */
 const se_RawMessage = (input: RawMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
-  };
+  return take(input, {
+    Data: context.base64Encoder,
+  });
 };
 
-/**
- * serializeAws_restJson1ReplacementEmailContent
- */
-const se_ReplacementEmailContent = (input: ReplacementEmailContent, context: __SerdeContext): any => {
-  return {
-    ...(input.ReplacementTemplate != null && {
-      ReplacementTemplate: se_ReplacementTemplate(input.ReplacementTemplate, context),
-    }),
-  };
-};
+// se_ReplacementEmailContent omitted.
 
-/**
- * serializeAws_restJson1ReplacementTemplate
- */
-const se_ReplacementTemplate = (input: ReplacementTemplate, context: __SerdeContext): any => {
-  return {
-    ...(input.ReplacementTemplateData != null && { ReplacementTemplateData: input.ReplacementTemplateData }),
-  };
-};
+// se_ReplacementTemplate omitted.
 
 /**
  * serializeAws_restJson1ReputationOptions
  */
 const se_ReputationOptions = (input: ReputationOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.LastFreshStart != null && { LastFreshStart: Math.round(input.LastFreshStart.getTime() / 1000) }),
-    ...(input.ReputationMetricsEnabled != null && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
-  };
+  return take(input, {
+    LastFreshStart: (_) => Math.round(_.getTime() / 1000),
+    ReputationMetricsEnabled: [],
+  });
 };
 
-/**
- * serializeAws_restJson1SendingOptions
- */
-const se_SendingOptions = (input: SendingOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.SendingEnabled != null && { SendingEnabled: input.SendingEnabled }),
-  };
-};
+// se_SendingOptions omitted.
 
-/**
- * serializeAws_restJson1SnsDestination
- */
-const se_SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
-  };
-};
+// se_SnsDestination omitted.
 
-/**
- * serializeAws_restJson1SuppressionListDestination
- */
-const se_SuppressionListDestination = (input: SuppressionListDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.SuppressionListImportAction != null && {
-      SuppressionListImportAction: input.SuppressionListImportAction,
-    }),
-  };
-};
+// se_SuppressionListDestination omitted.
 
-/**
- * serializeAws_restJson1SuppressionListReasons
- */
-const se_SuppressionListReasons = (input: (SuppressionListReason | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SuppressionListReasons omitted.
 
-/**
- * serializeAws_restJson1SuppressionOptions
- */
-const se_SuppressionOptions = (input: SuppressionOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.SuppressedReasons != null && {
-      SuppressedReasons: se_SuppressionListReasons(input.SuppressedReasons, context),
-    }),
-  };
-};
+// se_SuppressionOptions omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_restJson1Template
- */
-const se_Template = (input: Template, context: __SerdeContext): any => {
-  return {
-    ...(input.TemplateArn != null && { TemplateArn: input.TemplateArn }),
-    ...(input.TemplateData != null && { TemplateData: input.TemplateData }),
-    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
-  };
-};
+// se_Template omitted.
 
-/**
- * serializeAws_restJson1Topic
- */
-const se_Topic = (input: Topic, context: __SerdeContext): any => {
-  return {
-    ...(input.DefaultSubscriptionStatus != null && { DefaultSubscriptionStatus: input.DefaultSubscriptionStatus }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.TopicName != null && { TopicName: input.TopicName }),
-  };
-};
+// se_Topic omitted.
 
-/**
- * serializeAws_restJson1TopicFilter
- */
-const se_TopicFilter = (input: TopicFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.TopicName != null && { TopicName: input.TopicName }),
-    ...(input.UseDefaultIfPreferenceUnavailable != null && {
-      UseDefaultIfPreferenceUnavailable: input.UseDefaultIfPreferenceUnavailable,
-    }),
-  };
-};
+// se_TopicFilter omitted.
 
-/**
- * serializeAws_restJson1TopicPreference
- */
-const se_TopicPreference = (input: TopicPreference, context: __SerdeContext): any => {
-  return {
-    ...(input.SubscriptionStatus != null && { SubscriptionStatus: input.SubscriptionStatus }),
-    ...(input.TopicName != null && { TopicName: input.TopicName }),
-  };
-};
+// se_TopicPreference omitted.
 
-/**
- * serializeAws_restJson1TopicPreferenceList
- */
-const se_TopicPreferenceList = (input: TopicPreference[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TopicPreference(entry, context);
-    });
-};
+// se_TopicPreferenceList omitted.
 
-/**
- * serializeAws_restJson1Topics
- */
-const se_Topics = (input: Topic[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Topic(entry, context);
-    });
-};
+// se_Topics omitted.
 
-/**
- * serializeAws_restJson1TrackingOptions
- */
-const se_TrackingOptions = (input: TrackingOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomRedirectDomain != null && { CustomRedirectDomain: input.CustomRedirectDomain }),
-  };
-};
+// se_TrackingOptions omitted.
 
-/**
- * serializeAws_restJson1VdmAttributes
- */
-const se_VdmAttributes = (input: VdmAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.DashboardAttributes != null && {
-      DashboardAttributes: se_DashboardAttributes(input.DashboardAttributes, context),
-    }),
-    ...(input.GuardianAttributes != null && {
-      GuardianAttributes: se_GuardianAttributes(input.GuardianAttributes, context),
-    }),
-    ...(input.VdmEnabled != null && { VdmEnabled: input.VdmEnabled }),
-  };
-};
+// se_VdmAttributes omitted.
 
-/**
- * serializeAws_restJson1VdmOptions
- */
-const se_VdmOptions = (input: VdmOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.DashboardOptions != null && { DashboardOptions: se_DashboardOptions(input.DashboardOptions, context) }),
-    ...(input.GuardianOptions != null && { GuardianOptions: se_GuardianOptions(input.GuardianOptions, context) }),
-  };
-};
+// se_VdmOptions omitted.
 
-/**
- * deserializeAws_restJson1AccountDetails
- */
-const de_AccountDetails = (output: any, context: __SerdeContext): AccountDetails => {
-  return {
-    AdditionalContactEmailAddresses:
-      output.AdditionalContactEmailAddresses != null
-        ? de_AdditionalContactEmailAddresses(output.AdditionalContactEmailAddresses, context)
-        : undefined,
-    ContactLanguage: __expectString(output.ContactLanguage),
-    MailType: __expectString(output.MailType),
-    ReviewDetails: output.ReviewDetails != null ? de_ReviewDetails(output.ReviewDetails, context) : undefined,
-    UseCaseDescription: __expectString(output.UseCaseDescription),
-    WebsiteURL: __expectString(output.WebsiteURL),
-  } as any;
-};
+// de_AccountDetails omitted.
 
-/**
- * deserializeAws_restJson1AdditionalContactEmailAddresses
- */
-const de_AdditionalContactEmailAddresses = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AdditionalContactEmailAddresses omitted.
 
 /**
  * deserializeAws_restJson1BlacklistEntries
@@ -8920,9 +8263,6 @@ const de_BlacklistEntries = (output: any, context: __SerdeContext): BlacklistEnt
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BlacklistEntry(entry, context);
     });
   return retVal;
@@ -8932,14 +8272,11 @@ const de_BlacklistEntries = (output: any, context: __SerdeContext): BlacklistEnt
  * deserializeAws_restJson1BlacklistEntry
  */
 const de_BlacklistEntry = (output: any, context: __SerdeContext): BlacklistEntry => {
-  return {
-    Description: __expectString(output.Description),
-    ListingTime:
-      output.ListingTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ListingTime)))
-        : undefined,
-    RblName: __expectString(output.RblName),
-  } as any;
+  return take(output, {
+    Description: __expectString,
+    ListingTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RblName: __expectString,
+  }) as any;
 };
 
 /**
@@ -8955,180 +8292,56 @@ const de_BlacklistReport = (output: any, context: __SerdeContext): Record<string
   }, {});
 };
 
-/**
- * deserializeAws_restJson1BulkEmailEntryResult
- */
-const de_BulkEmailEntryResult = (output: any, context: __SerdeContext): BulkEmailEntryResult => {
-  return {
-    Error: __expectString(output.Error),
-    MessageId: __expectString(output.MessageId),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_BulkEmailEntryResult omitted.
 
-/**
- * deserializeAws_restJson1BulkEmailEntryResultList
- */
-const de_BulkEmailEntryResultList = (output: any, context: __SerdeContext): BulkEmailEntryResult[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BulkEmailEntryResult(entry, context);
-    });
-  return retVal;
-};
+// de_BulkEmailEntryResultList omitted.
 
-/**
- * deserializeAws_restJson1CloudWatchDestination
- */
-const de_CloudWatchDestination = (output: any, context: __SerdeContext): CloudWatchDestination => {
-  return {
-    DimensionConfigurations:
-      output.DimensionConfigurations != null
-        ? de_CloudWatchDimensionConfigurations(output.DimensionConfigurations, context)
-        : undefined,
-  } as any;
-};
+// de_CloudWatchDestination omitted.
 
-/**
- * deserializeAws_restJson1CloudWatchDimensionConfiguration
- */
-const de_CloudWatchDimensionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchDimensionConfiguration => {
-  return {
-    DefaultDimensionValue: __expectString(output.DefaultDimensionValue),
-    DimensionName: __expectString(output.DimensionName),
-    DimensionValueSource: __expectString(output.DimensionValueSource),
-  } as any;
-};
+// de_CloudWatchDimensionConfiguration omitted.
 
-/**
- * deserializeAws_restJson1CloudWatchDimensionConfigurations
- */
-const de_CloudWatchDimensionConfigurations = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchDimensionConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CloudWatchDimensionConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_CloudWatchDimensionConfigurations omitted.
 
-/**
- * deserializeAws_restJson1ConfigurationSetNameList
- */
-const de_ConfigurationSetNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ConfigurationSetNameList omitted.
 
 /**
  * deserializeAws_restJson1Contact
  */
 const de_Contact = (output: any, context: __SerdeContext): Contact => {
-  return {
-    EmailAddress: __expectString(output.EmailAddress),
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    TopicDefaultPreferences:
-      output.TopicDefaultPreferences != null
-        ? de_TopicPreferenceList(output.TopicDefaultPreferences, context)
-        : undefined,
-    TopicPreferences:
-      output.TopicPreferences != null ? de_TopicPreferenceList(output.TopicPreferences, context) : undefined,
-    UnsubscribeAll: __expectBoolean(output.UnsubscribeAll),
-  } as any;
+  return take(output, {
+    EmailAddress: __expectString,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TopicDefaultPreferences: _json,
+    TopicPreferences: _json,
+    UnsubscribeAll: __expectBoolean,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ContactList
  */
 const de_ContactList = (output: any, context: __SerdeContext): ContactList => {
-  return {
-    ContactListName: __expectString(output.ContactListName),
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    ContactListName: __expectString,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ContactListDestination
- */
-const de_ContactListDestination = (output: any, context: __SerdeContext): ContactListDestination => {
-  return {
-    ContactListImportAction: __expectString(output.ContactListImportAction),
-    ContactListName: __expectString(output.ContactListName),
-  } as any;
-};
+// de_ContactListDestination omitted.
 
-/**
- * deserializeAws_restJson1CustomVerificationEmailTemplateMetadata
- */
-const de_CustomVerificationEmailTemplateMetadata = (
-  output: any,
-  context: __SerdeContext
-): CustomVerificationEmailTemplateMetadata => {
-  return {
-    FailureRedirectionURL: __expectString(output.FailureRedirectionURL),
-    FromEmailAddress: __expectString(output.FromEmailAddress),
-    SuccessRedirectionURL: __expectString(output.SuccessRedirectionURL),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateSubject: __expectString(output.TemplateSubject),
-  } as any;
-};
+// de_CustomVerificationEmailTemplateMetadata omitted.
 
-/**
- * deserializeAws_restJson1CustomVerificationEmailTemplatesList
- */
-const de_CustomVerificationEmailTemplatesList = (
-  output: any,
-  context: __SerdeContext
-): CustomVerificationEmailTemplateMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CustomVerificationEmailTemplateMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_CustomVerificationEmailTemplatesList omitted.
 
 /**
  * deserializeAws_restJson1DailyVolume
  */
 const de_DailyVolume = (output: any, context: __SerdeContext): DailyVolume => {
-  return {
-    DomainIspPlacements:
-      output.DomainIspPlacements != null ? de_DomainIspPlacements(output.DomainIspPlacements, context) : undefined,
-    StartDate:
-      output.StartDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate))) : undefined,
-    VolumeStatistics:
-      output.VolumeStatistics != null ? de_VolumeStatistics(output.VolumeStatistics, context) : undefined,
-  } as any;
+  return take(output, {
+    DomainIspPlacements: (_: any) => de_DomainIspPlacements(_, context),
+    StartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VolumeStatistics: _json,
+  }) as any;
 };
 
 /**
@@ -9138,82 +8351,33 @@ const de_DailyVolumes = (output: any, context: __SerdeContext): DailyVolume[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DailyVolume(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DashboardAttributes
- */
-const de_DashboardAttributes = (output: any, context: __SerdeContext): DashboardAttributes => {
-  return {
-    EngagementMetrics: __expectString(output.EngagementMetrics),
-  } as any;
-};
+// de_DashboardAttributes omitted.
 
-/**
- * deserializeAws_restJson1DashboardOptions
- */
-const de_DashboardOptions = (output: any, context: __SerdeContext): DashboardOptions => {
-  return {
-    EngagementMetrics: __expectString(output.EngagementMetrics),
-  } as any;
-};
+// de_DashboardOptions omitted.
 
-/**
- * deserializeAws_restJson1DedicatedIp
- */
-const de_DedicatedIp = (output: any, context: __SerdeContext): DedicatedIp => {
-  return {
-    Ip: __expectString(output.Ip),
-    PoolName: __expectString(output.PoolName),
-    WarmupPercentage: __expectInt32(output.WarmupPercentage),
-    WarmupStatus: __expectString(output.WarmupStatus),
-  } as any;
-};
+// de_DedicatedIp omitted.
 
-/**
- * deserializeAws_restJson1DedicatedIpList
- */
-const de_DedicatedIpList = (output: any, context: __SerdeContext): DedicatedIp[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DedicatedIp(entry, context);
-    });
-  return retVal;
-};
+// de_DedicatedIpList omitted.
 
-/**
- * deserializeAws_restJson1DedicatedIpPool
- */
-const de_DedicatedIpPool = (output: any, context: __SerdeContext): DedicatedIpPool => {
-  return {
-    PoolName: __expectString(output.PoolName),
-    ScalingMode: __expectString(output.ScalingMode),
-  } as any;
-};
+// de_DedicatedIpPool omitted.
 
 /**
  * deserializeAws_restJson1DeliverabilityTestReport
  */
 const de_DeliverabilityTestReport = (output: any, context: __SerdeContext): DeliverabilityTestReport => {
-  return {
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    DeliverabilityTestStatus: __expectString(output.DeliverabilityTestStatus),
-    FromEmailAddress: __expectString(output.FromEmailAddress),
-    ReportId: __expectString(output.ReportId),
-    ReportName: __expectString(output.ReportName),
-    Subject: __expectString(output.Subject),
-  } as any;
+  return take(output, {
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeliverabilityTestStatus: __expectString,
+    FromEmailAddress: __expectString,
+    ReportId: __expectString,
+    ReportName: __expectString,
+    Subject: __expectString,
+  }) as any;
 };
 
 /**
@@ -9223,83 +8387,50 @@ const de_DeliverabilityTestReports = (output: any, context: __SerdeContext): Del
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeliverabilityTestReport(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DeliveryOptions
- */
-const de_DeliveryOptions = (output: any, context: __SerdeContext): DeliveryOptions => {
-  return {
-    SendingPoolName: __expectString(output.SendingPoolName),
-    TlsPolicy: __expectString(output.TlsPolicy),
-  } as any;
-};
+// de_DeliveryOptions omitted.
 
 /**
  * deserializeAws_restJson1DkimAttributes
  */
 const de_DkimAttributes = (output: any, context: __SerdeContext): DkimAttributes => {
-  return {
-    CurrentSigningKeyLength: __expectString(output.CurrentSigningKeyLength),
-    LastKeyGenerationTimestamp:
-      output.LastKeyGenerationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastKeyGenerationTimestamp)))
-        : undefined,
-    NextSigningKeyLength: __expectString(output.NextSigningKeyLength),
-    SigningAttributesOrigin: __expectString(output.SigningAttributesOrigin),
-    SigningEnabled: __expectBoolean(output.SigningEnabled),
-    Status: __expectString(output.Status),
-    Tokens: output.Tokens != null ? de_DnsTokenList(output.Tokens, context) : undefined,
-  } as any;
+  return take(output, {
+    CurrentSigningKeyLength: __expectString,
+    LastKeyGenerationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextSigningKeyLength: __expectString,
+    SigningAttributesOrigin: __expectString,
+    SigningEnabled: __expectBoolean,
+    Status: __expectString,
+    Tokens: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DnsTokenList
- */
-const de_DnsTokenList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DnsTokenList omitted.
 
 /**
  * deserializeAws_restJson1DomainDeliverabilityCampaign
  */
 const de_DomainDeliverabilityCampaign = (output: any, context: __SerdeContext): DomainDeliverabilityCampaign => {
-  return {
-    CampaignId: __expectString(output.CampaignId),
-    DeleteRate: __limitedParseDouble(output.DeleteRate),
-    Esps: output.Esps != null ? de_Esps(output.Esps, context) : undefined,
-    FirstSeenDateTime:
-      output.FirstSeenDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FirstSeenDateTime)))
-        : undefined,
-    FromAddress: __expectString(output.FromAddress),
-    ImageUrl: __expectString(output.ImageUrl),
-    InboxCount: __expectLong(output.InboxCount),
-    LastSeenDateTime:
-      output.LastSeenDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenDateTime)))
-        : undefined,
-    ProjectedVolume: __expectLong(output.ProjectedVolume),
-    ReadDeleteRate: __limitedParseDouble(output.ReadDeleteRate),
-    ReadRate: __limitedParseDouble(output.ReadRate),
-    SendingIps: output.SendingIps != null ? de_IpList(output.SendingIps, context) : undefined,
-    SpamCount: __expectLong(output.SpamCount),
-    Subject: __expectString(output.Subject),
-  } as any;
+  return take(output, {
+    CampaignId: __expectString,
+    DeleteRate: __limitedParseDouble,
+    Esps: _json,
+    FirstSeenDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FromAddress: __expectString,
+    ImageUrl: __expectString,
+    InboxCount: __expectLong,
+    LastSeenDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ProjectedVolume: __expectLong,
+    ReadDeleteRate: __limitedParseDouble,
+    ReadRate: __limitedParseDouble,
+    SendingIps: _json,
+    SpamCount: __expectLong,
+    Subject: __expectString,
+  }) as any;
 };
 
 /**
@@ -9309,9 +8440,6 @@ const de_DomainDeliverabilityCampaignList = (output: any, context: __SerdeContex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainDeliverabilityCampaign(entry, context);
     });
   return retVal;
@@ -9324,17 +8452,11 @@ const de_DomainDeliverabilityTrackingOption = (
   output: any,
   context: __SerdeContext
 ): DomainDeliverabilityTrackingOption => {
-  return {
-    Domain: __expectString(output.Domain),
-    InboxPlacementTrackingOption:
-      output.InboxPlacementTrackingOption != null
-        ? de_InboxPlacementTrackingOption(output.InboxPlacementTrackingOption, context)
-        : undefined,
-    SubscriptionStartDate:
-      output.SubscriptionStartDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubscriptionStartDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Domain: __expectString,
+    InboxPlacementTrackingOption: _json,
+    SubscriptionStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -9347,9 +8469,6 @@ const de_DomainDeliverabilityTrackingOptions = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainDeliverabilityTrackingOption(entry, context);
     });
   return retVal;
@@ -9359,13 +8478,13 @@ const de_DomainDeliverabilityTrackingOptions = (
  * deserializeAws_restJson1DomainIspPlacement
  */
 const de_DomainIspPlacement = (output: any, context: __SerdeContext): DomainIspPlacement => {
-  return {
-    InboxPercentage: __limitedParseDouble(output.InboxPercentage),
-    InboxRawCount: __expectLong(output.InboxRawCount),
-    IspName: __expectString(output.IspName),
-    SpamPercentage: __limitedParseDouble(output.SpamPercentage),
-    SpamRawCount: __expectLong(output.SpamRawCount),
-  } as any;
+  return take(output, {
+    InboxPercentage: __limitedParseDouble,
+    InboxRawCount: __expectLong,
+    IspName: __expectString,
+    SpamPercentage: __limitedParseDouble,
+    SpamRawCount: __expectLong,
+  }) as any;
 };
 
 /**
@@ -9375,36 +8494,21 @@ const de_DomainIspPlacements = (output: any, context: __SerdeContext): DomainIsp
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DomainIspPlacement(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1EmailTemplateContent
- */
-const de_EmailTemplateContent = (output: any, context: __SerdeContext): EmailTemplateContent => {
-  return {
-    Html: __expectString(output.Html),
-    Subject: __expectString(output.Subject),
-    Text: __expectString(output.Text),
-  } as any;
-};
+// de_EmailTemplateContent omitted.
 
 /**
  * deserializeAws_restJson1EmailTemplateMetadata
  */
 const de_EmailTemplateMetadata = (output: any, context: __SerdeContext): EmailTemplateMetadata => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    TemplateName: __expectString(output.TemplateName),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TemplateName: __expectString,
+  }) as any;
 };
 
 /**
@@ -9414,179 +8518,45 @@ const de_EmailTemplateMetadataList = (output: any, context: __SerdeContext): Ema
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EmailTemplateMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Esps
- */
-const de_Esps = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Esps omitted.
 
-/**
- * deserializeAws_restJson1EventDestination
- */
-const de_EventDestination = (output: any, context: __SerdeContext): EventDestination => {
-  return {
-    CloudWatchDestination:
-      output.CloudWatchDestination != null
-        ? de_CloudWatchDestination(output.CloudWatchDestination, context)
-        : undefined,
-    Enabled: __expectBoolean(output.Enabled),
-    KinesisFirehoseDestination:
-      output.KinesisFirehoseDestination != null
-        ? de_KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
-        : undefined,
-    MatchingEventTypes:
-      output.MatchingEventTypes != null ? de_EventTypes(output.MatchingEventTypes, context) : undefined,
-    Name: __expectString(output.Name),
-    PinpointDestination:
-      output.PinpointDestination != null ? de_PinpointDestination(output.PinpointDestination, context) : undefined,
-    SnsDestination: output.SnsDestination != null ? de_SnsDestination(output.SnsDestination, context) : undefined,
-  } as any;
-};
+// de_EventDestination omitted.
 
-/**
- * deserializeAws_restJson1EventDestinations
- */
-const de_EventDestinations = (output: any, context: __SerdeContext): EventDestination[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventDestination(entry, context);
-    });
-  return retVal;
-};
+// de_EventDestinations omitted.
 
-/**
- * deserializeAws_restJson1EventTypes
- */
-const de_EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EventTypes omitted.
 
-/**
- * deserializeAws_restJson1FailureInfo
- */
-const de_FailureInfo = (output: any, context: __SerdeContext): FailureInfo => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    FailedRecordsS3Url: __expectString(output.FailedRecordsS3Url),
-  } as any;
-};
+// de_FailureInfo omitted.
 
-/**
- * deserializeAws_restJson1GuardianAttributes
- */
-const de_GuardianAttributes = (output: any, context: __SerdeContext): GuardianAttributes => {
-  return {
-    OptimizedSharedDelivery: __expectString(output.OptimizedSharedDelivery),
-  } as any;
-};
+// de_GuardianAttributes omitted.
 
-/**
- * deserializeAws_restJson1GuardianOptions
- */
-const de_GuardianOptions = (output: any, context: __SerdeContext): GuardianOptions => {
-  return {
-    OptimizedSharedDelivery: __expectString(output.OptimizedSharedDelivery),
-  } as any;
-};
+// de_GuardianOptions omitted.
 
-/**
- * deserializeAws_restJson1IdentityInfo
- */
-const de_IdentityInfo = (output: any, context: __SerdeContext): IdentityInfo => {
-  return {
-    IdentityName: __expectString(output.IdentityName),
-    IdentityType: __expectString(output.IdentityType),
-    SendingEnabled: __expectBoolean(output.SendingEnabled),
-    VerificationStatus: __expectString(output.VerificationStatus),
-  } as any;
-};
+// de_IdentityInfo omitted.
 
-/**
- * deserializeAws_restJson1IdentityInfoList
- */
-const de_IdentityInfoList = (output: any, context: __SerdeContext): IdentityInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IdentityInfo(entry, context);
-    });
-  return retVal;
-};
+// de_IdentityInfoList omitted.
 
-/**
- * deserializeAws_restJson1ImportDataSource
- */
-const de_ImportDataSource = (output: any, context: __SerdeContext): ImportDataSource => {
-  return {
-    DataFormat: __expectString(output.DataFormat),
-    S3Url: __expectString(output.S3Url),
-  } as any;
-};
+// de_ImportDataSource omitted.
 
-/**
- * deserializeAws_restJson1ImportDestination
- */
-const de_ImportDestination = (output: any, context: __SerdeContext): ImportDestination => {
-  return {
-    ContactListDestination:
-      output.ContactListDestination != null
-        ? de_ContactListDestination(output.ContactListDestination, context)
-        : undefined,
-    SuppressionListDestination:
-      output.SuppressionListDestination != null
-        ? de_SuppressionListDestination(output.SuppressionListDestination, context)
-        : undefined,
-  } as any;
-};
+// de_ImportDestination omitted.
 
 /**
  * deserializeAws_restJson1ImportJobSummary
  */
 const de_ImportJobSummary = (output: any, context: __SerdeContext): ImportJobSummary => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    FailedRecordsCount: __expectInt32(output.FailedRecordsCount),
-    ImportDestination:
-      output.ImportDestination != null ? de_ImportDestination(output.ImportDestination, context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-    ProcessedRecordsCount: __expectInt32(output.ProcessedRecordsCount),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailedRecordsCount: __expectInt32,
+    ImportDestination: _json,
+    JobId: __expectString,
+    JobStatus: __expectString,
+    ProcessedRecordsCount: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -9596,63 +8566,25 @@ const de_ImportJobSummaryList = (output: any, context: __SerdeContext): ImportJo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ImportJobSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1InboxPlacementTrackingOption
- */
-const de_InboxPlacementTrackingOption = (output: any, context: __SerdeContext): InboxPlacementTrackingOption => {
-  return {
-    Global: __expectBoolean(output.Global),
-    TrackedIsps: output.TrackedIsps != null ? de_IspNameList(output.TrackedIsps, context) : undefined,
-  } as any;
-};
+// de_InboxPlacementTrackingOption omitted.
 
-/**
- * deserializeAws_restJson1IpList
- */
-const de_IpList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_IpList omitted.
 
-/**
- * deserializeAws_restJson1IspNameList
- */
-const de_IspNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_IspNameList omitted.
 
 /**
  * deserializeAws_restJson1IspPlacement
  */
 const de_IspPlacement = (output: any, context: __SerdeContext): IspPlacement => {
-  return {
-    IspName: __expectString(output.IspName),
-    PlacementStatistics:
-      output.PlacementStatistics != null ? de_PlacementStatistics(output.PlacementStatistics, context) : undefined,
-  } as any;
+  return take(output, {
+    IspName: __expectString,
+    PlacementStatistics: (_: any) => de_PlacementStatistics(_, context),
+  }) as any;
 };
 
 /**
@@ -9662,23 +8594,12 @@ const de_IspPlacements = (output: any, context: __SerdeContext): IspPlacement[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_IspPlacement(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1KinesisFirehoseDestination
- */
-const de_KinesisFirehoseDestination = (output: any, context: __SerdeContext): KinesisFirehoseDestination => {
-  return {
-    DeliveryStreamArn: __expectString(output.DeliveryStreamArn),
-    IamRoleArn: __expectString(output.IamRoleArn),
-  } as any;
-};
+// de_KinesisFirehoseDestination omitted.
 
 /**
  * deserializeAws_restJson1ListOfContactLists
@@ -9687,9 +8608,6 @@ const de_ListOfContactLists = (output: any, context: __SerdeContext): ContactLis
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ContactList(entry, context);
     });
   return retVal;
@@ -9702,75 +8620,28 @@ const de_ListOfContacts = (output: any, context: __SerdeContext): Contact[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Contact(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ListOfDedicatedIpPools
- */
-const de_ListOfDedicatedIpPools = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfDedicatedIpPools omitted.
 
-/**
- * deserializeAws_restJson1MailFromAttributes
- */
-const de_MailFromAttributes = (output: any, context: __SerdeContext): MailFromAttributes => {
-  return {
-    BehaviorOnMxFailure: __expectString(output.BehaviorOnMxFailure),
-    MailFromDomain: __expectString(output.MailFromDomain),
-    MailFromDomainStatus: __expectString(output.MailFromDomainStatus),
-  } as any;
-};
+// de_MailFromAttributes omitted.
 
-/**
- * deserializeAws_restJson1MetricDataError
- */
-const de_MetricDataError = (output: any, context: __SerdeContext): MetricDataError => {
-  return {
-    Code: __expectString(output.Code),
-    Id: __expectString(output.Id),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_MetricDataError omitted.
 
-/**
- * deserializeAws_restJson1MetricDataErrorList
- */
-const de_MetricDataErrorList = (output: any, context: __SerdeContext): MetricDataError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MetricDataError(entry, context);
-    });
-  return retVal;
-};
+// de_MetricDataErrorList omitted.
 
 /**
  * deserializeAws_restJson1MetricDataResult
  */
 const de_MetricDataResult = (output: any, context: __SerdeContext): MetricDataResult => {
-  return {
-    Id: __expectString(output.Id),
-    Timestamps: output.Timestamps != null ? de_TimestampList(output.Timestamps, context) : undefined,
-    Values: output.Values != null ? de_MetricValueList(output.Values, context) : undefined,
-  } as any;
+  return take(output, {
+    Id: __expectString,
+    Timestamps: (_: any) => de_TimestampList(_, context),
+    Values: _json,
+  }) as any;
 };
 
 /**
@@ -9780,96 +8651,54 @@ const de_MetricDataResultList = (output: any, context: __SerdeContext): MetricDa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MetricDataResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1MetricValueList
- */
-const de_MetricValueList = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectLong(entry) as any;
-    });
-  return retVal;
-};
+// de_MetricValueList omitted.
 
 /**
  * deserializeAws_restJson1OverallVolume
  */
 const de_OverallVolume = (output: any, context: __SerdeContext): OverallVolume => {
-  return {
-    DomainIspPlacements:
-      output.DomainIspPlacements != null ? de_DomainIspPlacements(output.DomainIspPlacements, context) : undefined,
-    ReadRatePercent: __limitedParseDouble(output.ReadRatePercent),
-    VolumeStatistics:
-      output.VolumeStatistics != null ? de_VolumeStatistics(output.VolumeStatistics, context) : undefined,
-  } as any;
+  return take(output, {
+    DomainIspPlacements: (_: any) => de_DomainIspPlacements(_, context),
+    ReadRatePercent: __limitedParseDouble,
+    VolumeStatistics: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1PinpointDestination
- */
-const de_PinpointDestination = (output: any, context: __SerdeContext): PinpointDestination => {
-  return {
-    ApplicationArn: __expectString(output.ApplicationArn),
-  } as any;
-};
+// de_PinpointDestination omitted.
 
 /**
  * deserializeAws_restJson1PlacementStatistics
  */
 const de_PlacementStatistics = (output: any, context: __SerdeContext): PlacementStatistics => {
-  return {
-    DkimPercentage: __limitedParseDouble(output.DkimPercentage),
-    InboxPercentage: __limitedParseDouble(output.InboxPercentage),
-    MissingPercentage: __limitedParseDouble(output.MissingPercentage),
-    SpamPercentage: __limitedParseDouble(output.SpamPercentage),
-    SpfPercentage: __limitedParseDouble(output.SpfPercentage),
-  } as any;
+  return take(output, {
+    DkimPercentage: __limitedParseDouble,
+    InboxPercentage: __limitedParseDouble,
+    MissingPercentage: __limitedParseDouble,
+    SpamPercentage: __limitedParseDouble,
+    SpfPercentage: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1PolicyMap
- */
-const de_PolicyMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_PolicyMap omitted.
 
 /**
  * deserializeAws_restJson1Recommendation
  */
 const de_Recommendation = (output: any, context: __SerdeContext): Recommendation => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Impact: __expectString(output.Impact),
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Impact: __expectString,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    Status: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -9879,9 +8708,6 @@ const de_RecommendationsList = (output: any, context: __SerdeContext): Recommend
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Recommendation(entry, context);
     });
   return retVal;
@@ -9891,78 +8717,42 @@ const de_RecommendationsList = (output: any, context: __SerdeContext): Recommend
  * deserializeAws_restJson1ReputationOptions
  */
 const de_ReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
-  return {
-    LastFreshStart:
-      output.LastFreshStart != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastFreshStart)))
-        : undefined,
-    ReputationMetricsEnabled: __expectBoolean(output.ReputationMetricsEnabled),
-  } as any;
+  return take(output, {
+    LastFreshStart: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReputationMetricsEnabled: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ReviewDetails
- */
-const de_ReviewDetails = (output: any, context: __SerdeContext): ReviewDetails => {
-  return {
-    CaseId: __expectString(output.CaseId),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_ReviewDetails omitted.
 
-/**
- * deserializeAws_restJson1SendingOptions
- */
-const de_SendingOptions = (output: any, context: __SerdeContext): SendingOptions => {
-  return {
-    SendingEnabled: __expectBoolean(output.SendingEnabled),
-  } as any;
-};
+// de_SendingOptions omitted.
 
 /**
  * deserializeAws_restJson1SendQuota
  */
 const de_SendQuota = (output: any, context: __SerdeContext): SendQuota => {
-  return {
-    Max24HourSend: __limitedParseDouble(output.Max24HourSend),
-    MaxSendRate: __limitedParseDouble(output.MaxSendRate),
-    SentLast24Hours: __limitedParseDouble(output.SentLast24Hours),
-  } as any;
+  return take(output, {
+    Max24HourSend: __limitedParseDouble,
+    MaxSendRate: __limitedParseDouble,
+    SentLast24Hours: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SnsDestination
- */
-const de_SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
-  return {
-    TopicArn: __expectString(output.TopicArn),
-  } as any;
-};
+// de_SnsDestination omitted.
 
 /**
  * deserializeAws_restJson1SuppressedDestination
  */
 const de_SuppressedDestination = (output: any, context: __SerdeContext): SuppressedDestination => {
-  return {
-    Attributes: output.Attributes != null ? de_SuppressedDestinationAttributes(output.Attributes, context) : undefined,
-    EmailAddress: __expectString(output.EmailAddress),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    Reason: __expectString(output.Reason),
-  } as any;
+  return take(output, {
+    Attributes: _json,
+    EmailAddress: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Reason: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SuppressedDestinationAttributes
- */
-const de_SuppressedDestinationAttributes = (output: any, context: __SerdeContext): SuppressedDestinationAttributes => {
-  return {
-    FeedbackId: __expectString(output.FeedbackId),
-    MessageId: __expectString(output.MessageId),
-  } as any;
-};
+// de_SuppressedDestinationAttributes omitted.
 
 /**
  * deserializeAws_restJson1SuppressedDestinationSummaries
@@ -9971,9 +8761,6 @@ const de_SuppressedDestinationSummaries = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SuppressedDestinationSummary(entry, context);
     });
   return retVal;
@@ -9983,84 +8770,24 @@ const de_SuppressedDestinationSummaries = (output: any, context: __SerdeContext)
  * deserializeAws_restJson1SuppressedDestinationSummary
  */
 const de_SuppressedDestinationSummary = (output: any, context: __SerdeContext): SuppressedDestinationSummary => {
-  return {
-    EmailAddress: __expectString(output.EmailAddress),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    Reason: __expectString(output.Reason),
-  } as any;
+  return take(output, {
+    EmailAddress: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Reason: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SuppressionAttributes
- */
-const de_SuppressionAttributes = (output: any, context: __SerdeContext): SuppressionAttributes => {
-  return {
-    SuppressedReasons:
-      output.SuppressedReasons != null ? de_SuppressionListReasons(output.SuppressedReasons, context) : undefined,
-  } as any;
-};
+// de_SuppressionAttributes omitted.
 
-/**
- * deserializeAws_restJson1SuppressionListDestination
- */
-const de_SuppressionListDestination = (output: any, context: __SerdeContext): SuppressionListDestination => {
-  return {
-    SuppressionListImportAction: __expectString(output.SuppressionListImportAction),
-  } as any;
-};
+// de_SuppressionListDestination omitted.
 
-/**
- * deserializeAws_restJson1SuppressionListReasons
- */
-const de_SuppressionListReasons = (output: any, context: __SerdeContext): (SuppressionListReason | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SuppressionListReasons omitted.
 
-/**
- * deserializeAws_restJson1SuppressionOptions
- */
-const de_SuppressionOptions = (output: any, context: __SerdeContext): SuppressionOptions => {
-  return {
-    SuppressedReasons:
-      output.SuppressedReasons != null ? de_SuppressionListReasons(output.SuppressedReasons, context) : undefined,
-  } as any;
-};
+// de_SuppressionOptions omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 /**
  * deserializeAws_restJson1TimestampList
@@ -10069,110 +8796,26 @@ const de_TimestampList = (output: any, context: __SerdeContext): Date[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Topic
- */
-const de_Topic = (output: any, context: __SerdeContext): Topic => {
-  return {
-    DefaultSubscriptionStatus: __expectString(output.DefaultSubscriptionStatus),
-    Description: __expectString(output.Description),
-    DisplayName: __expectString(output.DisplayName),
-    TopicName: __expectString(output.TopicName),
-  } as any;
-};
+// de_Topic omitted.
 
-/**
- * deserializeAws_restJson1TopicPreference
- */
-const de_TopicPreference = (output: any, context: __SerdeContext): TopicPreference => {
-  return {
-    SubscriptionStatus: __expectString(output.SubscriptionStatus),
-    TopicName: __expectString(output.TopicName),
-  } as any;
-};
+// de_TopicPreference omitted.
 
-/**
- * deserializeAws_restJson1TopicPreferenceList
- */
-const de_TopicPreferenceList = (output: any, context: __SerdeContext): TopicPreference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TopicPreference(entry, context);
-    });
-  return retVal;
-};
+// de_TopicPreferenceList omitted.
 
-/**
- * deserializeAws_restJson1Topics
- */
-const de_Topics = (output: any, context: __SerdeContext): Topic[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Topic(entry, context);
-    });
-  return retVal;
-};
+// de_Topics omitted.
 
-/**
- * deserializeAws_restJson1TrackingOptions
- */
-const de_TrackingOptions = (output: any, context: __SerdeContext): TrackingOptions => {
-  return {
-    CustomRedirectDomain: __expectString(output.CustomRedirectDomain),
-  } as any;
-};
+// de_TrackingOptions omitted.
 
-/**
- * deserializeAws_restJson1VdmAttributes
- */
-const de_VdmAttributes = (output: any, context: __SerdeContext): VdmAttributes => {
-  return {
-    DashboardAttributes:
-      output.DashboardAttributes != null ? de_DashboardAttributes(output.DashboardAttributes, context) : undefined,
-    GuardianAttributes:
-      output.GuardianAttributes != null ? de_GuardianAttributes(output.GuardianAttributes, context) : undefined,
-    VdmEnabled: __expectString(output.VdmEnabled),
-  } as any;
-};
+// de_VdmAttributes omitted.
 
-/**
- * deserializeAws_restJson1VdmOptions
- */
-const de_VdmOptions = (output: any, context: __SerdeContext): VdmOptions => {
-  return {
-    DashboardOptions:
-      output.DashboardOptions != null ? de_DashboardOptions(output.DashboardOptions, context) : undefined,
-    GuardianOptions: output.GuardianOptions != null ? de_GuardianOptions(output.GuardianOptions, context) : undefined,
-  } as any;
-};
+// de_VdmOptions omitted.
 
-/**
- * deserializeAws_restJson1VolumeStatistics
- */
-const de_VolumeStatistics = (output: any, context: __SerdeContext): VolumeStatistics => {
-  return {
-    InboxRawCount: __expectLong(output.InboxRawCount),
-    ProjectedInbox: __expectLong(output.ProjectedInbox),
-    ProjectedSpam: __expectLong(output.ProjectedSpam),
-    SpamRawCount: __expectLong(output.SpamRawCount),
-  } as any;
-};
+// de_VolumeStatistics omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

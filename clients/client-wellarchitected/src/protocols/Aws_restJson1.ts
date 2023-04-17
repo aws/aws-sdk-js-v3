@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -9,10 +10,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -99,52 +101,23 @@ import {
 import { UpgradeLensReviewCommandInput, UpgradeLensReviewCommandOutput } from "../commands/UpgradeLensReviewCommand";
 import {
   AccessDeniedException,
-  AdditionalResources,
-  Answer,
-  AnswerSummary,
-  BestPractice,
   CheckDetail,
-  CheckStatus,
   CheckSummary,
-  Choice,
-  ChoiceAnswer,
-  ChoiceAnswerSummary,
-  ChoiceContent,
-  ChoiceImprovementPlan,
   ChoiceUpdate,
   ConflictException,
   ConsolidatedReportMetric,
-  ImprovementSummary,
   InternalServerException,
-  Lens,
-  LensMetric,
   LensReview,
-  LensReviewReport,
   LensReviewSummary,
-  LensShareSummary,
   LensSummary,
-  LensUpgradeSummary,
   Milestone,
   MilestoneSummary,
-  NotificationSummary,
-  PillarDifference,
-  PillarMetric,
-  PillarReviewSummary,
-  QuestionDifference,
-  QuestionMetric,
   ResourceNotFoundException,
-  Risk,
   ServiceQuotaExceededException,
-  ShareInvitation,
-  ShareInvitationSummary,
   ThrottlingException,
   ValidationException,
-  ValidationExceptionField,
-  VersionDifferences,
   Workload,
   WorkloadDiscoveryConfig,
-  WorkloadShare,
-  WorkloadShareSummary,
   WorkloadSummary,
 } from "../models/models_0";
 import { WellArchitectedServiceException as __BaseException } from "../models/WellArchitectedServiceException";
@@ -164,9 +137,11 @@ export const se_AssociateLensesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/associateLenses";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LensAliases != null && { LensAliases: se_LensAliases(input.LensAliases, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LensAliases: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -193,10 +168,12 @@ export const se_CreateLensShareCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/shares";
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SharedWith != null && { SharedWith: input.SharedWith }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      SharedWith: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -223,11 +200,13 @@ export const se_CreateLensVersionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/versions";
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.IsMajorVersion != null && { IsMajorVersion: input.IsMajorVersion }),
-    ...(input.LensVersion != null && { LensVersion: input.LensVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      IsMajorVersion: [],
+      LensVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -254,10 +233,12 @@ export const se_CreateMilestoneCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/milestones";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.MilestoneName != null && { MilestoneName: input.MilestoneName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      MilestoneName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -282,29 +263,27 @@ export const se_CreateWorkloadCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_WorkloadAccountIds(input.AccountIds, context) }),
-    ...(input.Applications != null && { Applications: se_WorkloadApplications(input.Applications, context) }),
-    ...(input.ArchitecturalDesign != null && { ArchitecturalDesign: input.ArchitecturalDesign }),
-    ...(input.AwsRegions != null && { AwsRegions: se_WorkloadAwsRegions(input.AwsRegions, context) }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DiscoveryConfig != null && {
-      DiscoveryConfig: se_WorkloadDiscoveryConfig(input.DiscoveryConfig, context),
-    }),
-    ...(input.Environment != null && { Environment: input.Environment }),
-    ...(input.Industry != null && { Industry: input.Industry }),
-    ...(input.IndustryType != null && { IndustryType: input.IndustryType }),
-    ...(input.Lenses != null && { Lenses: se_WorkloadLenses(input.Lenses, context) }),
-    ...(input.NonAwsRegions != null && { NonAwsRegions: se_WorkloadNonAwsRegions(input.NonAwsRegions, context) }),
-    ...(input.Notes != null && { Notes: input.Notes }),
-    ...(input.PillarPriorities != null && {
-      PillarPriorities: se_WorkloadPillarPriorities(input.PillarPriorities, context),
-    }),
-    ...(input.ReviewOwner != null && { ReviewOwner: input.ReviewOwner }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.WorkloadName != null && { WorkloadName: input.WorkloadName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      Applications: (_) => _json(_),
+      ArchitecturalDesign: [],
+      AwsRegions: (_) => _json(_),
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      DiscoveryConfig: (_) => _json(_),
+      Environment: [],
+      Industry: [],
+      IndustryType: [],
+      Lenses: (_) => _json(_),
+      NonAwsRegions: (_) => _json(_),
+      Notes: [],
+      PillarPriorities: (_) => _json(_),
+      ReviewOwner: [],
+      Tags: (_) => _json(_),
+      WorkloadName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -331,11 +310,13 @@ export const se_CreateWorkloadShareCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.PermissionType != null && { PermissionType: input.PermissionType }),
-    ...(input.SharedWith != null && { SharedWith: input.SharedWith }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      PermissionType: [],
+      SharedWith: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -476,9 +457,11 @@ export const se_DisassociateLensesCommand = async (
     "/workloads/{WorkloadId}/disassociateLenses";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LensAliases != null && { LensAliases: se_LensAliases(input.LensAliases, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LensAliases: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -766,12 +749,14 @@ export const se_ImportLensCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importLens";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.JSONString != null && { JSONString: input.JSONString }),
-    ...(input.LensAlias != null && { LensAlias: input.LensAlias }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      JSONString: [],
+      LensAlias: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -831,14 +816,16 @@ export const se_ListCheckDetailsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/checks";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChoiceId != null && { ChoiceId: input.ChoiceId }),
-    ...(input.LensArn != null && { LensArn: input.LensArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PillarId != null && { PillarId: input.PillarId }),
-    ...(input.QuestionId != null && { QuestionId: input.QuestionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChoiceId: [],
+      LensArn: [],
+      MaxResults: [],
+      NextToken: [],
+      PillarId: [],
+      QuestionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -865,14 +852,16 @@ export const se_ListCheckSummariesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/checkSummaries";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChoiceId != null && { ChoiceId: input.ChoiceId }),
-    ...(input.LensArn != null && { LensArn: input.LensArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PillarId != null && { PillarId: input.PillarId }),
-    ...(input.QuestionId != null && { QuestionId: input.QuestionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChoiceId: [],
+      LensArn: [],
+      MaxResults: [],
+      NextToken: [],
+      PillarId: [],
+      QuestionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1024,10 +1013,12 @@ export const se_ListMilestonesCommand = async (
     "/workloads/{WorkloadId}/milestonesSummaries";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1052,11 +1043,13 @@ export const se_ListNotificationsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/notifications";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.WorkloadId != null && { WorkloadId: input.WorkloadId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      WorkloadId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1134,11 +1127,13 @@ export const se_ListWorkloadsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloadsSummaries";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.WorkloadNamePrefix != null && { WorkloadNamePrefix: input.WorkloadNamePrefix }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      WorkloadNamePrefix: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1195,9 +1190,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadArn", () => input.WorkloadArn!, "{WorkloadArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1257,13 +1254,15 @@ export const se_UpdateAnswerCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "QuestionId", () => input.QuestionId!, "{QuestionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChoiceUpdates != null && { ChoiceUpdates: se_ChoiceUpdates(input.ChoiceUpdates, context) }),
-    ...(input.IsApplicable != null && { IsApplicable: input.IsApplicable }),
-    ...(input.Notes != null && { Notes: input.Notes }),
-    ...(input.Reason != null && { Reason: input.Reason }),
-    ...(input.SelectedChoices != null && { SelectedChoices: se_SelectedChoices(input.SelectedChoices, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChoiceUpdates: (_) => _json(_),
+      IsApplicable: [],
+      Notes: [],
+      Reason: [],
+      SelectedChoices: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1288,9 +1287,11 @@ export const se_UpdateGlobalSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-settings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.OrganizationSharingStatus != null && { OrganizationSharingStatus: input.OrganizationSharingStatus }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      OrganizationSharingStatus: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1319,10 +1320,12 @@ export const se_UpdateLensReviewCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LensNotes != null && { LensNotes: input.LensNotes }),
-    ...(input.PillarNotes != null && { PillarNotes: se_PillarNotes(input.PillarNotes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LensNotes: [],
+      PillarNotes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1356,9 +1359,11 @@ export const se_UpdateShareInvitationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ShareInvitationAction != null && { ShareInvitationAction: input.ShareInvitationAction }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ShareInvitationAction: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1384,30 +1389,26 @@ export const se_UpdateWorkloadCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_WorkloadAccountIds(input.AccountIds, context) }),
-    ...(input.Applications != null && { Applications: se_WorkloadApplications(input.Applications, context) }),
-    ...(input.ArchitecturalDesign != null && { ArchitecturalDesign: input.ArchitecturalDesign }),
-    ...(input.AwsRegions != null && { AwsRegions: se_WorkloadAwsRegions(input.AwsRegions, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DiscoveryConfig != null && {
-      DiscoveryConfig: se_WorkloadDiscoveryConfig(input.DiscoveryConfig, context),
-    }),
-    ...(input.Environment != null && { Environment: input.Environment }),
-    ...(input.ImprovementStatus != null && { ImprovementStatus: input.ImprovementStatus }),
-    ...(input.Industry != null && { Industry: input.Industry }),
-    ...(input.IndustryType != null && { IndustryType: input.IndustryType }),
-    ...(input.IsReviewOwnerUpdateAcknowledged != null && {
-      IsReviewOwnerUpdateAcknowledged: input.IsReviewOwnerUpdateAcknowledged,
-    }),
-    ...(input.NonAwsRegions != null && { NonAwsRegions: se_WorkloadNonAwsRegions(input.NonAwsRegions, context) }),
-    ...(input.Notes != null && { Notes: input.Notes }),
-    ...(input.PillarPriorities != null && {
-      PillarPriorities: se_WorkloadPillarPriorities(input.PillarPriorities, context),
-    }),
-    ...(input.ReviewOwner != null && { ReviewOwner: input.ReviewOwner }),
-    ...(input.WorkloadName != null && { WorkloadName: input.WorkloadName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      Applications: (_) => _json(_),
+      ArchitecturalDesign: [],
+      AwsRegions: (_) => _json(_),
+      Description: [],
+      DiscoveryConfig: (_) => _json(_),
+      Environment: [],
+      ImprovementStatus: [],
+      Industry: [],
+      IndustryType: [],
+      IsReviewOwnerUpdateAcknowledged: [],
+      NonAwsRegions: (_) => _json(_),
+      Notes: [],
+      PillarPriorities: (_) => _json(_),
+      ReviewOwner: [],
+      WorkloadName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1435,9 +1436,11 @@ export const se_UpdateWorkloadShareCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.PermissionType != null && { PermissionType: input.PermissionType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PermissionType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1466,10 +1469,12 @@ export const se_UpgradeLensReviewCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.MilestoneName != null && { MilestoneName: input.MilestoneName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [],
+      MilestoneName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1531,10 +1536,9 @@ const de_AssociateLensesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1554,9 +1558,10 @@ export const de_CreateLensShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ShareId != null) {
-    contents.ShareId = __expectString(data.ShareId);
-  }
+  const doc = take(data, {
+    ShareId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1596,10 +1601,9 @@ const de_CreateLensShareCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1619,12 +1623,11 @@ export const de_CreateLensVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LensArn != null) {
-    contents.LensArn = __expectString(data.LensArn);
-  }
-  if (data.LensVersion != null) {
-    contents.LensVersion = __expectString(data.LensVersion);
-  }
+  const doc = take(data, {
+    LensArn: __expectString,
+    LensVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1664,10 +1667,9 @@ const de_CreateLensVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1687,12 +1689,11 @@ export const de_CreateMilestoneCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MilestoneNumber != null) {
-    contents.MilestoneNumber = __expectInt32(data.MilestoneNumber);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    MilestoneNumber: __expectInt32,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1732,10 +1733,9 @@ const de_CreateMilestoneCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1755,12 +1755,11 @@ export const de_CreateWorkloadCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.WorkloadArn != null) {
-    contents.WorkloadArn = __expectString(data.WorkloadArn);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    WorkloadArn: __expectString,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1800,10 +1799,9 @@ const de_CreateWorkloadCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1823,12 +1821,11 @@ export const de_CreateWorkloadShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ShareId != null) {
-    contents.ShareId = __expectString(data.ShareId);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    ShareId: __expectString,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1868,10 +1865,9 @@ const de_CreateWorkloadShareCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1927,10 +1923,9 @@ const de_DeleteLensCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1986,10 +1981,9 @@ const de_DeleteLensShareCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2045,10 +2039,9 @@ const de_DeleteWorkloadCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2104,10 +2097,9 @@ const de_DeleteWorkloadShareCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2163,10 +2155,9 @@ const de_DisassociateLensesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2186,9 +2177,10 @@ export const de_ExportLensCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LensJSON != null) {
-    contents.LensJSON = __expectString(data.LensJSON);
-  }
+  const doc = take(data, {
+    LensJSON: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2222,10 +2214,9 @@ const de_ExportLensCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2245,21 +2236,14 @@ export const de_GetAnswerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Answer != null) {
-    contents.Answer = de_Answer(data.Answer, context);
-  }
-  if (data.LensAlias != null) {
-    contents.LensAlias = __expectString(data.LensAlias);
-  }
-  if (data.LensArn != null) {
-    contents.LensArn = __expectString(data.LensArn);
-  }
-  if (data.MilestoneNumber != null) {
-    contents.MilestoneNumber = __expectInt32(data.MilestoneNumber);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    Answer: _json,
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    MilestoneNumber: __expectInt32,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2293,10 +2277,9 @@ const de_GetAnswerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2316,15 +2299,12 @@ export const de_GetConsolidatedReportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Base64String != null) {
-    contents.Base64String = __expectString(data.Base64String);
-  }
-  if (data.Metrics != null) {
-    contents.Metrics = de_ConsolidatedReportMetrics(data.Metrics, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Base64String: __expectString,
+    Metrics: (_) => de_ConsolidatedReportMetrics(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2358,10 +2338,9 @@ const de_GetConsolidatedReportCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2381,9 +2360,10 @@ export const de_GetLensCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Lens != null) {
-    contents.Lens = de_Lens(data.Lens, context);
-  }
+  const doc = take(data, {
+    Lens: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2417,10 +2397,9 @@ const de_GetLensCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2440,15 +2419,12 @@ export const de_GetLensReviewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LensReview != null) {
-    contents.LensReview = de_LensReview(data.LensReview, context);
-  }
-  if (data.MilestoneNumber != null) {
-    contents.MilestoneNumber = __expectInt32(data.MilestoneNumber);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    LensReview: (_) => de_LensReview(_, context),
+    MilestoneNumber: __expectInt32,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2482,10 +2458,9 @@ const de_GetLensReviewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2505,15 +2480,12 @@ export const de_GetLensReviewReportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LensReviewReport != null) {
-    contents.LensReviewReport = de_LensReviewReport(data.LensReviewReport, context);
-  }
-  if (data.MilestoneNumber != null) {
-    contents.MilestoneNumber = __expectInt32(data.MilestoneNumber);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    LensReviewReport: _json,
+    MilestoneNumber: __expectInt32,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2547,10 +2519,9 @@ const de_GetLensReviewReportCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2570,24 +2541,15 @@ export const de_GetLensVersionDifferenceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BaseLensVersion != null) {
-    contents.BaseLensVersion = __expectString(data.BaseLensVersion);
-  }
-  if (data.LatestLensVersion != null) {
-    contents.LatestLensVersion = __expectString(data.LatestLensVersion);
-  }
-  if (data.LensAlias != null) {
-    contents.LensAlias = __expectString(data.LensAlias);
-  }
-  if (data.LensArn != null) {
-    contents.LensArn = __expectString(data.LensArn);
-  }
-  if (data.TargetLensVersion != null) {
-    contents.TargetLensVersion = __expectString(data.TargetLensVersion);
-  }
-  if (data.VersionDifferences != null) {
-    contents.VersionDifferences = de_VersionDifferences(data.VersionDifferences, context);
-  }
+  const doc = take(data, {
+    BaseLensVersion: __expectString,
+    LatestLensVersion: __expectString,
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    TargetLensVersion: __expectString,
+    VersionDifferences: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2621,10 +2583,9 @@ const de_GetLensVersionDifferenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2644,12 +2605,11 @@ export const de_GetMilestoneCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Milestone != null) {
-    contents.Milestone = de_Milestone(data.Milestone, context);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    Milestone: (_) => de_Milestone(_, context),
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2683,10 +2643,9 @@ const de_GetMilestoneCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2706,9 +2665,10 @@ export const de_GetWorkloadCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Workload != null) {
-    contents.Workload = de_Workload(data.Workload, context);
-  }
+  const doc = take(data, {
+    Workload: (_) => de_Workload(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2742,10 +2702,9 @@ const de_GetWorkloadCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2765,12 +2724,11 @@ export const de_ImportLensCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LensArn != null) {
-    contents.LensArn = __expectString(data.LensArn);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    LensArn: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2810,10 +2768,9 @@ const de_ImportLensCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2833,24 +2790,15 @@ export const de_ListAnswersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnswerSummaries != null) {
-    contents.AnswerSummaries = de_AnswerSummaries(data.AnswerSummaries, context);
-  }
-  if (data.LensAlias != null) {
-    contents.LensAlias = __expectString(data.LensAlias);
-  }
-  if (data.LensArn != null) {
-    contents.LensArn = __expectString(data.LensArn);
-  }
-  if (data.MilestoneNumber != null) {
-    contents.MilestoneNumber = __expectInt32(data.MilestoneNumber);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    AnswerSummaries: _json,
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    MilestoneNumber: __expectInt32,
+    NextToken: __expectString,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2884,10 +2832,9 @@ const de_ListAnswersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2907,12 +2854,11 @@ export const de_ListCheckDetailsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CheckDetails != null) {
-    contents.CheckDetails = de_CheckDetails(data.CheckDetails, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CheckDetails: (_) => de_CheckDetails(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2946,10 +2892,9 @@ const de_ListCheckDetailsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2969,12 +2914,11 @@ export const de_ListCheckSummariesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CheckSummaries != null) {
-    contents.CheckSummaries = de_CheckSummaries(data.CheckSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CheckSummaries: (_) => de_CheckSummaries(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3008,10 +2952,9 @@ const de_ListCheckSummariesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3031,12 +2974,11 @@ export const de_ListLensesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LensSummaries != null) {
-    contents.LensSummaries = de_LensSummaries(data.LensSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    LensSummaries: (_) => de_LensSummaries(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3067,10 +3009,9 @@ const de_ListLensesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3090,24 +3031,15 @@ export const de_ListLensReviewImprovementsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ImprovementSummaries != null) {
-    contents.ImprovementSummaries = de_ImprovementSummaries(data.ImprovementSummaries, context);
-  }
-  if (data.LensAlias != null) {
-    contents.LensAlias = __expectString(data.LensAlias);
-  }
-  if (data.LensArn != null) {
-    contents.LensArn = __expectString(data.LensArn);
-  }
-  if (data.MilestoneNumber != null) {
-    contents.MilestoneNumber = __expectInt32(data.MilestoneNumber);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    ImprovementSummaries: _json,
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    MilestoneNumber: __expectInt32,
+    NextToken: __expectString,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3141,10 +3073,9 @@ const de_ListLensReviewImprovementsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3164,18 +3095,13 @@ export const de_ListLensReviewsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LensReviewSummaries != null) {
-    contents.LensReviewSummaries = de_LensReviewSummaries(data.LensReviewSummaries, context);
-  }
-  if (data.MilestoneNumber != null) {
-    contents.MilestoneNumber = __expectInt32(data.MilestoneNumber);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    LensReviewSummaries: (_) => de_LensReviewSummaries(_, context),
+    MilestoneNumber: __expectInt32,
+    NextToken: __expectString,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3209,10 +3135,9 @@ const de_ListLensReviewsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3232,12 +3157,11 @@ export const de_ListLensSharesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LensShareSummaries != null) {
-    contents.LensShareSummaries = de_LensShareSummaries(data.LensShareSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    LensShareSummaries: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3271,10 +3195,9 @@ const de_ListLensSharesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3294,15 +3217,12 @@ export const de_ListMilestonesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MilestoneSummaries != null) {
-    contents.MilestoneSummaries = de_MilestoneSummaries(data.MilestoneSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    MilestoneSummaries: (_) => de_MilestoneSummaries(_, context),
+    NextToken: __expectString,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3336,10 +3256,9 @@ const de_ListMilestonesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3359,12 +3278,11 @@ export const de_ListNotificationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.NotificationSummaries != null) {
-    contents.NotificationSummaries = de_NotificationSummaries(data.NotificationSummaries, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    NotificationSummaries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3395,10 +3313,9 @@ const de_ListNotificationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3418,12 +3335,11 @@ export const de_ListShareInvitationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ShareInvitationSummaries != null) {
-    contents.ShareInvitationSummaries = de_ShareInvitationSummaries(data.ShareInvitationSummaries, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ShareInvitationSummaries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3454,10 +3370,9 @@ const de_ListShareInvitationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3477,9 +3392,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3504,10 +3420,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3527,12 +3442,11 @@ export const de_ListWorkloadsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WorkloadSummaries != null) {
-    contents.WorkloadSummaries = de_WorkloadSummaries(data.WorkloadSummaries, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    WorkloadSummaries: (_) => de_WorkloadSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3563,10 +3477,9 @@ const de_ListWorkloadsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3586,15 +3499,12 @@ export const de_ListWorkloadSharesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
-  if (data.WorkloadShareSummaries != null) {
-    contents.WorkloadShareSummaries = de_WorkloadShareSummaries(data.WorkloadShareSummaries, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    WorkloadId: __expectString,
+    WorkloadShareSummaries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3628,10 +3538,9 @@ const de_ListWorkloadSharesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3675,10 +3584,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3722,10 +3630,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3745,18 +3652,13 @@ export const de_UpdateAnswerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Answer != null) {
-    contents.Answer = de_Answer(data.Answer, context);
-  }
-  if (data.LensAlias != null) {
-    contents.LensAlias = __expectString(data.LensAlias);
-  }
-  if (data.LensArn != null) {
-    contents.LensArn = __expectString(data.LensArn);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    Answer: _json,
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3793,10 +3695,9 @@ const de_UpdateAnswerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3849,10 +3750,9 @@ const de_UpdateGlobalSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3872,12 +3772,11 @@ export const de_UpdateLensReviewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LensReview != null) {
-    contents.LensReview = de_LensReview(data.LensReview, context);
-  }
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
+  const doc = take(data, {
+    LensReview: (_) => de_LensReview(_, context),
+    WorkloadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3914,10 +3813,9 @@ const de_UpdateLensReviewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3937,9 +3835,10 @@ export const de_UpdateShareInvitationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ShareInvitation != null) {
-    contents.ShareInvitation = de_ShareInvitation(data.ShareInvitation, context);
-  }
+  const doc = take(data, {
+    ShareInvitation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3976,10 +3875,9 @@ const de_UpdateShareInvitationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3999,9 +3897,10 @@ export const de_UpdateWorkloadCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Workload != null) {
-    contents.Workload = de_Workload(data.Workload, context);
-  }
+  const doc = take(data, {
+    Workload: (_) => de_Workload(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4038,10 +3937,9 @@ const de_UpdateWorkloadCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4061,12 +3959,11 @@ export const de_UpdateWorkloadShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.WorkloadId != null) {
-    contents.WorkloadId = __expectString(data.WorkloadId);
-  }
-  if (data.WorkloadShare != null) {
-    contents.WorkloadShare = de_WorkloadShare(data.WorkloadShare, context);
-  }
+  const doc = take(data, {
+    WorkloadId: __expectString,
+    WorkloadShare: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4103,10 +4000,9 @@ const de_UpdateWorkloadShareCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4162,16 +4058,15 @@ const de_UpgradeLensReviewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -4181,9 +4076,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4197,15 +4093,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4222,9 +4115,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4241,15 +4135,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4266,21 +4157,14 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.QuotaCode != null) {
-    contents.QuotaCode = __expectString(data.QuotaCode);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.ServiceCode != null) {
-    contents.ServiceCode = __expectString(data.ServiceCode);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    QuotaCode: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+    ServiceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4294,15 +4178,12 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.QuotaCode != null) {
-    contents.QuotaCode = __expectString(data.QuotaCode);
-  }
-  if (data.ServiceCode != null) {
-    contents.ServiceCode = __expectString(data.ServiceCode);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    QuotaCode: __expectString,
+    ServiceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4316,15 +4197,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Fields != null) {
-    contents.Fields = de_ValidationExceptionFieldList(data.Fields, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Fields: _json,
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4332,295 +4210,67 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ChoiceUpdate
- */
-const se_ChoiceUpdate = (input: ChoiceUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Notes != null && { Notes: input.Notes }),
-    ...(input.Reason != null && { Reason: input.Reason }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_ChoiceUpdate omitted.
 
-/**
- * serializeAws_restJson1ChoiceUpdates
- */
-const se_ChoiceUpdates = (input: Record<string, ChoiceUpdate>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_ChoiceUpdate(value, context);
-    return acc;
-  }, {});
-};
+// se_ChoiceUpdates omitted.
 
-/**
- * serializeAws_restJson1LensAliases
- */
-const se_LensAliases = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LensAliases omitted.
 
-/**
- * serializeAws_restJson1PillarNotes
- */
-const se_PillarNotes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_PillarNotes omitted.
 
-/**
- * serializeAws_restJson1SelectedChoices
- */
-const se_SelectedChoices = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SelectedChoices omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1WorkloadAccountIds
- */
-const se_WorkloadAccountIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_WorkloadAccountIds omitted.
 
-/**
- * serializeAws_restJson1WorkloadApplications
- */
-const se_WorkloadApplications = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_WorkloadApplications omitted.
 
-/**
- * serializeAws_restJson1WorkloadAwsRegions
- */
-const se_WorkloadAwsRegions = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_WorkloadAwsRegions omitted.
 
-/**
- * serializeAws_restJson1WorkloadDiscoveryConfig
- */
-const se_WorkloadDiscoveryConfig = (input: WorkloadDiscoveryConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.TrustedAdvisorIntegrationStatus != null && {
-      TrustedAdvisorIntegrationStatus: input.TrustedAdvisorIntegrationStatus,
-    }),
-  };
-};
+// se_WorkloadDiscoveryConfig omitted.
 
-/**
- * serializeAws_restJson1WorkloadLenses
- */
-const se_WorkloadLenses = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_WorkloadLenses omitted.
 
-/**
- * serializeAws_restJson1WorkloadNonAwsRegions
- */
-const se_WorkloadNonAwsRegions = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_WorkloadNonAwsRegions omitted.
 
-/**
- * serializeAws_restJson1WorkloadPillarPriorities
- */
-const se_WorkloadPillarPriorities = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_WorkloadPillarPriorities omitted.
 
-/**
- * deserializeAws_restJson1AccountSummary
- */
-const de_AccountSummary = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [CheckStatus | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
+// de_AccountSummary omitted.
 
-/**
- * deserializeAws_restJson1AdditionalResources
- */
-const de_AdditionalResources = (output: any, context: __SerdeContext): AdditionalResources => {
-  return {
-    Content: output.Content != null ? de_Urls(output.Content, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_AdditionalResources omitted.
 
-/**
- * deserializeAws_restJson1AdditionalResourcesList
- */
-const de_AdditionalResourcesList = (output: any, context: __SerdeContext): AdditionalResources[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AdditionalResources(entry, context);
-    });
-  return retVal;
-};
+// de_AdditionalResourcesList omitted.
 
-/**
- * deserializeAws_restJson1Answer
- */
-const de_Answer = (output: any, context: __SerdeContext): Answer => {
-  return {
-    ChoiceAnswers: output.ChoiceAnswers != null ? de_ChoiceAnswers(output.ChoiceAnswers, context) : undefined,
-    Choices: output.Choices != null ? de_Choices(output.Choices, context) : undefined,
-    HelpfulResourceDisplayText: __expectString(output.HelpfulResourceDisplayText),
-    HelpfulResourceUrl: __expectString(output.HelpfulResourceUrl),
-    ImprovementPlanUrl: __expectString(output.ImprovementPlanUrl),
-    IsApplicable: __expectBoolean(output.IsApplicable),
-    Notes: __expectString(output.Notes),
-    PillarId: __expectString(output.PillarId),
-    QuestionDescription: __expectString(output.QuestionDescription),
-    QuestionId: __expectString(output.QuestionId),
-    QuestionTitle: __expectString(output.QuestionTitle),
-    Reason: __expectString(output.Reason),
-    Risk: __expectString(output.Risk),
-    SelectedChoices: output.SelectedChoices != null ? de_SelectedChoices(output.SelectedChoices, context) : undefined,
-  } as any;
-};
+// de_Answer omitted.
 
-/**
- * deserializeAws_restJson1AnswerSummaries
- */
-const de_AnswerSummaries = (output: any, context: __SerdeContext): AnswerSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AnswerSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AnswerSummaries omitted.
 
-/**
- * deserializeAws_restJson1AnswerSummary
- */
-const de_AnswerSummary = (output: any, context: __SerdeContext): AnswerSummary => {
-  return {
-    ChoiceAnswerSummaries:
-      output.ChoiceAnswerSummaries != null
-        ? de_ChoiceAnswerSummaries(output.ChoiceAnswerSummaries, context)
-        : undefined,
-    Choices: output.Choices != null ? de_Choices(output.Choices, context) : undefined,
-    IsApplicable: __expectBoolean(output.IsApplicable),
-    PillarId: __expectString(output.PillarId),
-    QuestionId: __expectString(output.QuestionId),
-    QuestionTitle: __expectString(output.QuestionTitle),
-    Reason: __expectString(output.Reason),
-    Risk: __expectString(output.Risk),
-    SelectedChoices: output.SelectedChoices != null ? de_SelectedChoices(output.SelectedChoices, context) : undefined,
-  } as any;
-};
+// de_AnswerSummary omitted.
 
-/**
- * deserializeAws_restJson1BestPractice
- */
-const de_BestPractice = (output: any, context: __SerdeContext): BestPractice => {
-  return {
-    ChoiceId: __expectString(output.ChoiceId),
-    ChoiceTitle: __expectString(output.ChoiceTitle),
-  } as any;
-};
+// de_BestPractice omitted.
 
-/**
- * deserializeAws_restJson1BestPractices
- */
-const de_BestPractices = (output: any, context: __SerdeContext): BestPractice[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BestPractice(entry, context);
-    });
-  return retVal;
-};
+// de_BestPractices omitted.
 
 /**
  * deserializeAws_restJson1CheckDetail
  */
 const de_CheckDetail = (output: any, context: __SerdeContext): CheckDetail => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    ChoiceId: __expectString(output.ChoiceId),
-    Description: __expectString(output.Description),
-    FlaggedResources: __expectInt32(output.FlaggedResources),
-    Id: __expectString(output.Id),
-    LensArn: __expectString(output.LensArn),
-    Name: __expectString(output.Name),
-    PillarId: __expectString(output.PillarId),
-    Provider: __expectString(output.Provider),
-    QuestionId: __expectString(output.QuestionId),
-    Reason: __expectString(output.Reason),
-    Status: __expectString(output.Status),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    ChoiceId: __expectString,
+    Description: __expectString,
+    FlaggedResources: __expectInt32,
+    Id: __expectString,
+    LensArn: __expectString,
+    Name: __expectString,
+    PillarId: __expectString,
+    Provider: __expectString,
+    QuestionId: __expectString,
+    Reason: __expectString,
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4630,9 +4280,6 @@ const de_CheckDetails = (output: any, context: __SerdeContext): CheckDetail[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CheckDetail(entry, context);
     });
   return retVal;
@@ -4645,9 +4292,6 @@ const de_CheckSummaries = (output: any, context: __SerdeContext): CheckSummary[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CheckSummary(entry, context);
     });
   return retVal;
@@ -4657,156 +4301,53 @@ const de_CheckSummaries = (output: any, context: __SerdeContext): CheckSummary[]
  * deserializeAws_restJson1CheckSummary
  */
 const de_CheckSummary = (output: any, context: __SerdeContext): CheckSummary => {
-  return {
-    AccountSummary: output.AccountSummary != null ? de_AccountSummary(output.AccountSummary, context) : undefined,
-    ChoiceId: __expectString(output.ChoiceId),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    LensArn: __expectString(output.LensArn),
-    Name: __expectString(output.Name),
-    PillarId: __expectString(output.PillarId),
-    Provider: __expectString(output.Provider),
-    QuestionId: __expectString(output.QuestionId),
-    Status: __expectString(output.Status),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    AccountSummary: _json,
+    ChoiceId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LensArn: __expectString,
+    Name: __expectString,
+    PillarId: __expectString,
+    Provider: __expectString,
+    QuestionId: __expectString,
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Choice
- */
-const de_Choice = (output: any, context: __SerdeContext): Choice => {
-  return {
-    AdditionalResources:
-      output.AdditionalResources != null ? de_AdditionalResourcesList(output.AdditionalResources, context) : undefined,
-    ChoiceId: __expectString(output.ChoiceId),
-    Description: __expectString(output.Description),
-    HelpfulResource: output.HelpfulResource != null ? de_ChoiceContent(output.HelpfulResource, context) : undefined,
-    ImprovementPlan: output.ImprovementPlan != null ? de_ChoiceContent(output.ImprovementPlan, context) : undefined,
-    Title: __expectString(output.Title),
-  } as any;
-};
+// de_Choice omitted.
 
-/**
- * deserializeAws_restJson1ChoiceAnswer
- */
-const de_ChoiceAnswer = (output: any, context: __SerdeContext): ChoiceAnswer => {
-  return {
-    ChoiceId: __expectString(output.ChoiceId),
-    Notes: __expectString(output.Notes),
-    Reason: __expectString(output.Reason),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_ChoiceAnswer omitted.
 
-/**
- * deserializeAws_restJson1ChoiceAnswers
- */
-const de_ChoiceAnswers = (output: any, context: __SerdeContext): ChoiceAnswer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChoiceAnswer(entry, context);
-    });
-  return retVal;
-};
+// de_ChoiceAnswers omitted.
 
-/**
- * deserializeAws_restJson1ChoiceAnswerSummaries
- */
-const de_ChoiceAnswerSummaries = (output: any, context: __SerdeContext): ChoiceAnswerSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChoiceAnswerSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChoiceAnswerSummaries omitted.
 
-/**
- * deserializeAws_restJson1ChoiceAnswerSummary
- */
-const de_ChoiceAnswerSummary = (output: any, context: __SerdeContext): ChoiceAnswerSummary => {
-  return {
-    ChoiceId: __expectString(output.ChoiceId),
-    Reason: __expectString(output.Reason),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_ChoiceAnswerSummary omitted.
 
-/**
- * deserializeAws_restJson1ChoiceContent
- */
-const de_ChoiceContent = (output: any, context: __SerdeContext): ChoiceContent => {
-  return {
-    DisplayText: __expectString(output.DisplayText),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_ChoiceContent omitted.
 
-/**
- * deserializeAws_restJson1ChoiceImprovementPlan
- */
-const de_ChoiceImprovementPlan = (output: any, context: __SerdeContext): ChoiceImprovementPlan => {
-  return {
-    ChoiceId: __expectString(output.ChoiceId),
-    DisplayText: __expectString(output.DisplayText),
-    ImprovementPlanUrl: __expectString(output.ImprovementPlanUrl),
-  } as any;
-};
+// de_ChoiceImprovementPlan omitted.
 
-/**
- * deserializeAws_restJson1ChoiceImprovementPlans
- */
-const de_ChoiceImprovementPlans = (output: any, context: __SerdeContext): ChoiceImprovementPlan[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChoiceImprovementPlan(entry, context);
-    });
-  return retVal;
-};
+// de_ChoiceImprovementPlans omitted.
 
-/**
- * deserializeAws_restJson1Choices
- */
-const de_Choices = (output: any, context: __SerdeContext): Choice[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Choice(entry, context);
-    });
-  return retVal;
-};
+// de_Choices omitted.
 
 /**
  * deserializeAws_restJson1ConsolidatedReportMetric
  */
 const de_ConsolidatedReportMetric = (output: any, context: __SerdeContext): ConsolidatedReportMetric => {
-  return {
-    Lenses: output.Lenses != null ? de_LensMetrics(output.Lenses, context) : undefined,
-    LensesAppliedCount: __expectInt32(output.LensesAppliedCount),
-    MetricType: __expectString(output.MetricType),
-    RiskCounts: output.RiskCounts != null ? de_RiskCounts(output.RiskCounts, context) : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-    WorkloadArn: __expectString(output.WorkloadArn),
-    WorkloadId: __expectString(output.WorkloadId),
-    WorkloadName: __expectString(output.WorkloadName),
-  } as any;
+  return take(output, {
+    Lenses: _json,
+    LensesAppliedCount: __expectInt32,
+    MetricType: __expectString,
+    RiskCounts: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WorkloadArn: __expectString,
+    WorkloadId: __expectString,
+    WorkloadName: __expectString,
+  }) as any;
 };
 
 /**
@@ -4816,117 +4357,40 @@ const de_ConsolidatedReportMetrics = (output: any, context: __SerdeContext): Con
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConsolidatedReportMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ImprovementSummaries
- */
-const de_ImprovementSummaries = (output: any, context: __SerdeContext): ImprovementSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ImprovementSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ImprovementSummaries omitted.
 
-/**
- * deserializeAws_restJson1ImprovementSummary
- */
-const de_ImprovementSummary = (output: any, context: __SerdeContext): ImprovementSummary => {
-  return {
-    ImprovementPlanUrl: __expectString(output.ImprovementPlanUrl),
-    ImprovementPlans:
-      output.ImprovementPlans != null ? de_ChoiceImprovementPlans(output.ImprovementPlans, context) : undefined,
-    PillarId: __expectString(output.PillarId),
-    QuestionId: __expectString(output.QuestionId),
-    QuestionTitle: __expectString(output.QuestionTitle),
-    Risk: __expectString(output.Risk),
-  } as any;
-};
+// de_ImprovementSummary omitted.
 
-/**
- * deserializeAws_restJson1Lens
- */
-const de_Lens = (output: any, context: __SerdeContext): Lens => {
-  return {
-    Description: __expectString(output.Description),
-    LensArn: __expectString(output.LensArn),
-    LensVersion: __expectString(output.LensVersion),
-    Name: __expectString(output.Name),
-    Owner: __expectString(output.Owner),
-    ShareInvitationId: __expectString(output.ShareInvitationId),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
-};
+// de_Lens omitted.
 
-/**
- * deserializeAws_restJson1LensMetric
- */
-const de_LensMetric = (output: any, context: __SerdeContext): LensMetric => {
-  return {
-    LensArn: __expectString(output.LensArn),
-    Pillars: output.Pillars != null ? de_PillarMetrics(output.Pillars, context) : undefined,
-    RiskCounts: output.RiskCounts != null ? de_RiskCounts(output.RiskCounts, context) : undefined,
-  } as any;
-};
+// de_LensMetric omitted.
 
-/**
- * deserializeAws_restJson1LensMetrics
- */
-const de_LensMetrics = (output: any, context: __SerdeContext): LensMetric[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LensMetric(entry, context);
-    });
-  return retVal;
-};
+// de_LensMetrics omitted.
 
 /**
  * deserializeAws_restJson1LensReview
  */
 const de_LensReview = (output: any, context: __SerdeContext): LensReview => {
-  return {
-    LensAlias: __expectString(output.LensAlias),
-    LensArn: __expectString(output.LensArn),
-    LensName: __expectString(output.LensName),
-    LensStatus: __expectString(output.LensStatus),
-    LensVersion: __expectString(output.LensVersion),
-    NextToken: __expectString(output.NextToken),
-    Notes: __expectString(output.Notes),
-    PillarReviewSummaries:
-      output.PillarReviewSummaries != null
-        ? de_PillarReviewSummaries(output.PillarReviewSummaries, context)
-        : undefined,
-    RiskCounts: output.RiskCounts != null ? de_RiskCounts(output.RiskCounts, context) : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    LensName: __expectString,
+    LensStatus: __expectString,
+    LensVersion: __expectString,
+    NextToken: __expectString,
+    Notes: __expectString,
+    PillarReviewSummaries: _json,
+    RiskCounts: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LensReviewReport
- */
-const de_LensReviewReport = (output: any, context: __SerdeContext): LensReviewReport => {
-  return {
-    Base64String: __expectString(output.Base64String),
-    LensAlias: __expectString(output.LensAlias),
-    LensArn: __expectString(output.LensArn),
-  } as any;
-};
+// de_LensReviewReport omitted.
 
 /**
  * deserializeAws_restJson1LensReviewSummaries
@@ -4935,9 +4399,6 @@ const de_LensReviewSummaries = (output: any, context: __SerdeContext): LensRevie
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LensReviewSummary(entry, context);
     });
   return retVal;
@@ -4947,44 +4408,20 @@ const de_LensReviewSummaries = (output: any, context: __SerdeContext): LensRevie
  * deserializeAws_restJson1LensReviewSummary
  */
 const de_LensReviewSummary = (output: any, context: __SerdeContext): LensReviewSummary => {
-  return {
-    LensAlias: __expectString(output.LensAlias),
-    LensArn: __expectString(output.LensArn),
-    LensName: __expectString(output.LensName),
-    LensStatus: __expectString(output.LensStatus),
-    LensVersion: __expectString(output.LensVersion),
-    RiskCounts: output.RiskCounts != null ? de_RiskCounts(output.RiskCounts, context) : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    LensName: __expectString,
+    LensStatus: __expectString,
+    LensVersion: __expectString,
+    RiskCounts: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LensShareSummaries
- */
-const de_LensShareSummaries = (output: any, context: __SerdeContext): LensShareSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LensShareSummary(entry, context);
-    });
-  return retVal;
-};
+// de_LensShareSummaries omitted.
 
-/**
- * deserializeAws_restJson1LensShareSummary
- */
-const de_LensShareSummary = (output: any, context: __SerdeContext): LensShareSummary => {
-  return {
-    ShareId: __expectString(output.ShareId),
-    SharedWith: __expectString(output.SharedWith),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
+// de_LensShareSummary omitted.
 
 /**
  * deserializeAws_restJson1LensSummaries
@@ -4993,9 +4430,6 @@ const de_LensSummaries = (output: any, context: __SerdeContext): LensSummary[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LensSummary(entry, context);
     });
   return retVal;
@@ -5005,47 +4439,32 @@ const de_LensSummaries = (output: any, context: __SerdeContext): LensSummary[] =
  * deserializeAws_restJson1LensSummary
  */
 const de_LensSummary = (output: any, context: __SerdeContext): LensSummary => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Description: __expectString(output.Description),
-    LensAlias: __expectString(output.LensAlias),
-    LensArn: __expectString(output.LensArn),
-    LensName: __expectString(output.LensName),
-    LensStatus: __expectString(output.LensStatus),
-    LensType: __expectString(output.LensType),
-    LensVersion: __expectString(output.LensVersion),
-    Owner: __expectString(output.Owner),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    LensName: __expectString,
+    LensStatus: __expectString,
+    LensType: __expectString,
+    LensVersion: __expectString,
+    Owner: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LensUpgradeSummary
- */
-const de_LensUpgradeSummary = (output: any, context: __SerdeContext): LensUpgradeSummary => {
-  return {
-    CurrentLensVersion: __expectString(output.CurrentLensVersion),
-    LatestLensVersion: __expectString(output.LatestLensVersion),
-    LensAlias: __expectString(output.LensAlias),
-    LensArn: __expectString(output.LensArn),
-    WorkloadId: __expectString(output.WorkloadId),
-    WorkloadName: __expectString(output.WorkloadName),
-  } as any;
-};
+// de_LensUpgradeSummary omitted.
 
 /**
  * deserializeAws_restJson1Milestone
  */
 const de_Milestone = (output: any, context: __SerdeContext): Milestone => {
-  return {
-    MilestoneName: __expectString(output.MilestoneName),
-    MilestoneNumber: __expectInt32(output.MilestoneNumber),
-    RecordedAt:
-      output.RecordedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RecordedAt))) : undefined,
-    Workload: output.Workload != null ? de_Workload(output.Workload, context) : undefined,
-  } as any;
+  return take(output, {
+    MilestoneName: __expectString,
+    MilestoneNumber: __expectInt32,
+    RecordedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Workload: (_: any) => de_Workload(_, context),
+  }) as any;
 };
 
 /**
@@ -5055,9 +4474,6 @@ const de_MilestoneSummaries = (output: any, context: __SerdeContext): MilestoneS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MilestoneSummary(entry, context);
     });
   return retVal;
@@ -5067,490 +4483,110 @@ const de_MilestoneSummaries = (output: any, context: __SerdeContext): MilestoneS
  * deserializeAws_restJson1MilestoneSummary
  */
 const de_MilestoneSummary = (output: any, context: __SerdeContext): MilestoneSummary => {
-  return {
-    MilestoneName: __expectString(output.MilestoneName),
-    MilestoneNumber: __expectInt32(output.MilestoneNumber),
-    RecordedAt:
-      output.RecordedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RecordedAt))) : undefined,
-    WorkloadSummary: output.WorkloadSummary != null ? de_WorkloadSummary(output.WorkloadSummary, context) : undefined,
-  } as any;
+  return take(output, {
+    MilestoneName: __expectString,
+    MilestoneNumber: __expectInt32,
+    RecordedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WorkloadSummary: (_: any) => de_WorkloadSummary(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1NotificationSummaries
- */
-const de_NotificationSummaries = (output: any, context: __SerdeContext): NotificationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NotificationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_NotificationSummaries omitted.
 
-/**
- * deserializeAws_restJson1NotificationSummary
- */
-const de_NotificationSummary = (output: any, context: __SerdeContext): NotificationSummary => {
-  return {
-    LensUpgradeSummary:
-      output.LensUpgradeSummary != null ? de_LensUpgradeSummary(output.LensUpgradeSummary, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_NotificationSummary omitted.
 
-/**
- * deserializeAws_restJson1PillarDifference
- */
-const de_PillarDifference = (output: any, context: __SerdeContext): PillarDifference => {
-  return {
-    DifferenceStatus: __expectString(output.DifferenceStatus),
-    PillarId: __expectString(output.PillarId),
-    PillarName: __expectString(output.PillarName),
-    QuestionDifferences:
-      output.QuestionDifferences != null ? de_QuestionDifferences(output.QuestionDifferences, context) : undefined,
-  } as any;
-};
+// de_PillarDifference omitted.
 
-/**
- * deserializeAws_restJson1PillarDifferences
- */
-const de_PillarDifferences = (output: any, context: __SerdeContext): PillarDifference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PillarDifference(entry, context);
-    });
-  return retVal;
-};
+// de_PillarDifferences omitted.
 
-/**
- * deserializeAws_restJson1PillarMetric
- */
-const de_PillarMetric = (output: any, context: __SerdeContext): PillarMetric => {
-  return {
-    PillarId: __expectString(output.PillarId),
-    Questions: output.Questions != null ? de_QuestionMetrics(output.Questions, context) : undefined,
-    RiskCounts: output.RiskCounts != null ? de_RiskCounts(output.RiskCounts, context) : undefined,
-  } as any;
-};
+// de_PillarMetric omitted.
 
-/**
- * deserializeAws_restJson1PillarMetrics
- */
-const de_PillarMetrics = (output: any, context: __SerdeContext): PillarMetric[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PillarMetric(entry, context);
-    });
-  return retVal;
-};
+// de_PillarMetrics omitted.
 
-/**
- * deserializeAws_restJson1PillarReviewSummaries
- */
-const de_PillarReviewSummaries = (output: any, context: __SerdeContext): PillarReviewSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PillarReviewSummary(entry, context);
-    });
-  return retVal;
-};
+// de_PillarReviewSummaries omitted.
 
-/**
- * deserializeAws_restJson1PillarReviewSummary
- */
-const de_PillarReviewSummary = (output: any, context: __SerdeContext): PillarReviewSummary => {
-  return {
-    Notes: __expectString(output.Notes),
-    PillarId: __expectString(output.PillarId),
-    PillarName: __expectString(output.PillarName),
-    RiskCounts: output.RiskCounts != null ? de_RiskCounts(output.RiskCounts, context) : undefined,
-  } as any;
-};
+// de_PillarReviewSummary omitted.
 
-/**
- * deserializeAws_restJson1QuestionDifference
- */
-const de_QuestionDifference = (output: any, context: __SerdeContext): QuestionDifference => {
-  return {
-    DifferenceStatus: __expectString(output.DifferenceStatus),
-    QuestionId: __expectString(output.QuestionId),
-    QuestionTitle: __expectString(output.QuestionTitle),
-  } as any;
-};
+// de_QuestionDifference omitted.
 
-/**
- * deserializeAws_restJson1QuestionDifferences
- */
-const de_QuestionDifferences = (output: any, context: __SerdeContext): QuestionDifference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_QuestionDifference(entry, context);
-    });
-  return retVal;
-};
+// de_QuestionDifferences omitted.
 
-/**
- * deserializeAws_restJson1QuestionMetric
- */
-const de_QuestionMetric = (output: any, context: __SerdeContext): QuestionMetric => {
-  return {
-    BestPractices: output.BestPractices != null ? de_BestPractices(output.BestPractices, context) : undefined,
-    QuestionId: __expectString(output.QuestionId),
-    Risk: __expectString(output.Risk),
-  } as any;
-};
+// de_QuestionMetric omitted.
 
-/**
- * deserializeAws_restJson1QuestionMetrics
- */
-const de_QuestionMetrics = (output: any, context: __SerdeContext): QuestionMetric[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_QuestionMetric(entry, context);
-    });
-  return retVal;
-};
+// de_QuestionMetrics omitted.
 
-/**
- * deserializeAws_restJson1RiskCounts
- */
-const de_RiskCounts = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [Risk | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
+// de_RiskCounts omitted.
 
-/**
- * deserializeAws_restJson1SelectedChoices
- */
-const de_SelectedChoices = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SelectedChoices omitted.
 
-/**
- * deserializeAws_restJson1ShareInvitation
- */
-const de_ShareInvitation = (output: any, context: __SerdeContext): ShareInvitation => {
-  return {
-    LensAlias: __expectString(output.LensAlias),
-    LensArn: __expectString(output.LensArn),
-    ShareInvitationId: __expectString(output.ShareInvitationId),
-    ShareResourceType: __expectString(output.ShareResourceType),
-    WorkloadId: __expectString(output.WorkloadId),
-  } as any;
-};
+// de_ShareInvitation omitted.
 
-/**
- * deserializeAws_restJson1ShareInvitationSummaries
- */
-const de_ShareInvitationSummaries = (output: any, context: __SerdeContext): ShareInvitationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ShareInvitationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ShareInvitationSummaries omitted.
 
-/**
- * deserializeAws_restJson1ShareInvitationSummary
- */
-const de_ShareInvitationSummary = (output: any, context: __SerdeContext): ShareInvitationSummary => {
-  return {
-    LensArn: __expectString(output.LensArn),
-    LensName: __expectString(output.LensName),
-    PermissionType: __expectString(output.PermissionType),
-    ShareInvitationId: __expectString(output.ShareInvitationId),
-    ShareResourceType: __expectString(output.ShareResourceType),
-    SharedBy: __expectString(output.SharedBy),
-    SharedWith: __expectString(output.SharedWith),
-    WorkloadId: __expectString(output.WorkloadId),
-    WorkloadName: __expectString(output.WorkloadName),
-  } as any;
-};
+// de_ShareInvitationSummary omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1Urls
- */
-const de_Urls = (output: any, context: __SerdeContext): ChoiceContent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChoiceContent(entry, context);
-    });
-  return retVal;
-};
+// de_Urls omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
-/**
- * deserializeAws_restJson1VersionDifferences
- */
-const de_VersionDifferences = (output: any, context: __SerdeContext): VersionDifferences => {
-  return {
-    PillarDifferences:
-      output.PillarDifferences != null ? de_PillarDifferences(output.PillarDifferences, context) : undefined,
-  } as any;
-};
+// de_VersionDifferences omitted.
 
 /**
  * deserializeAws_restJson1Workload
  */
 const de_Workload = (output: any, context: __SerdeContext): Workload => {
-  return {
-    AccountIds: output.AccountIds != null ? de_WorkloadAccountIds(output.AccountIds, context) : undefined,
-    Applications: output.Applications != null ? de_WorkloadApplications(output.Applications, context) : undefined,
-    ArchitecturalDesign: __expectString(output.ArchitecturalDesign),
-    AwsRegions: output.AwsRegions != null ? de_WorkloadAwsRegions(output.AwsRegions, context) : undefined,
-    Description: __expectString(output.Description),
-    DiscoveryConfig:
-      output.DiscoveryConfig != null ? de_WorkloadDiscoveryConfig(output.DiscoveryConfig, context) : undefined,
-    Environment: __expectString(output.Environment),
-    ImprovementStatus: __expectString(output.ImprovementStatus),
-    Industry: __expectString(output.Industry),
-    IndustryType: __expectString(output.IndustryType),
-    IsReviewOwnerUpdateAcknowledged: __expectBoolean(output.IsReviewOwnerUpdateAcknowledged),
-    Lenses: output.Lenses != null ? de_WorkloadLenses(output.Lenses, context) : undefined,
-    NonAwsRegions: output.NonAwsRegions != null ? de_WorkloadNonAwsRegions(output.NonAwsRegions, context) : undefined,
-    Notes: __expectString(output.Notes),
-    Owner: __expectString(output.Owner),
-    PillarPriorities:
-      output.PillarPriorities != null ? de_WorkloadPillarPriorities(output.PillarPriorities, context) : undefined,
-    ReviewOwner: __expectString(output.ReviewOwner),
-    ReviewRestrictionDate:
-      output.ReviewRestrictionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReviewRestrictionDate)))
-        : undefined,
-    RiskCounts: output.RiskCounts != null ? de_RiskCounts(output.RiskCounts, context) : undefined,
-    ShareInvitationId: __expectString(output.ShareInvitationId),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-    WorkloadArn: __expectString(output.WorkloadArn),
-    WorkloadId: __expectString(output.WorkloadId),
-    WorkloadName: __expectString(output.WorkloadName),
-  } as any;
+  return take(output, {
+    AccountIds: _json,
+    Applications: _json,
+    ArchitecturalDesign: __expectString,
+    AwsRegions: _json,
+    Description: __expectString,
+    DiscoveryConfig: _json,
+    Environment: __expectString,
+    ImprovementStatus: __expectString,
+    Industry: __expectString,
+    IndustryType: __expectString,
+    IsReviewOwnerUpdateAcknowledged: __expectBoolean,
+    Lenses: _json,
+    NonAwsRegions: _json,
+    Notes: __expectString,
+    Owner: __expectString,
+    PillarPriorities: _json,
+    ReviewOwner: __expectString,
+    ReviewRestrictionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RiskCounts: _json,
+    ShareInvitationId: __expectString,
+    Tags: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WorkloadArn: __expectString,
+    WorkloadId: __expectString,
+    WorkloadName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1WorkloadAccountIds
- */
-const de_WorkloadAccountIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WorkloadAccountIds omitted.
 
-/**
- * deserializeAws_restJson1WorkloadApplications
- */
-const de_WorkloadApplications = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WorkloadApplications omitted.
 
-/**
- * deserializeAws_restJson1WorkloadAwsRegions
- */
-const de_WorkloadAwsRegions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WorkloadAwsRegions omitted.
 
-/**
- * deserializeAws_restJson1WorkloadDiscoveryConfig
- */
-const de_WorkloadDiscoveryConfig = (output: any, context: __SerdeContext): WorkloadDiscoveryConfig => {
-  return {
-    TrustedAdvisorIntegrationStatus: __expectString(output.TrustedAdvisorIntegrationStatus),
-  } as any;
-};
+// de_WorkloadDiscoveryConfig omitted.
 
-/**
- * deserializeAws_restJson1WorkloadLenses
- */
-const de_WorkloadLenses = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WorkloadLenses omitted.
 
-/**
- * deserializeAws_restJson1WorkloadNonAwsRegions
- */
-const de_WorkloadNonAwsRegions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WorkloadNonAwsRegions omitted.
 
-/**
- * deserializeAws_restJson1WorkloadPillarPriorities
- */
-const de_WorkloadPillarPriorities = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WorkloadPillarPriorities omitted.
 
-/**
- * deserializeAws_restJson1WorkloadShare
- */
-const de_WorkloadShare = (output: any, context: __SerdeContext): WorkloadShare => {
-  return {
-    PermissionType: __expectString(output.PermissionType),
-    ShareId: __expectString(output.ShareId),
-    SharedBy: __expectString(output.SharedBy),
-    SharedWith: __expectString(output.SharedWith),
-    Status: __expectString(output.Status),
-    WorkloadId: __expectString(output.WorkloadId),
-    WorkloadName: __expectString(output.WorkloadName),
-  } as any;
-};
+// de_WorkloadShare omitted.
 
-/**
- * deserializeAws_restJson1WorkloadShareSummaries
- */
-const de_WorkloadShareSummaries = (output: any, context: __SerdeContext): WorkloadShareSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorkloadShareSummary(entry, context);
-    });
-  return retVal;
-};
+// de_WorkloadShareSummaries omitted.
 
-/**
- * deserializeAws_restJson1WorkloadShareSummary
- */
-const de_WorkloadShareSummary = (output: any, context: __SerdeContext): WorkloadShareSummary => {
-  return {
-    PermissionType: __expectString(output.PermissionType),
-    ShareId: __expectString(output.ShareId),
-    SharedWith: __expectString(output.SharedWith),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
+// de_WorkloadShareSummary omitted.
 
 /**
  * deserializeAws_restJson1WorkloadSummaries
@@ -5559,9 +4595,6 @@ const de_WorkloadSummaries = (output: any, context: __SerdeContext): WorkloadSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorkloadSummary(entry, context);
     });
   return retVal;
@@ -5571,17 +4604,16 @@ const de_WorkloadSummaries = (output: any, context: __SerdeContext): WorkloadSum
  * deserializeAws_restJson1WorkloadSummary
  */
 const de_WorkloadSummary = (output: any, context: __SerdeContext): WorkloadSummary => {
-  return {
-    ImprovementStatus: __expectString(output.ImprovementStatus),
-    Lenses: output.Lenses != null ? de_WorkloadLenses(output.Lenses, context) : undefined,
-    Owner: __expectString(output.Owner),
-    RiskCounts: output.RiskCounts != null ? de_RiskCounts(output.RiskCounts, context) : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-    WorkloadArn: __expectString(output.WorkloadArn),
-    WorkloadId: __expectString(output.WorkloadId),
-    WorkloadName: __expectString(output.WorkloadName),
-  } as any;
+  return take(output, {
+    ImprovementStatus: __expectString,
+    Lenses: _json,
+    Owner: __expectString,
+    RiskCounts: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WorkloadArn: __expectString,
+    WorkloadId: __expectString,
+    WorkloadName: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

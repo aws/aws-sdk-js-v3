@@ -1,18 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -76,27 +77,16 @@ import { IvsServiceException as __BaseException } from "../models/IvsServiceExce
 import {
   _Stream,
   AccessDeniedException,
-  AudioConfiguration,
-  BatchError,
-  Channel,
   ChannelNotBroadcasting,
-  ChannelSummary,
   ConflictException,
   DestinationConfiguration,
-  IngestConfiguration,
   InternalServerException,
   PendingVerification,
-  PlaybackKeyPair,
-  PlaybackKeyPairSummary,
-  RecordingConfiguration,
-  RecordingConfigurationSummary,
   ResourceNotFoundException,
   S3DestinationConfiguration,
   ServiceQuotaExceededException,
   StreamEvent,
   StreamFilters,
-  StreamKey,
-  StreamKeySummary,
   StreamSession,
   StreamSessionSummary,
   StreamSummary,
@@ -104,7 +94,6 @@ import {
   ThrottlingException,
   ThumbnailConfiguration,
   ValidationException,
-  VideoConfiguration,
 } from "../models/models_0";
 
 /**
@@ -120,9 +109,11 @@ export const se_BatchGetChannelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arns != null && { arns: se_ChannelArnList(input.arns, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -147,9 +138,11 @@ export const se_BatchGetStreamKeyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetStreamKey";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arns != null && { arns: se_StreamKeyArnList(input.arns, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -174,15 +167,17 @@ export const se_CreateChannelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.authorized != null && { authorized: input.authorized }),
-    ...(input.insecureIngest != null && { insecureIngest: input.insecureIngest }),
-    ...(input.latencyMode != null && { latencyMode: input.latencyMode }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.recordingConfigurationArn != null && { recordingConfigurationArn: input.recordingConfigurationArn }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      authorized: [],
+      insecureIngest: [],
+      latencyMode: [],
+      name: [],
+      recordingConfigurationArn: [],
+      tags: (_) => _json(_),
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -208,19 +203,15 @@ export const se_CreateRecordingConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateRecordingConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.destinationConfiguration != null && {
-      destinationConfiguration: se_DestinationConfiguration(input.destinationConfiguration, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.recordingReconnectWindowSeconds != null && {
-      recordingReconnectWindowSeconds: input.recordingReconnectWindowSeconds,
-    }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-    ...(input.thumbnailConfiguration != null && {
-      thumbnailConfiguration: se_ThumbnailConfiguration(input.thumbnailConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      destinationConfiguration: (_) => _json(_),
+      name: [],
+      recordingReconnectWindowSeconds: [],
+      tags: (_) => _json(_),
+      thumbnailConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -245,10 +236,12 @@ export const se_CreateStreamKeyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateStreamKey";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelArn != null && { channelArn: input.channelArn }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -273,9 +266,11 @@ export const se_DeleteChannelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arn != null && { arn: input.arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -300,9 +295,11 @@ export const se_DeletePlaybackKeyPairCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeletePlaybackKeyPair";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arn != null && { arn: input.arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -328,9 +325,11 @@ export const se_DeleteRecordingConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteRecordingConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arn != null && { arn: input.arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -355,9 +354,11 @@ export const se_DeleteStreamKeyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteStreamKey";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arn != null && { arn: input.arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -382,9 +383,11 @@ export const se_GetChannelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arn != null && { arn: input.arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -409,9 +412,11 @@ export const se_GetPlaybackKeyPairCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetPlaybackKeyPair";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arn != null && { arn: input.arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -437,9 +442,11 @@ export const se_GetRecordingConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetRecordingConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arn != null && { arn: input.arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -464,9 +471,11 @@ export const se_GetStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelArn != null && { channelArn: input.channelArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -491,9 +500,11 @@ export const se_GetStreamKeyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetStreamKey";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arn != null && { arn: input.arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -518,10 +529,12 @@ export const se_GetStreamSessionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetStreamSession";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelArn != null && { channelArn: input.channelArn }),
-    ...(input.streamId != null && { streamId: input.streamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+      streamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -546,11 +559,13 @@ export const se_ImportPlaybackKeyPairCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ImportPlaybackKeyPair";
   let body: any;
-  body = JSON.stringify({
-    ...(input.name != null && { name: input.name }),
-    ...(input.publicKeyMaterial != null && { publicKeyMaterial: input.publicKeyMaterial }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      name: [],
+      publicKeyMaterial: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -575,14 +590,14 @@ export const se_ListChannelsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListChannels";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filterByName != null && { filterByName: input.filterByName }),
-    ...(input.filterByRecordingConfigurationArn != null && {
-      filterByRecordingConfigurationArn: input.filterByRecordingConfigurationArn,
-    }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filterByName: [],
+      filterByRecordingConfigurationArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -607,10 +622,12 @@ export const se_ListPlaybackKeyPairsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListPlaybackKeyPairs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -636,10 +653,12 @@ export const se_ListRecordingConfigurationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListRecordingConfigurations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -664,11 +683,13 @@ export const se_ListStreamKeysCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListStreamKeys";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelArn != null && { channelArn: input.channelArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -693,11 +714,13 @@ export const se_ListStreamsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListStreams";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filterBy != null && { filterBy: se_StreamFilters(input.filterBy, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filterBy: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -722,11 +745,13 @@ export const se_ListStreamSessionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListStreamSessions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelArn != null && { channelArn: input.channelArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -774,10 +799,12 @@ export const se_PutMetadataCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutMetadata";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelArn != null && { channelArn: input.channelArn }),
-    ...(input.metadata != null && { metadata: input.metadata }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+      metadata: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -802,9 +829,11 @@ export const se_StopStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StopStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelArn != null && { channelArn: input.channelArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -830,9 +859,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -887,15 +918,17 @@ export const se_UpdateChannelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.authorized != null && { authorized: input.authorized }),
-    ...(input.insecureIngest != null && { insecureIngest: input.insecureIngest }),
-    ...(input.latencyMode != null && { latencyMode: input.latencyMode }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.recordingConfigurationArn != null && { recordingConfigurationArn: input.recordingConfigurationArn }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+      authorized: [],
+      insecureIngest: [],
+      latencyMode: [],
+      name: [],
+      recordingConfigurationArn: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -921,12 +954,11 @@ export const de_BatchGetChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.channels != null) {
-    contents.channels = de_Channels(data.channels, context);
-  }
-  if (data.errors != null) {
-    contents.errors = de_BatchErrors(data.errors, context);
-  }
+  const doc = take(data, {
+    channels: _json,
+    errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -943,10 +975,9 @@ const de_BatchGetChannelCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -965,12 +996,11 @@ export const de_BatchGetStreamKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_BatchErrors(data.errors, context);
-  }
-  if (data.streamKeys != null) {
-    contents.streamKeys = de_StreamKeys(data.streamKeys, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+    streamKeys: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -987,10 +1017,9 @@ const de_BatchGetStreamKeyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1009,12 +1038,11 @@ export const de_CreateChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.channel != null) {
-    contents.channel = de_Channel(data.channel, context);
-  }
-  if (data.streamKey != null) {
-    contents.streamKey = de_StreamKey(data.streamKey, context);
-  }
+  const doc = take(data, {
+    channel: _json,
+    streamKey: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1048,10 +1076,9 @@ const de_CreateChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1071,9 +1098,10 @@ export const de_CreateRecordingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.recordingConfiguration != null) {
-    contents.recordingConfiguration = de_RecordingConfiguration(data.recordingConfiguration, context);
-  }
+  const doc = take(data, {
+    recordingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1110,10 +1138,9 @@ const de_CreateRecordingConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1133,9 +1160,10 @@ export const de_CreateStreamKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.streamKey != null) {
-    contents.streamKey = de_StreamKey(data.streamKey, context);
-  }
+  const doc = take(data, {
+    streamKey: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1169,10 +1197,9 @@ const de_CreateStreamKeyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1225,10 +1252,9 @@ const de_DeleteChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1278,10 +1304,9 @@ const de_DeletePlaybackKeyPairCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1334,10 +1359,9 @@ const de_DeleteRecordingConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1387,10 +1411,9 @@ const de_DeleteStreamKeyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1410,9 +1433,10 @@ export const de_GetChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.channel != null) {
-    contents.channel = de_Channel(data.channel, context);
-  }
+  const doc = take(data, {
+    channel: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1440,10 +1464,9 @@ const de_GetChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1463,9 +1486,10 @@ export const de_GetPlaybackKeyPairCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.keyPair != null) {
-    contents.keyPair = de_PlaybackKeyPair(data.keyPair, context);
-  }
+  const doc = take(data, {
+    keyPair: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1493,10 +1517,9 @@ const de_GetPlaybackKeyPairCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1516,9 +1539,10 @@ export const de_GetRecordingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.recordingConfiguration != null) {
-    contents.recordingConfiguration = de_RecordingConfiguration(data.recordingConfiguration, context);
-  }
+  const doc = take(data, {
+    recordingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1549,10 +1573,9 @@ const de_GetRecordingConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1572,9 +1595,10 @@ export const de_GetStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.stream != null) {
-    contents.stream = de__Stream(data.stream, context);
-  }
+  const doc = take(data, {
+    stream: (_) => de__Stream(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1605,10 +1629,9 @@ const de_GetStreamCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1628,9 +1651,10 @@ export const de_GetStreamKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.streamKey != null) {
-    contents.streamKey = de_StreamKey(data.streamKey, context);
-  }
+  const doc = take(data, {
+    streamKey: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1658,10 +1682,9 @@ const de_GetStreamKeyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1681,9 +1704,10 @@ export const de_GetStreamSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.streamSession != null) {
-    contents.streamSession = de_StreamSession(data.streamSession, context);
-  }
+  const doc = take(data, {
+    streamSession: (_) => de_StreamSession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1711,10 +1735,9 @@ const de_GetStreamSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1734,9 +1757,10 @@ export const de_ImportPlaybackKeyPairCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.keyPair != null) {
-    contents.keyPair = de_PlaybackKeyPair(data.keyPair, context);
-  }
+  const doc = take(data, {
+    keyPair: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1770,10 +1794,9 @@ const de_ImportPlaybackKeyPairCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1793,12 +1816,11 @@ export const de_ListChannelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.channels != null) {
-    contents.channels = de_ChannelList(data.channels, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    channels: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1826,10 +1848,9 @@ const de_ListChannelsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1849,12 +1870,11 @@ export const de_ListPlaybackKeyPairsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.keyPairs != null) {
-    contents.keyPairs = de_PlaybackKeyPairList(data.keyPairs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    keyPairs: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1879,10 +1899,9 @@ const de_ListPlaybackKeyPairsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1902,12 +1921,11 @@ export const de_ListRecordingConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.recordingConfigurations != null) {
-    contents.recordingConfigurations = de_RecordingConfigurationList(data.recordingConfigurations, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    recordingConfigurations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1935,10 +1953,9 @@ const de_ListRecordingConfigurationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1958,12 +1975,11 @@ export const de_ListStreamKeysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.streamKeys != null) {
-    contents.streamKeys = de_StreamKeyList(data.streamKeys, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    streamKeys: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1991,10 +2007,9 @@ const de_ListStreamKeysCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2014,12 +2029,11 @@ export const de_ListStreamsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.streams != null) {
-    contents.streams = de_StreamList(data.streams, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    streams: (_) => de_StreamList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2044,10 +2058,9 @@ const de_ListStreamsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2067,12 +2080,11 @@ export const de_ListStreamSessionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.streamSessions != null) {
-    contents.streamSessions = de_StreamSessionList(data.streamSessions, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    streamSessions: (_) => de_StreamSessionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2100,10 +2112,9 @@ const de_ListStreamSessionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2123,9 +2134,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2153,10 +2165,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2209,10 +2220,9 @@ const de_PutMetadataCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2265,10 +2275,9 @@ const de_StopStreamCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2315,10 +2324,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2365,10 +2373,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2388,9 +2395,10 @@ export const de_UpdateChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.channel != null) {
-    contents.channel = de_Channel(data.channel, context);
-  }
+  const doc = take(data, {
+    channel: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2424,16 +2432,15 @@ const de_UpdateChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2443,9 +2450,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2462,9 +2470,10 @@ const de_ChannelNotBroadcastingRes = async (
 ): Promise<ChannelNotBroadcasting> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ChannelNotBroadcasting({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2478,9 +2487,10 @@ const de_ChannelNotBroadcastingRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2497,9 +2507,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2513,9 +2524,10 @@ const de_InternalServerExceptionRes = async (
 const de_PendingVerificationRes = async (parsedOutput: any, context: __SerdeContext): Promise<PendingVerification> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PendingVerification({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2532,9 +2544,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2551,9 +2564,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2567,9 +2581,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_StreamUnavailableRes = async (parsedOutput: any, context: __SerdeContext): Promise<StreamUnavailable> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StreamUnavailable({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2583,9 +2598,10 @@ const de_StreamUnavailableRes = async (parsedOutput: any, context: __SerdeContex
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2599,9 +2615,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exceptionMessage != null) {
-    contents.exceptionMessage = __expectString(data.exceptionMessage);
-  }
+  const doc = take(data, {
+    exceptionMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2609,323 +2626,76 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ChannelArnList
- */
-const se_ChannelArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ChannelArnList omitted.
 
-/**
- * serializeAws_restJson1DestinationConfiguration
- */
-const se_DestinationConfiguration = (input: DestinationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.s3 != null && { s3: se_S3DestinationConfiguration(input.s3, context) }),
-  };
-};
+// se_DestinationConfiguration omitted.
 
-/**
- * serializeAws_restJson1S3DestinationConfiguration
- */
-const se_S3DestinationConfiguration = (input: S3DestinationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketName != null && { bucketName: input.bucketName }),
-  };
-};
+// se_S3DestinationConfiguration omitted.
 
-/**
- * serializeAws_restJson1StreamFilters
- */
-const se_StreamFilters = (input: StreamFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.health != null && { health: input.health }),
-  };
-};
+// se_StreamFilters omitted.
 
-/**
- * serializeAws_restJson1StreamKeyArnList
- */
-const se_StreamKeyArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StreamKeyArnList omitted.
 
-/**
- * serializeAws_restJson1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_restJson1ThumbnailConfiguration
- */
-const se_ThumbnailConfiguration = (input: ThumbnailConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.recordingMode != null && { recordingMode: input.recordingMode }),
-    ...(input.targetIntervalSeconds != null && { targetIntervalSeconds: input.targetIntervalSeconds }),
-  };
-};
+// se_ThumbnailConfiguration omitted.
 
-/**
- * deserializeAws_restJson1AudioConfiguration
- */
-const de_AudioConfiguration = (output: any, context: __SerdeContext): AudioConfiguration => {
-  return {
-    channels: __expectLong(output.channels),
-    codec: __expectString(output.codec),
-    sampleRate: __expectLong(output.sampleRate),
-    targetBitrate: __expectLong(output.targetBitrate),
-  } as any;
-};
+// de_AudioConfiguration omitted.
 
-/**
- * deserializeAws_restJson1BatchError
- */
-const de_BatchError = (output: any, context: __SerdeContext): BatchError => {
-  return {
-    arn: __expectString(output.arn),
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BatchError omitted.
 
-/**
- * deserializeAws_restJson1BatchErrors
- */
-const de_BatchErrors = (output: any, context: __SerdeContext): BatchError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchErrors omitted.
 
-/**
- * deserializeAws_restJson1Channel
- */
-const de_Channel = (output: any, context: __SerdeContext): Channel => {
-  return {
-    arn: __expectString(output.arn),
-    authorized: __expectBoolean(output.authorized),
-    ingestEndpoint: __expectString(output.ingestEndpoint),
-    insecureIngest: __expectBoolean(output.insecureIngest),
-    latencyMode: __expectString(output.latencyMode),
-    name: __expectString(output.name),
-    playbackUrl: __expectString(output.playbackUrl),
-    recordingConfigurationArn: __expectString(output.recordingConfigurationArn),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_Channel omitted.
 
-/**
- * deserializeAws_restJson1ChannelList
- */
-const de_ChannelList = (output: any, context: __SerdeContext): ChannelSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelList omitted.
 
-/**
- * deserializeAws_restJson1Channels
- */
-const de_Channels = (output: any, context: __SerdeContext): Channel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Channel(entry, context);
-    });
-  return retVal;
-};
+// de_Channels omitted.
 
-/**
- * deserializeAws_restJson1ChannelSummary
- */
-const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
-  return {
-    arn: __expectString(output.arn),
-    authorized: __expectBoolean(output.authorized),
-    insecureIngest: __expectBoolean(output.insecureIngest),
-    latencyMode: __expectString(output.latencyMode),
-    name: __expectString(output.name),
-    recordingConfigurationArn: __expectString(output.recordingConfigurationArn),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_ChannelSummary omitted.
 
-/**
- * deserializeAws_restJson1DestinationConfiguration
- */
-const de_DestinationConfiguration = (output: any, context: __SerdeContext): DestinationConfiguration => {
-  return {
-    s3: output.s3 != null ? de_S3DestinationConfiguration(output.s3, context) : undefined,
-  } as any;
-};
+// de_DestinationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1IngestConfiguration
- */
-const de_IngestConfiguration = (output: any, context: __SerdeContext): IngestConfiguration => {
-  return {
-    audio: output.audio != null ? de_AudioConfiguration(output.audio, context) : undefined,
-    video: output.video != null ? de_VideoConfiguration(output.video, context) : undefined,
-  } as any;
-};
+// de_IngestConfiguration omitted.
 
-/**
- * deserializeAws_restJson1PlaybackKeyPair
- */
-const de_PlaybackKeyPair = (output: any, context: __SerdeContext): PlaybackKeyPair => {
-  return {
-    arn: __expectString(output.arn),
-    fingerprint: __expectString(output.fingerprint),
-    name: __expectString(output.name),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_PlaybackKeyPair omitted.
 
-/**
- * deserializeAws_restJson1PlaybackKeyPairList
- */
-const de_PlaybackKeyPairList = (output: any, context: __SerdeContext): PlaybackKeyPairSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PlaybackKeyPairSummary(entry, context);
-    });
-  return retVal;
-};
+// de_PlaybackKeyPairList omitted.
 
-/**
- * deserializeAws_restJson1PlaybackKeyPairSummary
- */
-const de_PlaybackKeyPairSummary = (output: any, context: __SerdeContext): PlaybackKeyPairSummary => {
-  return {
-    arn: __expectString(output.arn),
-    name: __expectString(output.name),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_PlaybackKeyPairSummary omitted.
 
-/**
- * deserializeAws_restJson1RecordingConfiguration
- */
-const de_RecordingConfiguration = (output: any, context: __SerdeContext): RecordingConfiguration => {
-  return {
-    arn: __expectString(output.arn),
-    destinationConfiguration:
-      output.destinationConfiguration != null
-        ? de_DestinationConfiguration(output.destinationConfiguration, context)
-        : undefined,
-    name: __expectString(output.name),
-    recordingReconnectWindowSeconds: __expectInt32(output.recordingReconnectWindowSeconds),
-    state: __expectString(output.state),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    thumbnailConfiguration:
-      output.thumbnailConfiguration != null
-        ? de_ThumbnailConfiguration(output.thumbnailConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_RecordingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1RecordingConfigurationList
- */
-const de_RecordingConfigurationList = (output: any, context: __SerdeContext): RecordingConfigurationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecordingConfigurationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_RecordingConfigurationList omitted.
 
-/**
- * deserializeAws_restJson1RecordingConfigurationSummary
- */
-const de_RecordingConfigurationSummary = (output: any, context: __SerdeContext): RecordingConfigurationSummary => {
-  return {
-    arn: __expectString(output.arn),
-    destinationConfiguration:
-      output.destinationConfiguration != null
-        ? de_DestinationConfiguration(output.destinationConfiguration, context)
-        : undefined,
-    name: __expectString(output.name),
-    state: __expectString(output.state),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_RecordingConfigurationSummary omitted.
 
-/**
- * deserializeAws_restJson1S3DestinationConfiguration
- */
-const de_S3DestinationConfiguration = (output: any, context: __SerdeContext): S3DestinationConfiguration => {
-  return {
-    bucketName: __expectString(output.bucketName),
-  } as any;
-};
+// de_S3DestinationConfiguration omitted.
 
 /**
  * deserializeAws_restJson1_Stream
  */
 const de__Stream = (output: any, context: __SerdeContext): _Stream => {
-  return {
-    channelArn: __expectString(output.channelArn),
-    health: __expectString(output.health),
-    playbackUrl: __expectString(output.playbackUrl),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
-    state: __expectString(output.state),
-    streamId: __expectString(output.streamId),
-    viewerCount: __expectLong(output.viewerCount),
-  } as any;
+  return take(output, {
+    channelArn: __expectString,
+    health: __expectString,
+    playbackUrl: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    state: __expectString,
+    streamId: __expectString,
+    viewerCount: __expectLong,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1StreamEvent
  */
 const de_StreamEvent = (output: any, context: __SerdeContext): StreamEvent => {
-  return {
-    eventTime:
-      output.eventTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.eventTime)) : undefined,
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    eventTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -2935,66 +2705,18 @@ const de_StreamEvents = (output: any, context: __SerdeContext): StreamEvent[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StreamEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1StreamKey
- */
-const de_StreamKey = (output: any, context: __SerdeContext): StreamKey => {
-  return {
-    arn: __expectString(output.arn),
-    channelArn: __expectString(output.channelArn),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    value: __expectString(output.value),
-  } as any;
-};
+// de_StreamKey omitted.
 
-/**
- * deserializeAws_restJson1StreamKeyList
- */
-const de_StreamKeyList = (output: any, context: __SerdeContext): StreamKeySummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StreamKeySummary(entry, context);
-    });
-  return retVal;
-};
+// de_StreamKeyList omitted.
 
-/**
- * deserializeAws_restJson1StreamKeys
- */
-const de_StreamKeys = (output: any, context: __SerdeContext): StreamKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StreamKey(entry, context);
-    });
-  return retVal;
-};
+// de_StreamKeys omitted.
 
-/**
- * deserializeAws_restJson1StreamKeySummary
- */
-const de_StreamKeySummary = (output: any, context: __SerdeContext): StreamKeySummary => {
-  return {
-    arn: __expectString(output.arn),
-    channelArn: __expectString(output.channelArn),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_StreamKeySummary omitted.
 
 /**
  * deserializeAws_restJson1StreamList
@@ -3003,9 +2725,6 @@ const de_StreamList = (output: any, context: __SerdeContext): StreamSummary[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StreamSummary(entry, context);
     });
   return retVal;
@@ -3015,20 +2734,15 @@ const de_StreamList = (output: any, context: __SerdeContext): StreamSummary[] =>
  * deserializeAws_restJson1StreamSession
  */
 const de_StreamSession = (output: any, context: __SerdeContext): StreamSession => {
-  return {
-    channel: output.channel != null ? de_Channel(output.channel, context) : undefined,
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
-    ingestConfiguration:
-      output.ingestConfiguration != null ? de_IngestConfiguration(output.ingestConfiguration, context) : undefined,
-    recordingConfiguration:
-      output.recordingConfiguration != null
-        ? de_RecordingConfiguration(output.recordingConfiguration, context)
-        : undefined,
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
-    streamId: __expectString(output.streamId),
-    truncatedEvents: output.truncatedEvents != null ? de_StreamEvents(output.truncatedEvents, context) : undefined,
-  } as any;
+  return take(output, {
+    channel: _json,
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ingestConfiguration: _json,
+    recordingConfiguration: _json,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    streamId: __expectString,
+    truncatedEvents: (_: any) => de_StreamEvents(_, context),
+  }) as any;
 };
 
 /**
@@ -3038,9 +2752,6 @@ const de_StreamSessionList = (output: any, context: __SerdeContext): StreamSessi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StreamSessionSummary(entry, context);
     });
   return retVal;
@@ -3050,68 +2761,33 @@ const de_StreamSessionList = (output: any, context: __SerdeContext): StreamSessi
  * deserializeAws_restJson1StreamSessionSummary
  */
 const de_StreamSessionSummary = (output: any, context: __SerdeContext): StreamSessionSummary => {
-  return {
-    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
-    hasErrorEvent: __expectBoolean(output.hasErrorEvent),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
-    streamId: __expectString(output.streamId),
-  } as any;
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    hasErrorEvent: __expectBoolean,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    streamId: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1StreamSummary
  */
 const de_StreamSummary = (output: any, context: __SerdeContext): StreamSummary => {
-  return {
-    channelArn: __expectString(output.channelArn),
-    health: __expectString(output.health),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
-    state: __expectString(output.state),
-    streamId: __expectString(output.streamId),
-    viewerCount: __expectLong(output.viewerCount),
-  } as any;
+  return take(output, {
+    channelArn: __expectString,
+    health: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    state: __expectString,
+    streamId: __expectString,
+    viewerCount: __expectLong,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_restJson1ThumbnailConfiguration
- */
-const de_ThumbnailConfiguration = (output: any, context: __SerdeContext): ThumbnailConfiguration => {
-  return {
-    recordingMode: __expectString(output.recordingMode),
-    targetIntervalSeconds: __expectLong(output.targetIntervalSeconds),
-  } as any;
-};
+// de_ThumbnailConfiguration omitted.
 
-/**
- * deserializeAws_restJson1VideoConfiguration
- */
-const de_VideoConfiguration = (output: any, context: __SerdeContext): VideoConfiguration => {
-  return {
-    avcLevel: __expectString(output.avcLevel),
-    avcProfile: __expectString(output.avcProfile),
-    codec: __expectString(output.codec),
-    encoder: __expectString(output.encoder),
-    targetBitrate: __expectLong(output.targetBitrate),
-    targetFramerate: __expectLong(output.targetFramerate),
-    videoHeight: __expectLong(output.videoHeight),
-    videoWidth: __expectLong(output.videoWidth),
-  } as any;
-};
+// de_VideoConfiguration omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

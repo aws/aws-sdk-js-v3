@@ -1,11 +1,12 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectString as __expectString,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   DocumentType as __DocumentType,
@@ -82,100 +83,55 @@ import {
 import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from "../commands/UpdateVpcEndpointCommand";
 import {
   AccessPolicyDetail,
-  AccessPolicyStats,
-  AccessPolicySummary,
-  AccountSettingsDetail,
   BatchGetCollectionRequest,
-  BatchGetCollectionResponse,
   BatchGetVpcEndpointRequest,
-  BatchGetVpcEndpointResponse,
   CapacityLimits,
-  CollectionDetail,
-  CollectionErrorDetail,
   CollectionFilters,
-  CollectionSummary,
   ConflictException,
   CreateAccessPolicyRequest,
   CreateAccessPolicyResponse,
-  CreateCollectionDetail,
   CreateCollectionRequest,
-  CreateCollectionResponse,
   CreateSecurityConfigRequest,
-  CreateSecurityConfigResponse,
   CreateSecurityPolicyRequest,
   CreateSecurityPolicyResponse,
-  CreateVpcEndpointDetail,
   CreateVpcEndpointRequest,
-  CreateVpcEndpointResponse,
   DeleteAccessPolicyRequest,
-  DeleteAccessPolicyResponse,
-  DeleteCollectionDetail,
   DeleteCollectionRequest,
-  DeleteCollectionResponse,
   DeleteSecurityConfigRequest,
-  DeleteSecurityConfigResponse,
   DeleteSecurityPolicyRequest,
-  DeleteSecurityPolicyResponse,
-  DeleteVpcEndpointDetail,
   DeleteVpcEndpointRequest,
-  DeleteVpcEndpointResponse,
   GetAccessPolicyRequest,
   GetAccessPolicyResponse,
   GetAccountSettingsRequest,
-  GetAccountSettingsResponse,
   GetPoliciesStatsRequest,
-  GetPoliciesStatsResponse,
   GetSecurityConfigRequest,
-  GetSecurityConfigResponse,
   GetSecurityPolicyRequest,
   GetSecurityPolicyResponse,
   InternalServerException,
   ListAccessPoliciesRequest,
-  ListAccessPoliciesResponse,
   ListCollectionsRequest,
-  ListCollectionsResponse,
   ListSecurityConfigsRequest,
-  ListSecurityConfigsResponse,
   ListSecurityPoliciesRequest,
-  ListSecurityPoliciesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListVpcEndpointsRequest,
-  ListVpcEndpointsResponse,
   OcuLimitExceededException,
   ResourceNotFoundException,
   SamlConfigOptions,
-  SecurityConfigDetail,
-  SecurityConfigStats,
-  SecurityConfigSummary,
   SecurityPolicyDetail,
-  SecurityPolicyStats,
-  SecurityPolicySummary,
   ServiceQuotaExceededException,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateAccessPolicyRequest,
   UpdateAccessPolicyResponse,
   UpdateAccountSettingsRequest,
-  UpdateAccountSettingsResponse,
-  UpdateCollectionDetail,
   UpdateCollectionRequest,
-  UpdateCollectionResponse,
   UpdateSecurityConfigRequest,
-  UpdateSecurityConfigResponse,
   UpdateSecurityPolicyRequest,
   UpdateSecurityPolicyResponse,
-  UpdateVpcEndpointDetail,
   UpdateVpcEndpointRequest,
-  UpdateVpcEndpointResponse,
   ValidationException,
-  VpcEndpointDetail,
-  VpcEndpointErrorDetail,
   VpcEndpointFilters,
-  VpcEndpointSummary,
 } from "../models/models_0";
 import { OpenSearchServerlessServiceException as __BaseException } from "../models/OpenSearchServerlessServiceException";
 
@@ -188,7 +144,7 @@ export const se_BatchGetCollectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetCollection");
   let body: any;
-  body = JSON.stringify(se_BatchGetCollectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -201,7 +157,7 @@ export const se_BatchGetVpcEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetVpcEndpoint");
   let body: any;
-  body = JSON.stringify(se_BatchGetVpcEndpointRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -344,7 +300,7 @@ export const se_GetAccessPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAccessPolicy");
   let body: any;
-  body = JSON.stringify(se_GetAccessPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -357,7 +313,7 @@ export const se_GetAccountSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAccountSettings");
   let body: any;
-  body = JSON.stringify(se_GetAccountSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -370,7 +326,7 @@ export const se_GetPoliciesStatsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPoliciesStats");
   let body: any;
-  body = JSON.stringify(se_GetPoliciesStatsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -383,7 +339,7 @@ export const se_GetSecurityConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSecurityConfig");
   let body: any;
-  body = JSON.stringify(se_GetSecurityConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -396,7 +352,7 @@ export const se_GetSecurityPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSecurityPolicy");
   let body: any;
-  body = JSON.stringify(se_GetSecurityPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -409,7 +365,7 @@ export const se_ListAccessPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccessPolicies");
   let body: any;
-  body = JSON.stringify(se_ListAccessPoliciesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -422,7 +378,7 @@ export const se_ListCollectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCollections");
   let body: any;
-  body = JSON.stringify(se_ListCollectionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -435,7 +391,7 @@ export const se_ListSecurityConfigsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSecurityConfigs");
   let body: any;
-  body = JSON.stringify(se_ListSecurityConfigsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -448,7 +404,7 @@ export const se_ListSecurityPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSecurityPolicies");
   let body: any;
-  body = JSON.stringify(se_ListSecurityPoliciesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -461,7 +417,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -474,7 +430,7 @@ export const se_ListVpcEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListVpcEndpoints");
   let body: any;
-  body = JSON.stringify(se_ListVpcEndpointsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -487,7 +443,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -500,7 +456,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -526,7 +482,7 @@ export const se_UpdateAccountSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAccountSettings");
   let body: any;
-  body = JSON.stringify(se_UpdateAccountSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -594,12 +550,12 @@ export const de_BatchGetCollectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchGetCollectionResponse(data, context);
+  contents = _json(data);
   const response: BatchGetCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -623,10 +579,9 @@ const de_BatchGetCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -644,12 +599,12 @@ export const de_BatchGetVpcEndpointCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchGetVpcEndpointResponse(data, context);
+  contents = _json(data);
   const response: BatchGetVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -673,10 +628,9 @@ const de_BatchGetVpcEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -699,7 +653,7 @@ export const de_CreateAccessPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -729,10 +683,9 @@ const de_CreateAccessPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -750,12 +703,12 @@ export const de_CreateCollectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateCollectionResponse(data, context);
+  contents = _json(data);
   const response: CreateCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -788,10 +741,9 @@ const de_CreateCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -809,12 +761,12 @@ export const de_CreateSecurityConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateSecurityConfigResponse(data, context);
+  contents = _json(data);
   const response: CreateSecurityConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -844,10 +796,9 @@ const de_CreateSecurityConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -870,7 +821,7 @@ export const de_CreateSecurityPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -900,10 +851,9 @@ const de_CreateSecurityPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -921,12 +871,12 @@ export const de_CreateVpcEndpointCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateVpcEndpointResponse(data, context);
+  contents = _json(data);
   const response: CreateVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -956,10 +906,9 @@ const de_CreateVpcEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -977,12 +926,12 @@ export const de_DeleteAccessPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteAccessPolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1012,10 +961,9 @@ const de_DeleteAccessPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1033,12 +981,12 @@ export const de_DeleteCollectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteCollectionResponse(data, context);
+  contents = _json(data);
   const response: DeleteCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1068,10 +1016,9 @@ const de_DeleteCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1089,12 +1036,12 @@ export const de_DeleteSecurityConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteSecurityConfigResponse(data, context);
+  contents = _json(data);
   const response: DeleteSecurityConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1124,10 +1071,9 @@ const de_DeleteSecurityConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1145,12 +1091,12 @@ export const de_DeleteSecurityPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteSecurityPolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteSecurityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1180,10 +1126,9 @@ const de_DeleteSecurityPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1201,12 +1146,12 @@ export const de_DeleteVpcEndpointCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteVpcEndpointResponse(data, context);
+  contents = _json(data);
   const response: DeleteVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1236,10 +1181,9 @@ const de_DeleteVpcEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1262,7 +1206,7 @@ export const de_GetAccessPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1289,10 +1233,9 @@ const de_GetAccessPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1310,12 +1253,12 @@ export const de_GetAccountSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAccountSettingsResponse(data, context);
+  contents = _json(data);
   const response: GetAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1339,10 +1282,9 @@ const de_GetAccountSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1360,12 +1302,12 @@ export const de_GetPoliciesStatsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetPoliciesStatsResponse(data, context);
+  contents = _json(data);
   const response: GetPoliciesStatsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1386,10 +1328,9 @@ const de_GetPoliciesStatsCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1407,12 +1348,12 @@ export const de_GetSecurityConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetSecurityConfigResponse(data, context);
+  contents = _json(data);
   const response: GetSecurityConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1439,10 +1380,9 @@ const de_GetSecurityConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1465,7 +1405,7 @@ export const de_GetSecurityPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1492,10 +1432,9 @@ const de_GetSecurityPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1513,12 +1452,12 @@ export const de_ListAccessPoliciesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAccessPoliciesResponse(data, context);
+  contents = _json(data);
   const response: ListAccessPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1542,10 +1481,9 @@ const de_ListAccessPoliciesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1563,12 +1501,12 @@ export const de_ListCollectionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCollectionsResponse(data, context);
+  contents = _json(data);
   const response: ListCollectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1592,10 +1530,9 @@ const de_ListCollectionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1613,12 +1550,12 @@ export const de_ListSecurityConfigsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListSecurityConfigsResponse(data, context);
+  contents = _json(data);
   const response: ListSecurityConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1642,10 +1579,9 @@ const de_ListSecurityConfigsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1663,12 +1599,12 @@ export const de_ListSecurityPoliciesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListSecurityPoliciesResponse(data, context);
+  contents = _json(data);
   const response: ListSecurityPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1692,10 +1628,9 @@ const de_ListSecurityPoliciesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1713,12 +1648,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1745,10 +1680,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1766,12 +1700,12 @@ export const de_ListVpcEndpointsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListVpcEndpointsResponse(data, context);
+  contents = _json(data);
   const response: ListVpcEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1795,10 +1729,9 @@ const de_ListVpcEndpointsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1816,12 +1749,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1854,10 +1787,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1875,12 +1807,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1910,10 +1842,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1936,7 +1867,7 @@ export const de_UpdateAccessPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1966,10 +1897,9 @@ const de_UpdateAccessPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1987,12 +1917,12 @@ export const de_UpdateAccountSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateAccountSettingsResponse(data, context);
+  contents = _json(data);
   const response: UpdateAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2016,10 +1946,9 @@ const de_UpdateAccountSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2037,12 +1966,12 @@ export const de_UpdateCollectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateCollectionResponse(data, context);
+  contents = _json(data);
   const response: UpdateCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2069,10 +1998,9 @@ const de_UpdateCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2090,12 +2018,12 @@ export const de_UpdateSecurityConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateSecurityConfigResponse(data, context);
+  contents = _json(data);
   const response: UpdateSecurityConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2125,10 +2053,9 @@ const de_UpdateSecurityConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2151,7 +2078,7 @@ export const de_UpdateSecurityPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2184,10 +2111,9 @@ const de_UpdateSecurityPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2205,12 +2131,12 @@ export const de_UpdateVpcEndpointCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateVpcEndpointResponse(data, context);
+  contents = _json(data);
   const response: UpdateVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2237,10 +2163,9 @@ const de_UpdateVpcEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2251,7 +2176,7 @@ const de_UpdateVpcEndpointCommandError = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2267,7 +2192,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2283,7 +2208,7 @@ const de_OcuLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<OcuLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OcuLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OcuLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2299,7 +2224,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2315,7 +2240,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2328,7 +2253,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2336,1382 +2261,462 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0BatchGetCollectionRequest
- */
-const se_BatchGetCollectionRequest = (input: BatchGetCollectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ids != null && { ids: se_CollectionIds(input.ids, context) }),
-    ...(input.names != null && { names: se_CollectionNames(input.names, context) }),
-  };
-};
+// se_BatchGetCollectionRequest omitted.
 
-/**
- * serializeAws_json1_0BatchGetVpcEndpointRequest
- */
-const se_BatchGetVpcEndpointRequest = (input: BatchGetVpcEndpointRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ids != null && { ids: se_VpcEndpointIds(input.ids, context) }),
-  };
-};
+// se_BatchGetVpcEndpointRequest omitted.
 
-/**
- * serializeAws_json1_0CapacityLimits
- */
-const se_CapacityLimits = (input: CapacityLimits, context: __SerdeContext): any => {
-  return {
-    ...(input.maxIndexingCapacityInOCU != null && { maxIndexingCapacityInOCU: input.maxIndexingCapacityInOCU }),
-    ...(input.maxSearchCapacityInOCU != null && { maxSearchCapacityInOCU: input.maxSearchCapacityInOCU }),
-  };
-};
+// se_CapacityLimits omitted.
 
-/**
- * serializeAws_json1_0CollectionFilters
- */
-const se_CollectionFilters = (input: CollectionFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_CollectionFilters omitted.
 
-/**
- * serializeAws_json1_0CollectionIds
- */
-const se_CollectionIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CollectionIds omitted.
 
-/**
- * serializeAws_json1_0CollectionNames
- */
-const se_CollectionNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CollectionNames omitted.
 
 /**
  * serializeAws_json1_0CreateAccessPolicyRequest
  */
 const se_CreateAccessPolicyRequest = (input: CreateAccessPolicyRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.policy != null && { policy: input.policy }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    name: [],
+    policy: [],
+    type: [],
+  });
 };
 
 /**
  * serializeAws_json1_0CreateCollectionRequest
  */
 const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    name: [],
+    tags: _json,
+    type: [],
+  });
 };
 
 /**
  * serializeAws_json1_0CreateSecurityConfigRequest
  */
 const se_CreateSecurityConfigRequest = (input: CreateSecurityConfigRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.samlOptions != null && { samlOptions: se_SamlConfigOptions(input.samlOptions, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    name: [],
+    samlOptions: _json,
+    type: [],
+  });
 };
 
 /**
  * serializeAws_json1_0CreateSecurityPolicyRequest
  */
 const se_CreateSecurityPolicyRequest = (input: CreateSecurityPolicyRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.policy != null && { policy: input.policy }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    name: [],
+    policy: [],
+    type: [],
+  });
 };
 
 /**
  * serializeAws_json1_0CreateVpcEndpointRequest
  */
 const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.name != null && { name: input.name }),
-    ...(input.securityGroupIds != null && { securityGroupIds: se_SecurityGroupIds(input.securityGroupIds, context) }),
-    ...(input.subnetIds != null && { subnetIds: se_SubnetIds(input.subnetIds, context) }),
-    ...(input.vpcId != null && { vpcId: input.vpcId }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    name: [],
+    securityGroupIds: _json,
+    subnetIds: _json,
+    vpcId: [],
+  });
 };
 
 /**
  * serializeAws_json1_0DeleteAccessPolicyRequest
  */
 const se_DeleteAccessPolicyRequest = (input: DeleteAccessPolicyRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    name: [],
+    type: [],
+  });
 };
 
 /**
  * serializeAws_json1_0DeleteCollectionRequest
  */
 const se_DeleteCollectionRequest = (input: DeleteCollectionRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.id != null && { id: input.id }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    id: [],
+  });
 };
 
 /**
  * serializeAws_json1_0DeleteSecurityConfigRequest
  */
 const se_DeleteSecurityConfigRequest = (input: DeleteSecurityConfigRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.id != null && { id: input.id }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    id: [],
+  });
 };
 
 /**
  * serializeAws_json1_0DeleteSecurityPolicyRequest
  */
 const se_DeleteSecurityPolicyRequest = (input: DeleteSecurityPolicyRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    name: [],
+    type: [],
+  });
 };
 
 /**
  * serializeAws_json1_0DeleteVpcEndpointRequest
  */
 const se_DeleteVpcEndpointRequest = (input: DeleteVpcEndpointRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.id != null && { id: input.id }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    id: [],
+  });
 };
 
-/**
- * serializeAws_json1_0GetAccessPolicyRequest
- */
-const se_GetAccessPolicyRequest = (input: GetAccessPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_GetAccessPolicyRequest omitted.
 
-/**
- * serializeAws_json1_0GetAccountSettingsRequest
- */
-const se_GetAccountSettingsRequest = (input: GetAccountSettingsRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_GetAccountSettingsRequest omitted.
 
-/**
- * serializeAws_json1_0GetPoliciesStatsRequest
- */
-const se_GetPoliciesStatsRequest = (input: GetPoliciesStatsRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_GetPoliciesStatsRequest omitted.
 
-/**
- * serializeAws_json1_0GetSecurityConfigRequest
- */
-const se_GetSecurityConfigRequest = (input: GetSecurityConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_GetSecurityConfigRequest omitted.
 
-/**
- * serializeAws_json1_0GetSecurityPolicyRequest
- */
-const se_GetSecurityPolicyRequest = (input: GetSecurityPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_GetSecurityPolicyRequest omitted.
 
-/**
- * serializeAws_json1_0ListAccessPoliciesRequest
- */
-const se_ListAccessPoliciesRequest = (input: ListAccessPoliciesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resource != null && { resource: se_ResourceFilter(input.resource, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ListAccessPoliciesRequest omitted.
 
-/**
- * serializeAws_json1_0ListCollectionsRequest
- */
-const se_ListCollectionsRequest = (input: ListCollectionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.collectionFilters != null && {
-      collectionFilters: se_CollectionFilters(input.collectionFilters, context),
-    }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListCollectionsRequest omitted.
 
-/**
- * serializeAws_json1_0ListSecurityConfigsRequest
- */
-const se_ListSecurityConfigsRequest = (input: ListSecurityConfigsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ListSecurityConfigsRequest omitted.
 
-/**
- * serializeAws_json1_0ListSecurityPoliciesRequest
- */
-const se_ListSecurityPoliciesRequest = (input: ListSecurityPoliciesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resource != null && { resource: se_ResourceFilter(input.resource, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ListSecurityPoliciesRequest omitted.
 
-/**
- * serializeAws_json1_0ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_0ListVpcEndpointsRequest
- */
-const se_ListVpcEndpointsRequest = (input: ListVpcEndpointsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.vpcEndpointFilters != null && {
-      vpcEndpointFilters: se_VpcEndpointFilters(input.vpcEndpointFilters, context),
-    }),
-  };
-};
+// se_ListVpcEndpointsRequest omitted.
 
-/**
- * serializeAws_json1_0ResourceFilter
- */
-const se_ResourceFilter = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceFilter omitted.
 
-/**
- * serializeAws_json1_0SamlConfigOptions
- */
-const se_SamlConfigOptions = (input: SamlConfigOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.groupAttribute != null && { groupAttribute: input.groupAttribute }),
-    ...(input.metadata != null && { metadata: input.metadata }),
-    ...(input.sessionTimeout != null && { sessionTimeout: input.sessionTimeout }),
-    ...(input.userAttribute != null && { userAttribute: input.userAttribute }),
-  };
-};
+// se_SamlConfigOptions omitted.
 
-/**
- * serializeAws_json1_0SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
-/**
- * serializeAws_json1_0SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIds omitted.
 
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_0TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-/**
- * serializeAws_json1_0TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0Tags
- */
-const se_Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_0UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeys(input.tagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
 /**
  * serializeAws_json1_0UpdateAccessPolicyRequest
  */
 const se_UpdateAccessPolicyRequest = (input: UpdateAccessPolicyRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.policy != null && { policy: input.policy }),
-    ...(input.policyVersion != null && { policyVersion: input.policyVersion }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    name: [],
+    policy: [],
+    policyVersion: [],
+    type: [],
+  });
 };
 
-/**
- * serializeAws_json1_0UpdateAccountSettingsRequest
- */
-const se_UpdateAccountSettingsRequest = (input: UpdateAccountSettingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.capacityLimits != null && { capacityLimits: se_CapacityLimits(input.capacityLimits, context) }),
-  };
-};
+// se_UpdateAccountSettingsRequest omitted.
 
 /**
  * serializeAws_json1_0UpdateCollectionRequest
  */
 const se_UpdateCollectionRequest = (input: UpdateCollectionRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.id != null && { id: input.id }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    id: [],
+  });
 };
 
 /**
  * serializeAws_json1_0UpdateSecurityConfigRequest
  */
 const se_UpdateSecurityConfigRequest = (input: UpdateSecurityConfigRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.configVersion != null && { configVersion: input.configVersion }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.samlOptions != null && { samlOptions: se_SamlConfigOptions(input.samlOptions, context) }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    configVersion: [],
+    description: [],
+    id: [],
+    samlOptions: _json,
+  });
 };
 
 /**
  * serializeAws_json1_0UpdateSecurityPolicyRequest
  */
 const se_UpdateSecurityPolicyRequest = (input: UpdateSecurityPolicyRequest, context: __SerdeContext): any => {
-  return {
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.policy != null && { policy: input.policy }),
-    ...(input.policyVersion != null && { policyVersion: input.policyVersion }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    name: [],
+    policy: [],
+    policyVersion: [],
+    type: [],
+  });
 };
 
 /**
  * serializeAws_json1_0UpdateVpcEndpointRequest
  */
 const se_UpdateVpcEndpointRequest = (input: UpdateVpcEndpointRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.addSecurityGroupIds != null && {
-      addSecurityGroupIds: se_SecurityGroupIds(input.addSecurityGroupIds, context),
-    }),
-    ...(input.addSubnetIds != null && { addSubnetIds: se_SubnetIds(input.addSubnetIds, context) }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.id != null && { id: input.id }),
-    ...(input.removeSecurityGroupIds != null && {
-      removeSecurityGroupIds: se_SecurityGroupIds(input.removeSecurityGroupIds, context),
-    }),
-    ...(input.removeSubnetIds != null && { removeSubnetIds: se_SubnetIds(input.removeSubnetIds, context) }),
-  };
+  return take(input, {
+    addSecurityGroupIds: _json,
+    addSubnetIds: _json,
+    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    id: [],
+    removeSecurityGroupIds: _json,
+    removeSubnetIds: _json,
+  });
 };
 
-/**
- * serializeAws_json1_0VpcEndpointFilters
- */
-const se_VpcEndpointFilters = (input: VpcEndpointFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_VpcEndpointFilters omitted.
 
-/**
- * serializeAws_json1_0VpcEndpointIds
- */
-const se_VpcEndpointIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VpcEndpointIds omitted.
 
 /**
  * deserializeAws_json1_0AccessPolicyDetail
  */
 const de_AccessPolicyDetail = (output: any, context: __SerdeContext): AccessPolicyDetail => {
-  return {
-    createdDate: __expectLong(output.createdDate),
-    description: __expectString(output.description),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    name: __expectString(output.name),
-    policy: output.policy != null ? de_Document(output.policy, context) : undefined,
-    policyVersion: __expectString(output.policyVersion),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    createdDate: __expectLong,
+    description: __expectString,
+    lastModifiedDate: __expectLong,
+    name: __expectString,
+    policy: (_: any) => de_Document(_, context),
+    policyVersion: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0AccessPolicyStats
- */
-const de_AccessPolicyStats = (output: any, context: __SerdeContext): AccessPolicyStats => {
-  return {
-    DataPolicyCount: __expectLong(output.DataPolicyCount),
-  } as any;
-};
+// de_AccessPolicyStats omitted.
 
-/**
- * deserializeAws_json1_0AccessPolicySummaries
- */
-const de_AccessPolicySummaries = (output: any, context: __SerdeContext): AccessPolicySummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AccessPolicySummary(entry, context);
-    });
-  return retVal;
-};
+// de_AccessPolicySummaries omitted.
 
-/**
- * deserializeAws_json1_0AccessPolicySummary
- */
-const de_AccessPolicySummary = (output: any, context: __SerdeContext): AccessPolicySummary => {
-  return {
-    createdDate: __expectLong(output.createdDate),
-    description: __expectString(output.description),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    name: __expectString(output.name),
-    policyVersion: __expectString(output.policyVersion),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_AccessPolicySummary omitted.
 
-/**
- * deserializeAws_json1_0AccountSettingsDetail
- */
-const de_AccountSettingsDetail = (output: any, context: __SerdeContext): AccountSettingsDetail => {
-  return {
-    capacityLimits: output.capacityLimits != null ? de_CapacityLimits(output.capacityLimits, context) : undefined,
-  } as any;
-};
+// de_AccountSettingsDetail omitted.
 
-/**
- * deserializeAws_json1_0BatchGetCollectionResponse
- */
-const de_BatchGetCollectionResponse = (output: any, context: __SerdeContext): BatchGetCollectionResponse => {
-  return {
-    collectionDetails:
-      output.collectionDetails != null ? de_CollectionDetails(output.collectionDetails, context) : undefined,
-    collectionErrorDetails:
-      output.collectionErrorDetails != null
-        ? de_CollectionErrorDetails(output.collectionErrorDetails, context)
-        : undefined,
-  } as any;
-};
+// de_BatchGetCollectionResponse omitted.
 
-/**
- * deserializeAws_json1_0BatchGetVpcEndpointResponse
- */
-const de_BatchGetVpcEndpointResponse = (output: any, context: __SerdeContext): BatchGetVpcEndpointResponse => {
-  return {
-    vpcEndpointDetails:
-      output.vpcEndpointDetails != null ? de_VpcEndpointDetails(output.vpcEndpointDetails, context) : undefined,
-    vpcEndpointErrorDetails:
-      output.vpcEndpointErrorDetails != null
-        ? de_VpcEndpointErrorDetails(output.vpcEndpointErrorDetails, context)
-        : undefined,
-  } as any;
-};
+// de_BatchGetVpcEndpointResponse omitted.
 
-/**
- * deserializeAws_json1_0CapacityLimits
- */
-const de_CapacityLimits = (output: any, context: __SerdeContext): CapacityLimits => {
-  return {
-    maxIndexingCapacityInOCU: __expectInt32(output.maxIndexingCapacityInOCU),
-    maxSearchCapacityInOCU: __expectInt32(output.maxSearchCapacityInOCU),
-  } as any;
-};
+// de_CapacityLimits omitted.
 
-/**
- * deserializeAws_json1_0CollectionDetail
- */
-const de_CollectionDetail = (output: any, context: __SerdeContext): CollectionDetail => {
-  return {
-    arn: __expectString(output.arn),
-    collectionEndpoint: __expectString(output.collectionEndpoint),
-    createdDate: __expectLong(output.createdDate),
-    dashboardEndpoint: __expectString(output.dashboardEndpoint),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_CollectionDetail omitted.
 
-/**
- * deserializeAws_json1_0CollectionDetails
- */
-const de_CollectionDetails = (output: any, context: __SerdeContext): CollectionDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CollectionDetail(entry, context);
-    });
-  return retVal;
-};
+// de_CollectionDetails omitted.
 
-/**
- * deserializeAws_json1_0CollectionErrorDetail
- */
-const de_CollectionErrorDetail = (output: any, context: __SerdeContext): CollectionErrorDetail => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_CollectionErrorDetail omitted.
 
-/**
- * deserializeAws_json1_0CollectionErrorDetails
- */
-const de_CollectionErrorDetails = (output: any, context: __SerdeContext): CollectionErrorDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CollectionErrorDetail(entry, context);
-    });
-  return retVal;
-};
+// de_CollectionErrorDetails omitted.
 
-/**
- * deserializeAws_json1_0CollectionSummaries
- */
-const de_CollectionSummaries = (output: any, context: __SerdeContext): CollectionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CollectionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_CollectionSummaries omitted.
 
-/**
- * deserializeAws_json1_0CollectionSummary
- */
-const de_CollectionSummary = (output: any, context: __SerdeContext): CollectionSummary => {
-  return {
-    arn: __expectString(output.arn),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_CollectionSummary omitted.
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConflictException omitted.
 
 /**
  * deserializeAws_json1_0CreateAccessPolicyResponse
  */
 const de_CreateAccessPolicyResponse = (output: any, context: __SerdeContext): CreateAccessPolicyResponse => {
-  return {
-    accessPolicyDetail:
-      output.accessPolicyDetail != null ? de_AccessPolicyDetail(output.accessPolicyDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    accessPolicyDetail: (_: any) => de_AccessPolicyDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CreateCollectionDetail
- */
-const de_CreateCollectionDetail = (output: any, context: __SerdeContext): CreateCollectionDetail => {
-  return {
-    arn: __expectString(output.arn),
-    createdDate: __expectLong(output.createdDate),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_CreateCollectionDetail omitted.
 
-/**
- * deserializeAws_json1_0CreateCollectionResponse
- */
-const de_CreateCollectionResponse = (output: any, context: __SerdeContext): CreateCollectionResponse => {
-  return {
-    createCollectionDetail:
-      output.createCollectionDetail != null
-        ? de_CreateCollectionDetail(output.createCollectionDetail, context)
-        : undefined,
-  } as any;
-};
+// de_CreateCollectionResponse omitted.
 
-/**
- * deserializeAws_json1_0CreateSecurityConfigResponse
- */
-const de_CreateSecurityConfigResponse = (output: any, context: __SerdeContext): CreateSecurityConfigResponse => {
-  return {
-    securityConfigDetail:
-      output.securityConfigDetail != null ? de_SecurityConfigDetail(output.securityConfigDetail, context) : undefined,
-  } as any;
-};
+// de_CreateSecurityConfigResponse omitted.
 
 /**
  * deserializeAws_json1_0CreateSecurityPolicyResponse
  */
 const de_CreateSecurityPolicyResponse = (output: any, context: __SerdeContext): CreateSecurityPolicyResponse => {
-  return {
-    securityPolicyDetail:
-      output.securityPolicyDetail != null ? de_SecurityPolicyDetail(output.securityPolicyDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    securityPolicyDetail: (_: any) => de_SecurityPolicyDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CreateVpcEndpointDetail
- */
-const de_CreateVpcEndpointDetail = (output: any, context: __SerdeContext): CreateVpcEndpointDetail => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_CreateVpcEndpointDetail omitted.
 
-/**
- * deserializeAws_json1_0CreateVpcEndpointResponse
- */
-const de_CreateVpcEndpointResponse = (output: any, context: __SerdeContext): CreateVpcEndpointResponse => {
-  return {
-    createVpcEndpointDetail:
-      output.createVpcEndpointDetail != null
-        ? de_CreateVpcEndpointDetail(output.createVpcEndpointDetail, context)
-        : undefined,
-  } as any;
-};
+// de_CreateVpcEndpointResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteAccessPolicyResponse
- */
-const de_DeleteAccessPolicyResponse = (output: any, context: __SerdeContext): DeleteAccessPolicyResponse => {
-  return {} as any;
-};
+// de_DeleteAccessPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteCollectionDetail
- */
-const de_DeleteCollectionDetail = (output: any, context: __SerdeContext): DeleteCollectionDetail => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_DeleteCollectionDetail omitted.
 
-/**
- * deserializeAws_json1_0DeleteCollectionResponse
- */
-const de_DeleteCollectionResponse = (output: any, context: __SerdeContext): DeleteCollectionResponse => {
-  return {
-    deleteCollectionDetail:
-      output.deleteCollectionDetail != null
-        ? de_DeleteCollectionDetail(output.deleteCollectionDetail, context)
-        : undefined,
-  } as any;
-};
+// de_DeleteCollectionResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteSecurityConfigResponse
- */
-const de_DeleteSecurityConfigResponse = (output: any, context: __SerdeContext): DeleteSecurityConfigResponse => {
-  return {} as any;
-};
+// de_DeleteSecurityConfigResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteSecurityPolicyResponse
- */
-const de_DeleteSecurityPolicyResponse = (output: any, context: __SerdeContext): DeleteSecurityPolicyResponse => {
-  return {} as any;
-};
+// de_DeleteSecurityPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteVpcEndpointDetail
- */
-const de_DeleteVpcEndpointDetail = (output: any, context: __SerdeContext): DeleteVpcEndpointDetail => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_DeleteVpcEndpointDetail omitted.
 
-/**
- * deserializeAws_json1_0DeleteVpcEndpointResponse
- */
-const de_DeleteVpcEndpointResponse = (output: any, context: __SerdeContext): DeleteVpcEndpointResponse => {
-  return {
-    deleteVpcEndpointDetail:
-      output.deleteVpcEndpointDetail != null
-        ? de_DeleteVpcEndpointDetail(output.deleteVpcEndpointDetail, context)
-        : undefined,
-  } as any;
-};
+// de_DeleteVpcEndpointResponse omitted.
 
 /**
  * deserializeAws_json1_0GetAccessPolicyResponse
  */
 const de_GetAccessPolicyResponse = (output: any, context: __SerdeContext): GetAccessPolicyResponse => {
-  return {
-    accessPolicyDetail:
-      output.accessPolicyDetail != null ? de_AccessPolicyDetail(output.accessPolicyDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    accessPolicyDetail: (_: any) => de_AccessPolicyDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GetAccountSettingsResponse
- */
-const de_GetAccountSettingsResponse = (output: any, context: __SerdeContext): GetAccountSettingsResponse => {
-  return {
-    accountSettingsDetail:
-      output.accountSettingsDetail != null
-        ? de_AccountSettingsDetail(output.accountSettingsDetail, context)
-        : undefined,
-  } as any;
-};
+// de_GetAccountSettingsResponse omitted.
 
-/**
- * deserializeAws_json1_0GetPoliciesStatsResponse
- */
-const de_GetPoliciesStatsResponse = (output: any, context: __SerdeContext): GetPoliciesStatsResponse => {
-  return {
-    AccessPolicyStats:
-      output.AccessPolicyStats != null ? de_AccessPolicyStats(output.AccessPolicyStats, context) : undefined,
-    SecurityConfigStats:
-      output.SecurityConfigStats != null ? de_SecurityConfigStats(output.SecurityConfigStats, context) : undefined,
-    SecurityPolicyStats:
-      output.SecurityPolicyStats != null ? de_SecurityPolicyStats(output.SecurityPolicyStats, context) : undefined,
-    TotalPolicyCount: __expectLong(output.TotalPolicyCount),
-  } as any;
-};
+// de_GetPoliciesStatsResponse omitted.
 
-/**
- * deserializeAws_json1_0GetSecurityConfigResponse
- */
-const de_GetSecurityConfigResponse = (output: any, context: __SerdeContext): GetSecurityConfigResponse => {
-  return {
-    securityConfigDetail:
-      output.securityConfigDetail != null ? de_SecurityConfigDetail(output.securityConfigDetail, context) : undefined,
-  } as any;
-};
+// de_GetSecurityConfigResponse omitted.
 
 /**
  * deserializeAws_json1_0GetSecurityPolicyResponse
  */
 const de_GetSecurityPolicyResponse = (output: any, context: __SerdeContext): GetSecurityPolicyResponse => {
-  return {
-    securityPolicyDetail:
-      output.securityPolicyDetail != null ? de_SecurityPolicyDetail(output.securityPolicyDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    securityPolicyDetail: (_: any) => de_SecurityPolicyDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_0ListAccessPoliciesResponse
- */
-const de_ListAccessPoliciesResponse = (output: any, context: __SerdeContext): ListAccessPoliciesResponse => {
-  return {
-    accessPolicySummaries:
-      output.accessPolicySummaries != null
-        ? de_AccessPolicySummaries(output.accessPolicySummaries, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListAccessPoliciesResponse omitted.
 
-/**
- * deserializeAws_json1_0ListCollectionsResponse
- */
-const de_ListCollectionsResponse = (output: any, context: __SerdeContext): ListCollectionsResponse => {
-  return {
-    collectionSummaries:
-      output.collectionSummaries != null ? de_CollectionSummaries(output.collectionSummaries, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListCollectionsResponse omitted.
 
-/**
- * deserializeAws_json1_0ListSecurityConfigsResponse
- */
-const de_ListSecurityConfigsResponse = (output: any, context: __SerdeContext): ListSecurityConfigsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    securityConfigSummaries:
-      output.securityConfigSummaries != null
-        ? de_SecurityConfigSummaries(output.securityConfigSummaries, context)
-        : undefined,
-  } as any;
-};
+// de_ListSecurityConfigsResponse omitted.
 
-/**
- * deserializeAws_json1_0ListSecurityPoliciesResponse
- */
-const de_ListSecurityPoliciesResponse = (output: any, context: __SerdeContext): ListSecurityPoliciesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    securityPolicySummaries:
-      output.securityPolicySummaries != null
-        ? de_SecurityPolicySummaries(output.securityPolicySummaries, context)
-        : undefined,
-  } as any;
-};
+// de_ListSecurityPoliciesResponse omitted.
 
-/**
- * deserializeAws_json1_0ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0ListVpcEndpointsResponse
- */
-const de_ListVpcEndpointsResponse = (output: any, context: __SerdeContext): ListVpcEndpointsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    vpcEndpointSummaries:
-      output.vpcEndpointSummaries != null ? de_VpcEndpointSummaries(output.vpcEndpointSummaries, context) : undefined,
-  } as any;
-};
+// de_ListVpcEndpointsResponse omitted.
 
-/**
- * deserializeAws_json1_0OcuLimitExceededException
- */
-const de_OcuLimitExceededException = (output: any, context: __SerdeContext): OcuLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OcuLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0SamlConfigOptions
- */
-const de_SamlConfigOptions = (output: any, context: __SerdeContext): SamlConfigOptions => {
-  return {
-    groupAttribute: __expectString(output.groupAttribute),
-    metadata: __expectString(output.metadata),
-    sessionTimeout: __expectInt32(output.sessionTimeout),
-    userAttribute: __expectString(output.userAttribute),
-  } as any;
-};
+// de_SamlConfigOptions omitted.
 
-/**
- * deserializeAws_json1_0SecurityConfigDetail
- */
-const de_SecurityConfigDetail = (output: any, context: __SerdeContext): SecurityConfigDetail => {
-  return {
-    configVersion: __expectString(output.configVersion),
-    createdDate: __expectLong(output.createdDate),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    samlOptions: output.samlOptions != null ? de_SamlConfigOptions(output.samlOptions, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_SecurityConfigDetail omitted.
 
-/**
- * deserializeAws_json1_0SecurityConfigStats
- */
-const de_SecurityConfigStats = (output: any, context: __SerdeContext): SecurityConfigStats => {
-  return {
-    SamlConfigCount: __expectLong(output.SamlConfigCount),
-  } as any;
-};
+// de_SecurityConfigStats omitted.
 
-/**
- * deserializeAws_json1_0SecurityConfigSummaries
- */
-const de_SecurityConfigSummaries = (output: any, context: __SerdeContext): SecurityConfigSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SecurityConfigSummary(entry, context);
-    });
-  return retVal;
-};
+// de_SecurityConfigSummaries omitted.
 
-/**
- * deserializeAws_json1_0SecurityConfigSummary
- */
-const de_SecurityConfigSummary = (output: any, context: __SerdeContext): SecurityConfigSummary => {
-  return {
-    configVersion: __expectString(output.configVersion),
-    createdDate: __expectLong(output.createdDate),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_SecurityConfigSummary omitted.
 
-/**
- * deserializeAws_json1_0SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
 /**
  * deserializeAws_json1_0SecurityPolicyDetail
  */
 const de_SecurityPolicyDetail = (output: any, context: __SerdeContext): SecurityPolicyDetail => {
-  return {
-    createdDate: __expectLong(output.createdDate),
-    description: __expectString(output.description),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    name: __expectString(output.name),
-    policy: output.policy != null ? de_Document(output.policy, context) : undefined,
-    policyVersion: __expectString(output.policyVersion),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    createdDate: __expectLong,
+    description: __expectString,
+    lastModifiedDate: __expectLong,
+    name: __expectString,
+    policy: (_: any) => de_Document(_, context),
+    policyVersion: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0SecurityPolicyStats
- */
-const de_SecurityPolicyStats = (output: any, context: __SerdeContext): SecurityPolicyStats => {
-  return {
-    EncryptionPolicyCount: __expectLong(output.EncryptionPolicyCount),
-    NetworkPolicyCount: __expectLong(output.NetworkPolicyCount),
-  } as any;
-};
+// de_SecurityPolicyStats omitted.
 
-/**
- * deserializeAws_json1_0SecurityPolicySummaries
- */
-const de_SecurityPolicySummaries = (output: any, context: __SerdeContext): SecurityPolicySummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SecurityPolicySummary(entry, context);
-    });
-  return retVal;
-};
+// de_SecurityPolicySummaries omitted.
 
-/**
- * deserializeAws_json1_0SecurityPolicySummary
- */
-const de_SecurityPolicySummary = (output: any, context: __SerdeContext): SecurityPolicySummary => {
-  return {
-    createdDate: __expectLong(output.createdDate),
-    description: __expectString(output.description),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    name: __expectString(output.name),
-    policyVersion: __expectString(output.policyVersion),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_SecurityPolicySummary omitted.
 
-/**
- * deserializeAws_json1_0ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    message: __expectString(output.message),
-    quotaCode: __expectString(output.quotaCode),
-    resourceId: __expectString(output.resourceId),
-    resourceType: __expectString(output.resourceType),
-    serviceCode: __expectString(output.serviceCode),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_0SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_0UpdateAccessPolicyResponse
  */
 const de_UpdateAccessPolicyResponse = (output: any, context: __SerdeContext): UpdateAccessPolicyResponse => {
-  return {
-    accessPolicyDetail:
-      output.accessPolicyDetail != null ? de_AccessPolicyDetail(output.accessPolicyDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    accessPolicyDetail: (_: any) => de_AccessPolicyDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0UpdateAccountSettingsResponse
- */
-const de_UpdateAccountSettingsResponse = (output: any, context: __SerdeContext): UpdateAccountSettingsResponse => {
-  return {
-    accountSettingsDetail:
-      output.accountSettingsDetail != null
-        ? de_AccountSettingsDetail(output.accountSettingsDetail, context)
-        : undefined,
-  } as any;
-};
+// de_UpdateAccountSettingsResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateCollectionDetail
- */
-const de_UpdateCollectionDetail = (output: any, context: __SerdeContext): UpdateCollectionDetail => {
-  return {
-    arn: __expectString(output.arn),
-    createdDate: __expectLong(output.createdDate),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_UpdateCollectionDetail omitted.
 
-/**
- * deserializeAws_json1_0UpdateCollectionResponse
- */
-const de_UpdateCollectionResponse = (output: any, context: __SerdeContext): UpdateCollectionResponse => {
-  return {
-    updateCollectionDetail:
-      output.updateCollectionDetail != null
-        ? de_UpdateCollectionDetail(output.updateCollectionDetail, context)
-        : undefined,
-  } as any;
-};
+// de_UpdateCollectionResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateSecurityConfigResponse
- */
-const de_UpdateSecurityConfigResponse = (output: any, context: __SerdeContext): UpdateSecurityConfigResponse => {
-  return {
-    securityConfigDetail:
-      output.securityConfigDetail != null ? de_SecurityConfigDetail(output.securityConfigDetail, context) : undefined,
-  } as any;
-};
+// de_UpdateSecurityConfigResponse omitted.
 
 /**
  * deserializeAws_json1_0UpdateSecurityPolicyResponse
  */
 const de_UpdateSecurityPolicyResponse = (output: any, context: __SerdeContext): UpdateSecurityPolicyResponse => {
-  return {
-    securityPolicyDetail:
-      output.securityPolicyDetail != null ? de_SecurityPolicyDetail(output.securityPolicyDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    securityPolicyDetail: (_: any) => de_SecurityPolicyDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0UpdateVpcEndpointDetail
- */
-const de_UpdateVpcEndpointDetail = (output: any, context: __SerdeContext): UpdateVpcEndpointDetail => {
-  return {
-    id: __expectString(output.id),
-    lastModifiedDate: __expectLong(output.lastModifiedDate),
-    name: __expectString(output.name),
-    securityGroupIds:
-      output.securityGroupIds != null ? de_SecurityGroupIds(output.securityGroupIds, context) : undefined,
-    status: __expectString(output.status),
-    subnetIds: output.subnetIds != null ? de_SubnetIds(output.subnetIds, context) : undefined,
-  } as any;
-};
+// de_UpdateVpcEndpointDetail omitted.
 
-/**
- * deserializeAws_json1_0UpdateVpcEndpointResponse
- */
-const de_UpdateVpcEndpointResponse = (output: any, context: __SerdeContext): UpdateVpcEndpointResponse => {
-  return {
-    UpdateVpcEndpointDetail:
-      output.UpdateVpcEndpointDetail != null
-        ? de_UpdateVpcEndpointDetail(output.UpdateVpcEndpointDetail, context)
-        : undefined,
-  } as any;
-};
+// de_UpdateVpcEndpointResponse omitted.
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
-/**
- * deserializeAws_json1_0VpcEndpointDetail
- */
-const de_VpcEndpointDetail = (output: any, context: __SerdeContext): VpcEndpointDetail => {
-  return {
-    createdDate: __expectLong(output.createdDate),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    securityGroupIds:
-      output.securityGroupIds != null ? de_SecurityGroupIds(output.securityGroupIds, context) : undefined,
-    status: __expectString(output.status),
-    subnetIds: output.subnetIds != null ? de_SubnetIds(output.subnetIds, context) : undefined,
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
+// de_VpcEndpointDetail omitted.
 
-/**
- * deserializeAws_json1_0VpcEndpointDetails
- */
-const de_VpcEndpointDetails = (output: any, context: __SerdeContext): VpcEndpointDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VpcEndpointDetail(entry, context);
-    });
-  return retVal;
-};
+// de_VpcEndpointDetails omitted.
 
-/**
- * deserializeAws_json1_0VpcEndpointErrorDetail
- */
-const de_VpcEndpointErrorDetail = (output: any, context: __SerdeContext): VpcEndpointErrorDetail => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_VpcEndpointErrorDetail omitted.
 
-/**
- * deserializeAws_json1_0VpcEndpointErrorDetails
- */
-const de_VpcEndpointErrorDetails = (output: any, context: __SerdeContext): VpcEndpointErrorDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VpcEndpointErrorDetail(entry, context);
-    });
-  return retVal;
-};
+// de_VpcEndpointErrorDetails omitted.
 
-/**
- * deserializeAws_json1_0VpcEndpointSummaries
- */
-const de_VpcEndpointSummaries = (output: any, context: __SerdeContext): VpcEndpointSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VpcEndpointSummary(entry, context);
-    });
-  return retVal;
-};
+// de_VpcEndpointSummaries omitted.
 
-/**
- * deserializeAws_json1_0VpcEndpointSummary
- */
-const de_VpcEndpointSummary = (output: any, context: __SerdeContext): VpcEndpointSummary => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_VpcEndpointSummary omitted.
 
 /**
  * deserializeAws_json1_0Document
@@ -3740,6 +2745,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

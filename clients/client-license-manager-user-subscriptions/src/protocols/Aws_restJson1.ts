@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -57,11 +58,7 @@ import {
   ConflictException,
   Filter,
   IdentityProvider,
-  IdentityProviderSummary,
-  InstanceSummary,
-  InstanceUserSummary,
   InternalServerException,
-  ProductUserSummary,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   Settings,
@@ -83,12 +80,14 @@ export const se_AssociateUserCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/AssociateUser";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.Username != null && { Username: input.Username }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Domain: [],
+      IdentityProvider: (_) => _json(_),
+      InstanceId: [],
+      Username: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -115,10 +114,12 @@ export const se_DeregisterIdentityProviderCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/identity-provider/DeregisterIdentityProvider";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
-    ...(input.Product != null && { Product: input.Product }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IdentityProvider: (_) => _json(_),
+      Product: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -143,12 +144,14 @@ export const se_DisassociateUserCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/DisassociateUser";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.Username != null && { Username: input.Username }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Domain: [],
+      IdentityProvider: (_) => _json(_),
+      InstanceId: [],
+      Username: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -174,10 +177,12 @@ export const se_ListIdentityProvidersCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identity-provider/ListIdentityProviders";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -203,11 +208,13 @@ export const se_ListInstancesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/ListInstances";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -233,13 +240,15 @@ export const se_ListProductSubscriptionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/ListProductSubscriptions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Product != null && { Product: input.Product }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      IdentityProvider: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      Product: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -265,13 +274,15 @@ export const se_ListUserAssociationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/ListUserAssociations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      IdentityProvider: (_) => _json(_),
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -298,11 +309,13 @@ export const se_RegisterIdentityProviderCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/identity-provider/RegisterIdentityProvider";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
-    ...(input.Product != null && { Product: input.Product }),
-    ...(input.Settings != null && { Settings: se_Settings(input.Settings, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IdentityProvider: (_) => _json(_),
+      Product: [],
+      Settings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -328,12 +341,14 @@ export const se_StartProductSubscriptionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/StartProductSubscription";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
-    ...(input.Product != null && { Product: input.Product }),
-    ...(input.Username != null && { Username: input.Username }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Domain: [],
+      IdentityProvider: (_) => _json(_),
+      Product: [],
+      Username: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -359,12 +374,14 @@ export const se_StopProductSubscriptionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/StopProductSubscription";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
-    ...(input.Product != null && { Product: input.Product }),
-    ...(input.Username != null && { Username: input.Username }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Domain: [],
+      IdentityProvider: (_) => _json(_),
+      Product: [],
+      Username: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -391,11 +408,13 @@ export const se_UpdateIdentityProviderSettingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/identity-provider/UpdateIdentityProviderSettings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IdentityProvider != null && { IdentityProvider: se_IdentityProvider(input.IdentityProvider, context) }),
-    ...(input.Product != null && { Product: input.Product }),
-    ...(input.UpdateSettings != null && { UpdateSettings: se_UpdateSettings(input.UpdateSettings, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IdentityProvider: (_) => _json(_),
+      Product: [],
+      UpdateSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -421,9 +440,10 @@ export const de_AssociateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InstanceUserSummary != null) {
-    contents.InstanceUserSummary = de_InstanceUserSummary(data.InstanceUserSummary, context);
-  }
+  const doc = take(data, {
+    InstanceUserSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -463,10 +483,9 @@ const de_AssociateUserCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -486,9 +505,10 @@ export const de_DeregisterIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityProviderSummary != null) {
-    contents.IdentityProviderSummary = de_IdentityProviderSummary(data.IdentityProviderSummary, context);
-  }
+  const doc = take(data, {
+    IdentityProviderSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -528,10 +548,9 @@ const de_DeregisterIdentityProviderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -551,9 +570,10 @@ export const de_DisassociateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InstanceUserSummary != null) {
-    contents.InstanceUserSummary = de_InstanceUserSummary(data.InstanceUserSummary, context);
-  }
+  const doc = take(data, {
+    InstanceUserSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -593,10 +613,9 @@ const de_DisassociateUserCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -616,12 +635,11 @@ export const de_ListIdentityProvidersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityProviderSummaries != null) {
-    contents.IdentityProviderSummaries = de_IdentityProviderSummaryList(data.IdentityProviderSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    IdentityProviderSummaries: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -661,10 +679,9 @@ const de_ListIdentityProvidersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -684,12 +701,11 @@ export const de_ListInstancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InstanceSummaries != null) {
-    contents.InstanceSummaries = de_InstanceSummaryList(data.InstanceSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    InstanceSummaries: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -729,10 +745,9 @@ const de_ListInstancesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -752,12 +767,11 @@ export const de_ListProductSubscriptionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ProductUserSummaries != null) {
-    contents.ProductUserSummaries = de_ProductUserSummaryList(data.ProductUserSummaries, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProductUserSummaries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -797,10 +811,9 @@ const de_ListProductSubscriptionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -820,12 +833,11 @@ export const de_ListUserAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InstanceUserSummaries != null) {
-    contents.InstanceUserSummaries = de_InstanceUserSummaryList(data.InstanceUserSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    InstanceUserSummaries: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -865,10 +877,9 @@ const de_ListUserAssociationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -888,9 +899,10 @@ export const de_RegisterIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityProviderSummary != null) {
-    contents.IdentityProviderSummary = de_IdentityProviderSummary(data.IdentityProviderSummary, context);
-  }
+  const doc = take(data, {
+    IdentityProviderSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -930,10 +942,9 @@ const de_RegisterIdentityProviderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -953,9 +964,10 @@ export const de_StartProductSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProductUserSummary != null) {
-    contents.ProductUserSummary = de_ProductUserSummary(data.ProductUserSummary, context);
-  }
+  const doc = take(data, {
+    ProductUserSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -995,10 +1007,9 @@ const de_StartProductSubscriptionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1018,9 +1029,10 @@ export const de_StopProductSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProductUserSummary != null) {
-    contents.ProductUserSummary = de_ProductUserSummary(data.ProductUserSummary, context);
-  }
+  const doc = take(data, {
+    ProductUserSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1060,10 +1072,9 @@ const de_StopProductSubscriptionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1083,9 +1094,10 @@ export const de_UpdateIdentityProviderSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityProviderSummary != null) {
-    contents.IdentityProviderSummary = de_IdentityProviderSummary(data.IdentityProviderSummary, context);
-  }
+  const doc = take(data, {
+    IdentityProviderSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1116,16 +1128,15 @@ const de_UpdateIdentityProviderSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1135,9 +1146,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1151,9 +1163,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1170,9 +1183,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1189,9 +1203,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1208,9 +1223,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1224,9 +1240,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1240,9 +1257,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1250,271 +1268,45 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ActiveDirectoryIdentityProvider
- */
-const se_ActiveDirectoryIdentityProvider = (input: ActiveDirectoryIdentityProvider, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-  };
-};
+// se_ActiveDirectoryIdentityProvider omitted.
 
-/**
- * serializeAws_restJson1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Attribute != null && { Attribute: input.Attribute }),
-    ...(input.Operation != null && { Operation: input.Operation }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_restJson1FilterList
- */
-const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_FilterList omitted.
 
-/**
- * serializeAws_restJson1IdentityProvider
- */
-const se_IdentityProvider = (input: IdentityProvider, context: __SerdeContext): any => {
-  return IdentityProvider.visit(input, {
-    ActiveDirectoryIdentityProvider: (value) => ({
-      ActiveDirectoryIdentityProvider: se_ActiveDirectoryIdentityProvider(value, context),
-    }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_IdentityProvider omitted.
 
-/**
- * serializeAws_restJson1Settings
- */
-const se_Settings = (input: Settings, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupId != null && { SecurityGroupId: input.SecurityGroupId }),
-    ...(input.Subnets != null && { Subnets: se_Subnets(input.Subnets, context) }),
-  };
-};
+// se_Settings omitted.
 
-/**
- * serializeAws_restJson1Subnets
- */
-const se_Subnets = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Subnets omitted.
 
-/**
- * serializeAws_restJson1UpdateSettings
- */
-const se_UpdateSettings = (input: UpdateSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.AddSubnets != null && { AddSubnets: se_Subnets(input.AddSubnets, context) }),
-    ...(input.RemoveSubnets != null && { RemoveSubnets: se_Subnets(input.RemoveSubnets, context) }),
-    ...(input.SecurityGroupId != null && { SecurityGroupId: input.SecurityGroupId }),
-  };
-};
+// se_UpdateSettings omitted.
 
-/**
- * deserializeAws_restJson1ActiveDirectoryIdentityProvider
- */
-const de_ActiveDirectoryIdentityProvider = (output: any, context: __SerdeContext): ActiveDirectoryIdentityProvider => {
-  return {
-    DirectoryId: __expectString(output.DirectoryId),
-  } as any;
-};
+// de_ActiveDirectoryIdentityProvider omitted.
 
-/**
- * deserializeAws_restJson1IdentityProvider
- */
-const de_IdentityProvider = (output: any, context: __SerdeContext): IdentityProvider => {
-  if (output.ActiveDirectoryIdentityProvider != null) {
-    return {
-      ActiveDirectoryIdentityProvider: de_ActiveDirectoryIdentityProvider(
-        output.ActiveDirectoryIdentityProvider,
-        context
-      ),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_IdentityProvider omitted.
 
-/**
- * deserializeAws_restJson1IdentityProviderSummary
- */
-const de_IdentityProviderSummary = (output: any, context: __SerdeContext): IdentityProviderSummary => {
-  return {
-    FailureMessage: __expectString(output.FailureMessage),
-    IdentityProvider:
-      output.IdentityProvider != null
-        ? de_IdentityProvider(__expectUnion(output.IdentityProvider), context)
-        : undefined,
-    Product: __expectString(output.Product),
-    Settings: output.Settings != null ? de_Settings(output.Settings, context) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_IdentityProviderSummary omitted.
 
-/**
- * deserializeAws_restJson1IdentityProviderSummaryList
- */
-const de_IdentityProviderSummaryList = (output: any, context: __SerdeContext): IdentityProviderSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IdentityProviderSummary(entry, context);
-    });
-  return retVal;
-};
+// de_IdentityProviderSummaryList omitted.
 
-/**
- * deserializeAws_restJson1InstanceSummary
- */
-const de_InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
-  return {
-    InstanceId: __expectString(output.InstanceId),
-    LastStatusCheckDate: __expectString(output.LastStatusCheckDate),
-    Products: output.Products != null ? de_StringList(output.Products, context) : undefined,
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
+// de_InstanceSummary omitted.
 
-/**
- * deserializeAws_restJson1InstanceSummaryList
- */
-const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InstanceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_InstanceSummaryList omitted.
 
-/**
- * deserializeAws_restJson1InstanceUserSummary
- */
-const de_InstanceUserSummary = (output: any, context: __SerdeContext): InstanceUserSummary => {
-  return {
-    AssociationDate: __expectString(output.AssociationDate),
-    DisassociationDate: __expectString(output.DisassociationDate),
-    Domain: __expectString(output.Domain),
-    IdentityProvider:
-      output.IdentityProvider != null
-        ? de_IdentityProvider(__expectUnion(output.IdentityProvider), context)
-        : undefined,
-    InstanceId: __expectString(output.InstanceId),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    Username: __expectString(output.Username),
-  } as any;
-};
+// de_InstanceUserSummary omitted.
 
-/**
- * deserializeAws_restJson1InstanceUserSummaryList
- */
-const de_InstanceUserSummaryList = (output: any, context: __SerdeContext): InstanceUserSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InstanceUserSummary(entry, context);
-    });
-  return retVal;
-};
+// de_InstanceUserSummaryList omitted.
 
-/**
- * deserializeAws_restJson1ProductUserSummary
- */
-const de_ProductUserSummary = (output: any, context: __SerdeContext): ProductUserSummary => {
-  return {
-    Domain: __expectString(output.Domain),
-    IdentityProvider:
-      output.IdentityProvider != null
-        ? de_IdentityProvider(__expectUnion(output.IdentityProvider), context)
-        : undefined,
-    Product: __expectString(output.Product),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    SubscriptionEndDate: __expectString(output.SubscriptionEndDate),
-    SubscriptionStartDate: __expectString(output.SubscriptionStartDate),
-    Username: __expectString(output.Username),
-  } as any;
-};
+// de_ProductUserSummary omitted.
 
-/**
- * deserializeAws_restJson1ProductUserSummaryList
- */
-const de_ProductUserSummaryList = (output: any, context: __SerdeContext): ProductUserSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProductUserSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ProductUserSummaryList omitted.
 
-/**
- * deserializeAws_restJson1Settings
- */
-const de_Settings = (output: any, context: __SerdeContext): Settings => {
-  return {
-    SecurityGroupId: __expectString(output.SecurityGroupId),
-    Subnets: output.Subnets != null ? de_Subnets(output.Subnets, context) : undefined,
-  } as any;
-};
+// de_Settings omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1Subnets
- */
-const de_Subnets = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Subnets omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

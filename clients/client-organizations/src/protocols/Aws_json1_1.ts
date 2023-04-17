@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -168,7 +169,6 @@ import {
   AWSOrganizationsNotInUseException,
   CancelHandshakeRequest,
   CancelHandshakeResponse,
-  Child,
   ChildNotFoundException,
   CloseAccountRequest,
   ConcurrentModificationException,
@@ -182,11 +182,8 @@ import {
   CreateGovCloudAccountRequest,
   CreateGovCloudAccountResponse,
   CreateOrganizationalUnitRequest,
-  CreateOrganizationalUnitResponse,
   CreateOrganizationRequest,
-  CreateOrganizationResponse,
   CreatePolicyRequest,
-  CreatePolicyResponse,
   DeclineHandshakeRequest,
   DeclineHandshakeResponse,
   DelegatedAdministrator,
@@ -203,16 +200,11 @@ import {
   DescribeHandshakeRequest,
   DescribeHandshakeResponse,
   DescribeOrganizationalUnitRequest,
-  DescribeOrganizationalUnitResponse,
-  DescribeOrganizationResponse,
   DescribePolicyRequest,
-  DescribePolicyResponse,
-  DescribeResourcePolicyResponse,
   DestinationParentNotFoundException,
   DetachPolicyRequest,
   DisableAWSServiceAccessRequest,
   DisablePolicyTypeRequest,
-  DisablePolicyTypeResponse,
   DuplicateAccountException,
   DuplicateHandshakeException,
   DuplicateOrganizationalUnitException,
@@ -225,7 +217,6 @@ import {
   EnableAWSServiceAccessRequest,
   EnabledServicePrincipal,
   EnablePolicyTypeRequest,
-  EnablePolicyTypeResponse,
   FinalizingOrganizationException,
   Handshake,
   HandshakeAlreadyInStateException,
@@ -245,7 +236,6 @@ import {
   ListAWSServiceAccessForOrganizationRequest,
   ListAWSServiceAccessForOrganizationResponse,
   ListChildrenRequest,
-  ListChildrenResponse,
   ListCreateAccountStatusRequest,
   ListCreateAccountStatusResponse,
   ListDelegatedAdministratorsRequest,
@@ -257,48 +247,30 @@ import {
   ListHandshakesForOrganizationRequest,
   ListHandshakesForOrganizationResponse,
   ListOrganizationalUnitsForParentRequest,
-  ListOrganizationalUnitsForParentResponse,
   ListParentsRequest,
-  ListParentsResponse,
   ListPoliciesForTargetRequest,
-  ListPoliciesForTargetResponse,
   ListPoliciesRequest,
-  ListPoliciesResponse,
   ListRootsRequest,
-  ListRootsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListTargetsForPolicyRequest,
-  ListTargetsForPolicyResponse,
   MalformedPolicyDocumentException,
   MasterCannotLeaveOrganizationException,
   MoveAccountRequest,
-  Organization,
-  OrganizationalUnit,
   OrganizationalUnitNotEmptyException,
   OrganizationalUnitNotFoundException,
   OrganizationNotEmptyException,
-  Parent,
   ParentNotFoundException,
-  Policy,
   PolicyChangesInProgressException,
   PolicyInUseException,
   PolicyNotAttachedException,
   PolicyNotFoundException,
-  PolicySummary,
-  PolicyTargetSummary,
   PolicyTypeAlreadyEnabledException,
   PolicyTypeNotAvailableForOrganizationException,
   PolicyTypeNotEnabledException,
-  PolicyTypeSummary,
   PutResourcePolicyRequest,
-  PutResourcePolicyResponse,
   RegisterDelegatedAdministratorRequest,
   RemoveAccountFromOrganizationRequest,
-  ResourcePolicy,
   ResourcePolicyNotFoundException,
-  ResourcePolicySummary,
-  Root,
   RootNotFoundException,
   ServiceException,
   SourceParentNotFoundException,
@@ -309,9 +281,7 @@ import {
   UnsupportedAPIEndpointException,
   UntagResourceRequest,
   UpdateOrganizationalUnitRequest,
-  UpdateOrganizationalUnitResponse,
   UpdatePolicyRequest,
-  UpdatePolicyResponse,
 } from "../models/models_0";
 import { OrganizationsServiceException as __BaseException } from "../models/OrganizationsServiceException";
 
@@ -324,7 +294,7 @@ export const se_AcceptHandshakeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AcceptHandshake");
   let body: any;
-  body = JSON.stringify(se_AcceptHandshakeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -337,7 +307,7 @@ export const se_AttachPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AttachPolicy");
   let body: any;
-  body = JSON.stringify(se_AttachPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -350,7 +320,7 @@ export const se_CancelHandshakeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelHandshake");
   let body: any;
-  body = JSON.stringify(se_CancelHandshakeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -363,7 +333,7 @@ export const se_CloseAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CloseAccount");
   let body: any;
-  body = JSON.stringify(se_CloseAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -376,7 +346,7 @@ export const se_CreateAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAccount");
   let body: any;
-  body = JSON.stringify(se_CreateAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -389,7 +359,7 @@ export const se_CreateGovCloudAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateGovCloudAccount");
   let body: any;
-  body = JSON.stringify(se_CreateGovCloudAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -402,7 +372,7 @@ export const se_CreateOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateOrganization");
   let body: any;
-  body = JSON.stringify(se_CreateOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -415,7 +385,7 @@ export const se_CreateOrganizationalUnitCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateOrganizationalUnit");
   let body: any;
-  body = JSON.stringify(se_CreateOrganizationalUnitRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -428,7 +398,7 @@ export const se_CreatePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePolicy");
   let body: any;
-  body = JSON.stringify(se_CreatePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -441,7 +411,7 @@ export const se_DeclineHandshakeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeclineHandshake");
   let body: any;
-  body = JSON.stringify(se_DeclineHandshakeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -466,7 +436,7 @@ export const se_DeleteOrganizationalUnitCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteOrganizationalUnit");
   let body: any;
-  body = JSON.stringify(se_DeleteOrganizationalUnitRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -479,7 +449,7 @@ export const se_DeletePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePolicy");
   let body: any;
-  body = JSON.stringify(se_DeletePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -504,7 +474,7 @@ export const se_DeregisterDelegatedAdministratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterDelegatedAdministrator");
   let body: any;
-  body = JSON.stringify(se_DeregisterDelegatedAdministratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -517,7 +487,7 @@ export const se_DescribeAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccount");
   let body: any;
-  body = JSON.stringify(se_DescribeAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -530,7 +500,7 @@ export const se_DescribeCreateAccountStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCreateAccountStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeCreateAccountStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -543,7 +513,7 @@ export const se_DescribeEffectivePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEffectivePolicy");
   let body: any;
-  body = JSON.stringify(se_DescribeEffectivePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -556,7 +526,7 @@ export const se_DescribeHandshakeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeHandshake");
   let body: any;
-  body = JSON.stringify(se_DescribeHandshakeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -581,7 +551,7 @@ export const se_DescribeOrganizationalUnitCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeOrganizationalUnit");
   let body: any;
-  body = JSON.stringify(se_DescribeOrganizationalUnitRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -594,7 +564,7 @@ export const se_DescribePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePolicy");
   let body: any;
-  body = JSON.stringify(se_DescribePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -619,7 +589,7 @@ export const se_DetachPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetachPolicy");
   let body: any;
-  body = JSON.stringify(se_DetachPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -632,7 +602,7 @@ export const se_DisableAWSServiceAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableAWSServiceAccess");
   let body: any;
-  body = JSON.stringify(se_DisableAWSServiceAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -645,7 +615,7 @@ export const se_DisablePolicyTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisablePolicyType");
   let body: any;
-  body = JSON.stringify(se_DisablePolicyTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -658,7 +628,7 @@ export const se_EnableAllFeaturesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableAllFeatures");
   let body: any;
-  body = JSON.stringify(se_EnableAllFeaturesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -671,7 +641,7 @@ export const se_EnableAWSServiceAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableAWSServiceAccess");
   let body: any;
-  body = JSON.stringify(se_EnableAWSServiceAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -684,7 +654,7 @@ export const se_EnablePolicyTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnablePolicyType");
   let body: any;
-  body = JSON.stringify(se_EnablePolicyTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -697,7 +667,7 @@ export const se_InviteAccountToOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("InviteAccountToOrganization");
   let body: any;
-  body = JSON.stringify(se_InviteAccountToOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -722,7 +692,7 @@ export const se_ListAccountsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccounts");
   let body: any;
-  body = JSON.stringify(se_ListAccountsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -735,7 +705,7 @@ export const se_ListAccountsForParentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccountsForParent");
   let body: any;
-  body = JSON.stringify(se_ListAccountsForParentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -748,7 +718,7 @@ export const se_ListAWSServiceAccessForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAWSServiceAccessForOrganization");
   let body: any;
-  body = JSON.stringify(se_ListAWSServiceAccessForOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -761,7 +731,7 @@ export const se_ListChildrenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListChildren");
   let body: any;
-  body = JSON.stringify(se_ListChildrenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -774,7 +744,7 @@ export const se_ListCreateAccountStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCreateAccountStatus");
   let body: any;
-  body = JSON.stringify(se_ListCreateAccountStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -787,7 +757,7 @@ export const se_ListDelegatedAdministratorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDelegatedAdministrators");
   let body: any;
-  body = JSON.stringify(se_ListDelegatedAdministratorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -800,7 +770,7 @@ export const se_ListDelegatedServicesForAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDelegatedServicesForAccount");
   let body: any;
-  body = JSON.stringify(se_ListDelegatedServicesForAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -813,7 +783,7 @@ export const se_ListHandshakesForAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHandshakesForAccount");
   let body: any;
-  body = JSON.stringify(se_ListHandshakesForAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -826,7 +796,7 @@ export const se_ListHandshakesForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHandshakesForOrganization");
   let body: any;
-  body = JSON.stringify(se_ListHandshakesForOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -839,7 +809,7 @@ export const se_ListOrganizationalUnitsForParentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListOrganizationalUnitsForParent");
   let body: any;
-  body = JSON.stringify(se_ListOrganizationalUnitsForParentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -852,7 +822,7 @@ export const se_ListParentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListParents");
   let body: any;
-  body = JSON.stringify(se_ListParentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -865,7 +835,7 @@ export const se_ListPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPolicies");
   let body: any;
-  body = JSON.stringify(se_ListPoliciesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -878,7 +848,7 @@ export const se_ListPoliciesForTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPoliciesForTarget");
   let body: any;
-  body = JSON.stringify(se_ListPoliciesForTargetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -891,7 +861,7 @@ export const se_ListRootsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRoots");
   let body: any;
-  body = JSON.stringify(se_ListRootsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -904,7 +874,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -917,7 +887,7 @@ export const se_ListTargetsForPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTargetsForPolicy");
   let body: any;
-  body = JSON.stringify(se_ListTargetsForPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -930,7 +900,7 @@ export const se_MoveAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("MoveAccount");
   let body: any;
-  body = JSON.stringify(se_MoveAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -943,7 +913,7 @@ export const se_PutResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
-  body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -956,7 +926,7 @@ export const se_RegisterDelegatedAdministratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterDelegatedAdministrator");
   let body: any;
-  body = JSON.stringify(se_RegisterDelegatedAdministratorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -969,7 +939,7 @@ export const se_RemoveAccountFromOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveAccountFromOrganization");
   let body: any;
-  body = JSON.stringify(se_RemoveAccountFromOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -982,7 +952,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -995,7 +965,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1008,7 +978,7 @@ export const se_UpdateOrganizationalUnitCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateOrganizationalUnit");
   let body: any;
-  body = JSON.stringify(se_UpdateOrganizationalUnitRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1021,7 +991,7 @@ export const se_UpdatePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePolicy");
   let body: any;
-  body = JSON.stringify(se_UpdatePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1042,7 +1012,7 @@ export const de_AcceptHandshakeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1093,10 +1063,9 @@ const de_AcceptHandshakeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1116,7 +1085,7 @@ export const de_AttachPolicyCommand = async (
   const response: AttachPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1173,10 +1142,9 @@ const de_AttachPolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1199,7 +1167,7 @@ export const de_CancelHandshakeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1241,10 +1209,9 @@ const de_CancelHandshakeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1264,7 +1231,7 @@ export const de_CloseAccountCommand = async (
   const response: CloseAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1315,10 +1282,9 @@ const de_CloseAccountCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1341,7 +1307,7 @@ export const de_CreateAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1386,10 +1352,9 @@ const de_CreateAccountCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1412,7 +1377,7 @@ export const de_CreateGovCloudAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1457,10 +1422,9 @@ const de_CreateGovCloudAccountCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1478,12 +1442,12 @@ export const de_CreateOrganizationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateOrganizationResponse(data, context);
+  contents = _json(data);
   const response: CreateOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1525,10 +1489,9 @@ const de_CreateOrganizationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1546,12 +1509,12 @@ export const de_CreateOrganizationalUnitCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateOrganizationalUnitResponse(data, context);
+  contents = _json(data);
   const response: CreateOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1596,10 +1559,9 @@ const de_CreateOrganizationalUnitCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1617,12 +1579,12 @@ export const de_CreatePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreatePolicyResponse(data, context);
+  contents = _json(data);
   const response: CreatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1673,10 +1635,9 @@ const de_CreatePolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1699,7 +1660,7 @@ export const de_DeclineHandshakeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1741,10 +1702,9 @@ const de_DeclineHandshakeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1764,7 +1724,7 @@ export const de_DeleteOrganizationCommand = async (
   const response: DeleteOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1803,10 +1763,9 @@ const de_DeleteOrganizationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1826,7 +1785,7 @@ export const de_DeleteOrganizationalUnitCommand = async (
   const response: DeleteOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1868,10 +1827,9 @@ const de_DeleteOrganizationalUnitCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1891,7 +1849,7 @@ export const de_DeletePolicyCommand = async (
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1936,10 +1894,9 @@ const de_DeletePolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1959,7 +1916,7 @@ export const de_DeleteResourcePolicyCommand = async (
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2001,10 +1958,9 @@ const de_DeleteResourcePolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2024,7 +1980,7 @@ export const de_DeregisterDelegatedAdministratorCommand = async (
   const response: DeregisterDelegatedAdministratorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2072,10 +2028,9 @@ const de_DeregisterDelegatedAdministratorCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2098,7 +2053,7 @@ export const de_DescribeAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2134,10 +2089,9 @@ const de_DescribeAccountCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2160,7 +2114,7 @@ export const de_DescribeCreateAccountStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2199,10 +2153,9 @@ const de_DescribeCreateAccountStatusCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2225,7 +2178,7 @@ export const de_DescribeEffectivePolicyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2270,10 +2223,9 @@ const de_DescribeEffectivePolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2296,7 +2248,7 @@ export const de_DescribeHandshakeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2332,10 +2284,9 @@ const de_DescribeHandshakeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2353,12 +2304,12 @@ export const de_DescribeOrganizationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeOrganizationResponse(data, context);
+  contents = _json(data);
   const response: DescribeOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2391,10 +2342,9 @@ const de_DescribeOrganizationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2412,12 +2362,12 @@ export const de_DescribeOrganizationalUnitCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeOrganizationalUnitResponse(data, context);
+  contents = _json(data);
   const response: DescribeOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2453,10 +2403,9 @@ const de_DescribeOrganizationalUnitCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2474,12 +2423,12 @@ export const de_DescribePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribePolicyResponse(data, context);
+  contents = _json(data);
   const response: DescribePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2518,10 +2467,9 @@ const de_DescribePolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2539,12 +2487,12 @@ export const de_DescribeResourcePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: DescribeResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2583,10 +2531,9 @@ const de_DescribeResourcePolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2606,7 +2553,7 @@ export const de_DetachPolicyCommand = async (
   const response: DetachPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2660,10 +2607,9 @@ const de_DetachPolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2683,7 +2629,7 @@ export const de_DisableAWSServiceAccessCommand = async (
   const response: DisableAWSServiceAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2725,10 +2671,9 @@ const de_DisableAWSServiceAccessCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2746,12 +2691,12 @@ export const de_DisablePolicyTypeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisablePolicyTypeResponse(data, context);
+  contents = _json(data);
   const response: DisablePolicyTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2802,10 +2747,9 @@ const de_DisablePolicyTypeCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2828,7 +2772,7 @@ export const de_EnableAllFeaturesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2867,10 +2811,9 @@ const de_EnableAllFeaturesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2890,7 +2833,7 @@ export const de_EnableAWSServiceAccessCommand = async (
   const response: EnableAWSServiceAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2932,10 +2875,9 @@ const de_EnableAWSServiceAccessCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2953,12 +2895,12 @@ export const de_EnablePolicyTypeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnablePolicyTypeResponse(data, context);
+  contents = _json(data);
   const response: EnablePolicyTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3012,10 +2954,9 @@ const de_EnablePolicyTypeCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3038,7 +2979,7 @@ export const de_InviteAccountToOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3089,10 +3030,9 @@ const de_InviteAccountToOrganizationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3112,7 +3052,7 @@ export const de_LeaveOrganizationCommand = async (
   const response: LeaveOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3157,10 +3097,9 @@ const de_LeaveOrganizationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3183,7 +3122,7 @@ export const de_ListAccountsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3216,10 +3155,9 @@ const de_ListAccountsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3242,7 +3180,7 @@ export const de_ListAccountsForParentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3278,10 +3216,9 @@ const de_ListAccountsForParentCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3304,7 +3241,7 @@ export const de_ListAWSServiceAccessForOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3343,10 +3280,9 @@ const de_ListAWSServiceAccessForOrganizationCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3364,12 +3300,12 @@ export const de_ListChildrenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListChildrenResponse(data, context);
+  contents = _json(data);
   const response: ListChildrenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3405,10 +3341,9 @@ const de_ListChildrenCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3431,7 +3366,7 @@ export const de_ListCreateAccountStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3467,10 +3402,9 @@ const de_ListCreateAccountStatusCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3493,7 +3427,7 @@ export const de_ListDelegatedAdministratorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3532,10 +3466,9 @@ const de_ListDelegatedAdministratorsCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3558,7 +3491,7 @@ export const de_ListDelegatedServicesForAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3603,10 +3536,9 @@ const de_ListDelegatedServicesForAccountCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3629,7 +3561,7 @@ export const de_ListHandshakesForAccountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3662,10 +3594,9 @@ const de_ListHandshakesForAccountCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3688,7 +3619,7 @@ export const de_ListHandshakesForOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3724,10 +3655,9 @@ const de_ListHandshakesForOrganizationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3745,12 +3675,12 @@ export const de_ListOrganizationalUnitsForParentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListOrganizationalUnitsForParentResponse(data, context);
+  contents = _json(data);
   const response: ListOrganizationalUnitsForParentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3786,10 +3716,9 @@ const de_ListOrganizationalUnitsForParentCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3807,12 +3736,12 @@ export const de_ListParentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListParentsResponse(data, context);
+  contents = _json(data);
   const response: ListParentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3848,10 +3777,9 @@ const de_ListParentsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3869,12 +3797,12 @@ export const de_ListPoliciesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPoliciesResponse(data, context);
+  contents = _json(data);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3910,10 +3838,9 @@ const de_ListPoliciesCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3931,12 +3858,12 @@ export const de_ListPoliciesForTargetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPoliciesForTargetResponse(data, context);
+  contents = _json(data);
   const response: ListPoliciesForTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3975,10 +3902,9 @@ const de_ListPoliciesForTargetCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3996,12 +3922,12 @@ export const de_ListRootsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRootsResponse(data, context);
+  contents = _json(data);
   const response: ListRootsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4034,10 +3960,9 @@ const de_ListRootsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4055,12 +3980,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4096,10 +4021,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4117,12 +4041,12 @@ export const de_ListTargetsForPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTargetsForPolicyResponse(data, context);
+  contents = _json(data);
   const response: ListTargetsForPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4161,10 +4085,9 @@ const de_ListTargetsForPolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4184,7 +4107,7 @@ export const de_MoveAccountCommand = async (
   const response: MoveAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4232,10 +4155,9 @@ const de_MoveAccountCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4253,12 +4175,12 @@ export const de_PutResourcePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4300,10 +4222,9 @@ const de_PutResourcePolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4323,7 +4244,7 @@ export const de_RegisterDelegatedAdministratorCommand = async (
   const response: RegisterDelegatedAdministratorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4371,10 +4292,9 @@ const de_RegisterDelegatedAdministratorCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4394,7 +4314,7 @@ export const de_RemoveAccountFromOrganizationCommand = async (
   const response: RemoveAccountFromOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4439,10 +4359,9 @@ const de_RemoveAccountFromOrganizationCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4462,7 +4381,7 @@ export const de_TagResourceCommand = async (
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4504,10 +4423,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4527,7 +4445,7 @@ export const de_UntagResourceCommand = async (
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4569,10 +4487,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4590,12 +4507,12 @@ export const de_UpdateOrganizationalUnitCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateOrganizationalUnitResponse(data, context);
+  contents = _json(data);
   const response: UpdateOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4637,10 +4554,9 @@ const de_UpdateOrganizationalUnitCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4658,12 +4574,12 @@ export const de_UpdatePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdatePolicyResponse(data, context);
+  contents = _json(data);
   const response: UpdatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4717,10 +4633,9 @@ const de_UpdatePolicyCommandError = async (
       throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4734,7 +4649,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4750,7 +4665,7 @@ const de_AccessDeniedForDependencyExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedForDependencyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedForDependencyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedForDependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4766,7 +4681,7 @@ const de_AccountAlreadyClosedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccountAlreadyClosedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccountAlreadyClosedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccountAlreadyClosedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4782,7 +4697,7 @@ const de_AccountAlreadyRegisteredExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccountAlreadyRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccountAlreadyRegisteredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccountAlreadyRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4798,7 +4713,7 @@ const de_AccountNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccountNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccountNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccountNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4814,7 +4729,7 @@ const de_AccountNotRegisteredExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccountNotRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccountNotRegisteredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccountNotRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4830,7 +4745,7 @@ const de_AccountOwnerNotVerifiedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccountOwnerNotVerifiedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccountOwnerNotVerifiedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccountOwnerNotVerifiedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4846,7 +4761,7 @@ const de_AlreadyInOrganizationExceptionRes = async (
   context: __SerdeContext
 ): Promise<AlreadyInOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AlreadyInOrganizationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AlreadyInOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4862,7 +4777,7 @@ const de_AWSOrganizationsNotInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<AWSOrganizationsNotInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AWSOrganizationsNotInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AWSOrganizationsNotInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4878,7 +4793,7 @@ const de_ChildNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ChildNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ChildNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ChildNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4894,7 +4809,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4907,7 +4822,7 @@ const de_ConcurrentModificationExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4923,7 +4838,7 @@ const de_ConstraintViolationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConstraintViolationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConstraintViolationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConstraintViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4939,7 +4854,7 @@ const de_CreateAccountStatusNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<CreateAccountStatusNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CreateAccountStatusNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CreateAccountStatusNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4955,7 +4870,7 @@ const de_DestinationParentNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<DestinationParentNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DestinationParentNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DestinationParentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4971,7 +4886,7 @@ const de_DuplicateAccountExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicateAccountException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateAccountException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateAccountException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4987,7 +4902,7 @@ const de_DuplicateHandshakeExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicateHandshakeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateHandshakeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateHandshakeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5003,7 +4918,7 @@ const de_DuplicateOrganizationalUnitExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicateOrganizationalUnitException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateOrganizationalUnitException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateOrganizationalUnitException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5019,7 +4934,7 @@ const de_DuplicatePolicyAttachmentExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicatePolicyAttachmentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicatePolicyAttachmentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicatePolicyAttachmentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5035,7 +4950,7 @@ const de_DuplicatePolicyExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicatePolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicatePolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicatePolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5051,7 +4966,7 @@ const de_EffectivePolicyNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<EffectivePolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EffectivePolicyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EffectivePolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5067,7 +4982,7 @@ const de_FinalizingOrganizationExceptionRes = async (
   context: __SerdeContext
 ): Promise<FinalizingOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FinalizingOrganizationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FinalizingOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5083,7 +4998,7 @@ const de_HandshakeAlreadyInStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<HandshakeAlreadyInStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_HandshakeAlreadyInStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new HandshakeAlreadyInStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5099,7 +5014,7 @@ const de_HandshakeConstraintViolationExceptionRes = async (
   context: __SerdeContext
 ): Promise<HandshakeConstraintViolationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_HandshakeConstraintViolationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new HandshakeConstraintViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5115,7 +5030,7 @@ const de_HandshakeNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<HandshakeNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_HandshakeNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new HandshakeNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5131,7 +5046,7 @@ const de_InvalidHandshakeTransitionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidHandshakeTransitionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidHandshakeTransitionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidHandshakeTransitionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5147,7 +5062,7 @@ const de_InvalidInputExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidInputException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5163,7 +5078,7 @@ const de_MalformedPolicyDocumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MalformedPolicyDocumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5179,7 +5094,7 @@ const de_MasterCannotLeaveOrganizationExceptionRes = async (
   context: __SerdeContext
 ): Promise<MasterCannotLeaveOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MasterCannotLeaveOrganizationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MasterCannotLeaveOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5195,7 +5110,7 @@ const de_OrganizationalUnitNotEmptyExceptionRes = async (
   context: __SerdeContext
 ): Promise<OrganizationalUnitNotEmptyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OrganizationalUnitNotEmptyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OrganizationalUnitNotEmptyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5211,7 +5126,7 @@ const de_OrganizationalUnitNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<OrganizationalUnitNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OrganizationalUnitNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OrganizationalUnitNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5227,7 +5142,7 @@ const de_OrganizationNotEmptyExceptionRes = async (
   context: __SerdeContext
 ): Promise<OrganizationNotEmptyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OrganizationNotEmptyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OrganizationNotEmptyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5243,7 +5158,7 @@ const de_ParentNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ParentNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ParentNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ParentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5259,7 +5174,7 @@ const de_PolicyChangesInProgressExceptionRes = async (
   context: __SerdeContext
 ): Promise<PolicyChangesInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PolicyChangesInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PolicyChangesInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5275,7 +5190,7 @@ const de_PolicyInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<PolicyInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PolicyInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PolicyInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5291,7 +5206,7 @@ const de_PolicyNotAttachedExceptionRes = async (
   context: __SerdeContext
 ): Promise<PolicyNotAttachedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PolicyNotAttachedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PolicyNotAttachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5307,7 +5222,7 @@ const de_PolicyNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<PolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PolicyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5323,7 +5238,7 @@ const de_PolicyTypeAlreadyEnabledExceptionRes = async (
   context: __SerdeContext
 ): Promise<PolicyTypeAlreadyEnabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PolicyTypeAlreadyEnabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PolicyTypeAlreadyEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5339,7 +5254,7 @@ const de_PolicyTypeNotAvailableForOrganizationExceptionRes = async (
   context: __SerdeContext
 ): Promise<PolicyTypeNotAvailableForOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PolicyTypeNotAvailableForOrganizationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PolicyTypeNotAvailableForOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5355,7 +5270,7 @@ const de_PolicyTypeNotEnabledExceptionRes = async (
   context: __SerdeContext
 ): Promise<PolicyTypeNotEnabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PolicyTypeNotEnabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PolicyTypeNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5371,7 +5286,7 @@ const de_ResourcePolicyNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourcePolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourcePolicyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourcePolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5387,7 +5302,7 @@ const de_RootNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<RootNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RootNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RootNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5400,7 +5315,7 @@ const de_RootNotFoundExceptionRes = async (
  */
 const de_ServiceExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5416,7 +5331,7 @@ const de_SourceParentNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<SourceParentNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SourceParentNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SourceParentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5432,7 +5347,7 @@ const de_TargetNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<TargetNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TargetNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TargetNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5448,7 +5363,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyRequestsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5464,7 +5379,7 @@ const de_UnsupportedAPIEndpointExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedAPIEndpointException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedAPIEndpointException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedAPIEndpointException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5472,711 +5387,155 @@ const de_UnsupportedAPIEndpointExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AcceptHandshakeRequest
- */
-const se_AcceptHandshakeRequest = (input: AcceptHandshakeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
-  };
-};
+// se_AcceptHandshakeRequest omitted.
 
-/**
- * serializeAws_json1_1AttachPolicyRequest
- */
-const se_AttachPolicyRequest = (input: AttachPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
-    ...(input.TargetId != null && { TargetId: input.TargetId }),
-  };
-};
+// se_AttachPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1CancelHandshakeRequest
- */
-const se_CancelHandshakeRequest = (input: CancelHandshakeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
-  };
-};
+// se_CancelHandshakeRequest omitted.
 
-/**
- * serializeAws_json1_1CloseAccountRequest
- */
-const se_CloseAccountRequest = (input: CloseAccountRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-  };
-};
+// se_CloseAccountRequest omitted.
 
-/**
- * serializeAws_json1_1CreateAccountRequest
- */
-const se_CreateAccountRequest = (input: CreateAccountRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountName != null && { AccountName: input.AccountName }),
-    ...(input.Email != null && { Email: input.Email }),
-    ...(input.IamUserAccessToBilling != null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
-    ...(input.RoleName != null && { RoleName: input.RoleName }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateAccountRequest omitted.
 
-/**
- * serializeAws_json1_1CreateAccountStates
- */
-const se_CreateAccountStates = (input: (CreateAccountState | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CreateAccountStates omitted.
 
-/**
- * serializeAws_json1_1CreateGovCloudAccountRequest
- */
-const se_CreateGovCloudAccountRequest = (input: CreateGovCloudAccountRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountName != null && { AccountName: input.AccountName }),
-    ...(input.Email != null && { Email: input.Email }),
-    ...(input.IamUserAccessToBilling != null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
-    ...(input.RoleName != null && { RoleName: input.RoleName }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateGovCloudAccountRequest omitted.
 
-/**
- * serializeAws_json1_1CreateOrganizationalUnitRequest
- */
-const se_CreateOrganizationalUnitRequest = (input: CreateOrganizationalUnitRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParentId != null && { ParentId: input.ParentId }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_CreateOrganizationalUnitRequest omitted.
 
-/**
- * serializeAws_json1_1CreateOrganizationRequest
- */
-const se_CreateOrganizationRequest = (input: CreateOrganizationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FeatureSet != null && { FeatureSet: input.FeatureSet }),
-  };
-};
+// se_CreateOrganizationRequest omitted.
 
-/**
- * serializeAws_json1_1CreatePolicyRequest
- */
-const se_CreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_CreatePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DeclineHandshakeRequest
- */
-const se_DeclineHandshakeRequest = (input: DeclineHandshakeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
-  };
-};
+// se_DeclineHandshakeRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteOrganizationalUnitRequest
- */
-const se_DeleteOrganizationalUnitRequest = (input: DeleteOrganizationalUnitRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.OrganizationalUnitId != null && { OrganizationalUnitId: input.OrganizationalUnitId }),
-  };
-};
+// se_DeleteOrganizationalUnitRequest omitted.
 
-/**
- * serializeAws_json1_1DeletePolicyRequest
- */
-const se_DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
-  };
-};
+// se_DeletePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DeregisterDelegatedAdministratorRequest
- */
-const se_DeregisterDelegatedAdministratorRequest = (
-  input: DeregisterDelegatedAdministratorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
-  };
-};
+// se_DeregisterDelegatedAdministratorRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAccountRequest
- */
-const se_DescribeAccountRequest = (input: DescribeAccountRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-  };
-};
+// se_DescribeAccountRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCreateAccountStatusRequest
- */
-const se_DescribeCreateAccountStatusRequest = (
-  input: DescribeCreateAccountStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CreateAccountRequestId != null && { CreateAccountRequestId: input.CreateAccountRequestId }),
-  };
-};
+// se_DescribeCreateAccountStatusRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEffectivePolicyRequest
- */
-const se_DescribeEffectivePolicyRequest = (input: DescribeEffectivePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
-    ...(input.TargetId != null && { TargetId: input.TargetId }),
-  };
-};
+// se_DescribeEffectivePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeHandshakeRequest
- */
-const se_DescribeHandshakeRequest = (input: DescribeHandshakeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
-  };
-};
+// se_DescribeHandshakeRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeOrganizationalUnitRequest
- */
-const se_DescribeOrganizationalUnitRequest = (
-  input: DescribeOrganizationalUnitRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OrganizationalUnitId != null && { OrganizationalUnitId: input.OrganizationalUnitId }),
-  };
-};
+// se_DescribeOrganizationalUnitRequest omitted.
 
-/**
- * serializeAws_json1_1DescribePolicyRequest
- */
-const se_DescribePolicyRequest = (input: DescribePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
-  };
-};
+// se_DescribePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DetachPolicyRequest
- */
-const se_DetachPolicyRequest = (input: DetachPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
-    ...(input.TargetId != null && { TargetId: input.TargetId }),
-  };
-};
+// se_DetachPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DisableAWSServiceAccessRequest
- */
-const se_DisableAWSServiceAccessRequest = (input: DisableAWSServiceAccessRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
-  };
-};
+// se_DisableAWSServiceAccessRequest omitted.
 
-/**
- * serializeAws_json1_1DisablePolicyTypeRequest
- */
-const se_DisablePolicyTypeRequest = (input: DisablePolicyTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
-    ...(input.RootId != null && { RootId: input.RootId }),
-  };
-};
+// se_DisablePolicyTypeRequest omitted.
 
-/**
- * serializeAws_json1_1EnableAllFeaturesRequest
- */
-const se_EnableAllFeaturesRequest = (input: EnableAllFeaturesRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_EnableAllFeaturesRequest omitted.
 
-/**
- * serializeAws_json1_1EnableAWSServiceAccessRequest
- */
-const se_EnableAWSServiceAccessRequest = (input: EnableAWSServiceAccessRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
-  };
-};
+// se_EnableAWSServiceAccessRequest omitted.
 
-/**
- * serializeAws_json1_1EnablePolicyTypeRequest
- */
-const se_EnablePolicyTypeRequest = (input: EnablePolicyTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
-    ...(input.RootId != null && { RootId: input.RootId }),
-  };
-};
+// se_EnablePolicyTypeRequest omitted.
 
-/**
- * serializeAws_json1_1HandshakeFilter
- */
-const se_HandshakeFilter = (input: HandshakeFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.ActionType != null && { ActionType: input.ActionType }),
-    ...(input.ParentHandshakeId != null && { ParentHandshakeId: input.ParentHandshakeId }),
-  };
-};
+// se_HandshakeFilter omitted.
 
-/**
- * serializeAws_json1_1HandshakeParty
- */
-const se_HandshakeParty = (input: HandshakeParty, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_HandshakeParty omitted.
 
-/**
- * serializeAws_json1_1InviteAccountToOrganizationRequest
- */
-const se_InviteAccountToOrganizationRequest = (
-  input: InviteAccountToOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Notes != null && { Notes: input.Notes }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.Target != null && { Target: se_HandshakeParty(input.Target, context) }),
-  };
-};
+// se_InviteAccountToOrganizationRequest omitted.
 
-/**
- * serializeAws_json1_1ListAccountsForParentRequest
- */
-const se_ListAccountsForParentRequest = (input: ListAccountsForParentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ParentId != null && { ParentId: input.ParentId }),
-  };
-};
+// se_ListAccountsForParentRequest omitted.
 
-/**
- * serializeAws_json1_1ListAccountsRequest
- */
-const se_ListAccountsRequest = (input: ListAccountsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListAccountsRequest omitted.
 
-/**
- * serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest
- */
-const se_ListAWSServiceAccessForOrganizationRequest = (
-  input: ListAWSServiceAccessForOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListAWSServiceAccessForOrganizationRequest omitted.
 
-/**
- * serializeAws_json1_1ListChildrenRequest
- */
-const se_ListChildrenRequest = (input: ListChildrenRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChildType != null && { ChildType: input.ChildType }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ParentId != null && { ParentId: input.ParentId }),
-  };
-};
+// se_ListChildrenRequest omitted.
 
-/**
- * serializeAws_json1_1ListCreateAccountStatusRequest
- */
-const se_ListCreateAccountStatusRequest = (input: ListCreateAccountStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.States != null && { States: se_CreateAccountStates(input.States, context) }),
-  };
-};
+// se_ListCreateAccountStatusRequest omitted.
 
-/**
- * serializeAws_json1_1ListDelegatedAdministratorsRequest
- */
-const se_ListDelegatedAdministratorsRequest = (
-  input: ListDelegatedAdministratorsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
-  };
-};
+// se_ListDelegatedAdministratorsRequest omitted.
 
-/**
- * serializeAws_json1_1ListDelegatedServicesForAccountRequest
- */
-const se_ListDelegatedServicesForAccountRequest = (
-  input: ListDelegatedServicesForAccountRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDelegatedServicesForAccountRequest omitted.
 
-/**
- * serializeAws_json1_1ListHandshakesForAccountRequest
- */
-const se_ListHandshakesForAccountRequest = (input: ListHandshakesForAccountRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_HandshakeFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListHandshakesForAccountRequest omitted.
 
-/**
- * serializeAws_json1_1ListHandshakesForOrganizationRequest
- */
-const se_ListHandshakesForOrganizationRequest = (
-  input: ListHandshakesForOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_HandshakeFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListHandshakesForOrganizationRequest omitted.
 
-/**
- * serializeAws_json1_1ListOrganizationalUnitsForParentRequest
- */
-const se_ListOrganizationalUnitsForParentRequest = (
-  input: ListOrganizationalUnitsForParentRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ParentId != null && { ParentId: input.ParentId }),
-  };
-};
+// se_ListOrganizationalUnitsForParentRequest omitted.
 
-/**
- * serializeAws_json1_1ListParentsRequest
- */
-const se_ListParentsRequest = (input: ListParentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ChildId != null && { ChildId: input.ChildId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListParentsRequest omitted.
 
-/**
- * serializeAws_json1_1ListPoliciesForTargetRequest
- */
-const se_ListPoliciesForTargetRequest = (input: ListPoliciesForTargetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: input.Filter }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TargetId != null && { TargetId: input.TargetId }),
-  };
-};
+// se_ListPoliciesForTargetRequest omitted.
 
-/**
- * serializeAws_json1_1ListPoliciesRequest
- */
-const se_ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: input.Filter }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListPoliciesRequest omitted.
 
-/**
- * serializeAws_json1_1ListRootsRequest
- */
-const se_ListRootsRequest = (input: ListRootsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListRootsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1ListTargetsForPolicyRequest
- */
-const se_ListTargetsForPolicyRequest = (input: ListTargetsForPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
-  };
-};
+// se_ListTargetsForPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1MoveAccountRequest
- */
-const se_MoveAccountRequest = (input: MoveAccountRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.DestinationParentId != null && { DestinationParentId: input.DestinationParentId }),
-    ...(input.SourceParentId != null && { SourceParentId: input.SourceParentId }),
-  };
-};
+// se_MoveAccountRequest omitted.
 
-/**
- * serializeAws_json1_1PutResourcePolicyRequest
- */
-const se_PutResourcePolicyRequest = (input: PutResourcePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_PutResourcePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1RegisterDelegatedAdministratorRequest
- */
-const se_RegisterDelegatedAdministratorRequest = (
-  input: RegisterDelegatedAdministratorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
-  };
-};
+// se_RegisterDelegatedAdministratorRequest omitted.
 
-/**
- * serializeAws_json1_1RemoveAccountFromOrganizationRequest
- */
-const se_RemoveAccountFromOrganizationRequest = (
-  input: RemoveAccountFromOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-  };
-};
+// se_RemoveAccountFromOrganizationRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateOrganizationalUnitRequest
- */
-const se_UpdateOrganizationalUnitRequest = (input: UpdateOrganizationalUnitRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.OrganizationalUnitId != null && { OrganizationalUnitId: input.OrganizationalUnitId }),
-  };
-};
+// se_UpdateOrganizationalUnitRequest omitted.
 
-/**
- * serializeAws_json1_1UpdatePolicyRequest
- */
-const se_UpdatePolicyRequest = (input: UpdatePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
-  };
-};
+// se_UpdatePolicyRequest omitted.
 
 /**
  * deserializeAws_json1_1AcceptHandshakeResponse
  */
 const de_AcceptHandshakeResponse = (output: any, context: __SerdeContext): AcceptHandshakeResponse => {
-  return {
-    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
-  } as any;
+  return take(output, {
+    Handshake: (_: any) => de_Handshake(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedForDependencyException
- */
-const de_AccessDeniedForDependencyException = (
-  output: any,
-  context: __SerdeContext
-): AccessDeniedForDependencyException => {
-  return {
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_AccessDeniedForDependencyException omitted.
 
 /**
  * deserializeAws_json1_1Account
  */
 const de_Account = (output: any, context: __SerdeContext): Account => {
-  return {
-    Arn: __expectString(output.Arn),
-    Email: __expectString(output.Email),
-    Id: __expectString(output.Id),
-    JoinedMethod: __expectString(output.JoinedMethod),
-    JoinedTimestamp:
-      output.JoinedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.JoinedTimestamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    Email: __expectString,
+    Id: __expectString,
+    JoinedMethod: __expectString,
+    JoinedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AccountAlreadyClosedException
- */
-const de_AccountAlreadyClosedException = (output: any, context: __SerdeContext): AccountAlreadyClosedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccountAlreadyClosedException omitted.
 
-/**
- * deserializeAws_json1_1AccountAlreadyRegisteredException
- */
-const de_AccountAlreadyRegisteredException = (
-  output: any,
-  context: __SerdeContext
-): AccountAlreadyRegisteredException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccountAlreadyRegisteredException omitted.
 
-/**
- * deserializeAws_json1_1AccountNotFoundException
- */
-const de_AccountNotFoundException = (output: any, context: __SerdeContext): AccountNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccountNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1AccountNotRegisteredException
- */
-const de_AccountNotRegisteredException = (output: any, context: __SerdeContext): AccountNotRegisteredException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccountNotRegisteredException omitted.
 
-/**
- * deserializeAws_json1_1AccountOwnerNotVerifiedException
- */
-const de_AccountOwnerNotVerifiedException = (
-  output: any,
-  context: __SerdeContext
-): AccountOwnerNotVerifiedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccountOwnerNotVerifiedException omitted.
 
 /**
  * deserializeAws_json1_1Accounts
@@ -6185,136 +5544,59 @@ const de_Accounts = (output: any, context: __SerdeContext): Account[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Account(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1AlreadyInOrganizationException
- */
-const de_AlreadyInOrganizationException = (output: any, context: __SerdeContext): AlreadyInOrganizationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AlreadyInOrganizationException omitted.
 
-/**
- * deserializeAws_json1_1AWSOrganizationsNotInUseException
- */
-const de_AWSOrganizationsNotInUseException = (
-  output: any,
-  context: __SerdeContext
-): AWSOrganizationsNotInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AWSOrganizationsNotInUseException omitted.
 
 /**
  * deserializeAws_json1_1CancelHandshakeResponse
  */
 const de_CancelHandshakeResponse = (output: any, context: __SerdeContext): CancelHandshakeResponse => {
-  return {
-    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
-  } as any;
+  return take(output, {
+    Handshake: (_: any) => de_Handshake(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Child
- */
-const de_Child = (output: any, context: __SerdeContext): Child => {
-  return {
-    Id: __expectString(output.Id),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Child omitted.
 
-/**
- * deserializeAws_json1_1ChildNotFoundException
- */
-const de_ChildNotFoundException = (output: any, context: __SerdeContext): ChildNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ChildNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1Children
- */
-const de_Children = (output: any, context: __SerdeContext): Child[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Child(entry, context);
-    });
-  return retVal;
-};
+// de_Children omitted.
 
-/**
- * deserializeAws_json1_1ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_1ConstraintViolationException
- */
-const de_ConstraintViolationException = (output: any, context: __SerdeContext): ConstraintViolationException => {
-  return {
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_ConstraintViolationException omitted.
 
 /**
  * deserializeAws_json1_1CreateAccountResponse
  */
 const de_CreateAccountResponse = (output: any, context: __SerdeContext): CreateAccountResponse => {
-  return {
-    CreateAccountStatus:
-      output.CreateAccountStatus != null ? de_CreateAccountStatus(output.CreateAccountStatus, context) : undefined,
-  } as any;
+  return take(output, {
+    CreateAccountStatus: (_: any) => de_CreateAccountStatus(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateAccountStatus
  */
 const de_CreateAccountStatus = (output: any, context: __SerdeContext): CreateAccountStatus => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    AccountName: __expectString(output.AccountName),
-    CompletedTimestamp:
-      output.CompletedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletedTimestamp)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    GovCloudAccountId: __expectString(output.GovCloudAccountId),
-    Id: __expectString(output.Id),
-    RequestedTimestamp:
-      output.RequestedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTimestamp)))
-        : undefined,
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    AccountName: __expectString,
+    CompletedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    GovCloudAccountId: __expectString,
+    Id: __expectString,
+    RequestedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+  }) as any;
 };
 
 /**
@@ -6324,96 +5606,51 @@ const de_CreateAccountStatuses = (output: any, context: __SerdeContext): CreateA
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CreateAccountStatus(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CreateAccountStatusNotFoundException
- */
-const de_CreateAccountStatusNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): CreateAccountStatusNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_CreateAccountStatusNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1CreateGovCloudAccountResponse
  */
 const de_CreateGovCloudAccountResponse = (output: any, context: __SerdeContext): CreateGovCloudAccountResponse => {
-  return {
-    CreateAccountStatus:
-      output.CreateAccountStatus != null ? de_CreateAccountStatus(output.CreateAccountStatus, context) : undefined,
-  } as any;
+  return take(output, {
+    CreateAccountStatus: (_: any) => de_CreateAccountStatus(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateOrganizationalUnitResponse
- */
-const de_CreateOrganizationalUnitResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateOrganizationalUnitResponse => {
-  return {
-    OrganizationalUnit:
-      output.OrganizationalUnit != null ? de_OrganizationalUnit(output.OrganizationalUnit, context) : undefined,
-  } as any;
-};
+// de_CreateOrganizationalUnitResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateOrganizationResponse
- */
-const de_CreateOrganizationResponse = (output: any, context: __SerdeContext): CreateOrganizationResponse => {
-  return {
-    Organization: output.Organization != null ? de_Organization(output.Organization, context) : undefined,
-  } as any;
-};
+// de_CreateOrganizationResponse omitted.
 
-/**
- * deserializeAws_json1_1CreatePolicyResponse
- */
-const de_CreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
-  return {
-    Policy: output.Policy != null ? de_Policy(output.Policy, context) : undefined,
-  } as any;
-};
+// de_CreatePolicyResponse omitted.
 
 /**
  * deserializeAws_json1_1DeclineHandshakeResponse
  */
 const de_DeclineHandshakeResponse = (output: any, context: __SerdeContext): DeclineHandshakeResponse => {
-  return {
-    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
-  } as any;
+  return take(output, {
+    Handshake: (_: any) => de_Handshake(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DelegatedAdministrator
  */
 const de_DelegatedAdministrator = (output: any, context: __SerdeContext): DelegatedAdministrator => {
-  return {
-    Arn: __expectString(output.Arn),
-    DelegationEnabledDate:
-      output.DelegationEnabledDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DelegationEnabledDate)))
-        : undefined,
-    Email: __expectString(output.Email),
-    Id: __expectString(output.Id),
-    JoinedMethod: __expectString(output.JoinedMethod),
-    JoinedTimestamp:
-      output.JoinedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.JoinedTimestamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    DelegationEnabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Email: __expectString,
+    Id: __expectString,
+    JoinedMethod: __expectString,
+    JoinedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6423,9 +5660,6 @@ const de_DelegatedAdministrators = (output: any, context: __SerdeContext): Deleg
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DelegatedAdministrator(entry, context);
     });
   return retVal;
@@ -6435,13 +5669,10 @@ const de_DelegatedAdministrators = (output: any, context: __SerdeContext): Deleg
  * deserializeAws_json1_1DelegatedService
  */
 const de_DelegatedService = (output: any, context: __SerdeContext): DelegatedService => {
-  return {
-    DelegationEnabledDate:
-      output.DelegationEnabledDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DelegationEnabledDate)))
-        : undefined,
-    ServicePrincipal: __expectString(output.ServicePrincipal),
-  } as any;
+  return take(output, {
+    DelegationEnabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ServicePrincipal: __expectString,
+  }) as any;
 };
 
 /**
@@ -6451,9 +5682,6 @@ const de_DelegatedServices = (output: any, context: __SerdeContext): DelegatedSe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DelegatedService(entry, context);
     });
   return retVal;
@@ -6463,9 +5691,9 @@ const de_DelegatedServices = (output: any, context: __SerdeContext): DelegatedSe
  * deserializeAws_json1_1DescribeAccountResponse
  */
 const de_DescribeAccountResponse = (output: any, context: __SerdeContext): DescribeAccountResponse => {
-  return {
-    Account: output.Account != null ? de_Account(output.Account, context) : undefined,
-  } as any;
+  return take(output, {
+    Account: (_: any) => de_Account(_, context),
+  }) as any;
 };
 
 /**
@@ -6475,189 +5703,82 @@ const de_DescribeCreateAccountStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCreateAccountStatusResponse => {
-  return {
-    CreateAccountStatus:
-      output.CreateAccountStatus != null ? de_CreateAccountStatus(output.CreateAccountStatus, context) : undefined,
-  } as any;
+  return take(output, {
+    CreateAccountStatus: (_: any) => de_CreateAccountStatus(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeEffectivePolicyResponse
  */
 const de_DescribeEffectivePolicyResponse = (output: any, context: __SerdeContext): DescribeEffectivePolicyResponse => {
-  return {
-    EffectivePolicy: output.EffectivePolicy != null ? de_EffectivePolicy(output.EffectivePolicy, context) : undefined,
-  } as any;
+  return take(output, {
+    EffectivePolicy: (_: any) => de_EffectivePolicy(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeHandshakeResponse
  */
 const de_DescribeHandshakeResponse = (output: any, context: __SerdeContext): DescribeHandshakeResponse => {
-  return {
-    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
-  } as any;
+  return take(output, {
+    Handshake: (_: any) => de_Handshake(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeOrganizationalUnitResponse
- */
-const de_DescribeOrganizationalUnitResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeOrganizationalUnitResponse => {
-  return {
-    OrganizationalUnit:
-      output.OrganizationalUnit != null ? de_OrganizationalUnit(output.OrganizationalUnit, context) : undefined,
-  } as any;
-};
+// de_DescribeOrganizationalUnitResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeOrganizationResponse
- */
-const de_DescribeOrganizationResponse = (output: any, context: __SerdeContext): DescribeOrganizationResponse => {
-  return {
-    Organization: output.Organization != null ? de_Organization(output.Organization, context) : undefined,
-  } as any;
-};
+// de_DescribeOrganizationResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribePolicyResponse
- */
-const de_DescribePolicyResponse = (output: any, context: __SerdeContext): DescribePolicyResponse => {
-  return {
-    Policy: output.Policy != null ? de_Policy(output.Policy, context) : undefined,
-  } as any;
-};
+// de_DescribePolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeResourcePolicyResponse
- */
-const de_DescribeResourcePolicyResponse = (output: any, context: __SerdeContext): DescribeResourcePolicyResponse => {
-  return {
-    ResourcePolicy: output.ResourcePolicy != null ? de_ResourcePolicy(output.ResourcePolicy, context) : undefined,
-  } as any;
-};
+// de_DescribeResourcePolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1DestinationParentNotFoundException
- */
-const de_DestinationParentNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): DestinationParentNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DestinationParentNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1DisablePolicyTypeResponse
- */
-const de_DisablePolicyTypeResponse = (output: any, context: __SerdeContext): DisablePolicyTypeResponse => {
-  return {
-    Root: output.Root != null ? de_Root(output.Root, context) : undefined,
-  } as any;
-};
+// de_DisablePolicyTypeResponse omitted.
 
-/**
- * deserializeAws_json1_1DuplicateAccountException
- */
-const de_DuplicateAccountException = (output: any, context: __SerdeContext): DuplicateAccountException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DuplicateAccountException omitted.
 
-/**
- * deserializeAws_json1_1DuplicateHandshakeException
- */
-const de_DuplicateHandshakeException = (output: any, context: __SerdeContext): DuplicateHandshakeException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DuplicateHandshakeException omitted.
 
-/**
- * deserializeAws_json1_1DuplicateOrganizationalUnitException
- */
-const de_DuplicateOrganizationalUnitException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateOrganizationalUnitException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DuplicateOrganizationalUnitException omitted.
 
-/**
- * deserializeAws_json1_1DuplicatePolicyAttachmentException
- */
-const de_DuplicatePolicyAttachmentException = (
-  output: any,
-  context: __SerdeContext
-): DuplicatePolicyAttachmentException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DuplicatePolicyAttachmentException omitted.
 
-/**
- * deserializeAws_json1_1DuplicatePolicyException
- */
-const de_DuplicatePolicyException = (output: any, context: __SerdeContext): DuplicatePolicyException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DuplicatePolicyException omitted.
 
 /**
  * deserializeAws_json1_1EffectivePolicy
  */
 const de_EffectivePolicy = (output: any, context: __SerdeContext): EffectivePolicy => {
-  return {
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    PolicyContent: __expectString(output.PolicyContent),
-    PolicyType: __expectString(output.PolicyType),
-    TargetId: __expectString(output.TargetId),
-  } as any;
+  return take(output, {
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PolicyContent: __expectString,
+    PolicyType: __expectString,
+    TargetId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EffectivePolicyNotFoundException
- */
-const de_EffectivePolicyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): EffectivePolicyNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EffectivePolicyNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1EnableAllFeaturesResponse
  */
 const de_EnableAllFeaturesResponse = (output: any, context: __SerdeContext): EnableAllFeaturesResponse => {
-  return {
-    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
-  } as any;
+  return take(output, {
+    Handshake: (_: any) => de_Handshake(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1EnabledServicePrincipal
  */
 const de_EnabledServicePrincipal = (output: any, context: __SerdeContext): EnabledServicePrincipal => {
-  return {
-    DateEnabled:
-      output.DateEnabled != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateEnabled)))
-        : undefined,
-    ServicePrincipal: __expectString(output.ServicePrincipal),
-  } as any;
+  return take(output, {
+    DateEnabled: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ServicePrincipal: __expectString,
+  }) as any;
 };
 
 /**
@@ -6667,122 +5788,50 @@ const de_EnabledServicePrincipals = (output: any, context: __SerdeContext): Enab
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EnabledServicePrincipal(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1EnablePolicyTypeResponse
- */
-const de_EnablePolicyTypeResponse = (output: any, context: __SerdeContext): EnablePolicyTypeResponse => {
-  return {
-    Root: output.Root != null ? de_Root(output.Root, context) : undefined,
-  } as any;
-};
+// de_EnablePolicyTypeResponse omitted.
 
-/**
- * deserializeAws_json1_1FinalizingOrganizationException
- */
-const de_FinalizingOrganizationException = (output: any, context: __SerdeContext): FinalizingOrganizationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_FinalizingOrganizationException omitted.
 
 /**
  * deserializeAws_json1_1Handshake
  */
 const de_Handshake = (output: any, context: __SerdeContext): Handshake => {
-  return {
-    Action: __expectString(output.Action),
-    Arn: __expectString(output.Arn),
-    ExpirationTimestamp:
-      output.ExpirationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTimestamp)))
-        : undefined,
-    Id: __expectString(output.Id),
-    Parties: output.Parties != null ? de_HandshakeParties(output.Parties, context) : undefined,
-    RequestedTimestamp:
-      output.RequestedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTimestamp)))
-        : undefined,
-    Resources: output.Resources != null ? de_HandshakeResources(output.Resources, context) : undefined,
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    Action: __expectString,
+    Arn: __expectString,
+    ExpirationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    Parties: _json,
+    RequestedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Resources: (_: any) => de_HandshakeResources(_, context),
+    State: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1HandshakeAlreadyInStateException
- */
-const de_HandshakeAlreadyInStateException = (
-  output: any,
-  context: __SerdeContext
-): HandshakeAlreadyInStateException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_HandshakeAlreadyInStateException omitted.
 
-/**
- * deserializeAws_json1_1HandshakeConstraintViolationException
- */
-const de_HandshakeConstraintViolationException = (
-  output: any,
-  context: __SerdeContext
-): HandshakeConstraintViolationException => {
-  return {
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_HandshakeConstraintViolationException omitted.
 
-/**
- * deserializeAws_json1_1HandshakeNotFoundException
- */
-const de_HandshakeNotFoundException = (output: any, context: __SerdeContext): HandshakeNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_HandshakeNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1HandshakeParties
- */
-const de_HandshakeParties = (output: any, context: __SerdeContext): HandshakeParty[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HandshakeParty(entry, context);
-    });
-  return retVal;
-};
+// de_HandshakeParties omitted.
 
-/**
- * deserializeAws_json1_1HandshakeParty
- */
-const de_HandshakeParty = (output: any, context: __SerdeContext): HandshakeParty => {
-  return {
-    Id: __expectString(output.Id),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_HandshakeParty omitted.
 
 /**
  * deserializeAws_json1_1HandshakeResource
  */
 const de_HandshakeResource = (output: any, context: __SerdeContext): HandshakeResource => {
-  return {
-    Resources: output.Resources != null ? de_HandshakeResources(output.Resources, context) : undefined,
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
+  return take(output, {
+    Resources: (_: any) => de_HandshakeResources(_, context),
+    Type: __expectString,
+    Value: __expectString,
+  }) as any;
 };
 
 /**
@@ -6792,9 +5841,6 @@ const de_HandshakeResources = (output: any, context: __SerdeContext): HandshakeR
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_HandshakeResource(entry, context);
     });
   return retVal;
@@ -6807,35 +5853,14 @@ const de_Handshakes = (output: any, context: __SerdeContext): Handshake[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Handshake(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1InvalidHandshakeTransitionException
- */
-const de_InvalidHandshakeTransitionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidHandshakeTransitionException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidHandshakeTransitionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidInputException
- */
-const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_InvalidInputException omitted.
 
 /**
  * deserializeAws_json1_1InviteAccountToOrganizationResponse
@@ -6844,29 +5869,29 @@ const de_InviteAccountToOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): InviteAccountToOrganizationResponse => {
-  return {
-    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
-  } as any;
+  return take(output, {
+    Handshake: (_: any) => de_Handshake(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListAccountsForParentResponse
  */
 const de_ListAccountsForParentResponse = (output: any, context: __SerdeContext): ListAccountsForParentResponse => {
-  return {
-    Accounts: output.Accounts != null ? de_Accounts(output.Accounts, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Accounts: (_: any) => de_Accounts(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListAccountsResponse
  */
 const de_ListAccountsResponse = (output: any, context: __SerdeContext): ListAccountsResponse => {
-  return {
-    Accounts: output.Accounts != null ? de_Accounts(output.Accounts, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Accounts: (_: any) => de_Accounts(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -6876,36 +5901,22 @@ const de_ListAWSServiceAccessForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): ListAWSServiceAccessForOrganizationResponse => {
-  return {
-    EnabledServicePrincipals:
-      output.EnabledServicePrincipals != null
-        ? de_EnabledServicePrincipals(output.EnabledServicePrincipals, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EnabledServicePrincipals: (_: any) => de_EnabledServicePrincipals(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListChildrenResponse
- */
-const de_ListChildrenResponse = (output: any, context: __SerdeContext): ListChildrenResponse => {
-  return {
-    Children: output.Children != null ? de_Children(output.Children, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListChildrenResponse omitted.
 
 /**
  * deserializeAws_json1_1ListCreateAccountStatusResponse
  */
 const de_ListCreateAccountStatusResponse = (output: any, context: __SerdeContext): ListCreateAccountStatusResponse => {
-  return {
-    CreateAccountStatuses:
-      output.CreateAccountStatuses != null
-        ? de_CreateAccountStatuses(output.CreateAccountStatuses, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    CreateAccountStatuses: (_: any) => de_CreateAccountStatuses(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -6915,13 +5926,10 @@ const de_ListDelegatedAdministratorsResponse = (
   output: any,
   context: __SerdeContext
 ): ListDelegatedAdministratorsResponse => {
-  return {
-    DelegatedAdministrators:
-      output.DelegatedAdministrators != null
-        ? de_DelegatedAdministrators(output.DelegatedAdministrators, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DelegatedAdministrators: (_: any) => de_DelegatedAdministrators(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -6931,11 +5939,10 @@ const de_ListDelegatedServicesForAccountResponse = (
   output: any,
   context: __SerdeContext
 ): ListDelegatedServicesForAccountResponse => {
-  return {
-    DelegatedServices:
-      output.DelegatedServices != null ? de_DelegatedServices(output.DelegatedServices, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DelegatedServices: (_: any) => de_DelegatedServices(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -6945,10 +5952,10 @@ const de_ListHandshakesForAccountResponse = (
   output: any,
   context: __SerdeContext
 ): ListHandshakesForAccountResponse => {
-  return {
-    Handshakes: output.Handshakes != null ? de_Handshakes(output.Handshakes, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Handshakes: (_: any) => de_Handshakes(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -6958,551 +5965,107 @@ const de_ListHandshakesForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): ListHandshakesForOrganizationResponse => {
-  return {
-    Handshakes: output.Handshakes != null ? de_Handshakes(output.Handshakes, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Handshakes: (_: any) => de_Handshakes(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListOrganizationalUnitsForParentResponse
- */
-const de_ListOrganizationalUnitsForParentResponse = (
-  output: any,
-  context: __SerdeContext
-): ListOrganizationalUnitsForParentResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OrganizationalUnits:
-      output.OrganizationalUnits != null ? de_OrganizationalUnits(output.OrganizationalUnits, context) : undefined,
-  } as any;
-};
+// de_ListOrganizationalUnitsForParentResponse omitted.
 
-/**
- * deserializeAws_json1_1ListParentsResponse
- */
-const de_ListParentsResponse = (output: any, context: __SerdeContext): ListParentsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Parents: output.Parents != null ? de_Parents(output.Parents, context) : undefined,
-  } as any;
-};
+// de_ListParentsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListPoliciesForTargetResponse
- */
-const de_ListPoliciesForTargetResponse = (output: any, context: __SerdeContext): ListPoliciesForTargetResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Policies: output.Policies != null ? de_Policies(output.Policies, context) : undefined,
-  } as any;
-};
+// de_ListPoliciesForTargetResponse omitted.
 
-/**
- * deserializeAws_json1_1ListPoliciesResponse
- */
-const de_ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Policies: output.Policies != null ? de_Policies(output.Policies, context) : undefined,
-  } as any;
-};
+// de_ListPoliciesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListRootsResponse
- */
-const de_ListRootsResponse = (output: any, context: __SerdeContext): ListRootsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Roots: output.Roots != null ? de_Roots(output.Roots, context) : undefined,
-  } as any;
-};
+// de_ListRootsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTargetsForPolicyResponse
- */
-const de_ListTargetsForPolicyResponse = (output: any, context: __SerdeContext): ListTargetsForPolicyResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Targets: output.Targets != null ? de_PolicyTargets(output.Targets, context) : undefined,
-  } as any;
-};
+// de_ListTargetsForPolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1MalformedPolicyDocumentException
- */
-const de_MalformedPolicyDocumentException = (
-  output: any,
-  context: __SerdeContext
-): MalformedPolicyDocumentException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_MalformedPolicyDocumentException omitted.
 
-/**
- * deserializeAws_json1_1MasterCannotLeaveOrganizationException
- */
-const de_MasterCannotLeaveOrganizationException = (
-  output: any,
-  context: __SerdeContext
-): MasterCannotLeaveOrganizationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_MasterCannotLeaveOrganizationException omitted.
 
-/**
- * deserializeAws_json1_1Organization
- */
-const de_Organization = (output: any, context: __SerdeContext): Organization => {
-  return {
-    Arn: __expectString(output.Arn),
-    AvailablePolicyTypes:
-      output.AvailablePolicyTypes != null ? de_PolicyTypes(output.AvailablePolicyTypes, context) : undefined,
-    FeatureSet: __expectString(output.FeatureSet),
-    Id: __expectString(output.Id),
-    MasterAccountArn: __expectString(output.MasterAccountArn),
-    MasterAccountEmail: __expectString(output.MasterAccountEmail),
-    MasterAccountId: __expectString(output.MasterAccountId),
-  } as any;
-};
+// de_Organization omitted.
 
-/**
- * deserializeAws_json1_1OrganizationalUnit
- */
-const de_OrganizationalUnit = (output: any, context: __SerdeContext): OrganizationalUnit => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_OrganizationalUnit omitted.
 
-/**
- * deserializeAws_json1_1OrganizationalUnitNotEmptyException
- */
-const de_OrganizationalUnitNotEmptyException = (
-  output: any,
-  context: __SerdeContext
-): OrganizationalUnitNotEmptyException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_OrganizationalUnitNotEmptyException omitted.
 
-/**
- * deserializeAws_json1_1OrganizationalUnitNotFoundException
- */
-const de_OrganizationalUnitNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): OrganizationalUnitNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_OrganizationalUnitNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1OrganizationalUnits
- */
-const de_OrganizationalUnits = (output: any, context: __SerdeContext): OrganizationalUnit[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OrganizationalUnit(entry, context);
-    });
-  return retVal;
-};
+// de_OrganizationalUnits omitted.
 
-/**
- * deserializeAws_json1_1OrganizationNotEmptyException
- */
-const de_OrganizationNotEmptyException = (output: any, context: __SerdeContext): OrganizationNotEmptyException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_OrganizationNotEmptyException omitted.
 
-/**
- * deserializeAws_json1_1Parent
- */
-const de_Parent = (output: any, context: __SerdeContext): Parent => {
-  return {
-    Id: __expectString(output.Id),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Parent omitted.
 
-/**
- * deserializeAws_json1_1ParentNotFoundException
- */
-const de_ParentNotFoundException = (output: any, context: __SerdeContext): ParentNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ParentNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1Parents
- */
-const de_Parents = (output: any, context: __SerdeContext): Parent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Parent(entry, context);
-    });
-  return retVal;
-};
+// de_Parents omitted.
 
-/**
- * deserializeAws_json1_1Policies
- */
-const de_Policies = (output: any, context: __SerdeContext): PolicySummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PolicySummary(entry, context);
-    });
-  return retVal;
-};
+// de_Policies omitted.
 
-/**
- * deserializeAws_json1_1Policy
- */
-const de_Policy = (output: any, context: __SerdeContext): Policy => {
-  return {
-    Content: __expectString(output.Content),
-    PolicySummary: output.PolicySummary != null ? de_PolicySummary(output.PolicySummary, context) : undefined,
-  } as any;
-};
+// de_Policy omitted.
 
-/**
- * deserializeAws_json1_1PolicyChangesInProgressException
- */
-const de_PolicyChangesInProgressException = (
-  output: any,
-  context: __SerdeContext
-): PolicyChangesInProgressException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PolicyChangesInProgressException omitted.
 
-/**
- * deserializeAws_json1_1PolicyInUseException
- */
-const de_PolicyInUseException = (output: any, context: __SerdeContext): PolicyInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PolicyInUseException omitted.
 
-/**
- * deserializeAws_json1_1PolicyNotAttachedException
- */
-const de_PolicyNotAttachedException = (output: any, context: __SerdeContext): PolicyNotAttachedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PolicyNotAttachedException omitted.
 
-/**
- * deserializeAws_json1_1PolicyNotFoundException
- */
-const de_PolicyNotFoundException = (output: any, context: __SerdeContext): PolicyNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PolicyNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1PolicySummary
- */
-const de_PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    AwsManaged: __expectBoolean(output.AwsManaged),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_PolicySummary omitted.
 
-/**
- * deserializeAws_json1_1PolicyTargets
- */
-const de_PolicyTargets = (output: any, context: __SerdeContext): PolicyTargetSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PolicyTargetSummary(entry, context);
-    });
-  return retVal;
-};
+// de_PolicyTargets omitted.
 
-/**
- * deserializeAws_json1_1PolicyTargetSummary
- */
-const de_PolicyTargetSummary = (output: any, context: __SerdeContext): PolicyTargetSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-    TargetId: __expectString(output.TargetId),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_PolicyTargetSummary omitted.
 
-/**
- * deserializeAws_json1_1PolicyTypeAlreadyEnabledException
- */
-const de_PolicyTypeAlreadyEnabledException = (
-  output: any,
-  context: __SerdeContext
-): PolicyTypeAlreadyEnabledException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PolicyTypeAlreadyEnabledException omitted.
 
-/**
- * deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationException
- */
-const de_PolicyTypeNotAvailableForOrganizationException = (
-  output: any,
-  context: __SerdeContext
-): PolicyTypeNotAvailableForOrganizationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PolicyTypeNotAvailableForOrganizationException omitted.
 
-/**
- * deserializeAws_json1_1PolicyTypeNotEnabledException
- */
-const de_PolicyTypeNotEnabledException = (output: any, context: __SerdeContext): PolicyTypeNotEnabledException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PolicyTypeNotEnabledException omitted.
 
-/**
- * deserializeAws_json1_1PolicyTypes
- */
-const de_PolicyTypes = (output: any, context: __SerdeContext): PolicyTypeSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PolicyTypeSummary(entry, context);
-    });
-  return retVal;
-};
+// de_PolicyTypes omitted.
 
-/**
- * deserializeAws_json1_1PolicyTypeSummary
- */
-const de_PolicyTypeSummary = (output: any, context: __SerdeContext): PolicyTypeSummary => {
-  return {
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_PolicyTypeSummary omitted.
 
-/**
- * deserializeAws_json1_1PutResourcePolicyResponse
- */
-const de_PutResourcePolicyResponse = (output: any, context: __SerdeContext): PutResourcePolicyResponse => {
-  return {
-    ResourcePolicy: output.ResourcePolicy != null ? de_ResourcePolicy(output.ResourcePolicy, context) : undefined,
-  } as any;
-};
+// de_PutResourcePolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1ResourcePolicy
- */
-const de_ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
-  return {
-    Content: __expectString(output.Content),
-    ResourcePolicySummary:
-      output.ResourcePolicySummary != null
-        ? de_ResourcePolicySummary(output.ResourcePolicySummary, context)
-        : undefined,
-  } as any;
-};
+// de_ResourcePolicy omitted.
 
-/**
- * deserializeAws_json1_1ResourcePolicyNotFoundException
- */
-const de_ResourcePolicyNotFoundException = (output: any, context: __SerdeContext): ResourcePolicyNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourcePolicyNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ResourcePolicySummary
- */
-const de_ResourcePolicySummary = (output: any, context: __SerdeContext): ResourcePolicySummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_ResourcePolicySummary omitted.
 
-/**
- * deserializeAws_json1_1Root
- */
-const de_Root = (output: any, context: __SerdeContext): Root => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    PolicyTypes: output.PolicyTypes != null ? de_PolicyTypes(output.PolicyTypes, context) : undefined,
-  } as any;
-};
+// de_Root omitted.
 
-/**
- * deserializeAws_json1_1RootNotFoundException
- */
-const de_RootNotFoundException = (output: any, context: __SerdeContext): RootNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_RootNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1Roots
- */
-const de_Roots = (output: any, context: __SerdeContext): Root[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Root(entry, context);
-    });
-  return retVal;
-};
+// de_Roots omitted.
 
-/**
- * deserializeAws_json1_1ServiceException
- */
-const de_ServiceException = (output: any, context: __SerdeContext): ServiceException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceException omitted.
 
-/**
- * deserializeAws_json1_1SourceParentNotFoundException
- */
-const de_SourceParentNotFoundException = (output: any, context: __SerdeContext): SourceParentNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_SourceParentNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_1TargetNotFoundException
- */
-const de_TargetNotFoundException = (output: any, context: __SerdeContext): TargetNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TargetNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1TooManyRequestsException
- */
-const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
-  return {
-    Message: __expectString(output.Message),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_TooManyRequestsException omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedAPIEndpointException
- */
-const de_UnsupportedAPIEndpointException = (output: any, context: __SerdeContext): UnsupportedAPIEndpointException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnsupportedAPIEndpointException omitted.
 
-/**
- * deserializeAws_json1_1UpdateOrganizationalUnitResponse
- */
-const de_UpdateOrganizationalUnitResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateOrganizationalUnitResponse => {
-  return {
-    OrganizationalUnit:
-      output.OrganizationalUnit != null ? de_OrganizationalUnit(output.OrganizationalUnit, context) : undefined,
-  } as any;
-};
+// de_UpdateOrganizationalUnitResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdatePolicyResponse
- */
-const de_UpdatePolicyResponse = (output: any, context: __SerdeContext): UpdatePolicyResponse => {
-  return {
-    Policy: output.Policy != null ? de_Policy(output.Policy, context) : undefined,
-  } as any;
-};
+// de_UpdatePolicyResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -7524,6 +6087,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

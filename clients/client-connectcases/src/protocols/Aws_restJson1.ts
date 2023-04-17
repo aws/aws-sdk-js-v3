@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
@@ -9,12 +10,13 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -74,24 +76,19 @@ import {
   BasicLayout,
   CaseEventIncludedData,
   CaseFilter,
-  CaseSummary,
   CommentContent,
   CommentFilter,
   ConflictException,
   Contact,
   ContactContent,
   ContactFilter,
-  DomainSummary,
   EventBridgeConfiguration,
   EventIncludedData,
-  FieldError,
   FieldFilter,
   FieldGroup,
   FieldIdentifier,
   FieldItem,
   FieldOption,
-  FieldOptionError,
-  FieldSummary,
   FieldValue,
   FieldValueUnion,
   GetFieldResponse,
@@ -99,7 +96,6 @@ import {
   LayoutConfiguration,
   LayoutContent,
   LayoutSections,
-  LayoutSummary,
   RelatedItemContent,
   RelatedItemEventIncludedData,
   RelatedItemInputContent,
@@ -111,7 +107,6 @@ import {
   Section,
   ServiceQuotaExceededException,
   Sort,
-  TemplateSummary,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -131,9 +126,11 @@ export const se_BatchGetFieldCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/fields-batch";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.fields != null && { fields: se_BatchGetFieldIdentifierList(input.fields, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fields: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -162,9 +159,11 @@ export const se_BatchPutFieldOptionsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "fieldId", () => input.fieldId!, "{fieldId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.options != null && { options: se_FieldOptionsList(input.options, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      options: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -191,11 +190,13 @@ export const se_CreateCaseCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/cases";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.fields != null && { fields: se_FieldValueList(input.fields, context) }),
-    ...(input.templateId != null && { templateId: input.templateId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      fields: (_) => se_FieldValueList(_, context),
+      templateId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -220,9 +221,11 @@ export const se_CreateDomainCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains";
   let body: any;
-  body = JSON.stringify({
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -249,11 +252,13 @@ export const se_CreateFieldCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/fields";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -280,10 +285,12 @@ export const se_CreateLayoutCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/layouts";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.content != null && { content: se_LayoutContent(input.content, context) }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      content: (_) => _json(_),
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -312,10 +319,12 @@ export const se_CreateRelatedItemCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "caseId", () => input.caseId!, "{caseId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.content != null && { content: se_RelatedItemInputContent(input.content, context) }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      content: (_) => _json(_),
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -342,15 +351,15 @@ export const se_CreateTemplateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/templates";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.layoutConfiguration != null && {
-      layoutConfiguration: se_LayoutConfiguration(input.layoutConfiguration, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.requiredFields != null && { requiredFields: se_RequiredFieldList(input.requiredFields, context) }),
-    ...(input.status != null && { status: input.status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      layoutConfiguration: (_) => _json(_),
+      name: [],
+      requiredFields: (_) => _json(_),
+      status: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -401,10 +410,12 @@ export const se_GetCaseCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "caseId", () => input.caseId!, "{caseId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.fields != null && { fields: se_FieldIdentifierList(input.fields, context) }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fields: (_) => _json(_),
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -531,11 +542,13 @@ export const se_ListCasesForContactCommand = async (
     "/domains/{domainId}/list-cases-for-contact";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.contactArn != null && { contactArn: input.contactArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contactArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -733,9 +746,11 @@ export const se_PutCaseEventConfigurationCommand = async (
     "/domains/{domainId}/case-event-configuration";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.eventBridge != null && { eventBridge: se_EventBridgeConfiguration(input.eventBridge, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      eventBridge: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -762,14 +777,16 @@ export const se_SearchCasesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/cases-search";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.fields != null && { fields: se_FieldIdentifierList(input.fields, context) }),
-    ...(input.filter != null && { filter: se_CaseFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.searchTerm != null && { searchTerm: input.searchTerm }),
-    ...(input.sorts != null && { sorts: se_SortList(input.sorts, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fields: (_) => _json(_),
+      filter: (_) => se_CaseFilter(_, context),
+      maxResults: [],
+      nextToken: [],
+      searchTerm: [],
+      sorts: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -798,11 +815,13 @@ export const se_SearchRelatedItemsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "caseId", () => input.caseId!, "{caseId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_RelatedItemFilterList(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -828,9 +847,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{arn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "arn", () => input.arn!, "{arn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => se_Tags(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -888,9 +909,11 @@ export const se_UpdateCaseCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "caseId", () => input.caseId!, "{caseId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.fields != null && { fields: se_FieldValueList(input.fields, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fields: (_) => se_FieldValueList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -918,10 +941,12 @@ export const se_UpdateFieldCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "fieldId", () => input.fieldId!, "{fieldId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -949,10 +974,12 @@ export const se_UpdateLayoutCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "layoutId", () => input.layoutId!, "{layoutId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.content != null && { content: se_LayoutContent(input.content, context) }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      content: (_) => _json(_),
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -981,15 +1008,15 @@ export const se_UpdateTemplateCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "templateId", () => input.templateId!, "{templateId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.layoutConfiguration != null && {
-      layoutConfiguration: se_LayoutConfiguration(input.layoutConfiguration, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.requiredFields != null && { requiredFields: se_RequiredFieldList(input.requiredFields, context) }),
-    ...(input.status != null && { status: input.status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      layoutConfiguration: (_) => _json(_),
+      name: [],
+      requiredFields: (_) => _json(_),
+      status: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1015,12 +1042,11 @@ export const de_BatchGetFieldCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_BatchGetFieldErrorList(data.errors, context);
-  }
-  if (data.fields != null) {
-    contents.fields = de_BatchGetFieldList(data.fields, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+    fields: (_) => de_BatchGetFieldList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1054,10 +1080,9 @@ const de_BatchGetFieldCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1077,9 +1102,10 @@ export const de_BatchPutFieldOptionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_FieldOptionErrorList(data.errors, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1116,10 +1142,9 @@ const de_BatchPutFieldOptionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1139,12 +1164,11 @@ export const de_CreateCaseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.caseArn != null) {
-    contents.caseArn = __expectString(data.caseArn);
-  }
-  if (data.caseId != null) {
-    contents.caseId = __expectString(data.caseId);
-  }
+  const doc = take(data, {
+    caseArn: __expectString,
+    caseId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1181,10 +1205,9 @@ const de_CreateCaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1204,15 +1227,12 @@ export const de_CreateDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainArn != null) {
-    contents.domainArn = __expectString(data.domainArn);
-  }
-  if (data.domainId != null) {
-    contents.domainId = __expectString(data.domainId);
-  }
-  if (data.domainStatus != null) {
-    contents.domainStatus = __expectString(data.domainStatus);
-  }
+  const doc = take(data, {
+    domainArn: __expectString,
+    domainId: __expectString,
+    domainStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1249,10 +1269,9 @@ const de_CreateDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1272,12 +1291,11 @@ export const de_CreateFieldCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fieldArn != null) {
-    contents.fieldArn = __expectString(data.fieldArn);
-  }
-  if (data.fieldId != null) {
-    contents.fieldId = __expectString(data.fieldId);
-  }
+  const doc = take(data, {
+    fieldArn: __expectString,
+    fieldId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1317,10 +1335,9 @@ const de_CreateFieldCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1340,12 +1357,11 @@ export const de_CreateLayoutCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.layoutArn != null) {
-    contents.layoutArn = __expectString(data.layoutArn);
-  }
-  if (data.layoutId != null) {
-    contents.layoutId = __expectString(data.layoutId);
-  }
+  const doc = take(data, {
+    layoutArn: __expectString,
+    layoutId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1385,10 +1401,9 @@ const de_CreateLayoutCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1408,12 +1423,11 @@ export const de_CreateRelatedItemCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.relatedItemArn != null) {
-    contents.relatedItemArn = __expectString(data.relatedItemArn);
-  }
-  if (data.relatedItemId != null) {
-    contents.relatedItemId = __expectString(data.relatedItemId);
-  }
+  const doc = take(data, {
+    relatedItemArn: __expectString,
+    relatedItemId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1450,10 +1464,9 @@ const de_CreateRelatedItemCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1473,12 +1486,11 @@ export const de_CreateTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.templateArn != null) {
-    contents.templateArn = __expectString(data.templateArn);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
+  const doc = take(data, {
+    templateArn: __expectString,
+    templateId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1518,10 +1530,9 @@ const de_CreateTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1577,10 +1588,9 @@ const de_DeleteDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1600,18 +1610,13 @@ export const de_GetCaseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fields != null) {
-    contents.fields = de_FieldValueList(data.fields, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.tags != null) {
-    contents.tags = de_Tags(data.tags, context);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
+  const doc = take(data, {
+    fields: (_) => de_FieldValueList(_, context),
+    nextToken: __expectString,
+    tags: (_) => de_Tags(_, context),
+    templateId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1645,10 +1650,9 @@ const de_GetCaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1668,9 +1672,10 @@ export const de_GetCaseEventConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.eventBridge != null) {
-    contents.eventBridge = de_EventBridgeConfiguration(data.eventBridge, context);
-  }
+  const doc = take(data, {
+    eventBridge: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1704,10 +1709,9 @@ const de_GetCaseEventConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1727,24 +1731,15 @@ export const de_GetDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdTime != null) {
-    contents.createdTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdTime));
-  }
-  if (data.domainArn != null) {
-    contents.domainArn = __expectString(data.domainArn);
-  }
-  if (data.domainId != null) {
-    contents.domainId = __expectString(data.domainId);
-  }
-  if (data.domainStatus != null) {
-    contents.domainStatus = __expectString(data.domainStatus);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    createdTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    domainArn: __expectString,
+    domainId: __expectString,
+    domainStatus: __expectString,
+    name: __expectString,
+    tags: (_) => de_Tags(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1778,10 +1773,9 @@ const de_GetDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1801,21 +1795,14 @@ export const de_GetLayoutCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.content != null) {
-    contents.content = de_LayoutContent(__expectUnion(data.content), context);
-  }
-  if (data.layoutArn != null) {
-    contents.layoutArn = __expectString(data.layoutArn);
-  }
-  if (data.layoutId != null) {
-    contents.layoutId = __expectString(data.layoutId);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    content: (_) => _json(__expectUnion(_)),
+    layoutArn: __expectString,
+    layoutId: __expectString,
+    name: __expectString,
+    tags: (_) => de_Tags(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1849,10 +1836,9 @@ const de_GetLayoutCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1872,30 +1858,17 @@ export const de_GetTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.layoutConfiguration != null) {
-    contents.layoutConfiguration = de_LayoutConfiguration(data.layoutConfiguration, context);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.requiredFields != null) {
-    contents.requiredFields = de_RequiredFieldList(data.requiredFields, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_Tags(data.tags, context);
-  }
-  if (data.templateArn != null) {
-    contents.templateArn = __expectString(data.templateArn);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
+  const doc = take(data, {
+    description: __expectString,
+    layoutConfiguration: _json,
+    name: __expectString,
+    requiredFields: _json,
+    status: __expectString,
+    tags: (_) => de_Tags(_, context),
+    templateArn: __expectString,
+    templateId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1929,10 +1902,9 @@ const de_GetTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1952,12 +1924,11 @@ export const de_ListCasesForContactCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cases != null) {
-    contents.cases = de_CaseSummaryList(data.cases, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    cases: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1991,10 +1962,9 @@ const de_ListCasesForContactCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2014,12 +1984,11 @@ export const de_ListDomainsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domains != null) {
-    contents.domains = de_DomainSummaryList(data.domains, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    domains: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2050,10 +2019,9 @@ const de_ListDomainsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2073,12 +2041,11 @@ export const de_ListFieldOptionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.options != null) {
-    contents.options = de_FieldOptionsList(data.options, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    options: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2112,10 +2079,9 @@ const de_ListFieldOptionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2135,12 +2101,11 @@ export const de_ListFieldsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fields != null) {
-    contents.fields = de_FieldSummaryList(data.fields, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    fields: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2174,10 +2139,9 @@ const de_ListFieldsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2197,12 +2161,11 @@ export const de_ListLayoutsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.layouts != null) {
-    contents.layouts = de_LayoutSummaryList(data.layouts, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    layouts: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2236,10 +2199,9 @@ const de_ListLayoutsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2259,9 +2221,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: (_) => de_Tags(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2295,10 +2258,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2318,12 +2280,11 @@ export const de_ListTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.templates != null) {
-    contents.templates = de_TemplateSummaryList(data.templates, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    templates: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2357,10 +2318,9 @@ const de_ListTemplatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2413,10 +2373,9 @@ const de_PutCaseEventConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2436,12 +2395,11 @@ export const de_SearchCasesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cases != null) {
-    contents.cases = de_SearchCasesResponseItemList(data.cases, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    cases: (_) => de_SearchCasesResponseItemList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2475,10 +2433,9 @@ const de_SearchCasesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2498,12 +2455,11 @@ export const de_SearchRelatedItemsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.relatedItems != null) {
-    contents.relatedItems = de_SearchRelatedItemsResponseItemList(data.relatedItems, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    relatedItems: (_) => de_SearchRelatedItemsResponseItemList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2537,10 +2493,9 @@ const de_SearchRelatedItemsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2593,10 +2548,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2649,10 +2603,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2705,10 +2658,9 @@ const de_UpdateCaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2764,10 +2716,9 @@ const de_UpdateFieldCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2826,10 +2777,9 @@ const de_UpdateLayoutCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2885,16 +2835,15 @@ const de_UpdateTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2904,9 +2853,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2920,9 +2870,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2944,9 +2895,10 @@ const de_InternalServerExceptionRes = async (
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2963,15 +2915,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2988,9 +2937,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3004,9 +2954,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3020,9 +2971,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3030,35 +2982,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1BasicLayout
- */
-const se_BasicLayout = (input: BasicLayout, context: __SerdeContext): any => {
-  return {
-    ...(input.moreInfo != null && { moreInfo: se_LayoutSections(input.moreInfo, context) }),
-    ...(input.topPanel != null && { topPanel: se_LayoutSections(input.topPanel, context) }),
-  };
-};
+// se_BasicLayout omitted.
 
-/**
- * serializeAws_restJson1BatchGetFieldIdentifierList
- */
-const se_BatchGetFieldIdentifierList = (input: FieldIdentifier[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FieldIdentifier(entry, context);
-    });
-};
+// se_BatchGetFieldIdentifierList omitted.
 
-/**
- * serializeAws_restJson1CaseEventIncludedData
- */
-const se_CaseEventIncludedData = (input: CaseEventIncludedData, context: __SerdeContext): any => {
-  return {
-    ...(input.fields != null && { fields: se_FieldIdentifierList(input.fields, context) }),
-  };
-};
+// se_CaseEventIncludedData omitted.
 
 /**
  * serializeAws_restJson1CaseFilter
@@ -3083,74 +3011,19 @@ const se_CaseFilterList = (input: CaseFilter[], context: __SerdeContext): any =>
     });
 };
 
-/**
- * serializeAws_restJson1ChannelList
- */
-const se_ChannelList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ChannelList omitted.
 
-/**
- * serializeAws_restJson1CommentContent
- */
-const se_CommentContent = (input: CommentContent, context: __SerdeContext): any => {
-  return {
-    ...(input.body != null && { body: input.body }),
-    ...(input.contentType != null && { contentType: input.contentType }),
-  };
-};
+// se_CommentContent omitted.
 
-/**
- * serializeAws_restJson1CommentFilter
- */
-const se_CommentFilter = (input: CommentFilter, context: __SerdeContext): any => {
-  return {};
-};
+// se_CommentFilter omitted.
 
-/**
- * serializeAws_restJson1Contact
- */
-const se_Contact = (input: Contact, context: __SerdeContext): any => {
-  return {
-    ...(input.contactArn != null && { contactArn: input.contactArn }),
-  };
-};
+// se_Contact omitted.
 
-/**
- * serializeAws_restJson1ContactFilter
- */
-const se_ContactFilter = (input: ContactFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.channel != null && { channel: se_ChannelList(input.channel, context) }),
-    ...(input.contactArn != null && { contactArn: input.contactArn }),
-  };
-};
+// se_ContactFilter omitted.
 
-/**
- * serializeAws_restJson1EventBridgeConfiguration
- */
-const se_EventBridgeConfiguration = (input: EventBridgeConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.includedData != null && { includedData: se_EventIncludedData(input.includedData, context) }),
-  };
-};
+// se_EventBridgeConfiguration omitted.
 
-/**
- * serializeAws_restJson1EventIncludedData
- */
-const se_EventIncludedData = (input: EventIncludedData, context: __SerdeContext): any => {
-  return {
-    ...(input.caseData != null && { caseData: se_CaseEventIncludedData(input.caseData, context) }),
-    ...(input.relatedItemData != null && {
-      relatedItemData: se_RelatedItemEventIncludedData(input.relatedItemData, context),
-    }),
-  };
-};
+// se_EventIncludedData omitted.
 
 /**
  * serializeAws_restJson1FieldFilter
@@ -3167,86 +3040,28 @@ const se_FieldFilter = (input: FieldFilter, context: __SerdeContext): any => {
   });
 };
 
-/**
- * serializeAws_restJson1FieldGroup
- */
-const se_FieldGroup = (input: FieldGroup, context: __SerdeContext): any => {
-  return {
-    ...(input.fields != null && { fields: se_FieldList(input.fields, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_FieldGroup omitted.
 
-/**
- * serializeAws_restJson1FieldIdentifier
- */
-const se_FieldIdentifier = (input: FieldIdentifier, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_FieldIdentifier omitted.
 
-/**
- * serializeAws_restJson1FieldIdentifierList
- */
-const se_FieldIdentifierList = (input: FieldIdentifier[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FieldIdentifier(entry, context);
-    });
-};
+// se_FieldIdentifierList omitted.
 
-/**
- * serializeAws_restJson1FieldItem
- */
-const se_FieldItem = (input: FieldItem, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_FieldItem omitted.
 
-/**
- * serializeAws_restJson1FieldList
- */
-const se_FieldList = (input: FieldItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FieldItem(entry, context);
-    });
-};
+// se_FieldList omitted.
 
-/**
- * serializeAws_restJson1FieldOption
- */
-const se_FieldOption = (input: FieldOption, context: __SerdeContext): any => {
-  return {
-    ...(input.active != null && { active: input.active }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_FieldOption omitted.
 
-/**
- * serializeAws_restJson1FieldOptionsList
- */
-const se_FieldOptionsList = (input: FieldOption[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FieldOption(entry, context);
-    });
-};
+// se_FieldOptionsList omitted.
 
 /**
  * serializeAws_restJson1FieldValue
  */
 const se_FieldValue = (input: FieldValue, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.value != null && { value: se_FieldValueUnion(input.value, context) }),
-  };
+  return take(input, {
+    id: [],
+    value: (_) => se_FieldValueUnion(_, context),
+  });
 };
 
 /**
@@ -3272,137 +3087,31 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
   });
 };
 
-/**
- * serializeAws_restJson1LayoutConfiguration
- */
-const se_LayoutConfiguration = (input: LayoutConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultLayout != null && { defaultLayout: input.defaultLayout }),
-  };
-};
+// se_LayoutConfiguration omitted.
 
-/**
- * serializeAws_restJson1LayoutContent
- */
-const se_LayoutContent = (input: LayoutContent, context: __SerdeContext): any => {
-  return LayoutContent.visit(input, {
-    basic: (value) => ({ basic: se_BasicLayout(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_LayoutContent omitted.
 
-/**
- * serializeAws_restJson1LayoutSections
- */
-const se_LayoutSections = (input: LayoutSections, context: __SerdeContext): any => {
-  return {
-    ...(input.sections != null && { sections: se_SectionsList(input.sections, context) }),
-  };
-};
+// se_LayoutSections omitted.
 
-/**
- * serializeAws_restJson1RelatedItemEventIncludedData
- */
-const se_RelatedItemEventIncludedData = (input: RelatedItemEventIncludedData, context: __SerdeContext): any => {
-  return {
-    ...(input.includeContent != null && { includeContent: input.includeContent }),
-  };
-};
+// se_RelatedItemEventIncludedData omitted.
 
-/**
- * serializeAws_restJson1RelatedItemFilterList
- */
-const se_RelatedItemFilterList = (input: RelatedItemTypeFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RelatedItemTypeFilter(entry, context);
-    });
-};
+// se_RelatedItemFilterList omitted.
 
-/**
- * serializeAws_restJson1RelatedItemInputContent
- */
-const se_RelatedItemInputContent = (input: RelatedItemInputContent, context: __SerdeContext): any => {
-  return RelatedItemInputContent.visit(input, {
-    comment: (value) => ({ comment: se_CommentContent(value, context) }),
-    contact: (value) => ({ contact: se_Contact(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_RelatedItemInputContent omitted.
 
-/**
- * serializeAws_restJson1RelatedItemTypeFilter
- */
-const se_RelatedItemTypeFilter = (input: RelatedItemTypeFilter, context: __SerdeContext): any => {
-  return RelatedItemTypeFilter.visit(input, {
-    comment: (value) => ({ comment: se_CommentFilter(value, context) }),
-    contact: (value) => ({ contact: se_ContactFilter(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_RelatedItemTypeFilter omitted.
 
-/**
- * serializeAws_restJson1RequiredField
- */
-const se_RequiredField = (input: RequiredField, context: __SerdeContext): any => {
-  return {
-    ...(input.fieldId != null && { fieldId: input.fieldId }),
-  };
-};
+// se_RequiredField omitted.
 
-/**
- * serializeAws_restJson1RequiredFieldList
- */
-const se_RequiredFieldList = (input: RequiredField[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RequiredField(entry, context);
-    });
-};
+// se_RequiredFieldList omitted.
 
-/**
- * serializeAws_restJson1Section
- */
-const se_Section = (input: Section, context: __SerdeContext): any => {
-  return Section.visit(input, {
-    fieldGroup: (value) => ({ fieldGroup: se_FieldGroup(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_Section omitted.
 
-/**
- * serializeAws_restJson1SectionsList
- */
-const se_SectionsList = (input: Section[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Section(entry, context);
-    });
-};
+// se_SectionsList omitted.
 
-/**
- * serializeAws_restJson1Sort
- */
-const se_Sort = (input: Sort, context: __SerdeContext): any => {
-  return {
-    ...(input.fieldId != null && { fieldId: input.fieldId }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_Sort omitted.
 
-/**
- * serializeAws_restJson1SortList
- */
-const se_SortList = (input: Sort[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Sort(entry, context);
-    });
-};
+// se_SortList omitted.
 
 /**
  * serializeAws_restJson1Tags
@@ -3418,30 +3127,9 @@ const se_Tags = (input: Record<string, string>, context: __SerdeContext): any =>
   }, {});
 };
 
-/**
- * deserializeAws_restJson1BasicLayout
- */
-const de_BasicLayout = (output: any, context: __SerdeContext): BasicLayout => {
-  return {
-    moreInfo: output.moreInfo != null ? de_LayoutSections(output.moreInfo, context) : undefined,
-    topPanel: output.topPanel != null ? de_LayoutSections(output.topPanel, context) : undefined,
-  } as any;
-};
+// de_BasicLayout omitted.
 
-/**
- * deserializeAws_restJson1BatchGetFieldErrorList
- */
-const de_BatchGetFieldErrorList = (output: any, context: __SerdeContext): FieldError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FieldError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetFieldErrorList omitted.
 
 /**
  * deserializeAws_restJson1BatchGetFieldList
@@ -3450,276 +3138,70 @@ const de_BatchGetFieldList = (output: any, context: __SerdeContext): GetFieldRes
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_GetFieldResponse(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1CaseEventIncludedData
- */
-const de_CaseEventIncludedData = (output: any, context: __SerdeContext): CaseEventIncludedData => {
-  return {
-    fields: output.fields != null ? de_FieldIdentifierList(output.fields, context) : undefined,
-  } as any;
-};
+// de_CaseEventIncludedData omitted.
 
-/**
- * deserializeAws_restJson1CaseSummary
- */
-const de_CaseSummary = (output: any, context: __SerdeContext): CaseSummary => {
-  return {
-    caseId: __expectString(output.caseId),
-    templateId: __expectString(output.templateId),
-  } as any;
-};
+// de_CaseSummary omitted.
 
-/**
- * deserializeAws_restJson1CaseSummaryList
- */
-const de_CaseSummaryList = (output: any, context: __SerdeContext): CaseSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CaseSummary(entry, context);
-    });
-  return retVal;
-};
+// de_CaseSummaryList omitted.
 
-/**
- * deserializeAws_restJson1CommentContent
- */
-const de_CommentContent = (output: any, context: __SerdeContext): CommentContent => {
-  return {
-    body: __expectString(output.body),
-    contentType: __expectString(output.contentType),
-  } as any;
-};
+// de_CommentContent omitted.
 
 /**
  * deserializeAws_restJson1ContactContent
  */
 const de_ContactContent = (output: any, context: __SerdeContext): ContactContent => {
-  return {
-    channel: __expectString(output.channel),
-    connectedToSystemTime:
-      output.connectedToSystemTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.connectedToSystemTime))
-        : undefined,
-    contactArn: __expectString(output.contactArn),
-  } as any;
+  return take(output, {
+    channel: __expectString,
+    connectedToSystemTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    contactArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DomainSummary
- */
-const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
-  return {
-    domainArn: __expectString(output.domainArn),
-    domainId: __expectString(output.domainId),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_DomainSummary omitted.
 
-/**
- * deserializeAws_restJson1DomainSummaryList
- */
-const de_DomainSummaryList = (output: any, context: __SerdeContext): DomainSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DomainSummary(entry, context);
-    });
-  return retVal;
-};
+// de_DomainSummaryList omitted.
 
-/**
- * deserializeAws_restJson1EventBridgeConfiguration
- */
-const de_EventBridgeConfiguration = (output: any, context: __SerdeContext): EventBridgeConfiguration => {
-  return {
-    enabled: __expectBoolean(output.enabled),
-    includedData: output.includedData != null ? de_EventIncludedData(output.includedData, context) : undefined,
-  } as any;
-};
+// de_EventBridgeConfiguration omitted.
 
-/**
- * deserializeAws_restJson1EventIncludedData
- */
-const de_EventIncludedData = (output: any, context: __SerdeContext): EventIncludedData => {
-  return {
-    caseData: output.caseData != null ? de_CaseEventIncludedData(output.caseData, context) : undefined,
-    relatedItemData:
-      output.relatedItemData != null ? de_RelatedItemEventIncludedData(output.relatedItemData, context) : undefined,
-  } as any;
-};
+// de_EventIncludedData omitted.
 
-/**
- * deserializeAws_restJson1FieldError
- */
-const de_FieldError = (output: any, context: __SerdeContext): FieldError => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    id: __expectString(output.id),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FieldError omitted.
 
-/**
- * deserializeAws_restJson1FieldGroup
- */
-const de_FieldGroup = (output: any, context: __SerdeContext): FieldGroup => {
-  return {
-    fields: output.fields != null ? de_FieldList(output.fields, context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_FieldGroup omitted.
 
-/**
- * deserializeAws_restJson1FieldIdentifier
- */
-const de_FieldIdentifier = (output: any, context: __SerdeContext): FieldIdentifier => {
-  return {
-    id: __expectString(output.id),
-  } as any;
-};
+// de_FieldIdentifier omitted.
 
-/**
- * deserializeAws_restJson1FieldIdentifierList
- */
-const de_FieldIdentifierList = (output: any, context: __SerdeContext): FieldIdentifier[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FieldIdentifier(entry, context);
-    });
-  return retVal;
-};
+// de_FieldIdentifierList omitted.
 
-/**
- * deserializeAws_restJson1FieldItem
- */
-const de_FieldItem = (output: any, context: __SerdeContext): FieldItem => {
-  return {
-    id: __expectString(output.id),
-  } as any;
-};
+// de_FieldItem omitted.
 
-/**
- * deserializeAws_restJson1FieldList
- */
-const de_FieldList = (output: any, context: __SerdeContext): FieldItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FieldItem(entry, context);
-    });
-  return retVal;
-};
+// de_FieldList omitted.
 
-/**
- * deserializeAws_restJson1FieldOption
- */
-const de_FieldOption = (output: any, context: __SerdeContext): FieldOption => {
-  return {
-    active: __expectBoolean(output.active),
-    name: __expectString(output.name),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_FieldOption omitted.
 
-/**
- * deserializeAws_restJson1FieldOptionError
- */
-const de_FieldOptionError = (output: any, context: __SerdeContext): FieldOptionError => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    message: __expectString(output.message),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_FieldOptionError omitted.
 
-/**
- * deserializeAws_restJson1FieldOptionErrorList
- */
-const de_FieldOptionErrorList = (output: any, context: __SerdeContext): FieldOptionError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FieldOptionError(entry, context);
-    });
-  return retVal;
-};
+// de_FieldOptionErrorList omitted.
 
-/**
- * deserializeAws_restJson1FieldOptionsList
- */
-const de_FieldOptionsList = (output: any, context: __SerdeContext): FieldOption[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FieldOption(entry, context);
-    });
-  return retVal;
-};
+// de_FieldOptionsList omitted.
 
-/**
- * deserializeAws_restJson1FieldSummary
- */
-const de_FieldSummary = (output: any, context: __SerdeContext): FieldSummary => {
-  return {
-    fieldArn: __expectString(output.fieldArn),
-    fieldId: __expectString(output.fieldId),
-    name: __expectString(output.name),
-    namespace: __expectString(output.namespace),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_FieldSummary omitted.
 
-/**
- * deserializeAws_restJson1FieldSummaryList
- */
-const de_FieldSummaryList = (output: any, context: __SerdeContext): FieldSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FieldSummary(entry, context);
-    });
-  return retVal;
-};
+// de_FieldSummaryList omitted.
 
 /**
  * deserializeAws_restJson1FieldValue
  */
 const de_FieldValue = (output: any, context: __SerdeContext): FieldValue => {
-  return {
-    id: __expectString(output.id),
-    value: output.value != null ? de_FieldValueUnion(__expectUnion(output.value), context) : undefined,
-  } as any;
+  return take(output, {
+    id: __expectString,
+    value: (_: any) => de_FieldValueUnion(__expectUnion(_), context),
+  }) as any;
 };
 
 /**
@@ -3729,9 +3211,6 @@ const de_FieldValueList = (output: any, context: __SerdeContext): FieldValue[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FieldValue(entry, context);
     });
   return retVal;
@@ -3757,72 +3236,26 @@ const de_FieldValueUnion = (output: any, context: __SerdeContext): FieldValueUni
  * deserializeAws_restJson1GetFieldResponse
  */
 const de_GetFieldResponse = (output: any, context: __SerdeContext): GetFieldResponse => {
-  return {
-    description: __expectString(output.description),
-    fieldArn: __expectString(output.fieldArn),
-    fieldId: __expectString(output.fieldId),
-    name: __expectString(output.name),
-    namespace: __expectString(output.namespace),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    description: __expectString,
+    fieldArn: __expectString,
+    fieldId: __expectString,
+    name: __expectString,
+    namespace: __expectString,
+    tags: (_: any) => de_Tags(_, context),
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1LayoutConfiguration
- */
-const de_LayoutConfiguration = (output: any, context: __SerdeContext): LayoutConfiguration => {
-  return {
-    defaultLayout: __expectString(output.defaultLayout),
-  } as any;
-};
+// de_LayoutConfiguration omitted.
 
-/**
- * deserializeAws_restJson1LayoutContent
- */
-const de_LayoutContent = (output: any, context: __SerdeContext): LayoutContent => {
-  if (output.basic != null) {
-    return {
-      basic: de_BasicLayout(output.basic, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_LayoutContent omitted.
 
-/**
- * deserializeAws_restJson1LayoutSections
- */
-const de_LayoutSections = (output: any, context: __SerdeContext): LayoutSections => {
-  return {
-    sections: output.sections != null ? de_SectionsList(output.sections, context) : undefined,
-  } as any;
-};
+// de_LayoutSections omitted.
 
-/**
- * deserializeAws_restJson1LayoutSummary
- */
-const de_LayoutSummary = (output: any, context: __SerdeContext): LayoutSummary => {
-  return {
-    layoutArn: __expectString(output.layoutArn),
-    layoutId: __expectString(output.layoutId),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_LayoutSummary omitted.
 
-/**
- * deserializeAws_restJson1LayoutSummaryList
- */
-const de_LayoutSummaryList = (output: any, context: __SerdeContext): LayoutSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LayoutSummary(entry, context);
-    });
-  return retVal;
-};
+// de_LayoutSummaryList omitted.
 
 /**
  * deserializeAws_restJson1RelatedItemContent
@@ -3830,7 +3263,7 @@ const de_LayoutSummaryList = (output: any, context: __SerdeContext): LayoutSumma
 const de_RelatedItemContent = (output: any, context: __SerdeContext): RelatedItemContent => {
   if (output.comment != null) {
     return {
-      comment: de_CommentContent(output.comment, context),
+      comment: _json(output.comment),
     };
   }
   if (output.contact != null) {
@@ -3841,49 +3274,22 @@ const de_RelatedItemContent = (output: any, context: __SerdeContext): RelatedIte
   return { $unknown: Object.entries(output)[0] };
 };
 
-/**
- * deserializeAws_restJson1RelatedItemEventIncludedData
- */
-const de_RelatedItemEventIncludedData = (output: any, context: __SerdeContext): RelatedItemEventIncludedData => {
-  return {
-    includeContent: __expectBoolean(output.includeContent),
-  } as any;
-};
+// de_RelatedItemEventIncludedData omitted.
 
-/**
- * deserializeAws_restJson1RequiredField
- */
-const de_RequiredField = (output: any, context: __SerdeContext): RequiredField => {
-  return {
-    fieldId: __expectString(output.fieldId),
-  } as any;
-};
+// de_RequiredField omitted.
 
-/**
- * deserializeAws_restJson1RequiredFieldList
- */
-const de_RequiredFieldList = (output: any, context: __SerdeContext): RequiredField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RequiredField(entry, context);
-    });
-  return retVal;
-};
+// de_RequiredFieldList omitted.
 
 /**
  * deserializeAws_restJson1SearchCasesResponseItem
  */
 const de_SearchCasesResponseItem = (output: any, context: __SerdeContext): SearchCasesResponseItem => {
-  return {
-    caseId: __expectString(output.caseId),
-    fields: output.fields != null ? de_FieldValueList(output.fields, context) : undefined,
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    templateId: __expectString(output.templateId),
-  } as any;
+  return take(output, {
+    caseId: __expectString,
+    fields: (_: any) => de_FieldValueList(_, context),
+    tags: (_: any) => de_Tags(_, context),
+    templateId: __expectString,
+  }) as any;
 };
 
 /**
@@ -3903,16 +3309,13 @@ const de_SearchCasesResponseItemList = (output: any, context: __SerdeContext): S
  * deserializeAws_restJson1SearchRelatedItemsResponseItem
  */
 const de_SearchRelatedItemsResponseItem = (output: any, context: __SerdeContext): SearchRelatedItemsResponseItem => {
-  return {
-    associationTime:
-      output.associationTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.associationTime))
-        : undefined,
-    content: output.content != null ? de_RelatedItemContent(__expectUnion(output.content), context) : undefined,
-    relatedItemId: __expectString(output.relatedItemId),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    associationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    content: (_: any) => de_RelatedItemContent(__expectUnion(_), context),
+    relatedItemId: __expectString,
+    tags: (_: any) => de_Tags(_, context),
+    type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3931,32 +3334,9 @@ const de_SearchRelatedItemsResponseItemList = (
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Section
- */
-const de_Section = (output: any, context: __SerdeContext): Section => {
-  if (output.fieldGroup != null) {
-    return {
-      fieldGroup: de_FieldGroup(output.fieldGroup, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_Section omitted.
 
-/**
- * deserializeAws_restJson1SectionsList
- */
-const de_SectionsList = (output: any, context: __SerdeContext): Section[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Section(__expectUnion(entry), context);
-    });
-  return retVal;
-};
+// de_SectionsList omitted.
 
 /**
  * deserializeAws_restJson1Tags
@@ -3972,32 +3352,9 @@ const de_Tags = (output: any, context: __SerdeContext): Record<string, string> =
   }, {});
 };
 
-/**
- * deserializeAws_restJson1TemplateSummary
- */
-const de_TemplateSummary = (output: any, context: __SerdeContext): TemplateSummary => {
-  return {
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    templateArn: __expectString(output.templateArn),
-    templateId: __expectString(output.templateId),
-  } as any;
-};
+// de_TemplateSummary omitted.
 
-/**
- * deserializeAws_restJson1TemplateSummaryList
- */
-const de_TemplateSummaryList = (output: any, context: __SerdeContext): TemplateSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TemplateSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TemplateSummaryList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

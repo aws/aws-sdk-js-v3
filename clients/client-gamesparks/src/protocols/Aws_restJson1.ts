@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,10 +9,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   DocumentType as __DocumentType,
@@ -94,12 +96,8 @@ import {
   AccessDeniedException,
   ConflictException,
   Connection,
-  DeploymentResult,
-  ExtensionDetails,
-  ExtensionVersionDetails,
   GameConfigurationDetails,
   GameDetails,
-  GameSummary,
   GeneratedCodeJobDetails,
   Generator,
   ImportGameConfigurationSource,
@@ -113,7 +111,6 @@ import {
   StageDeploymentDetails,
   StageDeploymentSummary,
   StageDetails,
-  StageSummary,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -131,12 +128,14 @@ export const se_CreateGameCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/game";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.GameName != null && { GameName: input.GameName }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      Description: [],
+      GameName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -163,9 +162,11 @@ export const se_CreateSnapshotCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/game/{GameName}/snapshot";
   resolvedPath = __resolvedPath(resolvedPath, input, "GameName", () => input.GameName!, "{GameName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -191,13 +192,15 @@ export const se_CreateStageCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/game/{GameName}/stage";
   resolvedPath = __resolvedPath(resolvedPath, input, "GameName", () => input.GameName!, "{GameName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Role != null && { Role: input.Role }),
-    ...(input.StageName != null && { StageName: input.StageName }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      Description: [],
+      Role: [],
+      StageName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -573,9 +576,11 @@ export const se_ImportGameConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/game/{GameName}/configuration";
   resolvedPath = __resolvedPath(resolvedPath, input, "GameName", () => input.GameName!, "{GameName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ImportSource != null && { ImportSource: se_ImportGameConfigurationSource(input.ImportSource, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ImportSource: (_) => se_ImportGameConfigurationSource(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -830,9 +835,11 @@ export const se_StartGeneratedCodeJobCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "GameName", () => input.GameName!, "{GameName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Generator != null && { Generator: se_Generator(input.Generator, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Generator: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -861,10 +868,12 @@ export const se_StartStageDeploymentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "GameName", () => input.GameName!, "{GameName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "StageName", () => input.StageName!, "{StageName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      SnapshotId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -890,9 +899,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -948,9 +959,11 @@ export const se_UpdateGameCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/game/{GameName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "GameName", () => input.GameName!, "{GameName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -977,9 +990,11 @@ export const se_UpdateGameConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/game/{GameName}/configuration";
   resolvedPath = __resolvedPath(resolvedPath, input, "GameName", () => input.GameName!, "{GameName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Modifications != null && { Modifications: se_SectionModificationList(input.Modifications, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Modifications: (_) => se_SectionModificationList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1007,9 +1022,11 @@ export const se_UpdateSnapshotCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "GameName", () => input.GameName!, "{GameName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1037,10 +1054,12 @@ export const se_UpdateStageCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "GameName", () => input.GameName!, "{GameName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "StageName", () => input.StageName!, "{StageName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Role != null && { Role: input.Role }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Role: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1066,9 +1085,10 @@ export const de_CreateGameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Game != null) {
-    contents.Game = de_GameDetails(data.Game, context);
-  }
+  const doc = take(data, {
+    Game: (_) => de_GameDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1105,10 +1125,9 @@ const de_CreateGameCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1128,9 +1147,10 @@ export const de_CreateSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Snapshot != null) {
-    contents.Snapshot = de_SnapshotDetails(data.Snapshot, context);
-  }
+  const doc = take(data, {
+    Snapshot: (_) => de_SnapshotDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1167,10 +1187,9 @@ const de_CreateSnapshotCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1190,9 +1209,10 @@ export const de_CreateStageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Stage != null) {
-    contents.Stage = de_StageDetails(data.Stage, context);
-  }
+  const doc = take(data, {
+    Stage: (_) => de_StageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1229,10 +1249,9 @@ const de_CreateStageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1285,10 +1304,9 @@ const de_DeleteGameCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1344,10 +1362,9 @@ const de_DeleteStageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1367,12 +1384,11 @@ export const de_DisconnectPlayerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DisconnectFailures != null) {
-    contents.DisconnectFailures = de_ConnectionIdList(data.DisconnectFailures, context);
-  }
-  if (data.DisconnectSuccesses != null) {
-    contents.DisconnectSuccesses = de_ConnectionIdList(data.DisconnectSuccesses, context);
-  }
+  const doc = take(data, {
+    DisconnectFailures: _json,
+    DisconnectSuccesses: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1406,10 +1422,9 @@ const de_DisconnectPlayerCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1429,9 +1444,10 @@ export const de_ExportSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.S3Url != null) {
-    contents.S3Url = __expectString(data.S3Url);
-  }
+  const doc = take(data, {
+    S3Url: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1465,10 +1481,9 @@ const de_ExportSnapshotCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1488,9 +1503,10 @@ export const de_GetExtensionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Extension != null) {
-    contents.Extension = de_ExtensionDetails(data.Extension, context);
-  }
+  const doc = take(data, {
+    Extension: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1524,10 +1540,9 @@ const de_GetExtensionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1547,9 +1562,10 @@ export const de_GetExtensionVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ExtensionVersion != null) {
-    contents.ExtensionVersion = de_ExtensionVersionDetails(data.ExtensionVersion, context);
-  }
+  const doc = take(data, {
+    ExtensionVersion: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1583,10 +1599,9 @@ const de_GetExtensionVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1606,9 +1621,10 @@ export const de_GetGameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Game != null) {
-    contents.Game = de_GameDetails(data.Game, context);
-  }
+  const doc = take(data, {
+    Game: (_) => de_GameDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1642,10 +1658,9 @@ const de_GetGameCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1665,9 +1680,10 @@ export const de_GetGameConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GameConfiguration != null) {
-    contents.GameConfiguration = de_GameConfigurationDetails(data.GameConfiguration, context);
-  }
+  const doc = take(data, {
+    GameConfiguration: (_) => de_GameConfigurationDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1701,10 +1717,9 @@ const de_GetGameConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1724,9 +1739,10 @@ export const de_GetGeneratedCodeJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GeneratedCodeJob != null) {
-    contents.GeneratedCodeJob = de_GeneratedCodeJobDetails(data.GeneratedCodeJob, context);
-  }
+  const doc = take(data, {
+    GeneratedCodeJob: (_) => de_GeneratedCodeJobDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1760,10 +1776,9 @@ const de_GetGeneratedCodeJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1783,9 +1798,10 @@ export const de_GetPlayerConnectionStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connections != null) {
-    contents.Connections = de_ConnectionList(data.Connections, context);
-  }
+  const doc = take(data, {
+    Connections: (_) => de_ConnectionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1819,10 +1835,9 @@ const de_GetPlayerConnectionStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1842,9 +1857,10 @@ export const de_GetSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Snapshot != null) {
-    contents.Snapshot = de_SnapshotDetails(data.Snapshot, context);
-  }
+  const doc = take(data, {
+    Snapshot: (_) => de_SnapshotDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1878,10 +1894,9 @@ const de_GetSnapshotCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1901,9 +1916,10 @@ export const de_GetStageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Stage != null) {
-    contents.Stage = de_StageDetails(data.Stage, context);
-  }
+  const doc = take(data, {
+    Stage: (_) => de_StageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1937,10 +1953,9 @@ const de_GetStageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1960,9 +1975,10 @@ export const de_GetStageDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StageDeployment != null) {
-    contents.StageDeployment = de_StageDeploymentDetails(data.StageDeployment, context);
-  }
+  const doc = take(data, {
+    StageDeployment: (_) => de_StageDeploymentDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1996,10 +2012,9 @@ const de_GetStageDeploymentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2019,9 +2034,10 @@ export const de_ImportGameConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GameConfiguration != null) {
-    contents.GameConfiguration = de_GameConfigurationDetails(data.GameConfiguration, context);
-  }
+  const doc = take(data, {
+    GameConfiguration: (_) => de_GameConfigurationDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2058,10 +2074,9 @@ const de_ImportGameConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2081,12 +2096,11 @@ export const de_ListExtensionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Extensions != null) {
-    contents.Extensions = de_ExtensionDetailsList(data.Extensions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Extensions: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2117,10 +2131,9 @@ const de_ListExtensionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2140,12 +2153,11 @@ export const de_ListExtensionVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ExtensionVersions != null) {
-    contents.ExtensionVersions = de_ExtensionVersionDetailsList(data.ExtensionVersions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ExtensionVersions: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2179,10 +2191,9 @@ const de_ListExtensionVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2202,12 +2213,11 @@ export const de_ListGamesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Games != null) {
-    contents.Games = de_GameSummaryList(data.Games, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Games: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2238,10 +2248,9 @@ const de_ListGamesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2261,12 +2270,11 @@ export const de_ListGeneratedCodeJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GeneratedCodeJobs != null) {
-    contents.GeneratedCodeJobs = de_GeneratedCodeJobDetailsList(data.GeneratedCodeJobs, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    GeneratedCodeJobs: (_) => de_GeneratedCodeJobDetailsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2300,10 +2308,9 @@ const de_ListGeneratedCodeJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2323,12 +2330,11 @@ export const de_ListSnapshotsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Snapshots != null) {
-    contents.Snapshots = de_SnapshotSummaryList(data.Snapshots, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Snapshots: (_) => de_SnapshotSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2362,10 +2368,9 @@ const de_ListSnapshotsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2385,12 +2390,11 @@ export const de_ListStageDeploymentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.StageDeployments != null) {
-    contents.StageDeployments = de_StageDeploymentList(data.StageDeployments, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    StageDeployments: (_) => de_StageDeploymentList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2424,10 +2428,9 @@ const de_ListStageDeploymentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2447,12 +2450,11 @@ export const de_ListStagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Stages != null) {
-    contents.Stages = de_StageSummaryList(data.Stages, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Stages: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2486,10 +2488,9 @@ const de_ListStagesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2509,9 +2510,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2539,10 +2541,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2562,9 +2563,10 @@ export const de_StartGeneratedCodeJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GeneratedCodeJobId != null) {
-    contents.GeneratedCodeJobId = __expectString(data.GeneratedCodeJobId);
-  }
+  const doc = take(data, {
+    GeneratedCodeJobId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2598,10 +2600,9 @@ const de_StartGeneratedCodeJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2621,9 +2622,10 @@ export const de_StartStageDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StageDeployment != null) {
-    contents.StageDeployment = de_StageDeploymentDetails(data.StageDeployment, context);
-  }
+  const doc = take(data, {
+    StageDeployment: (_) => de_StageDeploymentDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2660,10 +2662,9 @@ const de_StartStageDeploymentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2710,10 +2711,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2760,10 +2760,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2783,9 +2782,10 @@ export const de_UpdateGameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Game != null) {
-    contents.Game = de_GameDetails(data.Game, context);
-  }
+  const doc = take(data, {
+    Game: (_) => de_GameDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2819,10 +2819,9 @@ const de_UpdateGameCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2842,9 +2841,10 @@ export const de_UpdateGameConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GameConfiguration != null) {
-    contents.GameConfiguration = de_GameConfigurationDetails(data.GameConfiguration, context);
-  }
+  const doc = take(data, {
+    GameConfiguration: (_) => de_GameConfigurationDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2881,10 +2881,9 @@ const de_UpdateGameConfigurationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2904,9 +2903,10 @@ export const de_UpdateSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Snapshot != null) {
-    contents.Snapshot = de_SnapshotDetails(data.Snapshot, context);
-  }
+  const doc = take(data, {
+    Snapshot: (_) => de_SnapshotDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2940,10 +2940,9 @@ const de_UpdateSnapshotCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2963,9 +2962,10 @@ export const de_UpdateStageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Stage != null) {
-    contents.Stage = de_StageDetails(data.Stage, context);
-  }
+  const doc = take(data, {
+    Stage: (_) => de_StageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2999,16 +2999,15 @@ const de_UpdateStageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -3018,9 +3017,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3034,9 +3034,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3053,9 +3054,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3072,9 +3074,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3091,9 +3094,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3107,9 +3111,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3123,9 +3128,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3140,36 +3146,27 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
   return input;
 };
 
-/**
- * serializeAws_restJson1Generator
- */
-const se_Generator = (input: Generator, context: __SerdeContext): any => {
-  return {
-    ...(input.GameSdkVersion != null && { GameSdkVersion: input.GameSdkVersion }),
-    ...(input.Language != null && { Language: input.Language }),
-    ...(input.TargetPlatform != null && { TargetPlatform: input.TargetPlatform }),
-  };
-};
+// se_Generator omitted.
 
 /**
  * serializeAws_restJson1ImportGameConfigurationSource
  */
 const se_ImportGameConfigurationSource = (input: ImportGameConfigurationSource, context: __SerdeContext): any => {
-  return {
-    ...(input.File != null && { File: context.base64Encoder(input.File) }),
-  };
+  return take(input, {
+    File: context.base64Encoder,
+  });
 };
 
 /**
  * serializeAws_restJson1SectionModification
  */
 const se_SectionModification = (input: SectionModification, context: __SerdeContext): any => {
-  return {
-    ...(input.Operation != null && { Operation: input.Operation }),
-    ...(input.Path != null && { Path: input.Path }),
-    ...(input.Section != null && { Section: input.Section }),
-    ...(input.Value != null && { Value: se_Document(input.Value, context) }),
-  };
+  return take(input, {
+    Operation: [],
+    Path: [],
+    Section: [],
+    Value: (_) => se_Document(_, context),
+  });
 };
 
 /**
@@ -3183,43 +3180,19 @@ const se_SectionModificationList = (input: SectionModification[], context: __Ser
     });
 };
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
 /**
  * deserializeAws_restJson1Connection
  */
 const de_Connection = (output: any, context: __SerdeContext): Connection => {
-  return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
-    Id: __expectString(output.Id),
-  } as any;
+  return take(output, {
+    Created: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Id: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ConnectionIdList
- */
-const de_ConnectionIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ConnectionIdList omitted.
 
 /**
  * deserializeAws_restJson1ConnectionList
@@ -3228,23 +3201,12 @@ const de_ConnectionList = (output: any, context: __SerdeContext): Connection[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Connection(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DeploymentResult
- */
-const de_DeploymentResult = (output: any, context: __SerdeContext): DeploymentResult => {
-  return {
-    Message: __expectString(output.Message),
-    ResultCode: __expectString(output.ResultCode),
-  } as any;
-};
+// de_DeploymentResult omitted.
 
 /**
  * deserializeAws_restJson1Document
@@ -3253,129 +3215,56 @@ const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
 };
 
-/**
- * deserializeAws_restJson1ExtensionDetails
- */
-const de_ExtensionDetails = (output: any, context: __SerdeContext): ExtensionDetails => {
-  return {
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-    Namespace: __expectString(output.Namespace),
-  } as any;
-};
+// de_ExtensionDetails omitted.
 
-/**
- * deserializeAws_restJson1ExtensionDetailsList
- */
-const de_ExtensionDetailsList = (output: any, context: __SerdeContext): ExtensionDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExtensionDetails(entry, context);
-    });
-  return retVal;
-};
+// de_ExtensionDetailsList omitted.
 
-/**
- * deserializeAws_restJson1ExtensionVersionDetails
- */
-const de_ExtensionVersionDetails = (output: any, context: __SerdeContext): ExtensionVersionDetails => {
-  return {
-    Name: __expectString(output.Name),
-    Namespace: __expectString(output.Namespace),
-    Schema: __expectString(output.Schema),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_ExtensionVersionDetails omitted.
 
-/**
- * deserializeAws_restJson1ExtensionVersionDetailsList
- */
-const de_ExtensionVersionDetailsList = (output: any, context: __SerdeContext): ExtensionVersionDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExtensionVersionDetails(entry, context);
-    });
-  return retVal;
-};
+// de_ExtensionVersionDetailsList omitted.
 
 /**
  * deserializeAws_restJson1GameConfigurationDetails
  */
 const de_GameConfigurationDetails = (output: any, context: __SerdeContext): GameConfigurationDetails => {
-  return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
-    LastUpdated:
-      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
-    Sections: output.Sections != null ? de_Sections(output.Sections, context) : undefined,
-  } as any;
+  return take(output, {
+    Created: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    LastUpdated: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Sections: (_: any) => de_Sections(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1GameDetails
  */
 const de_GameDetails = (output: any, context: __SerdeContext): GameDetails => {
-  return {
-    Arn: __expectString(output.Arn),
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
-    Description: __expectString(output.Description),
-    EnableTerminationProtection: __expectBoolean(output.EnableTerminationProtection),
-    LastUpdated:
-      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    Created: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    EnableTerminationProtection: __expectBoolean,
+    LastUpdated: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Name: __expectString,
+    State: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1GameSummary
- */
-const de_GameSummary = (output: any, context: __SerdeContext): GameSummary => {
-  return {
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
-};
+// de_GameSummary omitted.
 
-/**
- * deserializeAws_restJson1GameSummaryList
- */
-const de_GameSummaryList = (output: any, context: __SerdeContext): GameSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GameSummary(entry, context);
-    });
-  return retVal;
-};
+// de_GameSummaryList omitted.
 
 /**
  * deserializeAws_restJson1GeneratedCodeJobDetails
  */
 const de_GeneratedCodeJobDetails = (output: any, context: __SerdeContext): GeneratedCodeJobDetails => {
-  return {
-    Description: __expectString(output.Description),
-    ExpirationTime:
-      output.ExpirationTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationTime))
-        : undefined,
-    GeneratedCodeJobId: __expectString(output.GeneratedCodeJobId),
-    S3Url: __expectString(output.S3Url),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Description: __expectString,
+    ExpirationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GeneratedCodeJobId: __expectString,
+    S3Url: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -3385,9 +3274,6 @@ const de_GeneratedCodeJobDetailsList = (output: any, context: __SerdeContext): G
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_GeneratedCodeJobDetails(entry, context);
     });
   return retVal;
@@ -3397,11 +3283,11 @@ const de_GeneratedCodeJobDetailsList = (output: any, context: __SerdeContext): G
  * deserializeAws_restJson1Section
  */
 const de_Section = (output: any, context: __SerdeContext): Section => {
-  return {
-    Attributes: output.Attributes != null ? de_Document(output.Attributes, context) : undefined,
-    Name: __expectString(output.Name),
-    Size: __expectInt32(output.Size),
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_Document(_, context),
+    Name: __expectString,
+    Size: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -3421,27 +3307,25 @@ const de_Sections = (output: any, context: __SerdeContext): Record<string, Secti
  * deserializeAws_restJson1SnapshotDetails
  */
 const de_SnapshotDetails = (output: any, context: __SerdeContext): SnapshotDetails => {
-  return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    LastUpdated:
-      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
-    Sections: output.Sections != null ? de_Sections(output.Sections, context) : undefined,
-  } as any;
+  return take(output, {
+    Created: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    LastUpdated: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Sections: (_: any) => de_Sections(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SnapshotSummary
  */
 const de_SnapshotSummary = (output: any, context: __SerdeContext): SnapshotSummary => {
-  return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    LastUpdated:
-      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
-  } as any;
+  return take(output, {
+    Created: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    LastUpdated: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -3451,9 +3335,6 @@ const de_SnapshotSummaryList = (output: any, context: __SerdeContext): SnapshotS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SnapshotSummary(entry, context);
     });
   return retVal;
@@ -3463,17 +3344,15 @@ const de_SnapshotSummaryList = (output: any, context: __SerdeContext): SnapshotS
  * deserializeAws_restJson1StageDeploymentDetails
  */
 const de_StageDeploymentDetails = (output: any, context: __SerdeContext): StageDeploymentDetails => {
-  return {
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
-    DeploymentAction: __expectString(output.DeploymentAction),
-    DeploymentId: __expectString(output.DeploymentId),
-    DeploymentResult:
-      output.DeploymentResult != null ? de_DeploymentResult(output.DeploymentResult, context) : undefined,
-    DeploymentState: __expectString(output.DeploymentState),
-    LastUpdated:
-      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
-    SnapshotId: __expectString(output.SnapshotId),
-  } as any;
+  return take(output, {
+    Created: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DeploymentAction: __expectString,
+    DeploymentId: __expectString,
+    DeploymentResult: _json,
+    DeploymentState: __expectString,
+    LastUpdated: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SnapshotId: __expectString,
+  }) as any;
 };
 
 /**
@@ -3483,9 +3362,6 @@ const de_StageDeploymentList = (output: any, context: __SerdeContext): StageDepl
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_StageDeploymentSummary(entry, context);
     });
   return retVal;
@@ -3495,77 +3371,39 @@ const de_StageDeploymentList = (output: any, context: __SerdeContext): StageDepl
  * deserializeAws_restJson1StageDeploymentSummary
  */
 const de_StageDeploymentSummary = (output: any, context: __SerdeContext): StageDeploymentSummary => {
-  return {
-    DeploymentAction: __expectString(output.DeploymentAction),
-    DeploymentId: __expectString(output.DeploymentId),
-    DeploymentResult:
-      output.DeploymentResult != null ? de_DeploymentResult(output.DeploymentResult, context) : undefined,
-    DeploymentState: __expectString(output.DeploymentState),
-    LastUpdated:
-      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
-    SnapshotId: __expectString(output.SnapshotId),
-  } as any;
+  return take(output, {
+    DeploymentAction: __expectString,
+    DeploymentId: __expectString,
+    DeploymentResult: _json,
+    DeploymentState: __expectString,
+    LastUpdated: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SnapshotId: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1StageDetails
  */
 const de_StageDetails = (output: any, context: __SerdeContext): StageDetails => {
-  return {
-    Arn: __expectString(output.Arn),
-    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Created)) : undefined,
-    Description: __expectString(output.Description),
-    GameKey: __expectString(output.GameKey),
-    LastUpdated:
-      output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdated)) : undefined,
-    LogGroup: __expectString(output.LogGroup),
-    Name: __expectString(output.Name),
-    Role: __expectString(output.Role),
-    State: __expectString(output.State),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    Created: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    GameKey: __expectString,
+    LastUpdated: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    LogGroup: __expectString,
+    Name: __expectString,
+    Role: __expectString,
+    State: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1StageSummary
- */
-const de_StageSummary = (output: any, context: __SerdeContext): StageSummary => {
-  return {
-    Description: __expectString(output.Description),
-    GameKey: __expectString(output.GameKey),
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
-};
+// de_StageSummary omitted.
 
-/**
- * deserializeAws_restJson1StageSummaryList
- */
-const de_StageSummaryList = (output: any, context: __SerdeContext): StageSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StageSummary(entry, context);
-    });
-  return retVal;
-};
+// de_StageSummaryList omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

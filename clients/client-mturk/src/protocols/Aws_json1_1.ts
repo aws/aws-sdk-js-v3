@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -9,7 +10,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -122,41 +124,29 @@ import {
 } from "../commands/UpdateQualificationTypeCommand";
 import {
   AcceptQualificationRequestRequest,
-  AcceptQualificationRequestResponse,
   ApproveAssignmentRequest,
-  ApproveAssignmentResponse,
   Assignment,
   AssignmentStatus,
   AssociateQualificationWithWorkerRequest,
-  AssociateQualificationWithWorkerResponse,
   BonusPayment,
   CreateAdditionalAssignmentsForHITRequest,
-  CreateAdditionalAssignmentsForHITResponse,
   CreateHITRequest,
   CreateHITResponse,
   CreateHITTypeRequest,
-  CreateHITTypeResponse,
   CreateHITWithHITTypeRequest,
   CreateHITWithHITTypeResponse,
   CreateQualificationTypeRequest,
   CreateQualificationTypeResponse,
   CreateWorkerBlockRequest,
-  CreateWorkerBlockResponse,
   DeleteHITRequest,
-  DeleteHITResponse,
   DeleteQualificationTypeRequest,
-  DeleteQualificationTypeResponse,
   DeleteWorkerBlockRequest,
-  DeleteWorkerBlockResponse,
   DisassociateQualificationFromWorkerRequest,
-  DisassociateQualificationFromWorkerResponse,
   EventType,
   GetAccountBalanceRequest,
-  GetAccountBalanceResponse,
   GetAssignmentRequest,
   GetAssignmentResponse,
   GetFileUploadURLRequest,
-  GetFileUploadURLResponse,
   GetHITRequest,
   GetHITResponse,
   GetQualificationScoreRequest,
@@ -182,14 +172,11 @@ import {
   ListReviewPolicyResultsForHITRequest,
   ListReviewPolicyResultsForHITResponse,
   ListWorkerBlocksRequest,
-  ListWorkerBlocksResponse,
   ListWorkersWithQualificationTypeRequest,
   ListWorkersWithQualificationTypeResponse,
   Locale,
   NotificationSpecification,
-  NotifyWorkersFailureStatus,
   NotifyWorkersRequest,
-  NotifyWorkersResponse,
   ParameterMapEntry,
   PolicyParameter,
   Qualification,
@@ -197,31 +184,21 @@ import {
   QualificationRequirement,
   QualificationType,
   RejectAssignmentRequest,
-  RejectAssignmentResponse,
   RejectQualificationRequestRequest,
-  RejectQualificationRequestResponse,
   RequestError,
   ReviewActionDetail,
   ReviewPolicy,
   ReviewPolicyLevel,
   ReviewReport,
-  ReviewResultDetail,
   SendBonusRequest,
-  SendBonusResponse,
   SendTestEventNotificationRequest,
-  SendTestEventNotificationResponse,
   ServiceFault,
   UpdateExpirationForHITRequest,
-  UpdateExpirationForHITResponse,
   UpdateHITReviewStatusRequest,
-  UpdateHITReviewStatusResponse,
   UpdateHITTypeOfHITRequest,
-  UpdateHITTypeOfHITResponse,
   UpdateNotificationSettingsRequest,
-  UpdateNotificationSettingsResponse,
   UpdateQualificationTypeRequest,
   UpdateQualificationTypeResponse,
-  WorkerBlock,
 } from "../models/models_0";
 import { MTurkServiceException as __BaseException } from "../models/MTurkServiceException";
 
@@ -234,7 +211,7 @@ export const se_AcceptQualificationRequestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AcceptQualificationRequest");
   let body: any;
-  body = JSON.stringify(se_AcceptQualificationRequestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -247,7 +224,7 @@ export const se_ApproveAssignmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ApproveAssignment");
   let body: any;
-  body = JSON.stringify(se_ApproveAssignmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -260,7 +237,7 @@ export const se_AssociateQualificationWithWorkerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateQualificationWithWorker");
   let body: any;
-  body = JSON.stringify(se_AssociateQualificationWithWorkerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -273,7 +250,7 @@ export const se_CreateAdditionalAssignmentsForHITCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAdditionalAssignmentsForHIT");
   let body: any;
-  body = JSON.stringify(se_CreateAdditionalAssignmentsForHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -286,7 +263,7 @@ export const se_CreateHITCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHIT");
   let body: any;
-  body = JSON.stringify(se_CreateHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -299,7 +276,7 @@ export const se_CreateHITTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHITType");
   let body: any;
-  body = JSON.stringify(se_CreateHITTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -312,7 +289,7 @@ export const se_CreateHITWithHITTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHITWithHITType");
   let body: any;
-  body = JSON.stringify(se_CreateHITWithHITTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -325,7 +302,7 @@ export const se_CreateQualificationTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateQualificationType");
   let body: any;
-  body = JSON.stringify(se_CreateQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -338,7 +315,7 @@ export const se_CreateWorkerBlockCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWorkerBlock");
   let body: any;
-  body = JSON.stringify(se_CreateWorkerBlockRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -351,7 +328,7 @@ export const se_DeleteHITCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteHIT");
   let body: any;
-  body = JSON.stringify(se_DeleteHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -364,7 +341,7 @@ export const se_DeleteQualificationTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteQualificationType");
   let body: any;
-  body = JSON.stringify(se_DeleteQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -377,7 +354,7 @@ export const se_DeleteWorkerBlockCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteWorkerBlock");
   let body: any;
-  body = JSON.stringify(se_DeleteWorkerBlockRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -390,7 +367,7 @@ export const se_DisassociateQualificationFromWorkerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateQualificationFromWorker");
   let body: any;
-  body = JSON.stringify(se_DisassociateQualificationFromWorkerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -403,7 +380,7 @@ export const se_GetAccountBalanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAccountBalance");
   let body: any;
-  body = JSON.stringify(se_GetAccountBalanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -416,7 +393,7 @@ export const se_GetAssignmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAssignment");
   let body: any;
-  body = JSON.stringify(se_GetAssignmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -429,7 +406,7 @@ export const se_GetFileUploadURLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFileUploadURL");
   let body: any;
-  body = JSON.stringify(se_GetFileUploadURLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -439,7 +416,7 @@ export const se_GetFileUploadURLCommand = async (
 export const se_GetHITCommand = async (input: GetHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetHIT");
   let body: any;
-  body = JSON.stringify(se_GetHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -452,7 +429,7 @@ export const se_GetQualificationScoreCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetQualificationScore");
   let body: any;
-  body = JSON.stringify(se_GetQualificationScoreRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -465,7 +442,7 @@ export const se_GetQualificationTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetQualificationType");
   let body: any;
-  body = JSON.stringify(se_GetQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -478,7 +455,7 @@ export const se_ListAssignmentsForHITCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAssignmentsForHIT");
   let body: any;
-  body = JSON.stringify(se_ListAssignmentsForHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -491,7 +468,7 @@ export const se_ListBonusPaymentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListBonusPayments");
   let body: any;
-  body = JSON.stringify(se_ListBonusPaymentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -504,7 +481,7 @@ export const se_ListHITsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHITs");
   let body: any;
-  body = JSON.stringify(se_ListHITsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -517,7 +494,7 @@ export const se_ListHITsForQualificationTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListHITsForQualificationType");
   let body: any;
-  body = JSON.stringify(se_ListHITsForQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -530,7 +507,7 @@ export const se_ListQualificationRequestsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListQualificationRequests");
   let body: any;
-  body = JSON.stringify(se_ListQualificationRequestsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -543,7 +520,7 @@ export const se_ListQualificationTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListQualificationTypes");
   let body: any;
-  body = JSON.stringify(se_ListQualificationTypesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -556,7 +533,7 @@ export const se_ListReviewableHITsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListReviewableHITs");
   let body: any;
-  body = JSON.stringify(se_ListReviewableHITsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -569,7 +546,7 @@ export const se_ListReviewPolicyResultsForHITCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListReviewPolicyResultsForHIT");
   let body: any;
-  body = JSON.stringify(se_ListReviewPolicyResultsForHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -582,7 +559,7 @@ export const se_ListWorkerBlocksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWorkerBlocks");
   let body: any;
-  body = JSON.stringify(se_ListWorkerBlocksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -595,7 +572,7 @@ export const se_ListWorkersWithQualificationTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWorkersWithQualificationType");
   let body: any;
-  body = JSON.stringify(se_ListWorkersWithQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -608,7 +585,7 @@ export const se_NotifyWorkersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("NotifyWorkers");
   let body: any;
-  body = JSON.stringify(se_NotifyWorkersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -621,7 +598,7 @@ export const se_RejectAssignmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RejectAssignment");
   let body: any;
-  body = JSON.stringify(se_RejectAssignmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -634,7 +611,7 @@ export const se_RejectQualificationRequestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RejectQualificationRequest");
   let body: any;
-  body = JSON.stringify(se_RejectQualificationRequestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -647,7 +624,7 @@ export const se_SendBonusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendBonus");
   let body: any;
-  body = JSON.stringify(se_SendBonusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -660,7 +637,7 @@ export const se_SendTestEventNotificationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendTestEventNotification");
   let body: any;
-  body = JSON.stringify(se_SendTestEventNotificationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -686,7 +663,7 @@ export const se_UpdateHITReviewStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateHITReviewStatus");
   let body: any;
-  body = JSON.stringify(se_UpdateHITReviewStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -699,7 +676,7 @@ export const se_UpdateHITTypeOfHITCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateHITTypeOfHIT");
   let body: any;
-  body = JSON.stringify(se_UpdateHITTypeOfHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -712,7 +689,7 @@ export const se_UpdateNotificationSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateNotificationSettings");
   let body: any;
-  body = JSON.stringify(se_UpdateNotificationSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -725,7 +702,7 @@ export const se_UpdateQualificationTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateQualificationType");
   let body: any;
-  body = JSON.stringify(se_UpdateQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -741,12 +718,12 @@ export const de_AcceptQualificationRequestCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AcceptQualificationRequestResponse(data, context);
+  contents = _json(data);
   const response: AcceptQualificationRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -770,10 +747,9 @@ const de_AcceptQualificationRequestCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -791,12 +767,12 @@ export const de_ApproveAssignmentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ApproveAssignmentResponse(data, context);
+  contents = _json(data);
   const response: ApproveAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -820,10 +796,9 @@ const de_ApproveAssignmentCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -841,12 +816,12 @@ export const de_AssociateQualificationWithWorkerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateQualificationWithWorkerResponse(data, context);
+  contents = _json(data);
   const response: AssociateQualificationWithWorkerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -870,10 +845,9 @@ const de_AssociateQualificationWithWorkerCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -891,12 +865,12 @@ export const de_CreateAdditionalAssignmentsForHITCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAdditionalAssignmentsForHITResponse(data, context);
+  contents = _json(data);
   const response: CreateAdditionalAssignmentsForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -920,10 +894,9 @@ const de_CreateAdditionalAssignmentsForHITCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -946,7 +919,7 @@ export const de_CreateHITCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -970,10 +943,9 @@ const de_CreateHITCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -991,12 +963,12 @@ export const de_CreateHITTypeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateHITTypeResponse(data, context);
+  contents = _json(data);
   const response: CreateHITTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1020,10 +992,9 @@ const de_CreateHITTypeCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1046,7 +1017,7 @@ export const de_CreateHITWithHITTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1070,10 +1041,9 @@ const de_CreateHITWithHITTypeCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1096,7 +1066,7 @@ export const de_CreateQualificationTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1120,10 +1090,9 @@ const de_CreateQualificationTypeCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1141,12 +1110,12 @@ export const de_CreateWorkerBlockCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateWorkerBlockResponse(data, context);
+  contents = _json(data);
   const response: CreateWorkerBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1170,10 +1139,9 @@ const de_CreateWorkerBlockCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1191,12 +1159,12 @@ export const de_DeleteHITCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteHITResponse(data, context);
+  contents = _json(data);
   const response: DeleteHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1220,10 +1188,9 @@ const de_DeleteHITCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1241,12 +1208,12 @@ export const de_DeleteQualificationTypeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteQualificationTypeResponse(data, context);
+  contents = _json(data);
   const response: DeleteQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1270,10 +1237,9 @@ const de_DeleteQualificationTypeCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1291,12 +1257,12 @@ export const de_DeleteWorkerBlockCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteWorkerBlockResponse(data, context);
+  contents = _json(data);
   const response: DeleteWorkerBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1320,10 +1286,9 @@ const de_DeleteWorkerBlockCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1341,12 +1306,12 @@ export const de_DisassociateQualificationFromWorkerCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateQualificationFromWorkerResponse(data, context);
+  contents = _json(data);
   const response: DisassociateQualificationFromWorkerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1370,10 +1335,9 @@ const de_DisassociateQualificationFromWorkerCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1391,12 +1355,12 @@ export const de_GetAccountBalanceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAccountBalanceResponse(data, context);
+  contents = _json(data);
   const response: GetAccountBalanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1420,10 +1384,9 @@ const de_GetAccountBalanceCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1446,7 +1409,7 @@ export const de_GetAssignmentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1470,10 +1433,9 @@ const de_GetAssignmentCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1491,12 +1453,12 @@ export const de_GetFileUploadURLCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetFileUploadURLResponse(data, context);
+  contents = _json(data);
   const response: GetFileUploadURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1520,10 +1482,9 @@ const de_GetFileUploadURLCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1546,7 +1507,7 @@ export const de_GetHITCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1567,10 +1528,9 @@ const de_GetHITCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1593,7 +1553,7 @@ export const de_GetQualificationScoreCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1617,10 +1577,9 @@ const de_GetQualificationScoreCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1643,7 +1602,7 @@ export const de_GetQualificationTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1667,10 +1626,9 @@ const de_GetQualificationTypeCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1693,7 +1651,7 @@ export const de_ListAssignmentsForHITCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1717,10 +1675,9 @@ const de_ListAssignmentsForHITCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1743,7 +1700,7 @@ export const de_ListBonusPaymentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1767,10 +1724,9 @@ const de_ListBonusPaymentsCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1793,7 +1749,7 @@ export const de_ListHITsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1817,10 +1773,9 @@ const de_ListHITsCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1843,7 +1798,7 @@ export const de_ListHITsForQualificationTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1867,10 +1822,9 @@ const de_ListHITsForQualificationTypeCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1893,7 +1847,7 @@ export const de_ListQualificationRequestsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1917,10 +1871,9 @@ const de_ListQualificationRequestsCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1943,7 +1896,7 @@ export const de_ListQualificationTypesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1967,10 +1920,9 @@ const de_ListQualificationTypesCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1993,7 +1945,7 @@ export const de_ListReviewableHITsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2017,10 +1969,9 @@ const de_ListReviewableHITsCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2043,7 +1994,7 @@ export const de_ListReviewPolicyResultsForHITCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2067,10 +2018,9 @@ const de_ListReviewPolicyResultsForHITCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2088,12 +2038,12 @@ export const de_ListWorkerBlocksCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListWorkerBlocksResponse(data, context);
+  contents = _json(data);
   const response: ListWorkerBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2117,10 +2067,9 @@ const de_ListWorkerBlocksCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2143,7 +2092,7 @@ export const de_ListWorkersWithQualificationTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2167,10 +2116,9 @@ const de_ListWorkersWithQualificationTypeCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2188,12 +2136,12 @@ export const de_NotifyWorkersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NotifyWorkersResponse(data, context);
+  contents = _json(data);
   const response: NotifyWorkersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2217,10 +2165,9 @@ const de_NotifyWorkersCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2238,12 +2185,12 @@ export const de_RejectAssignmentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RejectAssignmentResponse(data, context);
+  contents = _json(data);
   const response: RejectAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2267,10 +2214,9 @@ const de_RejectAssignmentCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2288,12 +2234,12 @@ export const de_RejectQualificationRequestCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RejectQualificationRequestResponse(data, context);
+  contents = _json(data);
   const response: RejectQualificationRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2317,10 +2263,9 @@ const de_RejectQualificationRequestCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2338,12 +2283,12 @@ export const de_SendBonusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SendBonusResponse(data, context);
+  contents = _json(data);
   const response: SendBonusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2367,10 +2312,9 @@ const de_SendBonusCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2388,12 +2332,12 @@ export const de_SendTestEventNotificationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SendTestEventNotificationResponse(data, context);
+  contents = _json(data);
   const response: SendTestEventNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2417,10 +2361,9 @@ const de_SendTestEventNotificationCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2438,12 +2381,12 @@ export const de_UpdateExpirationForHITCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateExpirationForHITResponse(data, context);
+  contents = _json(data);
   const response: UpdateExpirationForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2467,10 +2410,9 @@ const de_UpdateExpirationForHITCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2488,12 +2430,12 @@ export const de_UpdateHITReviewStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateHITReviewStatusResponse(data, context);
+  contents = _json(data);
   const response: UpdateHITReviewStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2517,10 +2459,9 @@ const de_UpdateHITReviewStatusCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2538,12 +2479,12 @@ export const de_UpdateHITTypeOfHITCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateHITTypeOfHITResponse(data, context);
+  contents = _json(data);
   const response: UpdateHITTypeOfHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2567,10 +2508,9 @@ const de_UpdateHITTypeOfHITCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2588,12 +2528,12 @@ export const de_UpdateNotificationSettingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateNotificationSettingsResponse(data, context);
+  contents = _json(data);
   const response: UpdateNotificationSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2617,10 +2557,9 @@ const de_UpdateNotificationSettingsCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2643,7 +2582,7 @@ export const de_UpdateQualificationTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2667,10 +2606,9 @@ const de_UpdateQualificationTypeCommandError = async (
       throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2681,7 +2619,7 @@ const de_UpdateQualificationTypeCommandError = async (
  */
 const de_RequestErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<RequestError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RequestError(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2694,7 +2632,7 @@ const de_RequestErrorRes = async (parsedOutput: any, context: __SerdeContext): P
  */
 const de_ServiceFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2702,749 +2640,150 @@ const de_ServiceFaultRes = async (parsedOutput: any, context: __SerdeContext): P
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AcceptQualificationRequestRequest
- */
-const se_AcceptQualificationRequestRequest = (
-  input: AcceptQualificationRequestRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IntegerValue != null && { IntegerValue: input.IntegerValue }),
-    ...(input.QualificationRequestId != null && { QualificationRequestId: input.QualificationRequestId }),
-  };
-};
+// se_AcceptQualificationRequestRequest omitted.
 
-/**
- * serializeAws_json1_1ApproveAssignmentRequest
- */
-const se_ApproveAssignmentRequest = (input: ApproveAssignmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
-    ...(input.OverrideRejection != null && { OverrideRejection: input.OverrideRejection }),
-    ...(input.RequesterFeedback != null && { RequesterFeedback: input.RequesterFeedback }),
-  };
-};
+// se_ApproveAssignmentRequest omitted.
 
-/**
- * serializeAws_json1_1AssignmentStatusList
- */
-const se_AssignmentStatusList = (input: (AssignmentStatus | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AssignmentStatusList omitted.
 
-/**
- * serializeAws_json1_1AssociateQualificationWithWorkerRequest
- */
-const se_AssociateQualificationWithWorkerRequest = (
-  input: AssociateQualificationWithWorkerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IntegerValue != null && { IntegerValue: input.IntegerValue }),
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.SendNotification != null && { SendNotification: input.SendNotification }),
-    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
-  };
-};
+// se_AssociateQualificationWithWorkerRequest omitted.
 
-/**
- * serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest
- */
-const se_CreateAdditionalAssignmentsForHITRequest = (
-  input: CreateAdditionalAssignmentsForHITRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HITId != null && { HITId: input.HITId }),
-    ...(input.NumberOfAdditionalAssignments != null && {
-      NumberOfAdditionalAssignments: input.NumberOfAdditionalAssignments,
-    }),
-    ...(input.UniqueRequestToken != null && { UniqueRequestToken: input.UniqueRequestToken }),
-  };
-};
+// se_CreateAdditionalAssignmentsForHITRequest omitted.
 
-/**
- * serializeAws_json1_1CreateHITRequest
- */
-const se_CreateHITRequest = (input: CreateHITRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentDurationInSeconds != null && {
-      AssignmentDurationInSeconds: input.AssignmentDurationInSeconds,
-    }),
-    ...(input.AssignmentReviewPolicy != null && {
-      AssignmentReviewPolicy: se_ReviewPolicy(input.AssignmentReviewPolicy, context),
-    }),
-    ...(input.AutoApprovalDelayInSeconds != null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.HITLayoutId != null && { HITLayoutId: input.HITLayoutId }),
-    ...(input.HITLayoutParameters != null && {
-      HITLayoutParameters: se_HITLayoutParameterList(input.HITLayoutParameters, context),
-    }),
-    ...(input.HITReviewPolicy != null && { HITReviewPolicy: se_ReviewPolicy(input.HITReviewPolicy, context) }),
-    ...(input.Keywords != null && { Keywords: input.Keywords }),
-    ...(input.LifetimeInSeconds != null && { LifetimeInSeconds: input.LifetimeInSeconds }),
-    ...(input.MaxAssignments != null && { MaxAssignments: input.MaxAssignments }),
-    ...(input.QualificationRequirements != null && {
-      QualificationRequirements: se_QualificationRequirementList(input.QualificationRequirements, context),
-    }),
-    ...(input.Question != null && { Question: input.Question }),
-    ...(input.RequesterAnnotation != null && { RequesterAnnotation: input.RequesterAnnotation }),
-    ...(input.Reward != null && { Reward: input.Reward }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.UniqueRequestToken != null && { UniqueRequestToken: input.UniqueRequestToken }),
-  };
-};
+// se_CreateHITRequest omitted.
 
-/**
- * serializeAws_json1_1CreateHITTypeRequest
- */
-const se_CreateHITTypeRequest = (input: CreateHITTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentDurationInSeconds != null && {
-      AssignmentDurationInSeconds: input.AssignmentDurationInSeconds,
-    }),
-    ...(input.AutoApprovalDelayInSeconds != null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Keywords != null && { Keywords: input.Keywords }),
-    ...(input.QualificationRequirements != null && {
-      QualificationRequirements: se_QualificationRequirementList(input.QualificationRequirements, context),
-    }),
-    ...(input.Reward != null && { Reward: input.Reward }),
-    ...(input.Title != null && { Title: input.Title }),
-  };
-};
+// se_CreateHITTypeRequest omitted.
 
-/**
- * serializeAws_json1_1CreateHITWithHITTypeRequest
- */
-const se_CreateHITWithHITTypeRequest = (input: CreateHITWithHITTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentReviewPolicy != null && {
-      AssignmentReviewPolicy: se_ReviewPolicy(input.AssignmentReviewPolicy, context),
-    }),
-    ...(input.HITLayoutId != null && { HITLayoutId: input.HITLayoutId }),
-    ...(input.HITLayoutParameters != null && {
-      HITLayoutParameters: se_HITLayoutParameterList(input.HITLayoutParameters, context),
-    }),
-    ...(input.HITReviewPolicy != null && { HITReviewPolicy: se_ReviewPolicy(input.HITReviewPolicy, context) }),
-    ...(input.HITTypeId != null && { HITTypeId: input.HITTypeId }),
-    ...(input.LifetimeInSeconds != null && { LifetimeInSeconds: input.LifetimeInSeconds }),
-    ...(input.MaxAssignments != null && { MaxAssignments: input.MaxAssignments }),
-    ...(input.Question != null && { Question: input.Question }),
-    ...(input.RequesterAnnotation != null && { RequesterAnnotation: input.RequesterAnnotation }),
-    ...(input.UniqueRequestToken != null && { UniqueRequestToken: input.UniqueRequestToken }),
-  };
-};
+// se_CreateHITWithHITTypeRequest omitted.
 
-/**
- * serializeAws_json1_1CreateQualificationTypeRequest
- */
-const se_CreateQualificationTypeRequest = (input: CreateQualificationTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnswerKey != null && { AnswerKey: input.AnswerKey }),
-    ...(input.AutoGranted != null && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue != null && { AutoGrantedValue: input.AutoGrantedValue }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Keywords != null && { Keywords: input.Keywords }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.QualificationTypeStatus != null && { QualificationTypeStatus: input.QualificationTypeStatus }),
-    ...(input.RetryDelayInSeconds != null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
-    ...(input.Test != null && { Test: input.Test }),
-    ...(input.TestDurationInSeconds != null && { TestDurationInSeconds: input.TestDurationInSeconds }),
-  };
-};
+// se_CreateQualificationTypeRequest omitted.
 
-/**
- * serializeAws_json1_1CreateWorkerBlockRequest
- */
-const se_CreateWorkerBlockRequest = (input: CreateWorkerBlockRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Reason != null && { Reason: input.Reason }),
-    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
-  };
-};
+// se_CreateWorkerBlockRequest omitted.
 
-/**
- * serializeAws_json1_1CustomerIdList
- */
-const se_CustomerIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CustomerIdList omitted.
 
-/**
- * serializeAws_json1_1DeleteHITRequest
- */
-const se_DeleteHITRequest = (input: DeleteHITRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HITId != null && { HITId: input.HITId }),
-  };
-};
+// se_DeleteHITRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteQualificationTypeRequest
- */
-const se_DeleteQualificationTypeRequest = (input: DeleteQualificationTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-  };
-};
+// se_DeleteQualificationTypeRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteWorkerBlockRequest
- */
-const se_DeleteWorkerBlockRequest = (input: DeleteWorkerBlockRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Reason != null && { Reason: input.Reason }),
-    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
-  };
-};
+// se_DeleteWorkerBlockRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateQualificationFromWorkerRequest
- */
-const se_DisassociateQualificationFromWorkerRequest = (
-  input: DisassociateQualificationFromWorkerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.Reason != null && { Reason: input.Reason }),
-    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
-  };
-};
+// se_DisassociateQualificationFromWorkerRequest omitted.
 
-/**
- * serializeAws_json1_1EventTypeList
- */
-const se_EventTypeList = (input: (EventType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EventTypeList omitted.
 
-/**
- * serializeAws_json1_1GetAccountBalanceRequest
- */
-const se_GetAccountBalanceRequest = (input: GetAccountBalanceRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_GetAccountBalanceRequest omitted.
 
-/**
- * serializeAws_json1_1GetAssignmentRequest
- */
-const se_GetAssignmentRequest = (input: GetAssignmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
-  };
-};
+// se_GetAssignmentRequest omitted.
 
-/**
- * serializeAws_json1_1GetFileUploadURLRequest
- */
-const se_GetFileUploadURLRequest = (input: GetFileUploadURLRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
-    ...(input.QuestionIdentifier != null && { QuestionIdentifier: input.QuestionIdentifier }),
-  };
-};
+// se_GetFileUploadURLRequest omitted.
 
-/**
- * serializeAws_json1_1GetHITRequest
- */
-const se_GetHITRequest = (input: GetHITRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HITId != null && { HITId: input.HITId }),
-  };
-};
+// se_GetHITRequest omitted.
 
-/**
- * serializeAws_json1_1GetQualificationScoreRequest
- */
-const se_GetQualificationScoreRequest = (input: GetQualificationScoreRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
-  };
-};
+// se_GetQualificationScoreRequest omitted.
 
-/**
- * serializeAws_json1_1GetQualificationTypeRequest
- */
-const se_GetQualificationTypeRequest = (input: GetQualificationTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-  };
-};
+// se_GetQualificationTypeRequest omitted.
 
-/**
- * serializeAws_json1_1HITLayoutParameter
- */
-const se_HITLayoutParameter = (input: HITLayoutParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_HITLayoutParameter omitted.
 
-/**
- * serializeAws_json1_1HITLayoutParameterList
- */
-const se_HITLayoutParameterList = (input: HITLayoutParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_HITLayoutParameter(entry, context);
-    });
-};
+// se_HITLayoutParameterList omitted.
 
-/**
- * serializeAws_json1_1IntegerList
- */
-const se_IntegerList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_IntegerList omitted.
 
-/**
- * serializeAws_json1_1ListAssignmentsForHITRequest
- */
-const se_ListAssignmentsForHITRequest = (input: ListAssignmentsForHITRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentStatuses != null && {
-      AssignmentStatuses: se_AssignmentStatusList(input.AssignmentStatuses, context),
-    }),
-    ...(input.HITId != null && { HITId: input.HITId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListAssignmentsForHITRequest omitted.
 
-/**
- * serializeAws_json1_1ListBonusPaymentsRequest
- */
-const se_ListBonusPaymentsRequest = (input: ListBonusPaymentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
-    ...(input.HITId != null && { HITId: input.HITId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListBonusPaymentsRequest omitted.
 
-/**
- * serializeAws_json1_1ListHITsForQualificationTypeRequest
- */
-const se_ListHITsForQualificationTypeRequest = (
-  input: ListHITsForQualificationTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-  };
-};
+// se_ListHITsForQualificationTypeRequest omitted.
 
-/**
- * serializeAws_json1_1ListHITsRequest
- */
-const se_ListHITsRequest = (input: ListHITsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListHITsRequest omitted.
 
-/**
- * serializeAws_json1_1ListQualificationRequestsRequest
- */
-const se_ListQualificationRequestsRequest = (input: ListQualificationRequestsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-  };
-};
+// se_ListQualificationRequestsRequest omitted.
 
-/**
- * serializeAws_json1_1ListQualificationTypesRequest
- */
-const se_ListQualificationTypesRequest = (input: ListQualificationTypesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MustBeOwnedByCaller != null && { MustBeOwnedByCaller: input.MustBeOwnedByCaller }),
-    ...(input.MustBeRequestable != null && { MustBeRequestable: input.MustBeRequestable }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Query != null && { Query: input.Query }),
-  };
-};
+// se_ListQualificationTypesRequest omitted.
 
-/**
- * serializeAws_json1_1ListReviewableHITsRequest
- */
-const se_ListReviewableHITsRequest = (input: ListReviewableHITsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HITTypeId != null && { HITTypeId: input.HITTypeId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_ListReviewableHITsRequest omitted.
 
-/**
- * serializeAws_json1_1ListReviewPolicyResultsForHITRequest
- */
-const se_ListReviewPolicyResultsForHITRequest = (
-  input: ListReviewPolicyResultsForHITRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HITId != null && { HITId: input.HITId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PolicyLevels != null && { PolicyLevels: se_ReviewPolicyLevelList(input.PolicyLevels, context) }),
-    ...(input.RetrieveActions != null && { RetrieveActions: input.RetrieveActions }),
-    ...(input.RetrieveResults != null && { RetrieveResults: input.RetrieveResults }),
-  };
-};
+// se_ListReviewPolicyResultsForHITRequest omitted.
 
-/**
- * serializeAws_json1_1ListWorkerBlocksRequest
- */
-const se_ListWorkerBlocksRequest = (input: ListWorkerBlocksRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListWorkerBlocksRequest omitted.
 
-/**
- * serializeAws_json1_1ListWorkersWithQualificationTypeRequest
- */
-const se_ListWorkersWithQualificationTypeRequest = (
-  input: ListWorkersWithQualificationTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_ListWorkersWithQualificationTypeRequest omitted.
 
-/**
- * serializeAws_json1_1Locale
- */
-const se_Locale = (input: Locale, context: __SerdeContext): any => {
-  return {
-    ...(input.Country != null && { Country: input.Country }),
-    ...(input.Subdivision != null && { Subdivision: input.Subdivision }),
-  };
-};
+// se_Locale omitted.
 
-/**
- * serializeAws_json1_1LocaleList
- */
-const se_LocaleList = (input: Locale[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Locale(entry, context);
-    });
-};
+// se_LocaleList omitted.
 
-/**
- * serializeAws_json1_1NotificationSpecification
- */
-const se_NotificationSpecification = (input: NotificationSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.Destination != null && { Destination: input.Destination }),
-    ...(input.EventTypes != null && { EventTypes: se_EventTypeList(input.EventTypes, context) }),
-    ...(input.Transport != null && { Transport: input.Transport }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
+// se_NotificationSpecification omitted.
 
-/**
- * serializeAws_json1_1NotifyWorkersRequest
- */
-const se_NotifyWorkersRequest = (input: NotifyWorkersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MessageText != null && { MessageText: input.MessageText }),
-    ...(input.Subject != null && { Subject: input.Subject }),
-    ...(input.WorkerIds != null && { WorkerIds: se_CustomerIdList(input.WorkerIds, context) }),
-  };
-};
+// se_NotifyWorkersRequest omitted.
 
-/**
- * serializeAws_json1_1ParameterMapEntry
- */
-const se_ParameterMapEntry = (input: ParameterMapEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Values != null && { Values: se_StringList(input.Values, context) }),
-  };
-};
+// se_ParameterMapEntry omitted.
 
-/**
- * serializeAws_json1_1ParameterMapEntryList
- */
-const se_ParameterMapEntryList = (input: ParameterMapEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ParameterMapEntry(entry, context);
-    });
-};
+// se_ParameterMapEntryList omitted.
 
-/**
- * serializeAws_json1_1PolicyParameter
- */
-const se_PolicyParameter = (input: PolicyParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.MapEntries != null && { MapEntries: se_ParameterMapEntryList(input.MapEntries, context) }),
-    ...(input.Values != null && { Values: se_StringList(input.Values, context) }),
-  };
-};
+// se_PolicyParameter omitted.
 
-/**
- * serializeAws_json1_1PolicyParameterList
- */
-const se_PolicyParameterList = (input: PolicyParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PolicyParameter(entry, context);
-    });
-};
+// se_PolicyParameterList omitted.
 
-/**
- * serializeAws_json1_1QualificationRequirement
- */
-const se_QualificationRequirement = (input: QualificationRequirement, context: __SerdeContext): any => {
-  return {
-    ...(input.ActionsGuarded != null && { ActionsGuarded: input.ActionsGuarded }),
-    ...(input.Comparator != null && { Comparator: input.Comparator }),
-    ...(input.IntegerValues != null && { IntegerValues: se_IntegerList(input.IntegerValues, context) }),
-    ...(input.LocaleValues != null && { LocaleValues: se_LocaleList(input.LocaleValues, context) }),
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.RequiredToPreview != null && { RequiredToPreview: input.RequiredToPreview }),
-  };
-};
+// se_QualificationRequirement omitted.
 
-/**
- * serializeAws_json1_1QualificationRequirementList
- */
-const se_QualificationRequirementList = (input: QualificationRequirement[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_QualificationRequirement(entry, context);
-    });
-};
+// se_QualificationRequirementList omitted.
 
-/**
- * serializeAws_json1_1RejectAssignmentRequest
- */
-const se_RejectAssignmentRequest = (input: RejectAssignmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
-    ...(input.RequesterFeedback != null && { RequesterFeedback: input.RequesterFeedback }),
-  };
-};
+// se_RejectAssignmentRequest omitted.
 
-/**
- * serializeAws_json1_1RejectQualificationRequestRequest
- */
-const se_RejectQualificationRequestRequest = (
-  input: RejectQualificationRequestRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.QualificationRequestId != null && { QualificationRequestId: input.QualificationRequestId }),
-    ...(input.Reason != null && { Reason: input.Reason }),
-  };
-};
+// se_RejectQualificationRequestRequest omitted.
 
-/**
- * serializeAws_json1_1ReviewPolicy
- */
-const se_ReviewPolicy = (input: ReviewPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.Parameters != null && { Parameters: se_PolicyParameterList(input.Parameters, context) }),
-    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
-  };
-};
+// se_ReviewPolicy omitted.
 
-/**
- * serializeAws_json1_1ReviewPolicyLevelList
- */
-const se_ReviewPolicyLevelList = (input: (ReviewPolicyLevel | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ReviewPolicyLevelList omitted.
 
-/**
- * serializeAws_json1_1SendBonusRequest
- */
-const se_SendBonusRequest = (input: SendBonusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
-    ...(input.BonusAmount != null && { BonusAmount: input.BonusAmount }),
-    ...(input.Reason != null && { Reason: input.Reason }),
-    ...(input.UniqueRequestToken != null && { UniqueRequestToken: input.UniqueRequestToken }),
-    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
-  };
-};
+// se_SendBonusRequest omitted.
 
-/**
- * serializeAws_json1_1SendTestEventNotificationRequest
- */
-const se_SendTestEventNotificationRequest = (input: SendTestEventNotificationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Notification != null && { Notification: se_NotificationSpecification(input.Notification, context) }),
-    ...(input.TestEventType != null && { TestEventType: input.TestEventType }),
-  };
-};
+// se_SendTestEventNotificationRequest omitted.
 
-/**
- * serializeAws_json1_1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
 /**
  * serializeAws_json1_1UpdateExpirationForHITRequest
  */
 const se_UpdateExpirationForHITRequest = (input: UpdateExpirationForHITRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExpireAt != null && { ExpireAt: Math.round(input.ExpireAt.getTime() / 1000) }),
-    ...(input.HITId != null && { HITId: input.HITId }),
-  };
+  return take(input, {
+    ExpireAt: (_) => Math.round(_.getTime() / 1000),
+    HITId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateHITReviewStatusRequest
- */
-const se_UpdateHITReviewStatusRequest = (input: UpdateHITReviewStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HITId != null && { HITId: input.HITId }),
-    ...(input.Revert != null && { Revert: input.Revert }),
-  };
-};
+// se_UpdateHITReviewStatusRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateHITTypeOfHITRequest
- */
-const se_UpdateHITTypeOfHITRequest = (input: UpdateHITTypeOfHITRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HITId != null && { HITId: input.HITId }),
-    ...(input.HITTypeId != null && { HITTypeId: input.HITTypeId }),
-  };
-};
+// se_UpdateHITTypeOfHITRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateNotificationSettingsRequest
- */
-const se_UpdateNotificationSettingsRequest = (
-  input: UpdateNotificationSettingsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Active != null && { Active: input.Active }),
-    ...(input.HITTypeId != null && { HITTypeId: input.HITTypeId }),
-    ...(input.Notification != null && { Notification: se_NotificationSpecification(input.Notification, context) }),
-  };
-};
+// se_UpdateNotificationSettingsRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateQualificationTypeRequest
- */
-const se_UpdateQualificationTypeRequest = (input: UpdateQualificationTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnswerKey != null && { AnswerKey: input.AnswerKey }),
-    ...(input.AutoGranted != null && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue != null && { AutoGrantedValue: input.AutoGrantedValue }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.QualificationTypeStatus != null && { QualificationTypeStatus: input.QualificationTypeStatus }),
-    ...(input.RetryDelayInSeconds != null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
-    ...(input.Test != null && { Test: input.Test }),
-    ...(input.TestDurationInSeconds != null && { TestDurationInSeconds: input.TestDurationInSeconds }),
-  };
-};
+// se_UpdateQualificationTypeRequest omitted.
 
-/**
- * deserializeAws_json1_1AcceptQualificationRequestResponse
- */
-const de_AcceptQualificationRequestResponse = (
-  output: any,
-  context: __SerdeContext
-): AcceptQualificationRequestResponse => {
-  return {} as any;
-};
+// de_AcceptQualificationRequestResponse omitted.
 
-/**
- * deserializeAws_json1_1ApproveAssignmentResponse
- */
-const de_ApproveAssignmentResponse = (output: any, context: __SerdeContext): ApproveAssignmentResponse => {
-  return {} as any;
-};
+// de_ApproveAssignmentResponse omitted.
 
 /**
  * deserializeAws_json1_1Assignment
  */
 const de_Assignment = (output: any, context: __SerdeContext): Assignment => {
-  return {
-    AcceptTime:
-      output.AcceptTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AcceptTime))) : undefined,
-    Answer: __expectString(output.Answer),
-    ApprovalTime:
-      output.ApprovalTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApprovalTime)))
-        : undefined,
-    AssignmentId: __expectString(output.AssignmentId),
-    AssignmentStatus: __expectString(output.AssignmentStatus),
-    AutoApprovalTime:
-      output.AutoApprovalTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AutoApprovalTime)))
-        : undefined,
-    Deadline:
-      output.Deadline != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Deadline))) : undefined,
-    HITId: __expectString(output.HITId),
-    RejectionTime:
-      output.RejectionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RejectionTime)))
-        : undefined,
-    RequesterFeedback: __expectString(output.RequesterFeedback),
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
+  return take(output, {
+    AcceptTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Answer: __expectString,
+    ApprovalTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AssignmentId: __expectString,
+    AssignmentStatus: __expectString,
+    AutoApprovalTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Deadline: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HITId: __expectString,
+    RejectionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequesterFeedback: __expectString,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WorkerId: __expectString,
+  }) as any;
 };
 
 /**
@@ -3454,36 +2793,24 @@ const de_AssignmentList = (output: any, context: __SerdeContext): Assignment[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Assignment(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1AssociateQualificationWithWorkerResponse
- */
-const de_AssociateQualificationWithWorkerResponse = (
-  output: any,
-  context: __SerdeContext
-): AssociateQualificationWithWorkerResponse => {
-  return {} as any;
-};
+// de_AssociateQualificationWithWorkerResponse omitted.
 
 /**
  * deserializeAws_json1_1BonusPayment
  */
 const de_BonusPayment = (output: any, context: __SerdeContext): BonusPayment => {
-  return {
-    AssignmentId: __expectString(output.AssignmentId),
-    BonusAmount: __expectString(output.BonusAmount),
-    GrantTime:
-      output.GrantTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime))) : undefined,
-    Reason: __expectString(output.Reason),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
+  return take(output, {
+    AssignmentId: __expectString,
+    BonusAmount: __expectString,
+    GrantTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Reason: __expectString,
+    WorkerId: __expectString,
+  }) as any;
 };
 
 /**
@@ -3493,190 +2820,120 @@ const de_BonusPaymentList = (output: any, context: __SerdeContext): BonusPayment
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BonusPayment(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CreateAdditionalAssignmentsForHITResponse
- */
-const de_CreateAdditionalAssignmentsForHITResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateAdditionalAssignmentsForHITResponse => {
-  return {} as any;
-};
+// de_CreateAdditionalAssignmentsForHITResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateHITResponse
  */
 const de_CreateHITResponse = (output: any, context: __SerdeContext): CreateHITResponse => {
-  return {
-    HIT: output.HIT != null ? de_HIT(output.HIT, context) : undefined,
-  } as any;
+  return take(output, {
+    HIT: (_: any) => de_HIT(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateHITTypeResponse
- */
-const de_CreateHITTypeResponse = (output: any, context: __SerdeContext): CreateHITTypeResponse => {
-  return {
-    HITTypeId: __expectString(output.HITTypeId),
-  } as any;
-};
+// de_CreateHITTypeResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateHITWithHITTypeResponse
  */
 const de_CreateHITWithHITTypeResponse = (output: any, context: __SerdeContext): CreateHITWithHITTypeResponse => {
-  return {
-    HIT: output.HIT != null ? de_HIT(output.HIT, context) : undefined,
-  } as any;
+  return take(output, {
+    HIT: (_: any) => de_HIT(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateQualificationTypeResponse
  */
 const de_CreateQualificationTypeResponse = (output: any, context: __SerdeContext): CreateQualificationTypeResponse => {
-  return {
-    QualificationType:
-      output.QualificationType != null ? de_QualificationType(output.QualificationType, context) : undefined,
-  } as any;
+  return take(output, {
+    QualificationType: (_: any) => de_QualificationType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateWorkerBlockResponse
- */
-const de_CreateWorkerBlockResponse = (output: any, context: __SerdeContext): CreateWorkerBlockResponse => {
-  return {} as any;
-};
+// de_CreateWorkerBlockResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteHITResponse
- */
-const de_DeleteHITResponse = (output: any, context: __SerdeContext): DeleteHITResponse => {
-  return {} as any;
-};
+// de_DeleteHITResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteQualificationTypeResponse
- */
-const de_DeleteQualificationTypeResponse = (output: any, context: __SerdeContext): DeleteQualificationTypeResponse => {
-  return {} as any;
-};
+// de_DeleteQualificationTypeResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteWorkerBlockResponse
- */
-const de_DeleteWorkerBlockResponse = (output: any, context: __SerdeContext): DeleteWorkerBlockResponse => {
-  return {} as any;
-};
+// de_DeleteWorkerBlockResponse omitted.
 
-/**
- * deserializeAws_json1_1DisassociateQualificationFromWorkerResponse
- */
-const de_DisassociateQualificationFromWorkerResponse = (
-  output: any,
-  context: __SerdeContext
-): DisassociateQualificationFromWorkerResponse => {
-  return {} as any;
-};
+// de_DisassociateQualificationFromWorkerResponse omitted.
 
-/**
- * deserializeAws_json1_1GetAccountBalanceResponse
- */
-const de_GetAccountBalanceResponse = (output: any, context: __SerdeContext): GetAccountBalanceResponse => {
-  return {
-    AvailableBalance: __expectString(output.AvailableBalance),
-    OnHoldBalance: __expectString(output.OnHoldBalance),
-  } as any;
-};
+// de_GetAccountBalanceResponse omitted.
 
 /**
  * deserializeAws_json1_1GetAssignmentResponse
  */
 const de_GetAssignmentResponse = (output: any, context: __SerdeContext): GetAssignmentResponse => {
-  return {
-    Assignment: output.Assignment != null ? de_Assignment(output.Assignment, context) : undefined,
-    HIT: output.HIT != null ? de_HIT(output.HIT, context) : undefined,
-  } as any;
+  return take(output, {
+    Assignment: (_: any) => de_Assignment(_, context),
+    HIT: (_: any) => de_HIT(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetFileUploadURLResponse
- */
-const de_GetFileUploadURLResponse = (output: any, context: __SerdeContext): GetFileUploadURLResponse => {
-  return {
-    FileUploadURL: __expectString(output.FileUploadURL),
-  } as any;
-};
+// de_GetFileUploadURLResponse omitted.
 
 /**
  * deserializeAws_json1_1GetHITResponse
  */
 const de_GetHITResponse = (output: any, context: __SerdeContext): GetHITResponse => {
-  return {
-    HIT: output.HIT != null ? de_HIT(output.HIT, context) : undefined,
-  } as any;
+  return take(output, {
+    HIT: (_: any) => de_HIT(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetQualificationScoreResponse
  */
 const de_GetQualificationScoreResponse = (output: any, context: __SerdeContext): GetQualificationScoreResponse => {
-  return {
-    Qualification: output.Qualification != null ? de_Qualification(output.Qualification, context) : undefined,
-  } as any;
+  return take(output, {
+    Qualification: (_: any) => de_Qualification(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetQualificationTypeResponse
  */
 const de_GetQualificationTypeResponse = (output: any, context: __SerdeContext): GetQualificationTypeResponse => {
-  return {
-    QualificationType:
-      output.QualificationType != null ? de_QualificationType(output.QualificationType, context) : undefined,
-  } as any;
+  return take(output, {
+    QualificationType: (_: any) => de_QualificationType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1HIT
  */
 const de_HIT = (output: any, context: __SerdeContext): HIT => {
-  return {
-    AssignmentDurationInSeconds: __expectLong(output.AssignmentDurationInSeconds),
-    AutoApprovalDelayInSeconds: __expectLong(output.AutoApprovalDelayInSeconds),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Expiration:
-      output.Expiration != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiration))) : undefined,
-    HITGroupId: __expectString(output.HITGroupId),
-    HITId: __expectString(output.HITId),
-    HITLayoutId: __expectString(output.HITLayoutId),
-    HITReviewStatus: __expectString(output.HITReviewStatus),
-    HITStatus: __expectString(output.HITStatus),
-    HITTypeId: __expectString(output.HITTypeId),
-    Keywords: __expectString(output.Keywords),
-    MaxAssignments: __expectInt32(output.MaxAssignments),
-    NumberOfAssignmentsAvailable: __expectInt32(output.NumberOfAssignmentsAvailable),
-    NumberOfAssignmentsCompleted: __expectInt32(output.NumberOfAssignmentsCompleted),
-    NumberOfAssignmentsPending: __expectInt32(output.NumberOfAssignmentsPending),
-    QualificationRequirements:
-      output.QualificationRequirements != null
-        ? de_QualificationRequirementList(output.QualificationRequirements, context)
-        : undefined,
-    Question: __expectString(output.Question),
-    RequesterAnnotation: __expectString(output.RequesterAnnotation),
-    Reward: __expectString(output.Reward),
-    Title: __expectString(output.Title),
-  } as any;
+  return take(output, {
+    AssignmentDurationInSeconds: __expectLong,
+    AutoApprovalDelayInSeconds: __expectLong,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Expiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HITGroupId: __expectString,
+    HITId: __expectString,
+    HITLayoutId: __expectString,
+    HITReviewStatus: __expectString,
+    HITStatus: __expectString,
+    HITTypeId: __expectString,
+    Keywords: __expectString,
+    MaxAssignments: __expectInt32,
+    NumberOfAssignmentsAvailable: __expectInt32,
+    NumberOfAssignmentsCompleted: __expectInt32,
+    NumberOfAssignmentsPending: __expectInt32,
+    QualificationRequirements: _json,
+    Question: __expectString,
+    RequesterAnnotation: __expectString,
+    Reward: __expectString,
+    Title: __expectString,
+  }) as any;
 };
 
 /**
@@ -3686,49 +2943,33 @@ const de_HITList = (output: any, context: __SerdeContext): HIT[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_HIT(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1IntegerList
- */
-const de_IntegerList = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_IntegerList omitted.
 
 /**
  * deserializeAws_json1_1ListAssignmentsForHITResponse
  */
 const de_ListAssignmentsForHITResponse = (output: any, context: __SerdeContext): ListAssignmentsForHITResponse => {
-  return {
-    Assignments: output.Assignments != null ? de_AssignmentList(output.Assignments, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
+  return take(output, {
+    Assignments: (_: any) => de_AssignmentList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListBonusPaymentsResponse
  */
 const de_ListBonusPaymentsResponse = (output: any, context: __SerdeContext): ListBonusPaymentsResponse => {
-  return {
-    BonusPayments: output.BonusPayments != null ? de_BonusPaymentList(output.BonusPayments, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
+  return take(output, {
+    BonusPayments: (_: any) => de_BonusPaymentList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -3738,22 +2979,22 @@ const de_ListHITsForQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): ListHITsForQualificationTypeResponse => {
-  return {
-    HITs: output.HITs != null ? de_HITList(output.HITs, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
+  return take(output, {
+    HITs: (_: any) => de_HITList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListHITsResponse
  */
 const de_ListHITsResponse = (output: any, context: __SerdeContext): ListHITsResponse => {
-  return {
-    HITs: output.HITs != null ? de_HITList(output.HITs, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
+  return take(output, {
+    HITs: (_: any) => de_HITList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -3763,37 +3004,33 @@ const de_ListQualificationRequestsResponse = (
   output: any,
   context: __SerdeContext
 ): ListQualificationRequestsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-    QualificationRequests:
-      output.QualificationRequests != null
-        ? de_QualificationRequestList(output.QualificationRequests, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+    QualificationRequests: (_: any) => de_QualificationRequestList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListQualificationTypesResponse
  */
 const de_ListQualificationTypesResponse = (output: any, context: __SerdeContext): ListQualificationTypesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-    QualificationTypes:
-      output.QualificationTypes != null ? de_QualificationTypeList(output.QualificationTypes, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+    QualificationTypes: (_: any) => de_QualificationTypeList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListReviewableHITsResponse
  */
 const de_ListReviewableHITsResponse = (output: any, context: __SerdeContext): ListReviewableHITsResponse => {
-  return {
-    HITs: output.HITs != null ? de_HITList(output.HITs, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
+  return take(output, {
+    HITs: (_: any) => de_HITList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -3803,28 +3040,17 @@ const de_ListReviewPolicyResultsForHITResponse = (
   output: any,
   context: __SerdeContext
 ): ListReviewPolicyResultsForHITResponse => {
-  return {
-    AssignmentReviewPolicy:
-      output.AssignmentReviewPolicy != null ? de_ReviewPolicy(output.AssignmentReviewPolicy, context) : undefined,
-    AssignmentReviewReport:
-      output.AssignmentReviewReport != null ? de_ReviewReport(output.AssignmentReviewReport, context) : undefined,
-    HITId: __expectString(output.HITId),
-    HITReviewPolicy: output.HITReviewPolicy != null ? de_ReviewPolicy(output.HITReviewPolicy, context) : undefined,
-    HITReviewReport: output.HITReviewReport != null ? de_ReviewReport(output.HITReviewReport, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AssignmentReviewPolicy: _json,
+    AssignmentReviewReport: (_: any) => de_ReviewReport(_, context),
+    HITId: __expectString,
+    HITReviewPolicy: _json,
+    HITReviewReport: (_: any) => de_ReviewReport(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListWorkerBlocksResponse
- */
-const de_ListWorkerBlocksResponse = (output: any, context: __SerdeContext): ListWorkerBlocksResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-    WorkerBlocks: output.WorkerBlocks != null ? de_WorkerBlockList(output.WorkerBlocks, context) : undefined,
-  } as any;
-};
+// de_ListWorkerBlocksResponse omitted.
 
 /**
  * deserializeAws_json1_1ListWorkersWithQualificationTypeResponse
@@ -3833,140 +3059,43 @@ const de_ListWorkersWithQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): ListWorkersWithQualificationTypeResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-    Qualifications: output.Qualifications != null ? de_QualificationList(output.Qualifications, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+    Qualifications: (_: any) => de_QualificationList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Locale
- */
-const de_Locale = (output: any, context: __SerdeContext): Locale => {
-  return {
-    Country: __expectString(output.Country),
-    Subdivision: __expectString(output.Subdivision),
-  } as any;
-};
+// de_Locale omitted.
 
-/**
- * deserializeAws_json1_1LocaleList
- */
-const de_LocaleList = (output: any, context: __SerdeContext): Locale[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Locale(entry, context);
-    });
-  return retVal;
-};
+// de_LocaleList omitted.
 
-/**
- * deserializeAws_json1_1NotifyWorkersFailureStatus
- */
-const de_NotifyWorkersFailureStatus = (output: any, context: __SerdeContext): NotifyWorkersFailureStatus => {
-  return {
-    NotifyWorkersFailureCode: __expectString(output.NotifyWorkersFailureCode),
-    NotifyWorkersFailureMessage: __expectString(output.NotifyWorkersFailureMessage),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
-};
+// de_NotifyWorkersFailureStatus omitted.
 
-/**
- * deserializeAws_json1_1NotifyWorkersFailureStatusList
- */
-const de_NotifyWorkersFailureStatusList = (output: any, context: __SerdeContext): NotifyWorkersFailureStatus[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NotifyWorkersFailureStatus(entry, context);
-    });
-  return retVal;
-};
+// de_NotifyWorkersFailureStatusList omitted.
 
-/**
- * deserializeAws_json1_1NotifyWorkersResponse
- */
-const de_NotifyWorkersResponse = (output: any, context: __SerdeContext): NotifyWorkersResponse => {
-  return {
-    NotifyWorkersFailureStatuses:
-      output.NotifyWorkersFailureStatuses != null
-        ? de_NotifyWorkersFailureStatusList(output.NotifyWorkersFailureStatuses, context)
-        : undefined,
-  } as any;
-};
+// de_NotifyWorkersResponse omitted.
 
-/**
- * deserializeAws_json1_1ParameterMapEntry
- */
-const de_ParameterMapEntry = (output: any, context: __SerdeContext): ParameterMapEntry => {
-  return {
-    Key: __expectString(output.Key),
-    Values: output.Values != null ? de_StringList(output.Values, context) : undefined,
-  } as any;
-};
+// de_ParameterMapEntry omitted.
 
-/**
- * deserializeAws_json1_1ParameterMapEntryList
- */
-const de_ParameterMapEntryList = (output: any, context: __SerdeContext): ParameterMapEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ParameterMapEntry(entry, context);
-    });
-  return retVal;
-};
+// de_ParameterMapEntryList omitted.
 
-/**
- * deserializeAws_json1_1PolicyParameter
- */
-const de_PolicyParameter = (output: any, context: __SerdeContext): PolicyParameter => {
-  return {
-    Key: __expectString(output.Key),
-    MapEntries: output.MapEntries != null ? de_ParameterMapEntryList(output.MapEntries, context) : undefined,
-    Values: output.Values != null ? de_StringList(output.Values, context) : undefined,
-  } as any;
-};
+// de_PolicyParameter omitted.
 
-/**
- * deserializeAws_json1_1PolicyParameterList
- */
-const de_PolicyParameterList = (output: any, context: __SerdeContext): PolicyParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PolicyParameter(entry, context);
-    });
-  return retVal;
-};
+// de_PolicyParameterList omitted.
 
 /**
  * deserializeAws_json1_1Qualification
  */
 const de_Qualification = (output: any, context: __SerdeContext): Qualification => {
-  return {
-    GrantTime:
-      output.GrantTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime))) : undefined,
-    IntegerValue: __expectInt32(output.IntegerValue),
-    LocaleValue: output.LocaleValue != null ? de_Locale(output.LocaleValue, context) : undefined,
-    QualificationTypeId: __expectString(output.QualificationTypeId),
-    Status: __expectString(output.Status),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
+  return take(output, {
+    GrantTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IntegerValue: __expectInt32,
+    LocaleValue: _json,
+    QualificationTypeId: __expectString,
+    Status: __expectString,
+    WorkerId: __expectString,
+  }) as any;
 };
 
 /**
@@ -3976,9 +3105,6 @@ const de_QualificationList = (output: any, context: __SerdeContext): Qualificati
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Qualification(entry, context);
     });
   return retVal;
@@ -3988,15 +3114,14 @@ const de_QualificationList = (output: any, context: __SerdeContext): Qualificati
  * deserializeAws_json1_1QualificationRequest
  */
 const de_QualificationRequest = (output: any, context: __SerdeContext): QualificationRequest => {
-  return {
-    Answer: __expectString(output.Answer),
-    QualificationRequestId: __expectString(output.QualificationRequestId),
-    QualificationTypeId: __expectString(output.QualificationTypeId),
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-    Test: __expectString(output.Test),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
+  return take(output, {
+    Answer: __expectString,
+    QualificationRequestId: __expectString,
+    QualificationTypeId: __expectString,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Test: __expectString,
+    WorkerId: __expectString,
+  }) as any;
 };
 
 /**
@@ -4006,65 +3131,34 @@ const de_QualificationRequestList = (output: any, context: __SerdeContext): Qual
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_QualificationRequest(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1QualificationRequirement
- */
-const de_QualificationRequirement = (output: any, context: __SerdeContext): QualificationRequirement => {
-  return {
-    ActionsGuarded: __expectString(output.ActionsGuarded),
-    Comparator: __expectString(output.Comparator),
-    IntegerValues: output.IntegerValues != null ? de_IntegerList(output.IntegerValues, context) : undefined,
-    LocaleValues: output.LocaleValues != null ? de_LocaleList(output.LocaleValues, context) : undefined,
-    QualificationTypeId: __expectString(output.QualificationTypeId),
-    RequiredToPreview: __expectBoolean(output.RequiredToPreview),
-  } as any;
-};
+// de_QualificationRequirement omitted.
 
-/**
- * deserializeAws_json1_1QualificationRequirementList
- */
-const de_QualificationRequirementList = (output: any, context: __SerdeContext): QualificationRequirement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_QualificationRequirement(entry, context);
-    });
-  return retVal;
-};
+// de_QualificationRequirementList omitted.
 
 /**
  * deserializeAws_json1_1QualificationType
  */
 const de_QualificationType = (output: any, context: __SerdeContext): QualificationType => {
-  return {
-    AnswerKey: __expectString(output.AnswerKey),
-    AutoGranted: __expectBoolean(output.AutoGranted),
-    AutoGrantedValue: __expectInt32(output.AutoGrantedValue),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    IsRequestable: __expectBoolean(output.IsRequestable),
-    Keywords: __expectString(output.Keywords),
-    Name: __expectString(output.Name),
-    QualificationTypeId: __expectString(output.QualificationTypeId),
-    QualificationTypeStatus: __expectString(output.QualificationTypeStatus),
-    RetryDelayInSeconds: __expectLong(output.RetryDelayInSeconds),
-    Test: __expectString(output.Test),
-    TestDurationInSeconds: __expectLong(output.TestDurationInSeconds),
-  } as any;
+  return take(output, {
+    AnswerKey: __expectString,
+    AutoGranted: __expectBoolean,
+    AutoGrantedValue: __expectInt32,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    IsRequestable: __expectBoolean,
+    Keywords: __expectString,
+    Name: __expectString,
+    QualificationTypeId: __expectString,
+    QualificationTypeStatus: __expectString,
+    RetryDelayInSeconds: __expectLong,
+    Test: __expectString,
+    TestDurationInSeconds: __expectLong,
+  }) as any;
 };
 
 /**
@@ -4074,58 +3168,31 @@ const de_QualificationTypeList = (output: any, context: __SerdeContext): Qualifi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_QualificationType(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1RejectAssignmentResponse
- */
-const de_RejectAssignmentResponse = (output: any, context: __SerdeContext): RejectAssignmentResponse => {
-  return {} as any;
-};
+// de_RejectAssignmentResponse omitted.
 
-/**
- * deserializeAws_json1_1RejectQualificationRequestResponse
- */
-const de_RejectQualificationRequestResponse = (
-  output: any,
-  context: __SerdeContext
-): RejectQualificationRequestResponse => {
-  return {} as any;
-};
+// de_RejectQualificationRequestResponse omitted.
 
-/**
- * deserializeAws_json1_1RequestError
- */
-const de_RequestError = (output: any, context: __SerdeContext): RequestError => {
-  return {
-    Message: __expectString(output.Message),
-    TurkErrorCode: __expectString(output.TurkErrorCode),
-  } as any;
-};
+// de_RequestError omitted.
 
 /**
  * deserializeAws_json1_1ReviewActionDetail
  */
 const de_ReviewActionDetail = (output: any, context: __SerdeContext): ReviewActionDetail => {
-  return {
-    ActionId: __expectString(output.ActionId),
-    ActionName: __expectString(output.ActionName),
-    CompleteTime:
-      output.CompleteTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompleteTime)))
-        : undefined,
-    ErrorCode: __expectString(output.ErrorCode),
-    Result: __expectString(output.Result),
-    Status: __expectString(output.Status),
-    TargetId: __expectString(output.TargetId),
-    TargetType: __expectString(output.TargetType),
-  } as any;
+  return take(output, {
+    ActionId: __expectString,
+    ActionName: __expectString,
+    CompleteTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorCode: __expectString,
+    Result: __expectString,
+    Status: __expectString,
+    TargetId: __expectString,
+    TargetType: __expectString,
+  }) as any;
 };
 
 /**
@@ -4135,170 +3202,55 @@ const de_ReviewActionDetailList = (output: any, context: __SerdeContext): Review
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReviewActionDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ReviewPolicy
- */
-const de_ReviewPolicy = (output: any, context: __SerdeContext): ReviewPolicy => {
-  return {
-    Parameters: output.Parameters != null ? de_PolicyParameterList(output.Parameters, context) : undefined,
-    PolicyName: __expectString(output.PolicyName),
-  } as any;
-};
+// de_ReviewPolicy omitted.
 
 /**
  * deserializeAws_json1_1ReviewReport
  */
 const de_ReviewReport = (output: any, context: __SerdeContext): ReviewReport => {
-  return {
-    ReviewActions: output.ReviewActions != null ? de_ReviewActionDetailList(output.ReviewActions, context) : undefined,
-    ReviewResults: output.ReviewResults != null ? de_ReviewResultDetailList(output.ReviewResults, context) : undefined,
-  } as any;
+  return take(output, {
+    ReviewActions: (_: any) => de_ReviewActionDetailList(_, context),
+    ReviewResults: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ReviewResultDetail
- */
-const de_ReviewResultDetail = (output: any, context: __SerdeContext): ReviewResultDetail => {
-  return {
-    ActionId: __expectString(output.ActionId),
-    Key: __expectString(output.Key),
-    QuestionId: __expectString(output.QuestionId),
-    SubjectId: __expectString(output.SubjectId),
-    SubjectType: __expectString(output.SubjectType),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ReviewResultDetail omitted.
 
-/**
- * deserializeAws_json1_1ReviewResultDetailList
- */
-const de_ReviewResultDetailList = (output: any, context: __SerdeContext): ReviewResultDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ReviewResultDetail(entry, context);
-    });
-  return retVal;
-};
+// de_ReviewResultDetailList omitted.
 
-/**
- * deserializeAws_json1_1SendBonusResponse
- */
-const de_SendBonusResponse = (output: any, context: __SerdeContext): SendBonusResponse => {
-  return {} as any;
-};
+// de_SendBonusResponse omitted.
 
-/**
- * deserializeAws_json1_1SendTestEventNotificationResponse
- */
-const de_SendTestEventNotificationResponse = (
-  output: any,
-  context: __SerdeContext
-): SendTestEventNotificationResponse => {
-  return {} as any;
-};
+// de_SendTestEventNotificationResponse omitted.
 
-/**
- * deserializeAws_json1_1ServiceFault
- */
-const de_ServiceFault = (output: any, context: __SerdeContext): ServiceFault => {
-  return {
-    Message: __expectString(output.Message),
-    TurkErrorCode: __expectString(output.TurkErrorCode),
-  } as any;
-};
+// de_ServiceFault omitted.
 
-/**
- * deserializeAws_json1_1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_json1_1UpdateExpirationForHITResponse
- */
-const de_UpdateExpirationForHITResponse = (output: any, context: __SerdeContext): UpdateExpirationForHITResponse => {
-  return {} as any;
-};
+// de_UpdateExpirationForHITResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateHITReviewStatusResponse
- */
-const de_UpdateHITReviewStatusResponse = (output: any, context: __SerdeContext): UpdateHITReviewStatusResponse => {
-  return {} as any;
-};
+// de_UpdateHITReviewStatusResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateHITTypeOfHITResponse
- */
-const de_UpdateHITTypeOfHITResponse = (output: any, context: __SerdeContext): UpdateHITTypeOfHITResponse => {
-  return {} as any;
-};
+// de_UpdateHITTypeOfHITResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateNotificationSettingsResponse
- */
-const de_UpdateNotificationSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateNotificationSettingsResponse => {
-  return {} as any;
-};
+// de_UpdateNotificationSettingsResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateQualificationTypeResponse
  */
 const de_UpdateQualificationTypeResponse = (output: any, context: __SerdeContext): UpdateQualificationTypeResponse => {
-  return {
-    QualificationType:
-      output.QualificationType != null ? de_QualificationType(output.QualificationType, context) : undefined,
-  } as any;
+  return take(output, {
+    QualificationType: (_: any) => de_QualificationType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1WorkerBlock
- */
-const de_WorkerBlock = (output: any, context: __SerdeContext): WorkerBlock => {
-  return {
-    Reason: __expectString(output.Reason),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
-};
+// de_WorkerBlock omitted.
 
-/**
- * deserializeAws_json1_1WorkerBlockList
- */
-const de_WorkerBlockList = (output: any, context: __SerdeContext): WorkerBlock[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorkerBlock(entry, context);
-    });
-  return retVal;
-};
+// de_WorkerBlockList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -4320,6 +3272,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

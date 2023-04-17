@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectString as __expectString,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -36,26 +36,19 @@ import {
   AccessDeniedException,
   AssociateMemberAccountRequest,
   AssociateS3ResourcesRequest,
-  AssociateS3ResourcesResult,
   ClassificationType,
   ClassificationTypeUpdate,
   DisassociateMemberAccountRequest,
   DisassociateS3ResourcesRequest,
-  DisassociateS3ResourcesResult,
-  FailedS3Resource,
   InternalException,
   InvalidInputException,
   LimitExceededException,
   ListMemberAccountsRequest,
-  ListMemberAccountsResult,
   ListS3ResourcesRequest,
-  ListS3ResourcesResult,
-  MemberAccount,
   S3Resource,
   S3ResourceClassification,
   S3ResourceClassificationUpdate,
   UpdateS3ResourcesRequest,
-  UpdateS3ResourcesResult,
 } from "../models/models_0";
 
 /**
@@ -67,7 +60,7 @@ export const se_AssociateMemberAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateMemberAccount");
   let body: any;
-  body = JSON.stringify(se_AssociateMemberAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -80,7 +73,7 @@ export const se_AssociateS3ResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateS3Resources");
   let body: any;
-  body = JSON.stringify(se_AssociateS3ResourcesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -93,7 +86,7 @@ export const se_DisassociateMemberAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateMemberAccount");
   let body: any;
-  body = JSON.stringify(se_DisassociateMemberAccountRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -106,7 +99,7 @@ export const se_DisassociateS3ResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateS3Resources");
   let body: any;
-  body = JSON.stringify(se_DisassociateS3ResourcesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -119,7 +112,7 @@ export const se_ListMemberAccountsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListMemberAccounts");
   let body: any;
-  body = JSON.stringify(se_ListMemberAccountsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -132,7 +125,7 @@ export const se_ListS3ResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListS3Resources");
   let body: any;
-  body = JSON.stringify(se_ListS3ResourcesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -145,7 +138,7 @@ export const se_UpdateS3ResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateS3Resources");
   let body: any;
-  body = JSON.stringify(se_UpdateS3ResourcesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -163,7 +156,7 @@ export const de_AssociateMemberAccountCommand = async (
   const response: AssociateMemberAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -190,10 +183,9 @@ const de_AssociateMemberAccountCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -211,12 +203,12 @@ export const de_AssociateS3ResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateS3ResourcesResult(data, context);
+  contents = _json(data);
   const response: AssociateS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -246,10 +238,9 @@ const de_AssociateS3ResourcesCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -269,7 +260,7 @@ export const de_DisassociateMemberAccountCommand = async (
   const response: DisassociateMemberAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -293,10 +284,9 @@ const de_DisassociateMemberAccountCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -314,12 +304,12 @@ export const de_DisassociateS3ResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateS3ResourcesResult(data, context);
+  contents = _json(data);
   const response: DisassociateS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -346,10 +336,9 @@ const de_DisassociateS3ResourcesCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -367,12 +356,12 @@ export const de_ListMemberAccountsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListMemberAccountsResult(data, context);
+  contents = _json(data);
   const response: ListMemberAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -396,10 +385,9 @@ const de_ListMemberAccountsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -417,12 +405,12 @@ export const de_ListS3ResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListS3ResourcesResult(data, context);
+  contents = _json(data);
   const response: ListS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -449,10 +437,9 @@ const de_ListS3ResourcesCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -470,12 +457,12 @@ export const de_UpdateS3ResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateS3ResourcesResult(data, context);
+  contents = _json(data);
   const response: UpdateS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -502,10 +489,9 @@ const de_UpdateS3ResourcesCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -519,7 +505,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -532,7 +518,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_InternalExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -548,7 +534,7 @@ const de_InvalidInputExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidInputException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -564,7 +550,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -572,356 +558,69 @@ const de_LimitExceededExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AssociateMemberAccountRequest
- */
-const se_AssociateMemberAccountRequest = (input: AssociateMemberAccountRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
-  };
-};
+// se_AssociateMemberAccountRequest omitted.
 
-/**
- * serializeAws_json1_1AssociateS3ResourcesRequest
- */
-const se_AssociateS3ResourcesRequest = (input: AssociateS3ResourcesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
-    ...(input.s3Resources != null && { s3Resources: se_S3ResourcesClassification(input.s3Resources, context) }),
-  };
-};
+// se_AssociateS3ResourcesRequest omitted.
 
-/**
- * serializeAws_json1_1ClassificationType
- */
-const se_ClassificationType = (input: ClassificationType, context: __SerdeContext): any => {
-  return {
-    ...(input.continuous != null && { continuous: input.continuous }),
-    ...(input.oneTime != null && { oneTime: input.oneTime }),
-  };
-};
+// se_ClassificationType omitted.
 
-/**
- * serializeAws_json1_1ClassificationTypeUpdate
- */
-const se_ClassificationTypeUpdate = (input: ClassificationTypeUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.continuous != null && { continuous: input.continuous }),
-    ...(input.oneTime != null && { oneTime: input.oneTime }),
-  };
-};
+// se_ClassificationTypeUpdate omitted.
 
-/**
- * serializeAws_json1_1DisassociateMemberAccountRequest
- */
-const se_DisassociateMemberAccountRequest = (input: DisassociateMemberAccountRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
-  };
-};
+// se_DisassociateMemberAccountRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateS3ResourcesRequest
- */
-const se_DisassociateS3ResourcesRequest = (input: DisassociateS3ResourcesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.associatedS3Resources != null && {
-      associatedS3Resources: se_S3Resources(input.associatedS3Resources, context),
-    }),
-    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
-  };
-};
+// se_DisassociateS3ResourcesRequest omitted.
 
-/**
- * serializeAws_json1_1ListMemberAccountsRequest
- */
-const se_ListMemberAccountsRequest = (input: ListMemberAccountsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListMemberAccountsRequest omitted.
 
-/**
- * serializeAws_json1_1ListS3ResourcesRequest
- */
-const se_ListS3ResourcesRequest = (input: ListS3ResourcesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListS3ResourcesRequest omitted.
 
-/**
- * serializeAws_json1_1S3Resource
- */
-const se_S3Resource = (input: S3Resource, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketName != null && { bucketName: input.bucketName }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-  };
-};
+// se_S3Resource omitted.
 
-/**
- * serializeAws_json1_1S3ResourceClassification
- */
-const se_S3ResourceClassification = (input: S3ResourceClassification, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketName != null && { bucketName: input.bucketName }),
-    ...(input.classificationType != null && {
-      classificationType: se_ClassificationType(input.classificationType, context),
-    }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-  };
-};
+// se_S3ResourceClassification omitted.
 
-/**
- * serializeAws_json1_1S3ResourceClassificationUpdate
- */
-const se_S3ResourceClassificationUpdate = (input: S3ResourceClassificationUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketName != null && { bucketName: input.bucketName }),
-    ...(input.classificationTypeUpdate != null && {
-      classificationTypeUpdate: se_ClassificationTypeUpdate(input.classificationTypeUpdate, context),
-    }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-  };
-};
+// se_S3ResourceClassificationUpdate omitted.
 
-/**
- * serializeAws_json1_1S3Resources
- */
-const se_S3Resources = (input: S3Resource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_S3Resource(entry, context);
-    });
-};
+// se_S3Resources omitted.
 
-/**
- * serializeAws_json1_1S3ResourcesClassification
- */
-const se_S3ResourcesClassification = (input: S3ResourceClassification[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_S3ResourceClassification(entry, context);
-    });
-};
+// se_S3ResourcesClassification omitted.
 
-/**
- * serializeAws_json1_1S3ResourcesClassificationUpdate
- */
-const se_S3ResourcesClassificationUpdate = (input: S3ResourceClassificationUpdate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_S3ResourceClassificationUpdate(entry, context);
-    });
-};
+// se_S3ResourcesClassificationUpdate omitted.
 
-/**
- * serializeAws_json1_1UpdateS3ResourcesRequest
- */
-const se_UpdateS3ResourcesRequest = (input: UpdateS3ResourcesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
-    ...(input.s3ResourcesUpdate != null && {
-      s3ResourcesUpdate: se_S3ResourcesClassificationUpdate(input.s3ResourcesUpdate, context),
-    }),
-  };
-};
+// se_UpdateS3ResourcesRequest omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AssociateS3ResourcesResult
- */
-const de_AssociateS3ResourcesResult = (output: any, context: __SerdeContext): AssociateS3ResourcesResult => {
-  return {
-    failedS3Resources:
-      output.failedS3Resources != null ? de_FailedS3Resources(output.failedS3Resources, context) : undefined,
-  } as any;
-};
+// de_AssociateS3ResourcesResult omitted.
 
-/**
- * deserializeAws_json1_1ClassificationType
- */
-const de_ClassificationType = (output: any, context: __SerdeContext): ClassificationType => {
-  return {
-    continuous: __expectString(output.continuous),
-    oneTime: __expectString(output.oneTime),
-  } as any;
-};
+// de_ClassificationType omitted.
 
-/**
- * deserializeAws_json1_1DisassociateS3ResourcesResult
- */
-const de_DisassociateS3ResourcesResult = (output: any, context: __SerdeContext): DisassociateS3ResourcesResult => {
-  return {
-    failedS3Resources:
-      output.failedS3Resources != null ? de_FailedS3Resources(output.failedS3Resources, context) : undefined,
-  } as any;
-};
+// de_DisassociateS3ResourcesResult omitted.
 
-/**
- * deserializeAws_json1_1FailedS3Resource
- */
-const de_FailedS3Resource = (output: any, context: __SerdeContext): FailedS3Resource => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    failedItem: output.failedItem != null ? de_S3Resource(output.failedItem, context) : undefined,
-  } as any;
-};
+// de_FailedS3Resource omitted.
 
-/**
- * deserializeAws_json1_1FailedS3Resources
- */
-const de_FailedS3Resources = (output: any, context: __SerdeContext): FailedS3Resource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FailedS3Resource(entry, context);
-    });
-  return retVal;
-};
+// de_FailedS3Resources omitted.
 
-/**
- * deserializeAws_json1_1InternalException
- */
-const de_InternalException = (output: any, context: __SerdeContext): InternalException => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalException omitted.
 
-/**
- * deserializeAws_json1_1InvalidInputException
- */
-const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    fieldName: __expectString(output.fieldName),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidInputException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    message: __expectString(output.message),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListMemberAccountsResult
- */
-const de_ListMemberAccountsResult = (output: any, context: __SerdeContext): ListMemberAccountsResult => {
-  return {
-    memberAccounts: output.memberAccounts != null ? de_MemberAccounts(output.memberAccounts, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListMemberAccountsResult omitted.
 
-/**
- * deserializeAws_json1_1ListS3ResourcesResult
- */
-const de_ListS3ResourcesResult = (output: any, context: __SerdeContext): ListS3ResourcesResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    s3Resources: output.s3Resources != null ? de_S3ResourcesClassification(output.s3Resources, context) : undefined,
-  } as any;
-};
+// de_ListS3ResourcesResult omitted.
 
-/**
- * deserializeAws_json1_1MemberAccount
- */
-const de_MemberAccount = (output: any, context: __SerdeContext): MemberAccount => {
-  return {
-    accountId: __expectString(output.accountId),
-  } as any;
-};
+// de_MemberAccount omitted.
 
-/**
- * deserializeAws_json1_1MemberAccounts
- */
-const de_MemberAccounts = (output: any, context: __SerdeContext): MemberAccount[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MemberAccount(entry, context);
-    });
-  return retVal;
-};
+// de_MemberAccounts omitted.
 
-/**
- * deserializeAws_json1_1S3Resource
- */
-const de_S3Resource = (output: any, context: __SerdeContext): S3Resource => {
-  return {
-    bucketName: __expectString(output.bucketName),
-    prefix: __expectString(output.prefix),
-  } as any;
-};
+// de_S3Resource omitted.
 
-/**
- * deserializeAws_json1_1S3ResourceClassification
- */
-const de_S3ResourceClassification = (output: any, context: __SerdeContext): S3ResourceClassification => {
-  return {
-    bucketName: __expectString(output.bucketName),
-    classificationType:
-      output.classificationType != null ? de_ClassificationType(output.classificationType, context) : undefined,
-    prefix: __expectString(output.prefix),
-  } as any;
-};
+// de_S3ResourceClassification omitted.
 
-/**
- * deserializeAws_json1_1S3ResourcesClassification
- */
-const de_S3ResourcesClassification = (output: any, context: __SerdeContext): S3ResourceClassification[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_S3ResourceClassification(entry, context);
-    });
-  return retVal;
-};
+// de_S3ResourcesClassification omitted.
 
-/**
- * deserializeAws_json1_1UpdateS3ResourcesResult
- */
-const de_UpdateS3ResourcesResult = (output: any, context: __SerdeContext): UpdateS3ResourcesResult => {
-  return {
-    failedS3Resources:
-      output.failedS3Resources != null ? de_FailedS3Resources(output.failedS3Resources, context) : undefined,
-  } as any;
-};
+// de_UpdateS3ResourcesResult omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -943,6 +642,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

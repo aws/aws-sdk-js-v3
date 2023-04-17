@@ -1,19 +1,20 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -104,12 +105,7 @@ import { UpdatePricingRuleCommandInput, UpdatePricingRuleCommandOutput } from ".
 import { BillingconductorServiceException as __BaseException } from "../models/BillingconductorServiceException";
 import {
   AccessDeniedException,
-  AccountAssociationsListElement,
   AccountGrouping,
-  AssociateResourceError,
-  AssociateResourceResponseElement,
-  BillingGroupCostReportElement,
-  BillingGroupListElement,
   BillingGroupStatus,
   ComputationPreference,
   ConflictException,
@@ -121,8 +117,6 @@ import {
   CustomLineItemListElement,
   CustomLineItemPercentageChargeDetails,
   CustomLineItemVersionListElement,
-  DisassociateResourceResponseElement,
-  FreeTierConfig,
   InternalServerException,
   ListAccountAssociationsFilter,
   ListBillingGroupCostReportsFilter,
@@ -136,20 +130,16 @@ import {
   ListPricingPlansFilter,
   ListPricingRulesFilter,
   ListResourcesAssociatedToCustomLineItemFilter,
-  ListResourcesAssociatedToCustomLineItemResponseElement,
-  PricingPlanListElement,
   PricingRuleListElement,
   ResourceNotFoundException,
   ServiceLimitExceededException,
   ThrottlingException,
-  Tiering,
   UpdateCustomLineItemChargeDetails,
   UpdateCustomLineItemFlatChargeDetails,
   UpdateCustomLineItemPercentageChargeDetails,
   UpdateFreeTierConfig,
   UpdateTieringInput,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 
 /**
@@ -165,10 +155,12 @@ export const se_AssociateAccountsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associate-accounts";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_AccountIdList(input.AccountIds, context) }),
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -194,12 +186,12 @@ export const se_AssociatePricingRulesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associate-pricing-rules";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.PricingRuleArns != null && {
-      PricingRuleArns: se_PricingRuleArnsNonEmptyInput(input.PricingRuleArns, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      PricingRuleArns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -226,15 +218,13 @@ export const se_BatchAssociateResourcesToCustomLineItemCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/batch-associate-resources-to-custom-line-item";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriodRange != null && {
-      BillingPeriodRange: se_CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-    }),
-    ...(input.ResourceArns != null && {
-      ResourceArns: se_CustomLineItemBatchAssociationsList(input.ResourceArns, context),
-    }),
-    ...(input.TargetArn != null && { TargetArn: input.TargetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriodRange: (_) => _json(_),
+      ResourceArns: (_) => _json(_),
+      TargetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -261,15 +251,13 @@ export const se_BatchDisassociateResourcesFromCustomLineItemCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/batch-disassociate-resources-from-custom-line-item";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriodRange != null && {
-      BillingPeriodRange: se_CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-    }),
-    ...(input.ResourceArns != null && {
-      ResourceArns: se_CustomLineItemBatchDisassociationsList(input.ResourceArns, context),
-    }),
-    ...(input.TargetArn != null && { TargetArn: input.TargetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriodRange: (_) => _json(_),
+      ResourceArns: (_) => _json(_),
+      TargetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -295,16 +283,16 @@ export const se_CreateBillingGroupCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-billing-group";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountGrouping != null && { AccountGrouping: se_AccountGrouping(input.AccountGrouping, context) }),
-    ...(input.ComputationPreference != null && {
-      ComputationPreference: se_ComputationPreference(input.ComputationPreference, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.PrimaryAccountId != null && { PrimaryAccountId: input.PrimaryAccountId }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountGrouping: (_) => _json(_),
+      ComputationPreference: (_) => _json(_),
+      Description: [],
+      Name: [],
+      PrimaryAccountId: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -331,16 +319,16 @@ export const se_CreateCustomLineItemCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-custom-line-item";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingGroupArn != null && { BillingGroupArn: input.BillingGroupArn }),
-    ...(input.BillingPeriodRange != null && {
-      BillingPeriodRange: se_CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-    }),
-    ...(input.ChargeDetails != null && { ChargeDetails: se_CustomLineItemChargeDetails(input.ChargeDetails, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingGroupArn: [],
+      BillingPeriodRange: (_) => _json(_),
+      ChargeDetails: (_) => se_CustomLineItemChargeDetails(_, context),
+      Description: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -366,12 +354,14 @@ export const se_CreatePricingPlanCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-pricing-plan";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.PricingRuleArns != null && { PricingRuleArns: se_PricingRuleArnsInput(input.PricingRuleArns, context) }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+      PricingRuleArns: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -397,19 +387,21 @@ export const se_CreatePricingRuleCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-pricing-rule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingEntity != null && { BillingEntity: input.BillingEntity }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.ModifierPercentage != null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Operation != null && { Operation: input.Operation }),
-    ...(input.Scope != null && { Scope: input.Scope }),
-    ...(input.Service != null && { Service: input.Service }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.Tiering != null && { Tiering: se_CreateTieringInput(input.Tiering, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.UsageType != null && { UsageType: input.UsageType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingEntity: [],
+      Description: [],
+      ModifierPercentage: (_) => __serializeFloat(_),
+      Name: [],
+      Operation: [],
+      Scope: [],
+      Service: [],
+      Tags: (_) => _json(_),
+      Tiering: (_) => _json(_),
+      Type: [],
+      UsageType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -434,9 +426,11 @@ export const se_DeleteBillingGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-billing-group";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -462,12 +456,12 @@ export const se_DeleteCustomLineItemCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-custom-line-item";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.BillingPeriodRange != null && {
-      BillingPeriodRange: se_CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      BillingPeriodRange: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -492,9 +486,11 @@ export const se_DeletePricingPlanCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-pricing-plan";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -519,9 +515,11 @@ export const se_DeletePricingRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-pricing-rule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -546,10 +544,12 @@ export const se_DisassociateAccountsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociate-accounts";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_AccountIdList(input.AccountIds, context) }),
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -575,12 +575,12 @@ export const se_DisassociatePricingRulesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociate-pricing-rules";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.PricingRuleArns != null && {
-      PricingRuleArns: se_PricingRuleArnsNonEmptyInput(input.PricingRuleArns, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      PricingRuleArns: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -606,11 +606,13 @@ export const se_ListAccountAssociationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-account-associations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters != null && { Filters: se_ListAccountAssociationsFilter(input.Filters, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriod: [],
+      Filters: (_) => _json(_),
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -636,12 +638,14 @@ export const se_ListBillingGroupCostReportsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-billing-group-cost-reports";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters != null && { Filters: se_ListBillingGroupCostReportsFilter(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriod: [],
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -666,12 +670,14 @@ export const se_ListBillingGroupsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-billing-groups";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters != null && { Filters: se_ListBillingGroupsFilter(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriod: [],
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -697,12 +703,14 @@ export const se_ListCustomLineItemsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-custom-line-items";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters != null && { Filters: se_ListCustomLineItemsFilter(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriod: [],
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -728,12 +736,14 @@ export const se_ListCustomLineItemVersionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-custom-line-item-versions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.Filters != null && { Filters: se_ListCustomLineItemVersionsFilter(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -758,12 +768,14 @@ export const se_ListPricingPlansCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-pricing-plans";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters != null && { Filters: se_ListPricingPlansFilter(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriod: [],
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -790,12 +802,14 @@ export const se_ListPricingPlansAssociatedWithPricingRuleCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/list-pricing-plans-associated-with-pricing-rule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PricingRuleArn != null && { PricingRuleArn: input.PricingRuleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriod: [],
+      MaxResults: [],
+      NextToken: [],
+      PricingRuleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -820,12 +834,14 @@ export const se_ListPricingRulesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-pricing-rules";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters != null && { Filters: se_ListPricingRulesFilter(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriod: [],
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -852,12 +868,14 @@ export const se_ListPricingRulesAssociatedToPricingPlanCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/list-pricing-rules-associated-to-pricing-plan";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PricingPlanArn != null && { PricingPlanArn: input.PricingPlanArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BillingPeriod: [],
+      MaxResults: [],
+      NextToken: [],
+      PricingPlanArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -884,13 +902,15 @@ export const se_ListResourcesAssociatedToCustomLineItemCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/list-resources-associated-to-custom-line-item";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters != null && { Filters: se_ListResourcesAssociatedToCustomLineItemFilter(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      BillingPeriod: [],
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -939,9 +959,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -996,15 +1018,15 @@ export const se_UpdateBillingGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-billing-group";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.ComputationPreference != null && {
-      ComputationPreference: se_ComputationPreference(input.ComputationPreference, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Status != null && { Status: input.Status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      ComputationPreference: (_) => _json(_),
+      Description: [],
+      Name: [],
+      Status: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1030,17 +1052,15 @@ export const se_UpdateCustomLineItemCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-custom-line-item";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.BillingPeriodRange != null && {
-      BillingPeriodRange: se_CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-    }),
-    ...(input.ChargeDetails != null && {
-      ChargeDetails: se_UpdateCustomLineItemChargeDetails(input.ChargeDetails, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      BillingPeriodRange: (_) => _json(_),
+      ChargeDetails: (_) => se_UpdateCustomLineItemChargeDetails(_, context),
+      Description: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1065,11 +1085,13 @@ export const se_UpdatePricingPlanCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-pricing-plan";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      Description: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1094,14 +1116,16 @@ export const se_UpdatePricingRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-pricing-rule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.ModifierPercentage != null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tiering != null && { Tiering: se_UpdateTieringInput(input.Tiering, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      Description: [],
+      ModifierPercentage: (_) => __serializeFloat(_),
+      Name: [],
+      Tiering: (_) => _json(_),
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1127,9 +1151,10 @@ export const de_AssociateAccountsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1169,10 +1194,9 @@ const de_AssociateAccountsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1192,9 +1216,10 @@ export const de_AssociatePricingRulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1234,10 +1259,9 @@ const de_AssociatePricingRulesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1257,15 +1281,11 @@ export const de_BatchAssociateResourcesToCustomLineItemCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FailedAssociatedResources != null) {
-    contents.FailedAssociatedResources = de_AssociateResourcesResponseList(data.FailedAssociatedResources, context);
-  }
-  if (data.SuccessfullyAssociatedResources != null) {
-    contents.SuccessfullyAssociatedResources = de_AssociateResourcesResponseList(
-      data.SuccessfullyAssociatedResources,
-      context
-    );
-  }
+  const doc = take(data, {
+    FailedAssociatedResources: _json,
+    SuccessfullyAssociatedResources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1305,10 +1325,9 @@ const de_BatchAssociateResourcesToCustomLineItemCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1328,18 +1347,11 @@ export const de_BatchDisassociateResourcesFromCustomLineItemCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FailedDisassociatedResources != null) {
-    contents.FailedDisassociatedResources = de_DisassociateResourcesResponseList(
-      data.FailedDisassociatedResources,
-      context
-    );
-  }
-  if (data.SuccessfullyDisassociatedResources != null) {
-    contents.SuccessfullyDisassociatedResources = de_DisassociateResourcesResponseList(
-      data.SuccessfullyDisassociatedResources,
-      context
-    );
-  }
+  const doc = take(data, {
+    FailedDisassociatedResources: _json,
+    SuccessfullyDisassociatedResources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1376,10 +1388,9 @@ const de_BatchDisassociateResourcesFromCustomLineItemCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1399,9 +1410,10 @@ export const de_CreateBillingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1438,10 +1450,9 @@ const de_CreateBillingGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1461,9 +1472,10 @@ export const de_CreateCustomLineItemCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1500,10 +1512,9 @@ const de_CreateCustomLineItemCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1523,9 +1534,10 @@ export const de_CreatePricingPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1565,10 +1577,9 @@ const de_CreatePricingPlanCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1588,9 +1599,10 @@ export const de_CreatePricingRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1627,10 +1639,9 @@ const de_CreatePricingRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1650,9 +1661,10 @@ export const de_DeleteBillingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1683,10 +1695,9 @@ const de_DeleteBillingGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1706,9 +1717,10 @@ export const de_DeleteCustomLineItemCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1742,10 +1754,9 @@ const de_DeleteCustomLineItemCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1765,9 +1776,10 @@ export const de_DeletePricingPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1801,10 +1813,9 @@ const de_DeletePricingPlanCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1824,9 +1835,10 @@ export const de_DeletePricingRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1860,10 +1872,9 @@ const de_DeletePricingRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1883,9 +1894,10 @@ export const de_DisassociateAccountsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1922,10 +1934,9 @@ const de_DisassociateAccountsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1945,9 +1956,10 @@ export const de_DisassociatePricingRulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1984,10 +1996,9 @@ const de_DisassociatePricingRulesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2007,12 +2018,11 @@ export const de_ListAccountAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LinkedAccounts != null) {
-    contents.LinkedAccounts = de_AccountAssociationsList(data.LinkedAccounts, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    LinkedAccounts: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2046,10 +2056,9 @@ const de_ListAccountAssociationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2069,12 +2078,11 @@ export const de_ListBillingGroupCostReportsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BillingGroupCostReports != null) {
-    contents.BillingGroupCostReports = de_BillingGroupCostReportList(data.BillingGroupCostReports, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    BillingGroupCostReports: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2108,10 +2116,9 @@ const de_ListBillingGroupCostReportsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2131,12 +2138,11 @@ export const de_ListBillingGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BillingGroups != null) {
-    contents.BillingGroups = de_BillingGroupList(data.BillingGroups, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    BillingGroups: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2170,10 +2176,9 @@ const de_ListBillingGroupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2193,12 +2198,11 @@ export const de_ListCustomLineItemsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CustomLineItems != null) {
-    contents.CustomLineItems = de_CustomLineItemList(data.CustomLineItems, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CustomLineItems: (_) => de_CustomLineItemList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2232,10 +2236,9 @@ const de_ListCustomLineItemsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2255,12 +2258,11 @@ export const de_ListCustomLineItemVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CustomLineItemVersions != null) {
-    contents.CustomLineItemVersions = de_CustomLineItemVersionList(data.CustomLineItemVersions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CustomLineItemVersions: (_) => de_CustomLineItemVersionList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2291,10 +2293,9 @@ const de_ListCustomLineItemVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2314,15 +2315,12 @@ export const de_ListPricingPlansCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BillingPeriod != null) {
-    contents.BillingPeriod = __expectString(data.BillingPeriod);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PricingPlans != null) {
-    contents.PricingPlans = de_PricingPlanList(data.PricingPlans, context);
-  }
+  const doc = take(data, {
+    BillingPeriod: __expectString,
+    NextToken: __expectString,
+    PricingPlans: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2353,10 +2351,9 @@ const de_ListPricingPlansCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2376,18 +2373,13 @@ export const de_ListPricingPlansAssociatedWithPricingRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BillingPeriod != null) {
-    contents.BillingPeriod = __expectString(data.BillingPeriod);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PricingPlanArns != null) {
-    contents.PricingPlanArns = de_PricingPlanArns(data.PricingPlanArns, context);
-  }
-  if (data.PricingRuleArn != null) {
-    contents.PricingRuleArn = __expectString(data.PricingRuleArn);
-  }
+  const doc = take(data, {
+    BillingPeriod: __expectString,
+    NextToken: __expectString,
+    PricingPlanArns: _json,
+    PricingRuleArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2421,10 +2413,9 @@ const de_ListPricingPlansAssociatedWithPricingRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2444,15 +2435,12 @@ export const de_ListPricingRulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BillingPeriod != null) {
-    contents.BillingPeriod = __expectString(data.BillingPeriod);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PricingRules != null) {
-    contents.PricingRules = de_PricingRuleList(data.PricingRules, context);
-  }
+  const doc = take(data, {
+    BillingPeriod: __expectString,
+    NextToken: __expectString,
+    PricingRules: (_) => de_PricingRuleList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2483,10 +2471,9 @@ const de_ListPricingRulesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2506,18 +2493,13 @@ export const de_ListPricingRulesAssociatedToPricingPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BillingPeriod != null) {
-    contents.BillingPeriod = __expectString(data.BillingPeriod);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PricingPlanArn != null) {
-    contents.PricingPlanArn = __expectString(data.PricingPlanArn);
-  }
-  if (data.PricingRuleArns != null) {
-    contents.PricingRuleArns = de_PricingRuleArns(data.PricingRuleArns, context);
-  }
+  const doc = take(data, {
+    BillingPeriod: __expectString,
+    NextToken: __expectString,
+    PricingPlanArn: __expectString,
+    PricingRuleArns: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2551,10 +2533,9 @@ const de_ListPricingRulesAssociatedToPricingPlanCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2574,18 +2555,12 @@ export const de_ListResourcesAssociatedToCustomLineItemCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.AssociatedResources != null) {
-    contents.AssociatedResources = de_ListResourcesAssociatedToCustomLineItemResponseList(
-      data.AssociatedResources,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    AssociatedResources: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2619,10 +2594,9 @@ const de_ListResourcesAssociatedToCustomLineItemCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2642,9 +2616,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2678,10 +2653,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2734,10 +2708,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2790,10 +2763,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2813,33 +2785,18 @@ export const de_UpdateBillingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectLong(data.LastModifiedTime);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PricingPlanArn != null) {
-    contents.PricingPlanArn = __expectString(data.PricingPlanArn);
-  }
-  if (data.PrimaryAccountId != null) {
-    contents.PrimaryAccountId = __expectString(data.PrimaryAccountId);
-  }
-  if (data.Size != null) {
-    contents.Size = __expectLong(data.Size);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusReason != null) {
-    contents.StatusReason = __expectString(data.StatusReason);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Description: __expectString,
+    LastModifiedTime: __expectLong,
+    Name: __expectString,
+    PricingPlanArn: __expectString,
+    PrimaryAccountId: __expectString,
+    Size: __expectLong,
+    Status: __expectString,
+    StatusReason: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2876,10 +2833,9 @@ const de_UpdateBillingGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2899,27 +2855,16 @@ export const de_UpdateCustomLineItemCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.AssociationSize != null) {
-    contents.AssociationSize = __expectLong(data.AssociationSize);
-  }
-  if (data.BillingGroupArn != null) {
-    contents.BillingGroupArn = __expectString(data.BillingGroupArn);
-  }
-  if (data.ChargeDetails != null) {
-    contents.ChargeDetails = de_ListCustomLineItemChargeDetails(data.ChargeDetails, context);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectLong(data.LastModifiedTime);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    AssociationSize: __expectLong,
+    BillingGroupArn: __expectString,
+    ChargeDetails: (_) => de_ListCustomLineItemChargeDetails(_, context),
+    Description: __expectString,
+    LastModifiedTime: __expectLong,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2953,10 +2898,9 @@ const de_UpdateCustomLineItemCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2976,21 +2920,14 @@ export const de_UpdatePricingPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectLong(data.LastModifiedTime);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Size != null) {
-    contents.Size = __expectLong(data.Size);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Description: __expectString,
+    LastModifiedTime: __expectLong,
+    Name: __expectString,
+    Size: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3027,10 +2964,9 @@ const de_UpdatePricingPlanCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3050,45 +2986,22 @@ export const de_UpdatePricingRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.AssociatedPricingPlanCount != null) {
-    contents.AssociatedPricingPlanCount = __expectLong(data.AssociatedPricingPlanCount);
-  }
-  if (data.BillingEntity != null) {
-    contents.BillingEntity = __expectString(data.BillingEntity);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LastModifiedTime != null) {
-    contents.LastModifiedTime = __expectLong(data.LastModifiedTime);
-  }
-  if (data.ModifierPercentage != null) {
-    contents.ModifierPercentage = __limitedParseDouble(data.ModifierPercentage);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Operation != null) {
-    contents.Operation = __expectString(data.Operation);
-  }
-  if (data.Scope != null) {
-    contents.Scope = __expectString(data.Scope);
-  }
-  if (data.Service != null) {
-    contents.Service = __expectString(data.Service);
-  }
-  if (data.Tiering != null) {
-    contents.Tiering = de_UpdateTieringInput(data.Tiering, context);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.UsageType != null) {
-    contents.UsageType = __expectString(data.UsageType);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    AssociatedPricingPlanCount: __expectLong,
+    BillingEntity: __expectString,
+    Description: __expectString,
+    LastModifiedTime: __expectLong,
+    ModifierPercentage: __limitedParseDouble,
+    Name: __expectString,
+    Operation: __expectString,
+    Scope: __expectString,
+    Service: __expectString,
+    Tiering: _json,
+    Type: __expectString,
+    UsageType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3125,16 +3038,15 @@ const de_UpdatePricingRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -3144,9 +3056,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3160,18 +3073,13 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Reason: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3193,9 +3101,10 @@ const de_InternalServerExceptionRes = async (
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3212,15 +3121,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3237,21 +3143,14 @@ const de_ServiceLimitExceededExceptionRes = async (
 ): Promise<ServiceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.LimitCode != null) {
-    contents.LimitCode = __expectString(data.LimitCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.ServiceCode != null) {
-    contents.ServiceCode = __expectString(data.ServiceCode);
-  }
+  const doc = take(data, {
+    LimitCode: __expectString,
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+    ServiceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3270,9 +3169,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3286,15 +3186,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Fields != null) {
-    contents.Fields = de_ValidationExceptionFieldList(data.Fields, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Fields: _json,
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3302,174 +3199,53 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AccountGrouping
- */
-const se_AccountGrouping = (input: AccountGrouping, context: __SerdeContext): any => {
-  return {
-    ...(input.LinkedAccountIds != null && { LinkedAccountIds: se_AccountIdList(input.LinkedAccountIds, context) }),
-  };
-};
+// se_AccountGrouping omitted.
 
-/**
- * serializeAws_restJson1AccountIdFilterList
- */
-const se_AccountIdFilterList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AccountIdFilterList omitted.
 
-/**
- * serializeAws_restJson1AccountIdList
- */
-const se_AccountIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AccountIdList omitted.
 
-/**
- * serializeAws_restJson1BillingGroupArnList
- */
-const se_BillingGroupArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BillingGroupArnList omitted.
 
-/**
- * serializeAws_restJson1BillingGroupStatusList
- */
-const se_BillingGroupStatusList = (input: (BillingGroupStatus | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BillingGroupStatusList omitted.
 
-/**
- * serializeAws_restJson1ComputationPreference
- */
-const se_ComputationPreference = (input: ComputationPreference, context: __SerdeContext): any => {
-  return {
-    ...(input.PricingPlanArn != null && { PricingPlanArn: input.PricingPlanArn }),
-  };
-};
+// se_ComputationPreference omitted.
 
-/**
- * serializeAws_restJson1CreateFreeTierConfig
- */
-const se_CreateFreeTierConfig = (input: CreateFreeTierConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Activated != null && { Activated: input.Activated }),
-  };
-};
+// se_CreateFreeTierConfig omitted.
 
-/**
- * serializeAws_restJson1CreateTieringInput
- */
-const se_CreateTieringInput = (input: CreateTieringInput, context: __SerdeContext): any => {
-  return {
-    ...(input.FreeTier != null && { FreeTier: se_CreateFreeTierConfig(input.FreeTier, context) }),
-  };
-};
+// se_CreateTieringInput omitted.
 
-/**
- * serializeAws_restJson1CustomLineItemArns
- */
-const se_CustomLineItemArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CustomLineItemArns omitted.
 
-/**
- * serializeAws_restJson1CustomLineItemAssociationsList
- */
-const se_CustomLineItemAssociationsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CustomLineItemAssociationsList omitted.
 
-/**
- * serializeAws_restJson1CustomLineItemBatchAssociationsList
- */
-const se_CustomLineItemBatchAssociationsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CustomLineItemBatchAssociationsList omitted.
 
-/**
- * serializeAws_restJson1CustomLineItemBatchDisassociationsList
- */
-const se_CustomLineItemBatchDisassociationsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CustomLineItemBatchDisassociationsList omitted.
 
-/**
- * serializeAws_restJson1CustomLineItemBillingPeriodRange
- */
-const se_CustomLineItemBillingPeriodRange = (input: CustomLineItemBillingPeriodRange, context: __SerdeContext): any => {
-  return {
-    ...(input.ExclusiveEndBillingPeriod != null && { ExclusiveEndBillingPeriod: input.ExclusiveEndBillingPeriod }),
-    ...(input.InclusiveStartBillingPeriod != null && {
-      InclusiveStartBillingPeriod: input.InclusiveStartBillingPeriod,
-    }),
-  };
-};
+// se_CustomLineItemBillingPeriodRange omitted.
 
 /**
  * serializeAws_restJson1CustomLineItemChargeDetails
  */
 const se_CustomLineItemChargeDetails = (input: CustomLineItemChargeDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.Flat != null && { Flat: se_CustomLineItemFlatChargeDetails(input.Flat, context) }),
-    ...(input.Percentage != null && {
-      Percentage: se_CustomLineItemPercentageChargeDetails(input.Percentage, context),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    Flat: (_) => se_CustomLineItemFlatChargeDetails(_, context),
+    Percentage: (_) => se_CustomLineItemPercentageChargeDetails(_, context),
+    Type: [],
+  });
 };
 
 /**
  * serializeAws_restJson1CustomLineItemFlatChargeDetails
  */
 const se_CustomLineItemFlatChargeDetails = (input: CustomLineItemFlatChargeDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.ChargeValue != null && { ChargeValue: __serializeFloat(input.ChargeValue) }),
-  };
+  return take(input, {
+    ChargeValue: __serializeFloat,
+  });
 };
 
-/**
- * serializeAws_restJson1CustomLineItemNameList
- */
-const se_CustomLineItemNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CustomLineItemNameList omitted.
 
 /**
  * serializeAws_restJson1CustomLineItemPercentageChargeDetails
@@ -3478,171 +3254,39 @@ const se_CustomLineItemPercentageChargeDetails = (
   input: CustomLineItemPercentageChargeDetails,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AssociatedValues != null && {
-      AssociatedValues: se_CustomLineItemAssociationsList(input.AssociatedValues, context),
-    }),
-    ...(input.PercentageValue != null && { PercentageValue: __serializeFloat(input.PercentageValue) }),
-  };
+  return take(input, {
+    AssociatedValues: _json,
+    PercentageValue: __serializeFloat,
+  });
 };
 
-/**
- * serializeAws_restJson1ListAccountAssociationsFilter
- */
-const se_ListAccountAssociationsFilter = (input: ListAccountAssociationsFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AccountIds != null && { AccountIds: se_AccountIdFilterList(input.AccountIds, context) }),
-    ...(input.Association != null && { Association: input.Association }),
-  };
-};
+// se_ListAccountAssociationsFilter omitted.
 
-/**
- * serializeAws_restJson1ListBillingGroupCostReportsFilter
- */
-const se_ListBillingGroupCostReportsFilter = (
-  input: ListBillingGroupCostReportsFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BillingGroupArns != null && {
-      BillingGroupArns: se_BillingGroupArnList(input.BillingGroupArns, context),
-    }),
-  };
-};
+// se_ListBillingGroupCostReportsFilter omitted.
 
-/**
- * serializeAws_restJson1ListBillingGroupsFilter
- */
-const se_ListBillingGroupsFilter = (input: ListBillingGroupsFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Arns != null && { Arns: se_BillingGroupArnList(input.Arns, context) }),
-    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
-    ...(input.Statuses != null && { Statuses: se_BillingGroupStatusList(input.Statuses, context) }),
-  };
-};
+// se_ListBillingGroupsFilter omitted.
 
-/**
- * serializeAws_restJson1ListCustomLineItemsFilter
- */
-const se_ListCustomLineItemsFilter = (input: ListCustomLineItemsFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Arns != null && { Arns: se_CustomLineItemArns(input.Arns, context) }),
-    ...(input.BillingGroups != null && { BillingGroups: se_BillingGroupArnList(input.BillingGroups, context) }),
-    ...(input.Names != null && { Names: se_CustomLineItemNameList(input.Names, context) }),
-  };
-};
+// se_ListCustomLineItemsFilter omitted.
 
-/**
- * serializeAws_restJson1ListCustomLineItemVersionsBillingPeriodRangeFilter
- */
-const se_ListCustomLineItemVersionsBillingPeriodRangeFilter = (
-  input: ListCustomLineItemVersionsBillingPeriodRangeFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EndBillingPeriod != null && { EndBillingPeriod: input.EndBillingPeriod }),
-    ...(input.StartBillingPeriod != null && { StartBillingPeriod: input.StartBillingPeriod }),
-  };
-};
+// se_ListCustomLineItemVersionsBillingPeriodRangeFilter omitted.
 
-/**
- * serializeAws_restJson1ListCustomLineItemVersionsFilter
- */
-const se_ListCustomLineItemVersionsFilter = (input: ListCustomLineItemVersionsFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.BillingPeriodRange != null && {
-      BillingPeriodRange: se_ListCustomLineItemVersionsBillingPeriodRangeFilter(input.BillingPeriodRange, context),
-    }),
-  };
-};
+// se_ListCustomLineItemVersionsFilter omitted.
 
-/**
- * serializeAws_restJson1ListPricingPlansFilter
- */
-const se_ListPricingPlansFilter = (input: ListPricingPlansFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Arns != null && { Arns: se_PricingPlanArns(input.Arns, context) }),
-  };
-};
+// se_ListPricingPlansFilter omitted.
 
-/**
- * serializeAws_restJson1ListPricingRulesFilter
- */
-const se_ListPricingRulesFilter = (input: ListPricingRulesFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Arns != null && { Arns: se_PricingRuleArns(input.Arns, context) }),
-  };
-};
+// se_ListPricingRulesFilter omitted.
 
-/**
- * serializeAws_restJson1ListResourcesAssociatedToCustomLineItemFilter
- */
-const se_ListResourcesAssociatedToCustomLineItemFilter = (
-  input: ListResourcesAssociatedToCustomLineItemFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Relationship != null && { Relationship: input.Relationship }),
-  };
-};
+// se_ListResourcesAssociatedToCustomLineItemFilter omitted.
 
-/**
- * serializeAws_restJson1PricingPlanArns
- */
-const se_PricingPlanArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PricingPlanArns omitted.
 
-/**
- * serializeAws_restJson1PricingRuleArns
- */
-const se_PricingRuleArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PricingRuleArns omitted.
 
-/**
- * serializeAws_restJson1PricingRuleArnsInput
- */
-const se_PricingRuleArnsInput = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PricingRuleArnsInput omitted.
 
-/**
- * serializeAws_restJson1PricingRuleArnsNonEmptyInput
- */
-const se_PricingRuleArnsNonEmptyInput = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PricingRuleArnsNonEmptyInput omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
 /**
  * serializeAws_restJson1UpdateCustomLineItemChargeDetails
@@ -3651,12 +3295,10 @@ const se_UpdateCustomLineItemChargeDetails = (
   input: UpdateCustomLineItemChargeDetails,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Flat != null && { Flat: se_UpdateCustomLineItemFlatChargeDetails(input.Flat, context) }),
-    ...(input.Percentage != null && {
-      Percentage: se_UpdateCustomLineItemPercentageChargeDetails(input.Percentage, context),
-    }),
-  };
+  return take(input, {
+    Flat: (_) => se_UpdateCustomLineItemFlatChargeDetails(_, context),
+    Percentage: (_) => se_UpdateCustomLineItemPercentageChargeDetails(_, context),
+  });
 };
 
 /**
@@ -3666,9 +3308,9 @@ const se_UpdateCustomLineItemFlatChargeDetails = (
   input: UpdateCustomLineItemFlatChargeDetails,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.ChargeValue != null && { ChargeValue: __serializeFloat(input.ChargeValue) }),
-  };
+  return take(input, {
+    ChargeValue: __serializeFloat,
+  });
 };
 
 /**
@@ -3678,170 +3320,34 @@ const se_UpdateCustomLineItemPercentageChargeDetails = (
   input: UpdateCustomLineItemPercentageChargeDetails,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.PercentageValue != null && { PercentageValue: __serializeFloat(input.PercentageValue) }),
-  };
+  return take(input, {
+    PercentageValue: __serializeFloat,
+  });
 };
 
-/**
- * serializeAws_restJson1UpdateFreeTierConfig
- */
-const se_UpdateFreeTierConfig = (input: UpdateFreeTierConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Activated != null && { Activated: input.Activated }),
-  };
-};
+// se_UpdateFreeTierConfig omitted.
 
-/**
- * serializeAws_restJson1UpdateTieringInput
- */
-const se_UpdateTieringInput = (input: UpdateTieringInput, context: __SerdeContext): any => {
-  return {
-    ...(input.FreeTier != null && { FreeTier: se_UpdateFreeTierConfig(input.FreeTier, context) }),
-  };
-};
+// se_UpdateTieringInput omitted.
 
-/**
- * deserializeAws_restJson1AccountAssociationsList
- */
-const de_AccountAssociationsList = (output: any, context: __SerdeContext): AccountAssociationsListElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AccountAssociationsListElement(entry, context);
-    });
-  return retVal;
-};
+// de_AccountAssociationsList omitted.
 
-/**
- * deserializeAws_restJson1AccountAssociationsListElement
- */
-const de_AccountAssociationsListElement = (output: any, context: __SerdeContext): AccountAssociationsListElement => {
-  return {
-    AccountEmail: __expectString(output.AccountEmail),
-    AccountId: __expectString(output.AccountId),
-    AccountName: __expectString(output.AccountName),
-    BillingGroupArn: __expectString(output.BillingGroupArn),
-  } as any;
-};
+// de_AccountAssociationsListElement omitted.
 
-/**
- * deserializeAws_restJson1AssociateResourceError
- */
-const de_AssociateResourceError = (output: any, context: __SerdeContext): AssociateResourceError => {
-  return {
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_AssociateResourceError omitted.
 
-/**
- * deserializeAws_restJson1AssociateResourceResponseElement
- */
-const de_AssociateResourceResponseElement = (
-  output: any,
-  context: __SerdeContext
-): AssociateResourceResponseElement => {
-  return {
-    Arn: __expectString(output.Arn),
-    Error: output.Error != null ? de_AssociateResourceError(output.Error, context) : undefined,
-  } as any;
-};
+// de_AssociateResourceResponseElement omitted.
 
-/**
- * deserializeAws_restJson1AssociateResourcesResponseList
- */
-const de_AssociateResourcesResponseList = (
-  output: any,
-  context: __SerdeContext
-): AssociateResourceResponseElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssociateResourceResponseElement(entry, context);
-    });
-  return retVal;
-};
+// de_AssociateResourcesResponseList omitted.
 
-/**
- * deserializeAws_restJson1BillingGroupCostReportElement
- */
-const de_BillingGroupCostReportElement = (output: any, context: __SerdeContext): BillingGroupCostReportElement => {
-  return {
-    AWSCost: __expectString(output.AWSCost),
-    Arn: __expectString(output.Arn),
-    Currency: __expectString(output.Currency),
-    Margin: __expectString(output.Margin),
-    MarginPercentage: __expectString(output.MarginPercentage),
-    ProformaCost: __expectString(output.ProformaCost),
-  } as any;
-};
+// de_BillingGroupCostReportElement omitted.
 
-/**
- * deserializeAws_restJson1BillingGroupCostReportList
- */
-const de_BillingGroupCostReportList = (output: any, context: __SerdeContext): BillingGroupCostReportElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BillingGroupCostReportElement(entry, context);
-    });
-  return retVal;
-};
+// de_BillingGroupCostReportList omitted.
 
-/**
- * deserializeAws_restJson1BillingGroupList
- */
-const de_BillingGroupList = (output: any, context: __SerdeContext): BillingGroupListElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BillingGroupListElement(entry, context);
-    });
-  return retVal;
-};
+// de_BillingGroupList omitted.
 
-/**
- * deserializeAws_restJson1BillingGroupListElement
- */
-const de_BillingGroupListElement = (output: any, context: __SerdeContext): BillingGroupListElement => {
-  return {
-    Arn: __expectString(output.Arn),
-    ComputationPreference:
-      output.ComputationPreference != null
-        ? de_ComputationPreference(output.ComputationPreference, context)
-        : undefined,
-    CreationTime: __expectLong(output.CreationTime),
-    Description: __expectString(output.Description),
-    LastModifiedTime: __expectLong(output.LastModifiedTime),
-    Name: __expectString(output.Name),
-    PrimaryAccountId: __expectString(output.PrimaryAccountId),
-    Size: __expectLong(output.Size),
-    Status: __expectString(output.Status),
-    StatusReason: __expectString(output.StatusReason),
-  } as any;
-};
+// de_BillingGroupListElement omitted.
 
-/**
- * deserializeAws_restJson1ComputationPreference
- */
-const de_ComputationPreference = (output: any, context: __SerdeContext): ComputationPreference => {
-  return {
-    PricingPlanArn: __expectString(output.PricingPlanArn),
-  } as any;
-};
+// de_ComputationPreference omitted.
 
 /**
  * deserializeAws_restJson1CustomLineItemList
@@ -3850,9 +3356,6 @@ const de_CustomLineItemList = (output: any, context: __SerdeContext): CustomLine
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CustomLineItemListElement(entry, context);
     });
   return retVal;
@@ -3862,19 +3365,18 @@ const de_CustomLineItemList = (output: any, context: __SerdeContext): CustomLine
  * deserializeAws_restJson1CustomLineItemListElement
  */
 const de_CustomLineItemListElement = (output: any, context: __SerdeContext): CustomLineItemListElement => {
-  return {
-    Arn: __expectString(output.Arn),
-    AssociationSize: __expectLong(output.AssociationSize),
-    BillingGroupArn: __expectString(output.BillingGroupArn),
-    ChargeDetails:
-      output.ChargeDetails != null ? de_ListCustomLineItemChargeDetails(output.ChargeDetails, context) : undefined,
-    CreationTime: __expectLong(output.CreationTime),
-    CurrencyCode: __expectString(output.CurrencyCode),
-    Description: __expectString(output.Description),
-    LastModifiedTime: __expectLong(output.LastModifiedTime),
-    Name: __expectString(output.Name),
-    ProductCode: __expectString(output.ProductCode),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    AssociationSize: __expectLong,
+    BillingGroupArn: __expectString,
+    ChargeDetails: (_: any) => de_ListCustomLineItemChargeDetails(_, context),
+    CreationTime: __expectLong,
+    CurrencyCode: __expectString,
+    Description: __expectString,
+    LastModifiedTime: __expectLong,
+    Name: __expectString,
+    ProductCode: __expectString,
+  }) as any;
 };
 
 /**
@@ -3884,9 +3386,6 @@ const de_CustomLineItemVersionList = (output: any, context: __SerdeContext): Cus
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CustomLineItemVersionListElement(entry, context);
     });
   return retVal;
@@ -3899,74 +3398,38 @@ const de_CustomLineItemVersionListElement = (
   output: any,
   context: __SerdeContext
 ): CustomLineItemVersionListElement => {
-  return {
-    Arn: __expectString(output.Arn),
-    AssociationSize: __expectLong(output.AssociationSize),
-    BillingGroupArn: __expectString(output.BillingGroupArn),
-    ChargeDetails:
-      output.ChargeDetails != null ? de_ListCustomLineItemChargeDetails(output.ChargeDetails, context) : undefined,
-    CreationTime: __expectLong(output.CreationTime),
-    CurrencyCode: __expectString(output.CurrencyCode),
-    Description: __expectString(output.Description),
-    EndBillingPeriod: __expectString(output.EndBillingPeriod),
-    LastModifiedTime: __expectLong(output.LastModifiedTime),
-    Name: __expectString(output.Name),
-    ProductCode: __expectString(output.ProductCode),
-    StartBillingPeriod: __expectString(output.StartBillingPeriod),
-    StartTime: __expectLong(output.StartTime),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    AssociationSize: __expectLong,
+    BillingGroupArn: __expectString,
+    ChargeDetails: (_: any) => de_ListCustomLineItemChargeDetails(_, context),
+    CreationTime: __expectLong,
+    CurrencyCode: __expectString,
+    Description: __expectString,
+    EndBillingPeriod: __expectString,
+    LastModifiedTime: __expectLong,
+    Name: __expectString,
+    ProductCode: __expectString,
+    StartBillingPeriod: __expectString,
+    StartTime: __expectLong,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DisassociateResourceResponseElement
- */
-const de_DisassociateResourceResponseElement = (
-  output: any,
-  context: __SerdeContext
-): DisassociateResourceResponseElement => {
-  return {
-    Arn: __expectString(output.Arn),
-    Error: output.Error != null ? de_AssociateResourceError(output.Error, context) : undefined,
-  } as any;
-};
+// de_DisassociateResourceResponseElement omitted.
 
-/**
- * deserializeAws_restJson1DisassociateResourcesResponseList
- */
-const de_DisassociateResourcesResponseList = (
-  output: any,
-  context: __SerdeContext
-): DisassociateResourceResponseElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DisassociateResourceResponseElement(entry, context);
-    });
-  return retVal;
-};
+// de_DisassociateResourcesResponseList omitted.
 
-/**
- * deserializeAws_restJson1FreeTierConfig
- */
-const de_FreeTierConfig = (output: any, context: __SerdeContext): FreeTierConfig => {
-  return {
-    Activated: __expectBoolean(output.Activated),
-  } as any;
-};
+// de_FreeTierConfig omitted.
 
 /**
  * deserializeAws_restJson1ListCustomLineItemChargeDetails
  */
 const de_ListCustomLineItemChargeDetails = (output: any, context: __SerdeContext): ListCustomLineItemChargeDetails => {
-  return {
-    Flat: output.Flat != null ? de_ListCustomLineItemFlatChargeDetails(output.Flat, context) : undefined,
-    Percentage:
-      output.Percentage != null ? de_ListCustomLineItemPercentageChargeDetails(output.Percentage, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Flat: (_: any) => de_ListCustomLineItemFlatChargeDetails(_, context),
+    Percentage: (_: any) => de_ListCustomLineItemPercentageChargeDetails(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3976,9 +3439,9 @@ const de_ListCustomLineItemFlatChargeDetails = (
   output: any,
   context: __SerdeContext
 ): ListCustomLineItemFlatChargeDetails => {
-  return {
-    ChargeValue: __limitedParseDouble(output.ChargeValue),
-  } as any;
+  return take(output, {
+    ChargeValue: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -3988,101 +3451,22 @@ const de_ListCustomLineItemPercentageChargeDetails = (
   output: any,
   context: __SerdeContext
 ): ListCustomLineItemPercentageChargeDetails => {
-  return {
-    PercentageValue: __limitedParseDouble(output.PercentageValue),
-  } as any;
+  return take(output, {
+    PercentageValue: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ListResourcesAssociatedToCustomLineItemResponseElement
- */
-const de_ListResourcesAssociatedToCustomLineItemResponseElement = (
-  output: any,
-  context: __SerdeContext
-): ListResourcesAssociatedToCustomLineItemResponseElement => {
-  return {
-    Arn: __expectString(output.Arn),
-    EndBillingPeriod: __expectString(output.EndBillingPeriod),
-    Relationship: __expectString(output.Relationship),
-  } as any;
-};
+// de_ListResourcesAssociatedToCustomLineItemResponseElement omitted.
 
-/**
- * deserializeAws_restJson1ListResourcesAssociatedToCustomLineItemResponseList
- */
-const de_ListResourcesAssociatedToCustomLineItemResponseList = (
-  output: any,
-  context: __SerdeContext
-): ListResourcesAssociatedToCustomLineItemResponseElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListResourcesAssociatedToCustomLineItemResponseElement(entry, context);
-    });
-  return retVal;
-};
+// de_ListResourcesAssociatedToCustomLineItemResponseList omitted.
 
-/**
- * deserializeAws_restJson1PricingPlanArns
- */
-const de_PricingPlanArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PricingPlanArns omitted.
 
-/**
- * deserializeAws_restJson1PricingPlanList
- */
-const de_PricingPlanList = (output: any, context: __SerdeContext): PricingPlanListElement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PricingPlanListElement(entry, context);
-    });
-  return retVal;
-};
+// de_PricingPlanList omitted.
 
-/**
- * deserializeAws_restJson1PricingPlanListElement
- */
-const de_PricingPlanListElement = (output: any, context: __SerdeContext): PricingPlanListElement => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime: __expectLong(output.CreationTime),
-    Description: __expectString(output.Description),
-    LastModifiedTime: __expectLong(output.LastModifiedTime),
-    Name: __expectString(output.Name),
-    Size: __expectLong(output.Size),
-  } as any;
-};
+// de_PricingPlanListElement omitted.
 
-/**
- * deserializeAws_restJson1PricingRuleArns
- */
-const de_PricingRuleArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PricingRuleArns omitted.
 
 /**
  * deserializeAws_restJson1PricingRuleList
@@ -4091,9 +3475,6 @@ const de_PricingRuleList = (output: any, context: __SerdeContext): PricingRuleLi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PricingRuleListElement(entry, context);
     });
   return retVal;
@@ -4103,88 +3484,35 @@ const de_PricingRuleList = (output: any, context: __SerdeContext): PricingRuleLi
  * deserializeAws_restJson1PricingRuleListElement
  */
 const de_PricingRuleListElement = (output: any, context: __SerdeContext): PricingRuleListElement => {
-  return {
-    Arn: __expectString(output.Arn),
-    AssociatedPricingPlanCount: __expectLong(output.AssociatedPricingPlanCount),
-    BillingEntity: __expectString(output.BillingEntity),
-    CreationTime: __expectLong(output.CreationTime),
-    Description: __expectString(output.Description),
-    LastModifiedTime: __expectLong(output.LastModifiedTime),
-    ModifierPercentage: __limitedParseDouble(output.ModifierPercentage),
-    Name: __expectString(output.Name),
-    Operation: __expectString(output.Operation),
-    Scope: __expectString(output.Scope),
-    Service: __expectString(output.Service),
-    Tiering: output.Tiering != null ? de_Tiering(output.Tiering, context) : undefined,
-    Type: __expectString(output.Type),
-    UsageType: __expectString(output.UsageType),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    AssociatedPricingPlanCount: __expectLong,
+    BillingEntity: __expectString,
+    CreationTime: __expectLong,
+    Description: __expectString,
+    LastModifiedTime: __expectLong,
+    ModifierPercentage: __limitedParseDouble,
+    Name: __expectString,
+    Operation: __expectString,
+    Scope: __expectString,
+    Service: __expectString,
+    Tiering: _json,
+    Type: __expectString,
+    UsageType: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1Tiering
- */
-const de_Tiering = (output: any, context: __SerdeContext): Tiering => {
-  return {
-    FreeTier: output.FreeTier != null ? de_FreeTierConfig(output.FreeTier, context) : undefined,
-  } as any;
-};
+// de_Tiering omitted.
 
-/**
- * deserializeAws_restJson1UpdateFreeTierConfig
- */
-const de_UpdateFreeTierConfig = (output: any, context: __SerdeContext): UpdateFreeTierConfig => {
-  return {
-    Activated: __expectBoolean(output.Activated),
-  } as any;
-};
+// de_UpdateFreeTierConfig omitted.
 
-/**
- * deserializeAws_restJson1UpdateTieringInput
- */
-const de_UpdateTieringInput = (output: any, context: __SerdeContext): UpdateTieringInput => {
-  return {
-    FreeTier: output.FreeTier != null ? de_UpdateFreeTierConfig(output.FreeTier, context) : undefined,
-  } as any;
-};
+// de_UpdateTieringInput omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

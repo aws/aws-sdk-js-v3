@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -30,7 +32,6 @@ import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from ".
 import { FinspaceServiceException as __BaseException } from "../models/FinspaceServiceException";
 import {
   AccessDeniedException,
-  Environment,
   FederationParameters,
   InternalServerException,
   InvalidRequestException,
@@ -55,20 +56,18 @@ export const se_CreateEnvironmentCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment";
   let body: any;
-  body = JSON.stringify({
-    ...(input.dataBundles != null && { dataBundles: se_DataBundleArns(input.dataBundles, context) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.federationMode != null && { federationMode: input.federationMode }),
-    ...(input.federationParameters != null && {
-      federationParameters: se_FederationParameters(input.federationParameters, context),
-    }),
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.superuserParameters != null && {
-      superuserParameters: se_SuperuserParameters(input.superuserParameters, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      dataBundles: (_) => _json(_),
+      description: [],
+      federationMode: [],
+      federationParameters: (_) => _json(_),
+      kmsKeyId: [],
+      name: [],
+      superuserParameters: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -206,9 +205,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -272,14 +273,14 @@ export const se_UpdateEnvironmentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.federationMode != null && { federationMode: input.federationMode }),
-    ...(input.federationParameters != null && {
-      federationParameters: se_FederationParameters(input.federationParameters, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      federationMode: [],
+      federationParameters: (_) => _json(_),
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -305,15 +306,12 @@ export const de_CreateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.environmentArn != null) {
-    contents.environmentArn = __expectString(data.environmentArn);
-  }
-  if (data.environmentId != null) {
-    contents.environmentId = __expectString(data.environmentId);
-  }
-  if (data.environmentUrl != null) {
-    contents.environmentUrl = __expectString(data.environmentUrl);
-  }
+  const doc = take(data, {
+    environmentArn: __expectString,
+    environmentId: __expectString,
+    environmentUrl: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -350,10 +348,9 @@ const de_CreateEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -406,10 +403,9 @@ const de_DeleteEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -429,9 +425,10 @@ export const de_GetEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
+  const doc = take(data, {
+    environment: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -462,10 +459,9 @@ const de_GetEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -485,12 +481,11 @@ export const de_ListEnvironmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.environments != null) {
-    contents.environments = de_EnvironmentList(data.environments, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    environments: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -515,10 +510,9 @@ const de_ListEnvironmentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -538,9 +532,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -568,10 +563,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -618,10 +612,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -668,10 +661,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -691,9 +683,10 @@ export const de_UpdateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.environment != null) {
-    contents.environment = de_Environment(data.environment, context);
-  }
+  const doc = take(data, {
+    environment: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -727,16 +720,15 @@ const de_UpdateEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -746,6 +738,8 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -762,9 +756,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -781,9 +776,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -800,9 +796,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -819,9 +816,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -838,9 +836,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -854,6 +853,8 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -867,9 +868,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -877,143 +879,25 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AttributeMap
- */
-const se_AttributeMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_AttributeMap omitted.
 
-/**
- * serializeAws_restJson1DataBundleArns
- */
-const se_DataBundleArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DataBundleArns omitted.
 
-/**
- * serializeAws_restJson1FederationParameters
- */
-const se_FederationParameters = (input: FederationParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.applicationCallBackURL != null && { applicationCallBackURL: input.applicationCallBackURL }),
-    ...(input.attributeMap != null && { attributeMap: se_AttributeMap(input.attributeMap, context) }),
-    ...(input.federationProviderName != null && { federationProviderName: input.federationProviderName }),
-    ...(input.federationURN != null && { federationURN: input.federationURN }),
-    ...(input.samlMetadataDocument != null && { samlMetadataDocument: input.samlMetadataDocument }),
-    ...(input.samlMetadataURL != null && { samlMetadataURL: input.samlMetadataURL }),
-  };
-};
+// se_FederationParameters omitted.
 
-/**
- * serializeAws_restJson1SuperuserParameters
- */
-const se_SuperuserParameters = (input: SuperuserParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.emailAddress != null && { emailAddress: input.emailAddress }),
-    ...(input.firstName != null && { firstName: input.firstName }),
-    ...(input.lastName != null && { lastName: input.lastName }),
-  };
-};
+// se_SuperuserParameters omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1AttributeMap
- */
-const de_AttributeMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_AttributeMap omitted.
 
-/**
- * deserializeAws_restJson1Environment
- */
-const de_Environment = (output: any, context: __SerdeContext): Environment => {
-  return {
-    awsAccountId: __expectString(output.awsAccountId),
-    dedicatedServiceAccountId: __expectString(output.dedicatedServiceAccountId),
-    description: __expectString(output.description),
-    environmentArn: __expectString(output.environmentArn),
-    environmentId: __expectString(output.environmentId),
-    environmentUrl: __expectString(output.environmentUrl),
-    federationMode: __expectString(output.federationMode),
-    federationParameters:
-      output.federationParameters != null ? de_FederationParameters(output.federationParameters, context) : undefined,
-    kmsKeyId: __expectString(output.kmsKeyId),
-    name: __expectString(output.name),
-    sageMakerStudioDomainUrl: __expectString(output.sageMakerStudioDomainUrl),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_Environment omitted.
 
-/**
- * deserializeAws_restJson1EnvironmentList
- */
-const de_EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Environment(entry, context);
-    });
-  return retVal;
-};
+// de_EnvironmentList omitted.
 
-/**
- * deserializeAws_restJson1FederationParameters
- */
-const de_FederationParameters = (output: any, context: __SerdeContext): FederationParameters => {
-  return {
-    applicationCallBackURL: __expectString(output.applicationCallBackURL),
-    attributeMap: output.attributeMap != null ? de_AttributeMap(output.attributeMap, context) : undefined,
-    federationProviderName: __expectString(output.federationProviderName),
-    federationURN: __expectString(output.federationURN),
-    samlMetadataDocument: __expectString(output.samlMetadataDocument),
-    samlMetadataURL: __expectString(output.samlMetadataURL),
-  } as any;
-};
+// de_FederationParameters omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

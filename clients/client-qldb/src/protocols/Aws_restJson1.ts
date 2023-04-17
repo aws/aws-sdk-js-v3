@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
@@ -8,10 +9,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -123,13 +125,15 @@ export const se_CreateLedgerCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ledgers";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
-    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.PermissionsMode != null && { PermissionsMode: input.PermissionsMode }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeletionProtection: [],
+      KmsKey: [],
+      Name: [],
+      PermissionsMode: [],
+      Tags: (_) => se_Tags(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -254,17 +258,15 @@ export const se_ExportJournalToS3Command = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ledgers/{Name}/journal-s3-exports";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ExclusiveEndTime != null && { ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000) }),
-    ...(input.InclusiveStartTime != null && {
-      InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
-    }),
-    ...(input.OutputFormat != null && { OutputFormat: input.OutputFormat }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.S3ExportConfiguration != null && {
-      S3ExportConfiguration: se_S3ExportConfiguration(input.S3ExportConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ExclusiveEndTime: (_) => Math.round(_.getTime() / 1000),
+      InclusiveStartTime: (_) => Math.round(_.getTime() / 1000),
+      OutputFormat: [],
+      RoleArn: [],
+      S3ExportConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -290,10 +292,12 @@ export const se_GetBlockCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ledgers/{Name}/block";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BlockAddress != null && { BlockAddress: se_ValueHolder(input.BlockAddress, context) }),
-    ...(input.DigestTipAddress != null && { DigestTipAddress: se_ValueHolder(input.DigestTipAddress, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BlockAddress: (_) => _json(_),
+      DigestTipAddress: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -342,11 +346,13 @@ export const se_GetRevisionCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ledgers/{Name}/revision";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BlockAddress != null && { BlockAddress: se_ValueHolder(input.BlockAddress, context) }),
-    ...(input.DigestTipAddress != null && { DigestTipAddress: se_ValueHolder(input.DigestTipAddress, context) }),
-    ...(input.DocumentId != null && { DocumentId: input.DocumentId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BlockAddress: (_) => _json(_),
+      DigestTipAddress: (_) => _json(_),
+      DocumentId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -510,18 +516,16 @@ export const se_StreamJournalToKinesisCommand = async (
     "/ledgers/{LedgerName}/journal-kinesis-streams";
   resolvedPath = __resolvedPath(resolvedPath, input, "LedgerName", () => input.LedgerName!, "{LedgerName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ExclusiveEndTime != null && { ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000) }),
-    ...(input.InclusiveStartTime != null && {
-      InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
-    }),
-    ...(input.KinesisConfiguration != null && {
-      KinesisConfiguration: se_KinesisConfiguration(input.KinesisConfiguration, context),
-    }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ExclusiveEndTime: (_) => Math.round(_.getTime() / 1000),
+      InclusiveStartTime: (_) => Math.round(_.getTime() / 1000),
+      KinesisConfiguration: (_) => _json(_),
+      RoleArn: [],
+      StreamName: [],
+      Tags: (_) => se_Tags(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -547,9 +551,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => se_Tags(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -605,10 +611,12 @@ export const se_UpdateLedgerCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ledgers/{Name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
-    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeletionProtection: [],
+      KmsKey: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -635,9 +643,11 @@ export const se_UpdateLedgerPermissionsModeCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ledgers/{Name}/permissions-mode";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.PermissionsMode != null && { PermissionsMode: input.PermissionsMode }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PermissionsMode: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -663,9 +673,10 @@ export const de_CancelJournalKinesisStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamId != null) {
-    contents.StreamId = __expectString(data.StreamId);
-  }
+  const doc = take(data, {
+    StreamId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -693,10 +704,9 @@ const de_CancelJournalKinesisStreamCommandError = async (
       throw await de_ResourcePreconditionNotMetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -716,27 +726,16 @@ export const de_CreateLedgerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationDateTime != null) {
-    contents.CreationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDateTime)));
-  }
-  if (data.DeletionProtection != null) {
-    contents.DeletionProtection = __expectBoolean(data.DeletionProtection);
-  }
-  if (data.KmsKeyArn != null) {
-    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PermissionsMode != null) {
-    contents.PermissionsMode = __expectString(data.PermissionsMode);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtection: __expectBoolean,
+    KmsKeyArn: __expectString,
+    Name: __expectString,
+    PermissionsMode: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -767,10 +766,9 @@ const de_CreateLedgerCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -820,10 +818,9 @@ const de_DeleteLedgerCommandError = async (
       throw await de_ResourcePreconditionNotMetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -843,9 +840,10 @@ export const de_DescribeJournalKinesisStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Stream != null) {
-    contents.Stream = de_JournalKinesisStreamDescription(data.Stream, context);
-  }
+  const doc = take(data, {
+    Stream: (_) => de_JournalKinesisStreamDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -873,10 +871,9 @@ const de_DescribeJournalKinesisStreamCommandError = async (
       throw await de_ResourcePreconditionNotMetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -896,9 +893,10 @@ export const de_DescribeJournalS3ExportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ExportDescription != null) {
-    contents.ExportDescription = de_JournalS3ExportDescription(data.ExportDescription, context);
-  }
+  const doc = take(data, {
+    ExportDescription: (_) => de_JournalS3ExportDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -920,10 +918,9 @@ const de_DescribeJournalS3ExportCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -943,27 +940,16 @@ export const de_DescribeLedgerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationDateTime != null) {
-    contents.CreationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDateTime)));
-  }
-  if (data.DeletionProtection != null) {
-    contents.DeletionProtection = __expectBoolean(data.DeletionProtection);
-  }
-  if (data.EncryptionDescription != null) {
-    contents.EncryptionDescription = de_LedgerEncryptionDescription(data.EncryptionDescription, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PermissionsMode != null) {
-    contents.PermissionsMode = __expectString(data.PermissionsMode);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtection: __expectBoolean,
+    EncryptionDescription: (_) => de_LedgerEncryptionDescription(_, context),
+    Name: __expectString,
+    PermissionsMode: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -988,10 +974,9 @@ const de_DescribeLedgerCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1011,9 +996,10 @@ export const de_ExportJournalToS3Command = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ExportId != null) {
-    contents.ExportId = __expectString(data.ExportId);
-  }
+  const doc = take(data, {
+    ExportId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1038,10 +1024,9 @@ const de_ExportJournalToS3CommandError = async (
       throw await de_ResourcePreconditionNotMetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1061,12 +1046,11 @@ export const de_GetBlockCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Block != null) {
-    contents.Block = de_ValueHolder(data.Block, context);
-  }
-  if (data.Proof != null) {
-    contents.Proof = de_ValueHolder(data.Proof, context);
-  }
+  const doc = take(data, {
+    Block: _json,
+    Proof: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1094,10 +1078,9 @@ const de_GetBlockCommandError = async (
       throw await de_ResourcePreconditionNotMetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1117,12 +1100,11 @@ export const de_GetDigestCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Digest != null) {
-    contents.Digest = context.base64Decoder(data.Digest);
-  }
-  if (data.DigestTipAddress != null) {
-    contents.DigestTipAddress = de_ValueHolder(data.DigestTipAddress, context);
-  }
+  const doc = take(data, {
+    Digest: context.base64Decoder,
+    DigestTipAddress: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1150,10 +1132,9 @@ const de_GetDigestCommandError = async (
       throw await de_ResourcePreconditionNotMetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1173,12 +1154,11 @@ export const de_GetRevisionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Proof != null) {
-    contents.Proof = de_ValueHolder(data.Proof, context);
-  }
-  if (data.Revision != null) {
-    contents.Revision = de_ValueHolder(data.Revision, context);
-  }
+  const doc = take(data, {
+    Proof: _json,
+    Revision: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1206,10 +1186,9 @@ const de_GetRevisionCommandError = async (
       throw await de_ResourcePreconditionNotMetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1229,12 +1208,11 @@ export const de_ListJournalKinesisStreamsForLedgerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Streams != null) {
-    contents.Streams = de_JournalKinesisStreamDescriptionList(data.Streams, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Streams: (_) => de_JournalKinesisStreamDescriptionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1262,10 +1240,9 @@ const de_ListJournalKinesisStreamsForLedgerCommandError = async (
       throw await de_ResourcePreconditionNotMetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1285,12 +1262,11 @@ export const de_ListJournalS3ExportsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.JournalS3Exports != null) {
-    contents.JournalS3Exports = de_JournalS3ExportList(data.JournalS3Exports, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    JournalS3Exports: (_) => de_JournalS3ExportList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1307,10 +1283,9 @@ const de_ListJournalS3ExportsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1329,12 +1304,11 @@ export const de_ListJournalS3ExportsForLedgerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.JournalS3Exports != null) {
-    contents.JournalS3Exports = de_JournalS3ExportList(data.JournalS3Exports, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    JournalS3Exports: (_) => de_JournalS3ExportList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1351,10 +1325,9 @@ const de_ListJournalS3ExportsForLedgerCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1373,12 +1346,11 @@ export const de_ListLedgersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Ledgers != null) {
-    contents.Ledgers = de_LedgerList(data.Ledgers, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Ledgers: (_) => de_LedgerList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1395,10 +1367,9 @@ const de_ListLedgersCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -1417,9 +1388,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: (_) => de_Tags(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1444,10 +1416,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1467,9 +1438,10 @@ export const de_StreamJournalToKinesisCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamId != null) {
-    contents.StreamId = __expectString(data.StreamId);
-  }
+  const doc = take(data, {
+    StreamId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1497,10 +1469,9 @@ const de_StreamJournalToKinesisCommandError = async (
       throw await de_ResourcePreconditionNotMetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1544,10 +1515,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1591,10 +1561,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1614,24 +1583,15 @@ export const de_UpdateLedgerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationDateTime != null) {
-    contents.CreationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDateTime)));
-  }
-  if (data.DeletionProtection != null) {
-    contents.DeletionProtection = __expectBoolean(data.DeletionProtection);
-  }
-  if (data.EncryptionDescription != null) {
-    contents.EncryptionDescription = de_LedgerEncryptionDescription(data.EncryptionDescription, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtection: __expectBoolean,
+    EncryptionDescription: (_) => de_LedgerEncryptionDescription(_, context),
+    Name: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1656,10 +1616,9 @@ const de_UpdateLedgerCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1679,15 +1638,12 @@ export const de_UpdateLedgerPermissionsModeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PermissionsMode != null) {
-    contents.PermissionsMode = __expectString(data.PermissionsMode);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Name: __expectString,
+    PermissionsMode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1712,16 +1668,15 @@ const de_UpdateLedgerPermissionsModeCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InvalidParameterExceptionRes
  */
@@ -1731,12 +1686,11 @@ const de_InvalidParameterExceptionRes = async (
 ): Promise<InvalidParameterException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ParameterName != null) {
-    contents.ParameterName = __expectString(data.ParameterName);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ParameterName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1753,12 +1707,11 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1775,15 +1728,12 @@ const de_ResourceAlreadyExistsExceptionRes = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1800,15 +1750,12 @@ const de_ResourceInUseExceptionRes = async (
 ): Promise<ResourceInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1825,15 +1772,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1850,15 +1794,12 @@ const de_ResourcePreconditionNotMetExceptionRes = async (
 ): Promise<ResourcePreconditionNotMetException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourcePreconditionNotMetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1866,38 +1807,11 @@ const de_ResourcePreconditionNotMetExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1KinesisConfiguration
- */
-const se_KinesisConfiguration = (input: KinesisConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AggregationEnabled != null && { AggregationEnabled: input.AggregationEnabled }),
-    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
-  };
-};
+// se_KinesisConfiguration omitted.
 
-/**
- * serializeAws_restJson1S3EncryptionConfiguration
- */
-const se_S3EncryptionConfiguration = (input: S3EncryptionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.ObjectEncryptionType != null && { ObjectEncryptionType: input.ObjectEncryptionType }),
-  };
-};
+// se_S3EncryptionConfiguration omitted.
 
-/**
- * serializeAws_restJson1S3ExportConfiguration
- */
-const se_S3ExportConfiguration = (input: S3ExportConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: se_S3EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-  };
-};
+// se_S3ExportConfiguration omitted.
 
 /**
  * serializeAws_restJson1Tags
@@ -1913,42 +1827,25 @@ const se_Tags = (input: Record<string, string>, context: __SerdeContext): any =>
   }, {});
 };
 
-/**
- * serializeAws_restJson1ValueHolder
- */
-const se_ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
-  return {
-    ...(input.IonText != null && { IonText: input.IonText }),
-  };
-};
+// se_ValueHolder omitted.
 
 /**
  * deserializeAws_restJson1JournalKinesisStreamDescription
  */
 const de_JournalKinesisStreamDescription = (output: any, context: __SerdeContext): JournalKinesisStreamDescription => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    ErrorCause: __expectString(output.ErrorCause),
-    ExclusiveEndTime:
-      output.ExclusiveEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExclusiveEndTime)))
-        : undefined,
-    InclusiveStartTime:
-      output.InclusiveStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InclusiveStartTime)))
-        : undefined,
-    KinesisConfiguration:
-      output.KinesisConfiguration != null ? de_KinesisConfiguration(output.KinesisConfiguration, context) : undefined,
-    LedgerName: __expectString(output.LedgerName),
-    RoleArn: __expectString(output.RoleArn),
-    Status: __expectString(output.Status),
-    StreamId: __expectString(output.StreamId),
-    StreamName: __expectString(output.StreamName),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorCause: __expectString,
+    ExclusiveEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InclusiveStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KinesisConfiguration: _json,
+    LedgerName: __expectString,
+    RoleArn: __expectString,
+    Status: __expectString,
+    StreamId: __expectString,
+    StreamName: __expectString,
+  }) as any;
 };
 
 /**
@@ -1961,9 +1858,6 @@ const de_JournalKinesisStreamDescriptionList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_JournalKinesisStreamDescription(entry, context);
     });
   return retVal;
@@ -1973,29 +1867,17 @@ const de_JournalKinesisStreamDescriptionList = (
  * deserializeAws_restJson1JournalS3ExportDescription
  */
 const de_JournalS3ExportDescription = (output: any, context: __SerdeContext): JournalS3ExportDescription => {
-  return {
-    ExclusiveEndTime:
-      output.ExclusiveEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExclusiveEndTime)))
-        : undefined,
-    ExportCreationTime:
-      output.ExportCreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExportCreationTime)))
-        : undefined,
-    ExportId: __expectString(output.ExportId),
-    InclusiveStartTime:
-      output.InclusiveStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InclusiveStartTime)))
-        : undefined,
-    LedgerName: __expectString(output.LedgerName),
-    OutputFormat: __expectString(output.OutputFormat),
-    RoleArn: __expectString(output.RoleArn),
-    S3ExportConfiguration:
-      output.S3ExportConfiguration != null
-        ? de_S3ExportConfiguration(output.S3ExportConfiguration, context)
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    ExclusiveEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportCreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportId: __expectString,
+    InclusiveStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LedgerName: __expectString,
+    OutputFormat: __expectString,
+    RoleArn: __expectString,
+    S3ExportConfiguration: _json,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -2005,36 +1887,22 @@ const de_JournalS3ExportList = (output: any, context: __SerdeContext): JournalS3
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_JournalS3ExportDescription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1KinesisConfiguration
- */
-const de_KinesisConfiguration = (output: any, context: __SerdeContext): KinesisConfiguration => {
-  return {
-    AggregationEnabled: __expectBoolean(output.AggregationEnabled),
-    StreamArn: __expectString(output.StreamArn),
-  } as any;
-};
+// de_KinesisConfiguration omitted.
 
 /**
  * deserializeAws_restJson1LedgerEncryptionDescription
  */
 const de_LedgerEncryptionDescription = (output: any, context: __SerdeContext): LedgerEncryptionDescription => {
-  return {
-    EncryptionStatus: __expectString(output.EncryptionStatus),
-    InaccessibleKmsKeyDateTime:
-      output.InaccessibleKmsKeyDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InaccessibleKmsKeyDateTime)))
-        : undefined,
-    KmsKeyArn: __expectString(output.KmsKeyArn),
-  } as any;
+  return take(output, {
+    EncryptionStatus: __expectString,
+    InaccessibleKmsKeyDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KmsKeyArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -2044,9 +1912,6 @@ const de_LedgerList = (output: any, context: __SerdeContext): LedgerSummary[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LedgerSummary(entry, context);
     });
   return retVal;
@@ -2056,39 +1921,16 @@ const de_LedgerList = (output: any, context: __SerdeContext): LedgerSummary[] =>
  * deserializeAws_restJson1LedgerSummary
  */
 const de_LedgerSummary = (output: any, context: __SerdeContext): LedgerSummary => {
-  return {
-    CreationDateTime:
-      output.CreationDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDateTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
+  return take(output, {
+    CreationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    State: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1S3EncryptionConfiguration
- */
-const de_S3EncryptionConfiguration = (output: any, context: __SerdeContext): S3EncryptionConfiguration => {
-  return {
-    KmsKeyArn: __expectString(output.KmsKeyArn),
-    ObjectEncryptionType: __expectString(output.ObjectEncryptionType),
-  } as any;
-};
+// de_S3EncryptionConfiguration omitted.
 
-/**
- * deserializeAws_restJson1S3ExportConfiguration
- */
-const de_S3ExportConfiguration = (output: any, context: __SerdeContext): S3ExportConfiguration => {
-  return {
-    Bucket: __expectString(output.Bucket),
-    EncryptionConfiguration:
-      output.EncryptionConfiguration != null
-        ? de_S3EncryptionConfiguration(output.EncryptionConfiguration, context)
-        : undefined,
-    Prefix: __expectString(output.Prefix),
-  } as any;
-};
+// de_S3ExportConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Tags
@@ -2104,14 +1946,7 @@ const de_Tags = (output: any, context: __SerdeContext): Record<string, string> =
   }, {});
 };
 
-/**
- * deserializeAws_restJson1ValueHolder
- */
-const de_ValueHolder = (output: any, context: __SerdeContext): ValueHolder => {
-  return {
-    IonText: __expectString(output.IonText),
-  } as any;
-};
+// de_ValueHolder omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

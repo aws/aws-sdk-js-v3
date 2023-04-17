@@ -1,15 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -40,7 +42,6 @@ import {
   ClipTimestampRange,
   DASHFragmentSelector,
   DASHTimestampRange,
-  FormatConfigKey,
   Fragment,
   FragmentSelector,
   HLSFragmentSelector,
@@ -70,13 +71,13 @@ export const se_GetClipCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getClip";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ClipFragmentSelector != null && {
-      ClipFragmentSelector: se_ClipFragmentSelector(input.ClipFragmentSelector, context),
-    }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClipFragmentSelector: (_) => se_ClipFragmentSelector(_, context),
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -102,18 +103,18 @@ export const se_GetDASHStreamingSessionURLCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getDASHStreamingSessionURL";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DASHFragmentSelector != null && {
-      DASHFragmentSelector: se_DASHFragmentSelector(input.DASHFragmentSelector, context),
-    }),
-    ...(input.DisplayFragmentNumber != null && { DisplayFragmentNumber: input.DisplayFragmentNumber }),
-    ...(input.DisplayFragmentTimestamp != null && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
-    ...(input.Expires != null && { Expires: input.Expires }),
-    ...(input.MaxManifestFragmentResults != null && { MaxManifestFragmentResults: input.MaxManifestFragmentResults }),
-    ...(input.PlaybackMode != null && { PlaybackMode: input.PlaybackMode }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DASHFragmentSelector: (_) => se_DASHFragmentSelector(_, context),
+      DisplayFragmentNumber: [],
+      DisplayFragmentTimestamp: [],
+      Expires: [],
+      MaxManifestFragmentResults: [],
+      PlaybackMode: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -139,21 +140,19 @@ export const se_GetHLSStreamingSessionURLCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getHLSStreamingSessionURL";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ContainerFormat != null && { ContainerFormat: input.ContainerFormat }),
-    ...(input.DiscontinuityMode != null && { DiscontinuityMode: input.DiscontinuityMode }),
-    ...(input.DisplayFragmentTimestamp != null && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
-    ...(input.Expires != null && { Expires: input.Expires }),
-    ...(input.HLSFragmentSelector != null && {
-      HLSFragmentSelector: se_HLSFragmentSelector(input.HLSFragmentSelector, context),
-    }),
-    ...(input.MaxMediaPlaylistFragmentResults != null && {
-      MaxMediaPlaylistFragmentResults: input.MaxMediaPlaylistFragmentResults,
-    }),
-    ...(input.PlaybackMode != null && { PlaybackMode: input.PlaybackMode }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ContainerFormat: [],
+      DiscontinuityMode: [],
+      DisplayFragmentTimestamp: [],
+      Expires: [],
+      HLSFragmentSelector: (_) => se_HLSFragmentSelector(_, context),
+      MaxMediaPlaylistFragmentResults: [],
+      PlaybackMode: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -178,20 +177,22 @@ export const se_GetImagesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getImages";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.FormatConfig != null && { FormatConfig: se_FormatConfig(input.FormatConfig, context) }),
-    ...(input.HeightPixels != null && { HeightPixels: input.HeightPixels }),
-    ...(input.ImageSelectorType != null && { ImageSelectorType: input.ImageSelectorType }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SamplingInterval != null && { SamplingInterval: input.SamplingInterval }),
-    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-    ...(input.WidthPixels != null && { WidthPixels: input.WidthPixels }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+      Format: [],
+      FormatConfig: (_) => _json(_),
+      HeightPixels: [],
+      ImageSelectorType: [],
+      MaxResults: [],
+      NextToken: [],
+      SamplingInterval: [],
+      StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+      StreamARN: [],
+      StreamName: [],
+      WidthPixels: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -217,11 +218,13 @@ export const se_GetMediaForFragmentListCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMediaForFragmentList";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Fragments != null && { Fragments: se_FragmentNumberList(input.Fragments, context) }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Fragments: (_) => _json(_),
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -246,13 +249,15 @@ export const se_ListFragmentsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFragments";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FragmentSelector != null && { FragmentSelector: se_FragmentSelector(input.FragmentSelector, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FragmentSelector: (_) => se_FragmentSelector(_, context),
+      MaxResults: [],
+      NextToken: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -326,10 +331,9 @@ const de_GetClipCommandError = async (
       throw await de_UnsupportedStreamMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -349,9 +353,10 @@ export const de_GetDASHStreamingSessionURLCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DASHStreamingSessionURL != null) {
-    contents.DASHStreamingSessionURL = __expectString(data.DASHStreamingSessionURL);
-  }
+  const doc = take(data, {
+    DASHStreamingSessionURL: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -394,10 +399,9 @@ const de_GetDASHStreamingSessionURLCommandError = async (
       throw await de_UnsupportedStreamMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -417,9 +421,10 @@ export const de_GetHLSStreamingSessionURLCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HLSStreamingSessionURL != null) {
-    contents.HLSStreamingSessionURL = __expectString(data.HLSStreamingSessionURL);
-  }
+  const doc = take(data, {
+    HLSStreamingSessionURL: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -462,10 +467,9 @@ const de_GetHLSStreamingSessionURLCommandError = async (
       throw await de_UnsupportedStreamMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -485,12 +489,11 @@ export const de_GetImagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Images != null) {
-    contents.Images = de_Images(data.Images, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Images: (_) => de_Images(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -521,10 +524,9 @@ const de_GetImagesCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -577,10 +579,9 @@ const de_GetMediaForFragmentListCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -600,12 +601,11 @@ export const de_ListFragmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Fragments != null) {
-    contents.Fragments = de_FragmentList(data.Fragments, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Fragments: (_) => de_FragmentList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -636,16 +636,15 @@ const de_ListFragmentsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ClientLimitExceededExceptionRes
  */
@@ -655,9 +654,10 @@ const de_ClientLimitExceededExceptionRes = async (
 ): Promise<ClientLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ClientLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -674,9 +674,10 @@ const de_InvalidArgumentExceptionRes = async (
 ): Promise<InvalidArgumentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -693,9 +694,10 @@ const de_InvalidCodecPrivateDataExceptionRes = async (
 ): Promise<InvalidCodecPrivateDataException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidCodecPrivateDataException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -712,9 +714,10 @@ const de_InvalidMediaFrameExceptionRes = async (
 ): Promise<InvalidMediaFrameException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidMediaFrameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -731,9 +734,10 @@ const de_MissingCodecPrivateDataExceptionRes = async (
 ): Promise<MissingCodecPrivateDataException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MissingCodecPrivateDataException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -750,9 +754,10 @@ const de_NoDataRetentionExceptionRes = async (
 ): Promise<NoDataRetentionException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NoDataRetentionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -769,9 +774,10 @@ const de_NotAuthorizedExceptionRes = async (
 ): Promise<NotAuthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -788,9 +794,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -807,9 +814,10 @@ const de_UnsupportedStreamMediaTypeExceptionRes = async (
 ): Promise<UnsupportedStreamMediaTypeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedStreamMediaTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -821,123 +829,97 @@ const de_UnsupportedStreamMediaTypeExceptionRes = async (
  * serializeAws_restJson1ClipFragmentSelector
  */
 const se_ClipFragmentSelector = (input: ClipFragmentSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != null && { TimestampRange: se_ClipTimestampRange(input.TimestampRange, context) }),
-  };
+  return take(input, {
+    FragmentSelectorType: [],
+    TimestampRange: (_) => se_ClipTimestampRange(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1ClipTimestampRange
  */
 const se_ClipTimestampRange = (input: ClipTimestampRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_restJson1DASHFragmentSelector
  */
 const se_DASHFragmentSelector = (input: DASHFragmentSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != null && { TimestampRange: se_DASHTimestampRange(input.TimestampRange, context) }),
-  };
+  return take(input, {
+    FragmentSelectorType: [],
+    TimestampRange: (_) => se_DASHTimestampRange(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1DASHTimestampRange
  */
 const se_DASHTimestampRange = (input: DASHTimestampRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_restJson1FormatConfig
- */
-const se_FormatConfig = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [FormatConfigKey | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_FormatConfig omitted.
 
-/**
- * serializeAws_restJson1FragmentNumberList
- */
-const se_FragmentNumberList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FragmentNumberList omitted.
 
 /**
  * serializeAws_restJson1FragmentSelector
  */
 const se_FragmentSelector = (input: FragmentSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != null && { TimestampRange: se_TimestampRange(input.TimestampRange, context) }),
-  };
+  return take(input, {
+    FragmentSelectorType: [],
+    TimestampRange: (_) => se_TimestampRange(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1HLSFragmentSelector
  */
 const se_HLSFragmentSelector = (input: HLSFragmentSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != null && { TimestampRange: se_HLSTimestampRange(input.TimestampRange, context) }),
-  };
+  return take(input, {
+    FragmentSelectorType: [],
+    TimestampRange: (_) => se_HLSTimestampRange(_, context),
+  });
 };
 
 /**
  * serializeAws_restJson1HLSTimestampRange
  */
 const se_HLSTimestampRange = (input: HLSTimestampRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_restJson1TimestampRange
  */
 const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * deserializeAws_restJson1Fragment
  */
 const de_Fragment = (output: any, context: __SerdeContext): Fragment => {
-  return {
-    FragmentLengthInMilliseconds: __expectLong(output.FragmentLengthInMilliseconds),
-    FragmentNumber: __expectString(output.FragmentNumber),
-    FragmentSizeInBytes: __expectLong(output.FragmentSizeInBytes),
-    ProducerTimestamp:
-      output.ProducerTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ProducerTimestamp)))
-        : undefined,
-    ServerTimestamp:
-      output.ServerTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ServerTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    FragmentLengthInMilliseconds: __expectLong,
+    FragmentNumber: __expectString,
+    FragmentSizeInBytes: __expectLong,
+    ProducerTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ServerTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -947,9 +929,6 @@ const de_FragmentList = (output: any, context: __SerdeContext): Fragment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Fragment(entry, context);
     });
   return retVal;
@@ -959,12 +938,11 @@ const de_FragmentList = (output: any, context: __SerdeContext): Fragment[] => {
  * deserializeAws_restJson1Image
  */
 const de_Image = (output: any, context: __SerdeContext): Image => {
-  return {
-    Error: __expectString(output.Error),
-    ImageContent: __expectString(output.ImageContent),
-    TimeStamp:
-      output.TimeStamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TimeStamp))) : undefined,
-  } as any;
+  return take(output, {
+    Error: __expectString,
+    ImageContent: __expectString,
+    TimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -974,9 +952,6 @@ const de_Images = (output: any, context: __SerdeContext): Image[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Image(entry, context);
     });
   return retVal;

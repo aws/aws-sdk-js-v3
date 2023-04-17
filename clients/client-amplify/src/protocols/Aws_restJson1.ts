@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
@@ -8,10 +9,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -89,14 +91,12 @@ import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "../comman
 import { AmplifyServiceException as __BaseException } from "../models/AmplifyServiceException";
 import {
   App,
-  Artifact,
   AutoBranchCreationConfig,
   BackendEnvironment,
   BadRequestException,
   Branch,
   CustomRule,
   DependentServiceFailureException,
-  DomainAssociation,
   InternalFailureException,
   Job,
   JobSummary,
@@ -105,7 +105,6 @@ import {
   ProductionBranch,
   ResourceNotFoundException,
   Step,
-  SubDomain,
   SubDomainSetting,
   UnauthorizedException,
   Webhook,
@@ -124,33 +123,29 @@ export const se_CreateAppCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apps";
   let body: any;
-  body = JSON.stringify({
-    ...(input.accessToken != null && { accessToken: input.accessToken }),
-    ...(input.autoBranchCreationConfig != null && {
-      autoBranchCreationConfig: se_AutoBranchCreationConfig(input.autoBranchCreationConfig, context),
-    }),
-    ...(input.autoBranchCreationPatterns != null && {
-      autoBranchCreationPatterns: se_AutoBranchCreationPatterns(input.autoBranchCreationPatterns, context),
-    }),
-    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
-    ...(input.customHeaders != null && { customHeaders: input.customHeaders }),
-    ...(input.customRules != null && { customRules: se_CustomRules(input.customRules, context) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.enableAutoBranchCreation != null && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
-    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableBranchAutoBuild != null && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
-    ...(input.enableBranchAutoDeletion != null && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
-    ...(input.environmentVariables != null && {
-      environmentVariables: se_EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.iamServiceRoleArn != null && { iamServiceRoleArn: input.iamServiceRoleArn }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.oauthToken != null && { oauthToken: input.oauthToken }),
-    ...(input.platform != null && { platform: input.platform }),
-    ...(input.repository != null && { repository: input.repository }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accessToken: [],
+      autoBranchCreationConfig: (_) => _json(_),
+      autoBranchCreationPatterns: (_) => _json(_),
+      basicAuthCredentials: [],
+      buildSpec: [],
+      customHeaders: [],
+      customRules: (_) => _json(_),
+      description: [],
+      enableAutoBranchCreation: [],
+      enableBasicAuth: [],
+      enableBranchAutoBuild: [],
+      enableBranchAutoDeletion: [],
+      environmentVariables: (_) => _json(_),
+      iamServiceRoleArn: [],
+      name: [],
+      oauthToken: [],
+      platform: [],
+      repository: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -177,11 +172,13 @@ export const se_CreateBackendEnvironmentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apps/{appId}/backendenvironments";
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.deploymentArtifacts != null && { deploymentArtifacts: input.deploymentArtifacts }),
-    ...(input.environmentName != null && { environmentName: input.environmentName }),
-    ...(input.stackName != null && { stackName: input.stackName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      deploymentArtifacts: [],
+      environmentName: [],
+      stackName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -207,27 +204,27 @@ export const se_CreateBranchCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apps/{appId}/branches";
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.backendEnvironmentArn != null && { backendEnvironmentArn: input.backendEnvironmentArn }),
-    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.enableAutoBuild != null && { enableAutoBuild: input.enableAutoBuild }),
-    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableNotification != null && { enableNotification: input.enableNotification }),
-    ...(input.enablePerformanceMode != null && { enablePerformanceMode: input.enablePerformanceMode }),
-    ...(input.enablePullRequestPreview != null && { enablePullRequestPreview: input.enablePullRequestPreview }),
-    ...(input.environmentVariables != null && {
-      environmentVariables: se_EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.framework != null && { framework: input.framework }),
-    ...(input.pullRequestEnvironmentName != null && { pullRequestEnvironmentName: input.pullRequestEnvironmentName }),
-    ...(input.stage != null && { stage: input.stage }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.ttl != null && { ttl: input.ttl }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentArn: [],
+      basicAuthCredentials: [],
+      branchName: [],
+      buildSpec: [],
+      description: [],
+      displayName: [],
+      enableAutoBuild: [],
+      enableBasicAuth: [],
+      enableNotification: [],
+      enablePerformanceMode: [],
+      enablePullRequestPreview: [],
+      environmentVariables: (_) => _json(_),
+      framework: [],
+      pullRequestEnvironmentName: [],
+      stage: [],
+      tags: (_) => _json(_),
+      ttl: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -256,9 +253,11 @@ export const se_CreateDeploymentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "branchName", () => input.branchName!, "{branchName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.fileMap != null && { fileMap: se_FileMap(input.fileMap, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fileMap: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -284,17 +283,15 @@ export const se_CreateDomainAssociationCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apps/{appId}/domains";
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.autoSubDomainCreationPatterns != null && {
-      autoSubDomainCreationPatterns: se_AutoSubDomainCreationPatterns(input.autoSubDomainCreationPatterns, context),
-    }),
-    ...(input.autoSubDomainIAMRole != null && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
-    ...(input.domainName != null && { domainName: input.domainName }),
-    ...(input.enableAutoSubDomain != null && { enableAutoSubDomain: input.enableAutoSubDomain }),
-    ...(input.subDomainSettings != null && {
-      subDomainSettings: se_SubDomainSettings(input.subDomainSettings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      autoSubDomainCreationPatterns: (_) => _json(_),
+      autoSubDomainIAMRole: [],
+      domainName: [],
+      enableAutoSubDomain: [],
+      subDomainSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -320,10 +317,12 @@ export const se_CreateWebhookCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apps/{appId}/webhooks";
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.description != null && { description: input.description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      branchName: [],
+      description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -505,11 +504,13 @@ export const se_GenerateAccessLogsCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apps/{appId}/accesslogs";
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.domainName != null && { domainName: input.domainName }),
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      domainName: [],
+      endTime: (_) => Math.round(_.getTime() / 1000),
+      startTime: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -937,10 +938,12 @@ export const se_StartDeploymentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "branchName", () => input.branchName!, "{branchName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.jobId != null && { jobId: input.jobId }),
-    ...(input.sourceUrl != null && { sourceUrl: input.sourceUrl }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      jobId: [],
+      sourceUrl: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -968,14 +971,16 @@ export const se_StartJobCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "branchName", () => input.branchName!, "{branchName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.commitId != null && { commitId: input.commitId }),
-    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.commitTime != null && { commitTime: Math.round(input.commitTime.getTime() / 1000) }),
-    ...(input.jobId != null && { jobId: input.jobId }),
-    ...(input.jobReason != null && { jobReason: input.jobReason }),
-    ...(input.jobType != null && { jobType: input.jobType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      commitId: [],
+      commitMessage: [],
+      commitTime: (_) => Math.round(_.getTime() / 1000),
+      jobId: [],
+      jobReason: [],
+      jobType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1028,9 +1033,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1086,32 +1093,28 @@ export const se_UpdateAppCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apps/{appId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.accessToken != null && { accessToken: input.accessToken }),
-    ...(input.autoBranchCreationConfig != null && {
-      autoBranchCreationConfig: se_AutoBranchCreationConfig(input.autoBranchCreationConfig, context),
-    }),
-    ...(input.autoBranchCreationPatterns != null && {
-      autoBranchCreationPatterns: se_AutoBranchCreationPatterns(input.autoBranchCreationPatterns, context),
-    }),
-    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
-    ...(input.customHeaders != null && { customHeaders: input.customHeaders }),
-    ...(input.customRules != null && { customRules: se_CustomRules(input.customRules, context) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.enableAutoBranchCreation != null && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
-    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableBranchAutoBuild != null && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
-    ...(input.enableBranchAutoDeletion != null && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
-    ...(input.environmentVariables != null && {
-      environmentVariables: se_EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.iamServiceRoleArn != null && { iamServiceRoleArn: input.iamServiceRoleArn }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.oauthToken != null && { oauthToken: input.oauthToken }),
-    ...(input.platform != null && { platform: input.platform }),
-    ...(input.repository != null && { repository: input.repository }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accessToken: [],
+      autoBranchCreationConfig: (_) => _json(_),
+      autoBranchCreationPatterns: (_) => _json(_),
+      basicAuthCredentials: [],
+      buildSpec: [],
+      customHeaders: [],
+      customRules: (_) => _json(_),
+      description: [],
+      enableAutoBranchCreation: [],
+      enableBasicAuth: [],
+      enableBranchAutoBuild: [],
+      enableBranchAutoDeletion: [],
+      environmentVariables: (_) => _json(_),
+      iamServiceRoleArn: [],
+      name: [],
+      oauthToken: [],
+      platform: [],
+      repository: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1139,25 +1142,25 @@ export const se_UpdateBranchCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "branchName", () => input.branchName!, "{branchName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.backendEnvironmentArn != null && { backendEnvironmentArn: input.backendEnvironmentArn }),
-    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.enableAutoBuild != null && { enableAutoBuild: input.enableAutoBuild }),
-    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableNotification != null && { enableNotification: input.enableNotification }),
-    ...(input.enablePerformanceMode != null && { enablePerformanceMode: input.enablePerformanceMode }),
-    ...(input.enablePullRequestPreview != null && { enablePullRequestPreview: input.enablePullRequestPreview }),
-    ...(input.environmentVariables != null && {
-      environmentVariables: se_EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.framework != null && { framework: input.framework }),
-    ...(input.pullRequestEnvironmentName != null && { pullRequestEnvironmentName: input.pullRequestEnvironmentName }),
-    ...(input.stage != null && { stage: input.stage }),
-    ...(input.ttl != null && { ttl: input.ttl }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentArn: [],
+      basicAuthCredentials: [],
+      buildSpec: [],
+      description: [],
+      displayName: [],
+      enableAutoBuild: [],
+      enableBasicAuth: [],
+      enableNotification: [],
+      enablePerformanceMode: [],
+      enablePullRequestPreview: [],
+      environmentVariables: (_) => _json(_),
+      framework: [],
+      pullRequestEnvironmentName: [],
+      stage: [],
+      ttl: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1185,16 +1188,14 @@ export const se_UpdateDomainAssociationCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "domainName", () => input.domainName!, "{domainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.autoSubDomainCreationPatterns != null && {
-      autoSubDomainCreationPatterns: se_AutoSubDomainCreationPatterns(input.autoSubDomainCreationPatterns, context),
-    }),
-    ...(input.autoSubDomainIAMRole != null && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
-    ...(input.enableAutoSubDomain != null && { enableAutoSubDomain: input.enableAutoSubDomain }),
-    ...(input.subDomainSettings != null && {
-      subDomainSettings: se_SubDomainSettings(input.subDomainSettings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      autoSubDomainCreationPatterns: (_) => _json(_),
+      autoSubDomainIAMRole: [],
+      enableAutoSubDomain: [],
+      subDomainSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1220,10 +1221,12 @@ export const se_UpdateWebhookCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/webhooks/{webhookId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "webhookId", () => input.webhookId!, "{webhookId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.description != null && { description: input.description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      branchName: [],
+      description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1249,9 +1252,10 @@ export const de_CreateAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.app != null) {
-    contents.app = de_App(data.app, context);
-  }
+  const doc = take(data, {
+    app: (_) => de_App(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1285,10 +1289,9 @@ const de_CreateAppCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1308,9 +1311,10 @@ export const de_CreateBackendEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.backendEnvironment != null) {
-    contents.backendEnvironment = de_BackendEnvironment(data.backendEnvironment, context);
-  }
+  const doc = take(data, {
+    backendEnvironment: (_) => de_BackendEnvironment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1344,10 +1348,9 @@ const de_CreateBackendEnvironmentCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1367,9 +1370,10 @@ export const de_CreateBranchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.branch != null) {
-    contents.branch = de_Branch(data.branch, context);
-  }
+  const doc = take(data, {
+    branch: (_) => de_Branch(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1406,10 +1410,9 @@ const de_CreateBranchCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1429,15 +1432,12 @@ export const de_CreateDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fileUploadUrls != null) {
-    contents.fileUploadUrls = de_FileUploadUrls(data.fileUploadUrls, context);
-  }
-  if (data.jobId != null) {
-    contents.jobId = __expectString(data.jobId);
-  }
-  if (data.zipUploadUrl != null) {
-    contents.zipUploadUrl = __expectString(data.zipUploadUrl);
-  }
+  const doc = take(data, {
+    fileUploadUrls: _json,
+    jobId: __expectString,
+    zipUploadUrl: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1468,10 +1468,9 @@ const de_CreateDeploymentCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1491,9 +1490,10 @@ export const de_CreateDomainAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainAssociation != null) {
-    contents.domainAssociation = de_DomainAssociation(data.domainAssociation, context);
-  }
+  const doc = take(data, {
+    domainAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1530,10 +1530,9 @@ const de_CreateDomainAssociationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1553,9 +1552,10 @@ export const de_CreateWebhookCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.webhook != null) {
-    contents.webhook = de_Webhook(data.webhook, context);
-  }
+  const doc = take(data, {
+    webhook: (_) => de_Webhook(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1592,10 +1592,9 @@ const de_CreateWebhookCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1615,9 +1614,10 @@ export const de_DeleteAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.app != null) {
-    contents.app = de_App(data.app, context);
-  }
+  const doc = take(data, {
+    app: (_) => de_App(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1651,10 +1651,9 @@ const de_DeleteAppCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1674,9 +1673,10 @@ export const de_DeleteBackendEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.backendEnvironment != null) {
-    contents.backendEnvironment = de_BackendEnvironment(data.backendEnvironment, context);
-  }
+  const doc = take(data, {
+    backendEnvironment: (_) => de_BackendEnvironment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1710,10 +1710,9 @@ const de_DeleteBackendEnvironmentCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1733,9 +1732,10 @@ export const de_DeleteBranchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.branch != null) {
-    contents.branch = de_Branch(data.branch, context);
-  }
+  const doc = take(data, {
+    branch: (_) => de_Branch(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1769,10 +1769,9 @@ const de_DeleteBranchCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1792,9 +1791,10 @@ export const de_DeleteDomainAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainAssociation != null) {
-    contents.domainAssociation = de_DomainAssociation(data.domainAssociation, context);
-  }
+  const doc = take(data, {
+    domainAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1828,10 +1828,9 @@ const de_DeleteDomainAssociationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1851,9 +1850,10 @@ export const de_DeleteJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobSummary != null) {
-    contents.jobSummary = de_JobSummary(data.jobSummary, context);
-  }
+  const doc = take(data, {
+    jobSummary: (_) => de_JobSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1887,10 +1887,9 @@ const de_DeleteJobCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1910,9 +1909,10 @@ export const de_DeleteWebhookCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.webhook != null) {
-    contents.webhook = de_Webhook(data.webhook, context);
-  }
+  const doc = take(data, {
+    webhook: (_) => de_Webhook(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1946,10 +1946,9 @@ const de_DeleteWebhookCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1969,9 +1968,10 @@ export const de_GenerateAccessLogsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.logUrl != null) {
-    contents.logUrl = __expectString(data.logUrl);
-  }
+  const doc = take(data, {
+    logUrl: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2002,10 +2002,9 @@ const de_GenerateAccessLogsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2025,9 +2024,10 @@ export const de_GetAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.app != null) {
-    contents.app = de_App(data.app, context);
-  }
+  const doc = take(data, {
+    app: (_) => de_App(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2055,10 +2055,9 @@ const de_GetAppCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2078,12 +2077,11 @@ export const de_GetArtifactUrlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.artifactId != null) {
-    contents.artifactId = __expectString(data.artifactId);
-  }
-  if (data.artifactUrl != null) {
-    contents.artifactUrl = __expectString(data.artifactUrl);
-  }
+  const doc = take(data, {
+    artifactId: __expectString,
+    artifactUrl: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2117,10 +2115,9 @@ const de_GetArtifactUrlCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2140,9 +2137,10 @@ export const de_GetBackendEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.backendEnvironment != null) {
-    contents.backendEnvironment = de_BackendEnvironment(data.backendEnvironment, context);
-  }
+  const doc = take(data, {
+    backendEnvironment: (_) => de_BackendEnvironment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2173,10 +2171,9 @@ const de_GetBackendEnvironmentCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2196,9 +2193,10 @@ export const de_GetBranchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.branch != null) {
-    contents.branch = de_Branch(data.branch, context);
-  }
+  const doc = take(data, {
+    branch: (_) => de_Branch(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2229,10 +2227,9 @@ const de_GetBranchCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2252,9 +2249,10 @@ export const de_GetDomainAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainAssociation != null) {
-    contents.domainAssociation = de_DomainAssociation(data.domainAssociation, context);
-  }
+  const doc = take(data, {
+    domainAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2285,10 +2283,9 @@ const de_GetDomainAssociationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2308,9 +2305,10 @@ export const de_GetJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.job != null) {
-    contents.job = de_Job(data.job, context);
-  }
+  const doc = take(data, {
+    job: (_) => de_Job(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2341,10 +2339,9 @@ const de_GetJobCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2364,9 +2361,10 @@ export const de_GetWebhookCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.webhook != null) {
-    contents.webhook = de_Webhook(data.webhook, context);
-  }
+  const doc = take(data, {
+    webhook: (_) => de_Webhook(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2400,10 +2398,9 @@ const de_GetWebhookCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2423,12 +2420,11 @@ export const de_ListAppsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apps != null) {
-    contents.apps = de_Apps(data.apps, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    apps: (_) => de_Apps(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2456,10 +2452,9 @@ const de_ListAppsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2479,12 +2474,11 @@ export const de_ListArtifactsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.artifacts != null) {
-    contents.artifacts = de_Artifacts(data.artifacts, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    artifacts: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2515,10 +2509,9 @@ const de_ListArtifactsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2538,12 +2531,11 @@ export const de_ListBackendEnvironmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.backendEnvironments != null) {
-    contents.backendEnvironments = de_BackendEnvironments(data.backendEnvironments, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    backendEnvironments: (_) => de_BackendEnvironments(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2571,10 +2563,9 @@ const de_ListBackendEnvironmentsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2594,12 +2585,11 @@ export const de_ListBranchesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.branches != null) {
-    contents.branches = de_Branches(data.branches, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    branches: (_) => de_Branches(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2627,10 +2617,9 @@ const de_ListBranchesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2650,12 +2639,11 @@ export const de_ListDomainAssociationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainAssociations != null) {
-    contents.domainAssociations = de_DomainAssociations(data.domainAssociations, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    domainAssociations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2683,10 +2671,9 @@ const de_ListDomainAssociationsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2706,12 +2693,11 @@ export const de_ListJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobSummaries != null) {
-    contents.jobSummaries = de_JobSummaries(data.jobSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    jobSummaries: (_) => de_JobSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2742,10 +2728,9 @@ const de_ListJobsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2765,9 +2750,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2795,10 +2781,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2818,12 +2803,11 @@ export const de_ListWebhooksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.webhooks != null) {
-    contents.webhooks = de_Webhooks(data.webhooks, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    webhooks: (_) => de_Webhooks(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2854,10 +2838,9 @@ const de_ListWebhooksCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2877,9 +2860,10 @@ export const de_StartDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobSummary != null) {
-    contents.jobSummary = de_JobSummary(data.jobSummary, context);
-  }
+  const doc = take(data, {
+    jobSummary: (_) => de_JobSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2913,10 +2897,9 @@ const de_StartDeploymentCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2936,9 +2919,10 @@ export const de_StartJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobSummary != null) {
-    contents.jobSummary = de_JobSummary(data.jobSummary, context);
-  }
+  const doc = take(data, {
+    jobSummary: (_) => de_JobSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2972,10 +2956,9 @@ const de_StartJobCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2995,9 +2978,10 @@ export const de_StopJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobSummary != null) {
-    contents.jobSummary = de_JobSummary(data.jobSummary, context);
-  }
+  const doc = take(data, {
+    jobSummary: (_) => de_JobSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3031,10 +3015,9 @@ const de_StopJobCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3081,10 +3064,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3131,10 +3113,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3154,9 +3135,10 @@ export const de_UpdateAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.app != null) {
-    contents.app = de_App(data.app, context);
-  }
+  const doc = take(data, {
+    app: (_) => de_App(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3187,10 +3169,9 @@ const de_UpdateAppCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3210,9 +3191,10 @@ export const de_UpdateBranchCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.branch != null) {
-    contents.branch = de_Branch(data.branch, context);
-  }
+  const doc = take(data, {
+    branch: (_) => de_Branch(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3246,10 +3228,9 @@ const de_UpdateBranchCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3269,9 +3250,10 @@ export const de_UpdateDomainAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainAssociation != null) {
-    contents.domainAssociation = de_DomainAssociation(data.domainAssociation, context);
-  }
+  const doc = take(data, {
+    domainAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3305,10 +3287,9 @@ const de_UpdateDomainAssociationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3328,9 +3309,10 @@ export const de_UpdateWebhookCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.webhook != null) {
-    contents.webhook = de_Webhook(data.webhook, context);
-  }
+  const doc = take(data, {
+    webhook: (_) => de_Webhook(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3364,25 +3346,25 @@ const de_UpdateWebhookCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3399,9 +3381,10 @@ const de_DependentServiceFailureExceptionRes = async (
 ): Promise<DependentServiceFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DependentServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3418,9 +3401,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3437,9 +3421,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3453,9 +3438,10 @@ const de_LimitExceededExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3472,12 +3458,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3494,9 +3479,10 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3504,171 +3490,56 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AutoBranchCreationConfig
- */
-const se_AutoBranchCreationConfig = (input: AutoBranchCreationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
-    ...(input.enableAutoBuild != null && { enableAutoBuild: input.enableAutoBuild }),
-    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enablePerformanceMode != null && { enablePerformanceMode: input.enablePerformanceMode }),
-    ...(input.enablePullRequestPreview != null && { enablePullRequestPreview: input.enablePullRequestPreview }),
-    ...(input.environmentVariables != null && {
-      environmentVariables: se_EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.framework != null && { framework: input.framework }),
-    ...(input.pullRequestEnvironmentName != null && { pullRequestEnvironmentName: input.pullRequestEnvironmentName }),
-    ...(input.stage != null && { stage: input.stage }),
-  };
-};
+// se_AutoBranchCreationConfig omitted.
 
-/**
- * serializeAws_restJson1AutoBranchCreationPatterns
- */
-const se_AutoBranchCreationPatterns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AutoBranchCreationPatterns omitted.
 
-/**
- * serializeAws_restJson1AutoSubDomainCreationPatterns
- */
-const se_AutoSubDomainCreationPatterns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AutoSubDomainCreationPatterns omitted.
 
-/**
- * serializeAws_restJson1CustomRule
- */
-const se_CustomRule = (input: CustomRule, context: __SerdeContext): any => {
-  return {
-    ...(input.condition != null && { condition: input.condition }),
-    ...(input.source != null && { source: input.source }),
-    ...(input.status != null && { status: input.status }),
-    ...(input.target != null && { target: input.target }),
-  };
-};
+// se_CustomRule omitted.
 
-/**
- * serializeAws_restJson1CustomRules
- */
-const se_CustomRules = (input: CustomRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CustomRule(entry, context);
-    });
-};
+// se_CustomRules omitted.
 
-/**
- * serializeAws_restJson1EnvironmentVariables
- */
-const se_EnvironmentVariables = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_EnvironmentVariables omitted.
 
-/**
- * serializeAws_restJson1FileMap
- */
-const se_FileMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_FileMap omitted.
 
-/**
- * serializeAws_restJson1SubDomainSetting
- */
-const se_SubDomainSetting = (input: SubDomainSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-  };
-};
+// se_SubDomainSetting omitted.
 
-/**
- * serializeAws_restJson1SubDomainSettings
- */
-const se_SubDomainSettings = (input: SubDomainSetting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SubDomainSetting(entry, context);
-    });
-};
+// se_SubDomainSettings omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
 /**
  * deserializeAws_restJson1App
  */
 const de_App = (output: any, context: __SerdeContext): App => {
-  return {
-    appArn: __expectString(output.appArn),
-    appId: __expectString(output.appId),
-    autoBranchCreationConfig:
-      output.autoBranchCreationConfig != null
-        ? de_AutoBranchCreationConfig(output.autoBranchCreationConfig, context)
-        : undefined,
-    autoBranchCreationPatterns:
-      output.autoBranchCreationPatterns != null
-        ? de_AutoBranchCreationPatterns(output.autoBranchCreationPatterns, context)
-        : undefined,
-    basicAuthCredentials: __expectString(output.basicAuthCredentials),
-    buildSpec: __expectString(output.buildSpec),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    customHeaders: __expectString(output.customHeaders),
-    customRules: output.customRules != null ? de_CustomRules(output.customRules, context) : undefined,
-    defaultDomain: __expectString(output.defaultDomain),
-    description: __expectString(output.description),
-    enableAutoBranchCreation: __expectBoolean(output.enableAutoBranchCreation),
-    enableBasicAuth: __expectBoolean(output.enableBasicAuth),
-    enableBranchAutoBuild: __expectBoolean(output.enableBranchAutoBuild),
-    enableBranchAutoDeletion: __expectBoolean(output.enableBranchAutoDeletion),
-    environmentVariables:
-      output.environmentVariables != null ? de_EnvironmentVariables(output.environmentVariables, context) : undefined,
-    iamServiceRoleArn: __expectString(output.iamServiceRoleArn),
-    name: __expectString(output.name),
-    platform: __expectString(output.platform),
-    productionBranch:
-      output.productionBranch != null ? de_ProductionBranch(output.productionBranch, context) : undefined,
-    repository: __expectString(output.repository),
-    repositoryCloneMethod: __expectString(output.repositoryCloneMethod),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    appArn: __expectString,
+    appId: __expectString,
+    autoBranchCreationConfig: _json,
+    autoBranchCreationPatterns: _json,
+    basicAuthCredentials: __expectString,
+    buildSpec: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customHeaders: __expectString,
+    customRules: _json,
+    defaultDomain: __expectString,
+    description: __expectString,
+    enableAutoBranchCreation: __expectBoolean,
+    enableBasicAuth: __expectBoolean,
+    enableBranchAutoBuild: __expectBoolean,
+    enableBranchAutoDeletion: __expectBoolean,
+    environmentVariables: _json,
+    iamServiceRoleArn: __expectString,
+    name: __expectString,
+    platform: __expectString,
+    productionBranch: (_: any) => de_ProductionBranch(_, context),
+    repository: __expectString,
+    repositoryCloneMethod: __expectString,
+    tags: _json,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -3678,117 +3549,35 @@ const de_Apps = (output: any, context: __SerdeContext): App[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_App(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Artifact
- */
-const de_Artifact = (output: any, context: __SerdeContext): Artifact => {
-  return {
-    artifactFileName: __expectString(output.artifactFileName),
-    artifactId: __expectString(output.artifactId),
-  } as any;
-};
+// de_Artifact omitted.
 
-/**
- * deserializeAws_restJson1Artifacts
- */
-const de_Artifacts = (output: any, context: __SerdeContext): Artifact[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Artifact(entry, context);
-    });
-  return retVal;
-};
+// de_Artifacts omitted.
 
-/**
- * deserializeAws_restJson1AssociatedResources
- */
-const de_AssociatedResources = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AssociatedResources omitted.
 
-/**
- * deserializeAws_restJson1AutoBranchCreationConfig
- */
-const de_AutoBranchCreationConfig = (output: any, context: __SerdeContext): AutoBranchCreationConfig => {
-  return {
-    basicAuthCredentials: __expectString(output.basicAuthCredentials),
-    buildSpec: __expectString(output.buildSpec),
-    enableAutoBuild: __expectBoolean(output.enableAutoBuild),
-    enableBasicAuth: __expectBoolean(output.enableBasicAuth),
-    enablePerformanceMode: __expectBoolean(output.enablePerformanceMode),
-    enablePullRequestPreview: __expectBoolean(output.enablePullRequestPreview),
-    environmentVariables:
-      output.environmentVariables != null ? de_EnvironmentVariables(output.environmentVariables, context) : undefined,
-    framework: __expectString(output.framework),
-    pullRequestEnvironmentName: __expectString(output.pullRequestEnvironmentName),
-    stage: __expectString(output.stage),
-  } as any;
-};
+// de_AutoBranchCreationConfig omitted.
 
-/**
- * deserializeAws_restJson1AutoBranchCreationPatterns
- */
-const de_AutoBranchCreationPatterns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AutoBranchCreationPatterns omitted.
 
-/**
- * deserializeAws_restJson1AutoSubDomainCreationPatterns
- */
-const de_AutoSubDomainCreationPatterns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AutoSubDomainCreationPatterns omitted.
 
 /**
  * deserializeAws_restJson1BackendEnvironment
  */
 const de_BackendEnvironment = (output: any, context: __SerdeContext): BackendEnvironment => {
-  return {
-    backendEnvironmentArn: __expectString(output.backendEnvironmentArn),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    deploymentArtifacts: __expectString(output.deploymentArtifacts),
-    environmentName: __expectString(output.environmentName),
-    stackName: __expectString(output.stackName),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    backendEnvironmentArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentArtifacts: __expectString,
+    environmentName: __expectString,
+    stackName: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -3798,9 +3587,6 @@ const de_BackendEnvironments = (output: any, context: __SerdeContext): BackendEn
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BackendEnvironment(entry, context);
     });
   return retVal;
@@ -3810,39 +3596,35 @@ const de_BackendEnvironments = (output: any, context: __SerdeContext): BackendEn
  * deserializeAws_restJson1Branch
  */
 const de_Branch = (output: any, context: __SerdeContext): Branch => {
-  return {
-    activeJobId: __expectString(output.activeJobId),
-    associatedResources:
-      output.associatedResources != null ? de_AssociatedResources(output.associatedResources, context) : undefined,
-    backendEnvironmentArn: __expectString(output.backendEnvironmentArn),
-    basicAuthCredentials: __expectString(output.basicAuthCredentials),
-    branchArn: __expectString(output.branchArn),
-    branchName: __expectString(output.branchName),
-    buildSpec: __expectString(output.buildSpec),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    customDomains: output.customDomains != null ? de_CustomDomains(output.customDomains, context) : undefined,
-    description: __expectString(output.description),
-    destinationBranch: __expectString(output.destinationBranch),
-    displayName: __expectString(output.displayName),
-    enableAutoBuild: __expectBoolean(output.enableAutoBuild),
-    enableBasicAuth: __expectBoolean(output.enableBasicAuth),
-    enableNotification: __expectBoolean(output.enableNotification),
-    enablePerformanceMode: __expectBoolean(output.enablePerformanceMode),
-    enablePullRequestPreview: __expectBoolean(output.enablePullRequestPreview),
-    environmentVariables:
-      output.environmentVariables != null ? de_EnvironmentVariables(output.environmentVariables, context) : undefined,
-    framework: __expectString(output.framework),
-    pullRequestEnvironmentName: __expectString(output.pullRequestEnvironmentName),
-    sourceBranch: __expectString(output.sourceBranch),
-    stage: __expectString(output.stage),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    thumbnailUrl: __expectString(output.thumbnailUrl),
-    totalNumberOfJobs: __expectString(output.totalNumberOfJobs),
-    ttl: __expectString(output.ttl),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-  } as any;
+  return take(output, {
+    activeJobId: __expectString,
+    associatedResources: _json,
+    backendEnvironmentArn: __expectString,
+    basicAuthCredentials: __expectString,
+    branchArn: __expectString,
+    branchName: __expectString,
+    buildSpec: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customDomains: _json,
+    description: __expectString,
+    destinationBranch: __expectString,
+    displayName: __expectString,
+    enableAutoBuild: __expectBoolean,
+    enableBasicAuth: __expectBoolean,
+    enableNotification: __expectBoolean,
+    enablePerformanceMode: __expectBoolean,
+    enablePullRequestPreview: __expectBoolean,
+    environmentVariables: _json,
+    framework: __expectString,
+    pullRequestEnvironmentName: __expectString,
+    sourceBranch: __expectString,
+    stage: __expectString,
+    tags: _json,
+    thumbnailUrl: __expectString,
+    totalNumberOfJobs: __expectString,
+    ttl: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -3852,125 +3634,33 @@ const de_Branches = (output: any, context: __SerdeContext): Branch[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Branch(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1CustomDomains
- */
-const de_CustomDomains = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CustomDomains omitted.
 
-/**
- * deserializeAws_restJson1CustomRule
- */
-const de_CustomRule = (output: any, context: __SerdeContext): CustomRule => {
-  return {
-    condition: __expectString(output.condition),
-    source: __expectString(output.source),
-    status: __expectString(output.status),
-    target: __expectString(output.target),
-  } as any;
-};
+// de_CustomRule omitted.
 
-/**
- * deserializeAws_restJson1CustomRules
- */
-const de_CustomRules = (output: any, context: __SerdeContext): CustomRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CustomRule(entry, context);
-    });
-  return retVal;
-};
+// de_CustomRules omitted.
 
-/**
- * deserializeAws_restJson1DomainAssociation
- */
-const de_DomainAssociation = (output: any, context: __SerdeContext): DomainAssociation => {
-  return {
-    autoSubDomainCreationPatterns:
-      output.autoSubDomainCreationPatterns != null
-        ? de_AutoSubDomainCreationPatterns(output.autoSubDomainCreationPatterns, context)
-        : undefined,
-    autoSubDomainIAMRole: __expectString(output.autoSubDomainIAMRole),
-    certificateVerificationDNSRecord: __expectString(output.certificateVerificationDNSRecord),
-    domainAssociationArn: __expectString(output.domainAssociationArn),
-    domainName: __expectString(output.domainName),
-    domainStatus: __expectString(output.domainStatus),
-    enableAutoSubDomain: __expectBoolean(output.enableAutoSubDomain),
-    statusReason: __expectString(output.statusReason),
-    subDomains: output.subDomains != null ? de_SubDomains(output.subDomains, context) : undefined,
-  } as any;
-};
+// de_DomainAssociation omitted.
 
-/**
- * deserializeAws_restJson1DomainAssociations
- */
-const de_DomainAssociations = (output: any, context: __SerdeContext): DomainAssociation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DomainAssociation(entry, context);
-    });
-  return retVal;
-};
+// de_DomainAssociations omitted.
 
-/**
- * deserializeAws_restJson1EnvironmentVariables
- */
-const de_EnvironmentVariables = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_EnvironmentVariables omitted.
 
-/**
- * deserializeAws_restJson1FileUploadUrls
- */
-const de_FileUploadUrls = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_FileUploadUrls omitted.
 
 /**
  * deserializeAws_restJson1Job
  */
 const de_Job = (output: any, context: __SerdeContext): Job => {
-  return {
-    steps: output.steps != null ? de_Steps(output.steps, context) : undefined,
-    summary: output.summary != null ? de_JobSummary(output.summary, context) : undefined,
-  } as any;
+  return take(output, {
+    steps: (_: any) => de_Steps(_, context),
+    summary: (_: any) => de_JobSummary(_, context),
+  }) as any;
 };
 
 /**
@@ -3980,9 +3670,6 @@ const de_JobSummaries = (output: any, context: __SerdeContext): JobSummary[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_JobSummary(entry, context);
     });
   return retVal;
@@ -3992,69 +3679,50 @@ const de_JobSummaries = (output: any, context: __SerdeContext): JobSummary[] => 
  * deserializeAws_restJson1JobSummary
  */
 const de_JobSummary = (output: any, context: __SerdeContext): JobSummary => {
-  return {
-    commitId: __expectString(output.commitId),
-    commitMessage: __expectString(output.commitMessage),
-    commitTime:
-      output.commitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.commitTime))) : undefined,
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    jobArn: __expectString(output.jobArn),
-    jobId: __expectString(output.jobId),
-    jobType: __expectString(output.jobType),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    commitId: __expectString,
+    commitMessage: __expectString,
+    commitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    jobArn: __expectString,
+    jobId: __expectString,
+    jobType: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ProductionBranch
  */
 const de_ProductionBranch = (output: any, context: __SerdeContext): ProductionBranch => {
-  return {
-    branchName: __expectString(output.branchName),
-    lastDeployTime:
-      output.lastDeployTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeployTime)))
-        : undefined,
-    status: __expectString(output.status),
-    thumbnailUrl: __expectString(output.thumbnailUrl),
-  } as any;
+  return take(output, {
+    branchName: __expectString,
+    lastDeployTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    thumbnailUrl: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Screenshots
- */
-const de_Screenshots = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Screenshots omitted.
 
 /**
  * deserializeAws_restJson1Step
  */
 const de_Step = (output: any, context: __SerdeContext): Step => {
-  return {
-    artifactsUrl: __expectString(output.artifactsUrl),
-    context: __expectString(output.context),
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    logUrl: __expectString(output.logUrl),
-    screenshots: output.screenshots != null ? de_Screenshots(output.screenshots, context) : undefined,
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-    stepName: __expectString(output.stepName),
-    testArtifactsUrl: __expectString(output.testArtifactsUrl),
-    testConfigUrl: __expectString(output.testConfigUrl),
-  } as any;
+  return take(output, {
+    artifactsUrl: __expectString,
+    context: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    logUrl: __expectString,
+    screenshots: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusReason: __expectString,
+    stepName: __expectString,
+    testArtifactsUrl: __expectString,
+    testConfigUrl: __expectString,
+  }) as any;
 };
 
 /**
@@ -4064,79 +3732,32 @@ const de_Steps = (output: any, context: __SerdeContext): Step[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Step(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SubDomain
- */
-const de_SubDomain = (output: any, context: __SerdeContext): SubDomain => {
-  return {
-    dnsRecord: __expectString(output.dnsRecord),
-    subDomainSetting:
-      output.subDomainSetting != null ? de_SubDomainSetting(output.subDomainSetting, context) : undefined,
-    verified: __expectBoolean(output.verified),
-  } as any;
-};
+// de_SubDomain omitted.
 
-/**
- * deserializeAws_restJson1SubDomains
- */
-const de_SubDomains = (output: any, context: __SerdeContext): SubDomain[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SubDomain(entry, context);
-    });
-  return retVal;
-};
+// de_SubDomains omitted.
 
-/**
- * deserializeAws_restJson1SubDomainSetting
- */
-const de_SubDomainSetting = (output: any, context: __SerdeContext): SubDomainSetting => {
-  return {
-    branchName: __expectString(output.branchName),
-    prefix: __expectString(output.prefix),
-  } as any;
-};
+// de_SubDomainSetting omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 /**
  * deserializeAws_restJson1Webhook
  */
 const de_Webhook = (output: any, context: __SerdeContext): Webhook => {
-  return {
-    branchName: __expectString(output.branchName),
-    createTime:
-      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
-    description: __expectString(output.description),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
-    webhookArn: __expectString(output.webhookArn),
-    webhookId: __expectString(output.webhookId),
-    webhookUrl: __expectString(output.webhookUrl),
-  } as any;
+  return take(output, {
+    branchName: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    webhookArn: __expectString,
+    webhookId: __expectString,
+    webhookUrl: __expectString,
+  }) as any;
 };
 
 /**
@@ -4146,9 +3767,6 @@ const de_Webhooks = (output: any, context: __SerdeContext): Webhook[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Webhook(entry, context);
     });
   return retVal;

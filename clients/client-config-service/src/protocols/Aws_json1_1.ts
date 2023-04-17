@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -353,13 +353,8 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { ConfigServiceServiceException as __BaseException } from "../models/ConfigServiceServiceException";
 import {
   AccountAggregationSource,
-  AggregateComplianceByConfigRule,
-  AggregateComplianceByConformancePack,
   AggregateComplianceCount,
-  AggregateConformancePackCompliance,
-  AggregateConformancePackComplianceCount,
   AggregateConformancePackComplianceFilters,
-  AggregateConformancePackComplianceSummary,
   AggregateConformancePackComplianceSummaryFilters,
   AggregatedSourceStatus,
   AggregatedSourceStatusType,
@@ -371,10 +366,6 @@ import {
   BatchGetAggregateResourceConfigResponse,
   BatchGetResourceConfigRequest,
   BatchGetResourceConfigResponse,
-  Compliance,
-  ComplianceByConfigRule,
-  ComplianceByResource,
-  ComplianceContributorCount,
   ComplianceSummary,
   ComplianceSummaryByResourceType,
   ComplianceType,
@@ -392,12 +383,10 @@ import {
   ConformancePackComplianceFilters,
   ConformancePackComplianceScore,
   ConformancePackComplianceScoresFilters,
-  ConformancePackComplianceSummary,
   ConformancePackDetail,
   ConformancePackEvaluationFilters,
   ConformancePackEvaluationResult,
   ConformancePackInputParameter,
-  ConformancePackRuleCompliance,
   ConformancePackStatusDetail,
   ConformancePackTemplateValidationException,
   CustomPolicyDetails,
@@ -408,53 +397,40 @@ import {
   DeleteConformancePackRequest,
   DeleteDeliveryChannelRequest,
   DeleteEvaluationResultsRequest,
-  DeleteEvaluationResultsResponse,
   DeleteOrganizationConfigRuleRequest,
   DeleteOrganizationConformancePackRequest,
   DeletePendingAggregationRequestRequest,
   DeleteRemediationConfigurationRequest,
-  DeleteRemediationConfigurationResponse,
   DeleteRemediationExceptionsRequest,
-  DeleteRemediationExceptionsResponse,
   DeleteResourceConfigRequest,
   DeleteRetentionConfigurationRequest,
   DeleteStoredQueryRequest,
-  DeleteStoredQueryResponse,
   DeliverConfigSnapshotRequest,
-  DeliverConfigSnapshotResponse,
   DeliveryChannel,
   DeliveryChannelStatus,
   DescribeAggregateComplianceByConfigRulesRequest,
-  DescribeAggregateComplianceByConfigRulesResponse,
   DescribeAggregateComplianceByConformancePacksRequest,
-  DescribeAggregateComplianceByConformancePacksResponse,
   DescribeAggregationAuthorizationsRequest,
   DescribeAggregationAuthorizationsResponse,
   DescribeComplianceByConfigRuleRequest,
-  DescribeComplianceByConfigRuleResponse,
   DescribeComplianceByResourceRequest,
-  DescribeComplianceByResourceResponse,
   DescribeConfigRuleEvaluationStatusRequest,
   DescribeConfigRuleEvaluationStatusResponse,
   DescribeConfigRulesFilters,
   DescribeConfigRulesRequest,
-  DescribeConfigRulesResponse,
   DescribeConfigurationAggregatorSourcesStatusRequest,
   DescribeConfigurationAggregatorSourcesStatusResponse,
   DescribeConfigurationAggregatorsRequest,
   DescribeConfigurationAggregatorsResponse,
   DescribeConfigurationRecordersRequest,
-  DescribeConfigurationRecordersResponse,
   DescribeConfigurationRecorderStatusRequest,
   DescribeConfigurationRecorderStatusResponse,
   DescribeConformancePackComplianceRequest,
-  DescribeConformancePackComplianceResponse,
   DescribeConformancePacksRequest,
   DescribeConformancePacksResponse,
   DescribeConformancePackStatusRequest,
   DescribeConformancePackStatusResponse,
   DescribeDeliveryChannelsRequest,
-  DescribeDeliveryChannelsResponse,
   DescribeDeliveryChannelStatusRequest,
   DescribeDeliveryChannelStatusResponse,
   DescribeOrganizationConfigRulesRequest,
@@ -466,36 +442,26 @@ import {
   DescribeOrganizationConformancePackStatusesRequest,
   DescribeOrganizationConformancePackStatusesResponse,
   DescribePendingAggregationRequestsRequest,
-  DescribePendingAggregationRequestsResponse,
   DescribeRemediationConfigurationsRequest,
-  DescribeRemediationConfigurationsResponse,
   DescribeRemediationExceptionsRequest,
   DescribeRemediationExceptionsResponse,
   DescribeRemediationExecutionStatusRequest,
   DescribeRemediationExecutionStatusResponse,
   DescribeRetentionConfigurationsRequest,
-  DescribeRetentionConfigurationsResponse,
   Evaluation,
   EvaluationContext,
   EvaluationModeConfiguration,
   EvaluationResult,
   EvaluationResultIdentifier,
-  EvaluationResultQualifier,
-  EvaluationStatus,
   ExecutionControls,
   ExternalEvaluation,
-  FailedDeleteRemediationExceptionsBatch,
-  FailedRemediationBatch,
   FailedRemediationExceptionBatch,
-  FieldInfo,
   GetAggregateComplianceDetailsByConfigRuleRequest,
   GetAggregateComplianceDetailsByConfigRuleResponse,
   GetAggregateConfigRuleComplianceSummaryRequest,
   GetAggregateConfigRuleComplianceSummaryResponse,
   GetAggregateConformancePackComplianceSummaryRequest,
-  GetAggregateConformancePackComplianceSummaryResponse,
   GetAggregateDiscoveredResourceCountsRequest,
-  GetAggregateDiscoveredResourceCountsResponse,
   GetAggregateResourceConfigRequest,
   GetAggregateResourceConfigResponse,
   GetComplianceDetailsByConfigRuleRequest,
@@ -508,24 +474,18 @@ import {
   GetConformancePackComplianceDetailsRequest,
   GetConformancePackComplianceDetailsResponse,
   GetConformancePackComplianceSummaryRequest,
-  GetConformancePackComplianceSummaryResponse,
   GetCustomRulePolicyRequest,
-  GetCustomRulePolicyResponse,
   GetDiscoveredResourceCountsRequest,
-  GetDiscoveredResourceCountsResponse,
   GetOrganizationConfigRuleDetailedStatusRequest,
   GetOrganizationConfigRuleDetailedStatusResponse,
   GetOrganizationConformancePackDetailedStatusRequest,
   GetOrganizationConformancePackDetailedStatusResponse,
   GetOrganizationCustomRulePolicyRequest,
-  GetOrganizationCustomRulePolicyResponse,
   GetResourceConfigHistoryRequest,
   GetResourceConfigHistoryResponse,
   GetResourceEvaluationSummaryRequest,
   GetResourceEvaluationSummaryResponse,
   GetStoredQueryRequest,
-  GetStoredQueryResponse,
-  GroupedResourceCount,
   IdempotentParameterMismatch,
   InsufficientDeliveryPolicyException,
   InsufficientPermissionsException,
@@ -545,7 +505,6 @@ import {
   LastDeliveryChannelDeleteFailedException,
   LimitExceededException,
   ListAggregateDiscoveredResourcesRequest,
-  ListAggregateDiscoveredResourcesResponse,
   ListConformancePackComplianceScoresRequest,
   ListConformancePackComplianceScoresResponse,
   ListDiscoveredResourcesRequest,
@@ -553,9 +512,7 @@ import {
   ListResourceEvaluationsRequest,
   ListResourceEvaluationsResponse,
   ListStoredQueriesRequest,
-  ListStoredQueriesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   MaxActiveResourcesExceededException,
   MaxNumberOfConfigRulesExceededException,
   MaxNumberOfConfigurationRecordersExceededException,
@@ -583,14 +540,11 @@ import {
   OrganizationConformancePack,
   OrganizationConformancePackDetailedStatus,
   OrganizationConformancePackStatus,
-  OrganizationCustomPolicyRuleMetadataNoPolicy,
   OrganizationCustomRuleMetadata,
   OrganizationManagedRuleMetadata,
   OrganizationResourceDetailedStatusFilters,
   OversizedConfigurationItemException,
-  PendingAggregationRequest,
   RecordingGroup,
-  Relationship,
   RemediationConfiguration,
   RemediationException,
   RemediationExceptionResourceKey,
@@ -598,7 +552,6 @@ import {
   RemediationExecutionStep,
   RemediationInProgressException,
   RemediationParameterValue,
-  ResourceCount,
   ResourceCountFilters,
   ResourceDetails,
   ResourceEvaluation,
@@ -611,7 +564,6 @@ import {
   ResourceNotFoundException,
   ResourceType,
   ResourceValue,
-  RetentionConfiguration,
   Scope,
   Source,
   SourceDetail,
@@ -619,7 +571,6 @@ import {
   StaticValue,
   StatusDetailFilters,
   StoredQuery,
-  StoredQueryMetadata,
   Tag,
   TemplateSSMDocumentDetails,
   TimeWindow,
@@ -643,38 +594,25 @@ import {
   PutConfigurationAggregatorResponse,
   PutConfigurationRecorderRequest,
   PutConformancePackRequest,
-  PutConformancePackResponse,
   PutDeliveryChannelRequest,
   PutEvaluationsRequest,
   PutEvaluationsResponse,
   PutExternalEvaluationRequest,
-  PutExternalEvaluationResponse,
   PutOrganizationConfigRuleRequest,
-  PutOrganizationConfigRuleResponse,
   PutOrganizationConformancePackRequest,
-  PutOrganizationConformancePackResponse,
   PutRemediationConfigurationsRequest,
-  PutRemediationConfigurationsResponse,
   PutRemediationExceptionsRequest,
   PutRemediationExceptionsResponse,
   PutResourceConfigRequest,
   PutRetentionConfigurationRequest,
-  PutRetentionConfigurationResponse,
   PutStoredQueryRequest,
-  PutStoredQueryResponse,
-  QueryInfo,
   ResourceConcurrentModificationException,
   SelectAggregateResourceConfigRequest,
-  SelectAggregateResourceConfigResponse,
   SelectResourceConfigRequest,
-  SelectResourceConfigResponse,
   StartConfigRulesEvaluationRequest,
-  StartConfigRulesEvaluationResponse,
   StartConfigurationRecorderRequest,
   StartRemediationExecutionRequest,
-  StartRemediationExecutionResponse,
   StartResourceEvaluationRequest,
-  StartResourceEvaluationResponse,
   StopConfigurationRecorderRequest,
   TagResourceRequest,
   TooManyTagsException,
@@ -690,7 +628,7 @@ export const se_BatchGetAggregateResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetAggregateResourceConfig");
   let body: any;
-  body = JSON.stringify(se_BatchGetAggregateResourceConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -703,7 +641,7 @@ export const se_BatchGetResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetResourceConfig");
   let body: any;
-  body = JSON.stringify(se_BatchGetResourceConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -716,7 +654,7 @@ export const se_DeleteAggregationAuthorizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAggregationAuthorization");
   let body: any;
-  body = JSON.stringify(se_DeleteAggregationAuthorizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -729,7 +667,7 @@ export const se_DeleteConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConfigRule");
   let body: any;
-  body = JSON.stringify(se_DeleteConfigRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -742,7 +680,7 @@ export const se_DeleteConfigurationAggregatorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConfigurationAggregator");
   let body: any;
-  body = JSON.stringify(se_DeleteConfigurationAggregatorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -755,7 +693,7 @@ export const se_DeleteConfigurationRecorderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConfigurationRecorder");
   let body: any;
-  body = JSON.stringify(se_DeleteConfigurationRecorderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -768,7 +706,7 @@ export const se_DeleteConformancePackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConformancePack");
   let body: any;
-  body = JSON.stringify(se_DeleteConformancePackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -781,7 +719,7 @@ export const se_DeleteDeliveryChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDeliveryChannel");
   let body: any;
-  body = JSON.stringify(se_DeleteDeliveryChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -794,7 +732,7 @@ export const se_DeleteEvaluationResultsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEvaluationResults");
   let body: any;
-  body = JSON.stringify(se_DeleteEvaluationResultsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -807,7 +745,7 @@ export const se_DeleteOrganizationConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteOrganizationConfigRule");
   let body: any;
-  body = JSON.stringify(se_DeleteOrganizationConfigRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -820,7 +758,7 @@ export const se_DeleteOrganizationConformancePackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteOrganizationConformancePack");
   let body: any;
-  body = JSON.stringify(se_DeleteOrganizationConformancePackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -833,7 +771,7 @@ export const se_DeletePendingAggregationRequestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePendingAggregationRequest");
   let body: any;
-  body = JSON.stringify(se_DeletePendingAggregationRequestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -846,7 +784,7 @@ export const se_DeleteRemediationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRemediationConfiguration");
   let body: any;
-  body = JSON.stringify(se_DeleteRemediationConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -859,7 +797,7 @@ export const se_DeleteRemediationExceptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRemediationExceptions");
   let body: any;
-  body = JSON.stringify(se_DeleteRemediationExceptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -872,7 +810,7 @@ export const se_DeleteResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteResourceConfig");
   let body: any;
-  body = JSON.stringify(se_DeleteResourceConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -885,7 +823,7 @@ export const se_DeleteRetentionConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRetentionConfiguration");
   let body: any;
-  body = JSON.stringify(se_DeleteRetentionConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -898,7 +836,7 @@ export const se_DeleteStoredQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteStoredQuery");
   let body: any;
-  body = JSON.stringify(se_DeleteStoredQueryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -911,7 +849,7 @@ export const se_DeliverConfigSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeliverConfigSnapshot");
   let body: any;
-  body = JSON.stringify(se_DeliverConfigSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -924,7 +862,7 @@ export const se_DescribeAggregateComplianceByConfigRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAggregateComplianceByConfigRules");
   let body: any;
-  body = JSON.stringify(se_DescribeAggregateComplianceByConfigRulesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -937,7 +875,7 @@ export const se_DescribeAggregateComplianceByConformancePacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAggregateComplianceByConformancePacks");
   let body: any;
-  body = JSON.stringify(se_DescribeAggregateComplianceByConformancePacksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -950,7 +888,7 @@ export const se_DescribeAggregationAuthorizationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAggregationAuthorizations");
   let body: any;
-  body = JSON.stringify(se_DescribeAggregationAuthorizationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -963,7 +901,7 @@ export const se_DescribeComplianceByConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeComplianceByConfigRule");
   let body: any;
-  body = JSON.stringify(se_DescribeComplianceByConfigRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -976,7 +914,7 @@ export const se_DescribeComplianceByResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeComplianceByResource");
   let body: any;
-  body = JSON.stringify(se_DescribeComplianceByResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -989,7 +927,7 @@ export const se_DescribeConfigRuleEvaluationStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConfigRuleEvaluationStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeConfigRuleEvaluationStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1002,7 +940,7 @@ export const se_DescribeConfigRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConfigRules");
   let body: any;
-  body = JSON.stringify(se_DescribeConfigRulesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1015,7 +953,7 @@ export const se_DescribeConfigurationAggregatorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConfigurationAggregators");
   let body: any;
-  body = JSON.stringify(se_DescribeConfigurationAggregatorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1028,7 +966,7 @@ export const se_DescribeConfigurationAggregatorSourcesStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConfigurationAggregatorSourcesStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeConfigurationAggregatorSourcesStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1041,7 +979,7 @@ export const se_DescribeConfigurationRecordersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConfigurationRecorders");
   let body: any;
-  body = JSON.stringify(se_DescribeConfigurationRecordersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1054,7 +992,7 @@ export const se_DescribeConfigurationRecorderStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConfigurationRecorderStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeConfigurationRecorderStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1067,7 +1005,7 @@ export const se_DescribeConformancePackComplianceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConformancePackCompliance");
   let body: any;
-  body = JSON.stringify(se_DescribeConformancePackComplianceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1080,7 +1018,7 @@ export const se_DescribeConformancePacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConformancePacks");
   let body: any;
-  body = JSON.stringify(se_DescribeConformancePacksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1093,7 +1031,7 @@ export const se_DescribeConformancePackStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConformancePackStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeConformancePackStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1106,7 +1044,7 @@ export const se_DescribeDeliveryChannelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDeliveryChannels");
   let body: any;
-  body = JSON.stringify(se_DescribeDeliveryChannelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1119,7 +1057,7 @@ export const se_DescribeDeliveryChannelStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDeliveryChannelStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeDeliveryChannelStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1132,7 +1070,7 @@ export const se_DescribeOrganizationConfigRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeOrganizationConfigRules");
   let body: any;
-  body = JSON.stringify(se_DescribeOrganizationConfigRulesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1145,7 +1083,7 @@ export const se_DescribeOrganizationConfigRuleStatusesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeOrganizationConfigRuleStatuses");
   let body: any;
-  body = JSON.stringify(se_DescribeOrganizationConfigRuleStatusesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1158,7 +1096,7 @@ export const se_DescribeOrganizationConformancePacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeOrganizationConformancePacks");
   let body: any;
-  body = JSON.stringify(se_DescribeOrganizationConformancePacksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1171,7 +1109,7 @@ export const se_DescribeOrganizationConformancePackStatusesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeOrganizationConformancePackStatuses");
   let body: any;
-  body = JSON.stringify(se_DescribeOrganizationConformancePackStatusesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1184,7 +1122,7 @@ export const se_DescribePendingAggregationRequestsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePendingAggregationRequests");
   let body: any;
-  body = JSON.stringify(se_DescribePendingAggregationRequestsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1197,7 +1135,7 @@ export const se_DescribeRemediationConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRemediationConfigurations");
   let body: any;
-  body = JSON.stringify(se_DescribeRemediationConfigurationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1210,7 +1148,7 @@ export const se_DescribeRemediationExceptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRemediationExceptions");
   let body: any;
-  body = JSON.stringify(se_DescribeRemediationExceptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1223,7 +1161,7 @@ export const se_DescribeRemediationExecutionStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRemediationExecutionStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeRemediationExecutionStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1236,7 +1174,7 @@ export const se_DescribeRetentionConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRetentionConfigurations");
   let body: any;
-  body = JSON.stringify(se_DescribeRetentionConfigurationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1249,7 +1187,7 @@ export const se_GetAggregateComplianceDetailsByConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAggregateComplianceDetailsByConfigRule");
   let body: any;
-  body = JSON.stringify(se_GetAggregateComplianceDetailsByConfigRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1262,7 +1200,7 @@ export const se_GetAggregateConfigRuleComplianceSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAggregateConfigRuleComplianceSummary");
   let body: any;
-  body = JSON.stringify(se_GetAggregateConfigRuleComplianceSummaryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1275,7 +1213,7 @@ export const se_GetAggregateConformancePackComplianceSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAggregateConformancePackComplianceSummary");
   let body: any;
-  body = JSON.stringify(se_GetAggregateConformancePackComplianceSummaryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1288,7 +1226,7 @@ export const se_GetAggregateDiscoveredResourceCountsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAggregateDiscoveredResourceCounts");
   let body: any;
-  body = JSON.stringify(se_GetAggregateDiscoveredResourceCountsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1301,7 +1239,7 @@ export const se_GetAggregateResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAggregateResourceConfig");
   let body: any;
-  body = JSON.stringify(se_GetAggregateResourceConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1314,7 +1252,7 @@ export const se_GetComplianceDetailsByConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetComplianceDetailsByConfigRule");
   let body: any;
-  body = JSON.stringify(se_GetComplianceDetailsByConfigRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1327,7 +1265,7 @@ export const se_GetComplianceDetailsByResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetComplianceDetailsByResource");
   let body: any;
-  body = JSON.stringify(se_GetComplianceDetailsByResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1352,7 +1290,7 @@ export const se_GetComplianceSummaryByResourceTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetComplianceSummaryByResourceType");
   let body: any;
-  body = JSON.stringify(se_GetComplianceSummaryByResourceTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1365,7 +1303,7 @@ export const se_GetConformancePackComplianceDetailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetConformancePackComplianceDetails");
   let body: any;
-  body = JSON.stringify(se_GetConformancePackComplianceDetailsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1378,7 +1316,7 @@ export const se_GetConformancePackComplianceSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetConformancePackComplianceSummary");
   let body: any;
-  body = JSON.stringify(se_GetConformancePackComplianceSummaryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1391,7 +1329,7 @@ export const se_GetCustomRulePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCustomRulePolicy");
   let body: any;
-  body = JSON.stringify(se_GetCustomRulePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1404,7 +1342,7 @@ export const se_GetDiscoveredResourceCountsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDiscoveredResourceCounts");
   let body: any;
-  body = JSON.stringify(se_GetDiscoveredResourceCountsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1417,7 +1355,7 @@ export const se_GetOrganizationConfigRuleDetailedStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetOrganizationConfigRuleDetailedStatus");
   let body: any;
-  body = JSON.stringify(se_GetOrganizationConfigRuleDetailedStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1430,7 +1368,7 @@ export const se_GetOrganizationConformancePackDetailedStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetOrganizationConformancePackDetailedStatus");
   let body: any;
-  body = JSON.stringify(se_GetOrganizationConformancePackDetailedStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1443,7 +1381,7 @@ export const se_GetOrganizationCustomRulePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetOrganizationCustomRulePolicy");
   let body: any;
-  body = JSON.stringify(se_GetOrganizationCustomRulePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1469,7 +1407,7 @@ export const se_GetResourceEvaluationSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetResourceEvaluationSummary");
   let body: any;
-  body = JSON.stringify(se_GetResourceEvaluationSummaryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1482,7 +1420,7 @@ export const se_GetStoredQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetStoredQuery");
   let body: any;
-  body = JSON.stringify(se_GetStoredQueryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1495,7 +1433,7 @@ export const se_ListAggregateDiscoveredResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAggregateDiscoveredResources");
   let body: any;
-  body = JSON.stringify(se_ListAggregateDiscoveredResourcesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1508,7 +1446,7 @@ export const se_ListConformancePackComplianceScoresCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListConformancePackComplianceScores");
   let body: any;
-  body = JSON.stringify(se_ListConformancePackComplianceScoresRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1521,7 +1459,7 @@ export const se_ListDiscoveredResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDiscoveredResources");
   let body: any;
-  body = JSON.stringify(se_ListDiscoveredResourcesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1547,7 +1485,7 @@ export const se_ListStoredQueriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListStoredQueries");
   let body: any;
-  body = JSON.stringify(se_ListStoredQueriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1560,7 +1498,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1573,7 +1511,7 @@ export const se_PutAggregationAuthorizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutAggregationAuthorization");
   let body: any;
-  body = JSON.stringify(se_PutAggregationAuthorizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1586,7 +1524,7 @@ export const se_PutConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutConfigRule");
   let body: any;
-  body = JSON.stringify(se_PutConfigRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1599,7 +1537,7 @@ export const se_PutConfigurationAggregatorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutConfigurationAggregator");
   let body: any;
-  body = JSON.stringify(se_PutConfigurationAggregatorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1612,7 +1550,7 @@ export const se_PutConfigurationRecorderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutConfigurationRecorder");
   let body: any;
-  body = JSON.stringify(se_PutConfigurationRecorderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1625,7 +1563,7 @@ export const se_PutConformancePackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutConformancePack");
   let body: any;
-  body = JSON.stringify(se_PutConformancePackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1638,7 +1576,7 @@ export const se_PutDeliveryChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutDeliveryChannel");
   let body: any;
-  body = JSON.stringify(se_PutDeliveryChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1677,7 +1615,7 @@ export const se_PutOrganizationConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutOrganizationConfigRule");
   let body: any;
-  body = JSON.stringify(se_PutOrganizationConfigRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1690,7 +1628,7 @@ export const se_PutOrganizationConformancePackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutOrganizationConformancePack");
   let body: any;
-  body = JSON.stringify(se_PutOrganizationConformancePackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1703,7 +1641,7 @@ export const se_PutRemediationConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutRemediationConfigurations");
   let body: any;
-  body = JSON.stringify(se_PutRemediationConfigurationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1729,7 +1667,7 @@ export const se_PutResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutResourceConfig");
   let body: any;
-  body = JSON.stringify(se_PutResourceConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1742,7 +1680,7 @@ export const se_PutRetentionConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutRetentionConfiguration");
   let body: any;
-  body = JSON.stringify(se_PutRetentionConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1755,7 +1693,7 @@ export const se_PutStoredQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutStoredQuery");
   let body: any;
-  body = JSON.stringify(se_PutStoredQueryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1768,7 +1706,7 @@ export const se_SelectAggregateResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SelectAggregateResourceConfig");
   let body: any;
-  body = JSON.stringify(se_SelectAggregateResourceConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1781,7 +1719,7 @@ export const se_SelectResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SelectResourceConfig");
   let body: any;
-  body = JSON.stringify(se_SelectResourceConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1794,7 +1732,7 @@ export const se_StartConfigRulesEvaluationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartConfigRulesEvaluation");
   let body: any;
-  body = JSON.stringify(se_StartConfigRulesEvaluationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1807,7 +1745,7 @@ export const se_StartConfigurationRecorderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartConfigurationRecorder");
   let body: any;
-  body = JSON.stringify(se_StartConfigurationRecorderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1820,7 +1758,7 @@ export const se_StartRemediationExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartRemediationExecution");
   let body: any;
-  body = JSON.stringify(se_StartRemediationExecutionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1833,7 +1771,7 @@ export const se_StartResourceEvaluationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartResourceEvaluation");
   let body: any;
-  body = JSON.stringify(se_StartResourceEvaluationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1846,7 +1784,7 @@ export const se_StopConfigurationRecorderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopConfigurationRecorder");
   let body: any;
-  body = JSON.stringify(se_StopConfigurationRecorderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1859,7 +1797,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1872,7 +1810,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1893,7 +1831,7 @@ export const de_BatchGetAggregateResourceConfigCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1917,10 +1855,9 @@ const de_BatchGetAggregateResourceConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1943,7 +1880,7 @@ export const de_BatchGetResourceConfigCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1967,10 +1904,9 @@ const de_BatchGetResourceConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1990,7 +1926,7 @@ export const de_DeleteAggregationAuthorizationCommand = async (
   const response: DeleteAggregationAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2011,10 +1947,9 @@ const de_DeleteAggregationAuthorizationCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2034,7 +1969,7 @@ export const de_DeleteConfigRuleCommand = async (
   const response: DeleteConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2058,10 +1993,9 @@ const de_DeleteConfigRuleCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2081,7 +2015,7 @@ export const de_DeleteConfigurationAggregatorCommand = async (
   const response: DeleteConfigurationAggregatorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2102,10 +2036,9 @@ const de_DeleteConfigurationAggregatorCommandError = async (
       throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2125,7 +2058,7 @@ export const de_DeleteConfigurationRecorderCommand = async (
   const response: DeleteConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2146,10 +2079,9 @@ const de_DeleteConfigurationRecorderCommandError = async (
       throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2169,7 +2101,7 @@ export const de_DeleteConformancePackCommand = async (
   const response: DeleteConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2193,10 +2125,9 @@ const de_DeleteConformancePackCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2216,7 +2147,7 @@ export const de_DeleteDeliveryChannelCommand = async (
   const response: DeleteDeliveryChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2240,10 +2171,9 @@ const de_DeleteDeliveryChannelCommandError = async (
       throw await de_NoSuchDeliveryChannelExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2261,12 +2191,12 @@ export const de_DeleteEvaluationResultsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteEvaluationResultsResponse(data, context);
+  contents = _json(data);
   const response: DeleteEvaluationResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2290,10 +2220,9 @@ const de_DeleteEvaluationResultsCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2313,7 +2242,7 @@ export const de_DeleteOrganizationConfigRuleCommand = async (
   const response: DeleteOrganizationConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2340,10 +2269,9 @@ const de_DeleteOrganizationConfigRuleCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2363,7 +2291,7 @@ export const de_DeleteOrganizationConformancePackCommand = async (
   const response: DeleteOrganizationConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2390,10 +2318,9 @@ const de_DeleteOrganizationConformancePackCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2413,7 +2340,7 @@ export const de_DeletePendingAggregationRequestCommand = async (
   const response: DeletePendingAggregationRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2434,10 +2361,9 @@ const de_DeletePendingAggregationRequestCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2455,12 +2381,12 @@ export const de_DeleteRemediationConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRemediationConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DeleteRemediationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2490,10 +2416,9 @@ const de_DeleteRemediationConfigurationCommandError = async (
       throw await de_RemediationInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2511,12 +2436,12 @@ export const de_DeleteRemediationExceptionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRemediationExceptionsResponse(data, context);
+  contents = _json(data);
   const response: DeleteRemediationExceptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2537,10 +2462,9 @@ const de_DeleteRemediationExceptionsCommandError = async (
       throw await de_NoSuchRemediationExceptionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2560,7 +2484,7 @@ export const de_DeleteResourceConfigCommand = async (
   const response: DeleteResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2584,10 +2508,9 @@ const de_DeleteResourceConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2607,7 +2530,7 @@ export const de_DeleteRetentionConfigurationCommand = async (
   const response: DeleteRetentionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2631,10 +2554,9 @@ const de_DeleteRetentionConfigurationCommandError = async (
       throw await de_NoSuchRetentionConfigurationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2652,12 +2574,12 @@ export const de_DeleteStoredQueryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteStoredQueryResponse(data, context);
+  contents = _json(data);
   const response: DeleteStoredQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2681,10 +2603,9 @@ const de_DeleteStoredQueryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2702,12 +2623,12 @@ export const de_DeliverConfigSnapshotCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeliverConfigSnapshotResponse(data, context);
+  contents = _json(data);
   const response: DeliverConfigSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2734,10 +2655,9 @@ const de_DeliverConfigSnapshotCommandError = async (
       throw await de_NoSuchDeliveryChannelExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2755,12 +2675,12 @@ export const de_DescribeAggregateComplianceByConfigRulesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAggregateComplianceByConfigRulesResponse(data, context);
+  contents = _json(data);
   const response: DescribeAggregateComplianceByConfigRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2790,10 +2710,9 @@ const de_DescribeAggregateComplianceByConfigRulesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2811,12 +2730,12 @@ export const de_DescribeAggregateComplianceByConformancePacksCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAggregateComplianceByConformancePacksResponse(data, context);
+  contents = _json(data);
   const response: DescribeAggregateComplianceByConformancePacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2846,10 +2765,9 @@ const de_DescribeAggregateComplianceByConformancePacksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2872,7 +2790,7 @@ export const de_DescribeAggregationAuthorizationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2899,10 +2817,9 @@ const de_DescribeAggregationAuthorizationsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2920,12 +2837,12 @@ export const de_DescribeComplianceByConfigRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeComplianceByConfigRuleResponse(data, context);
+  contents = _json(data);
   const response: DescribeComplianceByConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2952,10 +2869,9 @@ const de_DescribeComplianceByConfigRuleCommandError = async (
       throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2973,12 +2889,12 @@ export const de_DescribeComplianceByResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeComplianceByResourceResponse(data, context);
+  contents = _json(data);
   const response: DescribeComplianceByResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3002,10 +2918,9 @@ const de_DescribeComplianceByResourceCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3028,7 +2943,7 @@ export const de_DescribeConfigRuleEvaluationStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3055,10 +2970,9 @@ const de_DescribeConfigRuleEvaluationStatusCommandError = async (
       throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3076,12 +2990,12 @@ export const de_DescribeConfigRulesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeConfigRulesResponse(data, context);
+  contents = _json(data);
   const response: DescribeConfigRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3108,10 +3022,9 @@ const de_DescribeConfigRulesCommandError = async (
       throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3134,7 +3047,7 @@ export const de_DescribeConfigurationAggregatorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3164,10 +3077,9 @@ const de_DescribeConfigurationAggregatorsCommandError = async (
       throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3190,7 +3102,7 @@ export const de_DescribeConfigurationAggregatorSourcesStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3220,10 +3132,9 @@ const de_DescribeConfigurationAggregatorSourcesStatusCommandError = async (
       throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3241,12 +3152,12 @@ export const de_DescribeConfigurationRecordersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeConfigurationRecordersResponse(data, context);
+  contents = _json(data);
   const response: DescribeConfigurationRecordersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3267,10 +3178,9 @@ const de_DescribeConfigurationRecordersCommandError = async (
       throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3293,7 +3203,7 @@ export const de_DescribeConfigurationRecorderStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3314,10 +3224,9 @@ const de_DescribeConfigurationRecorderStatusCommandError = async (
       throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3335,12 +3244,12 @@ export const de_DescribeConformancePackComplianceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeConformancePackComplianceResponse(data, context);
+  contents = _json(data);
   const response: DescribeConformancePackComplianceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3373,10 +3282,9 @@ const de_DescribeConformancePackComplianceCommandError = async (
       throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3399,7 +3307,7 @@ export const de_DescribeConformancePacksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3429,10 +3337,9 @@ const de_DescribeConformancePacksCommandError = async (
       throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3455,7 +3362,7 @@ export const de_DescribeConformancePackStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3482,10 +3389,9 @@ const de_DescribeConformancePackStatusCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3503,12 +3409,12 @@ export const de_DescribeDeliveryChannelsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeDeliveryChannelsResponse(data, context);
+  contents = _json(data);
   const response: DescribeDeliveryChannelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3529,10 +3435,9 @@ const de_DescribeDeliveryChannelsCommandError = async (
       throw await de_NoSuchDeliveryChannelExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3555,7 +3460,7 @@ export const de_DescribeDeliveryChannelStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3576,10 +3481,9 @@ const de_DescribeDeliveryChannelStatusCommandError = async (
       throw await de_NoSuchDeliveryChannelExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3602,7 +3506,7 @@ export const de_DescribeOrganizationConfigRulesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3632,10 +3536,9 @@ const de_DescribeOrganizationConfigRulesCommandError = async (
       throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3658,7 +3561,7 @@ export const de_DescribeOrganizationConfigRuleStatusesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3688,10 +3591,9 @@ const de_DescribeOrganizationConfigRuleStatusesCommandError = async (
       throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3714,7 +3616,7 @@ export const de_DescribeOrganizationConformancePacksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3744,10 +3646,9 @@ const de_DescribeOrganizationConformancePacksCommandError = async (
       throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3770,7 +3671,7 @@ export const de_DescribeOrganizationConformancePackStatusesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3800,10 +3701,9 @@ const de_DescribeOrganizationConformancePackStatusesCommandError = async (
       throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3821,12 +3721,12 @@ export const de_DescribePendingAggregationRequestsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribePendingAggregationRequestsResponse(data, context);
+  contents = _json(data);
   const response: DescribePendingAggregationRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3853,10 +3753,9 @@ const de_DescribePendingAggregationRequestsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3874,12 +3773,12 @@ export const de_DescribeRemediationConfigurationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeRemediationConfigurationsResponse(data, context);
+  contents = _json(data);
   const response: DescribeRemediationConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3895,10 +3794,9 @@ const de_DescribeRemediationConfigurationsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -3920,7 +3818,7 @@ export const de_DescribeRemediationExceptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3944,10 +3842,9 @@ const de_DescribeRemediationExceptionsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3970,7 +3867,7 @@ export const de_DescribeRemediationExecutionStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3997,10 +3894,9 @@ const de_DescribeRemediationExecutionStatusCommandError = async (
       throw await de_NoSuchRemediationConfigurationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4018,12 +3914,12 @@ export const de_DescribeRetentionConfigurationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeRetentionConfigurationsResponse(data, context);
+  contents = _json(data);
   const response: DescribeRetentionConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4050,10 +3946,9 @@ const de_DescribeRetentionConfigurationsCommandError = async (
       throw await de_NoSuchRetentionConfigurationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4076,7 +3971,7 @@ export const de_GetAggregateComplianceDetailsByConfigRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4106,10 +4001,9 @@ const de_GetAggregateComplianceDetailsByConfigRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4132,7 +4026,7 @@ export const de_GetAggregateConfigRuleComplianceSummaryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4162,10 +4056,9 @@ const de_GetAggregateConfigRuleComplianceSummaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4183,12 +4076,12 @@ export const de_GetAggregateConformancePackComplianceSummaryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAggregateConformancePackComplianceSummaryResponse(data, context);
+  contents = _json(data);
   const response: GetAggregateConformancePackComplianceSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4218,10 +4111,9 @@ const de_GetAggregateConformancePackComplianceSummaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4239,12 +4131,12 @@ export const de_GetAggregateDiscoveredResourceCountsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAggregateDiscoveredResourceCountsResponse(data, context);
+  contents = _json(data);
   const response: GetAggregateDiscoveredResourceCountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4274,10 +4166,9 @@ const de_GetAggregateDiscoveredResourceCountsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4300,7 +4191,7 @@ export const de_GetAggregateResourceConfigCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4330,10 +4221,9 @@ const de_GetAggregateResourceConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4356,7 +4246,7 @@ export const de_GetComplianceDetailsByConfigRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4383,10 +4273,9 @@ const de_GetComplianceDetailsByConfigRuleCommandError = async (
       throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4409,7 +4298,7 @@ export const de_GetComplianceDetailsByResourceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4430,10 +4319,9 @@ const de_GetComplianceDetailsByResourceCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4456,7 +4344,7 @@ export const de_GetComplianceSummaryByConfigRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4472,10 +4360,9 @@ const de_GetComplianceSummaryByConfigRuleCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -4497,7 +4384,7 @@ export const de_GetComplianceSummaryByResourceTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4518,10 +4405,9 @@ const de_GetComplianceSummaryByResourceTypeCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4544,7 +4430,7 @@ export const de_GetConformancePackComplianceDetailsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4577,10 +4463,9 @@ const de_GetConformancePackComplianceDetailsCommandError = async (
       throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4598,12 +4483,12 @@ export const de_GetConformancePackComplianceSummaryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetConformancePackComplianceSummaryResponse(data, context);
+  contents = _json(data);
   const response: GetConformancePackComplianceSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4630,10 +4515,9 @@ const de_GetConformancePackComplianceSummaryCommandError = async (
       throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4651,12 +4535,12 @@ export const de_GetCustomRulePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCustomRulePolicyResponse(data, context);
+  contents = _json(data);
   const response: GetCustomRulePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4677,10 +4561,9 @@ const de_GetCustomRulePolicyCommandError = async (
       throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4698,12 +4581,12 @@ export const de_GetDiscoveredResourceCountsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDiscoveredResourceCountsResponse(data, context);
+  contents = _json(data);
   const response: GetDiscoveredResourceCountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4730,10 +4613,9 @@ const de_GetDiscoveredResourceCountsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4756,7 +4638,7 @@ export const de_GetOrganizationConfigRuleDetailedStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4786,10 +4668,9 @@ const de_GetOrganizationConfigRuleDetailedStatusCommandError = async (
       throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4812,7 +4693,7 @@ export const de_GetOrganizationConformancePackDetailedStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4842,10 +4723,9 @@ const de_GetOrganizationConformancePackDetailedStatusCommandError = async (
       throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4863,12 +4743,12 @@ export const de_GetOrganizationCustomRulePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetOrganizationCustomRulePolicyResponse(data, context);
+  contents = _json(data);
   const response: GetOrganizationCustomRulePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4892,10 +4772,9 @@ const de_GetOrganizationCustomRulePolicyCommandError = async (
       throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4918,7 +4797,7 @@ export const de_GetResourceConfigHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4954,10 +4833,9 @@ const de_GetResourceConfigHistoryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4980,7 +4858,7 @@ export const de_GetResourceEvaluationSummaryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5001,10 +4879,9 @@ const de_GetResourceEvaluationSummaryCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5022,12 +4899,12 @@ export const de_GetStoredQueryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetStoredQueryResponse(data, context);
+  contents = _json(data);
   const response: GetStoredQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5051,10 +4928,9 @@ const de_GetStoredQueryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5072,12 +4948,12 @@ export const de_ListAggregateDiscoveredResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAggregateDiscoveredResourcesResponse(data, context);
+  contents = _json(data);
   const response: ListAggregateDiscoveredResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5107,10 +4983,9 @@ const de_ListAggregateDiscoveredResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5133,7 +5008,7 @@ export const de_ListConformancePackComplianceScoresCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5160,10 +5035,9 @@ const de_ListConformancePackComplianceScoresCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5186,7 +5060,7 @@ export const de_ListDiscoveredResourcesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5216,10 +5090,9 @@ const de_ListDiscoveredResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5242,7 +5115,7 @@ export const de_ListResourceEvaluationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5269,10 +5142,9 @@ const de_ListResourceEvaluationsCommandError = async (
       throw await de_InvalidTimeRangeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5290,12 +5162,12 @@ export const de_ListStoredQueriesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListStoredQueriesResponse(data, context);
+  contents = _json(data);
   const response: ListStoredQueriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5319,10 +5191,9 @@ const de_ListStoredQueriesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5340,12 +5211,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5375,10 +5246,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5401,7 +5271,7 @@ export const de_PutAggregationAuthorizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5422,10 +5292,9 @@ const de_PutAggregationAuthorizationCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5445,7 +5314,7 @@ export const de_PutConfigRuleCommand = async (
   const response: PutConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5478,10 +5347,9 @@ const de_PutConfigRuleCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5504,7 +5372,7 @@ export const de_PutConfigurationAggregatorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5540,10 +5408,9 @@ const de_PutConfigurationAggregatorCommandError = async (
       throw await de_OrganizationAllFeaturesNotEnabledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5563,7 +5430,7 @@ export const de_PutConfigurationRecorderCommand = async (
   const response: PutConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5593,10 +5460,9 @@ const de_PutConfigurationRecorderCommandError = async (
       throw await de_MaxNumberOfConfigurationRecordersExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5614,12 +5480,12 @@ export const de_PutConformancePackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutConformancePackResponse(data, context);
+  contents = _json(data);
   const response: PutConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5652,10 +5518,9 @@ const de_PutConformancePackCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5675,7 +5540,7 @@ export const de_PutDeliveryChannelCommand = async (
   const response: PutDeliveryChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5717,10 +5582,9 @@ const de_PutDeliveryChannelCommandError = async (
       throw await de_NoSuchBucketExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5743,7 +5607,7 @@ export const de_PutEvaluationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5770,10 +5634,9 @@ const de_PutEvaluationsCommandError = async (
       throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5791,12 +5654,12 @@ export const de_PutExternalEvaluationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutExternalEvaluationResponse(data, context);
+  contents = _json(data);
   const response: PutExternalEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5820,10 +5683,9 @@ const de_PutExternalEvaluationCommandError = async (
       throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5841,12 +5703,12 @@ export const de_PutOrganizationConfigRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutOrganizationConfigRuleResponse(data, context);
+  contents = _json(data);
   const response: PutOrganizationConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5888,10 +5750,9 @@ const de_PutOrganizationConfigRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5909,12 +5770,12 @@ export const de_PutOrganizationConformancePackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutOrganizationConformancePackResponse(data, context);
+  contents = _json(data);
   const response: PutOrganizationConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5956,10 +5817,9 @@ const de_PutOrganizationConformancePackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5977,12 +5837,12 @@ export const de_PutRemediationConfigurationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRemediationConfigurationsResponse(data, context);
+  contents = _json(data);
   const response: PutRemediationConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6006,10 +5866,9 @@ const de_PutRemediationConfigurationsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6032,7 +5891,7 @@ export const de_PutRemediationExceptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6056,10 +5915,9 @@ const de_PutRemediationExceptionsCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6079,7 +5937,7 @@ export const de_PutResourceConfigCommand = async (
   const response: PutResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6109,10 +5967,9 @@ const de_PutResourceConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6130,12 +5987,12 @@ export const de_PutRetentionConfigurationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRetentionConfigurationResponse(data, context);
+  contents = _json(data);
   const response: PutRetentionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6159,10 +6016,9 @@ const de_PutRetentionConfigurationCommandError = async (
       throw await de_MaxNumberOfRetentionConfigurationsExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6180,12 +6036,12 @@ export const de_PutStoredQueryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutStoredQueryResponse(data, context);
+  contents = _json(data);
   const response: PutStoredQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6212,10 +6068,9 @@ const de_PutStoredQueryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6233,12 +6088,12 @@ export const de_SelectAggregateResourceConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SelectAggregateResourceConfigResponse(data, context);
+  contents = _json(data);
   const response: SelectAggregateResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6268,10 +6123,9 @@ const de_SelectAggregateResourceConfigCommandError = async (
       throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6289,12 +6143,12 @@ export const de_SelectResourceConfigCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SelectResourceConfigResponse(data, context);
+  contents = _json(data);
   const response: SelectResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6321,10 +6175,9 @@ const de_SelectResourceConfigCommandError = async (
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6342,12 +6195,12 @@ export const de_StartConfigRulesEvaluationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartConfigRulesEvaluationResponse(data, context);
+  contents = _json(data);
   const response: StartConfigRulesEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6377,10 +6230,9 @@ const de_StartConfigRulesEvaluationCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6400,7 +6252,7 @@ export const de_StartConfigurationRecorderCommand = async (
   const response: StartConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6424,10 +6276,9 @@ const de_StartConfigurationRecorderCommandError = async (
       throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6445,12 +6296,12 @@ export const de_StartRemediationExecutionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartRemediationExecutionResponse(data, context);
+  contents = _json(data);
   const response: StartRemediationExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6477,10 +6328,9 @@ const de_StartRemediationExecutionCommandError = async (
       throw await de_NoSuchRemediationConfigurationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6498,12 +6348,12 @@ export const de_StartResourceEvaluationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartResourceEvaluationResponse(data, context);
+  contents = _json(data);
   const response: StartResourceEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6527,10 +6377,9 @@ const de_StartResourceEvaluationCommandError = async (
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6550,7 +6399,7 @@ export const de_StopConfigurationRecorderCommand = async (
   const response: StopConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6571,10 +6420,9 @@ const de_StopConfigurationRecorderCommandError = async (
       throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6594,7 +6442,7 @@ export const de_TagResourceCommand = async (
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6621,10 +6469,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6644,7 +6491,7 @@ export const de_UntagResourceCommand = async (
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6668,10 +6515,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6685,7 +6531,7 @@ const de_ConformancePackTemplateValidationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConformancePackTemplateValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConformancePackTemplateValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConformancePackTemplateValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6701,7 +6547,7 @@ const de_IdempotentParameterMismatchRes = async (
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatch> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IdempotentParameterMismatch(body, context);
+  const deserialized: any = _json(body);
   const exception = new IdempotentParameterMismatch({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6717,7 +6563,7 @@ const de_InsufficientDeliveryPolicyExceptionRes = async (
   context: __SerdeContext
 ): Promise<InsufficientDeliveryPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InsufficientDeliveryPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InsufficientDeliveryPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6733,7 +6579,7 @@ const de_InsufficientPermissionsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InsufficientPermissionsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InsufficientPermissionsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InsufficientPermissionsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6749,7 +6595,7 @@ const de_InvalidConfigurationRecorderNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidConfigurationRecorderNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidConfigurationRecorderNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidConfigurationRecorderNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6765,7 +6611,7 @@ const de_InvalidDeliveryChannelNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidDeliveryChannelNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidDeliveryChannelNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidDeliveryChannelNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6781,7 +6627,7 @@ const de_InvalidExpressionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidExpressionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidExpressionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidExpressionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6797,7 +6643,7 @@ const de_InvalidLimitExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidLimitException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidLimitException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidLimitException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6813,7 +6659,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6829,7 +6675,7 @@ const de_InvalidParameterValueExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterValueException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6845,7 +6691,7 @@ const de_InvalidRecordingGroupExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRecordingGroupException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRecordingGroupException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRecordingGroupException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6861,7 +6707,7 @@ const de_InvalidResultTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidResultTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidResultTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidResultTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6877,7 +6723,7 @@ const de_InvalidRoleExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRoleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRoleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRoleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6893,7 +6739,7 @@ const de_InvalidS3KeyPrefixExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidS3KeyPrefixException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidS3KeyPrefixException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidS3KeyPrefixException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6909,7 +6755,7 @@ const de_InvalidS3KmsKeyArnExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidS3KmsKeyArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidS3KmsKeyArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidS3KmsKeyArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6925,7 +6771,7 @@ const de_InvalidSNSTopicARNExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidSNSTopicARNException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidSNSTopicARNException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidSNSTopicARNException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6941,7 +6787,7 @@ const de_InvalidTimeRangeExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTimeRangeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTimeRangeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTimeRangeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6957,7 +6803,7 @@ const de_LastDeliveryChannelDeleteFailedExceptionRes = async (
   context: __SerdeContext
 ): Promise<LastDeliveryChannelDeleteFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LastDeliveryChannelDeleteFailedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LastDeliveryChannelDeleteFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6973,7 +6819,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6989,7 +6835,7 @@ const de_MaxActiveResourcesExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaxActiveResourcesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaxActiveResourcesExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaxActiveResourcesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7005,7 +6851,7 @@ const de_MaxNumberOfConfigRulesExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaxNumberOfConfigRulesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaxNumberOfConfigRulesExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaxNumberOfConfigRulesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7021,7 +6867,7 @@ const de_MaxNumberOfConfigurationRecordersExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaxNumberOfConfigurationRecordersExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaxNumberOfConfigurationRecordersExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaxNumberOfConfigurationRecordersExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7037,7 +6883,7 @@ const de_MaxNumberOfConformancePacksExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaxNumberOfConformancePacksExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaxNumberOfConformancePacksExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaxNumberOfConformancePacksExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7053,7 +6899,7 @@ const de_MaxNumberOfDeliveryChannelsExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaxNumberOfDeliveryChannelsExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaxNumberOfDeliveryChannelsExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaxNumberOfDeliveryChannelsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7069,7 +6915,7 @@ const de_MaxNumberOfOrganizationConfigRulesExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaxNumberOfOrganizationConfigRulesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaxNumberOfOrganizationConfigRulesExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaxNumberOfOrganizationConfigRulesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7085,7 +6931,7 @@ const de_MaxNumberOfOrganizationConformancePacksExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaxNumberOfOrganizationConformancePacksExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaxNumberOfOrganizationConformancePacksExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaxNumberOfOrganizationConformancePacksExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7101,7 +6947,7 @@ const de_MaxNumberOfRetentionConfigurationsExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaxNumberOfRetentionConfigurationsExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaxNumberOfRetentionConfigurationsExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaxNumberOfRetentionConfigurationsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7117,7 +6963,7 @@ const de_NoAvailableConfigurationRecorderExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoAvailableConfigurationRecorderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoAvailableConfigurationRecorderException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoAvailableConfigurationRecorderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7133,7 +6979,7 @@ const de_NoAvailableDeliveryChannelExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoAvailableDeliveryChannelException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoAvailableDeliveryChannelException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoAvailableDeliveryChannelException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7149,7 +6995,7 @@ const de_NoAvailableOrganizationExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoAvailableOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoAvailableOrganizationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoAvailableOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7165,7 +7011,7 @@ const de_NoRunningConfigurationRecorderExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoRunningConfigurationRecorderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoRunningConfigurationRecorderException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoRunningConfigurationRecorderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7181,7 +7027,7 @@ const de_NoSuchBucketExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchBucketException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchBucketException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchBucketException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7197,7 +7043,7 @@ const de_NoSuchConfigRuleExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchConfigRuleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchConfigRuleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchConfigRuleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7213,7 +7059,7 @@ const de_NoSuchConfigRuleInConformancePackExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchConfigRuleInConformancePackException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchConfigRuleInConformancePackException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchConfigRuleInConformancePackException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7229,7 +7075,7 @@ const de_NoSuchConfigurationAggregatorExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchConfigurationAggregatorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchConfigurationAggregatorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchConfigurationAggregatorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7245,7 +7091,7 @@ const de_NoSuchConfigurationRecorderExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchConfigurationRecorderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchConfigurationRecorderException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchConfigurationRecorderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7261,7 +7107,7 @@ const de_NoSuchConformancePackExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchConformancePackException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchConformancePackException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchConformancePackException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7277,7 +7123,7 @@ const de_NoSuchDeliveryChannelExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchDeliveryChannelException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchDeliveryChannelException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchDeliveryChannelException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7293,7 +7139,7 @@ const de_NoSuchOrganizationConfigRuleExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchOrganizationConfigRuleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchOrganizationConfigRuleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchOrganizationConfigRuleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7309,7 +7155,7 @@ const de_NoSuchOrganizationConformancePackExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchOrganizationConformancePackException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchOrganizationConformancePackException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchOrganizationConformancePackException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7325,7 +7171,7 @@ const de_NoSuchRemediationConfigurationExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchRemediationConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchRemediationConfigurationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchRemediationConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7341,7 +7187,7 @@ const de_NoSuchRemediationExceptionExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchRemediationExceptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchRemediationExceptionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchRemediationExceptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7357,7 +7203,7 @@ const de_NoSuchRetentionConfigurationExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchRetentionConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchRetentionConfigurationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchRetentionConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7373,7 +7219,7 @@ const de_OrganizationAccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<OrganizationAccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OrganizationAccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OrganizationAccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7389,7 +7235,7 @@ const de_OrganizationAllFeaturesNotEnabledExceptionRes = async (
   context: __SerdeContext
 ): Promise<OrganizationAllFeaturesNotEnabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OrganizationAllFeaturesNotEnabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OrganizationAllFeaturesNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7405,7 +7251,7 @@ const de_OrganizationConformancePackTemplateValidationExceptionRes = async (
   context: __SerdeContext
 ): Promise<OrganizationConformancePackTemplateValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OrganizationConformancePackTemplateValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OrganizationConformancePackTemplateValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7421,7 +7267,7 @@ const de_OversizedConfigurationItemExceptionRes = async (
   context: __SerdeContext
 ): Promise<OversizedConfigurationItemException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OversizedConfigurationItemException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OversizedConfigurationItemException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7437,7 +7283,7 @@ const de_RemediationInProgressExceptionRes = async (
   context: __SerdeContext
 ): Promise<RemediationInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RemediationInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RemediationInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7453,7 +7299,7 @@ const de_ResourceConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7469,7 +7315,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7485,7 +7331,7 @@ const de_ResourceNotDiscoveredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotDiscoveredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotDiscoveredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotDiscoveredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7501,7 +7347,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7517,7 +7363,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7530,7 +7376,7 @@ const de_TooManyTagsExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7538,1028 +7384,176 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AccountAggregationSource
- */
-const se_AccountAggregationSource = (input: AccountAggregationSource, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountIds != null && { AccountIds: se_AccountAggregationSourceAccountList(input.AccountIds, context) }),
-    ...(input.AllAwsRegions != null && { AllAwsRegions: input.AllAwsRegions }),
-    ...(input.AwsRegions != null && { AwsRegions: se_AggregatorRegionList(input.AwsRegions, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1AccountAggregationSourceAccountList
- */
-const se_AccountAggregationSourceAccountList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1AccountAggregationSourceList
- */
-const se_AccountAggregationSourceList = (input: AccountAggregationSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AccountAggregationSource(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1AggregateConformancePackComplianceFilters
- */
-const se_AggregateConformancePackComplianceFilters = (
-  input: AggregateConformancePackComplianceFilters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.ComplianceType != null && { ComplianceType: input.ComplianceType }),
-    ...(input.ConformancePackName != null && { ConformancePackName: input.ConformancePackName }),
-  };
-};
-
-/**
- * serializeAws_json1_1AggregateConformancePackComplianceSummaryFilters
- */
-const se_AggregateConformancePackComplianceSummaryFilters = (
-  input: AggregateConformancePackComplianceSummaryFilters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-  };
-};
-
-/**
- * serializeAws_json1_1AggregatedSourceStatusTypeList
- */
-const se_AggregatedSourceStatusTypeList = (
-  input: (AggregatedSourceStatusType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1AggregateResourceIdentifier
- */
-const se_AggregateResourceIdentifier = (input: AggregateResourceIdentifier, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceName != null && { ResourceName: input.ResourceName }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.SourceAccountId != null && { SourceAccountId: input.SourceAccountId }),
-    ...(input.SourceRegion != null && { SourceRegion: input.SourceRegion }),
-  };
-};
-
-/**
- * serializeAws_json1_1AggregatorRegionList
- */
-const se_AggregatorRegionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1BatchGetAggregateResourceConfigRequest
- */
-const se_BatchGetAggregateResourceConfigRequest = (
-  input: BatchGetAggregateResourceConfigRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.ResourceIdentifiers != null && {
-      ResourceIdentifiers: se_ResourceIdentifiersList(input.ResourceIdentifiers, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1BatchGetResourceConfigRequest
- */
-const se_BatchGetResourceConfigRequest = (input: BatchGetResourceConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceKeys != null && { resourceKeys: se_ResourceKeys(input.resourceKeys, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1ComplianceResourceTypes
- */
-const se_ComplianceResourceTypes = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ComplianceTypes
- */
-const se_ComplianceTypes = (input: (ComplianceType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ConfigRule
- */
-const se_ConfigRule = (input: ConfigRule, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigRuleArn != null && { ConfigRuleArn: input.ConfigRuleArn }),
-    ...(input.ConfigRuleId != null && { ConfigRuleId: input.ConfigRuleId }),
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.ConfigRuleState != null && { ConfigRuleState: input.ConfigRuleState }),
-    ...(input.CreatedBy != null && { CreatedBy: input.CreatedBy }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EvaluationModes != null && { EvaluationModes: se_EvaluationModes(input.EvaluationModes, context) }),
-    ...(input.InputParameters != null && { InputParameters: input.InputParameters }),
-    ...(input.MaximumExecutionFrequency != null && { MaximumExecutionFrequency: input.MaximumExecutionFrequency }),
-    ...(input.Scope != null && { Scope: se_Scope(input.Scope, context) }),
-    ...(input.Source != null && { Source: se_Source(input.Source, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfigRuleComplianceFilters
- */
-const se_ConfigRuleComplianceFilters = (input: ConfigRuleComplianceFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.ComplianceType != null && { ComplianceType: input.ComplianceType }),
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfigRuleComplianceSummaryFilters
- */
-const se_ConfigRuleComplianceSummaryFilters = (
-  input: ConfigRuleComplianceSummaryFilters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfigRuleNames
- */
-const se_ConfigRuleNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ConfigSnapshotDeliveryProperties
- */
-const se_ConfigSnapshotDeliveryProperties = (input: ConfigSnapshotDeliveryProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.deliveryFrequency != null && { deliveryFrequency: input.deliveryFrequency }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfigurationAggregatorNameList
- */
-const se_ConfigurationAggregatorNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ConfigurationRecorder
- */
-const se_ConfigurationRecorder = (input: ConfigurationRecorder, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.recordingGroup != null && { recordingGroup: se_RecordingGroup(input.recordingGroup, context) }),
-    ...(input.roleARN != null && { roleARN: input.roleARN }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConfigurationRecorderNameList
- */
-const se_ConfigurationRecorderNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ConformancePackComplianceFilters
- */
-const se_ConformancePackComplianceFilters = (input: ConformancePackComplianceFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.ComplianceType != null && { ComplianceType: input.ComplianceType }),
-    ...(input.ConfigRuleNames != null && {
-      ConfigRuleNames: se_ConformancePackConfigRuleNames(input.ConfigRuleNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConformancePackComplianceResourceIds
- */
-const se_ConformancePackComplianceResourceIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ConformancePackComplianceScoresFilters
- */
-const se_ConformancePackComplianceScoresFilters = (
-  input: ConformancePackComplianceScoresFilters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConformancePackNames != null && {
-      ConformancePackNames: se_ConformancePackNameFilter(input.ConformancePackNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConformancePackConfigRuleNames
- */
-const se_ConformancePackConfigRuleNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ConformancePackEvaluationFilters
- */
-const se_ConformancePackEvaluationFilters = (input: ConformancePackEvaluationFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.ComplianceType != null && { ComplianceType: input.ComplianceType }),
-    ...(input.ConfigRuleNames != null && {
-      ConfigRuleNames: se_ConformancePackConfigRuleNames(input.ConfigRuleNames, context),
-    }),
-    ...(input.ResourceIds != null && {
-      ResourceIds: se_ConformancePackComplianceResourceIds(input.ResourceIds, context),
-    }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConformancePackInputParameter
- */
-const se_ConformancePackInputParameter = (input: ConformancePackInputParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
-    ...(input.ParameterValue != null && { ParameterValue: input.ParameterValue }),
-  };
-};
-
-/**
- * serializeAws_json1_1ConformancePackInputParameters
- */
-const se_ConformancePackInputParameters = (input: ConformancePackInputParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ConformancePackInputParameter(entry, context);
-    });
-};
-
-/**
- * serializeAws_json1_1ConformancePackNameFilter
- */
-const se_ConformancePackNameFilter = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ConformancePackNamesList
- */
-const se_ConformancePackNamesList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1ConformancePackNamesToSummarizeList
- */
-const se_ConformancePackNamesToSummarizeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1CustomPolicyDetails
- */
-const se_CustomPolicyDetails = (input: CustomPolicyDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.EnableDebugLogDelivery != null && { EnableDebugLogDelivery: input.EnableDebugLogDelivery }),
-    ...(input.PolicyRuntime != null && { PolicyRuntime: input.PolicyRuntime }),
-    ...(input.PolicyText != null && { PolicyText: input.PolicyText }),
-  };
-};
-
-/**
- * serializeAws_json1_1DebugLogDeliveryAccounts
- */
-const se_DebugLogDeliveryAccounts = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1DeleteAggregationAuthorizationRequest
- */
-const se_DeleteAggregationAuthorizationRequest = (
-  input: DeleteAggregationAuthorizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuthorizedAccountId != null && { AuthorizedAccountId: input.AuthorizedAccountId }),
-    ...(input.AuthorizedAwsRegion != null && { AuthorizedAwsRegion: input.AuthorizedAwsRegion }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteConfigRuleRequest
- */
-const se_DeleteConfigRuleRequest = (input: DeleteConfigRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteConfigurationAggregatorRequest
- */
-const se_DeleteConfigurationAggregatorRequest = (
-  input: DeleteConfigurationAggregatorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteConfigurationRecorderRequest
- */
-const se_DeleteConfigurationRecorderRequest = (
-  input: DeleteConfigurationRecorderRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationRecorderName != null && { ConfigurationRecorderName: input.ConfigurationRecorderName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteConformancePackRequest
- */
-const se_DeleteConformancePackRequest = (input: DeleteConformancePackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConformancePackName != null && { ConformancePackName: input.ConformancePackName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteDeliveryChannelRequest
- */
-const se_DeleteDeliveryChannelRequest = (input: DeleteDeliveryChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryChannelName != null && { DeliveryChannelName: input.DeliveryChannelName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteEvaluationResultsRequest
- */
-const se_DeleteEvaluationResultsRequest = (input: DeleteEvaluationResultsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteOrganizationConfigRuleRequest
- */
-const se_DeleteOrganizationConfigRuleRequest = (
-  input: DeleteOrganizationConfigRuleRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OrganizationConfigRuleName != null && { OrganizationConfigRuleName: input.OrganizationConfigRuleName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteOrganizationConformancePackRequest
- */
-const se_DeleteOrganizationConformancePackRequest = (
-  input: DeleteOrganizationConformancePackRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OrganizationConformancePackName != null && {
-      OrganizationConformancePackName: input.OrganizationConformancePackName,
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeletePendingAggregationRequestRequest
- */
-const se_DeletePendingAggregationRequestRequest = (
-  input: DeletePendingAggregationRequestRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RequesterAccountId != null && { RequesterAccountId: input.RequesterAccountId }),
-    ...(input.RequesterAwsRegion != null && { RequesterAwsRegion: input.RequesterAwsRegion }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteRemediationConfigurationRequest
- */
-const se_DeleteRemediationConfigurationRequest = (
-  input: DeleteRemediationConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteRemediationExceptionsRequest
- */
-const se_DeleteRemediationExceptionsRequest = (
-  input: DeleteRemediationExceptionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.ResourceKeys != null && {
-      ResourceKeys: se_RemediationExceptionResourceKeys(input.ResourceKeys, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteResourceConfigRequest
- */
-const se_DeleteResourceConfigRequest = (input: DeleteResourceConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteRetentionConfigurationRequest
- */
-const se_DeleteRetentionConfigurationRequest = (
-  input: DeleteRetentionConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RetentionConfigurationName != null && { RetentionConfigurationName: input.RetentionConfigurationName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeleteStoredQueryRequest
- */
-const se_DeleteStoredQueryRequest = (input: DeleteStoredQueryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.QueryName != null && { QueryName: input.QueryName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeliverConfigSnapshotRequest
- */
-const se_DeliverConfigSnapshotRequest = (input: DeliverConfigSnapshotRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.deliveryChannelName != null && { deliveryChannelName: input.deliveryChannelName }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeliveryChannel
- */
-const se_DeliveryChannel = (input: DeliveryChannel, context: __SerdeContext): any => {
-  return {
-    ...(input.configSnapshotDeliveryProperties != null && {
-      configSnapshotDeliveryProperties: se_ConfigSnapshotDeliveryProperties(
-        input.configSnapshotDeliveryProperties,
-        context
-      ),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.s3BucketName != null && { s3BucketName: input.s3BucketName }),
-    ...(input.s3KeyPrefix != null && { s3KeyPrefix: input.s3KeyPrefix }),
-    ...(input.s3KmsKeyArn != null && { s3KmsKeyArn: input.s3KmsKeyArn }),
-    ...(input.snsTopicARN != null && { snsTopicARN: input.snsTopicARN }),
-  };
-};
-
-/**
- * serializeAws_json1_1DeliveryChannelNameList
- */
-const se_DeliveryChannelNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_json1_1DescribeAggregateComplianceByConfigRulesRequest
- */
-const se_DescribeAggregateComplianceByConfigRulesRequest = (
-  input: DescribeAggregateComplianceByConfigRulesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.Filters != null && { Filters: se_ConfigRuleComplianceFilters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeAggregateComplianceByConformancePacksRequest
- */
-const se_DescribeAggregateComplianceByConformancePacksRequest = (
-  input: DescribeAggregateComplianceByConformancePacksRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.Filters != null && { Filters: se_AggregateConformancePackComplianceFilters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeAggregationAuthorizationsRequest
- */
-const se_DescribeAggregationAuthorizationsRequest = (
-  input: DescribeAggregationAuthorizationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeComplianceByConfigRuleRequest
- */
-const se_DescribeComplianceByConfigRuleRequest = (
-  input: DescribeComplianceByConfigRuleRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComplianceTypes != null && { ComplianceTypes: se_ComplianceTypes(input.ComplianceTypes, context) }),
-    ...(input.ConfigRuleNames != null && { ConfigRuleNames: se_ConfigRuleNames(input.ConfigRuleNames, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeComplianceByResourceRequest
- */
-const se_DescribeComplianceByResourceRequest = (
-  input: DescribeComplianceByResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComplianceTypes != null && { ComplianceTypes: se_ComplianceTypes(input.ComplianceTypes, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConfigRuleEvaluationStatusRequest
- */
-const se_DescribeConfigRuleEvaluationStatusRequest = (
-  input: DescribeConfigRuleEvaluationStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigRuleNames != null && { ConfigRuleNames: se_ConfigRuleNames(input.ConfigRuleNames, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConfigRulesFilters
- */
-const se_DescribeConfigRulesFilters = (input: DescribeConfigRulesFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.EvaluationMode != null && { EvaluationMode: input.EvaluationMode }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConfigRulesRequest
- */
-const se_DescribeConfigRulesRequest = (input: DescribeConfigRulesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigRuleNames != null && { ConfigRuleNames: se_ConfigRuleNames(input.ConfigRuleNames, context) }),
-    ...(input.Filters != null && { Filters: se_DescribeConfigRulesFilters(input.Filters, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusRequest
- */
-const se_DescribeConfigurationAggregatorSourcesStatusRequest = (
-  input: DescribeConfigurationAggregatorSourcesStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.UpdateStatus != null && { UpdateStatus: se_AggregatedSourceStatusTypeList(input.UpdateStatus, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConfigurationAggregatorsRequest
- */
-const se_DescribeConfigurationAggregatorsRequest = (
-  input: DescribeConfigurationAggregatorsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorNames != null && {
-      ConfigurationAggregatorNames: se_ConfigurationAggregatorNameList(input.ConfigurationAggregatorNames, context),
-    }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConfigurationRecordersRequest
- */
-const se_DescribeConfigurationRecordersRequest = (
-  input: DescribeConfigurationRecordersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationRecorderNames != null && {
-      ConfigurationRecorderNames: se_ConfigurationRecorderNameList(input.ConfigurationRecorderNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConfigurationRecorderStatusRequest
- */
-const se_DescribeConfigurationRecorderStatusRequest = (
-  input: DescribeConfigurationRecorderStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationRecorderNames != null && {
-      ConfigurationRecorderNames: se_ConfigurationRecorderNameList(input.ConfigurationRecorderNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConformancePackComplianceRequest
- */
-const se_DescribeConformancePackComplianceRequest = (
-  input: DescribeConformancePackComplianceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConformancePackName != null && { ConformancePackName: input.ConformancePackName }),
-    ...(input.Filters != null && { Filters: se_ConformancePackComplianceFilters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConformancePacksRequest
- */
-const se_DescribeConformancePacksRequest = (input: DescribeConformancePacksRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConformancePackNames != null && {
-      ConformancePackNames: se_ConformancePackNamesList(input.ConformancePackNames, context),
-    }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeConformancePackStatusRequest
- */
-const se_DescribeConformancePackStatusRequest = (
-  input: DescribeConformancePackStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConformancePackNames != null && {
-      ConformancePackNames: se_ConformancePackNamesList(input.ConformancePackNames, context),
-    }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeDeliveryChannelsRequest
- */
-const se_DescribeDeliveryChannelsRequest = (input: DescribeDeliveryChannelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryChannelNames != null && {
-      DeliveryChannelNames: se_DeliveryChannelNameList(input.DeliveryChannelNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeDeliveryChannelStatusRequest
- */
-const se_DescribeDeliveryChannelStatusRequest = (
-  input: DescribeDeliveryChannelStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DeliveryChannelNames != null && {
-      DeliveryChannelNames: se_DeliveryChannelNameList(input.DeliveryChannelNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeOrganizationConfigRulesRequest
- */
-const se_DescribeOrganizationConfigRulesRequest = (
-  input: DescribeOrganizationConfigRulesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OrganizationConfigRuleNames != null && {
-      OrganizationConfigRuleNames: se_OrganizationConfigRuleNames(input.OrganizationConfigRuleNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeOrganizationConfigRuleStatusesRequest
- */
-const se_DescribeOrganizationConfigRuleStatusesRequest = (
-  input: DescribeOrganizationConfigRuleStatusesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OrganizationConfigRuleNames != null && {
-      OrganizationConfigRuleNames: se_OrganizationConfigRuleNames(input.OrganizationConfigRuleNames, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeOrganizationConformancePacksRequest
- */
-const se_DescribeOrganizationConformancePacksRequest = (
-  input: DescribeOrganizationConformancePacksRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OrganizationConformancePackNames != null && {
-      OrganizationConformancePackNames: se_OrganizationConformancePackNames(
-        input.OrganizationConformancePackNames,
-        context
-      ),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest
- */
-const se_DescribeOrganizationConformancePackStatusesRequest = (
-  input: DescribeOrganizationConformancePackStatusesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OrganizationConformancePackNames != null && {
-      OrganizationConformancePackNames: se_OrganizationConformancePackNames(
-        input.OrganizationConformancePackNames,
-        context
-      ),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribePendingAggregationRequestsRequest
- */
-const se_DescribePendingAggregationRequestsRequest = (
-  input: DescribePendingAggregationRequestsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeRemediationConfigurationsRequest
- */
-const se_DescribeRemediationConfigurationsRequest = (
-  input: DescribeRemediationConfigurationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigRuleNames != null && { ConfigRuleNames: se_ConfigRuleNames(input.ConfigRuleNames, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeRemediationExceptionsRequest
- */
-const se_DescribeRemediationExceptionsRequest = (
-  input: DescribeRemediationExceptionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceKeys != null && {
-      ResourceKeys: se_RemediationExceptionResourceKeys(input.ResourceKeys, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeRemediationExecutionStatusRequest
- */
-const se_DescribeRemediationExecutionStatusRequest = (
-  input: DescribeRemediationExecutionStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceKeys != null && { ResourceKeys: se_ResourceKeys(input.ResourceKeys, context) }),
-  };
-};
-
-/**
- * serializeAws_json1_1DescribeRetentionConfigurationsRequest
- */
-const se_DescribeRetentionConfigurationsRequest = (
-  input: DescribeRetentionConfigurationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RetentionConfigurationNames != null && {
-      RetentionConfigurationNames: se_RetentionConfigurationNameList(input.RetentionConfigurationNames, context),
-    }),
-  };
-};
+// se_AccountAggregationSource omitted.
+
+// se_AccountAggregationSourceAccountList omitted.
+
+// se_AccountAggregationSourceList omitted.
+
+// se_AggregateConformancePackComplianceFilters omitted.
+
+// se_AggregateConformancePackComplianceSummaryFilters omitted.
+
+// se_AggregatedSourceStatusTypeList omitted.
+
+// se_AggregateResourceIdentifier omitted.
+
+// se_AggregatorRegionList omitted.
+
+// se_BatchGetAggregateResourceConfigRequest omitted.
+
+// se_BatchGetResourceConfigRequest omitted.
+
+// se_ComplianceResourceTypes omitted.
+
+// se_ComplianceTypes omitted.
+
+// se_ConfigRule omitted.
+
+// se_ConfigRuleComplianceFilters omitted.
+
+// se_ConfigRuleComplianceSummaryFilters omitted.
+
+// se_ConfigRuleNames omitted.
+
+// se_ConfigSnapshotDeliveryProperties omitted.
+
+// se_ConfigurationAggregatorNameList omitted.
+
+// se_ConfigurationRecorder omitted.
+
+// se_ConfigurationRecorderNameList omitted.
+
+// se_ConformancePackComplianceFilters omitted.
+
+// se_ConformancePackComplianceResourceIds omitted.
+
+// se_ConformancePackComplianceScoresFilters omitted.
+
+// se_ConformancePackConfigRuleNames omitted.
+
+// se_ConformancePackEvaluationFilters omitted.
+
+// se_ConformancePackInputParameter omitted.
+
+// se_ConformancePackInputParameters omitted.
+
+// se_ConformancePackNameFilter omitted.
+
+// se_ConformancePackNamesList omitted.
+
+// se_ConformancePackNamesToSummarizeList omitted.
+
+// se_CustomPolicyDetails omitted.
+
+// se_DebugLogDeliveryAccounts omitted.
+
+// se_DeleteAggregationAuthorizationRequest omitted.
+
+// se_DeleteConfigRuleRequest omitted.
+
+// se_DeleteConfigurationAggregatorRequest omitted.
+
+// se_DeleteConfigurationRecorderRequest omitted.
+
+// se_DeleteConformancePackRequest omitted.
+
+// se_DeleteDeliveryChannelRequest omitted.
+
+// se_DeleteEvaluationResultsRequest omitted.
+
+// se_DeleteOrganizationConfigRuleRequest omitted.
+
+// se_DeleteOrganizationConformancePackRequest omitted.
+
+// se_DeletePendingAggregationRequestRequest omitted.
+
+// se_DeleteRemediationConfigurationRequest omitted.
+
+// se_DeleteRemediationExceptionsRequest omitted.
+
+// se_DeleteResourceConfigRequest omitted.
+
+// se_DeleteRetentionConfigurationRequest omitted.
+
+// se_DeleteStoredQueryRequest omitted.
+
+// se_DeliverConfigSnapshotRequest omitted.
+
+// se_DeliveryChannel omitted.
+
+// se_DeliveryChannelNameList omitted.
+
+// se_DescribeAggregateComplianceByConfigRulesRequest omitted.
+
+// se_DescribeAggregateComplianceByConformancePacksRequest omitted.
+
+// se_DescribeAggregationAuthorizationsRequest omitted.
+
+// se_DescribeComplianceByConfigRuleRequest omitted.
+
+// se_DescribeComplianceByResourceRequest omitted.
+
+// se_DescribeConfigRuleEvaluationStatusRequest omitted.
+
+// se_DescribeConfigRulesFilters omitted.
+
+// se_DescribeConfigRulesRequest omitted.
+
+// se_DescribeConfigurationAggregatorSourcesStatusRequest omitted.
+
+// se_DescribeConfigurationAggregatorsRequest omitted.
+
+// se_DescribeConfigurationRecordersRequest omitted.
+
+// se_DescribeConfigurationRecorderStatusRequest omitted.
+
+// se_DescribeConformancePackComplianceRequest omitted.
+
+// se_DescribeConformancePacksRequest omitted.
+
+// se_DescribeConformancePackStatusRequest omitted.
+
+// se_DescribeDeliveryChannelsRequest omitted.
+
+// se_DescribeDeliveryChannelStatusRequest omitted.
+
+// se_DescribeOrganizationConfigRulesRequest omitted.
+
+// se_DescribeOrganizationConfigRuleStatusesRequest omitted.
+
+// se_DescribeOrganizationConformancePacksRequest omitted.
+
+// se_DescribeOrganizationConformancePackStatusesRequest omitted.
+
+// se_DescribePendingAggregationRequestsRequest omitted.
+
+// se_DescribeRemediationConfigurationsRequest omitted.
+
+// se_DescribeRemediationExceptionsRequest omitted.
+
+// se_DescribeRemediationExecutionStatusRequest omitted.
+
+// se_DescribeRetentionConfigurationsRequest omitted.
 
 /**
  * serializeAws_json1_1Evaluation
  */
 const se_Evaluation = (input: Evaluation, context: __SerdeContext): any => {
-  return {
-    ...(input.Annotation != null && { Annotation: input.Annotation }),
-    ...(input.ComplianceResourceId != null && { ComplianceResourceId: input.ComplianceResourceId }),
-    ...(input.ComplianceResourceType != null && { ComplianceResourceType: input.ComplianceResourceType }),
-    ...(input.ComplianceType != null && { ComplianceType: input.ComplianceType }),
-    ...(input.OrderingTimestamp != null && { OrderingTimestamp: Math.round(input.OrderingTimestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    Annotation: [],
+    ComplianceResourceId: [],
+    ComplianceResourceType: [],
+    ComplianceType: [],
+    OrderingTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1EvaluationContext
- */
-const se_EvaluationContext = (input: EvaluationContext, context: __SerdeContext): any => {
-  return {
-    ...(input.EvaluationContextIdentifier != null && {
-      EvaluationContextIdentifier: input.EvaluationContextIdentifier,
-    }),
-  };
-};
+// se_EvaluationContext omitted.
 
-/**
- * serializeAws_json1_1EvaluationModeConfiguration
- */
-const se_EvaluationModeConfiguration = (input: EvaluationModeConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Mode != null && { Mode: input.Mode }),
-  };
-};
+// se_EvaluationModeConfiguration omitted.
 
-/**
- * serializeAws_json1_1EvaluationModes
- */
-const se_EvaluationModes = (input: EvaluationModeConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EvaluationModeConfiguration(entry, context);
-    });
-};
+// se_EvaluationModes omitted.
 
 /**
  * serializeAws_json1_1Evaluations
@@ -8572,1404 +7566,299 @@ const se_Evaluations = (input: Evaluation[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_json1_1ExcludedAccounts
- */
-const se_ExcludedAccounts = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExcludedAccounts omitted.
 
-/**
- * serializeAws_json1_1ExecutionControls
- */
-const se_ExecutionControls = (input: ExecutionControls, context: __SerdeContext): any => {
-  return {
-    ...(input.SsmControls != null && { SsmControls: se_SsmControls(input.SsmControls, context) }),
-  };
-};
+// se_ExecutionControls omitted.
 
 /**
  * serializeAws_json1_1ExternalEvaluation
  */
 const se_ExternalEvaluation = (input: ExternalEvaluation, context: __SerdeContext): any => {
-  return {
-    ...(input.Annotation != null && { Annotation: input.Annotation }),
-    ...(input.ComplianceResourceId != null && { ComplianceResourceId: input.ComplianceResourceId }),
-    ...(input.ComplianceResourceType != null && { ComplianceResourceType: input.ComplianceResourceType }),
-    ...(input.ComplianceType != null && { ComplianceType: input.ComplianceType }),
-    ...(input.OrderingTimestamp != null && { OrderingTimestamp: Math.round(input.OrderingTimestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    Annotation: [],
+    ComplianceResourceId: [],
+    ComplianceResourceType: [],
+    ComplianceType: [],
+    OrderingTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleRequest
- */
-const se_GetAggregateComplianceDetailsByConfigRuleRequest = (
-  input: GetAggregateComplianceDetailsByConfigRuleRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.ComplianceType != null && { ComplianceType: input.ComplianceType }),
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetAggregateComplianceDetailsByConfigRuleRequest omitted.
 
-/**
- * serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryRequest
- */
-const se_GetAggregateConfigRuleComplianceSummaryRequest = (
-  input: GetAggregateConfigRuleComplianceSummaryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.Filters != null && { Filters: se_ConfigRuleComplianceSummaryFilters(input.Filters, context) }),
-    ...(input.GroupByKey != null && { GroupByKey: input.GroupByKey }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetAggregateConfigRuleComplianceSummaryRequest omitted.
 
-/**
- * serializeAws_json1_1GetAggregateConformancePackComplianceSummaryRequest
- */
-const se_GetAggregateConformancePackComplianceSummaryRequest = (
-  input: GetAggregateConformancePackComplianceSummaryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.Filters != null && {
-      Filters: se_AggregateConformancePackComplianceSummaryFilters(input.Filters, context),
-    }),
-    ...(input.GroupByKey != null && { GroupByKey: input.GroupByKey }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetAggregateConformancePackComplianceSummaryRequest omitted.
 
-/**
- * serializeAws_json1_1GetAggregateDiscoveredResourceCountsRequest
- */
-const se_GetAggregateDiscoveredResourceCountsRequest = (
-  input: GetAggregateDiscoveredResourceCountsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.Filters != null && { Filters: se_ResourceCountFilters(input.Filters, context) }),
-    ...(input.GroupByKey != null && { GroupByKey: input.GroupByKey }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetAggregateDiscoveredResourceCountsRequest omitted.
 
-/**
- * serializeAws_json1_1GetAggregateResourceConfigRequest
- */
-const se_GetAggregateResourceConfigRequest = (
-  input: GetAggregateResourceConfigRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.ResourceIdentifier != null && {
-      ResourceIdentifier: se_AggregateResourceIdentifier(input.ResourceIdentifier, context),
-    }),
-  };
-};
+// se_GetAggregateResourceConfigRequest omitted.
 
-/**
- * serializeAws_json1_1GetComplianceDetailsByConfigRuleRequest
- */
-const se_GetComplianceDetailsByConfigRuleRequest = (
-  input: GetComplianceDetailsByConfigRuleRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComplianceTypes != null && { ComplianceTypes: se_ComplianceTypes(input.ComplianceTypes, context) }),
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetComplianceDetailsByConfigRuleRequest omitted.
 
-/**
- * serializeAws_json1_1GetComplianceDetailsByResourceRequest
- */
-const se_GetComplianceDetailsByResourceRequest = (
-  input: GetComplianceDetailsByResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComplianceTypes != null && { ComplianceTypes: se_ComplianceTypes(input.ComplianceTypes, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceEvaluationId != null && { ResourceEvaluationId: input.ResourceEvaluationId }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
+// se_GetComplianceDetailsByResourceRequest omitted.
 
-/**
- * serializeAws_json1_1GetComplianceSummaryByResourceTypeRequest
- */
-const se_GetComplianceSummaryByResourceTypeRequest = (
-  input: GetComplianceSummaryByResourceTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceTypes != null && { ResourceTypes: se_ResourceTypes(input.ResourceTypes, context) }),
-  };
-};
+// se_GetComplianceSummaryByResourceTypeRequest omitted.
 
-/**
- * serializeAws_json1_1GetConformancePackComplianceDetailsRequest
- */
-const se_GetConformancePackComplianceDetailsRequest = (
-  input: GetConformancePackComplianceDetailsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConformancePackName != null && { ConformancePackName: input.ConformancePackName }),
-    ...(input.Filters != null && { Filters: se_ConformancePackEvaluationFilters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetConformancePackComplianceDetailsRequest omitted.
 
-/**
- * serializeAws_json1_1GetConformancePackComplianceSummaryRequest
- */
-const se_GetConformancePackComplianceSummaryRequest = (
-  input: GetConformancePackComplianceSummaryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConformancePackNames != null && {
-      ConformancePackNames: se_ConformancePackNamesToSummarizeList(input.ConformancePackNames, context),
-    }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetConformancePackComplianceSummaryRequest omitted.
 
-/**
- * serializeAws_json1_1GetCustomRulePolicyRequest
- */
-const se_GetCustomRulePolicyRequest = (input: GetCustomRulePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-  };
-};
+// se_GetCustomRulePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1GetDiscoveredResourceCountsRequest
- */
-const se_GetDiscoveredResourceCountsRequest = (
-  input: GetDiscoveredResourceCountsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.limit != null && { limit: input.limit }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceTypes != null && { resourceTypes: se_ResourceTypes(input.resourceTypes, context) }),
-  };
-};
+// se_GetDiscoveredResourceCountsRequest omitted.
 
-/**
- * serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusRequest
- */
-const se_GetOrganizationConfigRuleDetailedStatusRequest = (
-  input: GetOrganizationConfigRuleDetailedStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_StatusDetailFilters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OrganizationConfigRuleName != null && { OrganizationConfigRuleName: input.OrganizationConfigRuleName }),
-  };
-};
+// se_GetOrganizationConfigRuleDetailedStatusRequest omitted.
 
-/**
- * serializeAws_json1_1GetOrganizationConformancePackDetailedStatusRequest
- */
-const se_GetOrganizationConformancePackDetailedStatusRequest = (
-  input: GetOrganizationConformancePackDetailedStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_OrganizationResourceDetailedStatusFilters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OrganizationConformancePackName != null && {
-      OrganizationConformancePackName: input.OrganizationConformancePackName,
-    }),
-  };
-};
+// se_GetOrganizationConformancePackDetailedStatusRequest omitted.
 
-/**
- * serializeAws_json1_1GetOrganizationCustomRulePolicyRequest
- */
-const se_GetOrganizationCustomRulePolicyRequest = (
-  input: GetOrganizationCustomRulePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OrganizationConfigRuleName != null && { OrganizationConfigRuleName: input.OrganizationConfigRuleName }),
-  };
-};
+// se_GetOrganizationCustomRulePolicyRequest omitted.
 
 /**
  * serializeAws_json1_1GetResourceConfigHistoryRequest
  */
 const se_GetResourceConfigHistoryRequest = (input: GetResourceConfigHistoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.chronologicalOrder != null && { chronologicalOrder: input.chronologicalOrder }),
-    ...(input.earlierTime != null && { earlierTime: Math.round(input.earlierTime.getTime() / 1000) }),
-    ...(input.laterTime != null && { laterTime: Math.round(input.laterTime.getTime() / 1000) }),
-    ...(input.limit != null && { limit: input.limit }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceId != null && { resourceId: input.resourceId }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-  };
+  return take(input, {
+    chronologicalOrder: [],
+    earlierTime: (_) => Math.round(_.getTime() / 1000),
+    laterTime: (_) => Math.round(_.getTime() / 1000),
+    limit: [],
+    nextToken: [],
+    resourceId: [],
+    resourceType: [],
+  });
 };
 
-/**
- * serializeAws_json1_1GetResourceEvaluationSummaryRequest
- */
-const se_GetResourceEvaluationSummaryRequest = (
-  input: GetResourceEvaluationSummaryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceEvaluationId != null && { ResourceEvaluationId: input.ResourceEvaluationId }),
-  };
-};
+// se_GetResourceEvaluationSummaryRequest omitted.
 
-/**
- * serializeAws_json1_1GetStoredQueryRequest
- */
-const se_GetStoredQueryRequest = (input: GetStoredQueryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.QueryName != null && { QueryName: input.QueryName }),
-  };
-};
+// se_GetStoredQueryRequest omitted.
 
-/**
- * serializeAws_json1_1ListAggregateDiscoveredResourcesRequest
- */
-const se_ListAggregateDiscoveredResourcesRequest = (
-  input: ListAggregateDiscoveredResourcesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.Filters != null && { Filters: se_ResourceFilters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
+// se_ListAggregateDiscoveredResourcesRequest omitted.
 
-/**
- * serializeAws_json1_1ListConformancePackComplianceScoresRequest
- */
-const se_ListConformancePackComplianceScoresRequest = (
-  input: ListConformancePackComplianceScoresRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_ConformancePackComplianceScoresFilters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_ListConformancePackComplianceScoresRequest omitted.
 
-/**
- * serializeAws_json1_1ListDiscoveredResourcesRequest
- */
-const se_ListDiscoveredResourcesRequest = (input: ListDiscoveredResourcesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.includeDeletedResources != null && { includeDeletedResources: input.includeDeletedResources }),
-    ...(input.limit != null && { limit: input.limit }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceIds != null && { resourceIds: se_ResourceIdList(input.resourceIds, context) }),
-    ...(input.resourceName != null && { resourceName: input.resourceName }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-  };
-};
+// se_ListDiscoveredResourcesRequest omitted.
 
 /**
  * serializeAws_json1_1ListResourceEvaluationsRequest
  */
 const se_ListResourceEvaluationsRequest = (input: ListResourceEvaluationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_ResourceEvaluationFilters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filters: (_) => se_ResourceEvaluationFilters(_, context),
+    Limit: [],
+    NextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ListStoredQueriesRequest
- */
-const se_ListStoredQueriesRequest = (input: ListStoredQueriesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListStoredQueriesRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1OrganizationAggregationSource
- */
-const se_OrganizationAggregationSource = (input: OrganizationAggregationSource, context: __SerdeContext): any => {
-  return {
-    ...(input.AllAwsRegions != null && { AllAwsRegions: input.AllAwsRegions }),
-    ...(input.AwsRegions != null && { AwsRegions: se_AggregatorRegionList(input.AwsRegions, context) }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  };
-};
+// se_OrganizationAggregationSource omitted.
 
-/**
- * serializeAws_json1_1OrganizationConfigRuleNames
- */
-const se_OrganizationConfigRuleNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OrganizationConfigRuleNames omitted.
 
-/**
- * serializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs
- */
-const se_OrganizationConfigRuleTriggerTypeNoSNs = (
-  input: (OrganizationConfigRuleTriggerTypeNoSN | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OrganizationConfigRuleTriggerTypeNoSNs omitted.
 
-/**
- * serializeAws_json1_1OrganizationConfigRuleTriggerTypes
- */
-const se_OrganizationConfigRuleTriggerTypes = (
-  input: (OrganizationConfigRuleTriggerType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OrganizationConfigRuleTriggerTypes omitted.
 
-/**
- * serializeAws_json1_1OrganizationConformancePackNames
- */
-const se_OrganizationConformancePackNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OrganizationConformancePackNames omitted.
 
-/**
- * serializeAws_json1_1OrganizationCustomPolicyRuleMetadata
- */
-const se_OrganizationCustomPolicyRuleMetadata = (
-  input: OrganizationCustomPolicyRuleMetadata,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DebugLogDeliveryAccounts != null && {
-      DebugLogDeliveryAccounts: se_DebugLogDeliveryAccounts(input.DebugLogDeliveryAccounts, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.InputParameters != null && { InputParameters: input.InputParameters }),
-    ...(input.MaximumExecutionFrequency != null && { MaximumExecutionFrequency: input.MaximumExecutionFrequency }),
-    ...(input.OrganizationConfigRuleTriggerTypes != null && {
-      OrganizationConfigRuleTriggerTypes: se_OrganizationConfigRuleTriggerTypeNoSNs(
-        input.OrganizationConfigRuleTriggerTypes,
-        context
-      ),
-    }),
-    ...(input.PolicyRuntime != null && { PolicyRuntime: input.PolicyRuntime }),
-    ...(input.PolicyText != null && { PolicyText: input.PolicyText }),
-    ...(input.ResourceIdScope != null && { ResourceIdScope: input.ResourceIdScope }),
-    ...(input.ResourceTypesScope != null && {
-      ResourceTypesScope: se_ResourceTypesScope(input.ResourceTypesScope, context),
-    }),
-    ...(input.TagKeyScope != null && { TagKeyScope: input.TagKeyScope }),
-    ...(input.TagValueScope != null && { TagValueScope: input.TagValueScope }),
-  };
-};
+// se_OrganizationCustomPolicyRuleMetadata omitted.
 
-/**
- * serializeAws_json1_1OrganizationCustomRuleMetadata
- */
-const se_OrganizationCustomRuleMetadata = (input: OrganizationCustomRuleMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.InputParameters != null && { InputParameters: input.InputParameters }),
-    ...(input.LambdaFunctionArn != null && { LambdaFunctionArn: input.LambdaFunctionArn }),
-    ...(input.MaximumExecutionFrequency != null && { MaximumExecutionFrequency: input.MaximumExecutionFrequency }),
-    ...(input.OrganizationConfigRuleTriggerTypes != null && {
-      OrganizationConfigRuleTriggerTypes: se_OrganizationConfigRuleTriggerTypes(
-        input.OrganizationConfigRuleTriggerTypes,
-        context
-      ),
-    }),
-    ...(input.ResourceIdScope != null && { ResourceIdScope: input.ResourceIdScope }),
-    ...(input.ResourceTypesScope != null && {
-      ResourceTypesScope: se_ResourceTypesScope(input.ResourceTypesScope, context),
-    }),
-    ...(input.TagKeyScope != null && { TagKeyScope: input.TagKeyScope }),
-    ...(input.TagValueScope != null && { TagValueScope: input.TagValueScope }),
-  };
-};
+// se_OrganizationCustomRuleMetadata omitted.
 
-/**
- * serializeAws_json1_1OrganizationManagedRuleMetadata
- */
-const se_OrganizationManagedRuleMetadata = (input: OrganizationManagedRuleMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.InputParameters != null && { InputParameters: input.InputParameters }),
-    ...(input.MaximumExecutionFrequency != null && { MaximumExecutionFrequency: input.MaximumExecutionFrequency }),
-    ...(input.ResourceIdScope != null && { ResourceIdScope: input.ResourceIdScope }),
-    ...(input.ResourceTypesScope != null && {
-      ResourceTypesScope: se_ResourceTypesScope(input.ResourceTypesScope, context),
-    }),
-    ...(input.RuleIdentifier != null && { RuleIdentifier: input.RuleIdentifier }),
-    ...(input.TagKeyScope != null && { TagKeyScope: input.TagKeyScope }),
-    ...(input.TagValueScope != null && { TagValueScope: input.TagValueScope }),
-  };
-};
+// se_OrganizationManagedRuleMetadata omitted.
 
-/**
- * serializeAws_json1_1OrganizationResourceDetailedStatusFilters
- */
-const se_OrganizationResourceDetailedStatusFilters = (
-  input: OrganizationResourceDetailedStatusFilters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_OrganizationResourceDetailedStatusFilters omitted.
 
-/**
- * serializeAws_json1_1PutAggregationAuthorizationRequest
- */
-const se_PutAggregationAuthorizationRequest = (
-  input: PutAggregationAuthorizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuthorizedAccountId != null && { AuthorizedAccountId: input.AuthorizedAccountId }),
-    ...(input.AuthorizedAwsRegion != null && { AuthorizedAwsRegion: input.AuthorizedAwsRegion }),
-    ...(input.Tags != null && { Tags: se_TagsList(input.Tags, context) }),
-  };
-};
+// se_PutAggregationAuthorizationRequest omitted.
 
-/**
- * serializeAws_json1_1PutConfigRuleRequest
- */
-const se_PutConfigRuleRequest = (input: PutConfigRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigRule != null && { ConfigRule: se_ConfigRule(input.ConfigRule, context) }),
-    ...(input.Tags != null && { Tags: se_TagsList(input.Tags, context) }),
-  };
-};
+// se_PutConfigRuleRequest omitted.
 
-/**
- * serializeAws_json1_1PutConfigurationAggregatorRequest
- */
-const se_PutConfigurationAggregatorRequest = (
-  input: PutConfigurationAggregatorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountAggregationSources != null && {
-      AccountAggregationSources: se_AccountAggregationSourceList(input.AccountAggregationSources, context),
-    }),
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.OrganizationAggregationSource != null && {
-      OrganizationAggregationSource: se_OrganizationAggregationSource(input.OrganizationAggregationSource, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagsList(input.Tags, context) }),
-  };
-};
+// se_PutConfigurationAggregatorRequest omitted.
 
-/**
- * serializeAws_json1_1PutConfigurationRecorderRequest
- */
-const se_PutConfigurationRecorderRequest = (input: PutConfigurationRecorderRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationRecorder != null && {
-      ConfigurationRecorder: se_ConfigurationRecorder(input.ConfigurationRecorder, context),
-    }),
-  };
-};
+// se_PutConfigurationRecorderRequest omitted.
 
-/**
- * serializeAws_json1_1PutConformancePackRequest
- */
-const se_PutConformancePackRequest = (input: PutConformancePackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConformancePackInputParameters != null && {
-      ConformancePackInputParameters: se_ConformancePackInputParameters(input.ConformancePackInputParameters, context),
-    }),
-    ...(input.ConformancePackName != null && { ConformancePackName: input.ConformancePackName }),
-    ...(input.DeliveryS3Bucket != null && { DeliveryS3Bucket: input.DeliveryS3Bucket }),
-    ...(input.DeliveryS3KeyPrefix != null && { DeliveryS3KeyPrefix: input.DeliveryS3KeyPrefix }),
-    ...(input.TemplateBody != null && { TemplateBody: input.TemplateBody }),
-    ...(input.TemplateS3Uri != null && { TemplateS3Uri: input.TemplateS3Uri }),
-    ...(input.TemplateSSMDocumentDetails != null && {
-      TemplateSSMDocumentDetails: se_TemplateSSMDocumentDetails(input.TemplateSSMDocumentDetails, context),
-    }),
-  };
-};
+// se_PutConformancePackRequest omitted.
 
-/**
- * serializeAws_json1_1PutDeliveryChannelRequest
- */
-const se_PutDeliveryChannelRequest = (input: PutDeliveryChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryChannel != null && { DeliveryChannel: se_DeliveryChannel(input.DeliveryChannel, context) }),
-  };
-};
+// se_PutDeliveryChannelRequest omitted.
 
 /**
  * serializeAws_json1_1PutEvaluationsRequest
  */
 const se_PutEvaluationsRequest = (input: PutEvaluationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Evaluations != null && { Evaluations: se_Evaluations(input.Evaluations, context) }),
-    ...(input.ResultToken != null && { ResultToken: input.ResultToken }),
-    ...(input.TestMode != null && { TestMode: input.TestMode }),
-  };
+  return take(input, {
+    Evaluations: (_) => se_Evaluations(_, context),
+    ResultToken: [],
+    TestMode: [],
+  });
 };
 
 /**
  * serializeAws_json1_1PutExternalEvaluationRequest
  */
 const se_PutExternalEvaluationRequest = (input: PutExternalEvaluationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.ExternalEvaluation != null && {
-      ExternalEvaluation: se_ExternalEvaluation(input.ExternalEvaluation, context),
-    }),
-  };
+  return take(input, {
+    ConfigRuleName: [],
+    ExternalEvaluation: (_) => se_ExternalEvaluation(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1PutOrganizationConfigRuleRequest
- */
-const se_PutOrganizationConfigRuleRequest = (input: PutOrganizationConfigRuleRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExcludedAccounts != null && { ExcludedAccounts: se_ExcludedAccounts(input.ExcludedAccounts, context) }),
-    ...(input.OrganizationConfigRuleName != null && { OrganizationConfigRuleName: input.OrganizationConfigRuleName }),
-    ...(input.OrganizationCustomPolicyRuleMetadata != null && {
-      OrganizationCustomPolicyRuleMetadata: se_OrganizationCustomPolicyRuleMetadata(
-        input.OrganizationCustomPolicyRuleMetadata,
-        context
-      ),
-    }),
-    ...(input.OrganizationCustomRuleMetadata != null && {
-      OrganizationCustomRuleMetadata: se_OrganizationCustomRuleMetadata(input.OrganizationCustomRuleMetadata, context),
-    }),
-    ...(input.OrganizationManagedRuleMetadata != null && {
-      OrganizationManagedRuleMetadata: se_OrganizationManagedRuleMetadata(
-        input.OrganizationManagedRuleMetadata,
-        context
-      ),
-    }),
-  };
-};
+// se_PutOrganizationConfigRuleRequest omitted.
 
-/**
- * serializeAws_json1_1PutOrganizationConformancePackRequest
- */
-const se_PutOrganizationConformancePackRequest = (
-  input: PutOrganizationConformancePackRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConformancePackInputParameters != null && {
-      ConformancePackInputParameters: se_ConformancePackInputParameters(input.ConformancePackInputParameters, context),
-    }),
-    ...(input.DeliveryS3Bucket != null && { DeliveryS3Bucket: input.DeliveryS3Bucket }),
-    ...(input.DeliveryS3KeyPrefix != null && { DeliveryS3KeyPrefix: input.DeliveryS3KeyPrefix }),
-    ...(input.ExcludedAccounts != null && { ExcludedAccounts: se_ExcludedAccounts(input.ExcludedAccounts, context) }),
-    ...(input.OrganizationConformancePackName != null && {
-      OrganizationConformancePackName: input.OrganizationConformancePackName,
-    }),
-    ...(input.TemplateBody != null && { TemplateBody: input.TemplateBody }),
-    ...(input.TemplateS3Uri != null && { TemplateS3Uri: input.TemplateS3Uri }),
-  };
-};
+// se_PutOrganizationConformancePackRequest omitted.
 
-/**
- * serializeAws_json1_1PutRemediationConfigurationsRequest
- */
-const se_PutRemediationConfigurationsRequest = (
-  input: PutRemediationConfigurationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RemediationConfigurations != null && {
-      RemediationConfigurations: se_RemediationConfigurations(input.RemediationConfigurations, context),
-    }),
-  };
-};
+// se_PutRemediationConfigurationsRequest omitted.
 
 /**
  * serializeAws_json1_1PutRemediationExceptionsRequest
  */
 const se_PutRemediationExceptionsRequest = (input: PutRemediationExceptionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.ExpirationTime != null && { ExpirationTime: Math.round(input.ExpirationTime.getTime() / 1000) }),
-    ...(input.Message != null && { Message: input.Message }),
-    ...(input.ResourceKeys != null && {
-      ResourceKeys: se_RemediationExceptionResourceKeys(input.ResourceKeys, context),
-    }),
-  };
+  return take(input, {
+    ConfigRuleName: [],
+    ExpirationTime: (_) => Math.round(_.getTime() / 1000),
+    Message: [],
+    ResourceKeys: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1PutResourceConfigRequest
- */
-const se_PutResourceConfigRequest = (input: PutResourceConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Configuration != null && { Configuration: input.Configuration }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceName != null && { ResourceName: input.ResourceName }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.SchemaVersionId != null && { SchemaVersionId: input.SchemaVersionId }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
-};
+// se_PutResourceConfigRequest omitted.
 
-/**
- * serializeAws_json1_1PutRetentionConfigurationRequest
- */
-const se_PutRetentionConfigurationRequest = (input: PutRetentionConfigurationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RetentionPeriodInDays != null && { RetentionPeriodInDays: input.RetentionPeriodInDays }),
-  };
-};
+// se_PutRetentionConfigurationRequest omitted.
 
-/**
- * serializeAws_json1_1PutStoredQueryRequest
- */
-const se_PutStoredQueryRequest = (input: PutStoredQueryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.StoredQuery != null && { StoredQuery: se_StoredQuery(input.StoredQuery, context) }),
-    ...(input.Tags != null && { Tags: se_TagsList(input.Tags, context) }),
-  };
-};
+// se_PutStoredQueryRequest omitted.
 
-/**
- * serializeAws_json1_1RecordingGroup
- */
-const se_RecordingGroup = (input: RecordingGroup, context: __SerdeContext): any => {
-  return {
-    ...(input.allSupported != null && { allSupported: input.allSupported }),
-    ...(input.includeGlobalResourceTypes != null && { includeGlobalResourceTypes: input.includeGlobalResourceTypes }),
-    ...(input.resourceTypes != null && { resourceTypes: se_ResourceTypeList(input.resourceTypes, context) }),
-  };
-};
+// se_RecordingGroup omitted.
 
-/**
- * serializeAws_json1_1ReevaluateConfigRuleNames
- */
-const se_ReevaluateConfigRuleNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ReevaluateConfigRuleNames omitted.
 
-/**
- * serializeAws_json1_1RemediationConfiguration
- */
-const se_RemediationConfiguration = (input: RemediationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.Automatic != null && { Automatic: input.Automatic }),
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.CreatedByService != null && { CreatedByService: input.CreatedByService }),
-    ...(input.ExecutionControls != null && {
-      ExecutionControls: se_ExecutionControls(input.ExecutionControls, context),
-    }),
-    ...(input.MaximumAutomaticAttempts != null && { MaximumAutomaticAttempts: input.MaximumAutomaticAttempts }),
-    ...(input.Parameters != null && { Parameters: se_RemediationParameters(input.Parameters, context) }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.RetryAttemptSeconds != null && { RetryAttemptSeconds: input.RetryAttemptSeconds }),
-    ...(input.TargetId != null && { TargetId: input.TargetId }),
-    ...(input.TargetType != null && { TargetType: input.TargetType }),
-    ...(input.TargetVersion != null && { TargetVersion: input.TargetVersion }),
-  };
-};
+// se_RemediationConfiguration omitted.
 
-/**
- * serializeAws_json1_1RemediationConfigurations
- */
-const se_RemediationConfigurations = (input: RemediationConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RemediationConfiguration(entry, context);
-    });
-};
+// se_RemediationConfigurations omitted.
 
-/**
- * serializeAws_json1_1RemediationExceptionResourceKey
- */
-const se_RemediationExceptionResourceKey = (input: RemediationExceptionResourceKey, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
+// se_RemediationExceptionResourceKey omitted.
 
-/**
- * serializeAws_json1_1RemediationExceptionResourceKeys
- */
-const se_RemediationExceptionResourceKeys = (
-  input: RemediationExceptionResourceKey[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RemediationExceptionResourceKey(entry, context);
-    });
-};
+// se_RemediationExceptionResourceKeys omitted.
 
-/**
- * serializeAws_json1_1RemediationParameters
- */
-const se_RemediationParameters = (input: Record<string, RemediationParameterValue>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_RemediationParameterValue(value, context);
-    return acc;
-  }, {});
-};
+// se_RemediationParameters omitted.
 
-/**
- * serializeAws_json1_1RemediationParameterValue
- */
-const se_RemediationParameterValue = (input: RemediationParameterValue, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceValue != null && { ResourceValue: se_ResourceValue(input.ResourceValue, context) }),
-    ...(input.StaticValue != null && { StaticValue: se_StaticValue(input.StaticValue, context) }),
-  };
-};
+// se_RemediationParameterValue omitted.
 
-/**
- * serializeAws_json1_1ResourceCountFilters
- */
-const se_ResourceCountFilters = (input: ResourceCountFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
+// se_ResourceCountFilters omitted.
 
-/**
- * serializeAws_json1_1ResourceDetails
- */
-const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceConfiguration != null && { ResourceConfiguration: input.ResourceConfiguration }),
-    ...(input.ResourceConfigurationSchemaType != null && {
-      ResourceConfigurationSchemaType: input.ResourceConfigurationSchemaType,
-    }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
+// se_ResourceDetails omitted.
 
 /**
  * serializeAws_json1_1ResourceEvaluationFilters
  */
 const se_ResourceEvaluationFilters = (input: ResourceEvaluationFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.EvaluationContextIdentifier != null && {
-      EvaluationContextIdentifier: input.EvaluationContextIdentifier,
-    }),
-    ...(input.EvaluationMode != null && { EvaluationMode: input.EvaluationMode }),
-    ...(input.TimeWindow != null && { TimeWindow: se_TimeWindow(input.TimeWindow, context) }),
-  };
+  return take(input, {
+    EvaluationContextIdentifier: [],
+    EvaluationMode: [],
+    TimeWindow: (_) => se_TimeWindow(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1ResourceFilters
- */
-const se_ResourceFilters = (input: ResourceFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceName != null && { ResourceName: input.ResourceName }),
-  };
-};
+// se_ResourceFilters omitted.
 
-/**
- * serializeAws_json1_1ResourceIdentifiersList
- */
-const se_ResourceIdentifiersList = (input: AggregateResourceIdentifier[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AggregateResourceIdentifier(entry, context);
-    });
-};
+// se_ResourceIdentifiersList omitted.
 
-/**
- * serializeAws_json1_1ResourceIdList
- */
-const se_ResourceIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceIdList omitted.
 
-/**
- * serializeAws_json1_1ResourceKey
- */
-const se_ResourceKey = (input: ResourceKey, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceId != null && { resourceId: input.resourceId }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-  };
-};
+// se_ResourceKey omitted.
 
-/**
- * serializeAws_json1_1ResourceKeys
- */
-const se_ResourceKeys = (input: ResourceKey[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ResourceKey(entry, context);
-    });
-};
+// se_ResourceKeys omitted.
 
-/**
- * serializeAws_json1_1ResourceTypeList
- */
-const se_ResourceTypeList = (input: (ResourceType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceTypeList omitted.
 
-/**
- * serializeAws_json1_1ResourceTypes
- */
-const se_ResourceTypes = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceTypes omitted.
 
-/**
- * serializeAws_json1_1ResourceTypesScope
- */
-const se_ResourceTypesScope = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceTypesScope omitted.
 
-/**
- * serializeAws_json1_1ResourceValue
- */
-const se_ResourceValue = (input: ResourceValue, context: __SerdeContext): any => {
-  return {
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ResourceValue omitted.
 
-/**
- * serializeAws_json1_1RetentionConfigurationNameList
- */
-const se_RetentionConfigurationNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RetentionConfigurationNameList omitted.
 
-/**
- * serializeAws_json1_1Scope
- */
-const se_Scope = (input: Scope, context: __SerdeContext): any => {
-  return {
-    ...(input.ComplianceResourceId != null && { ComplianceResourceId: input.ComplianceResourceId }),
-    ...(input.ComplianceResourceTypes != null && {
-      ComplianceResourceTypes: se_ComplianceResourceTypes(input.ComplianceResourceTypes, context),
-    }),
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-    ...(input.TagValue != null && { TagValue: input.TagValue }),
-  };
-};
+// se_Scope omitted.
 
-/**
- * serializeAws_json1_1SelectAggregateResourceConfigRequest
- */
-const se_SelectAggregateResourceConfigRequest = (
-  input: SelectAggregateResourceConfigRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationAggregatorName != null && {
-      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
-    }),
-    ...(input.Expression != null && { Expression: input.Expression }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_SelectAggregateResourceConfigRequest omitted.
 
-/**
- * serializeAws_json1_1SelectResourceConfigRequest
- */
-const se_SelectResourceConfigRequest = (input: SelectResourceConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Expression != null && { Expression: input.Expression }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_SelectResourceConfigRequest omitted.
 
-/**
- * serializeAws_json1_1Source
- */
-const se_Source = (input: Source, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomPolicyDetails != null && {
-      CustomPolicyDetails: se_CustomPolicyDetails(input.CustomPolicyDetails, context),
-    }),
-    ...(input.Owner != null && { Owner: input.Owner }),
-    ...(input.SourceDetails != null && { SourceDetails: se_SourceDetails(input.SourceDetails, context) }),
-    ...(input.SourceIdentifier != null && { SourceIdentifier: input.SourceIdentifier }),
-  };
-};
+// se_Source omitted.
 
-/**
- * serializeAws_json1_1SourceDetail
- */
-const se_SourceDetail = (input: SourceDetail, context: __SerdeContext): any => {
-  return {
-    ...(input.EventSource != null && { EventSource: input.EventSource }),
-    ...(input.MaximumExecutionFrequency != null && { MaximumExecutionFrequency: input.MaximumExecutionFrequency }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-  };
-};
+// se_SourceDetail omitted.
 
-/**
- * serializeAws_json1_1SourceDetails
- */
-const se_SourceDetails = (input: SourceDetail[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SourceDetail(entry, context);
-    });
-};
+// se_SourceDetails omitted.
 
-/**
- * serializeAws_json1_1SsmControls
- */
-const se_SsmControls = (input: SsmControls, context: __SerdeContext): any => {
-  return {
-    ...(input.ConcurrentExecutionRatePercentage != null && {
-      ConcurrentExecutionRatePercentage: input.ConcurrentExecutionRatePercentage,
-    }),
-    ...(input.ErrorPercentage != null && { ErrorPercentage: input.ErrorPercentage }),
-  };
-};
+// se_SsmControls omitted.
 
-/**
- * serializeAws_json1_1StartConfigRulesEvaluationRequest
- */
-const se_StartConfigRulesEvaluationRequest = (
-  input: StartConfigRulesEvaluationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigRuleNames != null && {
-      ConfigRuleNames: se_ReevaluateConfigRuleNames(input.ConfigRuleNames, context),
-    }),
-  };
-};
+// se_StartConfigRulesEvaluationRequest omitted.
 
-/**
- * serializeAws_json1_1StartConfigurationRecorderRequest
- */
-const se_StartConfigurationRecorderRequest = (
-  input: StartConfigurationRecorderRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ConfigurationRecorderName != null && { ConfigurationRecorderName: input.ConfigurationRecorderName }),
-  };
-};
+// se_StartConfigurationRecorderRequest omitted.
 
-/**
- * serializeAws_json1_1StartRemediationExecutionRequest
- */
-const se_StartRemediationExecutionRequest = (input: StartRemediationExecutionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigRuleName != null && { ConfigRuleName: input.ConfigRuleName }),
-    ...(input.ResourceKeys != null && { ResourceKeys: se_ResourceKeys(input.ResourceKeys, context) }),
-  };
-};
+// se_StartRemediationExecutionRequest omitted.
 
-/**
- * serializeAws_json1_1StartResourceEvaluationRequest
- */
-const se_StartResourceEvaluationRequest = (input: StartResourceEvaluationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.EvaluationContext != null && {
-      EvaluationContext: se_EvaluationContext(input.EvaluationContext, context),
-    }),
-    ...(input.EvaluationMode != null && { EvaluationMode: input.EvaluationMode }),
-    ...(input.EvaluationTimeout != null && { EvaluationTimeout: input.EvaluationTimeout }),
-    ...(input.ResourceDetails != null && { ResourceDetails: se_ResourceDetails(input.ResourceDetails, context) }),
-  };
-};
+// se_StartResourceEvaluationRequest omitted.
 
-/**
- * serializeAws_json1_1StaticParameterValues
- */
-const se_StaticParameterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StaticParameterValues omitted.
 
-/**
- * serializeAws_json1_1StaticValue
- */
-const se_StaticValue = (input: StaticValue, context: __SerdeContext): any => {
-  return {
-    ...(input.Values != null && { Values: se_StaticParameterValues(input.Values, context) }),
-  };
-};
+// se_StaticValue omitted.
 
-/**
- * serializeAws_json1_1StatusDetailFilters
- */
-const se_StatusDetailFilters = (input: StatusDetailFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.MemberAccountRuleStatus != null && { MemberAccountRuleStatus: input.MemberAccountRuleStatus }),
-  };
-};
+// se_StatusDetailFilters omitted.
 
-/**
- * serializeAws_json1_1StopConfigurationRecorderRequest
- */
-const se_StopConfigurationRecorderRequest = (input: StopConfigurationRecorderRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationRecorderName != null && { ConfigurationRecorderName: input.ConfigurationRecorderName }),
-  };
-};
+// se_StopConfigurationRecorderRequest omitted.
 
-/**
- * serializeAws_json1_1StoredQuery
- */
-const se_StoredQuery = (input: StoredQuery, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Expression != null && { Expression: input.Expression }),
-    ...(input.QueryArn != null && { QueryArn: input.QueryArn }),
-    ...(input.QueryId != null && { QueryId: input.QueryId }),
-    ...(input.QueryName != null && { QueryName: input.QueryName }),
-  };
-};
+// se_StoredQuery omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_1TagsList
- */
-const se_TagsList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagsList omitted.
 
-/**
- * serializeAws_json1_1TemplateSSMDocumentDetails
- */
-const se_TemplateSSMDocumentDetails = (input: TemplateSSMDocumentDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.DocumentName != null && { DocumentName: input.DocumentName }),
-    ...(input.DocumentVersion != null && { DocumentVersion: input.DocumentVersion }),
-  };
-};
+// se_TemplateSSMDocumentDetails omitted.
 
 /**
  * serializeAws_json1_1TimeWindow
  */
 const se_TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * deserializeAws_json1_1AccountAggregationSource
- */
-const de_AccountAggregationSource = (output: any, context: __SerdeContext): AccountAggregationSource => {
-  return {
-    AccountIds:
-      output.AccountIds != null ? de_AccountAggregationSourceAccountList(output.AccountIds, context) : undefined,
-    AllAwsRegions: __expectBoolean(output.AllAwsRegions),
-    AwsRegions: output.AwsRegions != null ? de_AggregatorRegionList(output.AwsRegions, context) : undefined,
-  } as any;
-};
+// de_AccountAggregationSource omitted.
 
-/**
- * deserializeAws_json1_1AccountAggregationSourceAccountList
- */
-const de_AccountAggregationSourceAccountList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AccountAggregationSourceAccountList omitted.
 
-/**
- * deserializeAws_json1_1AccountAggregationSourceList
- */
-const de_AccountAggregationSourceList = (output: any, context: __SerdeContext): AccountAggregationSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AccountAggregationSource(entry, context);
-    });
-  return retVal;
-};
+// de_AccountAggregationSourceList omitted.
 
-/**
- * deserializeAws_json1_1AggregateComplianceByConfigRule
- */
-const de_AggregateComplianceByConfigRule = (output: any, context: __SerdeContext): AggregateComplianceByConfigRule => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    AwsRegion: __expectString(output.AwsRegion),
-    Compliance: output.Compliance != null ? de_Compliance(output.Compliance, context) : undefined,
-    ConfigRuleName: __expectString(output.ConfigRuleName),
-  } as any;
-};
+// de_AggregateComplianceByConfigRule omitted.
 
-/**
- * deserializeAws_json1_1AggregateComplianceByConfigRuleList
- */
-const de_AggregateComplianceByConfigRuleList = (
-  output: any,
-  context: __SerdeContext
-): AggregateComplianceByConfigRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AggregateComplianceByConfigRule(entry, context);
-    });
-  return retVal;
-};
+// de_AggregateComplianceByConfigRuleList omitted.
 
-/**
- * deserializeAws_json1_1AggregateComplianceByConformancePack
- */
-const de_AggregateComplianceByConformancePack = (
-  output: any,
-  context: __SerdeContext
-): AggregateComplianceByConformancePack => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    AwsRegion: __expectString(output.AwsRegion),
-    Compliance:
-      output.Compliance != null ? de_AggregateConformancePackCompliance(output.Compliance, context) : undefined,
-    ConformancePackName: __expectString(output.ConformancePackName),
-  } as any;
-};
+// de_AggregateComplianceByConformancePack omitted.
 
-/**
- * deserializeAws_json1_1AggregateComplianceByConformancePackList
- */
-const de_AggregateComplianceByConformancePackList = (
-  output: any,
-  context: __SerdeContext
-): AggregateComplianceByConformancePack[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AggregateComplianceByConformancePack(entry, context);
-    });
-  return retVal;
-};
+// de_AggregateComplianceByConformancePackList omitted.
 
 /**
  * deserializeAws_json1_1AggregateComplianceCount
  */
 const de_AggregateComplianceCount = (output: any, context: __SerdeContext): AggregateComplianceCount => {
-  return {
-    ComplianceSummary:
-      output.ComplianceSummary != null ? de_ComplianceSummary(output.ComplianceSummary, context) : undefined,
-    GroupName: __expectString(output.GroupName),
-  } as any;
+  return take(output, {
+    ComplianceSummary: (_: any) => de_ComplianceSummary(_, context),
+    GroupName: __expectString,
+  }) as any;
 };
 
 /**
@@ -9979,92 +7868,32 @@ const de_AggregateComplianceCountList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AggregateComplianceCount(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1AggregateConformancePackCompliance
- */
-const de_AggregateConformancePackCompliance = (
-  output: any,
-  context: __SerdeContext
-): AggregateConformancePackCompliance => {
-  return {
-    ComplianceType: __expectString(output.ComplianceType),
-    CompliantRuleCount: __expectInt32(output.CompliantRuleCount),
-    NonCompliantRuleCount: __expectInt32(output.NonCompliantRuleCount),
-    TotalRuleCount: __expectInt32(output.TotalRuleCount),
-  } as any;
-};
+// de_AggregateConformancePackCompliance omitted.
 
-/**
- * deserializeAws_json1_1AggregateConformancePackComplianceCount
- */
-const de_AggregateConformancePackComplianceCount = (
-  output: any,
-  context: __SerdeContext
-): AggregateConformancePackComplianceCount => {
-  return {
-    CompliantConformancePackCount: __expectInt32(output.CompliantConformancePackCount),
-    NonCompliantConformancePackCount: __expectInt32(output.NonCompliantConformancePackCount),
-  } as any;
-};
+// de_AggregateConformancePackComplianceCount omitted.
 
-/**
- * deserializeAws_json1_1AggregateConformancePackComplianceSummary
- */
-const de_AggregateConformancePackComplianceSummary = (
-  output: any,
-  context: __SerdeContext
-): AggregateConformancePackComplianceSummary => {
-  return {
-    ComplianceSummary:
-      output.ComplianceSummary != null
-        ? de_AggregateConformancePackComplianceCount(output.ComplianceSummary, context)
-        : undefined,
-    GroupName: __expectString(output.GroupName),
-  } as any;
-};
+// de_AggregateConformancePackComplianceSummary omitted.
 
-/**
- * deserializeAws_json1_1AggregateConformancePackComplianceSummaryList
- */
-const de_AggregateConformancePackComplianceSummaryList = (
-  output: any,
-  context: __SerdeContext
-): AggregateConformancePackComplianceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AggregateConformancePackComplianceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AggregateConformancePackComplianceSummaryList omitted.
 
 /**
  * deserializeAws_json1_1AggregatedSourceStatus
  */
 const de_AggregatedSourceStatus = (output: any, context: __SerdeContext): AggregatedSourceStatus => {
-  return {
-    AwsRegion: __expectString(output.AwsRegion),
-    LastErrorCode: __expectString(output.LastErrorCode),
-    LastErrorMessage: __expectString(output.LastErrorMessage),
-    LastUpdateStatus: __expectString(output.LastUpdateStatus),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    SourceId: __expectString(output.SourceId),
-    SourceType: __expectString(output.SourceType),
-  } as any;
+  return take(output, {
+    AwsRegion: __expectString,
+    LastErrorCode: __expectString,
+    LastErrorMessage: __expectString,
+    LastUpdateStatus: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceId: __expectString,
+    SourceType: __expectString,
+  }) as any;
 };
 
 /**
@@ -10074,9 +7903,6 @@ const de_AggregatedSourceStatusList = (output: any, context: __SerdeContext): Ag
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AggregatedSourceStatus(entry, context);
     });
   return retVal;
@@ -10086,24 +7912,15 @@ const de_AggregatedSourceStatusList = (output: any, context: __SerdeContext): Ag
  * deserializeAws_json1_1AggregateEvaluationResult
  */
 const de_AggregateEvaluationResult = (output: any, context: __SerdeContext): AggregateEvaluationResult => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Annotation: __expectString(output.Annotation),
-    AwsRegion: __expectString(output.AwsRegion),
-    ComplianceType: __expectString(output.ComplianceType),
-    ConfigRuleInvokedTime:
-      output.ConfigRuleInvokedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConfigRuleInvokedTime)))
-        : undefined,
-    EvaluationResultIdentifier:
-      output.EvaluationResultIdentifier != null
-        ? de_EvaluationResultIdentifier(output.EvaluationResultIdentifier, context)
-        : undefined,
-    ResultRecordedTime:
-      output.ResultRecordedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResultRecordedTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    Annotation: __expectString,
+    AwsRegion: __expectString,
+    ComplianceType: __expectString,
+    ConfigRuleInvokedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationResultIdentifier: (_: any) => de_EvaluationResultIdentifier(_, context),
+    ResultRecordedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -10113,40 +7930,23 @@ const de_AggregateEvaluationResultList = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AggregateEvaluationResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1AggregateResourceIdentifier
- */
-const de_AggregateResourceIdentifier = (output: any, context: __SerdeContext): AggregateResourceIdentifier => {
-  return {
-    ResourceId: __expectString(output.ResourceId),
-    ResourceName: __expectString(output.ResourceName),
-    ResourceType: __expectString(output.ResourceType),
-    SourceAccountId: __expectString(output.SourceAccountId),
-    SourceRegion: __expectString(output.SourceRegion),
-  } as any;
-};
+// de_AggregateResourceIdentifier omitted.
 
 /**
  * deserializeAws_json1_1AggregationAuthorization
  */
 const de_AggregationAuthorization = (output: any, context: __SerdeContext): AggregationAuthorization => {
-  return {
-    AggregationAuthorizationArn: __expectString(output.AggregationAuthorizationArn),
-    AuthorizedAccountId: __expectString(output.AuthorizedAccountId),
-    AuthorizedAwsRegion: __expectString(output.AuthorizedAwsRegion),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    AggregationAuthorizationArn: __expectString,
+    AuthorizedAccountId: __expectString,
+    AuthorizedAwsRegion: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -10156,58 +7956,33 @@ const de_AggregationAuthorizationList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AggregationAuthorization(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1AggregatorRegionList
- */
-const de_AggregatorRegionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AggregatorRegionList omitted.
 
 /**
  * deserializeAws_json1_1BaseConfigurationItem
  */
 const de_BaseConfigurationItem = (output: any, context: __SerdeContext): BaseConfigurationItem => {
-  return {
-    accountId: __expectString(output.accountId),
-    arn: __expectString(output.arn),
-    availabilityZone: __expectString(output.availabilityZone),
-    awsRegion: __expectString(output.awsRegion),
-    configuration: __expectString(output.configuration),
-    configurationItemCaptureTime:
-      output.configurationItemCaptureTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.configurationItemCaptureTime)))
-        : undefined,
-    configurationItemStatus: __expectString(output.configurationItemStatus),
-    configurationStateId: __expectString(output.configurationStateId),
-    resourceCreationTime:
-      output.resourceCreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resourceCreationTime)))
-        : undefined,
-    resourceId: __expectString(output.resourceId),
-    resourceName: __expectString(output.resourceName),
-    resourceType: __expectString(output.resourceType),
-    supplementaryConfiguration:
-      output.supplementaryConfiguration != null
-        ? de_SupplementaryConfiguration(output.supplementaryConfiguration, context)
-        : undefined,
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    accountId: __expectString,
+    arn: __expectString,
+    availabilityZone: __expectString,
+    awsRegion: __expectString,
+    configuration: __expectString,
+    configurationItemCaptureTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    configurationItemStatus: __expectString,
+    configurationStateId: __expectString,
+    resourceCreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceId: __expectString,
+    resourceName: __expectString,
+    resourceType: __expectString,
+    supplementaryConfiguration: _json,
+    version: __expectString,
+  }) as any;
 };
 
 /**
@@ -10217,9 +7992,6 @@ const de_BaseConfigurationItems = (output: any, context: __SerdeContext): BaseCo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BaseConfigurationItem(entry, context);
     });
   return retVal;
@@ -10232,120 +8004,35 @@ const de_BatchGetAggregateResourceConfigResponse = (
   output: any,
   context: __SerdeContext
 ): BatchGetAggregateResourceConfigResponse => {
-  return {
-    BaseConfigurationItems:
-      output.BaseConfigurationItems != null
-        ? de_BaseConfigurationItems(output.BaseConfigurationItems, context)
-        : undefined,
-    UnprocessedResourceIdentifiers:
-      output.UnprocessedResourceIdentifiers != null
-        ? de_UnprocessedResourceIdentifierList(output.UnprocessedResourceIdentifiers, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    BaseConfigurationItems: (_: any) => de_BaseConfigurationItems(_, context),
+    UnprocessedResourceIdentifiers: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1BatchGetResourceConfigResponse
  */
 const de_BatchGetResourceConfigResponse = (output: any, context: __SerdeContext): BatchGetResourceConfigResponse => {
-  return {
-    baseConfigurationItems:
-      output.baseConfigurationItems != null
-        ? de_BaseConfigurationItems(output.baseConfigurationItems, context)
-        : undefined,
-    unprocessedResourceKeys:
-      output.unprocessedResourceKeys != null ? de_ResourceKeys(output.unprocessedResourceKeys, context) : undefined,
-  } as any;
+  return take(output, {
+    baseConfigurationItems: (_: any) => de_BaseConfigurationItems(_, context),
+    unprocessedResourceKeys: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Compliance
- */
-const de_Compliance = (output: any, context: __SerdeContext): Compliance => {
-  return {
-    ComplianceContributorCount:
-      output.ComplianceContributorCount != null
-        ? de_ComplianceContributorCount(output.ComplianceContributorCount, context)
-        : undefined,
-    ComplianceType: __expectString(output.ComplianceType),
-  } as any;
-};
+// de_Compliance omitted.
 
-/**
- * deserializeAws_json1_1ComplianceByConfigRule
- */
-const de_ComplianceByConfigRule = (output: any, context: __SerdeContext): ComplianceByConfigRule => {
-  return {
-    Compliance: output.Compliance != null ? de_Compliance(output.Compliance, context) : undefined,
-    ConfigRuleName: __expectString(output.ConfigRuleName),
-  } as any;
-};
+// de_ComplianceByConfigRule omitted.
 
-/**
- * deserializeAws_json1_1ComplianceByConfigRules
- */
-const de_ComplianceByConfigRules = (output: any, context: __SerdeContext): ComplianceByConfigRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ComplianceByConfigRule(entry, context);
-    });
-  return retVal;
-};
+// de_ComplianceByConfigRules omitted.
 
-/**
- * deserializeAws_json1_1ComplianceByResource
- */
-const de_ComplianceByResource = (output: any, context: __SerdeContext): ComplianceByResource => {
-  return {
-    Compliance: output.Compliance != null ? de_Compliance(output.Compliance, context) : undefined,
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ComplianceByResource omitted.
 
-/**
- * deserializeAws_json1_1ComplianceByResources
- */
-const de_ComplianceByResources = (output: any, context: __SerdeContext): ComplianceByResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ComplianceByResource(entry, context);
-    });
-  return retVal;
-};
+// de_ComplianceByResources omitted.
 
-/**
- * deserializeAws_json1_1ComplianceContributorCount
- */
-const de_ComplianceContributorCount = (output: any, context: __SerdeContext): ComplianceContributorCount => {
-  return {
-    CapExceeded: __expectBoolean(output.CapExceeded),
-    CappedCount: __expectInt32(output.CappedCount),
-  } as any;
-};
+// de_ComplianceContributorCount omitted.
 
-/**
- * deserializeAws_json1_1ComplianceResourceTypes
- */
-const de_ComplianceResourceTypes = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ComplianceResourceTypes omitted.
 
 /**
  * deserializeAws_json1_1ComplianceSummariesByResourceType
@@ -10357,9 +8044,6 @@ const de_ComplianceSummariesByResourceType = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ComplianceSummaryByResourceType(entry, context);
     });
   return retVal;
@@ -10369,117 +8053,60 @@ const de_ComplianceSummariesByResourceType = (
  * deserializeAws_json1_1ComplianceSummary
  */
 const de_ComplianceSummary = (output: any, context: __SerdeContext): ComplianceSummary => {
-  return {
-    ComplianceSummaryTimestamp:
-      output.ComplianceSummaryTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ComplianceSummaryTimestamp)))
-        : undefined,
-    CompliantResourceCount:
-      output.CompliantResourceCount != null
-        ? de_ComplianceContributorCount(output.CompliantResourceCount, context)
-        : undefined,
-    NonCompliantResourceCount:
-      output.NonCompliantResourceCount != null
-        ? de_ComplianceContributorCount(output.NonCompliantResourceCount, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ComplianceSummaryTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CompliantResourceCount: _json,
+    NonCompliantResourceCount: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ComplianceSummaryByResourceType
  */
 const de_ComplianceSummaryByResourceType = (output: any, context: __SerdeContext): ComplianceSummaryByResourceType => {
-  return {
-    ComplianceSummary:
-      output.ComplianceSummary != null ? de_ComplianceSummary(output.ComplianceSummary, context) : undefined,
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
+  return take(output, {
+    ComplianceSummary: (_: any) => de_ComplianceSummary(_, context),
+    ResourceType: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ConfigExportDeliveryInfo
  */
 const de_ConfigExportDeliveryInfo = (output: any, context: __SerdeContext): ConfigExportDeliveryInfo => {
-  return {
-    lastAttemptTime:
-      output.lastAttemptTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAttemptTime)))
-        : undefined,
-    lastErrorCode: __expectString(output.lastErrorCode),
-    lastErrorMessage: __expectString(output.lastErrorMessage),
-    lastStatus: __expectString(output.lastStatus),
-    lastSuccessfulTime:
-      output.lastSuccessfulTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastSuccessfulTime)))
-        : undefined,
-    nextDeliveryTime:
-      output.nextDeliveryTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.nextDeliveryTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    lastAttemptTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastErrorCode: __expectString,
+    lastErrorMessage: __expectString,
+    lastStatus: __expectString,
+    lastSuccessfulTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    nextDeliveryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ConfigRule
- */
-const de_ConfigRule = (output: any, context: __SerdeContext): ConfigRule => {
-  return {
-    ConfigRuleArn: __expectString(output.ConfigRuleArn),
-    ConfigRuleId: __expectString(output.ConfigRuleId),
-    ConfigRuleName: __expectString(output.ConfigRuleName),
-    ConfigRuleState: __expectString(output.ConfigRuleState),
-    CreatedBy: __expectString(output.CreatedBy),
-    Description: __expectString(output.Description),
-    EvaluationModes: output.EvaluationModes != null ? de_EvaluationModes(output.EvaluationModes, context) : undefined,
-    InputParameters: __expectString(output.InputParameters),
-    MaximumExecutionFrequency: __expectString(output.MaximumExecutionFrequency),
-    Scope: output.Scope != null ? de_Scope(output.Scope, context) : undefined,
-    Source: output.Source != null ? de_Source(output.Source, context) : undefined,
-  } as any;
-};
+// de_ConfigRule omitted.
 
 /**
  * deserializeAws_json1_1ConfigRuleEvaluationStatus
  */
 const de_ConfigRuleEvaluationStatus = (output: any, context: __SerdeContext): ConfigRuleEvaluationStatus => {
-  return {
-    ConfigRuleArn: __expectString(output.ConfigRuleArn),
-    ConfigRuleId: __expectString(output.ConfigRuleId),
-    ConfigRuleName: __expectString(output.ConfigRuleName),
-    FirstActivatedTime:
-      output.FirstActivatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FirstActivatedTime)))
-        : undefined,
-    FirstEvaluationStarted: __expectBoolean(output.FirstEvaluationStarted),
-    LastDeactivatedTime:
-      output.LastDeactivatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastDeactivatedTime)))
-        : undefined,
-    LastDebugLogDeliveryStatus: __expectString(output.LastDebugLogDeliveryStatus),
-    LastDebugLogDeliveryStatusReason: __expectString(output.LastDebugLogDeliveryStatusReason),
-    LastDebugLogDeliveryTime:
-      output.LastDebugLogDeliveryTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastDebugLogDeliveryTime)))
-        : undefined,
-    LastErrorCode: __expectString(output.LastErrorCode),
-    LastErrorMessage: __expectString(output.LastErrorMessage),
-    LastFailedEvaluationTime:
-      output.LastFailedEvaluationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastFailedEvaluationTime)))
-        : undefined,
-    LastFailedInvocationTime:
-      output.LastFailedInvocationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastFailedInvocationTime)))
-        : undefined,
-    LastSuccessfulEvaluationTime:
-      output.LastSuccessfulEvaluationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulEvaluationTime)))
-        : undefined,
-    LastSuccessfulInvocationTime:
-      output.LastSuccessfulInvocationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulInvocationTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    ConfigRuleArn: __expectString,
+    ConfigRuleId: __expectString,
+    ConfigRuleName: __expectString,
+    FirstActivatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FirstEvaluationStarted: __expectBoolean,
+    LastDeactivatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastDebugLogDeliveryStatus: __expectString,
+    LastDebugLogDeliveryStatusReason: __expectString,
+    LastDebugLogDeliveryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastErrorCode: __expectString,
+    LastErrorMessage: __expectString,
+    LastFailedEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastFailedInvocationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastSuccessfulEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastSuccessfulInvocationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -10489,81 +8116,40 @@ const de_ConfigRuleEvaluationStatusList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigRuleEvaluationStatus(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ConfigRules
- */
-const de_ConfigRules = (output: any, context: __SerdeContext): ConfigRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConfigRule(entry, context);
-    });
-  return retVal;
-};
+// de_ConfigRules omitted.
 
-/**
- * deserializeAws_json1_1ConfigSnapshotDeliveryProperties
- */
-const de_ConfigSnapshotDeliveryProperties = (
-  output: any,
-  context: __SerdeContext
-): ConfigSnapshotDeliveryProperties => {
-  return {
-    deliveryFrequency: __expectString(output.deliveryFrequency),
-  } as any;
-};
+// de_ConfigSnapshotDeliveryProperties omitted.
 
 /**
  * deserializeAws_json1_1ConfigStreamDeliveryInfo
  */
 const de_ConfigStreamDeliveryInfo = (output: any, context: __SerdeContext): ConfigStreamDeliveryInfo => {
-  return {
-    lastErrorCode: __expectString(output.lastErrorCode),
-    lastErrorMessage: __expectString(output.lastErrorMessage),
-    lastStatus: __expectString(output.lastStatus),
-    lastStatusChangeTime:
-      output.lastStatusChangeTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusChangeTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    lastErrorCode: __expectString,
+    lastErrorMessage: __expectString,
+    lastStatus: __expectString,
+    lastStatusChangeTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ConfigurationAggregator
  */
 const de_ConfigurationAggregator = (output: any, context: __SerdeContext): ConfigurationAggregator => {
-  return {
-    AccountAggregationSources:
-      output.AccountAggregationSources != null
-        ? de_AccountAggregationSourceList(output.AccountAggregationSources, context)
-        : undefined,
-    ConfigurationAggregatorArn: __expectString(output.ConfigurationAggregatorArn),
-    ConfigurationAggregatorName: __expectString(output.ConfigurationAggregatorName),
-    CreatedBy: __expectString(output.CreatedBy),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    OrganizationAggregationSource:
-      output.OrganizationAggregationSource != null
-        ? de_OrganizationAggregationSource(output.OrganizationAggregationSource, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountAggregationSources: _json,
+    ConfigurationAggregatorArn: __expectString,
+    ConfigurationAggregatorName: __expectString,
+    CreatedBy: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrganizationAggregationSource: _json,
+  }) as any;
 };
 
 /**
@@ -10573,9 +8159,6 @@ const de_ConfigurationAggregatorList = (output: any, context: __SerdeContext): C
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigurationAggregator(entry, context);
     });
   return retVal;
@@ -10585,35 +8168,26 @@ const de_ConfigurationAggregatorList = (output: any, context: __SerdeContext): C
  * deserializeAws_json1_1ConfigurationItem
  */
 const de_ConfigurationItem = (output: any, context: __SerdeContext): ConfigurationItem => {
-  return {
-    accountId: __expectString(output.accountId),
-    arn: __expectString(output.arn),
-    availabilityZone: __expectString(output.availabilityZone),
-    awsRegion: __expectString(output.awsRegion),
-    configuration: __expectString(output.configuration),
-    configurationItemCaptureTime:
-      output.configurationItemCaptureTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.configurationItemCaptureTime)))
-        : undefined,
-    configurationItemMD5Hash: __expectString(output.configurationItemMD5Hash),
-    configurationItemStatus: __expectString(output.configurationItemStatus),
-    configurationStateId: __expectString(output.configurationStateId),
-    relatedEvents: output.relatedEvents != null ? de_RelatedEventList(output.relatedEvents, context) : undefined,
-    relationships: output.relationships != null ? de_RelationshipList(output.relationships, context) : undefined,
-    resourceCreationTime:
-      output.resourceCreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resourceCreationTime)))
-        : undefined,
-    resourceId: __expectString(output.resourceId),
-    resourceName: __expectString(output.resourceName),
-    resourceType: __expectString(output.resourceType),
-    supplementaryConfiguration:
-      output.supplementaryConfiguration != null
-        ? de_SupplementaryConfiguration(output.supplementaryConfiguration, context)
-        : undefined,
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    accountId: __expectString,
+    arn: __expectString,
+    availabilityZone: __expectString,
+    awsRegion: __expectString,
+    configuration: __expectString,
+    configurationItemCaptureTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    configurationItemMD5Hash: __expectString,
+    configurationItemStatus: __expectString,
+    configurationStateId: __expectString,
+    relatedEvents: _json,
+    relationships: _json,
+    resourceCreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceId: __expectString,
+    resourceName: __expectString,
+    resourceType: __expectString,
+    supplementaryConfiguration: _json,
+    tags: _json,
+    version: __expectString,
+  }) as any;
 };
 
 /**
@@ -10623,63 +8197,29 @@ const de_ConfigurationItemList = (output: any, context: __SerdeContext): Configu
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigurationItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ConfigurationRecorder
- */
-const de_ConfigurationRecorder = (output: any, context: __SerdeContext): ConfigurationRecorder => {
-  return {
-    name: __expectString(output.name),
-    recordingGroup: output.recordingGroup != null ? de_RecordingGroup(output.recordingGroup, context) : undefined,
-    roleARN: __expectString(output.roleARN),
-  } as any;
-};
+// de_ConfigurationRecorder omitted.
 
-/**
- * deserializeAws_json1_1ConfigurationRecorderList
- */
-const de_ConfigurationRecorderList = (output: any, context: __SerdeContext): ConfigurationRecorder[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConfigurationRecorder(entry, context);
-    });
-  return retVal;
-};
+// de_ConfigurationRecorderList omitted.
 
 /**
  * deserializeAws_json1_1ConfigurationRecorderStatus
  */
 const de_ConfigurationRecorderStatus = (output: any, context: __SerdeContext): ConfigurationRecorderStatus => {
-  return {
-    lastErrorCode: __expectString(output.lastErrorCode),
-    lastErrorMessage: __expectString(output.lastErrorMessage),
-    lastStartTime:
-      output.lastStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStartTime)))
-        : undefined,
-    lastStatus: __expectString(output.lastStatus),
-    lastStatusChangeTime:
-      output.lastStatusChangeTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusChangeTime)))
-        : undefined,
-    lastStopTime:
-      output.lastStopTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStopTime)))
-        : undefined,
-    name: __expectString(output.name),
-    recording: __expectBoolean(output.recording),
-  } as any;
+  return take(output, {
+    lastErrorCode: __expectString,
+    lastErrorMessage: __expectString,
+    lastStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastStatus: __expectString,
+    lastStatusChangeTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastStopTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    recording: __expectBoolean,
+  }) as any;
 };
 
 /**
@@ -10689,9 +8229,6 @@ const de_ConfigurationRecorderStatusList = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigurationRecorderStatus(entry, context);
     });
   return retVal;
@@ -10701,14 +8238,11 @@ const de_ConfigurationRecorderStatusList = (output: any, context: __SerdeContext
  * deserializeAws_json1_1ConformancePackComplianceScore
  */
 const de_ConformancePackComplianceScore = (output: any, context: __SerdeContext): ConformancePackComplianceScore => {
-  return {
-    ConformancePackName: __expectString(output.ConformancePackName),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    Score: __expectString(output.Score),
-  } as any;
+  return take(output, {
+    ConformancePackName: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Score: __expectString,
+  }) as any;
 };
 
 /**
@@ -10718,69 +8252,30 @@ const de_ConformancePackComplianceScores = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConformancePackComplianceScore(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ConformancePackComplianceSummary
- */
-const de_ConformancePackComplianceSummary = (
-  output: any,
-  context: __SerdeContext
-): ConformancePackComplianceSummary => {
-  return {
-    ConformancePackComplianceStatus: __expectString(output.ConformancePackComplianceStatus),
-    ConformancePackName: __expectString(output.ConformancePackName),
-  } as any;
-};
+// de_ConformancePackComplianceSummary omitted.
 
-/**
- * deserializeAws_json1_1ConformancePackComplianceSummaryList
- */
-const de_ConformancePackComplianceSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ConformancePackComplianceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConformancePackComplianceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ConformancePackComplianceSummaryList omitted.
 
 /**
  * deserializeAws_json1_1ConformancePackDetail
  */
 const de_ConformancePackDetail = (output: any, context: __SerdeContext): ConformancePackDetail => {
-  return {
-    ConformancePackArn: __expectString(output.ConformancePackArn),
-    ConformancePackId: __expectString(output.ConformancePackId),
-    ConformancePackInputParameters:
-      output.ConformancePackInputParameters != null
-        ? de_ConformancePackInputParameters(output.ConformancePackInputParameters, context)
-        : undefined,
-    ConformancePackName: __expectString(output.ConformancePackName),
-    CreatedBy: __expectString(output.CreatedBy),
-    DeliveryS3Bucket: __expectString(output.DeliveryS3Bucket),
-    DeliveryS3KeyPrefix: __expectString(output.DeliveryS3KeyPrefix),
-    LastUpdateRequestedTime:
-      output.LastUpdateRequestedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateRequestedTime)))
-        : undefined,
-    TemplateSSMDocumentDetails:
-      output.TemplateSSMDocumentDetails != null
-        ? de_TemplateSSMDocumentDetails(output.TemplateSSMDocumentDetails, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ConformancePackArn: __expectString,
+    ConformancePackId: __expectString,
+    ConformancePackInputParameters: _json,
+    ConformancePackName: __expectString,
+    CreatedBy: __expectString,
+    DeliveryS3Bucket: __expectString,
+    DeliveryS3KeyPrefix: __expectString,
+    LastUpdateRequestedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TemplateSSMDocumentDetails: _json,
+  }) as any;
 };
 
 /**
@@ -10790,9 +8285,6 @@ const de_ConformancePackDetailList = (output: any, context: __SerdeContext): Con
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConformancePackDetail(entry, context);
     });
   return retVal;
@@ -10802,77 +8294,22 @@ const de_ConformancePackDetailList = (output: any, context: __SerdeContext): Con
  * deserializeAws_json1_1ConformancePackEvaluationResult
  */
 const de_ConformancePackEvaluationResult = (output: any, context: __SerdeContext): ConformancePackEvaluationResult => {
-  return {
-    Annotation: __expectString(output.Annotation),
-    ComplianceType: __expectString(output.ComplianceType),
-    ConfigRuleInvokedTime:
-      output.ConfigRuleInvokedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConfigRuleInvokedTime)))
-        : undefined,
-    EvaluationResultIdentifier:
-      output.EvaluationResultIdentifier != null
-        ? de_EvaluationResultIdentifier(output.EvaluationResultIdentifier, context)
-        : undefined,
-    ResultRecordedTime:
-      output.ResultRecordedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResultRecordedTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Annotation: __expectString,
+    ComplianceType: __expectString,
+    ConfigRuleInvokedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationResultIdentifier: (_: any) => de_EvaluationResultIdentifier(_, context),
+    ResultRecordedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ConformancePackInputParameter
- */
-const de_ConformancePackInputParameter = (output: any, context: __SerdeContext): ConformancePackInputParameter => {
-  return {
-    ParameterName: __expectString(output.ParameterName),
-    ParameterValue: __expectString(output.ParameterValue),
-  } as any;
-};
+// de_ConformancePackInputParameter omitted.
 
-/**
- * deserializeAws_json1_1ConformancePackInputParameters
- */
-const de_ConformancePackInputParameters = (output: any, context: __SerdeContext): ConformancePackInputParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConformancePackInputParameter(entry, context);
-    });
-  return retVal;
-};
+// de_ConformancePackInputParameters omitted.
 
-/**
- * deserializeAws_json1_1ConformancePackRuleCompliance
- */
-const de_ConformancePackRuleCompliance = (output: any, context: __SerdeContext): ConformancePackRuleCompliance => {
-  return {
-    ComplianceType: __expectString(output.ComplianceType),
-    ConfigRuleName: __expectString(output.ConfigRuleName),
-    Controls: output.Controls != null ? de_ControlsList(output.Controls, context) : undefined,
-  } as any;
-};
+// de_ConformancePackRuleCompliance omitted.
 
-/**
- * deserializeAws_json1_1ConformancePackRuleComplianceList
- */
-const de_ConformancePackRuleComplianceList = (
-  output: any,
-  context: __SerdeContext
-): ConformancePackRuleCompliance[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConformancePackRuleCompliance(entry, context);
-    });
-  return retVal;
-};
+// de_ConformancePackRuleComplianceList omitted.
 
 /**
  * deserializeAws_json1_1ConformancePackRuleEvaluationResultsList
@@ -10884,9 +8321,6 @@ const de_ConformancePackRuleEvaluationResultsList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConformancePackEvaluationResult(entry, context);
     });
   return retVal;
@@ -10896,22 +8330,16 @@ const de_ConformancePackRuleEvaluationResultsList = (
  * deserializeAws_json1_1ConformancePackStatusDetail
  */
 const de_ConformancePackStatusDetail = (output: any, context: __SerdeContext): ConformancePackStatusDetail => {
-  return {
-    ConformancePackArn: __expectString(output.ConformancePackArn),
-    ConformancePackId: __expectString(output.ConformancePackId),
-    ConformancePackName: __expectString(output.ConformancePackName),
-    ConformancePackState: __expectString(output.ConformancePackState),
-    ConformancePackStatusReason: __expectString(output.ConformancePackStatusReason),
-    LastUpdateCompletedTime:
-      output.LastUpdateCompletedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateCompletedTime)))
-        : undefined,
-    LastUpdateRequestedTime:
-      output.LastUpdateRequestedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateRequestedTime)))
-        : undefined,
-    StackArn: __expectString(output.StackArn),
-  } as any;
+  return take(output, {
+    ConformancePackArn: __expectString,
+    ConformancePackId: __expectString,
+    ConformancePackName: __expectString,
+    ConformancePackState: __expectString,
+    ConformancePackStatusReason: __expectString,
+    LastUpdateCompletedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdateRequestedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StackArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -10921,166 +8349,43 @@ const de_ConformancePackStatusDetailsList = (output: any, context: __SerdeContex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConformancePackStatusDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ConformancePackTemplateValidationException
- */
-const de_ConformancePackTemplateValidationException = (
-  output: any,
-  context: __SerdeContext
-): ConformancePackTemplateValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConformancePackTemplateValidationException omitted.
 
-/**
- * deserializeAws_json1_1ControlsList
- */
-const de_ControlsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ControlsList omitted.
 
-/**
- * deserializeAws_json1_1CustomPolicyDetails
- */
-const de_CustomPolicyDetails = (output: any, context: __SerdeContext): CustomPolicyDetails => {
-  return {
-    EnableDebugLogDelivery: __expectBoolean(output.EnableDebugLogDelivery),
-    PolicyRuntime: __expectString(output.PolicyRuntime),
-    PolicyText: __expectString(output.PolicyText),
-  } as any;
-};
+// de_CustomPolicyDetails omitted.
 
-/**
- * deserializeAws_json1_1DebugLogDeliveryAccounts
- */
-const de_DebugLogDeliveryAccounts = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DebugLogDeliveryAccounts omitted.
 
-/**
- * deserializeAws_json1_1DeleteEvaluationResultsResponse
- */
-const de_DeleteEvaluationResultsResponse = (output: any, context: __SerdeContext): DeleteEvaluationResultsResponse => {
-  return {} as any;
-};
+// de_DeleteEvaluationResultsResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteRemediationConfigurationResponse
- */
-const de_DeleteRemediationConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteRemediationConfigurationResponse => {
-  return {} as any;
-};
+// de_DeleteRemediationConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteRemediationExceptionsResponse
- */
-const de_DeleteRemediationExceptionsResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteRemediationExceptionsResponse => {
-  return {
-    FailedBatches:
-      output.FailedBatches != null
-        ? de_FailedDeleteRemediationExceptionsBatches(output.FailedBatches, context)
-        : undefined,
-  } as any;
-};
+// de_DeleteRemediationExceptionsResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteStoredQueryResponse
- */
-const de_DeleteStoredQueryResponse = (output: any, context: __SerdeContext): DeleteStoredQueryResponse => {
-  return {} as any;
-};
+// de_DeleteStoredQueryResponse omitted.
 
-/**
- * deserializeAws_json1_1DeliverConfigSnapshotResponse
- */
-const de_DeliverConfigSnapshotResponse = (output: any, context: __SerdeContext): DeliverConfigSnapshotResponse => {
-  return {
-    configSnapshotId: __expectString(output.configSnapshotId),
-  } as any;
-};
+// de_DeliverConfigSnapshotResponse omitted.
 
-/**
- * deserializeAws_json1_1DeliveryChannel
- */
-const de_DeliveryChannel = (output: any, context: __SerdeContext): DeliveryChannel => {
-  return {
-    configSnapshotDeliveryProperties:
-      output.configSnapshotDeliveryProperties != null
-        ? de_ConfigSnapshotDeliveryProperties(output.configSnapshotDeliveryProperties, context)
-        : undefined,
-    name: __expectString(output.name),
-    s3BucketName: __expectString(output.s3BucketName),
-    s3KeyPrefix: __expectString(output.s3KeyPrefix),
-    s3KmsKeyArn: __expectString(output.s3KmsKeyArn),
-    snsTopicARN: __expectString(output.snsTopicARN),
-  } as any;
-};
+// de_DeliveryChannel omitted.
 
-/**
- * deserializeAws_json1_1DeliveryChannelList
- */
-const de_DeliveryChannelList = (output: any, context: __SerdeContext): DeliveryChannel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DeliveryChannel(entry, context);
-    });
-  return retVal;
-};
+// de_DeliveryChannelList omitted.
 
 /**
  * deserializeAws_json1_1DeliveryChannelStatus
  */
 const de_DeliveryChannelStatus = (output: any, context: __SerdeContext): DeliveryChannelStatus => {
-  return {
-    configHistoryDeliveryInfo:
-      output.configHistoryDeliveryInfo != null
-        ? de_ConfigExportDeliveryInfo(output.configHistoryDeliveryInfo, context)
-        : undefined,
-    configSnapshotDeliveryInfo:
-      output.configSnapshotDeliveryInfo != null
-        ? de_ConfigExportDeliveryInfo(output.configSnapshotDeliveryInfo, context)
-        : undefined,
-    configStreamDeliveryInfo:
-      output.configStreamDeliveryInfo != null
-        ? de_ConfigStreamDeliveryInfo(output.configStreamDeliveryInfo, context)
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    configHistoryDeliveryInfo: (_: any) => de_ConfigExportDeliveryInfo(_, context),
+    configSnapshotDeliveryInfo: (_: any) => de_ConfigExportDeliveryInfo(_, context),
+    configStreamDeliveryInfo: (_: any) => de_ConfigStreamDeliveryInfo(_, context),
+    name: __expectString,
+  }) as any;
 };
 
 /**
@@ -11090,45 +8395,14 @@ const de_DeliveryChannelStatusList = (output: any, context: __SerdeContext): Del
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeliveryChannelStatus(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesResponse
- */
-const de_DescribeAggregateComplianceByConfigRulesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeAggregateComplianceByConfigRulesResponse => {
-  return {
-    AggregateComplianceByConfigRules:
-      output.AggregateComplianceByConfigRules != null
-        ? de_AggregateComplianceByConfigRuleList(output.AggregateComplianceByConfigRules, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_DescribeAggregateComplianceByConfigRulesResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeAggregateComplianceByConformancePacksResponse
- */
-const de_DescribeAggregateComplianceByConformancePacksResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeAggregateComplianceByConformancePacksResponse => {
-  return {
-    AggregateComplianceByConformancePacks:
-      output.AggregateComplianceByConformancePacks != null
-        ? de_AggregateComplianceByConformancePackList(output.AggregateComplianceByConformancePacks, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_DescribeAggregateComplianceByConformancePacksResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeAggregationAuthorizationsResponse
@@ -11137,46 +8411,15 @@ const de_DescribeAggregationAuthorizationsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAggregationAuthorizationsResponse => {
-  return {
-    AggregationAuthorizations:
-      output.AggregationAuthorizations != null
-        ? de_AggregationAuthorizationList(output.AggregationAuthorizations, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AggregationAuthorizations: (_: any) => de_AggregationAuthorizationList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeComplianceByConfigRuleResponse
- */
-const de_DescribeComplianceByConfigRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeComplianceByConfigRuleResponse => {
-  return {
-    ComplianceByConfigRules:
-      output.ComplianceByConfigRules != null
-        ? de_ComplianceByConfigRules(output.ComplianceByConfigRules, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_DescribeComplianceByConfigRuleResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeComplianceByResourceResponse
- */
-const de_DescribeComplianceByResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeComplianceByResourceResponse => {
-  return {
-    ComplianceByResources:
-      output.ComplianceByResources != null
-        ? de_ComplianceByResources(output.ComplianceByResources, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_DescribeComplianceByResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeConfigRuleEvaluationStatusResponse
@@ -11185,24 +8428,13 @@ const de_DescribeConfigRuleEvaluationStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeConfigRuleEvaluationStatusResponse => {
-  return {
-    ConfigRulesEvaluationStatus:
-      output.ConfigRulesEvaluationStatus != null
-        ? de_ConfigRuleEvaluationStatusList(output.ConfigRulesEvaluationStatus, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ConfigRulesEvaluationStatus: (_: any) => de_ConfigRuleEvaluationStatusList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeConfigRulesResponse
- */
-const de_DescribeConfigRulesResponse = (output: any, context: __SerdeContext): DescribeConfigRulesResponse => {
-  return {
-    ConfigRules: output.ConfigRules != null ? de_ConfigRules(output.ConfigRules, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_DescribeConfigRulesResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusResponse
@@ -11211,13 +8443,10 @@ const de_DescribeConfigurationAggregatorSourcesStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeConfigurationAggregatorSourcesStatusResponse => {
-  return {
-    AggregatedSourceStatusList:
-      output.AggregatedSourceStatusList != null
-        ? de_AggregatedSourceStatusList(output.AggregatedSourceStatusList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AggregatedSourceStatusList: (_: any) => de_AggregatedSourceStatusList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -11227,29 +8456,13 @@ const de_DescribeConfigurationAggregatorsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeConfigurationAggregatorsResponse => {
-  return {
-    ConfigurationAggregators:
-      output.ConfigurationAggregators != null
-        ? de_ConfigurationAggregatorList(output.ConfigurationAggregators, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ConfigurationAggregators: (_: any) => de_ConfigurationAggregatorList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeConfigurationRecordersResponse
- */
-const de_DescribeConfigurationRecordersResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeConfigurationRecordersResponse => {
-  return {
-    ConfigurationRecorders:
-      output.ConfigurationRecorders != null
-        ? de_ConfigurationRecorderList(output.ConfigurationRecorders, context)
-        : undefined,
-  } as any;
-};
+// de_DescribeConfigurationRecordersResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse
@@ -11258,30 +8471,12 @@ const de_DescribeConfigurationRecorderStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeConfigurationRecorderStatusResponse => {
-  return {
-    ConfigurationRecordersStatus:
-      output.ConfigurationRecordersStatus != null
-        ? de_ConfigurationRecorderStatusList(output.ConfigurationRecordersStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ConfigurationRecordersStatus: (_: any) => de_ConfigurationRecorderStatusList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeConformancePackComplianceResponse
- */
-const de_DescribeConformancePackComplianceResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeConformancePackComplianceResponse => {
-  return {
-    ConformancePackName: __expectString(output.ConformancePackName),
-    ConformancePackRuleComplianceList:
-      output.ConformancePackRuleComplianceList != null
-        ? de_ConformancePackRuleComplianceList(output.ConformancePackRuleComplianceList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_DescribeConformancePackComplianceResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeConformancePacksResponse
@@ -11290,13 +8485,10 @@ const de_DescribeConformancePacksResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeConformancePacksResponse => {
-  return {
-    ConformancePackDetails:
-      output.ConformancePackDetails != null
-        ? de_ConformancePackDetailList(output.ConformancePackDetails, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ConformancePackDetails: (_: any) => de_ConformancePackDetailList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -11306,27 +8498,13 @@ const de_DescribeConformancePackStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeConformancePackStatusResponse => {
-  return {
-    ConformancePackStatusDetails:
-      output.ConformancePackStatusDetails != null
-        ? de_ConformancePackStatusDetailsList(output.ConformancePackStatusDetails, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ConformancePackStatusDetails: (_: any) => de_ConformancePackStatusDetailsList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeDeliveryChannelsResponse
- */
-const de_DescribeDeliveryChannelsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeDeliveryChannelsResponse => {
-  return {
-    DeliveryChannels:
-      output.DeliveryChannels != null ? de_DeliveryChannelList(output.DeliveryChannels, context) : undefined,
-  } as any;
-};
+// de_DescribeDeliveryChannelsResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeDeliveryChannelStatusResponse
@@ -11335,12 +8513,9 @@ const de_DescribeDeliveryChannelStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDeliveryChannelStatusResponse => {
-  return {
-    DeliveryChannelsStatus:
-      output.DeliveryChannelsStatus != null
-        ? de_DeliveryChannelStatusList(output.DeliveryChannelsStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    DeliveryChannelsStatus: (_: any) => de_DeliveryChannelStatusList(_, context),
+  }) as any;
 };
 
 /**
@@ -11350,13 +8525,10 @@ const de_DescribeOrganizationConfigRulesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeOrganizationConfigRulesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OrganizationConfigRules:
-      output.OrganizationConfigRules != null
-        ? de_OrganizationConfigRules(output.OrganizationConfigRules, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    OrganizationConfigRules: (_: any) => de_OrganizationConfigRules(_, context),
+  }) as any;
 };
 
 /**
@@ -11366,13 +8538,10 @@ const de_DescribeOrganizationConfigRuleStatusesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeOrganizationConfigRuleStatusesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OrganizationConfigRuleStatuses:
-      output.OrganizationConfigRuleStatuses != null
-        ? de_OrganizationConfigRuleStatuses(output.OrganizationConfigRuleStatuses, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    OrganizationConfigRuleStatuses: (_: any) => de_OrganizationConfigRuleStatuses(_, context),
+  }) as any;
 };
 
 /**
@@ -11382,13 +8551,10 @@ const de_DescribeOrganizationConformancePacksResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeOrganizationConformancePacksResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OrganizationConformancePacks:
-      output.OrganizationConformancePacks != null
-        ? de_OrganizationConformancePacks(output.OrganizationConformancePacks, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    OrganizationConformancePacks: (_: any) => de_OrganizationConformancePacks(_, context),
+  }) as any;
 };
 
 /**
@@ -11398,45 +8564,15 @@ const de_DescribeOrganizationConformancePackStatusesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeOrganizationConformancePackStatusesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OrganizationConformancePackStatuses:
-      output.OrganizationConformancePackStatuses != null
-        ? de_OrganizationConformancePackStatuses(output.OrganizationConformancePackStatuses, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    OrganizationConformancePackStatuses: (_: any) => de_OrganizationConformancePackStatuses(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribePendingAggregationRequestsResponse
- */
-const de_DescribePendingAggregationRequestsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribePendingAggregationRequestsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PendingAggregationRequests:
-      output.PendingAggregationRequests != null
-        ? de_PendingAggregationRequestList(output.PendingAggregationRequests, context)
-        : undefined,
-  } as any;
-};
+// de_DescribePendingAggregationRequestsResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeRemediationConfigurationsResponse
- */
-const de_DescribeRemediationConfigurationsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeRemediationConfigurationsResponse => {
-  return {
-    RemediationConfigurations:
-      output.RemediationConfigurations != null
-        ? de_RemediationConfigurations(output.RemediationConfigurations, context)
-        : undefined,
-  } as any;
-};
+// de_DescribeRemediationConfigurationsResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeRemediationExceptionsResponse
@@ -11445,13 +8581,10 @@ const de_DescribeRemediationExceptionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeRemediationExceptionsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RemediationExceptions:
-      output.RemediationExceptions != null
-        ? de_RemediationExceptions(output.RemediationExceptions, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    RemediationExceptions: (_: any) => de_RemediationExceptions(_, context),
+  }) as any;
 };
 
 /**
@@ -11461,146 +8594,61 @@ const de_DescribeRemediationExecutionStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeRemediationExecutionStatusResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RemediationExecutionStatuses:
-      output.RemediationExecutionStatuses != null
-        ? de_RemediationExecutionStatuses(output.RemediationExecutionStatuses, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    RemediationExecutionStatuses: (_: any) => de_RemediationExecutionStatuses(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeRetentionConfigurationsResponse
- */
-const de_DescribeRetentionConfigurationsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeRetentionConfigurationsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RetentionConfigurations:
-      output.RetentionConfigurations != null
-        ? de_RetentionConfigurationList(output.RetentionConfigurations, context)
-        : undefined,
-  } as any;
-};
+// de_DescribeRetentionConfigurationsResponse omitted.
 
-/**
- * deserializeAws_json1_1DiscoveredResourceIdentifierList
- */
-const de_DiscoveredResourceIdentifierList = (output: any, context: __SerdeContext): AggregateResourceIdentifier[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AggregateResourceIdentifier(entry, context);
-    });
-  return retVal;
-};
+// de_DiscoveredResourceIdentifierList omitted.
 
 /**
  * deserializeAws_json1_1Evaluation
  */
 const de_Evaluation = (output: any, context: __SerdeContext): Evaluation => {
-  return {
-    Annotation: __expectString(output.Annotation),
-    ComplianceResourceId: __expectString(output.ComplianceResourceId),
-    ComplianceResourceType: __expectString(output.ComplianceResourceType),
-    ComplianceType: __expectString(output.ComplianceType),
-    OrderingTimestamp:
-      output.OrderingTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderingTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Annotation: __expectString,
+    ComplianceResourceId: __expectString,
+    ComplianceResourceType: __expectString,
+    ComplianceType: __expectString,
+    OrderingTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EvaluationContext
- */
-const de_EvaluationContext = (output: any, context: __SerdeContext): EvaluationContext => {
-  return {
-    EvaluationContextIdentifier: __expectString(output.EvaluationContextIdentifier),
-  } as any;
-};
+// de_EvaluationContext omitted.
 
-/**
- * deserializeAws_json1_1EvaluationModeConfiguration
- */
-const de_EvaluationModeConfiguration = (output: any, context: __SerdeContext): EvaluationModeConfiguration => {
-  return {
-    Mode: __expectString(output.Mode),
-  } as any;
-};
+// de_EvaluationModeConfiguration omitted.
 
-/**
- * deserializeAws_json1_1EvaluationModes
- */
-const de_EvaluationModes = (output: any, context: __SerdeContext): EvaluationModeConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EvaluationModeConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_EvaluationModes omitted.
 
 /**
  * deserializeAws_json1_1EvaluationResult
  */
 const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
-  return {
-    Annotation: __expectString(output.Annotation),
-    ComplianceType: __expectString(output.ComplianceType),
-    ConfigRuleInvokedTime:
-      output.ConfigRuleInvokedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConfigRuleInvokedTime)))
-        : undefined,
-    EvaluationResultIdentifier:
-      output.EvaluationResultIdentifier != null
-        ? de_EvaluationResultIdentifier(output.EvaluationResultIdentifier, context)
-        : undefined,
-    ResultRecordedTime:
-      output.ResultRecordedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResultRecordedTime)))
-        : undefined,
-    ResultToken: __expectString(output.ResultToken),
-  } as any;
+  return take(output, {
+    Annotation: __expectString,
+    ComplianceType: __expectString,
+    ConfigRuleInvokedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationResultIdentifier: (_: any) => de_EvaluationResultIdentifier(_, context),
+    ResultRecordedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResultToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1EvaluationResultIdentifier
  */
 const de_EvaluationResultIdentifier = (output: any, context: __SerdeContext): EvaluationResultIdentifier => {
-  return {
-    EvaluationResultQualifier:
-      output.EvaluationResultQualifier != null
-        ? de_EvaluationResultQualifier(output.EvaluationResultQualifier, context)
-        : undefined,
-    OrderingTimestamp:
-      output.OrderingTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderingTimestamp)))
-        : undefined,
-    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
-  } as any;
+  return take(output, {
+    EvaluationResultQualifier: _json,
+    OrderingTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceEvaluationId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EvaluationResultQualifier
- */
-const de_EvaluationResultQualifier = (output: any, context: __SerdeContext): EvaluationResultQualifier => {
-  return {
-    ConfigRuleName: __expectString(output.ConfigRuleName),
-    EvaluationMode: __expectString(output.EvaluationMode),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_EvaluationResultQualifier omitted.
 
 /**
  * deserializeAws_json1_1EvaluationResults
@@ -11609,9 +8657,6 @@ const de_EvaluationResults = (output: any, context: __SerdeContext): EvaluationR
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EvaluationResult(entry, context);
     });
   return retVal;
@@ -11624,113 +8669,33 @@ const de_Evaluations = (output: any, context: __SerdeContext): Evaluation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Evaluation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1EvaluationStatus
- */
-const de_EvaluationStatus = (output: any, context: __SerdeContext): EvaluationStatus => {
-  return {
-    FailureReason: __expectString(output.FailureReason),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_EvaluationStatus omitted.
 
-/**
- * deserializeAws_json1_1ExcludedAccounts
- */
-const de_ExcludedAccounts = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ExcludedAccounts omitted.
 
-/**
- * deserializeAws_json1_1ExecutionControls
- */
-const de_ExecutionControls = (output: any, context: __SerdeContext): ExecutionControls => {
-  return {
-    SsmControls: output.SsmControls != null ? de_SsmControls(output.SsmControls, context) : undefined,
-  } as any;
-};
+// de_ExecutionControls omitted.
 
-/**
- * deserializeAws_json1_1FailedDeleteRemediationExceptionsBatch
- */
-const de_FailedDeleteRemediationExceptionsBatch = (
-  output: any,
-  context: __SerdeContext
-): FailedDeleteRemediationExceptionsBatch => {
-  return {
-    FailedItems:
-      output.FailedItems != null ? de_RemediationExceptionResourceKeys(output.FailedItems, context) : undefined,
-    FailureMessage: __expectString(output.FailureMessage),
-  } as any;
-};
+// de_FailedDeleteRemediationExceptionsBatch omitted.
 
-/**
- * deserializeAws_json1_1FailedDeleteRemediationExceptionsBatches
- */
-const de_FailedDeleteRemediationExceptionsBatches = (
-  output: any,
-  context: __SerdeContext
-): FailedDeleteRemediationExceptionsBatch[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FailedDeleteRemediationExceptionsBatch(entry, context);
-    });
-  return retVal;
-};
+// de_FailedDeleteRemediationExceptionsBatches omitted.
 
-/**
- * deserializeAws_json1_1FailedRemediationBatch
- */
-const de_FailedRemediationBatch = (output: any, context: __SerdeContext): FailedRemediationBatch => {
-  return {
-    FailedItems: output.FailedItems != null ? de_RemediationConfigurations(output.FailedItems, context) : undefined,
-    FailureMessage: __expectString(output.FailureMessage),
-  } as any;
-};
+// de_FailedRemediationBatch omitted.
 
-/**
- * deserializeAws_json1_1FailedRemediationBatches
- */
-const de_FailedRemediationBatches = (output: any, context: __SerdeContext): FailedRemediationBatch[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FailedRemediationBatch(entry, context);
-    });
-  return retVal;
-};
+// de_FailedRemediationBatches omitted.
 
 /**
  * deserializeAws_json1_1FailedRemediationExceptionBatch
  */
 const de_FailedRemediationExceptionBatch = (output: any, context: __SerdeContext): FailedRemediationExceptionBatch => {
-  return {
-    FailedItems: output.FailedItems != null ? de_RemediationExceptions(output.FailedItems, context) : undefined,
-    FailureMessage: __expectString(output.FailureMessage),
-  } as any;
+  return take(output, {
+    FailedItems: (_: any) => de_RemediationExceptions(_, context),
+    FailureMessage: __expectString,
+  }) as any;
 };
 
 /**
@@ -11743,37 +8708,14 @@ const de_FailedRemediationExceptionBatches = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FailedRemediationExceptionBatch(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1FieldInfo
- */
-const de_FieldInfo = (output: any, context: __SerdeContext): FieldInfo => {
-  return {
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_FieldInfo omitted.
 
-/**
- * deserializeAws_json1_1FieldInfoList
- */
-const de_FieldInfoList = (output: any, context: __SerdeContext): FieldInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FieldInfo(entry, context);
-    });
-  return retVal;
-};
+// de_FieldInfoList omitted.
 
 /**
  * deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleResponse
@@ -11782,13 +8724,10 @@ const de_GetAggregateComplianceDetailsByConfigRuleResponse = (
   output: any,
   context: __SerdeContext
 ): GetAggregateComplianceDetailsByConfigRuleResponse => {
-  return {
-    AggregateEvaluationResults:
-      output.AggregateEvaluationResults != null
-        ? de_AggregateEvaluationResultList(output.AggregateEvaluationResults, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AggregateEvaluationResults: (_: any) => de_AggregateEvaluationResultList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -11798,50 +8737,16 @@ const de_GetAggregateConfigRuleComplianceSummaryResponse = (
   output: any,
   context: __SerdeContext
 ): GetAggregateConfigRuleComplianceSummaryResponse => {
-  return {
-    AggregateComplianceCounts:
-      output.AggregateComplianceCounts != null
-        ? de_AggregateComplianceCountList(output.AggregateComplianceCounts, context)
-        : undefined,
-    GroupByKey: __expectString(output.GroupByKey),
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AggregateComplianceCounts: (_: any) => de_AggregateComplianceCountList(_, context),
+    GroupByKey: __expectString,
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetAggregateConformancePackComplianceSummaryResponse
- */
-const de_GetAggregateConformancePackComplianceSummaryResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAggregateConformancePackComplianceSummaryResponse => {
-  return {
-    AggregateConformancePackComplianceSummaries:
-      output.AggregateConformancePackComplianceSummaries != null
-        ? de_AggregateConformancePackComplianceSummaryList(output.AggregateConformancePackComplianceSummaries, context)
-        : undefined,
-    GroupByKey: __expectString(output.GroupByKey),
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_GetAggregateConformancePackComplianceSummaryResponse omitted.
 
-/**
- * deserializeAws_json1_1GetAggregateDiscoveredResourceCountsResponse
- */
-const de_GetAggregateDiscoveredResourceCountsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAggregateDiscoveredResourceCountsResponse => {
-  return {
-    GroupByKey: __expectString(output.GroupByKey),
-    GroupedResourceCounts:
-      output.GroupedResourceCounts != null
-        ? de_GroupedResourceCountList(output.GroupedResourceCounts, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    TotalDiscoveredResources: __expectLong(output.TotalDiscoveredResources),
-  } as any;
-};
+// de_GetAggregateDiscoveredResourceCountsResponse omitted.
 
 /**
  * deserializeAws_json1_1GetAggregateResourceConfigResponse
@@ -11850,10 +8755,9 @@ const de_GetAggregateResourceConfigResponse = (
   output: any,
   context: __SerdeContext
 ): GetAggregateResourceConfigResponse => {
-  return {
-    ConfigurationItem:
-      output.ConfigurationItem != null ? de_ConfigurationItem(output.ConfigurationItem, context) : undefined,
-  } as any;
+  return take(output, {
+    ConfigurationItem: (_: any) => de_ConfigurationItem(_, context),
+  }) as any;
 };
 
 /**
@@ -11863,11 +8767,10 @@ const de_GetComplianceDetailsByConfigRuleResponse = (
   output: any,
   context: __SerdeContext
 ): GetComplianceDetailsByConfigRuleResponse => {
-  return {
-    EvaluationResults:
-      output.EvaluationResults != null ? de_EvaluationResults(output.EvaluationResults, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EvaluationResults: (_: any) => de_EvaluationResults(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -11877,11 +8780,10 @@ const de_GetComplianceDetailsByResourceResponse = (
   output: any,
   context: __SerdeContext
 ): GetComplianceDetailsByResourceResponse => {
-  return {
-    EvaluationResults:
-      output.EvaluationResults != null ? de_EvaluationResults(output.EvaluationResults, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EvaluationResults: (_: any) => de_EvaluationResults(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -11891,10 +8793,9 @@ const de_GetComplianceSummaryByConfigRuleResponse = (
   output: any,
   context: __SerdeContext
 ): GetComplianceSummaryByConfigRuleResponse => {
-  return {
-    ComplianceSummary:
-      output.ComplianceSummary != null ? de_ComplianceSummary(output.ComplianceSummary, context) : undefined,
-  } as any;
+  return take(output, {
+    ComplianceSummary: (_: any) => de_ComplianceSummary(_, context),
+  }) as any;
 };
 
 /**
@@ -11904,12 +8805,9 @@ const de_GetComplianceSummaryByResourceTypeResponse = (
   output: any,
   context: __SerdeContext
 ): GetComplianceSummaryByResourceTypeResponse => {
-  return {
-    ComplianceSummariesByResourceType:
-      output.ComplianceSummariesByResourceType != null
-        ? de_ComplianceSummariesByResourceType(output.ComplianceSummariesByResourceType, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ComplianceSummariesByResourceType: (_: any) => de_ComplianceSummariesByResourceType(_, context),
+  }) as any;
 };
 
 /**
@@ -11919,54 +8817,18 @@ const de_GetConformancePackComplianceDetailsResponse = (
   output: any,
   context: __SerdeContext
 ): GetConformancePackComplianceDetailsResponse => {
-  return {
-    ConformancePackName: __expectString(output.ConformancePackName),
-    ConformancePackRuleEvaluationResults:
-      output.ConformancePackRuleEvaluationResults != null
-        ? de_ConformancePackRuleEvaluationResultsList(output.ConformancePackRuleEvaluationResults, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ConformancePackName: __expectString,
+    ConformancePackRuleEvaluationResults: (_: any) => de_ConformancePackRuleEvaluationResultsList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetConformancePackComplianceSummaryResponse
- */
-const de_GetConformancePackComplianceSummaryResponse = (
-  output: any,
-  context: __SerdeContext
-): GetConformancePackComplianceSummaryResponse => {
-  return {
-    ConformancePackComplianceSummaryList:
-      output.ConformancePackComplianceSummaryList != null
-        ? de_ConformancePackComplianceSummaryList(output.ConformancePackComplianceSummaryList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_GetConformancePackComplianceSummaryResponse omitted.
 
-/**
- * deserializeAws_json1_1GetCustomRulePolicyResponse
- */
-const de_GetCustomRulePolicyResponse = (output: any, context: __SerdeContext): GetCustomRulePolicyResponse => {
-  return {
-    PolicyText: __expectString(output.PolicyText),
-  } as any;
-};
+// de_GetCustomRulePolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1GetDiscoveredResourceCountsResponse
- */
-const de_GetDiscoveredResourceCountsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetDiscoveredResourceCountsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    resourceCounts: output.resourceCounts != null ? de_ResourceCounts(output.resourceCounts, context) : undefined,
-    totalDiscoveredResources: __expectLong(output.totalDiscoveredResources),
-  } as any;
-};
+// de_GetDiscoveredResourceCountsResponse omitted.
 
 /**
  * deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusResponse
@@ -11975,13 +8837,10 @@ const de_GetOrganizationConfigRuleDetailedStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetOrganizationConfigRuleDetailedStatusResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OrganizationConfigRuleDetailedStatus:
-      output.OrganizationConfigRuleDetailedStatus != null
-        ? de_OrganizationConfigRuleDetailedStatus(output.OrganizationConfigRuleDetailedStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    OrganizationConfigRuleDetailedStatus: (_: any) => de_OrganizationConfigRuleDetailedStatus(_, context),
+  }) as any;
 };
 
 /**
@@ -11991,26 +8850,13 @@ const de_GetOrganizationConformancePackDetailedStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetOrganizationConformancePackDetailedStatusResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OrganizationConformancePackDetailedStatuses:
-      output.OrganizationConformancePackDetailedStatuses != null
-        ? de_OrganizationConformancePackDetailedStatuses(output.OrganizationConformancePackDetailedStatuses, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    OrganizationConformancePackDetailedStatuses: (_: any) => de_OrganizationConformancePackDetailedStatuses(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetOrganizationCustomRulePolicyResponse
- */
-const de_GetOrganizationCustomRulePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetOrganizationCustomRulePolicyResponse => {
-  return {
-    PolicyText: __expectString(output.PolicyText),
-  } as any;
-};
+// de_GetOrganizationCustomRulePolicyResponse omitted.
 
 /**
  * deserializeAws_json1_1GetResourceConfigHistoryResponse
@@ -12019,11 +8865,10 @@ const de_GetResourceConfigHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): GetResourceConfigHistoryResponse => {
-  return {
-    configurationItems:
-      output.configurationItems != null ? de_ConfigurationItemList(output.configurationItems, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    configurationItems: (_: any) => de_ConfigurationItemList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -12033,248 +8878,60 @@ const de_GetResourceEvaluationSummaryResponse = (
   output: any,
   context: __SerdeContext
 ): GetResourceEvaluationSummaryResponse => {
-  return {
-    Compliance: __expectString(output.Compliance),
-    EvaluationContext:
-      output.EvaluationContext != null ? de_EvaluationContext(output.EvaluationContext, context) : undefined,
-    EvaluationMode: __expectString(output.EvaluationMode),
-    EvaluationStartTimestamp:
-      output.EvaluationStartTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationStartTimestamp)))
-        : undefined,
-    EvaluationStatus:
-      output.EvaluationStatus != null ? de_EvaluationStatus(output.EvaluationStatus, context) : undefined,
-    ResourceDetails: output.ResourceDetails != null ? de_ResourceDetails(output.ResourceDetails, context) : undefined,
-    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
-  } as any;
+  return take(output, {
+    Compliance: __expectString,
+    EvaluationContext: _json,
+    EvaluationMode: __expectString,
+    EvaluationStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationStatus: _json,
+    ResourceDetails: _json,
+    ResourceEvaluationId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetStoredQueryResponse
- */
-const de_GetStoredQueryResponse = (output: any, context: __SerdeContext): GetStoredQueryResponse => {
-  return {
-    StoredQuery: output.StoredQuery != null ? de_StoredQuery(output.StoredQuery, context) : undefined,
-  } as any;
-};
+// de_GetStoredQueryResponse omitted.
 
-/**
- * deserializeAws_json1_1GroupedResourceCount
- */
-const de_GroupedResourceCount = (output: any, context: __SerdeContext): GroupedResourceCount => {
-  return {
-    GroupName: __expectString(output.GroupName),
-    ResourceCount: __expectLong(output.ResourceCount),
-  } as any;
-};
+// de_GroupedResourceCount omitted.
 
-/**
- * deserializeAws_json1_1GroupedResourceCountList
- */
-const de_GroupedResourceCountList = (output: any, context: __SerdeContext): GroupedResourceCount[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GroupedResourceCount(entry, context);
-    });
-  return retVal;
-};
+// de_GroupedResourceCountList omitted.
 
-/**
- * deserializeAws_json1_1IdempotentParameterMismatch
- */
-const de_IdempotentParameterMismatch = (output: any, context: __SerdeContext): IdempotentParameterMismatch => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_IdempotentParameterMismatch omitted.
 
-/**
- * deserializeAws_json1_1InsufficientDeliveryPolicyException
- */
-const de_InsufficientDeliveryPolicyException = (
-  output: any,
-  context: __SerdeContext
-): InsufficientDeliveryPolicyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InsufficientDeliveryPolicyException omitted.
 
-/**
- * deserializeAws_json1_1InsufficientPermissionsException
- */
-const de_InsufficientPermissionsException = (
-  output: any,
-  context: __SerdeContext
-): InsufficientPermissionsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InsufficientPermissionsException omitted.
 
-/**
- * deserializeAws_json1_1InvalidConfigurationRecorderNameException
- */
-const de_InvalidConfigurationRecorderNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidConfigurationRecorderNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidConfigurationRecorderNameException omitted.
 
-/**
- * deserializeAws_json1_1InvalidDeliveryChannelNameException
- */
-const de_InvalidDeliveryChannelNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidDeliveryChannelNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidDeliveryChannelNameException omitted.
 
-/**
- * deserializeAws_json1_1InvalidExpressionException
- */
-const de_InvalidExpressionException = (output: any, context: __SerdeContext): InvalidExpressionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidExpressionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidLimitException
- */
-const de_InvalidLimitException = (output: any, context: __SerdeContext): InvalidLimitException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidLimitException omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterValueException
- */
-const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidParameterValueException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRecordingGroupException
- */
-const de_InvalidRecordingGroupException = (output: any, context: __SerdeContext): InvalidRecordingGroupException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRecordingGroupException omitted.
 
-/**
- * deserializeAws_json1_1InvalidResultTokenException
- */
-const de_InvalidResultTokenException = (output: any, context: __SerdeContext): InvalidResultTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidResultTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRoleException
- */
-const de_InvalidRoleException = (output: any, context: __SerdeContext): InvalidRoleException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRoleException omitted.
 
-/**
- * deserializeAws_json1_1InvalidS3KeyPrefixException
- */
-const de_InvalidS3KeyPrefixException = (output: any, context: __SerdeContext): InvalidS3KeyPrefixException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidS3KeyPrefixException omitted.
 
-/**
- * deserializeAws_json1_1InvalidS3KmsKeyArnException
- */
-const de_InvalidS3KmsKeyArnException = (output: any, context: __SerdeContext): InvalidS3KmsKeyArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidS3KmsKeyArnException omitted.
 
-/**
- * deserializeAws_json1_1InvalidSNSTopicARNException
- */
-const de_InvalidSNSTopicARNException = (output: any, context: __SerdeContext): InvalidSNSTopicARNException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidSNSTopicARNException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTimeRangeException
- */
-const de_InvalidTimeRangeException = (output: any, context: __SerdeContext): InvalidTimeRangeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTimeRangeException omitted.
 
-/**
- * deserializeAws_json1_1LastDeliveryChannelDeleteFailedException
- */
-const de_LastDeliveryChannelDeleteFailedException = (
-  output: any,
-  context: __SerdeContext
-): LastDeliveryChannelDeleteFailedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LastDeliveryChannelDeleteFailedException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListAggregateDiscoveredResourcesResponse
- */
-const de_ListAggregateDiscoveredResourcesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAggregateDiscoveredResourcesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ResourceIdentifiers:
-      output.ResourceIdentifiers != null
-        ? de_DiscoveredResourceIdentifierList(output.ResourceIdentifiers, context)
-        : undefined,
-  } as any;
-};
+// de_ListAggregateDiscoveredResourcesResponse omitted.
 
 /**
  * deserializeAws_json1_1ListConformancePackComplianceScoresResponse
@@ -12283,412 +8940,117 @@ const de_ListConformancePackComplianceScoresResponse = (
   output: any,
   context: __SerdeContext
 ): ListConformancePackComplianceScoresResponse => {
-  return {
-    ConformancePackComplianceScores:
-      output.ConformancePackComplianceScores != null
-        ? de_ConformancePackComplianceScores(output.ConformancePackComplianceScores, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ConformancePackComplianceScores: (_: any) => de_ConformancePackComplianceScores(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListDiscoveredResourcesResponse
  */
 const de_ListDiscoveredResourcesResponse = (output: any, context: __SerdeContext): ListDiscoveredResourcesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    resourceIdentifiers:
-      output.resourceIdentifiers != null ? de_ResourceIdentifierList(output.resourceIdentifiers, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    resourceIdentifiers: (_: any) => de_ResourceIdentifierList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListResourceEvaluationsResponse
  */
 const de_ListResourceEvaluationsResponse = (output: any, context: __SerdeContext): ListResourceEvaluationsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ResourceEvaluations:
-      output.ResourceEvaluations != null ? de_ResourceEvaluations(output.ResourceEvaluations, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ResourceEvaluations: (_: any) => de_ResourceEvaluations(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListStoredQueriesResponse
- */
-const de_ListStoredQueriesResponse = (output: any, context: __SerdeContext): ListStoredQueriesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    StoredQueryMetadata:
-      output.StoredQueryMetadata != null ? de_StoredQueryMetadataList(output.StoredQueryMetadata, context) : undefined,
-  } as any;
-};
+// de_ListStoredQueriesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1MaxActiveResourcesExceededException
- */
-const de_MaxActiveResourcesExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaxActiveResourcesExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaxActiveResourcesExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaxNumberOfConfigRulesExceededException
- */
-const de_MaxNumberOfConfigRulesExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaxNumberOfConfigRulesExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaxNumberOfConfigRulesExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaxNumberOfConfigurationRecordersExceededException
- */
-const de_MaxNumberOfConfigurationRecordersExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaxNumberOfConfigurationRecordersExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaxNumberOfConfigurationRecordersExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaxNumberOfConformancePacksExceededException
- */
-const de_MaxNumberOfConformancePacksExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaxNumberOfConformancePacksExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaxNumberOfConformancePacksExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaxNumberOfDeliveryChannelsExceededException
- */
-const de_MaxNumberOfDeliveryChannelsExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaxNumberOfDeliveryChannelsExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaxNumberOfDeliveryChannelsExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaxNumberOfOrganizationConfigRulesExceededException
- */
-const de_MaxNumberOfOrganizationConfigRulesExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaxNumberOfOrganizationConfigRulesExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaxNumberOfOrganizationConfigRulesExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaxNumberOfOrganizationConformancePacksExceededException
- */
-const de_MaxNumberOfOrganizationConformancePacksExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaxNumberOfOrganizationConformancePacksExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaxNumberOfOrganizationConformancePacksExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaxNumberOfRetentionConfigurationsExceededException
- */
-const de_MaxNumberOfRetentionConfigurationsExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaxNumberOfRetentionConfigurationsExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaxNumberOfRetentionConfigurationsExceededException omitted.
 
 /**
  * deserializeAws_json1_1MemberAccountStatus
  */
 const de_MemberAccountStatus = (output: any, context: __SerdeContext): MemberAccountStatus => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    ConfigRuleName: __expectString(output.ConfigRuleName),
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    MemberAccountRuleStatus: __expectString(output.MemberAccountRuleStatus),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    ConfigRuleName: __expectString,
+    ErrorCode: __expectString,
+    ErrorMessage: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MemberAccountRuleStatus: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1NoAvailableConfigurationRecorderException
- */
-const de_NoAvailableConfigurationRecorderException = (
-  output: any,
-  context: __SerdeContext
-): NoAvailableConfigurationRecorderException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoAvailableConfigurationRecorderException omitted.
 
-/**
- * deserializeAws_json1_1NoAvailableDeliveryChannelException
- */
-const de_NoAvailableDeliveryChannelException = (
-  output: any,
-  context: __SerdeContext
-): NoAvailableDeliveryChannelException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoAvailableDeliveryChannelException omitted.
 
-/**
- * deserializeAws_json1_1NoAvailableOrganizationException
- */
-const de_NoAvailableOrganizationException = (
-  output: any,
-  context: __SerdeContext
-): NoAvailableOrganizationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoAvailableOrganizationException omitted.
 
-/**
- * deserializeAws_json1_1NoRunningConfigurationRecorderException
- */
-const de_NoRunningConfigurationRecorderException = (
-  output: any,
-  context: __SerdeContext
-): NoRunningConfigurationRecorderException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoRunningConfigurationRecorderException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchBucketException
- */
-const de_NoSuchBucketException = (output: any, context: __SerdeContext): NoSuchBucketException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchBucketException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchConfigRuleException
- */
-const de_NoSuchConfigRuleException = (output: any, context: __SerdeContext): NoSuchConfigRuleException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchConfigRuleException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchConfigRuleInConformancePackException
- */
-const de_NoSuchConfigRuleInConformancePackException = (
-  output: any,
-  context: __SerdeContext
-): NoSuchConfigRuleInConformancePackException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchConfigRuleInConformancePackException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchConfigurationAggregatorException
- */
-const de_NoSuchConfigurationAggregatorException = (
-  output: any,
-  context: __SerdeContext
-): NoSuchConfigurationAggregatorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchConfigurationAggregatorException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchConfigurationRecorderException
- */
-const de_NoSuchConfigurationRecorderException = (
-  output: any,
-  context: __SerdeContext
-): NoSuchConfigurationRecorderException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchConfigurationRecorderException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchConformancePackException
- */
-const de_NoSuchConformancePackException = (output: any, context: __SerdeContext): NoSuchConformancePackException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchConformancePackException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchDeliveryChannelException
- */
-const de_NoSuchDeliveryChannelException = (output: any, context: __SerdeContext): NoSuchDeliveryChannelException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchDeliveryChannelException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchOrganizationConfigRuleException
- */
-const de_NoSuchOrganizationConfigRuleException = (
-  output: any,
-  context: __SerdeContext
-): NoSuchOrganizationConfigRuleException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchOrganizationConfigRuleException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchOrganizationConformancePackException
- */
-const de_NoSuchOrganizationConformancePackException = (
-  output: any,
-  context: __SerdeContext
-): NoSuchOrganizationConformancePackException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchOrganizationConformancePackException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchRemediationConfigurationException
- */
-const de_NoSuchRemediationConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): NoSuchRemediationConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchRemediationConfigurationException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchRemediationExceptionException
- */
-const de_NoSuchRemediationExceptionException = (
-  output: any,
-  context: __SerdeContext
-): NoSuchRemediationExceptionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchRemediationExceptionException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchRetentionConfigurationException
- */
-const de_NoSuchRetentionConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): NoSuchRetentionConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchRetentionConfigurationException omitted.
 
-/**
- * deserializeAws_json1_1OrganizationAccessDeniedException
- */
-const de_OrganizationAccessDeniedException = (
-  output: any,
-  context: __SerdeContext
-): OrganizationAccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OrganizationAccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1OrganizationAggregationSource
- */
-const de_OrganizationAggregationSource = (output: any, context: __SerdeContext): OrganizationAggregationSource => {
-  return {
-    AllAwsRegions: __expectBoolean(output.AllAwsRegions),
-    AwsRegions: output.AwsRegions != null ? de_AggregatorRegionList(output.AwsRegions, context) : undefined,
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
+// de_OrganizationAggregationSource omitted.
 
-/**
- * deserializeAws_json1_1OrganizationAllFeaturesNotEnabledException
- */
-const de_OrganizationAllFeaturesNotEnabledException = (
-  output: any,
-  context: __SerdeContext
-): OrganizationAllFeaturesNotEnabledException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OrganizationAllFeaturesNotEnabledException omitted.
 
 /**
  * deserializeAws_json1_1OrganizationConfigRule
  */
 const de_OrganizationConfigRule = (output: any, context: __SerdeContext): OrganizationConfigRule => {
-  return {
-    ExcludedAccounts:
-      output.ExcludedAccounts != null ? de_ExcludedAccounts(output.ExcludedAccounts, context) : undefined,
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    OrganizationConfigRuleArn: __expectString(output.OrganizationConfigRuleArn),
-    OrganizationConfigRuleName: __expectString(output.OrganizationConfigRuleName),
-    OrganizationCustomPolicyRuleMetadata:
-      output.OrganizationCustomPolicyRuleMetadata != null
-        ? de_OrganizationCustomPolicyRuleMetadataNoPolicy(output.OrganizationCustomPolicyRuleMetadata, context)
-        : undefined,
-    OrganizationCustomRuleMetadata:
-      output.OrganizationCustomRuleMetadata != null
-        ? de_OrganizationCustomRuleMetadata(output.OrganizationCustomRuleMetadata, context)
-        : undefined,
-    OrganizationManagedRuleMetadata:
-      output.OrganizationManagedRuleMetadata != null
-        ? de_OrganizationManagedRuleMetadata(output.OrganizationManagedRuleMetadata, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ExcludedAccounts: _json,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrganizationConfigRuleArn: __expectString,
+    OrganizationConfigRuleName: __expectString,
+    OrganizationCustomPolicyRuleMetadata: _json,
+    OrganizationCustomRuleMetadata: _json,
+    OrganizationManagedRuleMetadata: _json,
+  }) as any;
 };
 
 /**
@@ -12698,9 +9060,6 @@ const de_OrganizationConfigRuleDetailedStatus = (output: any, context: __SerdeCo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MemberAccountStatus(entry, context);
     });
   return retVal;
@@ -12713,9 +9072,6 @@ const de_OrganizationConfigRules = (output: any, context: __SerdeContext): Organ
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrganizationConfigRule(entry, context);
     });
   return retVal;
@@ -12725,16 +9081,13 @@ const de_OrganizationConfigRules = (output: any, context: __SerdeContext): Organ
  * deserializeAws_json1_1OrganizationConfigRuleStatus
  */
 const de_OrganizationConfigRuleStatus = (output: any, context: __SerdeContext): OrganizationConfigRuleStatus => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    OrganizationConfigRuleName: __expectString(output.OrganizationConfigRuleName),
-    OrganizationRuleStatus: __expectString(output.OrganizationRuleStatus),
-  } as any;
+  return take(output, {
+    ErrorCode: __expectString,
+    ErrorMessage: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrganizationConfigRuleName: __expectString,
+    OrganizationRuleStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -12744,70 +9097,28 @@ const de_OrganizationConfigRuleStatuses = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrganizationConfigRuleStatus(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs
- */
-const de_OrganizationConfigRuleTriggerTypeNoSNs = (
-  output: any,
-  context: __SerdeContext
-): (OrganizationConfigRuleTriggerTypeNoSN | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_OrganizationConfigRuleTriggerTypeNoSNs omitted.
 
-/**
- * deserializeAws_json1_1OrganizationConfigRuleTriggerTypes
- */
-const de_OrganizationConfigRuleTriggerTypes = (
-  output: any,
-  context: __SerdeContext
-): (OrganizationConfigRuleTriggerType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_OrganizationConfigRuleTriggerTypes omitted.
 
 /**
  * deserializeAws_json1_1OrganizationConformancePack
  */
 const de_OrganizationConformancePack = (output: any, context: __SerdeContext): OrganizationConformancePack => {
-  return {
-    ConformancePackInputParameters:
-      output.ConformancePackInputParameters != null
-        ? de_ConformancePackInputParameters(output.ConformancePackInputParameters, context)
-        : undefined,
-    DeliveryS3Bucket: __expectString(output.DeliveryS3Bucket),
-    DeliveryS3KeyPrefix: __expectString(output.DeliveryS3KeyPrefix),
-    ExcludedAccounts:
-      output.ExcludedAccounts != null ? de_ExcludedAccounts(output.ExcludedAccounts, context) : undefined,
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    OrganizationConformancePackArn: __expectString(output.OrganizationConformancePackArn),
-    OrganizationConformancePackName: __expectString(output.OrganizationConformancePackName),
-  } as any;
+  return take(output, {
+    ConformancePackInputParameters: _json,
+    DeliveryS3Bucket: __expectString,
+    DeliveryS3KeyPrefix: __expectString,
+    ExcludedAccounts: _json,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrganizationConformancePackArn: __expectString,
+    OrganizationConformancePackName: __expectString,
+  }) as any;
 };
 
 /**
@@ -12817,17 +9128,14 @@ const de_OrganizationConformancePackDetailedStatus = (
   output: any,
   context: __SerdeContext
 ): OrganizationConformancePackDetailedStatus => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    ConformancePackName: __expectString(output.ConformancePackName),
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    ConformancePackName: __expectString,
+    ErrorCode: __expectString,
+    ErrorMessage: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -12840,9 +9148,6 @@ const de_OrganizationConformancePackDetailedStatuses = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrganizationConformancePackDetailedStatus(entry, context);
     });
   return retVal;
@@ -12855,9 +9160,6 @@ const de_OrganizationConformancePacks = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrganizationConformancePack(entry, context);
     });
   return retVal;
@@ -12870,16 +9172,13 @@ const de_OrganizationConformancePackStatus = (
   output: any,
   context: __SerdeContext
 ): OrganizationConformancePackStatus => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    OrganizationConformancePackName: __expectString(output.OrganizationConformancePackName),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    ErrorCode: __expectString,
+    ErrorMessage: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrganizationConformancePackName: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -12892,128 +9191,24 @@ const de_OrganizationConformancePackStatuses = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrganizationConformancePackStatus(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1OrganizationConformancePackTemplateValidationException
- */
-const de_OrganizationConformancePackTemplateValidationException = (
-  output: any,
-  context: __SerdeContext
-): OrganizationConformancePackTemplateValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OrganizationConformancePackTemplateValidationException omitted.
 
-/**
- * deserializeAws_json1_1OrganizationCustomPolicyRuleMetadataNoPolicy
- */
-const de_OrganizationCustomPolicyRuleMetadataNoPolicy = (
-  output: any,
-  context: __SerdeContext
-): OrganizationCustomPolicyRuleMetadataNoPolicy => {
-  return {
-    DebugLogDeliveryAccounts:
-      output.DebugLogDeliveryAccounts != null
-        ? de_DebugLogDeliveryAccounts(output.DebugLogDeliveryAccounts, context)
-        : undefined,
-    Description: __expectString(output.Description),
-    InputParameters: __expectString(output.InputParameters),
-    MaximumExecutionFrequency: __expectString(output.MaximumExecutionFrequency),
-    OrganizationConfigRuleTriggerTypes:
-      output.OrganizationConfigRuleTriggerTypes != null
-        ? de_OrganizationConfigRuleTriggerTypeNoSNs(output.OrganizationConfigRuleTriggerTypes, context)
-        : undefined,
-    PolicyRuntime: __expectString(output.PolicyRuntime),
-    ResourceIdScope: __expectString(output.ResourceIdScope),
-    ResourceTypesScope:
-      output.ResourceTypesScope != null ? de_ResourceTypesScope(output.ResourceTypesScope, context) : undefined,
-    TagKeyScope: __expectString(output.TagKeyScope),
-    TagValueScope: __expectString(output.TagValueScope),
-  } as any;
-};
+// de_OrganizationCustomPolicyRuleMetadataNoPolicy omitted.
 
-/**
- * deserializeAws_json1_1OrganizationCustomRuleMetadata
- */
-const de_OrganizationCustomRuleMetadata = (output: any, context: __SerdeContext): OrganizationCustomRuleMetadata => {
-  return {
-    Description: __expectString(output.Description),
-    InputParameters: __expectString(output.InputParameters),
-    LambdaFunctionArn: __expectString(output.LambdaFunctionArn),
-    MaximumExecutionFrequency: __expectString(output.MaximumExecutionFrequency),
-    OrganizationConfigRuleTriggerTypes:
-      output.OrganizationConfigRuleTriggerTypes != null
-        ? de_OrganizationConfigRuleTriggerTypes(output.OrganizationConfigRuleTriggerTypes, context)
-        : undefined,
-    ResourceIdScope: __expectString(output.ResourceIdScope),
-    ResourceTypesScope:
-      output.ResourceTypesScope != null ? de_ResourceTypesScope(output.ResourceTypesScope, context) : undefined,
-    TagKeyScope: __expectString(output.TagKeyScope),
-    TagValueScope: __expectString(output.TagValueScope),
-  } as any;
-};
+// de_OrganizationCustomRuleMetadata omitted.
 
-/**
- * deserializeAws_json1_1OrganizationManagedRuleMetadata
- */
-const de_OrganizationManagedRuleMetadata = (output: any, context: __SerdeContext): OrganizationManagedRuleMetadata => {
-  return {
-    Description: __expectString(output.Description),
-    InputParameters: __expectString(output.InputParameters),
-    MaximumExecutionFrequency: __expectString(output.MaximumExecutionFrequency),
-    ResourceIdScope: __expectString(output.ResourceIdScope),
-    ResourceTypesScope:
-      output.ResourceTypesScope != null ? de_ResourceTypesScope(output.ResourceTypesScope, context) : undefined,
-    RuleIdentifier: __expectString(output.RuleIdentifier),
-    TagKeyScope: __expectString(output.TagKeyScope),
-    TagValueScope: __expectString(output.TagValueScope),
-  } as any;
-};
+// de_OrganizationManagedRuleMetadata omitted.
 
-/**
- * deserializeAws_json1_1OversizedConfigurationItemException
- */
-const de_OversizedConfigurationItemException = (
-  output: any,
-  context: __SerdeContext
-): OversizedConfigurationItemException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OversizedConfigurationItemException omitted.
 
-/**
- * deserializeAws_json1_1PendingAggregationRequest
- */
-const de_PendingAggregationRequest = (output: any, context: __SerdeContext): PendingAggregationRequest => {
-  return {
-    RequesterAccountId: __expectString(output.RequesterAccountId),
-    RequesterAwsRegion: __expectString(output.RequesterAwsRegion),
-  } as any;
-};
+// de_PendingAggregationRequest omitted.
 
-/**
- * deserializeAws_json1_1PendingAggregationRequestList
- */
-const de_PendingAggregationRequestList = (output: any, context: __SerdeContext): PendingAggregationRequest[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PendingAggregationRequest(entry, context);
-    });
-  return retVal;
-};
+// de_PendingAggregationRequestList omitted.
 
 /**
  * deserializeAws_json1_1PutAggregationAuthorizationResponse
@@ -13022,12 +9217,9 @@ const de_PutAggregationAuthorizationResponse = (
   output: any,
   context: __SerdeContext
 ): PutAggregationAuthorizationResponse => {
-  return {
-    AggregationAuthorization:
-      output.AggregationAuthorization != null
-        ? de_AggregationAuthorization(output.AggregationAuthorization, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AggregationAuthorization: (_: any) => de_AggregationAuthorization(_, context),
+  }) as any;
 };
 
 /**
@@ -13037,75 +9229,29 @@ const de_PutConfigurationAggregatorResponse = (
   output: any,
   context: __SerdeContext
 ): PutConfigurationAggregatorResponse => {
-  return {
-    ConfigurationAggregator:
-      output.ConfigurationAggregator != null
-        ? de_ConfigurationAggregator(output.ConfigurationAggregator, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ConfigurationAggregator: (_: any) => de_ConfigurationAggregator(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1PutConformancePackResponse
- */
-const de_PutConformancePackResponse = (output: any, context: __SerdeContext): PutConformancePackResponse => {
-  return {
-    ConformancePackArn: __expectString(output.ConformancePackArn),
-  } as any;
-};
+// de_PutConformancePackResponse omitted.
 
 /**
  * deserializeAws_json1_1PutEvaluationsResponse
  */
 const de_PutEvaluationsResponse = (output: any, context: __SerdeContext): PutEvaluationsResponse => {
-  return {
-    FailedEvaluations: output.FailedEvaluations != null ? de_Evaluations(output.FailedEvaluations, context) : undefined,
-  } as any;
+  return take(output, {
+    FailedEvaluations: (_: any) => de_Evaluations(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1PutExternalEvaluationResponse
- */
-const de_PutExternalEvaluationResponse = (output: any, context: __SerdeContext): PutExternalEvaluationResponse => {
-  return {} as any;
-};
+// de_PutExternalEvaluationResponse omitted.
 
-/**
- * deserializeAws_json1_1PutOrganizationConfigRuleResponse
- */
-const de_PutOrganizationConfigRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): PutOrganizationConfigRuleResponse => {
-  return {
-    OrganizationConfigRuleArn: __expectString(output.OrganizationConfigRuleArn),
-  } as any;
-};
+// de_PutOrganizationConfigRuleResponse omitted.
 
-/**
- * deserializeAws_json1_1PutOrganizationConformancePackResponse
- */
-const de_PutOrganizationConformancePackResponse = (
-  output: any,
-  context: __SerdeContext
-): PutOrganizationConformancePackResponse => {
-  return {
-    OrganizationConformancePackArn: __expectString(output.OrganizationConformancePackArn),
-  } as any;
-};
+// de_PutOrganizationConformancePackResponse omitted.
 
-/**
- * deserializeAws_json1_1PutRemediationConfigurationsResponse
- */
-const de_PutRemediationConfigurationsResponse = (
-  output: any,
-  context: __SerdeContext
-): PutRemediationConfigurationsResponse => {
-  return {
-    FailedBatches:
-      output.FailedBatches != null ? de_FailedRemediationBatches(output.FailedBatches, context) : undefined,
-  } as any;
-};
+// de_PutRemediationConfigurationsResponse omitted.
 
 /**
  * deserializeAws_json1_1PutRemediationExceptionsResponse
@@ -13114,177 +9260,45 @@ const de_PutRemediationExceptionsResponse = (
   output: any,
   context: __SerdeContext
 ): PutRemediationExceptionsResponse => {
-  return {
-    FailedBatches:
-      output.FailedBatches != null ? de_FailedRemediationExceptionBatches(output.FailedBatches, context) : undefined,
-  } as any;
+  return take(output, {
+    FailedBatches: (_: any) => de_FailedRemediationExceptionBatches(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1PutRetentionConfigurationResponse
- */
-const de_PutRetentionConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): PutRetentionConfigurationResponse => {
-  return {
-    RetentionConfiguration:
-      output.RetentionConfiguration != null
-        ? de_RetentionConfiguration(output.RetentionConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_PutRetentionConfigurationResponse omitted.
 
-/**
- * deserializeAws_json1_1PutStoredQueryResponse
- */
-const de_PutStoredQueryResponse = (output: any, context: __SerdeContext): PutStoredQueryResponse => {
-  return {
-    QueryArn: __expectString(output.QueryArn),
-  } as any;
-};
+// de_PutStoredQueryResponse omitted.
 
-/**
- * deserializeAws_json1_1QueryInfo
- */
-const de_QueryInfo = (output: any, context: __SerdeContext): QueryInfo => {
-  return {
-    SelectFields: output.SelectFields != null ? de_FieldInfoList(output.SelectFields, context) : undefined,
-  } as any;
-};
+// de_QueryInfo omitted.
 
-/**
- * deserializeAws_json1_1RecordingGroup
- */
-const de_RecordingGroup = (output: any, context: __SerdeContext): RecordingGroup => {
-  return {
-    allSupported: __expectBoolean(output.allSupported),
-    includeGlobalResourceTypes: __expectBoolean(output.includeGlobalResourceTypes),
-    resourceTypes: output.resourceTypes != null ? de_ResourceTypeList(output.resourceTypes, context) : undefined,
-  } as any;
-};
+// de_RecordingGroup omitted.
 
-/**
- * deserializeAws_json1_1RelatedEventList
- */
-const de_RelatedEventList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RelatedEventList omitted.
 
-/**
- * deserializeAws_json1_1Relationship
- */
-const de_Relationship = (output: any, context: __SerdeContext): Relationship => {
-  return {
-    relationshipName: __expectString(output.relationshipName),
-    resourceId: __expectString(output.resourceId),
-    resourceName: __expectString(output.resourceName),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_Relationship omitted.
 
-/**
- * deserializeAws_json1_1RelationshipList
- */
-const de_RelationshipList = (output: any, context: __SerdeContext): Relationship[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Relationship(entry, context);
-    });
-  return retVal;
-};
+// de_RelationshipList omitted.
 
-/**
- * deserializeAws_json1_1RemediationConfiguration
- */
-const de_RemediationConfiguration = (output: any, context: __SerdeContext): RemediationConfiguration => {
-  return {
-    Arn: __expectString(output.Arn),
-    Automatic: __expectBoolean(output.Automatic),
-    ConfigRuleName: __expectString(output.ConfigRuleName),
-    CreatedByService: __expectString(output.CreatedByService),
-    ExecutionControls:
-      output.ExecutionControls != null ? de_ExecutionControls(output.ExecutionControls, context) : undefined,
-    MaximumAutomaticAttempts: __expectInt32(output.MaximumAutomaticAttempts),
-    Parameters: output.Parameters != null ? de_RemediationParameters(output.Parameters, context) : undefined,
-    ResourceType: __expectString(output.ResourceType),
-    RetryAttemptSeconds: __expectLong(output.RetryAttemptSeconds),
-    TargetId: __expectString(output.TargetId),
-    TargetType: __expectString(output.TargetType),
-    TargetVersion: __expectString(output.TargetVersion),
-  } as any;
-};
+// de_RemediationConfiguration omitted.
 
-/**
- * deserializeAws_json1_1RemediationConfigurations
- */
-const de_RemediationConfigurations = (output: any, context: __SerdeContext): RemediationConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RemediationConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_RemediationConfigurations omitted.
 
 /**
  * deserializeAws_json1_1RemediationException
  */
 const de_RemediationException = (output: any, context: __SerdeContext): RemediationException => {
-  return {
-    ConfigRuleName: __expectString(output.ConfigRuleName),
-    ExpirationTime:
-      output.ExpirationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
+  return take(output, {
+    ConfigRuleName: __expectString,
+    ExpirationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1RemediationExceptionResourceKey
- */
-const de_RemediationExceptionResourceKey = (output: any, context: __SerdeContext): RemediationExceptionResourceKey => {
-  return {
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_RemediationExceptionResourceKey omitted.
 
-/**
- * deserializeAws_json1_1RemediationExceptionResourceKeys
- */
-const de_RemediationExceptionResourceKeys = (
-  output: any,
-  context: __SerdeContext
-): RemediationExceptionResourceKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RemediationExceptionResourceKey(entry, context);
-    });
-  return retVal;
-};
+// de_RemediationExceptionResourceKeys omitted.
 
 /**
  * deserializeAws_json1_1RemediationExceptions
@@ -13293,9 +9307,6 @@ const de_RemediationExceptions = (output: any, context: __SerdeContext): Remedia
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RemediationException(entry, context);
     });
   return retVal;
@@ -13305,19 +9316,13 @@ const de_RemediationExceptions = (output: any, context: __SerdeContext): Remedia
  * deserializeAws_json1_1RemediationExecutionStatus
  */
 const de_RemediationExecutionStatus = (output: any, context: __SerdeContext): RemediationExecutionStatus => {
-  return {
-    InvocationTime:
-      output.InvocationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InvocationTime)))
-        : undefined,
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    ResourceKey: output.ResourceKey != null ? de_ResourceKey(output.ResourceKey, context) : undefined,
-    State: __expectString(output.State),
-    StepDetails: output.StepDetails != null ? de_RemediationExecutionSteps(output.StepDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    InvocationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceKey: _json,
+    State: __expectString,
+    StepDetails: (_: any) => de_RemediationExecutionSteps(_, context),
+  }) as any;
 };
 
 /**
@@ -13327,9 +9332,6 @@ const de_RemediationExecutionStatuses = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RemediationExecutionStatus(entry, context);
     });
   return retVal;
@@ -13339,15 +9341,13 @@ const de_RemediationExecutionStatuses = (output: any, context: __SerdeContext): 
  * deserializeAws_json1_1RemediationExecutionStep
  */
 const de_RemediationExecutionStep = (output: any, context: __SerdeContext): RemediationExecutionStep => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    Name: __expectString(output.Name),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    State: __expectString(output.State),
-    StopTime:
-      output.StopTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime))) : undefined,
-  } as any;
+  return take(output, {
+    ErrorMessage: __expectString,
+    Name: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StopTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -13357,110 +9357,34 @@ const de_RemediationExecutionSteps = (output: any, context: __SerdeContext): Rem
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RemediationExecutionStep(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1RemediationInProgressException
- */
-const de_RemediationInProgressException = (output: any, context: __SerdeContext): RemediationInProgressException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RemediationInProgressException omitted.
 
-/**
- * deserializeAws_json1_1RemediationParameters
- */
-const de_RemediationParameters = (output: any, context: __SerdeContext): Record<string, RemediationParameterValue> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, RemediationParameterValue>, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_RemediationParameterValue(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_RemediationParameters omitted.
 
-/**
- * deserializeAws_json1_1RemediationParameterValue
- */
-const de_RemediationParameterValue = (output: any, context: __SerdeContext): RemediationParameterValue => {
-  return {
-    ResourceValue: output.ResourceValue != null ? de_ResourceValue(output.ResourceValue, context) : undefined,
-    StaticValue: output.StaticValue != null ? de_StaticValue(output.StaticValue, context) : undefined,
-  } as any;
-};
+// de_RemediationParameterValue omitted.
 
-/**
- * deserializeAws_json1_1ResourceConcurrentModificationException
- */
-const de_ResourceConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ResourceConcurrentModificationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceConcurrentModificationException omitted.
 
-/**
- * deserializeAws_json1_1ResourceCount
- */
-const de_ResourceCount = (output: any, context: __SerdeContext): ResourceCount => {
-  return {
-    count: __expectLong(output.count),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_ResourceCount omitted.
 
-/**
- * deserializeAws_json1_1ResourceCounts
- */
-const de_ResourceCounts = (output: any, context: __SerdeContext): ResourceCount[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceCount(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceCounts omitted.
 
-/**
- * deserializeAws_json1_1ResourceDetails
- */
-const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
-  return {
-    ResourceConfiguration: __expectString(output.ResourceConfiguration),
-    ResourceConfigurationSchemaType: __expectString(output.ResourceConfigurationSchemaType),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ResourceDetails omitted.
 
 /**
  * deserializeAws_json1_1ResourceEvaluation
  */
 const de_ResourceEvaluation = (output: any, context: __SerdeContext): ResourceEvaluation => {
-  return {
-    EvaluationMode: __expectString(output.EvaluationMode),
-    EvaluationStartTimestamp:
-      output.EvaluationStartTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationStartTimestamp)))
-        : undefined,
-    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
-  } as any;
+  return take(output, {
+    EvaluationMode: __expectString,
+    EvaluationStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceEvaluationId: __expectString,
+  }) as any;
 };
 
 /**
@@ -13470,9 +9394,6 @@ const de_ResourceEvaluations = (output: any, context: __SerdeContext): ResourceE
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceEvaluation(entry, context);
     });
   return retVal;
@@ -13482,15 +9403,12 @@ const de_ResourceEvaluations = (output: any, context: __SerdeContext): ResourceE
  * deserializeAws_json1_1ResourceIdentifier
  */
 const de_ResourceIdentifier = (output: any, context: __SerdeContext): ResourceIdentifier => {
-  return {
-    resourceDeletionTime:
-      output.resourceDeletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resourceDeletionTime)))
-        : undefined,
-    resourceId: __expectString(output.resourceId),
-    resourceName: __expectString(output.resourceName),
-    resourceType: __expectString(output.resourceType),
-  } as any;
+  return take(output, {
+    resourceDeletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceId: __expectString,
+    resourceName: __expectString,
+    resourceType: __expectString,
+  }) as any;
 };
 
 /**
@@ -13500,423 +9418,78 @@ const de_ResourceIdentifierList = (output: any, context: __SerdeContext): Resour
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceIdentifier(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceKey
- */
-const de_ResourceKey = (output: any, context: __SerdeContext): ResourceKey => {
-  return {
-    resourceId: __expectString(output.resourceId),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_ResourceKey omitted.
 
-/**
- * deserializeAws_json1_1ResourceKeys
- */
-const de_ResourceKeys = (output: any, context: __SerdeContext): ResourceKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceKey(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceKeys omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotDiscoveredException
- */
-const de_ResourceNotDiscoveredException = (output: any, context: __SerdeContext): ResourceNotDiscoveredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotDiscoveredException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ResourceTypeList
- */
-const de_ResourceTypeList = (output: any, context: __SerdeContext): (ResourceType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceTypeList omitted.
 
-/**
- * deserializeAws_json1_1ResourceTypesScope
- */
-const de_ResourceTypesScope = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceTypesScope omitted.
 
-/**
- * deserializeAws_json1_1ResourceValue
- */
-const de_ResourceValue = (output: any, context: __SerdeContext): ResourceValue => {
-  return {
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ResourceValue omitted.
 
-/**
- * deserializeAws_json1_1Results
- */
-const de_Results = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Results omitted.
 
-/**
- * deserializeAws_json1_1RetentionConfiguration
- */
-const de_RetentionConfiguration = (output: any, context: __SerdeContext): RetentionConfiguration => {
-  return {
-    Name: __expectString(output.Name),
-    RetentionPeriodInDays: __expectInt32(output.RetentionPeriodInDays),
-  } as any;
-};
+// de_RetentionConfiguration omitted.
 
-/**
- * deserializeAws_json1_1RetentionConfigurationList
- */
-const de_RetentionConfigurationList = (output: any, context: __SerdeContext): RetentionConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RetentionConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_RetentionConfigurationList omitted.
 
-/**
- * deserializeAws_json1_1Scope
- */
-const de_Scope = (output: any, context: __SerdeContext): Scope => {
-  return {
-    ComplianceResourceId: __expectString(output.ComplianceResourceId),
-    ComplianceResourceTypes:
-      output.ComplianceResourceTypes != null
-        ? de_ComplianceResourceTypes(output.ComplianceResourceTypes, context)
-        : undefined,
-    TagKey: __expectString(output.TagKey),
-    TagValue: __expectString(output.TagValue),
-  } as any;
-};
+// de_Scope omitted.
 
-/**
- * deserializeAws_json1_1SelectAggregateResourceConfigResponse
- */
-const de_SelectAggregateResourceConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): SelectAggregateResourceConfigResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    QueryInfo: output.QueryInfo != null ? de_QueryInfo(output.QueryInfo, context) : undefined,
-    Results: output.Results != null ? de_Results(output.Results, context) : undefined,
-  } as any;
-};
+// de_SelectAggregateResourceConfigResponse omitted.
 
-/**
- * deserializeAws_json1_1SelectResourceConfigResponse
- */
-const de_SelectResourceConfigResponse = (output: any, context: __SerdeContext): SelectResourceConfigResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    QueryInfo: output.QueryInfo != null ? de_QueryInfo(output.QueryInfo, context) : undefined,
-    Results: output.Results != null ? de_Results(output.Results, context) : undefined,
-  } as any;
-};
+// de_SelectResourceConfigResponse omitted.
 
-/**
- * deserializeAws_json1_1Source
- */
-const de_Source = (output: any, context: __SerdeContext): Source => {
-  return {
-    CustomPolicyDetails:
-      output.CustomPolicyDetails != null ? de_CustomPolicyDetails(output.CustomPolicyDetails, context) : undefined,
-    Owner: __expectString(output.Owner),
-    SourceDetails: output.SourceDetails != null ? de_SourceDetails(output.SourceDetails, context) : undefined,
-    SourceIdentifier: __expectString(output.SourceIdentifier),
-  } as any;
-};
+// de_Source omitted.
 
-/**
- * deserializeAws_json1_1SourceDetail
- */
-const de_SourceDetail = (output: any, context: __SerdeContext): SourceDetail => {
-  return {
-    EventSource: __expectString(output.EventSource),
-    MaximumExecutionFrequency: __expectString(output.MaximumExecutionFrequency),
-    MessageType: __expectString(output.MessageType),
-  } as any;
-};
+// de_SourceDetail omitted.
 
-/**
- * deserializeAws_json1_1SourceDetails
- */
-const de_SourceDetails = (output: any, context: __SerdeContext): SourceDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SourceDetail(entry, context);
-    });
-  return retVal;
-};
+// de_SourceDetails omitted.
 
-/**
- * deserializeAws_json1_1SsmControls
- */
-const de_SsmControls = (output: any, context: __SerdeContext): SsmControls => {
-  return {
-    ConcurrentExecutionRatePercentage: __expectInt32(output.ConcurrentExecutionRatePercentage),
-    ErrorPercentage: __expectInt32(output.ErrorPercentage),
-  } as any;
-};
+// de_SsmControls omitted.
 
-/**
- * deserializeAws_json1_1StartConfigRulesEvaluationResponse
- */
-const de_StartConfigRulesEvaluationResponse = (
-  output: any,
-  context: __SerdeContext
-): StartConfigRulesEvaluationResponse => {
-  return {} as any;
-};
+// de_StartConfigRulesEvaluationResponse omitted.
 
-/**
- * deserializeAws_json1_1StartRemediationExecutionResponse
- */
-const de_StartRemediationExecutionResponse = (
-  output: any,
-  context: __SerdeContext
-): StartRemediationExecutionResponse => {
-  return {
-    FailedItems: output.FailedItems != null ? de_ResourceKeys(output.FailedItems, context) : undefined,
-    FailureMessage: __expectString(output.FailureMessage),
-  } as any;
-};
+// de_StartRemediationExecutionResponse omitted.
 
-/**
- * deserializeAws_json1_1StartResourceEvaluationResponse
- */
-const de_StartResourceEvaluationResponse = (output: any, context: __SerdeContext): StartResourceEvaluationResponse => {
-  return {
-    ResourceEvaluationId: __expectString(output.ResourceEvaluationId),
-  } as any;
-};
+// de_StartResourceEvaluationResponse omitted.
 
-/**
- * deserializeAws_json1_1StaticParameterValues
- */
-const de_StaticParameterValues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StaticParameterValues omitted.
 
-/**
- * deserializeAws_json1_1StaticValue
- */
-const de_StaticValue = (output: any, context: __SerdeContext): StaticValue => {
-  return {
-    Values: output.Values != null ? de_StaticParameterValues(output.Values, context) : undefined,
-  } as any;
-};
+// de_StaticValue omitted.
 
-/**
- * deserializeAws_json1_1StoredQuery
- */
-const de_StoredQuery = (output: any, context: __SerdeContext): StoredQuery => {
-  return {
-    Description: __expectString(output.Description),
-    Expression: __expectString(output.Expression),
-    QueryArn: __expectString(output.QueryArn),
-    QueryId: __expectString(output.QueryId),
-    QueryName: __expectString(output.QueryName),
-  } as any;
-};
+// de_StoredQuery omitted.
 
-/**
- * deserializeAws_json1_1StoredQueryMetadata
- */
-const de_StoredQueryMetadata = (output: any, context: __SerdeContext): StoredQueryMetadata => {
-  return {
-    Description: __expectString(output.Description),
-    QueryArn: __expectString(output.QueryArn),
-    QueryId: __expectString(output.QueryId),
-    QueryName: __expectString(output.QueryName),
-  } as any;
-};
+// de_StoredQueryMetadata omitted.
 
-/**
- * deserializeAws_json1_1StoredQueryMetadataList
- */
-const de_StoredQueryMetadataList = (output: any, context: __SerdeContext): StoredQueryMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StoredQueryMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_StoredQueryMetadataList omitted.
 
-/**
- * deserializeAws_json1_1SupplementaryConfiguration
- */
-const de_SupplementaryConfiguration = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_SupplementaryConfiguration omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_1TemplateSSMDocumentDetails
- */
-const de_TemplateSSMDocumentDetails = (output: any, context: __SerdeContext): TemplateSSMDocumentDetails => {
-  return {
-    DocumentName: __expectString(output.DocumentName),
-    DocumentVersion: __expectString(output.DocumentVersion),
-  } as any;
-};
+// de_TemplateSSMDocumentDetails omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-/**
- * deserializeAws_json1_1UnprocessedResourceIdentifierList
- */
-const de_UnprocessedResourceIdentifierList = (output: any, context: __SerdeContext): AggregateResourceIdentifier[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AggregateResourceIdentifier(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedResourceIdentifierList omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -13938,6 +9511,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

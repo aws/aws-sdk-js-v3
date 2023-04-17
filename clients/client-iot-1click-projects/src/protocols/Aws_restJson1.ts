@@ -1,16 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -93,9 +95,11 @@ export const se_AssociateDeviceWithPlacementCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.deviceId != null && { deviceId: input.deviceId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      deviceId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -122,10 +126,12 @@ export const se_CreatePlacementCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectName}/placements";
   resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.attributes != null && { attributes: se_PlacementAttributeMap(input.attributes, context) }),
-    ...(input.placementName != null && { placementName: input.placementName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      attributes: (_) => _json(_),
+      placementName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -150,14 +156,14 @@ export const se_CreateProjectCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.placementTemplate != null && {
-      placementTemplate: se_PlacementTemplate(input.placementTemplate, context),
-    }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      placementTemplate: (_) => _json(_),
+      projectName: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -448,9 +454,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -516,9 +524,11 @@ export const se_UpdatePlacementCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.attributes != null && { attributes: se_PlacementAttributeMap(input.attributes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      attributes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -544,12 +554,12 @@ export const se_UpdateProjectCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.placementTemplate != null && {
-      placementTemplate: se_PlacementTemplate(input.placementTemplate, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      placementTemplate: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -605,10 +615,9 @@ const de_AssociateDeviceWithPlacementCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -658,10 +667,9 @@ const de_CreatePlacementCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -708,10 +716,9 @@ const de_CreateProjectCommandError = async (
       throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -761,10 +768,9 @@ const de_DeletePlacementCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -814,10 +820,9 @@ const de_DeleteProjectCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -837,9 +842,10 @@ export const de_DescribePlacementCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.placement != null) {
-    contents.placement = de_PlacementDescription(data.placement, context);
-  }
+  const doc = take(data, {
+    placement: (_) => de_PlacementDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -867,10 +873,9 @@ const de_DescribePlacementCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -890,9 +895,10 @@ export const de_DescribeProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project != null) {
-    contents.project = de_ProjectDescription(data.project, context);
-  }
+  const doc = take(data, {
+    project: (_) => de_ProjectDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -920,10 +926,9 @@ const de_DescribeProjectCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -973,10 +978,9 @@ const de_DisassociateDeviceFromPlacementCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -996,9 +1000,10 @@ export const de_GetDevicesInPlacementCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.devices != null) {
-    contents.devices = de_DeviceMap(data.devices, context);
-  }
+  const doc = take(data, {
+    devices: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1026,10 +1031,9 @@ const de_GetDevicesInPlacementCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1049,12 +1053,11 @@ export const de_ListPlacementsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.placements != null) {
-    contents.placements = de_PlacementSummaryList(data.placements, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    placements: (_) => de_PlacementSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1082,10 +1085,9 @@ const de_ListPlacementsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1105,12 +1107,11 @@ export const de_ListProjectsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.projects != null) {
-    contents.projects = de_ProjectSummaryList(data.projects, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    projects: (_) => de_ProjectSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1135,10 +1136,9 @@ const de_ListProjectsCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1158,9 +1158,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1188,10 +1189,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1238,10 +1238,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1288,10 +1287,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1341,10 +1339,9 @@ const de_UpdatePlacementCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1394,16 +1391,15 @@ const de_UpdateProjectCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InternalFailureExceptionRes
  */
@@ -1413,12 +1409,11 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1435,12 +1430,11 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1457,12 +1451,11 @@ const de_ResourceConflictExceptionRes = async (
 ): Promise<ResourceConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1479,12 +1472,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1501,12 +1493,11 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1514,206 +1505,55 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1DefaultPlacementAttributeMap
- */
-const se_DefaultPlacementAttributeMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_DefaultPlacementAttributeMap omitted.
 
-/**
- * serializeAws_restJson1DeviceCallbackOverrideMap
- */
-const se_DeviceCallbackOverrideMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_DeviceCallbackOverrideMap omitted.
 
-/**
- * serializeAws_restJson1DeviceTemplate
- */
-const se_DeviceTemplate = (input: DeviceTemplate, context: __SerdeContext): any => {
-  return {
-    ...(input.callbackOverrides != null && {
-      callbackOverrides: se_DeviceCallbackOverrideMap(input.callbackOverrides, context),
-    }),
-    ...(input.deviceType != null && { deviceType: input.deviceType }),
-  };
-};
+// se_DeviceTemplate omitted.
 
-/**
- * serializeAws_restJson1DeviceTemplateMap
- */
-const se_DeviceTemplateMap = (input: Record<string, DeviceTemplate>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_DeviceTemplate(value, context);
-    return acc;
-  }, {});
-};
+// se_DeviceTemplateMap omitted.
 
-/**
- * serializeAws_restJson1PlacementAttributeMap
- */
-const se_PlacementAttributeMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_PlacementAttributeMap omitted.
 
-/**
- * serializeAws_restJson1PlacementTemplate
- */
-const se_PlacementTemplate = (input: PlacementTemplate, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultAttributes != null && {
-      defaultAttributes: se_DefaultPlacementAttributeMap(input.defaultAttributes, context),
-    }),
-    ...(input.deviceTemplates != null && { deviceTemplates: se_DeviceTemplateMap(input.deviceTemplates, context) }),
-  };
-};
+// se_PlacementTemplate omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1DefaultPlacementAttributeMap
- */
-const de_DefaultPlacementAttributeMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_DefaultPlacementAttributeMap omitted.
 
-/**
- * deserializeAws_restJson1DeviceCallbackOverrideMap
- */
-const de_DeviceCallbackOverrideMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_DeviceCallbackOverrideMap omitted.
 
-/**
- * deserializeAws_restJson1DeviceMap
- */
-const de_DeviceMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_DeviceMap omitted.
 
-/**
- * deserializeAws_restJson1DeviceTemplate
- */
-const de_DeviceTemplate = (output: any, context: __SerdeContext): DeviceTemplate => {
-  return {
-    callbackOverrides:
-      output.callbackOverrides != null ? de_DeviceCallbackOverrideMap(output.callbackOverrides, context) : undefined,
-    deviceType: __expectString(output.deviceType),
-  } as any;
-};
+// de_DeviceTemplate omitted.
 
-/**
- * deserializeAws_restJson1DeviceTemplateMap
- */
-const de_DeviceTemplateMap = (output: any, context: __SerdeContext): Record<string, DeviceTemplate> => {
-  return Object.entries(output).reduce((acc: Record<string, DeviceTemplate>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_DeviceTemplate(value, context);
-    return acc;
-  }, {});
-};
+// de_DeviceTemplateMap omitted.
 
-/**
- * deserializeAws_restJson1PlacementAttributeMap
- */
-const de_PlacementAttributeMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_PlacementAttributeMap omitted.
 
 /**
  * deserializeAws_restJson1PlacementDescription
  */
 const de_PlacementDescription = (output: any, context: __SerdeContext): PlacementDescription => {
-  return {
-    attributes: output.attributes != null ? de_PlacementAttributeMap(output.attributes, context) : undefined,
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    placementName: __expectString(output.placementName),
-    projectName: __expectString(output.projectName),
-    updatedDate:
-      output.updatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    attributes: _json,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    placementName: __expectString,
+    projectName: __expectString,
+    updatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PlacementSummary
  */
 const de_PlacementSummary = (output: any, context: __SerdeContext): PlacementSummary => {
-  return {
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    placementName: __expectString(output.placementName),
-    projectName: __expectString(output.projectName),
-    updatedDate:
-      output.updatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    placementName: __expectString,
+    projectName: __expectString,
+    updatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -1723,64 +1563,39 @@ const de_PlacementSummaryList = (output: any, context: __SerdeContext): Placemen
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PlacementSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1PlacementTemplate
- */
-const de_PlacementTemplate = (output: any, context: __SerdeContext): PlacementTemplate => {
-  return {
-    defaultAttributes:
-      output.defaultAttributes != null ? de_DefaultPlacementAttributeMap(output.defaultAttributes, context) : undefined,
-    deviceTemplates: output.deviceTemplates != null ? de_DeviceTemplateMap(output.deviceTemplates, context) : undefined,
-  } as any;
-};
+// de_PlacementTemplate omitted.
 
 /**
  * deserializeAws_restJson1ProjectDescription
  */
 const de_ProjectDescription = (output: any, context: __SerdeContext): ProjectDescription => {
-  return {
-    arn: __expectString(output.arn),
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    placementTemplate:
-      output.placementTemplate != null ? de_PlacementTemplate(output.placementTemplate, context) : undefined,
-    projectName: __expectString(output.projectName),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    updatedDate:
-      output.updatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    placementTemplate: _json,
+    projectName: __expectString,
+    tags: _json,
+    updatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ProjectSummary
  */
 const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    projectName: __expectString(output.projectName),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    updatedDate:
-      output.updatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    projectName: __expectString,
+    tags: _json,
+    updatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -1790,26 +1605,12 @@ const de_ProjectSummaryList = (output: any, context: __SerdeContext): ProjectSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProjectSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

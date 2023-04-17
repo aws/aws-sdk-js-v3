@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,10 +11,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -198,12 +200,8 @@ import {
   AdvancedBackupSetting,
   AlreadyExistsException,
   BackupJob,
-  BackupJobState,
-  BackupPlan,
   BackupPlanInput,
   BackupPlansListMember,
-  BackupPlanTemplatesListMember,
-  BackupRule,
   BackupRuleInput,
   BackupSelection,
   BackupSelectionsListMember,
@@ -218,7 +216,6 @@ import {
   ControlScope,
   CopyAction,
   CopyJob,
-  CopyJobState,
   DateRange,
   DependencyFailureException,
   Framework,
@@ -233,11 +230,8 @@ import {
   ProtectedResource,
   RecoveryPointByBackupVault,
   RecoveryPointByResource,
-  RecoveryPointCreator,
-  RecoveryPointMember,
   RecoveryPointSelection,
   ReportDeliveryChannel,
-  ReportDestination,
   ReportJob,
   ReportPlan,
   ReportSetting,
@@ -288,11 +282,13 @@ export const se_CreateBackupPlanCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupPlan != null && { BackupPlan: se_BackupPlanInput(input.BackupPlan, context) }),
-    ...(input.BackupPlanTags != null && { BackupPlanTags: se_Tags(input.BackupPlanTags, context) }),
-    ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupPlan: (_) => _json(_),
+      BackupPlanTags: (_) => _json(_),
+      CreatorRequestId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -326,10 +322,12 @@ export const se_CreateBackupSelectionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupSelection != null && { BackupSelection: se_BackupSelection(input.BackupSelection, context) }),
-    ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupSelection: (_) => _json(_),
+      CreatorRequestId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -363,11 +361,13 @@ export const se_CreateBackupVaultCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupVaultTags != null && { BackupVaultTags: se_Tags(input.BackupVaultTags, context) }),
-    ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
-    ...(input.EncryptionKeyArn != null && { EncryptionKeyArn: input.EncryptionKeyArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupVaultTags: (_) => _json(_),
+      CreatorRequestId: [],
+      EncryptionKeyArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -392,15 +392,15 @@ export const se_CreateFrameworkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FrameworkControls != null && {
-      FrameworkControls: se_FrameworkControls(input.FrameworkControls, context),
-    }),
-    ...(input.FrameworkDescription != null && { FrameworkDescription: input.FrameworkDescription }),
-    ...(input.FrameworkName != null && { FrameworkName: input.FrameworkName }),
-    ...(input.FrameworkTags != null && { FrameworkTags: se_stringMap(input.FrameworkTags, context) }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FrameworkControls: (_) => _json(_),
+      FrameworkDescription: [],
+      FrameworkName: [],
+      FrameworkTags: (_) => _json(_),
+      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -425,15 +425,15 @@ export const se_CreateLegalHoldCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.RecoveryPointSelection != null && {
-      RecoveryPointSelection: se_RecoveryPointSelection(input.RecoveryPointSelection, context),
-    }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    ...(input.Title != null && { Title: input.Title }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      IdempotencyToken: [],
+      RecoveryPointSelection: (_) => se_RecoveryPointSelection(_, context),
+      Tags: (_) => _json(_),
+      Title: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -458,16 +458,16 @@ export const se_CreateReportPlanCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans";
   let body: any;
-  body = JSON.stringify({
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ReportDeliveryChannel != null && {
-      ReportDeliveryChannel: se_ReportDeliveryChannel(input.ReportDeliveryChannel, context),
-    }),
-    ...(input.ReportPlanDescription != null && { ReportPlanDescription: input.ReportPlanDescription }),
-    ...(input.ReportPlanName != null && { ReportPlanName: input.ReportPlanName }),
-    ...(input.ReportPlanTags != null && { ReportPlanTags: se_stringMap(input.ReportPlanTags, context) }),
-    ...(input.ReportSetting != null && { ReportSetting: se_ReportSetting(input.ReportSetting, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+      ReportDeliveryChannel: (_) => _json(_),
+      ReportPlanDescription: [],
+      ReportPlanName: [],
+      ReportPlanTags: (_) => _json(_),
+      ReportSetting: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1240,9 +1240,11 @@ export const se_GetBackupPlanFromJSONCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/template/json/toPlan";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupPlanTemplateJson != null && { BackupPlanTemplateJson: input.BackupPlanTemplateJson }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupPlanTemplateJson: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2074,9 +2076,11 @@ export const se_PutBackupVaultAccessPolicyCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy != null && { Policy: input.Policy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2111,11 +2115,13 @@ export const se_PutBackupVaultLockConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChangeableForDays != null && { ChangeableForDays: input.ChangeableForDays }),
-    ...(input.MaxRetentionDays != null && { MaxRetentionDays: input.MaxRetentionDays }),
-    ...(input.MinRetentionDays != null && { MinRetentionDays: input.MinRetentionDays }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChangeableForDays: [],
+      MaxRetentionDays: [],
+      MinRetentionDays: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2150,12 +2156,12 @@ export const se_PutBackupVaultNotificationsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupVaultEvents != null && {
-      BackupVaultEvents: se_BackupVaultEvents(input.BackupVaultEvents, context),
-    }),
-    ...(input.SNSTopicArn != null && { SNSTopicArn: input.SNSTopicArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupVaultEvents: (_) => _json(_),
+      SNSTopicArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2180,17 +2186,19 @@ export const se_StartBackupJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupOptions != null && { BackupOptions: se_BackupOptions(input.BackupOptions, context) }),
-    ...(input.BackupVaultName != null && { BackupVaultName: input.BackupVaultName }),
-    ...(input.CompleteWindowMinutes != null && { CompleteWindowMinutes: input.CompleteWindowMinutes }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Lifecycle != null && { Lifecycle: se_Lifecycle(input.Lifecycle, context) }),
-    ...(input.RecoveryPointTags != null && { RecoveryPointTags: se_Tags(input.RecoveryPointTags, context) }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.StartWindowMinutes != null && { StartWindowMinutes: input.StartWindowMinutes }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupOptions: (_) => _json(_),
+      BackupVaultName: [],
+      CompleteWindowMinutes: [],
+      IamRoleArn: [],
+      IdempotencyToken: [],
+      Lifecycle: (_) => _json(_),
+      RecoveryPointTags: (_) => _json(_),
+      ResourceArn: [],
+      StartWindowMinutes: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2215,14 +2223,16 @@ export const se_StartCopyJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/copy-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DestinationBackupVaultArn != null && { DestinationBackupVaultArn: input.DestinationBackupVaultArn }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Lifecycle != null && { Lifecycle: se_Lifecycle(input.Lifecycle, context) }),
-    ...(input.RecoveryPointArn != null && { RecoveryPointArn: input.RecoveryPointArn }),
-    ...(input.SourceBackupVaultName != null && { SourceBackupVaultName: input.SourceBackupVaultName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DestinationBackupVaultArn: [],
+      IamRoleArn: [],
+      IdempotencyToken: [],
+      Lifecycle: (_) => _json(_),
+      RecoveryPointArn: [],
+      SourceBackupVaultName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2256,9 +2266,11 @@ export const se_StartReportJobCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2283,13 +2295,15 @@ export const se_StartRestoreJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Metadata != null && { Metadata: se_Metadata(input.Metadata, context) }),
-    ...(input.RecoveryPointArn != null && { RecoveryPointArn: input.RecoveryPointArn }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IamRoleArn: [],
+      IdempotencyToken: [],
+      Metadata: (_) => _json(_),
+      RecoveryPointArn: [],
+      ResourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2339,9 +2353,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2367,9 +2383,11 @@ export const se_UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untag/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.TagKeyList != null && { TagKeyList: se_TagKeyList(input.TagKeyList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TagKeyList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2403,9 +2421,11 @@ export const se_UpdateBackupPlanCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupPlan != null && { BackupPlan: se_BackupPlanInput(input.BackupPlan, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupPlan: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2439,13 +2459,13 @@ export const se_UpdateFrameworkCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.FrameworkControls != null && {
-      FrameworkControls: se_FrameworkControls(input.FrameworkControls, context),
-    }),
-    ...(input.FrameworkDescription != null && { FrameworkDescription: input.FrameworkDescription }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FrameworkControls: (_) => _json(_),
+      FrameworkDescription: [],
+      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2470,9 +2490,11 @@ export const se_UpdateGlobalSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-settings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GlobalSettings != null && { GlobalSettings: se_GlobalSettings(input.GlobalSettings, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GlobalSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2515,9 +2537,11 @@ export const se_UpdateRecoveryPointLifecycleCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Lifecycle != null && { Lifecycle: se_Lifecycle(input.Lifecycle, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Lifecycle: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2542,17 +2566,12 @@ export const se_UpdateRegionSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account-settings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceTypeManagementPreference != null && {
-      ResourceTypeManagementPreference: se_ResourceTypeManagementPreference(
-        input.ResourceTypeManagementPreference,
-        context
-      ),
-    }),
-    ...(input.ResourceTypeOptInPreference != null && {
-      ResourceTypeOptInPreference: se_ResourceTypeOptInPreference(input.ResourceTypeOptInPreference, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceTypeManagementPreference: (_) => _json(_),
+      ResourceTypeOptInPreference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2586,14 +2605,14 @@ export const se_UpdateReportPlanCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ReportDeliveryChannel != null && {
-      ReportDeliveryChannel: se_ReportDeliveryChannel(input.ReportDeliveryChannel, context),
-    }),
-    ...(input.ReportPlanDescription != null && { ReportPlanDescription: input.ReportPlanDescription }),
-    ...(input.ReportSetting != null && { ReportSetting: se_ReportSetting(input.ReportSetting, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+      ReportDeliveryChannel: (_) => _json(_),
+      ReportPlanDescription: [],
+      ReportSetting: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2652,10 +2671,9 @@ const de_CancelLegalHoldCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2675,21 +2693,14 @@ export const de_CreateBackupPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdvancedBackupSettings != null) {
-    contents.AdvancedBackupSettings = de_AdvancedBackupSettings(data.AdvancedBackupSettings, context);
-  }
-  if (data.BackupPlanArn != null) {
-    contents.BackupPlanArn = __expectString(data.BackupPlanArn);
-  }
-  if (data.BackupPlanId != null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.VersionId != null) {
-    contents.VersionId = __expectString(data.VersionId);
-  }
+  const doc = take(data, {
+    AdvancedBackupSettings: _json,
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2723,10 +2734,9 @@ const de_CreateBackupPlanCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2746,15 +2756,12 @@ export const de_CreateBackupSelectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanId != null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.SelectionId != null) {
-    contents.SelectionId = __expectString(data.SelectionId);
-  }
+  const doc = take(data, {
+    BackupPlanId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SelectionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2788,10 +2795,9 @@ const de_CreateBackupSelectionCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2811,15 +2817,12 @@ export const de_CreateBackupVaultCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn != null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName != null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2853,10 +2856,9 @@ const de_CreateBackupVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2876,12 +2878,11 @@ export const de_CreateFrameworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FrameworkArn != null) {
-    contents.FrameworkArn = __expectString(data.FrameworkArn);
-  }
-  if (data.FrameworkName != null) {
-    contents.FrameworkName = __expectString(data.FrameworkName);
-  }
+  const doc = take(data, {
+    FrameworkArn: __expectString,
+    FrameworkName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2915,10 +2916,9 @@ const de_CreateFrameworkCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2938,27 +2938,16 @@ export const de_CreateLegalHoldCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LegalHoldArn != null) {
-    contents.LegalHoldArn = __expectString(data.LegalHoldArn);
-  }
-  if (data.LegalHoldId != null) {
-    contents.LegalHoldId = __expectString(data.LegalHoldId);
-  }
-  if (data.RecoveryPointSelection != null) {
-    contents.RecoveryPointSelection = de_RecoveryPointSelection(data.RecoveryPointSelection, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Title != null) {
-    contents.Title = __expectString(data.Title);
-  }
+  const doc = take(data, {
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LegalHoldArn: __expectString,
+    LegalHoldId: __expectString,
+    RecoveryPointSelection: (_) => de_RecoveryPointSelection(_, context),
+    Status: __expectString,
+    Title: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2989,10 +2978,9 @@ const de_CreateLegalHoldCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3012,15 +3000,12 @@ export const de_CreateReportPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.ReportPlanArn != null) {
-    contents.ReportPlanArn = __expectString(data.ReportPlanArn);
-  }
-  if (data.ReportPlanName != null) {
-    contents.ReportPlanName = __expectString(data.ReportPlanName);
-  }
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportPlanArn: __expectString,
+    ReportPlanName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3054,10 +3039,9 @@ const de_CreateReportPlanCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3077,18 +3061,13 @@ export const de_DeleteBackupPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanArn != null) {
-    contents.BackupPlanArn = __expectString(data.BackupPlanArn);
-  }
-  if (data.BackupPlanId != null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.DeletionDate != null) {
-    contents.DeletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.DeletionDate)));
-  }
-  if (data.VersionId != null) {
-    contents.VersionId = __expectString(data.VersionId);
-  }
+  const doc = take(data, {
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    DeletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3122,10 +3101,9 @@ const de_DeleteBackupPlanCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3175,10 +3153,9 @@ const de_DeleteBackupSelectionCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3231,10 +3208,9 @@ const de_DeleteBackupVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3284,10 +3260,9 @@ const de_DeleteBackupVaultAccessPolicyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3340,10 +3315,9 @@ const de_DeleteBackupVaultLockConfigurationCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3393,10 +3367,9 @@ const de_DeleteBackupVaultNotificationsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3449,10 +3422,9 @@ const de_DeleteFrameworkCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3508,10 +3480,9 @@ const de_DeleteRecoveryPointCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3564,10 +3535,9 @@ const de_DeleteReportPlanCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3587,83 +3557,34 @@ export const de_DescribeBackupJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountId != null) {
-    contents.AccountId = __expectString(data.AccountId);
-  }
-  if (data.BackupJobId != null) {
-    contents.BackupJobId = __expectString(data.BackupJobId);
-  }
-  if (data.BackupOptions != null) {
-    contents.BackupOptions = de_BackupOptions(data.BackupOptions, context);
-  }
-  if (data.BackupSizeInBytes != null) {
-    contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
-  }
-  if (data.BackupType != null) {
-    contents.BackupType = __expectString(data.BackupType);
-  }
-  if (data.BackupVaultArn != null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName != null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.BytesTransferred != null) {
-    contents.BytesTransferred = __expectLong(data.BytesTransferred);
-  }
-  if (data.ChildJobsInState != null) {
-    contents.ChildJobsInState = de_BackupJobChildJobsInState(data.ChildJobsInState, context);
-  }
-  if (data.CompletionDate != null) {
-    contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
-  }
-  if (data.CreatedBy != null) {
-    contents.CreatedBy = de_RecoveryPointCreator(data.CreatedBy, context);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.ExpectedCompletionDate != null) {
-    contents.ExpectedCompletionDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.ExpectedCompletionDate))
-    );
-  }
-  if (data.IamRoleArn != null) {
-    contents.IamRoleArn = __expectString(data.IamRoleArn);
-  }
-  if (data.IsParent != null) {
-    contents.IsParent = __expectBoolean(data.IsParent);
-  }
-  if (data.NumberOfChildJobs != null) {
-    contents.NumberOfChildJobs = __expectLong(data.NumberOfChildJobs);
-  }
-  if (data.ParentJobId != null) {
-    contents.ParentJobId = __expectString(data.ParentJobId);
-  }
-  if (data.PercentDone != null) {
-    contents.PercentDone = __expectString(data.PercentDone);
-  }
-  if (data.RecoveryPointArn != null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  if (data.ResourceArn != null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.StartBy != null) {
-    contents.StartBy = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.StartBy)));
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StatusMessage != null) {
-    contents.StatusMessage = __expectString(data.StatusMessage);
-  }
+  const doc = take(data, {
+    AccountId: __expectString,
+    BackupJobId: __expectString,
+    BackupOptions: _json,
+    BackupSizeInBytes: __expectLong,
+    BackupType: __expectString,
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    BytesTransferred: __expectLong,
+    ChildJobsInState: _json,
+    CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: _json,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpectedCompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IamRoleArn: __expectString,
+    IsParent: __expectBoolean,
+    NumberOfChildJobs: __expectLong,
+    ParentJobId: __expectString,
+    PercentDone: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    StartBy: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StatusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3697,10 +3618,9 @@ const de_DescribeBackupJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3720,36 +3640,19 @@ export const de_DescribeBackupVaultCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn != null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName != null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.CreatorRequestId != null) {
-    contents.CreatorRequestId = __expectString(data.CreatorRequestId);
-  }
-  if (data.EncryptionKeyArn != null) {
-    contents.EncryptionKeyArn = __expectString(data.EncryptionKeyArn);
-  }
-  if (data.LockDate != null) {
-    contents.LockDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LockDate)));
-  }
-  if (data.Locked != null) {
-    contents.Locked = __expectBoolean(data.Locked);
-  }
-  if (data.MaxRetentionDays != null) {
-    contents.MaxRetentionDays = __expectLong(data.MaxRetentionDays);
-  }
-  if (data.MinRetentionDays != null) {
-    contents.MinRetentionDays = __expectLong(data.MinRetentionDays);
-  }
-  if (data.NumberOfRecoveryPoints != null) {
-    contents.NumberOfRecoveryPoints = __expectLong(data.NumberOfRecoveryPoints);
-  }
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    EncryptionKeyArn: __expectString,
+    LockDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Locked: __expectBoolean,
+    MaxRetentionDays: __expectLong,
+    MinRetentionDays: __expectLong,
+    NumberOfRecoveryPoints: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3780,10 +3683,9 @@ const de_DescribeBackupVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3803,9 +3705,10 @@ export const de_DescribeCopyJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CopyJob != null) {
-    contents.CopyJob = de_CopyJob(data.CopyJob, context);
-  }
+  const doc = take(data, {
+    CopyJob: (_) => de_CopyJob(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3836,10 +3739,9 @@ const de_DescribeCopyJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3859,30 +3761,17 @@ export const de_DescribeFrameworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DeploymentStatus != null) {
-    contents.DeploymentStatus = __expectString(data.DeploymentStatus);
-  }
-  if (data.FrameworkArn != null) {
-    contents.FrameworkArn = __expectString(data.FrameworkArn);
-  }
-  if (data.FrameworkControls != null) {
-    contents.FrameworkControls = de_FrameworkControls(data.FrameworkControls, context);
-  }
-  if (data.FrameworkDescription != null) {
-    contents.FrameworkDescription = __expectString(data.FrameworkDescription);
-  }
-  if (data.FrameworkName != null) {
-    contents.FrameworkName = __expectString(data.FrameworkName);
-  }
-  if (data.FrameworkStatus != null) {
-    contents.FrameworkStatus = __expectString(data.FrameworkStatus);
-  }
-  if (data.IdempotencyToken != null) {
-    contents.IdempotencyToken = __expectString(data.IdempotencyToken);
-  }
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentStatus: __expectString,
+    FrameworkArn: __expectString,
+    FrameworkControls: _json,
+    FrameworkDescription: __expectString,
+    FrameworkName: __expectString,
+    FrameworkStatus: __expectString,
+    IdempotencyToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3913,10 +3802,9 @@ const de_DescribeFrameworkCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3936,12 +3824,11 @@ export const de_DescribeGlobalSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GlobalSettings != null) {
-    contents.GlobalSettings = de_GlobalSettings(data.GlobalSettings, context);
-  }
-  if (data.LastUpdateTime != null) {
-    contents.LastUpdateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdateTime)));
-  }
+  const doc = take(data, {
+    GlobalSettings: _json,
+    LastUpdateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3966,10 +3853,9 @@ const de_DescribeGlobalSettingsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3989,18 +3875,13 @@ export const de_DescribeProtectedResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LastBackupTime != null) {
-    contents.LastBackupTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastBackupTime)));
-  }
-  if (data.ResourceArn != null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    LastBackupTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4031,10 +3912,9 @@ const de_DescribeProtectedResourceCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4054,75 +3934,32 @@ export const de_DescribeRecoveryPointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupSizeInBytes != null) {
-    contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
-  }
-  if (data.BackupVaultArn != null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName != null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.CalculatedLifecycle != null) {
-    contents.CalculatedLifecycle = de_CalculatedLifecycle(data.CalculatedLifecycle, context);
-  }
-  if (data.CompletionDate != null) {
-    contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
-  }
-  if (data.CompositeMemberIdentifier != null) {
-    contents.CompositeMemberIdentifier = __expectString(data.CompositeMemberIdentifier);
-  }
-  if (data.CreatedBy != null) {
-    contents.CreatedBy = de_RecoveryPointCreator(data.CreatedBy, context);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.EncryptionKeyArn != null) {
-    contents.EncryptionKeyArn = __expectString(data.EncryptionKeyArn);
-  }
-  if (data.IamRoleArn != null) {
-    contents.IamRoleArn = __expectString(data.IamRoleArn);
-  }
-  if (data.IsEncrypted != null) {
-    contents.IsEncrypted = __expectBoolean(data.IsEncrypted);
-  }
-  if (data.IsParent != null) {
-    contents.IsParent = __expectBoolean(data.IsParent);
-  }
-  if (data.LastRestoreTime != null) {
-    contents.LastRestoreTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastRestoreTime)));
-  }
-  if (data.Lifecycle != null) {
-    contents.Lifecycle = de_Lifecycle(data.Lifecycle, context);
-  }
-  if (data.ParentRecoveryPointArn != null) {
-    contents.ParentRecoveryPointArn = __expectString(data.ParentRecoveryPointArn);
-  }
-  if (data.RecoveryPointArn != null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  if (data.ResourceArn != null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.SourceBackupVaultArn != null) {
-    contents.SourceBackupVaultArn = __expectString(data.SourceBackupVaultArn);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusMessage != null) {
-    contents.StatusMessage = __expectString(data.StatusMessage);
-  }
-  if (data.StorageClass != null) {
-    contents.StorageClass = __expectString(data.StorageClass);
-  }
+  const doc = take(data, {
+    BackupSizeInBytes: __expectLong,
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CalculatedLifecycle: (_) => de_CalculatedLifecycle(_, context),
+    CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CompositeMemberIdentifier: __expectString,
+    CreatedBy: _json,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EncryptionKeyArn: __expectString,
+    IamRoleArn: __expectString,
+    IsEncrypted: __expectBoolean,
+    IsParent: __expectBoolean,
+    LastRestoreTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Lifecycle: _json,
+    ParentRecoveryPointArn: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    SourceBackupVaultArn: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    StorageClass: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4153,10 +3990,9 @@ const de_DescribeRecoveryPointCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4176,15 +4012,11 @@ export const de_DescribeRegionSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceTypeManagementPreference != null) {
-    contents.ResourceTypeManagementPreference = de_ResourceTypeManagementPreference(
-      data.ResourceTypeManagementPreference,
-      context
-    );
-  }
-  if (data.ResourceTypeOptInPreference != null) {
-    contents.ResourceTypeOptInPreference = de_ResourceTypeOptInPreference(data.ResourceTypeOptInPreference, context);
-  }
+  const doc = take(data, {
+    ResourceTypeManagementPreference: _json,
+    ResourceTypeOptInPreference: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4206,10 +4038,9 @@ const de_DescribeRegionSettingsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4229,9 +4060,10 @@ export const de_DescribeReportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReportJob != null) {
-    contents.ReportJob = de_ReportJob(data.ReportJob, context);
-  }
+  const doc = take(data, {
+    ReportJob: (_) => de_ReportJob(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4259,10 +4091,9 @@ const de_DescribeReportJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4282,9 +4113,10 @@ export const de_DescribeReportPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReportPlan != null) {
-    contents.ReportPlan = de_ReportPlan(data.ReportPlan, context);
-  }
+  const doc = take(data, {
+    ReportPlan: (_) => de_ReportPlan(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4315,10 +4147,9 @@ const de_DescribeReportPlanCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4338,45 +4169,22 @@ export const de_DescribeRestoreJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountId != null) {
-    contents.AccountId = __expectString(data.AccountId);
-  }
-  if (data.BackupSizeInBytes != null) {
-    contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
-  }
-  if (data.CompletionDate != null) {
-    contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
-  }
-  if (data.CreatedResourceArn != null) {
-    contents.CreatedResourceArn = __expectString(data.CreatedResourceArn);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.ExpectedCompletionTimeMinutes != null) {
-    contents.ExpectedCompletionTimeMinutes = __expectLong(data.ExpectedCompletionTimeMinutes);
-  }
-  if (data.IamRoleArn != null) {
-    contents.IamRoleArn = __expectString(data.IamRoleArn);
-  }
-  if (data.PercentDone != null) {
-    contents.PercentDone = __expectString(data.PercentDone);
-  }
-  if (data.RecoveryPointArn != null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.RestoreJobId != null) {
-    contents.RestoreJobId = __expectString(data.RestoreJobId);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusMessage != null) {
-    contents.StatusMessage = __expectString(data.StatusMessage);
-  }
+  const doc = take(data, {
+    AccountId: __expectString,
+    BackupSizeInBytes: __expectLong,
+    CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedResourceArn: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpectedCompletionTimeMinutes: __expectLong,
+    IamRoleArn: __expectString,
+    PercentDone: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceType: __expectString,
+    RestoreJobId: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4410,10 +4218,9 @@ const de_DescribeRestoreJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4469,10 +4276,9 @@ const de_DisassociateRecoveryPointCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4525,10 +4331,9 @@ const de_DisassociateRecoveryPointFromParentCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4548,9 +4353,10 @@ export const de_ExportBackupPlanTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanTemplateJson != null) {
-    contents.BackupPlanTemplateJson = __expectString(data.BackupPlanTemplateJson);
-  }
+  const doc = take(data, {
+    BackupPlanTemplateJson: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4581,10 +4387,9 @@ const de_ExportBackupPlanTemplateCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4604,33 +4409,18 @@ export const de_GetBackupPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdvancedBackupSettings != null) {
-    contents.AdvancedBackupSettings = de_AdvancedBackupSettings(data.AdvancedBackupSettings, context);
-  }
-  if (data.BackupPlan != null) {
-    contents.BackupPlan = de_BackupPlan(data.BackupPlan, context);
-  }
-  if (data.BackupPlanArn != null) {
-    contents.BackupPlanArn = __expectString(data.BackupPlanArn);
-  }
-  if (data.BackupPlanId != null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.CreatorRequestId != null) {
-    contents.CreatorRequestId = __expectString(data.CreatorRequestId);
-  }
-  if (data.DeletionDate != null) {
-    contents.DeletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.DeletionDate)));
-  }
-  if (data.LastExecutionDate != null) {
-    contents.LastExecutionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastExecutionDate)));
-  }
-  if (data.VersionId != null) {
-    contents.VersionId = __expectString(data.VersionId);
-  }
+  const doc = take(data, {
+    AdvancedBackupSettings: _json,
+    BackupPlan: _json,
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    DeletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastExecutionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4661,10 +4451,9 @@ const de_GetBackupPlanCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4684,9 +4473,10 @@ export const de_GetBackupPlanFromJSONCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlan != null) {
-    contents.BackupPlan = de_BackupPlan(data.BackupPlan, context);
-  }
+  const doc = take(data, {
+    BackupPlan: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4720,10 +4510,9 @@ const de_GetBackupPlanFromJSONCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4743,9 +4532,10 @@ export const de_GetBackupPlanFromTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanDocument != null) {
-    contents.BackupPlanDocument = de_BackupPlan(data.BackupPlanDocument, context);
-  }
+  const doc = take(data, {
+    BackupPlanDocument: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4776,10 +4566,9 @@ const de_GetBackupPlanFromTemplateCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4799,21 +4588,14 @@ export const de_GetBackupSelectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanId != null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.BackupSelection != null) {
-    contents.BackupSelection = de_BackupSelection(data.BackupSelection, context);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.CreatorRequestId != null) {
-    contents.CreatorRequestId = __expectString(data.CreatorRequestId);
-  }
-  if (data.SelectionId != null) {
-    contents.SelectionId = __expectString(data.SelectionId);
-  }
+  const doc = take(data, {
+    BackupPlanId: __expectString,
+    BackupSelection: _json,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    SelectionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4844,10 +4626,9 @@ const de_GetBackupSelectionCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4867,15 +4648,12 @@ export const de_GetBackupVaultAccessPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn != null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName != null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    Policy: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4906,10 +4684,9 @@ const de_GetBackupVaultAccessPolicyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4929,18 +4706,13 @@ export const de_GetBackupVaultNotificationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn != null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultEvents != null) {
-    contents.BackupVaultEvents = de_BackupVaultEvents(data.BackupVaultEvents, context);
-  }
-  if (data.BackupVaultName != null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.SNSTopicArn != null) {
-    contents.SNSTopicArn = __expectString(data.SNSTopicArn);
-  }
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultEvents: _json,
+    BackupVaultName: __expectString,
+    SNSTopicArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4971,10 +4743,9 @@ const de_GetBackupVaultNotificationsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4994,36 +4765,19 @@ export const de_GetLegalHoldCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CancelDescription != null) {
-    contents.CancelDescription = __expectString(data.CancelDescription);
-  }
-  if (data.CancellationDate != null) {
-    contents.CancellationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CancellationDate)));
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LegalHoldArn != null) {
-    contents.LegalHoldArn = __expectString(data.LegalHoldArn);
-  }
-  if (data.LegalHoldId != null) {
-    contents.LegalHoldId = __expectString(data.LegalHoldId);
-  }
-  if (data.RecoveryPointSelection != null) {
-    contents.RecoveryPointSelection = de_RecoveryPointSelection(data.RecoveryPointSelection, context);
-  }
-  if (data.RetainRecordUntil != null) {
-    contents.RetainRecordUntil = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.RetainRecordUntil)));
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Title != null) {
-    contents.Title = __expectString(data.Title);
-  }
+  const doc = take(data, {
+    CancelDescription: __expectString,
+    CancellationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LegalHoldArn: __expectString,
+    LegalHoldId: __expectString,
+    RecoveryPointSelection: (_) => de_RecoveryPointSelection(_, context),
+    RetainRecordUntil: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    Title: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5054,10 +4808,9 @@ const de_GetLegalHoldCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5077,15 +4830,12 @@ export const de_GetRecoveryPointRestoreMetadataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn != null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.RecoveryPointArn != null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  if (data.RestoreMetadata != null) {
-    contents.RestoreMetadata = de_Metadata(data.RestoreMetadata, context);
-  }
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    RecoveryPointArn: __expectString,
+    RestoreMetadata: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5116,10 +4866,9 @@ const de_GetRecoveryPointRestoreMetadataCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5139,9 +4888,10 @@ export const de_GetSupportedResourceTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceTypes != null) {
-    contents.ResourceTypes = de_ResourceTypes(data.ResourceTypes, context);
-  }
+  const doc = take(data, {
+    ResourceTypes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5163,10 +4913,9 @@ const de_GetSupportedResourceTypesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5186,12 +4935,11 @@ export const de_ListBackupJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupJobs != null) {
-    contents.BackupJobs = de_BackupJobsList(data.BackupJobs, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    BackupJobs: (_) => de_BackupJobsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5216,10 +4964,9 @@ const de_ListBackupJobsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5239,12 +4986,11 @@ export const de_ListBackupPlansCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlansList != null) {
-    contents.BackupPlansList = de_BackupPlansList(data.BackupPlansList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    BackupPlansList: (_) => de_BackupPlansList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5275,10 +5021,9 @@ const de_ListBackupPlansCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5298,12 +5043,11 @@ export const de_ListBackupPlanTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanTemplatesList != null) {
-    contents.BackupPlanTemplatesList = de_BackupPlanTemplatesList(data.BackupPlanTemplatesList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    BackupPlanTemplatesList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5334,10 +5078,9 @@ const de_ListBackupPlanTemplatesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5357,12 +5100,11 @@ export const de_ListBackupPlanVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanVersionsList != null) {
-    contents.BackupPlanVersionsList = de_BackupPlanVersionsList(data.BackupPlanVersionsList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    BackupPlanVersionsList: (_) => de_BackupPlanVersionsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5393,10 +5135,9 @@ const de_ListBackupPlanVersionsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5416,12 +5157,11 @@ export const de_ListBackupSelectionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupSelectionsList != null) {
-    contents.BackupSelectionsList = de_BackupSelectionsList(data.BackupSelectionsList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    BackupSelectionsList: (_) => de_BackupSelectionsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5452,10 +5192,9 @@ const de_ListBackupSelectionsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5475,12 +5214,11 @@ export const de_ListBackupVaultsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultList != null) {
-    contents.BackupVaultList = de_BackupVaultList(data.BackupVaultList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    BackupVaultList: (_) => de_BackupVaultList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5511,10 +5249,9 @@ const de_ListBackupVaultsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5534,12 +5271,11 @@ export const de_ListCopyJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CopyJobs != null) {
-    contents.CopyJobs = de_CopyJobsList(data.CopyJobs, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CopyJobs: (_) => de_CopyJobsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5564,10 +5300,9 @@ const de_ListCopyJobsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5587,12 +5322,11 @@ export const de_ListFrameworksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Frameworks != null) {
-    contents.Frameworks = de_FrameworkList(data.Frameworks, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Frameworks: (_) => de_FrameworkList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5617,10 +5351,9 @@ const de_ListFrameworksCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5640,12 +5373,11 @@ export const de_ListLegalHoldsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LegalHolds != null) {
-    contents.LegalHolds = de_LegalHoldsList(data.LegalHolds, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    LegalHolds: (_) => de_LegalHoldsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5670,10 +5402,9 @@ const de_ListLegalHoldsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5693,12 +5424,11 @@ export const de_ListProtectedResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Results != null) {
-    contents.Results = de_ProtectedResourcesList(data.Results, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Results: (_) => de_ProtectedResourcesList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5723,10 +5453,9 @@ const de_ListProtectedResourcesCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5746,12 +5475,11 @@ export const de_ListRecoveryPointsByBackupVaultCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RecoveryPoints != null) {
-    contents.RecoveryPoints = de_RecoveryPointByBackupVaultList(data.RecoveryPoints, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RecoveryPoints: (_) => de_RecoveryPointByBackupVaultList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5782,10 +5510,9 @@ const de_ListRecoveryPointsByBackupVaultCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5805,12 +5532,11 @@ export const de_ListRecoveryPointsByLegalHoldCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RecoveryPoints != null) {
-    contents.RecoveryPoints = de_RecoveryPointsList(data.RecoveryPoints, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RecoveryPoints: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5838,10 +5564,9 @@ const de_ListRecoveryPointsByLegalHoldCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5861,12 +5586,11 @@ export const de_ListRecoveryPointsByResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RecoveryPoints != null) {
-    contents.RecoveryPoints = de_RecoveryPointByResourceList(data.RecoveryPoints, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RecoveryPoints: (_) => de_RecoveryPointByResourceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5897,10 +5621,9 @@ const de_ListRecoveryPointsByResourceCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5920,12 +5643,11 @@ export const de_ListReportJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ReportJobs != null) {
-    contents.ReportJobs = de_ReportJobList(data.ReportJobs, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReportJobs: (_) => de_ReportJobList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5953,10 +5675,9 @@ const de_ListReportJobsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5976,12 +5697,11 @@ export const de_ListReportPlansCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ReportPlans != null) {
-    contents.ReportPlans = de_ReportPlanList(data.ReportPlans, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReportPlans: (_) => de_ReportPlanList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6006,10 +5726,9 @@ const de_ListReportPlansCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6029,12 +5748,11 @@ export const de_ListRestoreJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RestoreJobs != null) {
-    contents.RestoreJobs = de_RestoreJobsList(data.RestoreJobs, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RestoreJobs: (_) => de_RestoreJobsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6065,10 +5783,9 @@ const de_ListRestoreJobsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6088,12 +5805,11 @@ export const de_ListTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6124,10 +5840,9 @@ const de_ListTagsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6177,10 +5892,9 @@ const de_PutBackupVaultAccessPolicyCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6233,10 +5947,9 @@ const de_PutBackupVaultLockConfigurationCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6286,10 +5999,9 @@ const de_PutBackupVaultNotificationsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6309,18 +6021,13 @@ export const de_StartBackupJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupJobId != null) {
-    contents.BackupJobId = __expectString(data.BackupJobId);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.IsParent != null) {
-    contents.IsParent = __expectBoolean(data.IsParent);
-  }
-  if (data.RecoveryPointArn != null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
+  const doc = take(data, {
+    BackupJobId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsParent: __expectBoolean,
+    RecoveryPointArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6357,10 +6064,9 @@ const de_StartBackupJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6380,15 +6086,12 @@ export const de_StartCopyJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CopyJobId != null) {
-    contents.CopyJobId = __expectString(data.CopyJobId);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.IsParent != null) {
-    contents.IsParent = __expectBoolean(data.IsParent);
-  }
+  const doc = take(data, {
+    CopyJobId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsParent: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6425,10 +6128,9 @@ const de_StartCopyJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6448,9 +6150,10 @@ export const de_StartReportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReportJobId != null) {
-    contents.ReportJobId = __expectString(data.ReportJobId);
-  }
+  const doc = take(data, {
+    ReportJobId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6481,10 +6184,9 @@ const de_StartReportJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6504,9 +6206,10 @@ export const de_StartRestoreJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RestoreJobId != null) {
-    contents.RestoreJobId = __expectString(data.RestoreJobId);
-  }
+  const doc = take(data, {
+    RestoreJobId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6537,10 +6240,9 @@ const de_StartRestoreJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6593,10 +6295,9 @@ const de_StopBackupJobCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6649,10 +6350,9 @@ const de_TagResourceCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6702,10 +6402,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6725,21 +6424,14 @@ export const de_UpdateBackupPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdvancedBackupSettings != null) {
-    contents.AdvancedBackupSettings = de_AdvancedBackupSettings(data.AdvancedBackupSettings, context);
-  }
-  if (data.BackupPlanArn != null) {
-    contents.BackupPlanArn = __expectString(data.BackupPlanArn);
-  }
-  if (data.BackupPlanId != null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.VersionId != null) {
-    contents.VersionId = __expectString(data.VersionId);
-  }
+  const doc = take(data, {
+    AdvancedBackupSettings: _json,
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6770,10 +6462,9 @@ const de_UpdateBackupPlanCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6793,15 +6484,12 @@ export const de_UpdateFrameworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.FrameworkArn != null) {
-    contents.FrameworkArn = __expectString(data.FrameworkArn);
-  }
-  if (data.FrameworkName != null) {
-    contents.FrameworkName = __expectString(data.FrameworkName);
-  }
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FrameworkArn: __expectString,
+    FrameworkName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6841,10 +6529,9 @@ const de_UpdateFrameworkCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6894,10 +6581,9 @@ const de_UpdateGlobalSettingsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6917,18 +6603,13 @@ export const de_UpdateRecoveryPointLifecycleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn != null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.CalculatedLifecycle != null) {
-    contents.CalculatedLifecycle = de_CalculatedLifecycle(data.CalculatedLifecycle, context);
-  }
-  if (data.Lifecycle != null) {
-    contents.Lifecycle = de_Lifecycle(data.Lifecycle, context);
-  }
-  if (data.RecoveryPointArn != null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    CalculatedLifecycle: (_) => de_CalculatedLifecycle(_, context),
+    Lifecycle: _json,
+    RecoveryPointArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6962,10 +6643,9 @@ const de_UpdateRecoveryPointLifecycleCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7012,10 +6692,9 @@ const de_UpdateRegionSettingsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7035,15 +6714,12 @@ export const de_UpdateReportPlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.ReportPlanArn != null) {
-    contents.ReportPlanArn = __expectString(data.ReportPlanArn);
-  }
-  if (data.ReportPlanName != null) {
-    contents.ReportPlanName = __expectString(data.ReportPlanName);
-  }
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportPlanArn: __expectString,
+    ReportPlanName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7077,16 +6753,15 @@ const de_UpdateReportPlanCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AlreadyExistsExceptionRes
  */
@@ -7096,24 +6771,15 @@ const de_AlreadyExistsExceptionRes = async (
 ): Promise<AlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.CreatorRequestId != null) {
-    contents.CreatorRequestId = __expectString(data.CreatorRequestId);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Code: __expectString,
+    Context: __expectString,
+    CreatorRequestId: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7127,18 +6793,13 @@ const de_AlreadyExistsExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7155,18 +6816,13 @@ const de_DependencyFailureExceptionRes = async (
 ): Promise<DependencyFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DependencyFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7183,18 +6839,13 @@ const de_InvalidParameterValueExceptionRes = async (
 ): Promise<InvalidParameterValueException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7211,18 +6862,13 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7239,18 +6885,13 @@ const de_InvalidResourceStateExceptionRes = async (
 ): Promise<InvalidResourceStateException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidResourceStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7267,18 +6908,13 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7295,18 +6931,13 @@ const de_MissingParameterValueExceptionRes = async (
 ): Promise<MissingParameterValueException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MissingParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7323,18 +6954,13 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7351,18 +6977,13 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context != null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7370,544 +6991,137 @@ const de_ServiceUnavailableExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AdvancedBackupSetting
- */
-const se_AdvancedBackupSetting = (input: AdvancedBackupSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.BackupOptions != null && { BackupOptions: se_BackupOptions(input.BackupOptions, context) }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  };
-};
+// se_AdvancedBackupSetting omitted.
 
-/**
- * serializeAws_restJson1AdvancedBackupSettings
- */
-const se_AdvancedBackupSettings = (input: AdvancedBackupSetting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AdvancedBackupSetting(entry, context);
-    });
-};
+// se_AdvancedBackupSettings omitted.
 
-/**
- * serializeAws_restJson1BackupOptions
- */
-const se_BackupOptions = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_BackupOptions omitted.
 
-/**
- * serializeAws_restJson1BackupPlanInput
- */
-const se_BackupPlanInput = (input: BackupPlanInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AdvancedBackupSettings != null && {
-      AdvancedBackupSettings: se_AdvancedBackupSettings(input.AdvancedBackupSettings, context),
-    }),
-    ...(input.BackupPlanName != null && { BackupPlanName: input.BackupPlanName }),
-    ...(input.Rules != null && { Rules: se_BackupRulesInput(input.Rules, context) }),
-  };
-};
+// se_BackupPlanInput omitted.
 
-/**
- * serializeAws_restJson1BackupRuleInput
- */
-const se_BackupRuleInput = (input: BackupRuleInput, context: __SerdeContext): any => {
-  return {
-    ...(input.CompletionWindowMinutes != null && { CompletionWindowMinutes: input.CompletionWindowMinutes }),
-    ...(input.CopyActions != null && { CopyActions: se_CopyActions(input.CopyActions, context) }),
-    ...(input.EnableContinuousBackup != null && { EnableContinuousBackup: input.EnableContinuousBackup }),
-    ...(input.Lifecycle != null && { Lifecycle: se_Lifecycle(input.Lifecycle, context) }),
-    ...(input.RecoveryPointTags != null && { RecoveryPointTags: se_Tags(input.RecoveryPointTags, context) }),
-    ...(input.RuleName != null && { RuleName: input.RuleName }),
-    ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
-    ...(input.StartWindowMinutes != null && { StartWindowMinutes: input.StartWindowMinutes }),
-    ...(input.TargetBackupVaultName != null && { TargetBackupVaultName: input.TargetBackupVaultName }),
-  };
-};
+// se_BackupRuleInput omitted.
 
-/**
- * serializeAws_restJson1BackupRulesInput
- */
-const se_BackupRulesInput = (input: BackupRuleInput[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_BackupRuleInput(entry, context);
-    });
-};
+// se_BackupRulesInput omitted.
 
-/**
- * serializeAws_restJson1BackupSelection
- */
-const se_BackupSelection = (input: BackupSelection, context: __SerdeContext): any => {
-  return {
-    ...(input.Conditions != null && { Conditions: se_Conditions(input.Conditions, context) }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.ListOfTags != null && { ListOfTags: se_ListOfTags(input.ListOfTags, context) }),
-    ...(input.NotResources != null && { NotResources: se_ResourceArns(input.NotResources, context) }),
-    ...(input.Resources != null && { Resources: se_ResourceArns(input.Resources, context) }),
-    ...(input.SelectionName != null && { SelectionName: input.SelectionName }),
-  };
-};
+// se_BackupSelection omitted.
 
-/**
- * serializeAws_restJson1BackupVaultEvents
- */
-const se_BackupVaultEvents = (input: (BackupVaultEvent | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BackupVaultEvents omitted.
 
-/**
- * serializeAws_restJson1ComplianceResourceIdList
- */
-const se_ComplianceResourceIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ComplianceResourceIdList omitted.
 
-/**
- * serializeAws_restJson1Condition
- */
-const se_Condition = (input: Condition, context: __SerdeContext): any => {
-  return {
-    ...(input.ConditionKey != null && { ConditionKey: input.ConditionKey }),
-    ...(input.ConditionType != null && { ConditionType: input.ConditionType }),
-    ...(input.ConditionValue != null && { ConditionValue: input.ConditionValue }),
-  };
-};
+// se_Condition omitted.
 
-/**
- * serializeAws_restJson1ConditionParameter
- */
-const se_ConditionParameter = (input: ConditionParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.ConditionKey != null && { ConditionKey: input.ConditionKey }),
-    ...(input.ConditionValue != null && { ConditionValue: input.ConditionValue }),
-  };
-};
+// se_ConditionParameter omitted.
 
-/**
- * serializeAws_restJson1ConditionParameters
- */
-const se_ConditionParameters = (input: ConditionParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ConditionParameter(entry, context);
-    });
-};
+// se_ConditionParameters omitted.
 
-/**
- * serializeAws_restJson1Conditions
- */
-const se_Conditions = (input: Conditions, context: __SerdeContext): any => {
-  return {
-    ...(input.StringEquals != null && { StringEquals: se_ConditionParameters(input.StringEquals, context) }),
-    ...(input.StringLike != null && { StringLike: se_ConditionParameters(input.StringLike, context) }),
-    ...(input.StringNotEquals != null && { StringNotEquals: se_ConditionParameters(input.StringNotEquals, context) }),
-    ...(input.StringNotLike != null && { StringNotLike: se_ConditionParameters(input.StringNotLike, context) }),
-  };
-};
+// se_Conditions omitted.
 
-/**
- * serializeAws_restJson1ControlInputParameter
- */
-const se_ControlInputParameter = (input: ControlInputParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
-    ...(input.ParameterValue != null && { ParameterValue: input.ParameterValue }),
-  };
-};
+// se_ControlInputParameter omitted.
 
-/**
- * serializeAws_restJson1ControlInputParameters
- */
-const se_ControlInputParameters = (input: ControlInputParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ControlInputParameter(entry, context);
-    });
-};
+// se_ControlInputParameters omitted.
 
-/**
- * serializeAws_restJson1ControlScope
- */
-const se_ControlScope = (input: ControlScope, context: __SerdeContext): any => {
-  return {
-    ...(input.ComplianceResourceIds != null && {
-      ComplianceResourceIds: se_ComplianceResourceIdList(input.ComplianceResourceIds, context),
-    }),
-    ...(input.ComplianceResourceTypes != null && {
-      ComplianceResourceTypes: se_ResourceTypeList(input.ComplianceResourceTypes, context),
-    }),
-    ...(input.Tags != null && { Tags: se_stringMap(input.Tags, context) }),
-  };
-};
+// se_ControlScope omitted.
 
-/**
- * serializeAws_restJson1CopyAction
- */
-const se_CopyAction = (input: CopyAction, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationBackupVaultArn != null && { DestinationBackupVaultArn: input.DestinationBackupVaultArn }),
-    ...(input.Lifecycle != null && { Lifecycle: se_Lifecycle(input.Lifecycle, context) }),
-  };
-};
+// se_CopyAction omitted.
 
-/**
- * serializeAws_restJson1CopyActions
- */
-const se_CopyActions = (input: CopyAction[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CopyAction(entry, context);
-    });
-};
+// se_CopyActions omitted.
 
 /**
  * serializeAws_restJson1DateRange
  */
 const se_DateRange = (input: DateRange, context: __SerdeContext): any => {
-  return {
-    ...(input.FromDate != null && { FromDate: Math.round(input.FromDate.getTime() / 1000) }),
-    ...(input.ToDate != null && { ToDate: Math.round(input.ToDate.getTime() / 1000) }),
-  };
+  return take(input, {
+    FromDate: (_) => Math.round(_.getTime() / 1000),
+    ToDate: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_restJson1FormatList
- */
-const se_FormatList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FormatList omitted.
 
-/**
- * serializeAws_restJson1FrameworkControl
- */
-const se_FrameworkControl = (input: FrameworkControl, context: __SerdeContext): any => {
-  return {
-    ...(input.ControlInputParameters != null && {
-      ControlInputParameters: se_ControlInputParameters(input.ControlInputParameters, context),
-    }),
-    ...(input.ControlName != null && { ControlName: input.ControlName }),
-    ...(input.ControlScope != null && { ControlScope: se_ControlScope(input.ControlScope, context) }),
-  };
-};
+// se_FrameworkControl omitted.
 
-/**
- * serializeAws_restJson1FrameworkControls
- */
-const se_FrameworkControls = (input: FrameworkControl[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FrameworkControl(entry, context);
-    });
-};
+// se_FrameworkControls omitted.
 
-/**
- * serializeAws_restJson1GlobalSettings
- */
-const se_GlobalSettings = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_GlobalSettings omitted.
 
-/**
- * serializeAws_restJson1Lifecycle
- */
-const se_Lifecycle = (input: Lifecycle, context: __SerdeContext): any => {
-  return {
-    ...(input.DeleteAfterDays != null && { DeleteAfterDays: input.DeleteAfterDays }),
-    ...(input.MoveToColdStorageAfterDays != null && { MoveToColdStorageAfterDays: input.MoveToColdStorageAfterDays }),
-  };
-};
+// se_Lifecycle omitted.
 
-/**
- * serializeAws_restJson1ListOfTags
- */
-const se_ListOfTags = (input: Condition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Condition(entry, context);
-    });
-};
+// se_ListOfTags omitted.
 
-/**
- * serializeAws_restJson1Metadata
- */
-const se_Metadata = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Metadata omitted.
 
 /**
  * serializeAws_restJson1RecoveryPointSelection
  */
 const se_RecoveryPointSelection = (input: RecoveryPointSelection, context: __SerdeContext): any => {
-  return {
-    ...(input.DateRange != null && { DateRange: se_DateRange(input.DateRange, context) }),
-    ...(input.ResourceIdentifiers != null && {
-      ResourceIdentifiers: se_ResourceIdentifiers(input.ResourceIdentifiers, context),
-    }),
-    ...(input.VaultNames != null && { VaultNames: se_VaultNames(input.VaultNames, context) }),
-  };
+  return take(input, {
+    DateRange: (_) => se_DateRange(_, context),
+    ResourceIdentifiers: _json,
+    VaultNames: _json,
+  });
 };
 
-/**
- * serializeAws_restJson1ReportDeliveryChannel
- */
-const se_ReportDeliveryChannel = (input: ReportDeliveryChannel, context: __SerdeContext): any => {
-  return {
-    ...(input.Formats != null && { Formats: se_FormatList(input.Formats, context) }),
-    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
-    ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
-  };
-};
+// se_ReportDeliveryChannel omitted.
 
-/**
- * serializeAws_restJson1ReportSetting
- */
-const se_ReportSetting = (input: ReportSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.Accounts != null && { Accounts: se_stringList(input.Accounts, context) }),
-    ...(input.FrameworkArns != null && { FrameworkArns: se_stringList(input.FrameworkArns, context) }),
-    ...(input.NumberOfFrameworks != null && { NumberOfFrameworks: input.NumberOfFrameworks }),
-    ...(input.OrganizationUnits != null && { OrganizationUnits: se_stringList(input.OrganizationUnits, context) }),
-    ...(input.Regions != null && { Regions: se_stringList(input.Regions, context) }),
-    ...(input.ReportTemplate != null && { ReportTemplate: input.ReportTemplate }),
-  };
-};
+// se_ReportSetting omitted.
 
-/**
- * serializeAws_restJson1ResourceArns
- */
-const se_ResourceArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceArns omitted.
 
-/**
- * serializeAws_restJson1ResourceIdentifiers
- */
-const se_ResourceIdentifiers = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceIdentifiers omitted.
 
-/**
- * serializeAws_restJson1ResourceTypeList
- */
-const se_ResourceTypeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceTypeList omitted.
 
-/**
- * serializeAws_restJson1ResourceTypeManagementPreference
- */
-const se_ResourceTypeManagementPreference = (input: Record<string, boolean>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ResourceTypeManagementPreference omitted.
 
-/**
- * serializeAws_restJson1ResourceTypeOptInPreference
- */
-const se_ResourceTypeOptInPreference = (input: Record<string, boolean>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ResourceTypeOptInPreference omitted.
 
-/**
- * serializeAws_restJson1stringList
- */
-const se_stringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_stringList omitted.
 
-/**
- * serializeAws_restJson1stringMap
- */
-const se_stringMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_stringMap omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_restJson1VaultNames
- */
-const se_VaultNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VaultNames omitted.
 
-/**
- * deserializeAws_restJson1AdvancedBackupSetting
- */
-const de_AdvancedBackupSetting = (output: any, context: __SerdeContext): AdvancedBackupSetting => {
-  return {
-    BackupOptions: output.BackupOptions != null ? de_BackupOptions(output.BackupOptions, context) : undefined,
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_AdvancedBackupSetting omitted.
 
-/**
- * deserializeAws_restJson1AdvancedBackupSettings
- */
-const de_AdvancedBackupSettings = (output: any, context: __SerdeContext): AdvancedBackupSetting[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AdvancedBackupSetting(entry, context);
-    });
-  return retVal;
-};
+// de_AdvancedBackupSettings omitted.
 
 /**
  * deserializeAws_restJson1BackupJob
  */
 const de_BackupJob = (output: any, context: __SerdeContext): BackupJob => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    BackupJobId: __expectString(output.BackupJobId),
-    BackupOptions: output.BackupOptions != null ? de_BackupOptions(output.BackupOptions, context) : undefined,
-    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
-    BackupType: __expectString(output.BackupType),
-    BackupVaultArn: __expectString(output.BackupVaultArn),
-    BackupVaultName: __expectString(output.BackupVaultName),
-    BytesTransferred: __expectLong(output.BytesTransferred),
-    CompletionDate:
-      output.CompletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
-        : undefined,
-    CreatedBy: output.CreatedBy != null ? de_RecoveryPointCreator(output.CreatedBy, context) : undefined,
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    ExpectedCompletionDate:
-      output.ExpectedCompletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpectedCompletionDate)))
-        : undefined,
-    IamRoleArn: __expectString(output.IamRoleArn),
-    IsParent: __expectBoolean(output.IsParent),
-    ParentJobId: __expectString(output.ParentJobId),
-    PercentDone: __expectString(output.PercentDone),
-    RecoveryPointArn: __expectString(output.RecoveryPointArn),
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceName: __expectString(output.ResourceName),
-    ResourceType: __expectString(output.ResourceType),
-    StartBy:
-      output.StartBy != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartBy))) : undefined,
-    State: __expectString(output.State),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    BackupJobId: __expectString,
+    BackupOptions: _json,
+    BackupSizeInBytes: __expectLong,
+    BackupType: __expectString,
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    BytesTransferred: __expectLong,
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpectedCompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IamRoleArn: __expectString,
+    IsParent: __expectBoolean,
+    ParentJobId: __expectString,
+    PercentDone: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    StartBy: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BackupJobChildJobsInState
- */
-const de_BackupJobChildJobsInState = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [BackupJobState | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectLong(value) as any;
-    return acc;
-  }, {});
-};
+// de_BackupJobChildJobsInState omitted.
 
 /**
  * deserializeAws_restJson1BackupJobsList
@@ -7916,40 +7130,14 @@ const de_BackupJobsList = (output: any, context: __SerdeContext): BackupJob[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BackupJob(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1BackupOptions
- */
-const de_BackupOptions = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_BackupOptions omitted.
 
-/**
- * deserializeAws_restJson1BackupPlan
- */
-const de_BackupPlan = (output: any, context: __SerdeContext): BackupPlan => {
-  return {
-    AdvancedBackupSettings:
-      output.AdvancedBackupSettings != null
-        ? de_AdvancedBackupSettings(output.AdvancedBackupSettings, context)
-        : undefined,
-    BackupPlanName: __expectString(output.BackupPlanName),
-    Rules: output.Rules != null ? de_BackupRules(output.Rules, context) : undefined,
-  } as any;
-};
+// de_BackupPlan omitted.
 
 /**
  * deserializeAws_restJson1BackupPlansList
@@ -7958,9 +7146,6 @@ const de_BackupPlansList = (output: any, context: __SerdeContext): BackupPlansLi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BackupPlansListMember(entry, context);
     });
   return retVal;
@@ -7970,55 +7155,22 @@ const de_BackupPlansList = (output: any, context: __SerdeContext): BackupPlansLi
  * deserializeAws_restJson1BackupPlansListMember
  */
 const de_BackupPlansListMember = (output: any, context: __SerdeContext): BackupPlansListMember => {
-  return {
-    AdvancedBackupSettings:
-      output.AdvancedBackupSettings != null
-        ? de_AdvancedBackupSettings(output.AdvancedBackupSettings, context)
-        : undefined,
-    BackupPlanArn: __expectString(output.BackupPlanArn),
-    BackupPlanId: __expectString(output.BackupPlanId),
-    BackupPlanName: __expectString(output.BackupPlanName),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    DeletionDate:
-      output.DeletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
-        : undefined,
-    LastExecutionDate:
-      output.LastExecutionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastExecutionDate)))
-        : undefined,
-    VersionId: __expectString(output.VersionId),
-  } as any;
+  return take(output, {
+    AdvancedBackupSettings: _json,
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    BackupPlanName: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    DeletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastExecutionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BackupPlanTemplatesList
- */
-const de_BackupPlanTemplatesList = (output: any, context: __SerdeContext): BackupPlanTemplatesListMember[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BackupPlanTemplatesListMember(entry, context);
-    });
-  return retVal;
-};
+// de_BackupPlanTemplatesList omitted.
 
-/**
- * deserializeAws_restJson1BackupPlanTemplatesListMember
- */
-const de_BackupPlanTemplatesListMember = (output: any, context: __SerdeContext): BackupPlanTemplatesListMember => {
-  return {
-    BackupPlanTemplateId: __expectString(output.BackupPlanTemplateId),
-    BackupPlanTemplateName: __expectString(output.BackupPlanTemplateName),
-  } as any;
-};
+// de_BackupPlanTemplatesListMember omitted.
 
 /**
  * deserializeAws_restJson1BackupPlanVersionsList
@@ -8027,60 +7179,16 @@ const de_BackupPlanVersionsList = (output: any, context: __SerdeContext): Backup
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BackupPlansListMember(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1BackupRule
- */
-const de_BackupRule = (output: any, context: __SerdeContext): BackupRule => {
-  return {
-    CompletionWindowMinutes: __expectLong(output.CompletionWindowMinutes),
-    CopyActions: output.CopyActions != null ? de_CopyActions(output.CopyActions, context) : undefined,
-    EnableContinuousBackup: __expectBoolean(output.EnableContinuousBackup),
-    Lifecycle: output.Lifecycle != null ? de_Lifecycle(output.Lifecycle, context) : undefined,
-    RecoveryPointTags: output.RecoveryPointTags != null ? de_Tags(output.RecoveryPointTags, context) : undefined,
-    RuleId: __expectString(output.RuleId),
-    RuleName: __expectString(output.RuleName),
-    ScheduleExpression: __expectString(output.ScheduleExpression),
-    StartWindowMinutes: __expectLong(output.StartWindowMinutes),
-    TargetBackupVaultName: __expectString(output.TargetBackupVaultName),
-  } as any;
-};
+// de_BackupRule omitted.
 
-/**
- * deserializeAws_restJson1BackupRules
- */
-const de_BackupRules = (output: any, context: __SerdeContext): BackupRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BackupRule(entry, context);
-    });
-  return retVal;
-};
+// de_BackupRules omitted.
 
-/**
- * deserializeAws_restJson1BackupSelection
- */
-const de_BackupSelection = (output: any, context: __SerdeContext): BackupSelection => {
-  return {
-    Conditions: output.Conditions != null ? de_Conditions(output.Conditions, context) : undefined,
-    IamRoleArn: __expectString(output.IamRoleArn),
-    ListOfTags: output.ListOfTags != null ? de_ListOfTags(output.ListOfTags, context) : undefined,
-    NotResources: output.NotResources != null ? de_ResourceArns(output.NotResources, context) : undefined,
-    Resources: output.Resources != null ? de_ResourceArns(output.Resources, context) : undefined,
-    SelectionName: __expectString(output.SelectionName),
-  } as any;
-};
+// de_BackupSelection omitted.
 
 /**
  * deserializeAws_restJson1BackupSelectionsList
@@ -8089,9 +7197,6 @@ const de_BackupSelectionsList = (output: any, context: __SerdeContext): BackupSe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BackupSelectionsListMember(entry, context);
     });
   return retVal;
@@ -8101,33 +7206,17 @@ const de_BackupSelectionsList = (output: any, context: __SerdeContext): BackupSe
  * deserializeAws_restJson1BackupSelectionsListMember
  */
 const de_BackupSelectionsListMember = (output: any, context: __SerdeContext): BackupSelectionsListMember => {
-  return {
-    BackupPlanId: __expectString(output.BackupPlanId),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    SelectionId: __expectString(output.SelectionId),
-    SelectionName: __expectString(output.SelectionName),
-  } as any;
+  return take(output, {
+    BackupPlanId: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    IamRoleArn: __expectString,
+    SelectionId: __expectString,
+    SelectionName: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BackupVaultEvents
- */
-const de_BackupVaultEvents = (output: any, context: __SerdeContext): (BackupVaultEvent | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_BackupVaultEvents omitted.
 
 /**
  * deserializeAws_restJson1BackupVaultList
@@ -8136,9 +7225,6 @@ const de_BackupVaultList = (output: any, context: __SerdeContext): BackupVaultLi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BackupVaultListMember(entry, context);
     });
   return retVal;
@@ -8148,215 +7234,80 @@ const de_BackupVaultList = (output: any, context: __SerdeContext): BackupVaultLi
  * deserializeAws_restJson1BackupVaultListMember
  */
 const de_BackupVaultListMember = (output: any, context: __SerdeContext): BackupVaultListMember => {
-  return {
-    BackupVaultArn: __expectString(output.BackupVaultArn),
-    BackupVaultName: __expectString(output.BackupVaultName),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
-    LockDate:
-      output.LockDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LockDate))) : undefined,
-    Locked: __expectBoolean(output.Locked),
-    MaxRetentionDays: __expectLong(output.MaxRetentionDays),
-    MinRetentionDays: __expectLong(output.MinRetentionDays),
-    NumberOfRecoveryPoints: __expectLong(output.NumberOfRecoveryPoints),
-  } as any;
+  return take(output, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    EncryptionKeyArn: __expectString,
+    LockDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Locked: __expectBoolean,
+    MaxRetentionDays: __expectLong,
+    MinRetentionDays: __expectLong,
+    NumberOfRecoveryPoints: __expectLong,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CalculatedLifecycle
  */
 const de_CalculatedLifecycle = (output: any, context: __SerdeContext): CalculatedLifecycle => {
-  return {
-    DeleteAt:
-      output.DeleteAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeleteAt))) : undefined,
-    MoveToColdStorageAt:
-      output.MoveToColdStorageAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.MoveToColdStorageAt)))
-        : undefined,
-  } as any;
+  return take(output, {
+    DeleteAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MoveToColdStorageAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ComplianceResourceIdList
- */
-const de_ComplianceResourceIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ComplianceResourceIdList omitted.
 
-/**
- * deserializeAws_restJson1Condition
- */
-const de_Condition = (output: any, context: __SerdeContext): Condition => {
-  return {
-    ConditionKey: __expectString(output.ConditionKey),
-    ConditionType: __expectString(output.ConditionType),
-    ConditionValue: __expectString(output.ConditionValue),
-  } as any;
-};
+// de_Condition omitted.
 
-/**
- * deserializeAws_restJson1ConditionParameter
- */
-const de_ConditionParameter = (output: any, context: __SerdeContext): ConditionParameter => {
-  return {
-    ConditionKey: __expectString(output.ConditionKey),
-    ConditionValue: __expectString(output.ConditionValue),
-  } as any;
-};
+// de_ConditionParameter omitted.
 
-/**
- * deserializeAws_restJson1ConditionParameters
- */
-const de_ConditionParameters = (output: any, context: __SerdeContext): ConditionParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConditionParameter(entry, context);
-    });
-  return retVal;
-};
+// de_ConditionParameters omitted.
 
-/**
- * deserializeAws_restJson1Conditions
- */
-const de_Conditions = (output: any, context: __SerdeContext): Conditions => {
-  return {
-    StringEquals: output.StringEquals != null ? de_ConditionParameters(output.StringEquals, context) : undefined,
-    StringLike: output.StringLike != null ? de_ConditionParameters(output.StringLike, context) : undefined,
-    StringNotEquals:
-      output.StringNotEquals != null ? de_ConditionParameters(output.StringNotEquals, context) : undefined,
-    StringNotLike: output.StringNotLike != null ? de_ConditionParameters(output.StringNotLike, context) : undefined,
-  } as any;
-};
+// de_Conditions omitted.
 
-/**
- * deserializeAws_restJson1ControlInputParameter
- */
-const de_ControlInputParameter = (output: any, context: __SerdeContext): ControlInputParameter => {
-  return {
-    ParameterName: __expectString(output.ParameterName),
-    ParameterValue: __expectString(output.ParameterValue),
-  } as any;
-};
+// de_ControlInputParameter omitted.
 
-/**
- * deserializeAws_restJson1ControlInputParameters
- */
-const de_ControlInputParameters = (output: any, context: __SerdeContext): ControlInputParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ControlInputParameter(entry, context);
-    });
-  return retVal;
-};
+// de_ControlInputParameters omitted.
 
-/**
- * deserializeAws_restJson1ControlScope
- */
-const de_ControlScope = (output: any, context: __SerdeContext): ControlScope => {
-  return {
-    ComplianceResourceIds:
-      output.ComplianceResourceIds != null
-        ? de_ComplianceResourceIdList(output.ComplianceResourceIds, context)
-        : undefined,
-    ComplianceResourceTypes:
-      output.ComplianceResourceTypes != null ? de_ResourceTypeList(output.ComplianceResourceTypes, context) : undefined,
-    Tags: output.Tags != null ? de_stringMap(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ControlScope omitted.
 
-/**
- * deserializeAws_restJson1CopyAction
- */
-const de_CopyAction = (output: any, context: __SerdeContext): CopyAction => {
-  return {
-    DestinationBackupVaultArn: __expectString(output.DestinationBackupVaultArn),
-    Lifecycle: output.Lifecycle != null ? de_Lifecycle(output.Lifecycle, context) : undefined,
-  } as any;
-};
+// de_CopyAction omitted.
 
-/**
- * deserializeAws_restJson1CopyActions
- */
-const de_CopyActions = (output: any, context: __SerdeContext): CopyAction[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CopyAction(entry, context);
-    });
-  return retVal;
-};
+// de_CopyActions omitted.
 
 /**
  * deserializeAws_restJson1CopyJob
  */
 const de_CopyJob = (output: any, context: __SerdeContext): CopyJob => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
-    ChildJobsInState:
-      output.ChildJobsInState != null ? de_CopyJobChildJobsInState(output.ChildJobsInState, context) : undefined,
-    CompletionDate:
-      output.CompletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
-        : undefined,
-    CompositeMemberIdentifier: __expectString(output.CompositeMemberIdentifier),
-    CopyJobId: __expectString(output.CopyJobId),
-    CreatedBy: output.CreatedBy != null ? de_RecoveryPointCreator(output.CreatedBy, context) : undefined,
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    DestinationBackupVaultArn: __expectString(output.DestinationBackupVaultArn),
-    DestinationRecoveryPointArn: __expectString(output.DestinationRecoveryPointArn),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    IsParent: __expectBoolean(output.IsParent),
-    NumberOfChildJobs: __expectLong(output.NumberOfChildJobs),
-    ParentJobId: __expectString(output.ParentJobId),
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceName: __expectString(output.ResourceName),
-    ResourceType: __expectString(output.ResourceType),
-    SourceBackupVaultArn: __expectString(output.SourceBackupVaultArn),
-    SourceRecoveryPointArn: __expectString(output.SourceRecoveryPointArn),
-    State: __expectString(output.State),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    BackupSizeInBytes: __expectLong,
+    ChildJobsInState: _json,
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CompositeMemberIdentifier: __expectString,
+    CopyJobId: __expectString,
+    CreatedBy: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationBackupVaultArn: __expectString,
+    DestinationRecoveryPointArn: __expectString,
+    IamRoleArn: __expectString,
+    IsParent: __expectBoolean,
+    NumberOfChildJobs: __expectLong,
+    ParentJobId: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    SourceBackupVaultArn: __expectString,
+    SourceRecoveryPointArn: __expectString,
+    State: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CopyJobChildJobsInState
- */
-const de_CopyJobChildJobsInState = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [CopyJobState | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectLong(value) as any;
-    return acc;
-  }, {});
-};
+// de_CopyJobChildJobsInState omitted.
 
 /**
  * deserializeAws_restJson1CopyJobsList
@@ -8365,9 +7316,6 @@ const de_CopyJobsList = (output: any, context: __SerdeContext): CopyJob[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CopyJob(entry, context);
     });
   return retVal;
@@ -8377,73 +7325,31 @@ const de_CopyJobsList = (output: any, context: __SerdeContext): CopyJob[] => {
  * deserializeAws_restJson1DateRange
  */
 const de_DateRange = (output: any, context: __SerdeContext): DateRange => {
-  return {
-    FromDate:
-      output.FromDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FromDate))) : undefined,
-    ToDate: output.ToDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ToDate))) : undefined,
-  } as any;
+  return take(output, {
+    FromDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ToDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1FormatList
- */
-const de_FormatList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FormatList omitted.
 
 /**
  * deserializeAws_restJson1Framework
  */
 const de_Framework = (output: any, context: __SerdeContext): Framework => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DeploymentStatus: __expectString(output.DeploymentStatus),
-    FrameworkArn: __expectString(output.FrameworkArn),
-    FrameworkDescription: __expectString(output.FrameworkDescription),
-    FrameworkName: __expectString(output.FrameworkName),
-    NumberOfControls: __expectInt32(output.NumberOfControls),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentStatus: __expectString,
+    FrameworkArn: __expectString,
+    FrameworkDescription: __expectString,
+    FrameworkName: __expectString,
+    NumberOfControls: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1FrameworkControl
- */
-const de_FrameworkControl = (output: any, context: __SerdeContext): FrameworkControl => {
-  return {
-    ControlInputParameters:
-      output.ControlInputParameters != null
-        ? de_ControlInputParameters(output.ControlInputParameters, context)
-        : undefined,
-    ControlName: __expectString(output.ControlName),
-    ControlScope: output.ControlScope != null ? de_ControlScope(output.ControlScope, context) : undefined,
-  } as any;
-};
+// de_FrameworkControl omitted.
 
-/**
- * deserializeAws_restJson1FrameworkControls
- */
-const de_FrameworkControls = (output: any, context: __SerdeContext): FrameworkControl[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FrameworkControl(entry, context);
-    });
-  return retVal;
-};
+// de_FrameworkControls omitted.
 
 /**
  * deserializeAws_restJson1FrameworkList
@@ -8452,46 +7358,26 @@ const de_FrameworkList = (output: any, context: __SerdeContext): Framework[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Framework(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1GlobalSettings
- */
-const de_GlobalSettings = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_GlobalSettings omitted.
 
 /**
  * deserializeAws_restJson1LegalHold
  */
 const de_LegalHold = (output: any, context: __SerdeContext): LegalHold => {
-  return {
-    CancellationDate:
-      output.CancellationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CancellationDate)))
-        : undefined,
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    Description: __expectString(output.Description),
-    LegalHoldArn: __expectString(output.LegalHoldArn),
-    LegalHoldId: __expectString(output.LegalHoldId),
-    Status: __expectString(output.Status),
-    Title: __expectString(output.Title),
-  } as any;
+  return take(output, {
+    CancellationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LegalHoldArn: __expectString,
+    LegalHoldId: __expectString,
+    Status: __expectString,
+    Title: __expectString,
+  }) as any;
 };
 
 /**
@@ -8501,65 +7387,27 @@ const de_LegalHoldsList = (output: any, context: __SerdeContext): LegalHold[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LegalHold(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Lifecycle
- */
-const de_Lifecycle = (output: any, context: __SerdeContext): Lifecycle => {
-  return {
-    DeleteAfterDays: __expectLong(output.DeleteAfterDays),
-    MoveToColdStorageAfterDays: __expectLong(output.MoveToColdStorageAfterDays),
-  } as any;
-};
+// de_Lifecycle omitted.
 
-/**
- * deserializeAws_restJson1ListOfTags
- */
-const de_ListOfTags = (output: any, context: __SerdeContext): Condition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Condition(entry, context);
-    });
-  return retVal;
-};
+// de_ListOfTags omitted.
 
-/**
- * deserializeAws_restJson1Metadata
- */
-const de_Metadata = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Metadata omitted.
 
 /**
  * deserializeAws_restJson1ProtectedResource
  */
 const de_ProtectedResource = (output: any, context: __SerdeContext): ProtectedResource => {
-  return {
-    LastBackupTime:
-      output.LastBackupTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastBackupTime)))
-        : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceName: __expectString(output.ResourceName),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
+  return take(output, {
+    LastBackupTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+  }) as any;
 };
 
 /**
@@ -8569,9 +7417,6 @@ const de_ProtectedResourcesList = (output: any, context: __SerdeContext): Protec
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProtectedResource(entry, context);
     });
   return retVal;
@@ -8581,40 +7426,30 @@ const de_ProtectedResourcesList = (output: any, context: __SerdeContext): Protec
  * deserializeAws_restJson1RecoveryPointByBackupVault
  */
 const de_RecoveryPointByBackupVault = (output: any, context: __SerdeContext): RecoveryPointByBackupVault => {
-  return {
-    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
-    BackupVaultArn: __expectString(output.BackupVaultArn),
-    BackupVaultName: __expectString(output.BackupVaultName),
-    CalculatedLifecycle:
-      output.CalculatedLifecycle != null ? de_CalculatedLifecycle(output.CalculatedLifecycle, context) : undefined,
-    CompletionDate:
-      output.CompletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
-        : undefined,
-    CompositeMemberIdentifier: __expectString(output.CompositeMemberIdentifier),
-    CreatedBy: output.CreatedBy != null ? de_RecoveryPointCreator(output.CreatedBy, context) : undefined,
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    IsEncrypted: __expectBoolean(output.IsEncrypted),
-    IsParent: __expectBoolean(output.IsParent),
-    LastRestoreTime:
-      output.LastRestoreTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRestoreTime)))
-        : undefined,
-    Lifecycle: output.Lifecycle != null ? de_Lifecycle(output.Lifecycle, context) : undefined,
-    ParentRecoveryPointArn: __expectString(output.ParentRecoveryPointArn),
-    RecoveryPointArn: __expectString(output.RecoveryPointArn),
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceName: __expectString(output.ResourceName),
-    ResourceType: __expectString(output.ResourceType),
-    SourceBackupVaultArn: __expectString(output.SourceBackupVaultArn),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+  return take(output, {
+    BackupSizeInBytes: __expectLong,
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CalculatedLifecycle: (_: any) => de_CalculatedLifecycle(_, context),
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CompositeMemberIdentifier: __expectString,
+    CreatedBy: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EncryptionKeyArn: __expectString,
+    IamRoleArn: __expectString,
+    IsEncrypted: __expectBoolean,
+    IsParent: __expectBoolean,
+    LastRestoreTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Lifecycle: _json,
+    ParentRecoveryPointArn: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    SourceBackupVaultArn: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
 /**
@@ -8624,9 +7459,6 @@ const de_RecoveryPointByBackupVaultList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecoveryPointByBackupVault(entry, context);
     });
   return retVal;
@@ -8636,21 +7468,18 @@ const de_RecoveryPointByBackupVaultList = (output: any, context: __SerdeContext)
  * deserializeAws_restJson1RecoveryPointByResource
  */
 const de_RecoveryPointByResource = (output: any, context: __SerdeContext): RecoveryPointByResource => {
-  return {
-    BackupSizeBytes: __expectLong(output.BackupSizeBytes),
-    BackupVaultName: __expectString(output.BackupVaultName),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
-    IsParent: __expectBoolean(output.IsParent),
-    ParentRecoveryPointArn: __expectString(output.ParentRecoveryPointArn),
-    RecoveryPointArn: __expectString(output.RecoveryPointArn),
-    ResourceName: __expectString(output.ResourceName),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+  return take(output, {
+    BackupSizeBytes: __expectLong,
+    BackupVaultName: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EncryptionKeyArn: __expectString,
+    IsParent: __expectBoolean,
+    ParentRecoveryPointArn: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceName: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
 /**
@@ -8660,104 +7489,46 @@ const de_RecoveryPointByResourceList = (output: any, context: __SerdeContext): R
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecoveryPointByResource(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1RecoveryPointCreator
- */
-const de_RecoveryPointCreator = (output: any, context: __SerdeContext): RecoveryPointCreator => {
-  return {
-    BackupPlanArn: __expectString(output.BackupPlanArn),
-    BackupPlanId: __expectString(output.BackupPlanId),
-    BackupPlanVersion: __expectString(output.BackupPlanVersion),
-    BackupRuleId: __expectString(output.BackupRuleId),
-  } as any;
-};
+// de_RecoveryPointCreator omitted.
 
-/**
- * deserializeAws_restJson1RecoveryPointMember
- */
-const de_RecoveryPointMember = (output: any, context: __SerdeContext): RecoveryPointMember => {
-  return {
-    RecoveryPointArn: __expectString(output.RecoveryPointArn),
-  } as any;
-};
+// de_RecoveryPointMember omitted.
 
 /**
  * deserializeAws_restJson1RecoveryPointSelection
  */
 const de_RecoveryPointSelection = (output: any, context: __SerdeContext): RecoveryPointSelection => {
-  return {
-    DateRange: output.DateRange != null ? de_DateRange(output.DateRange, context) : undefined,
-    ResourceIdentifiers:
-      output.ResourceIdentifiers != null ? de_ResourceIdentifiers(output.ResourceIdentifiers, context) : undefined,
-    VaultNames: output.VaultNames != null ? de_VaultNames(output.VaultNames, context) : undefined,
-  } as any;
+  return take(output, {
+    DateRange: (_: any) => de_DateRange(_, context),
+    ResourceIdentifiers: _json,
+    VaultNames: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1RecoveryPointsList
- */
-const de_RecoveryPointsList = (output: any, context: __SerdeContext): RecoveryPointMember[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecoveryPointMember(entry, context);
-    });
-  return retVal;
-};
+// de_RecoveryPointsList omitted.
 
-/**
- * deserializeAws_restJson1ReportDeliveryChannel
- */
-const de_ReportDeliveryChannel = (output: any, context: __SerdeContext): ReportDeliveryChannel => {
-  return {
-    Formats: output.Formats != null ? de_FormatList(output.Formats, context) : undefined,
-    S3BucketName: __expectString(output.S3BucketName),
-    S3KeyPrefix: __expectString(output.S3KeyPrefix),
-  } as any;
-};
+// de_ReportDeliveryChannel omitted.
 
-/**
- * deserializeAws_restJson1ReportDestination
- */
-const de_ReportDestination = (output: any, context: __SerdeContext): ReportDestination => {
-  return {
-    S3BucketName: __expectString(output.S3BucketName),
-    S3Keys: output.S3Keys != null ? de_stringList(output.S3Keys, context) : undefined,
-  } as any;
-};
+// de_ReportDestination omitted.
 
 /**
  * deserializeAws_restJson1ReportJob
  */
 const de_ReportJob = (output: any, context: __SerdeContext): ReportJob => {
-  return {
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    ReportDestination:
-      output.ReportDestination != null ? de_ReportDestination(output.ReportDestination, context) : undefined,
-    ReportJobId: __expectString(output.ReportJobId),
-    ReportPlanArn: __expectString(output.ReportPlanArn),
-    ReportTemplate: __expectString(output.ReportTemplate),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportDestination: _json,
+    ReportJobId: __expectString,
+    ReportPlanArn: __expectString,
+    ReportTemplate: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
 /**
@@ -8767,9 +7538,6 @@ const de_ReportJobList = (output: any, context: __SerdeContext): ReportJob[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReportJob(entry, context);
     });
   return retVal;
@@ -8779,29 +7547,17 @@ const de_ReportJobList = (output: any, context: __SerdeContext): ReportJob[] => 
  * deserializeAws_restJson1ReportPlan
  */
 const de_ReportPlan = (output: any, context: __SerdeContext): ReportPlan => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DeploymentStatus: __expectString(output.DeploymentStatus),
-    LastAttemptedExecutionTime:
-      output.LastAttemptedExecutionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAttemptedExecutionTime)))
-        : undefined,
-    LastSuccessfulExecutionTime:
-      output.LastSuccessfulExecutionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulExecutionTime)))
-        : undefined,
-    ReportDeliveryChannel:
-      output.ReportDeliveryChannel != null
-        ? de_ReportDeliveryChannel(output.ReportDeliveryChannel, context)
-        : undefined,
-    ReportPlanArn: __expectString(output.ReportPlanArn),
-    ReportPlanDescription: __expectString(output.ReportPlanDescription),
-    ReportPlanName: __expectString(output.ReportPlanName),
-    ReportSetting: output.ReportSetting != null ? de_ReportSetting(output.ReportSetting, context) : undefined,
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentStatus: __expectString,
+    LastAttemptedExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastSuccessfulExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportDeliveryChannel: _json,
+    ReportPlanArn: __expectString,
+    ReportPlanDescription: __expectString,
+    ReportPlanName: __expectString,
+    ReportSetting: _json,
+  }) as any;
 };
 
 /**
@@ -8811,113 +7567,24 @@ const de_ReportPlanList = (output: any, context: __SerdeContext): ReportPlan[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReportPlan(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ReportSetting
- */
-const de_ReportSetting = (output: any, context: __SerdeContext): ReportSetting => {
-  return {
-    Accounts: output.Accounts != null ? de_stringList(output.Accounts, context) : undefined,
-    FrameworkArns: output.FrameworkArns != null ? de_stringList(output.FrameworkArns, context) : undefined,
-    NumberOfFrameworks: __expectInt32(output.NumberOfFrameworks),
-    OrganizationUnits: output.OrganizationUnits != null ? de_stringList(output.OrganizationUnits, context) : undefined,
-    Regions: output.Regions != null ? de_stringList(output.Regions, context) : undefined,
-    ReportTemplate: __expectString(output.ReportTemplate),
-  } as any;
-};
+// de_ReportSetting omitted.
 
-/**
- * deserializeAws_restJson1ResourceArns
- */
-const de_ResourceArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceArns omitted.
 
-/**
- * deserializeAws_restJson1ResourceIdentifiers
- */
-const de_ResourceIdentifiers = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceIdentifiers omitted.
 
-/**
- * deserializeAws_restJson1ResourceTypeList
- */
-const de_ResourceTypeList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceTypeList omitted.
 
-/**
- * deserializeAws_restJson1ResourceTypeManagementPreference
- */
-const de_ResourceTypeManagementPreference = (output: any, context: __SerdeContext): Record<string, boolean> => {
-  return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectBoolean(value) as any;
-    return acc;
-  }, {});
-};
+// de_ResourceTypeManagementPreference omitted.
 
-/**
- * deserializeAws_restJson1ResourceTypeOptInPreference
- */
-const de_ResourceTypeOptInPreference = (output: any, context: __SerdeContext): Record<string, boolean> => {
-  return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectBoolean(value) as any;
-    return acc;
-  }, {});
-};
+// de_ResourceTypeOptInPreference omitted.
 
-/**
- * deserializeAws_restJson1ResourceTypes
- */
-const de_ResourceTypes = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceTypes omitted.
 
 /**
  * deserializeAws_restJson1RestoreJobsList
@@ -8926,9 +7593,6 @@ const de_RestoreJobsList = (output: any, context: __SerdeContext): RestoreJobsLi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RestoreJobsListMember(entry, context);
     });
   return retVal;
@@ -8938,84 +7602,30 @@ const de_RestoreJobsList = (output: any, context: __SerdeContext): RestoreJobsLi
  * deserializeAws_restJson1RestoreJobsListMember
  */
 const de_RestoreJobsListMember = (output: any, context: __SerdeContext): RestoreJobsListMember => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
-    CompletionDate:
-      output.CompletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
-        : undefined,
-    CreatedResourceArn: __expectString(output.CreatedResourceArn),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    ExpectedCompletionTimeMinutes: __expectLong(output.ExpectedCompletionTimeMinutes),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    PercentDone: __expectString(output.PercentDone),
-    RecoveryPointArn: __expectString(output.RecoveryPointArn),
-    ResourceType: __expectString(output.ResourceType),
-    RestoreJobId: __expectString(output.RestoreJobId),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    BackupSizeInBytes: __expectLong,
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedResourceArn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpectedCompletionTimeMinutes: __expectLong,
+    IamRoleArn: __expectString,
+    PercentDone: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceType: __expectString,
+    RestoreJobId: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1stringList
- */
-const de_stringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_stringList omitted.
 
-/**
- * deserializeAws_restJson1stringMap
- */
-const de_stringMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_stringMap omitted.
 
-/**
- * deserializeAws_restJson1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_restJson1VaultNames
- */
-const de_VaultNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_VaultNames omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

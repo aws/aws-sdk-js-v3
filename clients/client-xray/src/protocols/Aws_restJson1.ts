@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,10 +12,11 @@ import {
   expectString as __expectString,
   expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -83,50 +85,27 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
 import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "../commands/UpdateSamplingRuleCommand";
 import {
-  Alias,
   AnnotationValue,
-  AnomalousService,
-  AvailabilityZoneDetail,
   BackendConnectionErrors,
   Edge,
   EdgeStatistics,
-  EncryptionConfig,
-  ErrorRootCause,
-  ErrorRootCauseEntity,
-  ErrorRootCauseService,
-  ErrorStatistics,
-  FaultRootCause,
-  FaultRootCauseEntity,
-  FaultRootCauseService,
-  FaultStatistics,
-  ForecastStatistics,
-  Group,
-  GroupSummary,
   HistogramEntry,
-  Http,
   Insight,
-  InsightCategory,
   InsightEvent,
-  InsightImpactGraphEdge,
-  InsightImpactGraphService,
   InsightsConfiguration,
   InsightState,
   InsightSummary,
-  InstanceIdDetail,
   InvalidPolicyRevisionIdException,
   InvalidRequestException,
   LockoutPreventionException,
   MalformedPolicyDocumentException,
   PolicyCountLimitExceededException,
   PolicySizeLimitExceededException,
-  RequestImpactStatistics,
-  ResourceARNDetail,
   ResourceNotFoundException,
   ResourcePolicy,
   ResponseTimeRootCause,
   ResponseTimeRootCauseEntity,
   ResponseTimeRootCauseService,
-  RootCauseException,
   RuleLimitExceededException,
   SamplingRule,
   SamplingRuleRecord,
@@ -135,9 +114,7 @@ import {
   SamplingStatisticSummary,
   SamplingStrategy,
   SamplingTargetDocument,
-  Segment,
   Service,
-  ServiceId,
   ServiceStatistics,
   Tag,
   TelemetryRecord,
@@ -146,9 +123,6 @@ import {
   TooManyTagsException,
   Trace,
   TraceSummary,
-  TraceUser,
-  UnprocessedStatistics,
-  UnprocessedTraceSegment,
   ValueWithServiceIds,
 } from "../models/models_0";
 import { XRayServiceException as __BaseException } from "../models/XRayServiceException";
@@ -166,10 +140,12 @@ export const se_BatchGetTracesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Traces";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TraceIds != null && { TraceIds: se_TraceIdList(input.TraceIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      TraceIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -194,14 +170,14 @@ export const se_CreateGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateGroup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FilterExpression != null && { FilterExpression: input.FilterExpression }),
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.InsightsConfiguration != null && {
-      InsightsConfiguration: se_InsightsConfiguration(input.InsightsConfiguration, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FilterExpression: [],
+      GroupName: [],
+      InsightsConfiguration: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -226,10 +202,12 @@ export const se_CreateSamplingRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateSamplingRule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.SamplingRule != null && { SamplingRule: se_SamplingRule(input.SamplingRule, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SamplingRule: (_) => se_SamplingRule(_, context),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -254,10 +232,12 @@ export const se_DeleteGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteGroup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GroupARN: [],
+      GroupName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -282,10 +262,12 @@ export const se_DeleteResourcePolicyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteResourcePolicy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
-    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PolicyName: [],
+      PolicyRevisionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -310,10 +292,12 @@ export const se_DeleteSamplingRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteSamplingRule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.RuleARN != null && { RuleARN: input.RuleARN }),
-    ...(input.RuleName != null && { RuleName: input.RuleName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      RuleARN: [],
+      RuleName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -363,10 +347,12 @@ export const se_GetGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetGroup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GroupARN: [],
+      GroupName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -391,9 +377,11 @@ export const se_GetGroupsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Groups";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -418,9 +406,11 @@ export const se_GetInsightCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Insight";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InsightId != null && { InsightId: input.InsightId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InsightId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -445,11 +435,13 @@ export const se_GetInsightEventsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InsightEvents";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InsightId != null && { InsightId: input.InsightId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InsightId: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -474,12 +466,14 @@ export const se_GetInsightImpactGraphCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InsightImpactGraph";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.InsightId != null && { InsightId: input.InsightId }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EndTime: (_) => Math.round(_.getTime() / 1000),
+      InsightId: [],
+      NextToken: [],
+      StartTime: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -504,15 +498,17 @@ export const se_GetInsightSummariesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InsightSummaries";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-    ...(input.States != null && { States: se_InsightStateList(input.States, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EndTime: (_) => Math.round(_.getTime() / 1000),
+      GroupARN: [],
+      GroupName: [],
+      MaxResults: [],
+      NextToken: [],
+      StartTime: (_) => Math.round(_.getTime() / 1000),
+      States: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -537,9 +533,11 @@ export const se_GetSamplingRulesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetSamplingRules";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -565,9 +563,11 @@ export const se_GetSamplingStatisticSummariesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SamplingStatisticSummaries";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -592,11 +592,11 @@ export const se_GetSamplingTargetsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SamplingTargets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.SamplingStatisticsDocuments != null && {
-      SamplingStatisticsDocuments: se_SamplingStatisticsDocumentList(input.SamplingStatisticsDocuments, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SamplingStatisticsDocuments: (_) => se_SamplingStatisticsDocumentList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -621,13 +621,15 @@ export const se_GetServiceGraphCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ServiceGraph";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EndTime: (_) => Math.round(_.getTime() / 1000),
+      GroupARN: [],
+      GroupName: [],
+      NextToken: [],
+      StartTime: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -653,16 +655,18 @@ export const se_GetTimeSeriesServiceStatisticsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TimeSeriesServiceStatistics";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.EntitySelectorExpression != null && { EntitySelectorExpression: input.EntitySelectorExpression }),
-    ...(input.ForecastStatistics != null && { ForecastStatistics: input.ForecastStatistics }),
-    ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Period != null && { Period: input.Period }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EndTime: (_) => Math.round(_.getTime() / 1000),
+      EntitySelectorExpression: [],
+      ForecastStatistics: [],
+      GroupARN: [],
+      GroupName: [],
+      NextToken: [],
+      Period: [],
+      StartTime: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -687,10 +691,12 @@ export const se_GetTraceGraphCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TraceGraph";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TraceIds != null && { TraceIds: se_TraceIdList(input.TraceIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      TraceIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -715,15 +721,17 @@ export const se_GetTraceSummariesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TraceSummaries";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.FilterExpression != null && { FilterExpression: input.FilterExpression }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Sampling != null && { Sampling: input.Sampling }),
-    ...(input.SamplingStrategy != null && { SamplingStrategy: se_SamplingStrategy(input.SamplingStrategy, context) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-    ...(input.TimeRangeType != null && { TimeRangeType: input.TimeRangeType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EndTime: (_) => Math.round(_.getTime() / 1000),
+      FilterExpression: [],
+      NextToken: [],
+      Sampling: [],
+      SamplingStrategy: (_) => se_SamplingStrategy(_, context),
+      StartTime: (_) => Math.round(_.getTime() / 1000),
+      TimeRangeType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -748,9 +756,11 @@ export const se_ListResourcePoliciesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListResourcePolicies";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -775,10 +785,12 @@ export const se_ListTagsForResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTagsForResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      ResourceARN: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -803,10 +815,12 @@ export const se_PutEncryptionConfigCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutEncryptionConfig";
   let body: any;
-  body = JSON.stringify({
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      KeyId: [],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -831,12 +845,14 @@ export const se_PutResourcePolicyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutResourcePolicy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BypassPolicyLockoutCheck != null && { BypassPolicyLockoutCheck: input.BypassPolicyLockoutCheck }),
-    ...(input.PolicyDocument != null && { PolicyDocument: input.PolicyDocument }),
-    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
-    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BypassPolicyLockoutCheck: [],
+      PolicyDocument: [],
+      PolicyName: [],
+      PolicyRevisionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -861,14 +877,14 @@ export const se_PutTelemetryRecordsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TelemetryRecords";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EC2InstanceId != null && { EC2InstanceId: input.EC2InstanceId }),
-    ...(input.Hostname != null && { Hostname: input.Hostname }),
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TelemetryRecords != null && {
-      TelemetryRecords: se_TelemetryRecordList(input.TelemetryRecords, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EC2InstanceId: [],
+      Hostname: [],
+      ResourceARN: [],
+      TelemetryRecords: (_) => se_TelemetryRecordList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -893,11 +909,11 @@ export const se_PutTraceSegmentsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TraceSegments";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TraceSegmentDocuments != null && {
-      TraceSegmentDocuments: se_TraceSegmentDocumentList(input.TraceSegmentDocuments, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TraceSegmentDocuments: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -922,10 +938,12 @@ export const se_TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -950,10 +968,12 @@ export const se_UntagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -978,14 +998,14 @@ export const se_UpdateGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateGroup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FilterExpression != null && { FilterExpression: input.FilterExpression }),
-    ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-    ...(input.InsightsConfiguration != null && {
-      InsightsConfiguration: se_InsightsConfiguration(input.InsightsConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FilterExpression: [],
+      GroupARN: [],
+      GroupName: [],
+      InsightsConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1010,11 +1030,11 @@ export const se_UpdateSamplingRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateSamplingRule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.SamplingRuleUpdate != null && {
-      SamplingRuleUpdate: se_SamplingRuleUpdate(input.SamplingRuleUpdate, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SamplingRuleUpdate: (_) => se_SamplingRuleUpdate(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1040,15 +1060,12 @@ export const de_BatchGetTracesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Traces != null) {
-    contents.Traces = de_TraceList(data.Traces, context);
-  }
-  if (data.UnprocessedTraceIds != null) {
-    contents.UnprocessedTraceIds = de_UnprocessedTraceIdList(data.UnprocessedTraceIds, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Traces: (_) => de_TraceList(_, context),
+    UnprocessedTraceIds: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1073,10 +1090,9 @@ const de_BatchGetTracesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1096,9 +1112,10 @@ export const de_CreateGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Group != null) {
-    contents.Group = de_Group(data.Group, context);
-  }
+  const doc = take(data, {
+    Group: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1123,10 +1140,9 @@ const de_CreateGroupCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1146,9 +1162,10 @@ export const de_CreateSamplingRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SamplingRuleRecord != null) {
-    contents.SamplingRuleRecord = de_SamplingRuleRecord(data.SamplingRuleRecord, context);
-  }
+  const doc = take(data, {
+    SamplingRuleRecord: (_) => de_SamplingRuleRecord(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1176,10 +1193,9 @@ const de_CreateSamplingRuleCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1223,10 +1239,9 @@ const de_DeleteGroupCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1273,10 +1288,9 @@ const de_DeleteResourcePolicyCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1296,9 +1310,10 @@ export const de_DeleteSamplingRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SamplingRuleRecord != null) {
-    contents.SamplingRuleRecord = de_SamplingRuleRecord(data.SamplingRuleRecord, context);
-  }
+  const doc = take(data, {
+    SamplingRuleRecord: (_) => de_SamplingRuleRecord(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1323,10 +1338,9 @@ const de_DeleteSamplingRuleCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1346,9 +1360,10 @@ export const de_GetEncryptionConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EncryptionConfig != null) {
-    contents.EncryptionConfig = de_EncryptionConfig(data.EncryptionConfig, context);
-  }
+  const doc = take(data, {
+    EncryptionConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1373,10 +1388,9 @@ const de_GetEncryptionConfigCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1396,9 +1410,10 @@ export const de_GetGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Group != null) {
-    contents.Group = de_Group(data.Group, context);
-  }
+  const doc = take(data, {
+    Group: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1423,10 +1438,9 @@ const de_GetGroupCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1446,12 +1460,11 @@ export const de_GetGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Groups != null) {
-    contents.Groups = de_GroupSummaryList(data.Groups, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Groups: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1476,10 +1489,9 @@ const de_GetGroupsCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1499,9 +1511,10 @@ export const de_GetInsightCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Insight != null) {
-    contents.Insight = de_Insight(data.Insight, context);
-  }
+  const doc = take(data, {
+    Insight: (_) => de_Insight(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1526,10 +1539,9 @@ const de_GetInsightCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1549,12 +1561,11 @@ export const de_GetInsightEventsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InsightEvents != null) {
-    contents.InsightEvents = de_InsightEventList(data.InsightEvents, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    InsightEvents: (_) => de_InsightEventList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1579,10 +1590,9 @@ const de_GetInsightEventsCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1602,27 +1612,16 @@ export const de_GetInsightImpactGraphCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EndTime != null) {
-    contents.EndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.EndTime)));
-  }
-  if (data.InsightId != null) {
-    contents.InsightId = __expectString(data.InsightId);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ServiceGraphEndTime != null) {
-    contents.ServiceGraphEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ServiceGraphEndTime)));
-  }
-  if (data.ServiceGraphStartTime != null) {
-    contents.ServiceGraphStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ServiceGraphStartTime)));
-  }
-  if (data.Services != null) {
-    contents.Services = de_InsightImpactGraphServiceList(data.Services, context);
-  }
-  if (data.StartTime != null) {
-    contents.StartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.StartTime)));
-  }
+  const doc = take(data, {
+    EndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InsightId: __expectString,
+    NextToken: __expectString,
+    ServiceGraphEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ServiceGraphStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Services: _json,
+    StartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1647,10 +1646,9 @@ const de_GetInsightImpactGraphCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1670,12 +1668,11 @@ export const de_GetInsightSummariesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InsightSummaries != null) {
-    contents.InsightSummaries = de_InsightSummaryList(data.InsightSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    InsightSummaries: (_) => de_InsightSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1700,10 +1697,9 @@ const de_GetInsightSummariesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1723,12 +1719,11 @@ export const de_GetSamplingRulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SamplingRuleRecords != null) {
-    contents.SamplingRuleRecords = de_SamplingRuleRecordList(data.SamplingRuleRecords, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SamplingRuleRecords: (_) => de_SamplingRuleRecordList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1753,10 +1748,9 @@ const de_GetSamplingRulesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1776,12 +1770,11 @@ export const de_GetSamplingStatisticSummariesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SamplingStatisticSummaries != null) {
-    contents.SamplingStatisticSummaries = de_SamplingStatisticSummaryList(data.SamplingStatisticSummaries, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SamplingStatisticSummaries: (_) => de_SamplingStatisticSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1806,10 +1799,9 @@ const de_GetSamplingStatisticSummariesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1829,15 +1821,12 @@ export const de_GetSamplingTargetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LastRuleModification != null) {
-    contents.LastRuleModification = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastRuleModification)));
-  }
-  if (data.SamplingTargetDocuments != null) {
-    contents.SamplingTargetDocuments = de_SamplingTargetDocumentList(data.SamplingTargetDocuments, context);
-  }
-  if (data.UnprocessedStatistics != null) {
-    contents.UnprocessedStatistics = de_UnprocessedStatisticsList(data.UnprocessedStatistics, context);
-  }
+  const doc = take(data, {
+    LastRuleModification: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SamplingTargetDocuments: (_) => de_SamplingTargetDocumentList(_, context),
+    UnprocessedStatistics: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1862,10 +1851,9 @@ const de_GetSamplingTargetsCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1885,21 +1873,14 @@ export const de_GetServiceGraphCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ContainsOldGroupVersions != null) {
-    contents.ContainsOldGroupVersions = __expectBoolean(data.ContainsOldGroupVersions);
-  }
-  if (data.EndTime != null) {
-    contents.EndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.EndTime)));
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Services != null) {
-    contents.Services = de_ServiceList(data.Services, context);
-  }
-  if (data.StartTime != null) {
-    contents.StartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.StartTime)));
-  }
+  const doc = take(data, {
+    ContainsOldGroupVersions: __expectBoolean,
+    EndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+    Services: (_) => de_ServiceList(_, context),
+    StartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1924,10 +1905,9 @@ const de_GetServiceGraphCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1947,18 +1927,12 @@ export const de_GetTimeSeriesServiceStatisticsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ContainsOldGroupVersions != null) {
-    contents.ContainsOldGroupVersions = __expectBoolean(data.ContainsOldGroupVersions);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.TimeSeriesServiceStatistics != null) {
-    contents.TimeSeriesServiceStatistics = de_TimeSeriesServiceStatisticsList(
-      data.TimeSeriesServiceStatistics,
-      context
-    );
-  }
+  const doc = take(data, {
+    ContainsOldGroupVersions: __expectBoolean,
+    NextToken: __expectString,
+    TimeSeriesServiceStatistics: (_) => de_TimeSeriesServiceStatisticsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1983,10 +1957,9 @@ const de_GetTimeSeriesServiceStatisticsCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2006,12 +1979,11 @@ export const de_GetTraceGraphCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Services != null) {
-    contents.Services = de_ServiceList(data.Services, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Services: (_) => de_ServiceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2036,10 +2008,9 @@ const de_GetTraceGraphCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2059,18 +2030,13 @@ export const de_GetTraceSummariesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApproximateTime != null) {
-    contents.ApproximateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ApproximateTime)));
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.TraceSummaries != null) {
-    contents.TraceSummaries = de_TraceSummaryList(data.TraceSummaries, context);
-  }
-  if (data.TracesProcessedCount != null) {
-    contents.TracesProcessedCount = __expectLong(data.TracesProcessedCount);
-  }
+  const doc = take(data, {
+    ApproximateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+    TraceSummaries: (_) => de_TraceSummaryList(_, context),
+    TracesProcessedCount: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2095,10 +2061,9 @@ const de_GetTraceSummariesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2118,12 +2083,11 @@ export const de_ListResourcePoliciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ResourcePolicies != null) {
-    contents.ResourcePolicies = de_ResourcePolicyList(data.ResourcePolicies, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ResourcePolicies: (_) => de_ResourcePolicyList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2148,10 +2112,9 @@ const de_ListResourcePoliciesCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2171,12 +2134,11 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2204,10 +2166,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2227,9 +2188,10 @@ export const de_PutEncryptionConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EncryptionConfig != null) {
-    contents.EncryptionConfig = de_EncryptionConfig(data.EncryptionConfig, context);
-  }
+  const doc = take(data, {
+    EncryptionConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2254,10 +2216,9 @@ const de_PutEncryptionConfigCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2277,9 +2238,10 @@ export const de_PutResourcePolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourcePolicy != null) {
-    contents.ResourcePolicy = de_ResourcePolicy(data.ResourcePolicy, context);
-  }
+  const doc = take(data, {
+    ResourcePolicy: (_) => de_ResourcePolicy(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2316,10 +2278,9 @@ const de_PutResourcePolicyCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2363,10 +2324,9 @@ const de_PutTelemetryRecordsCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2386,9 +2346,10 @@ export const de_PutTraceSegmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.UnprocessedTraceSegments != null) {
-    contents.UnprocessedTraceSegments = de_UnprocessedTraceSegmentList(data.UnprocessedTraceSegments, context);
-  }
+  const doc = take(data, {
+    UnprocessedTraceSegments: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2413,10 +2374,9 @@ const de_PutTraceSegmentsCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2466,10 +2426,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2516,10 +2475,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2539,9 +2497,10 @@ export const de_UpdateGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Group != null) {
-    contents.Group = de_Group(data.Group, context);
-  }
+  const doc = take(data, {
+    Group: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2566,10 +2525,9 @@ const de_UpdateGroupCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2589,9 +2547,10 @@ export const de_UpdateSamplingRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SamplingRuleRecord != null) {
-    contents.SamplingRuleRecord = de_SamplingRuleRecord(data.SamplingRuleRecord, context);
-  }
+  const doc = take(data, {
+    SamplingRuleRecord: (_) => de_SamplingRuleRecord(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2616,16 +2575,15 @@ const de_UpdateSamplingRuleCommandError = async (
       throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InvalidPolicyRevisionIdExceptionRes
  */
@@ -2635,9 +2593,10 @@ const de_InvalidPolicyRevisionIdExceptionRes = async (
 ): Promise<InvalidPolicyRevisionIdException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidPolicyRevisionIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2654,9 +2613,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2673,9 +2633,10 @@ const de_LockoutPreventionExceptionRes = async (
 ): Promise<LockoutPreventionException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LockoutPreventionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2692,9 +2653,10 @@ const de_MalformedPolicyDocumentExceptionRes = async (
 ): Promise<MalformedPolicyDocumentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2711,9 +2673,10 @@ const de_PolicyCountLimitExceededExceptionRes = async (
 ): Promise<PolicyCountLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PolicyCountLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2730,9 +2693,10 @@ const de_PolicySizeLimitExceededExceptionRes = async (
 ): Promise<PolicySizeLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PolicySizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2749,12 +2713,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2771,9 +2734,10 @@ const de_RuleLimitExceededExceptionRes = async (
 ): Promise<RuleLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RuleLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2787,9 +2751,10 @@ const de_RuleLimitExceededExceptionRes = async (
 const de_ThrottledExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottledException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2806,12 +2771,11 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2819,107 +2783,67 @@ const de_TooManyTagsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AttributeMap
- */
-const se_AttributeMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_AttributeMap omitted.
 
-/**
- * serializeAws_restJson1BackendConnectionErrors
- */
-const se_BackendConnectionErrors = (input: BackendConnectionErrors, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectionRefusedCount != null && { ConnectionRefusedCount: input.ConnectionRefusedCount }),
-    ...(input.HTTPCode4XXCount != null && { HTTPCode4XXCount: input.HTTPCode4XXCount }),
-    ...(input.HTTPCode5XXCount != null && { HTTPCode5XXCount: input.HTTPCode5XXCount }),
-    ...(input.OtherCount != null && { OtherCount: input.OtherCount }),
-    ...(input.TimeoutCount != null && { TimeoutCount: input.TimeoutCount }),
-    ...(input.UnknownHostCount != null && { UnknownHostCount: input.UnknownHostCount }),
-  };
-};
+// se_BackendConnectionErrors omitted.
 
-/**
- * serializeAws_restJson1InsightsConfiguration
- */
-const se_InsightsConfiguration = (input: InsightsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.InsightsEnabled != null && { InsightsEnabled: input.InsightsEnabled }),
-    ...(input.NotificationsEnabled != null && { NotificationsEnabled: input.NotificationsEnabled }),
-  };
-};
+// se_InsightsConfiguration omitted.
 
-/**
- * serializeAws_restJson1InsightStateList
- */
-const se_InsightStateList = (input: (InsightState | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InsightStateList omitted.
 
 /**
  * serializeAws_restJson1SamplingRule
  */
 const se_SamplingRule = (input: SamplingRule, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: se_AttributeMap(input.Attributes, context) }),
-    ...(input.FixedRate != null && { FixedRate: __serializeFloat(input.FixedRate) }),
-    ...(input.HTTPMethod != null && { HTTPMethod: input.HTTPMethod }),
-    ...(input.Host != null && { Host: input.Host }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.ReservoirSize != null && { ReservoirSize: input.ReservoirSize }),
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.RuleARN != null && { RuleARN: input.RuleARN }),
-    ...(input.RuleName != null && { RuleName: input.RuleName }),
-    ...(input.ServiceName != null && { ServiceName: input.ServiceName }),
-    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-    ...(input.URLPath != null && { URLPath: input.URLPath }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
+  return take(input, {
+    Attributes: _json,
+    FixedRate: __serializeFloat,
+    HTTPMethod: [],
+    Host: [],
+    Priority: [],
+    ReservoirSize: [],
+    ResourceARN: [],
+    RuleARN: [],
+    RuleName: [],
+    ServiceName: [],
+    ServiceType: [],
+    URLPath: [],
+    Version: [],
+  });
 };
 
 /**
  * serializeAws_restJson1SamplingRuleUpdate
  */
 const se_SamplingRuleUpdate = (input: SamplingRuleUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: se_AttributeMap(input.Attributes, context) }),
-    ...(input.FixedRate != null && { FixedRate: __serializeFloat(input.FixedRate) }),
-    ...(input.HTTPMethod != null && { HTTPMethod: input.HTTPMethod }),
-    ...(input.Host != null && { Host: input.Host }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.ReservoirSize != null && { ReservoirSize: input.ReservoirSize }),
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.RuleARN != null && { RuleARN: input.RuleARN }),
-    ...(input.RuleName != null && { RuleName: input.RuleName }),
-    ...(input.ServiceName != null && { ServiceName: input.ServiceName }),
-    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-    ...(input.URLPath != null && { URLPath: input.URLPath }),
-  };
+  return take(input, {
+    Attributes: _json,
+    FixedRate: __serializeFloat,
+    HTTPMethod: [],
+    Host: [],
+    Priority: [],
+    ReservoirSize: [],
+    ResourceARN: [],
+    RuleARN: [],
+    RuleName: [],
+    ServiceName: [],
+    ServiceType: [],
+    URLPath: [],
+  });
 };
 
 /**
  * serializeAws_restJson1SamplingStatisticsDocument
  */
 const se_SamplingStatisticsDocument = (input: SamplingStatisticsDocument, context: __SerdeContext): any => {
-  return {
-    ...(input.BorrowCount != null && { BorrowCount: input.BorrowCount }),
-    ...(input.ClientID != null && { ClientID: input.ClientID }),
-    ...(input.RequestCount != null && { RequestCount: input.RequestCount }),
-    ...(input.RuleName != null && { RuleName: input.RuleName }),
-    ...(input.SampledCount != null && { SampledCount: input.SampledCount }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    BorrowCount: [],
+    ClientID: [],
+    RequestCount: [],
+    RuleName: [],
+    SampledCount: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
@@ -2937,58 +2861,30 @@ const se_SamplingStatisticsDocumentList = (input: SamplingStatisticsDocument[], 
  * serializeAws_restJson1SamplingStrategy
  */
 const se_SamplingStrategy = (input: SamplingStrategy, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
-  };
+  return take(input, {
+    Name: [],
+    Value: __serializeFloat,
+  });
 };
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
 /**
  * serializeAws_restJson1TelemetryRecord
  */
 const se_TelemetryRecord = (input: TelemetryRecord, context: __SerdeContext): any => {
-  return {
-    ...(input.BackendConnectionErrors != null && {
-      BackendConnectionErrors: se_BackendConnectionErrors(input.BackendConnectionErrors, context),
-    }),
-    ...(input.SegmentsReceivedCount != null && { SegmentsReceivedCount: input.SegmentsReceivedCount }),
-    ...(input.SegmentsRejectedCount != null && { SegmentsRejectedCount: input.SegmentsRejectedCount }),
-    ...(input.SegmentsSentCount != null && { SegmentsSentCount: input.SegmentsSentCount }),
-    ...(input.SegmentsSpilloverCount != null && { SegmentsSpilloverCount: input.SegmentsSpilloverCount }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-  };
+  return take(input, {
+    BackendConnectionErrors: _json,
+    SegmentsReceivedCount: [],
+    SegmentsRejectedCount: [],
+    SegmentsSentCount: [],
+    SegmentsSpilloverCount: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
@@ -3002,68 +2898,15 @@ const se_TelemetryRecordList = (input: TelemetryRecord[], context: __SerdeContex
     });
 };
 
-/**
- * serializeAws_restJson1TraceIdList
- */
-const se_TraceIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TraceIdList omitted.
 
-/**
- * serializeAws_restJson1TraceSegmentDocumentList
- */
-const se_TraceSegmentDocumentList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TraceSegmentDocumentList omitted.
 
-/**
- * deserializeAws_restJson1Alias
- */
-const de_Alias = (output: any, context: __SerdeContext): Alias => {
-  return {
-    Name: __expectString(output.Name),
-    Names: output.Names != null ? de_AliasNames(output.Names, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Alias omitted.
 
-/**
- * deserializeAws_restJson1AliasList
- */
-const de_AliasList = (output: any, context: __SerdeContext): Alias[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Alias(entry, context);
-    });
-  return retVal;
-};
+// de_AliasList omitted.
 
-/**
- * deserializeAws_restJson1AliasNames
- */
-const de_AliasNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AliasNames omitted.
 
 /**
  * deserializeAws_restJson1Annotations
@@ -3094,71 +2937,28 @@ const de_AnnotationValue = (output: any, context: __SerdeContext): AnnotationVal
   return { $unknown: Object.entries(output)[0] };
 };
 
-/**
- * deserializeAws_restJson1AnomalousService
- */
-const de_AnomalousService = (output: any, context: __SerdeContext): AnomalousService => {
-  return {
-    ServiceId: output.ServiceId != null ? de_ServiceId(output.ServiceId, context) : undefined,
-  } as any;
-};
+// de_AnomalousService omitted.
 
-/**
- * deserializeAws_restJson1AnomalousServiceList
- */
-const de_AnomalousServiceList = (output: any, context: __SerdeContext): AnomalousService[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AnomalousService(entry, context);
-    });
-  return retVal;
-};
+// de_AnomalousServiceList omitted.
 
-/**
- * deserializeAws_restJson1AttributeMap
- */
-const de_AttributeMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_AttributeMap omitted.
 
-/**
- * deserializeAws_restJson1AvailabilityZoneDetail
- */
-const de_AvailabilityZoneDetail = (output: any, context: __SerdeContext): AvailabilityZoneDetail => {
-  return {
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_AvailabilityZoneDetail omitted.
 
 /**
  * deserializeAws_restJson1Edge
  */
 const de_Edge = (output: any, context: __SerdeContext): Edge => {
-  return {
-    Aliases: output.Aliases != null ? de_AliasList(output.Aliases, context) : undefined,
-    EdgeType: __expectString(output.EdgeType),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    ReceivedEventAgeHistogram:
-      output.ReceivedEventAgeHistogram != null ? de_Histogram(output.ReceivedEventAgeHistogram, context) : undefined,
-    ReferenceId: __expectInt32(output.ReferenceId),
-    ResponseTimeHistogram:
-      output.ResponseTimeHistogram != null ? de_Histogram(output.ResponseTimeHistogram, context) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    SummaryStatistics:
-      output.SummaryStatistics != null ? de_EdgeStatistics(output.SummaryStatistics, context) : undefined,
-  } as any;
+  return take(output, {
+    Aliases: _json,
+    EdgeType: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReceivedEventAgeHistogram: (_: any) => de_Histogram(_, context),
+    ReferenceId: __expectInt32,
+    ResponseTimeHistogram: (_: any) => de_Histogram(_, context),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SummaryStatistics: (_: any) => de_EdgeStatistics(_, context),
+  }) as any;
 };
 
 /**
@@ -3168,9 +2968,6 @@ const de_EdgeList = (output: any, context: __SerdeContext): Edge[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Edge(entry, context);
     });
   return retVal;
@@ -3180,261 +2977,52 @@ const de_EdgeList = (output: any, context: __SerdeContext): Edge[] => {
  * deserializeAws_restJson1EdgeStatistics
  */
 const de_EdgeStatistics = (output: any, context: __SerdeContext): EdgeStatistics => {
-  return {
-    ErrorStatistics: output.ErrorStatistics != null ? de_ErrorStatistics(output.ErrorStatistics, context) : undefined,
-    FaultStatistics: output.FaultStatistics != null ? de_FaultStatistics(output.FaultStatistics, context) : undefined,
-    OkCount: __expectLong(output.OkCount),
-    TotalCount: __expectLong(output.TotalCount),
-    TotalResponseTime: __limitedParseDouble(output.TotalResponseTime),
-  } as any;
+  return take(output, {
+    ErrorStatistics: _json,
+    FaultStatistics: _json,
+    OkCount: __expectLong,
+    TotalCount: __expectLong,
+    TotalResponseTime: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EncryptionConfig
- */
-const de_EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
-  return {
-    KeyId: __expectString(output.KeyId),
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_EncryptionConfig omitted.
 
-/**
- * deserializeAws_restJson1ErrorRootCause
- */
-const de_ErrorRootCause = (output: any, context: __SerdeContext): ErrorRootCause => {
-  return {
-    ClientImpacting: __expectBoolean(output.ClientImpacting),
-    Services: output.Services != null ? de_ErrorRootCauseServices(output.Services, context) : undefined,
-  } as any;
-};
+// de_ErrorRootCause omitted.
 
-/**
- * deserializeAws_restJson1ErrorRootCauseEntity
- */
-const de_ErrorRootCauseEntity = (output: any, context: __SerdeContext): ErrorRootCauseEntity => {
-  return {
-    Exceptions: output.Exceptions != null ? de_RootCauseExceptions(output.Exceptions, context) : undefined,
-    Name: __expectString(output.Name),
-    Remote: __expectBoolean(output.Remote),
-  } as any;
-};
+// de_ErrorRootCauseEntity omitted.
 
-/**
- * deserializeAws_restJson1ErrorRootCauseEntityPath
- */
-const de_ErrorRootCauseEntityPath = (output: any, context: __SerdeContext): ErrorRootCauseEntity[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ErrorRootCauseEntity(entry, context);
-    });
-  return retVal;
-};
+// de_ErrorRootCauseEntityPath omitted.
 
-/**
- * deserializeAws_restJson1ErrorRootCauses
- */
-const de_ErrorRootCauses = (output: any, context: __SerdeContext): ErrorRootCause[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ErrorRootCause(entry, context);
-    });
-  return retVal;
-};
+// de_ErrorRootCauses omitted.
 
-/**
- * deserializeAws_restJson1ErrorRootCauseService
- */
-const de_ErrorRootCauseService = (output: any, context: __SerdeContext): ErrorRootCauseService => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    EntityPath: output.EntityPath != null ? de_ErrorRootCauseEntityPath(output.EntityPath, context) : undefined,
-    Inferred: __expectBoolean(output.Inferred),
-    Name: __expectString(output.Name),
-    Names: output.Names != null ? de_ServiceNames(output.Names, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ErrorRootCauseService omitted.
 
-/**
- * deserializeAws_restJson1ErrorRootCauseServices
- */
-const de_ErrorRootCauseServices = (output: any, context: __SerdeContext): ErrorRootCauseService[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ErrorRootCauseService(entry, context);
-    });
-  return retVal;
-};
+// de_ErrorRootCauseServices omitted.
 
-/**
- * deserializeAws_restJson1ErrorStatistics
- */
-const de_ErrorStatistics = (output: any, context: __SerdeContext): ErrorStatistics => {
-  return {
-    OtherCount: __expectLong(output.OtherCount),
-    ThrottleCount: __expectLong(output.ThrottleCount),
-    TotalCount: __expectLong(output.TotalCount),
-  } as any;
-};
+// de_ErrorStatistics omitted.
 
-/**
- * deserializeAws_restJson1FaultRootCause
- */
-const de_FaultRootCause = (output: any, context: __SerdeContext): FaultRootCause => {
-  return {
-    ClientImpacting: __expectBoolean(output.ClientImpacting),
-    Services: output.Services != null ? de_FaultRootCauseServices(output.Services, context) : undefined,
-  } as any;
-};
+// de_FaultRootCause omitted.
 
-/**
- * deserializeAws_restJson1FaultRootCauseEntity
- */
-const de_FaultRootCauseEntity = (output: any, context: __SerdeContext): FaultRootCauseEntity => {
-  return {
-    Exceptions: output.Exceptions != null ? de_RootCauseExceptions(output.Exceptions, context) : undefined,
-    Name: __expectString(output.Name),
-    Remote: __expectBoolean(output.Remote),
-  } as any;
-};
+// de_FaultRootCauseEntity omitted.
 
-/**
- * deserializeAws_restJson1FaultRootCauseEntityPath
- */
-const de_FaultRootCauseEntityPath = (output: any, context: __SerdeContext): FaultRootCauseEntity[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FaultRootCauseEntity(entry, context);
-    });
-  return retVal;
-};
+// de_FaultRootCauseEntityPath omitted.
 
-/**
- * deserializeAws_restJson1FaultRootCauses
- */
-const de_FaultRootCauses = (output: any, context: __SerdeContext): FaultRootCause[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FaultRootCause(entry, context);
-    });
-  return retVal;
-};
+// de_FaultRootCauses omitted.
 
-/**
- * deserializeAws_restJson1FaultRootCauseService
- */
-const de_FaultRootCauseService = (output: any, context: __SerdeContext): FaultRootCauseService => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    EntityPath: output.EntityPath != null ? de_FaultRootCauseEntityPath(output.EntityPath, context) : undefined,
-    Inferred: __expectBoolean(output.Inferred),
-    Name: __expectString(output.Name),
-    Names: output.Names != null ? de_ServiceNames(output.Names, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_FaultRootCauseService omitted.
 
-/**
- * deserializeAws_restJson1FaultRootCauseServices
- */
-const de_FaultRootCauseServices = (output: any, context: __SerdeContext): FaultRootCauseService[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FaultRootCauseService(entry, context);
-    });
-  return retVal;
-};
+// de_FaultRootCauseServices omitted.
 
-/**
- * deserializeAws_restJson1FaultStatistics
- */
-const de_FaultStatistics = (output: any, context: __SerdeContext): FaultStatistics => {
-  return {
-    OtherCount: __expectLong(output.OtherCount),
-    TotalCount: __expectLong(output.TotalCount),
-  } as any;
-};
+// de_FaultStatistics omitted.
 
-/**
- * deserializeAws_restJson1ForecastStatistics
- */
-const de_ForecastStatistics = (output: any, context: __SerdeContext): ForecastStatistics => {
-  return {
-    FaultCountHigh: __expectLong(output.FaultCountHigh),
-    FaultCountLow: __expectLong(output.FaultCountLow),
-  } as any;
-};
+// de_ForecastStatistics omitted.
 
-/**
- * deserializeAws_restJson1Group
- */
-const de_Group = (output: any, context: __SerdeContext): Group => {
-  return {
-    FilterExpression: __expectString(output.FilterExpression),
-    GroupARN: __expectString(output.GroupARN),
-    GroupName: __expectString(output.GroupName),
-    InsightsConfiguration:
-      output.InsightsConfiguration != null
-        ? de_InsightsConfiguration(output.InsightsConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_Group omitted.
 
-/**
- * deserializeAws_restJson1GroupSummary
- */
-const de_GroupSummary = (output: any, context: __SerdeContext): GroupSummary => {
-  return {
-    FilterExpression: __expectString(output.FilterExpression),
-    GroupARN: __expectString(output.GroupARN),
-    GroupName: __expectString(output.GroupName),
-    InsightsConfiguration:
-      output.InsightsConfiguration != null
-        ? de_InsightsConfiguration(output.InsightsConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_GroupSummary omitted.
 
-/**
- * deserializeAws_restJson1GroupSummaryList
- */
-const de_GroupSummaryList = (output: any, context: __SerdeContext): GroupSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GroupSummary(entry, context);
-    });
-  return retVal;
-};
+// de_GroupSummaryList omitted.
 
 /**
  * deserializeAws_restJson1Histogram
@@ -3443,9 +3031,6 @@ const de_Histogram = (output: any, context: __SerdeContext): HistogramEntry[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_HistogramEntry(entry, context);
     });
   return retVal;
@@ -3455,89 +3040,47 @@ const de_Histogram = (output: any, context: __SerdeContext): HistogramEntry[] =>
  * deserializeAws_restJson1HistogramEntry
  */
 const de_HistogramEntry = (output: any, context: __SerdeContext): HistogramEntry => {
-  return {
-    Count: __expectInt32(output.Count),
-    Value: __limitedParseDouble(output.Value),
-  } as any;
+  return take(output, {
+    Count: __expectInt32,
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Http
- */
-const de_Http = (output: any, context: __SerdeContext): Http => {
-  return {
-    ClientIp: __expectString(output.ClientIp),
-    HttpMethod: __expectString(output.HttpMethod),
-    HttpStatus: __expectInt32(output.HttpStatus),
-    HttpURL: __expectString(output.HttpURL),
-    UserAgent: __expectString(output.UserAgent),
-  } as any;
-};
+// de_Http omitted.
 
 /**
  * deserializeAws_restJson1Insight
  */
 const de_Insight = (output: any, context: __SerdeContext): Insight => {
-  return {
-    Categories: output.Categories != null ? de_InsightCategoryList(output.Categories, context) : undefined,
-    ClientRequestImpactStatistics:
-      output.ClientRequestImpactStatistics != null
-        ? de_RequestImpactStatistics(output.ClientRequestImpactStatistics, context)
-        : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    GroupARN: __expectString(output.GroupARN),
-    GroupName: __expectString(output.GroupName),
-    InsightId: __expectString(output.InsightId),
-    RootCauseServiceId:
-      output.RootCauseServiceId != null ? de_ServiceId(output.RootCauseServiceId, context) : undefined,
-    RootCauseServiceRequestImpactStatistics:
-      output.RootCauseServiceRequestImpactStatistics != null
-        ? de_RequestImpactStatistics(output.RootCauseServiceRequestImpactStatistics, context)
-        : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    State: __expectString(output.State),
-    Summary: __expectString(output.Summary),
-    TopAnomalousServices:
-      output.TopAnomalousServices != null ? de_AnomalousServiceList(output.TopAnomalousServices, context) : undefined,
-  } as any;
+  return take(output, {
+    Categories: _json,
+    ClientRequestImpactStatistics: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    GroupARN: __expectString,
+    GroupName: __expectString,
+    InsightId: __expectString,
+    RootCauseServiceId: _json,
+    RootCauseServiceRequestImpactStatistics: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    Summary: __expectString,
+    TopAnomalousServices: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1InsightCategoryList
- */
-const de_InsightCategoryList = (output: any, context: __SerdeContext): (InsightCategory | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_InsightCategoryList omitted.
 
 /**
  * deserializeAws_restJson1InsightEvent
  */
 const de_InsightEvent = (output: any, context: __SerdeContext): InsightEvent => {
-  return {
-    ClientRequestImpactStatistics:
-      output.ClientRequestImpactStatistics != null
-        ? de_RequestImpactStatistics(output.ClientRequestImpactStatistics, context)
-        : undefined,
-    EventTime:
-      output.EventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime))) : undefined,
-    RootCauseServiceRequestImpactStatistics:
-      output.RootCauseServiceRequestImpactStatistics != null
-        ? de_RequestImpactStatistics(output.RootCauseServiceRequestImpactStatistics, context)
-        : undefined,
-    Summary: __expectString(output.Summary),
-    TopAnomalousServices:
-      output.TopAnomalousServices != null ? de_AnomalousServiceList(output.TopAnomalousServices, context) : undefined,
-  } as any;
+  return take(output, {
+    ClientRequestImpactStatistics: _json,
+    EventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RootCauseServiceRequestImpactStatistics: _json,
+    Summary: __expectString,
+    TopAnomalousServices: _json,
+  }) as any;
 };
 
 /**
@@ -3547,109 +3090,40 @@ const de_InsightEventList = (output: any, context: __SerdeContext): InsightEvent
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_InsightEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1InsightImpactGraphEdge
- */
-const de_InsightImpactGraphEdge = (output: any, context: __SerdeContext): InsightImpactGraphEdge => {
-  return {
-    ReferenceId: __expectInt32(output.ReferenceId),
-  } as any;
-};
+// de_InsightImpactGraphEdge omitted.
 
-/**
- * deserializeAws_restJson1InsightImpactGraphEdgeList
- */
-const de_InsightImpactGraphEdgeList = (output: any, context: __SerdeContext): InsightImpactGraphEdge[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InsightImpactGraphEdge(entry, context);
-    });
-  return retVal;
-};
+// de_InsightImpactGraphEdgeList omitted.
 
-/**
- * deserializeAws_restJson1InsightImpactGraphService
- */
-const de_InsightImpactGraphService = (output: any, context: __SerdeContext): InsightImpactGraphService => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Edges: output.Edges != null ? de_InsightImpactGraphEdgeList(output.Edges, context) : undefined,
-    Name: __expectString(output.Name),
-    Names: output.Names != null ? de_ServiceNames(output.Names, context) : undefined,
-    ReferenceId: __expectInt32(output.ReferenceId),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_InsightImpactGraphService omitted.
 
-/**
- * deserializeAws_restJson1InsightImpactGraphServiceList
- */
-const de_InsightImpactGraphServiceList = (output: any, context: __SerdeContext): InsightImpactGraphService[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InsightImpactGraphService(entry, context);
-    });
-  return retVal;
-};
+// de_InsightImpactGraphServiceList omitted.
 
-/**
- * deserializeAws_restJson1InsightsConfiguration
- */
-const de_InsightsConfiguration = (output: any, context: __SerdeContext): InsightsConfiguration => {
-  return {
-    InsightsEnabled: __expectBoolean(output.InsightsEnabled),
-    NotificationsEnabled: __expectBoolean(output.NotificationsEnabled),
-  } as any;
-};
+// de_InsightsConfiguration omitted.
 
 /**
  * deserializeAws_restJson1InsightSummary
  */
 const de_InsightSummary = (output: any, context: __SerdeContext): InsightSummary => {
-  return {
-    Categories: output.Categories != null ? de_InsightCategoryList(output.Categories, context) : undefined,
-    ClientRequestImpactStatistics:
-      output.ClientRequestImpactStatistics != null
-        ? de_RequestImpactStatistics(output.ClientRequestImpactStatistics, context)
-        : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    GroupARN: __expectString(output.GroupARN),
-    GroupName: __expectString(output.GroupName),
-    InsightId: __expectString(output.InsightId),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    RootCauseServiceId:
-      output.RootCauseServiceId != null ? de_ServiceId(output.RootCauseServiceId, context) : undefined,
-    RootCauseServiceRequestImpactStatistics:
-      output.RootCauseServiceRequestImpactStatistics != null
-        ? de_RequestImpactStatistics(output.RootCauseServiceRequestImpactStatistics, context)
-        : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    State: __expectString(output.State),
-    Summary: __expectString(output.Summary),
-    TopAnomalousServices:
-      output.TopAnomalousServices != null ? de_AnomalousServiceList(output.TopAnomalousServices, context) : undefined,
-  } as any;
+  return take(output, {
+    Categories: _json,
+    ClientRequestImpactStatistics: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    GroupARN: __expectString,
+    GroupName: __expectString,
+    InsightId: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RootCauseServiceId: _json,
+    RootCauseServiceRequestImpactStatistics: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    Summary: __expectString,
+    TopAnomalousServices: _json,
+  }) as any;
 };
 
 /**
@@ -3659,56 +3133,27 @@ const de_InsightSummaryList = (output: any, context: __SerdeContext): InsightSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_InsightSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1InstanceIdDetail
- */
-const de_InstanceIdDetail = (output: any, context: __SerdeContext): InstanceIdDetail => {
-  return {
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_InstanceIdDetail omitted.
 
-/**
- * deserializeAws_restJson1RequestImpactStatistics
- */
-const de_RequestImpactStatistics = (output: any, context: __SerdeContext): RequestImpactStatistics => {
-  return {
-    FaultCount: __expectLong(output.FaultCount),
-    OkCount: __expectLong(output.OkCount),
-    TotalCount: __expectLong(output.TotalCount),
-  } as any;
-};
+// de_RequestImpactStatistics omitted.
 
-/**
- * deserializeAws_restJson1ResourceARNDetail
- */
-const de_ResourceARNDetail = (output: any, context: __SerdeContext): ResourceARNDetail => {
-  return {
-    ARN: __expectString(output.ARN),
-  } as any;
-};
+// de_ResourceARNDetail omitted.
 
 /**
  * deserializeAws_restJson1ResourcePolicy
  */
 const de_ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
-  return {
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    PolicyDocument: __expectString(output.PolicyDocument),
-    PolicyName: __expectString(output.PolicyName),
-    PolicyRevisionId: __expectString(output.PolicyRevisionId),
-  } as any;
+  return take(output, {
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PolicyDocument: __expectString,
+    PolicyName: __expectString,
+    PolicyRevisionId: __expectString,
+  }) as any;
 };
 
 /**
@@ -3718,9 +3163,6 @@ const de_ResourcePolicyList = (output: any, context: __SerdeContext): ResourcePo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourcePolicy(entry, context);
     });
   return retVal;
@@ -3730,21 +3172,21 @@ const de_ResourcePolicyList = (output: any, context: __SerdeContext): ResourcePo
  * deserializeAws_restJson1ResponseTimeRootCause
  */
 const de_ResponseTimeRootCause = (output: any, context: __SerdeContext): ResponseTimeRootCause => {
-  return {
-    ClientImpacting: __expectBoolean(output.ClientImpacting),
-    Services: output.Services != null ? de_ResponseTimeRootCauseServices(output.Services, context) : undefined,
-  } as any;
+  return take(output, {
+    ClientImpacting: __expectBoolean,
+    Services: (_: any) => de_ResponseTimeRootCauseServices(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ResponseTimeRootCauseEntity
  */
 const de_ResponseTimeRootCauseEntity = (output: any, context: __SerdeContext): ResponseTimeRootCauseEntity => {
-  return {
-    Coverage: __limitedParseDouble(output.Coverage),
-    Name: __expectString(output.Name),
-    Remote: __expectBoolean(output.Remote),
-  } as any;
+  return take(output, {
+    Coverage: __limitedParseDouble,
+    Name: __expectString,
+    Remote: __expectBoolean,
+  }) as any;
 };
 
 /**
@@ -3754,9 +3196,6 @@ const de_ResponseTimeRootCauseEntityPath = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResponseTimeRootCauseEntity(entry, context);
     });
   return retVal;
@@ -3769,9 +3208,6 @@ const de_ResponseTimeRootCauses = (output: any, context: __SerdeContext): Respon
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResponseTimeRootCause(entry, context);
     });
   return retVal;
@@ -3781,14 +3217,14 @@ const de_ResponseTimeRootCauses = (output: any, context: __SerdeContext): Respon
  * deserializeAws_restJson1ResponseTimeRootCauseService
  */
 const de_ResponseTimeRootCauseService = (output: any, context: __SerdeContext): ResponseTimeRootCauseService => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    EntityPath: output.EntityPath != null ? de_ResponseTimeRootCauseEntityPath(output.EntityPath, context) : undefined,
-    Inferred: __expectBoolean(output.Inferred),
-    Name: __expectString(output.Name),
-    Names: output.Names != null ? de_ServiceNames(output.Names, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    EntityPath: (_: any) => de_ResponseTimeRootCauseEntityPath(_, context),
+    Inferred: __expectBoolean,
+    Name: __expectString,
+    Names: _json,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -3798,71 +3234,45 @@ const de_ResponseTimeRootCauseServices = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResponseTimeRootCauseService(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1RootCauseException
- */
-const de_RootCauseException = (output: any, context: __SerdeContext): RootCauseException => {
-  return {
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_RootCauseException omitted.
 
-/**
- * deserializeAws_restJson1RootCauseExceptions
- */
-const de_RootCauseExceptions = (output: any, context: __SerdeContext): RootCauseException[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RootCauseException(entry, context);
-    });
-  return retVal;
-};
+// de_RootCauseExceptions omitted.
 
 /**
  * deserializeAws_restJson1SamplingRule
  */
 const de_SamplingRule = (output: any, context: __SerdeContext): SamplingRule => {
-  return {
-    Attributes: output.Attributes != null ? de_AttributeMap(output.Attributes, context) : undefined,
-    FixedRate: __limitedParseDouble(output.FixedRate),
-    HTTPMethod: __expectString(output.HTTPMethod),
-    Host: __expectString(output.Host),
-    Priority: __expectInt32(output.Priority),
-    ReservoirSize: __expectInt32(output.ReservoirSize),
-    ResourceARN: __expectString(output.ResourceARN),
-    RuleARN: __expectString(output.RuleARN),
-    RuleName: __expectString(output.RuleName),
-    ServiceName: __expectString(output.ServiceName),
-    ServiceType: __expectString(output.ServiceType),
-    URLPath: __expectString(output.URLPath),
-    Version: __expectInt32(output.Version),
-  } as any;
+  return take(output, {
+    Attributes: _json,
+    FixedRate: __limitedParseDouble,
+    HTTPMethod: __expectString,
+    Host: __expectString,
+    Priority: __expectInt32,
+    ReservoirSize: __expectInt32,
+    ResourceARN: __expectString,
+    RuleARN: __expectString,
+    RuleName: __expectString,
+    ServiceName: __expectString,
+    ServiceType: __expectString,
+    URLPath: __expectString,
+    Version: __expectInt32,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SamplingRuleRecord
  */
 const de_SamplingRuleRecord = (output: any, context: __SerdeContext): SamplingRuleRecord => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    ModifiedAt:
-      output.ModifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedAt))) : undefined,
-    SamplingRule: output.SamplingRule != null ? de_SamplingRule(output.SamplingRule, context) : undefined,
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SamplingRule: (_: any) => de_SamplingRule(_, context),
+  }) as any;
 };
 
 /**
@@ -3872,9 +3282,6 @@ const de_SamplingRuleRecordList = (output: any, context: __SerdeContext): Sampli
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SamplingRuleRecord(entry, context);
     });
   return retVal;
@@ -3884,14 +3291,13 @@ const de_SamplingRuleRecordList = (output: any, context: __SerdeContext): Sampli
  * deserializeAws_restJson1SamplingStatisticSummary
  */
 const de_SamplingStatisticSummary = (output: any, context: __SerdeContext): SamplingStatisticSummary => {
-  return {
-    BorrowCount: __expectInt32(output.BorrowCount),
-    RequestCount: __expectInt32(output.RequestCount),
-    RuleName: __expectString(output.RuleName),
-    SampledCount: __expectInt32(output.SampledCount),
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-  } as any;
+  return take(output, {
+    BorrowCount: __expectInt32,
+    RequestCount: __expectInt32,
+    RuleName: __expectString,
+    SampledCount: __expectInt32,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -3901,9 +3307,6 @@ const de_SamplingStatisticSummaryList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SamplingStatisticSummary(entry, context);
     });
   return retVal;
@@ -3913,16 +3316,13 @@ const de_SamplingStatisticSummaryList = (output: any, context: __SerdeContext): 
  * deserializeAws_restJson1SamplingTargetDocument
  */
 const de_SamplingTargetDocument = (output: any, context: __SerdeContext): SamplingTargetDocument => {
-  return {
-    FixedRate: __limitedParseDouble(output.FixedRate),
-    Interval: __expectInt32(output.Interval),
-    ReservoirQuota: __expectInt32(output.ReservoirQuota),
-    ReservoirQuotaTTL:
-      output.ReservoirQuotaTTL != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReservoirQuotaTTL)))
-        : undefined,
-    RuleName: __expectString(output.RuleName),
-  } as any;
+  return take(output, {
+    FixedRate: __limitedParseDouble,
+    Interval: __expectInt32,
+    ReservoirQuota: __expectInt32,
+    ReservoirQuotaTTL: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RuleName: __expectString,
+  }) as any;
 };
 
 /**
@@ -3932,90 +3332,39 @@ const de_SamplingTargetDocumentList = (output: any, context: __SerdeContext): Sa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SamplingTargetDocument(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Segment
- */
-const de_Segment = (output: any, context: __SerdeContext): Segment => {
-  return {
-    Document: __expectString(output.Document),
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_Segment omitted.
 
-/**
- * deserializeAws_restJson1SegmentList
- */
-const de_SegmentList = (output: any, context: __SerdeContext): Segment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Segment(entry, context);
-    });
-  return retVal;
-};
+// de_SegmentList omitted.
 
 /**
  * deserializeAws_restJson1Service
  */
 const de_Service = (output: any, context: __SerdeContext): Service => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    DurationHistogram: output.DurationHistogram != null ? de_Histogram(output.DurationHistogram, context) : undefined,
-    Edges: output.Edges != null ? de_EdgeList(output.Edges, context) : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    Name: __expectString(output.Name),
-    Names: output.Names != null ? de_ServiceNames(output.Names, context) : undefined,
-    ReferenceId: __expectInt32(output.ReferenceId),
-    ResponseTimeHistogram:
-      output.ResponseTimeHistogram != null ? de_Histogram(output.ResponseTimeHistogram, context) : undefined,
-    Root: __expectBoolean(output.Root),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    State: __expectString(output.State),
-    SummaryStatistics:
-      output.SummaryStatistics != null ? de_ServiceStatistics(output.SummaryStatistics, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    DurationHistogram: (_: any) => de_Histogram(_, context),
+    Edges: (_: any) => de_EdgeList(_, context),
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Names: _json,
+    ReferenceId: __expectInt32,
+    ResponseTimeHistogram: (_: any) => de_Histogram(_, context),
+    Root: __expectBoolean,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    SummaryStatistics: (_: any) => de_ServiceStatistics(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ServiceId
- */
-const de_ServiceId = (output: any, context: __SerdeContext): ServiceId => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Name: __expectString(output.Name),
-    Names: output.Names != null ? de_ServiceNames(output.Names, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ServiceId omitted.
 
-/**
- * deserializeAws_restJson1ServiceIds
- */
-const de_ServiceIds = (output: any, context: __SerdeContext): ServiceId[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServiceId(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceIds omitted.
 
 /**
  * deserializeAws_restJson1ServiceList
@@ -4024,87 +3373,41 @@ const de_ServiceList = (output: any, context: __SerdeContext): Service[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Service(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ServiceNames
- */
-const de_ServiceNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ServiceNames omitted.
 
 /**
  * deserializeAws_restJson1ServiceStatistics
  */
 const de_ServiceStatistics = (output: any, context: __SerdeContext): ServiceStatistics => {
-  return {
-    ErrorStatistics: output.ErrorStatistics != null ? de_ErrorStatistics(output.ErrorStatistics, context) : undefined,
-    FaultStatistics: output.FaultStatistics != null ? de_FaultStatistics(output.FaultStatistics, context) : undefined,
-    OkCount: __expectLong(output.OkCount),
-    TotalCount: __expectLong(output.TotalCount),
-    TotalResponseTime: __limitedParseDouble(output.TotalResponseTime),
-  } as any;
+  return take(output, {
+    ErrorStatistics: _json,
+    FaultStatistics: _json,
+    OkCount: __expectLong,
+    TotalCount: __expectLong,
+    TotalResponseTime: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 /**
  * deserializeAws_restJson1TimeSeriesServiceStatistics
  */
 const de_TimeSeriesServiceStatistics = (output: any, context: __SerdeContext): TimeSeriesServiceStatistics => {
-  return {
-    EdgeSummaryStatistics:
-      output.EdgeSummaryStatistics != null ? de_EdgeStatistics(output.EdgeSummaryStatistics, context) : undefined,
-    ResponseTimeHistogram:
-      output.ResponseTimeHistogram != null ? de_Histogram(output.ResponseTimeHistogram, context) : undefined,
-    ServiceForecastStatistics:
-      output.ServiceForecastStatistics != null
-        ? de_ForecastStatistics(output.ServiceForecastStatistics, context)
-        : undefined,
-    ServiceSummaryStatistics:
-      output.ServiceSummaryStatistics != null
-        ? de_ServiceStatistics(output.ServiceSummaryStatistics, context)
-        : undefined,
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-  } as any;
+  return take(output, {
+    EdgeSummaryStatistics: (_: any) => de_EdgeStatistics(_, context),
+    ResponseTimeHistogram: (_: any) => de_Histogram(_, context),
+    ServiceForecastStatistics: _json,
+    ServiceSummaryStatistics: (_: any) => de_ServiceStatistics(_, context),
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4114,9 +3417,6 @@ const de_TimeSeriesServiceStatisticsList = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TimeSeriesServiceStatistics(entry, context);
     });
   return retVal;
@@ -4126,43 +3426,17 @@ const de_TimeSeriesServiceStatisticsList = (output: any, context: __SerdeContext
  * deserializeAws_restJson1Trace
  */
 const de_Trace = (output: any, context: __SerdeContext): Trace => {
-  return {
-    Duration: __limitedParseDouble(output.Duration),
-    Id: __expectString(output.Id),
-    LimitExceeded: __expectBoolean(output.LimitExceeded),
-    Segments: output.Segments != null ? de_SegmentList(output.Segments, context) : undefined,
-  } as any;
+  return take(output, {
+    Duration: __limitedParseDouble,
+    Id: __expectString,
+    LimitExceeded: __expectBoolean,
+    Segments: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TraceAvailabilityZones
- */
-const de_TraceAvailabilityZones = (output: any, context: __SerdeContext): AvailabilityZoneDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AvailabilityZoneDetail(entry, context);
-    });
-  return retVal;
-};
+// de_TraceAvailabilityZones omitted.
 
-/**
- * deserializeAws_restJson1TraceInstanceIds
- */
-const de_TraceInstanceIds = (output: any, context: __SerdeContext): InstanceIdDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InstanceIdDetail(entry, context);
-    });
-  return retVal;
-};
+// de_TraceInstanceIds omitted.
 
 /**
  * deserializeAws_restJson1TraceList
@@ -4171,62 +3445,39 @@ const de_TraceList = (output: any, context: __SerdeContext): Trace[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Trace(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TraceResourceARNs
- */
-const de_TraceResourceARNs = (output: any, context: __SerdeContext): ResourceARNDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceARNDetail(entry, context);
-    });
-  return retVal;
-};
+// de_TraceResourceARNs omitted.
 
 /**
  * deserializeAws_restJson1TraceSummary
  */
 const de_TraceSummary = (output: any, context: __SerdeContext): TraceSummary => {
-  return {
-    Annotations: output.Annotations != null ? de_Annotations(output.Annotations, context) : undefined,
-    AvailabilityZones:
-      output.AvailabilityZones != null ? de_TraceAvailabilityZones(output.AvailabilityZones, context) : undefined,
-    Duration: __limitedParseDouble(output.Duration),
-    EntryPoint: output.EntryPoint != null ? de_ServiceId(output.EntryPoint, context) : undefined,
-    ErrorRootCauses: output.ErrorRootCauses != null ? de_ErrorRootCauses(output.ErrorRootCauses, context) : undefined,
-    FaultRootCauses: output.FaultRootCauses != null ? de_FaultRootCauses(output.FaultRootCauses, context) : undefined,
-    HasError: __expectBoolean(output.HasError),
-    HasFault: __expectBoolean(output.HasFault),
-    HasThrottle: __expectBoolean(output.HasThrottle),
-    Http: output.Http != null ? de_Http(output.Http, context) : undefined,
-    Id: __expectString(output.Id),
-    InstanceIds: output.InstanceIds != null ? de_TraceInstanceIds(output.InstanceIds, context) : undefined,
-    IsPartial: __expectBoolean(output.IsPartial),
-    MatchedEventTime:
-      output.MatchedEventTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.MatchedEventTime)))
-        : undefined,
-    ResourceARNs: output.ResourceARNs != null ? de_TraceResourceARNs(output.ResourceARNs, context) : undefined,
-    ResponseTime: __limitedParseDouble(output.ResponseTime),
-    ResponseTimeRootCauses:
-      output.ResponseTimeRootCauses != null
-        ? de_ResponseTimeRootCauses(output.ResponseTimeRootCauses, context)
-        : undefined,
-    Revision: __expectInt32(output.Revision),
-    ServiceIds: output.ServiceIds != null ? de_ServiceIds(output.ServiceIds, context) : undefined,
-    Users: output.Users != null ? de_TraceUsers(output.Users, context) : undefined,
-  } as any;
+  return take(output, {
+    Annotations: (_: any) => de_Annotations(_, context),
+    AvailabilityZones: _json,
+    Duration: __limitedParseDouble,
+    EntryPoint: _json,
+    ErrorRootCauses: _json,
+    FaultRootCauses: _json,
+    HasError: __expectBoolean,
+    HasFault: __expectBoolean,
+    HasThrottle: __expectBoolean,
+    Http: _json,
+    Id: __expectString,
+    InstanceIds: _json,
+    IsPartial: __expectBoolean,
+    MatchedEventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceARNs: _json,
+    ResponseTime: __limitedParseDouble,
+    ResponseTimeRootCauses: (_: any) => de_ResponseTimeRootCauses(_, context),
+    Revision: __expectInt32,
+    ServiceIds: _json,
+    Users: _json,
+  }) as any;
 };
 
 /**
@@ -4236,105 +3487,24 @@ const de_TraceSummaryList = (output: any, context: __SerdeContext): TraceSummary
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TraceSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TraceUser
- */
-const de_TraceUser = (output: any, context: __SerdeContext): TraceUser => {
-  return {
-    ServiceIds: output.ServiceIds != null ? de_ServiceIds(output.ServiceIds, context) : undefined,
-    UserName: __expectString(output.UserName),
-  } as any;
-};
+// de_TraceUser omitted.
 
-/**
- * deserializeAws_restJson1TraceUsers
- */
-const de_TraceUsers = (output: any, context: __SerdeContext): TraceUser[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TraceUser(entry, context);
-    });
-  return retVal;
-};
+// de_TraceUsers omitted.
 
-/**
- * deserializeAws_restJson1UnprocessedStatistics
- */
-const de_UnprocessedStatistics = (output: any, context: __SerdeContext): UnprocessedStatistics => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Message: __expectString(output.Message),
-    RuleName: __expectString(output.RuleName),
-  } as any;
-};
+// de_UnprocessedStatistics omitted.
 
-/**
- * deserializeAws_restJson1UnprocessedStatisticsList
- */
-const de_UnprocessedStatisticsList = (output: any, context: __SerdeContext): UnprocessedStatistics[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UnprocessedStatistics(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedStatisticsList omitted.
 
-/**
- * deserializeAws_restJson1UnprocessedTraceIdList
- */
-const de_UnprocessedTraceIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_UnprocessedTraceIdList omitted.
 
-/**
- * deserializeAws_restJson1UnprocessedTraceSegment
- */
-const de_UnprocessedTraceSegment = (output: any, context: __SerdeContext): UnprocessedTraceSegment => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Id: __expectString(output.Id),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnprocessedTraceSegment omitted.
 
-/**
- * deserializeAws_restJson1UnprocessedTraceSegmentList
- */
-const de_UnprocessedTraceSegmentList = (output: any, context: __SerdeContext): UnprocessedTraceSegment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UnprocessedTraceSegment(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedTraceSegmentList omitted.
 
 /**
  * deserializeAws_restJson1ValuesWithServiceIds
@@ -4343,9 +3513,6 @@ const de_ValuesWithServiceIds = (output: any, context: __SerdeContext): ValueWit
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ValueWithServiceIds(entry, context);
     });
   return retVal;
@@ -4355,11 +3522,10 @@ const de_ValuesWithServiceIds = (output: any, context: __SerdeContext): ValueWit
  * deserializeAws_restJson1ValueWithServiceIds
  */
 const de_ValueWithServiceIds = (output: any, context: __SerdeContext): ValueWithServiceIds => {
-  return {
-    AnnotationValue:
-      output.AnnotationValue != null ? de_AnnotationValue(__expectUnion(output.AnnotationValue), context) : undefined,
-    ServiceIds: output.ServiceIds != null ? de_ServiceIds(output.ServiceIds, context) : undefined,
-  } as any;
+  return take(output, {
+    AnnotationValue: (_: any) => de_AnnotationValue(__expectUnion(_), context),
+    ServiceIds: _json,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

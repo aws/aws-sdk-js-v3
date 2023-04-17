@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -53,12 +53,10 @@ import { WriteRecordsCommandInput, WriteRecordsCommandOutput } from "../commands
 import {
   _Record,
   AccessDeniedException,
-  BatchLoadProgressReport,
   BatchLoadTask,
   BatchLoadTaskDescription,
   ConflictException,
   CreateBatchLoadTaskRequest,
-  CreateBatchLoadTaskResponse,
   CreateDatabaseRequest,
   CreateDatabaseResponse,
   CreateTableRequest,
@@ -77,12 +75,10 @@ import {
   DescribeDatabaseRequest,
   DescribeDatabaseResponse,
   DescribeEndpointsRequest,
-  DescribeEndpointsResponse,
   DescribeTableRequest,
   DescribeTableResponse,
   Dimension,
   DimensionMapping,
-  Endpoint,
   InternalServerException,
   InvalidEndpointException,
   ListBatchLoadTasksRequest,
@@ -92,38 +88,31 @@ import {
   ListTablesRequest,
   ListTablesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   MagneticStoreRejectedDataLocation,
   MagneticStoreWriteProperties,
   MeasureValue,
   MixedMeasureMapping,
   MultiMeasureAttributeMapping,
   MultiMeasureMappings,
-  RecordsIngested,
-  RejectedRecord,
   RejectedRecordsException,
   ReportConfiguration,
   ReportS3Configuration,
   ResourceNotFoundException,
   ResumeBatchLoadTaskRequest,
-  ResumeBatchLoadTaskResponse,
   RetentionProperties,
   S3Configuration,
   ServiceQuotaExceededException,
   Table,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   ThrottlingException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateDatabaseRequest,
   UpdateDatabaseResponse,
   UpdateTableRequest,
   UpdateTableResponse,
   ValidationException,
   WriteRecordsRequest,
-  WriteRecordsResponse,
 } from "../models/models_0";
 import { TimestreamWriteServiceException as __BaseException } from "../models/TimestreamWriteServiceException";
 
@@ -149,7 +138,7 @@ export const se_CreateDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDatabase");
   let body: any;
-  body = JSON.stringify(se_CreateDatabaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -162,7 +151,7 @@ export const se_CreateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTable");
   let body: any;
-  body = JSON.stringify(se_CreateTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -175,7 +164,7 @@ export const se_DeleteDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDatabase");
   let body: any;
-  body = JSON.stringify(se_DeleteDatabaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -188,7 +177,7 @@ export const se_DeleteTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTable");
   let body: any;
-  body = JSON.stringify(se_DeleteTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -201,7 +190,7 @@ export const se_DescribeBatchLoadTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeBatchLoadTask");
   let body: any;
-  body = JSON.stringify(se_DescribeBatchLoadTaskRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -214,7 +203,7 @@ export const se_DescribeDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDatabase");
   let body: any;
-  body = JSON.stringify(se_DescribeDatabaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -227,7 +216,7 @@ export const se_DescribeEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEndpoints");
   let body: any;
-  body = JSON.stringify(se_DescribeEndpointsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -240,7 +229,7 @@ export const se_DescribeTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTable");
   let body: any;
-  body = JSON.stringify(se_DescribeTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -253,7 +242,7 @@ export const se_ListBatchLoadTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListBatchLoadTasks");
   let body: any;
-  body = JSON.stringify(se_ListBatchLoadTasksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -266,7 +255,7 @@ export const se_ListDatabasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDatabases");
   let body: any;
-  body = JSON.stringify(se_ListDatabasesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -279,7 +268,7 @@ export const se_ListTablesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTables");
   let body: any;
-  body = JSON.stringify(se_ListTablesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -292,7 +281,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -305,7 +294,7 @@ export const se_ResumeBatchLoadTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ResumeBatchLoadTask");
   let body: any;
-  body = JSON.stringify(se_ResumeBatchLoadTaskRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -318,7 +307,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -331,7 +320,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -344,7 +333,7 @@ export const se_UpdateDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDatabase");
   let body: any;
-  body = JSON.stringify(se_UpdateDatabaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -357,7 +346,7 @@ export const se_UpdateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTable");
   let body: any;
-  body = JSON.stringify(se_UpdateTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -370,7 +359,7 @@ export const se_WriteRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("WriteRecords");
   let body: any;
-  body = JSON.stringify(se_WriteRecordsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -386,12 +375,12 @@ export const de_CreateBatchLoadTaskCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateBatchLoadTaskResponse(data, context);
+  contents = _json(data);
   const response: CreateBatchLoadTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -433,10 +422,9 @@ const de_CreateBatchLoadTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -459,7 +447,7 @@ export const de_CreateDatabaseCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -498,10 +486,9 @@ const de_CreateDatabaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -524,7 +511,7 @@ export const de_CreateTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -566,10 +553,9 @@ const de_CreateTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -589,7 +575,7 @@ export const de_DeleteDatabaseCommand = async (
   const response: DeleteDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -625,10 +611,9 @@ const de_DeleteDatabaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -648,7 +633,7 @@ export const de_DeleteTableCommand = async (
   const response: DeleteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -684,10 +669,9 @@ const de_DeleteTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -710,7 +694,7 @@ export const de_DescribeBatchLoadTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -743,10 +727,9 @@ const de_DescribeBatchLoadTaskCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -769,7 +752,7 @@ export const de_DescribeDatabaseCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -805,10 +788,9 @@ const de_DescribeDatabaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -826,12 +808,12 @@ export const de_DescribeEndpointsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeEndpointsResponse(data, context);
+  contents = _json(data);
   const response: DescribeEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -858,10 +840,9 @@ const de_DescribeEndpointsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -884,7 +865,7 @@ export const de_DescribeTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -920,10 +901,9 @@ const de_DescribeTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -946,7 +926,7 @@ export const de_ListBatchLoadTasksCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -979,10 +959,9 @@ const de_ListBatchLoadTasksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1005,7 +984,7 @@ export const de_ListDatabasesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1038,10 +1017,9 @@ const de_ListDatabasesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1064,7 +1042,7 @@ export const de_ListTablesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1100,10 +1078,9 @@ const de_ListTablesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1121,12 +1098,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1156,10 +1133,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1177,12 +1153,12 @@ export const de_ResumeBatchLoadTaskCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ResumeBatchLoadTaskResponse(data, context);
+  contents = _json(data);
   const response: ResumeBatchLoadTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1218,10 +1194,9 @@ const de_ResumeBatchLoadTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1239,12 +1214,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1277,10 +1252,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1298,12 +1272,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1336,10 +1310,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1362,7 +1335,7 @@ export const de_UpdateDatabaseCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1401,10 +1374,9 @@ const de_UpdateDatabaseCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1427,7 +1399,7 @@ export const de_UpdateTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1463,10 +1435,9 @@ const de_UpdateTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1484,12 +1455,12 @@ export const de_WriteRecordsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_WriteRecordsResponse(data, context);
+  contents = _json(data);
   const response: WriteRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1528,10 +1499,9 @@ const de_WriteRecordsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1545,7 +1515,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1558,7 +1528,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1574,7 +1544,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1590,7 +1560,7 @@ const de_InvalidEndpointExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidEndpointException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidEndpointException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidEndpointException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1606,7 +1576,7 @@ const de_RejectedRecordsExceptionRes = async (
   context: __SerdeContext
 ): Promise<RejectedRecordsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RejectedRecordsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RejectedRecordsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1622,7 +1592,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1638,7 +1608,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1651,7 +1621,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1664,7 +1634,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1676,636 +1646,147 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * serializeAws_json1_0CreateBatchLoadTaskRequest
  */
 const se_CreateBatchLoadTaskRequest = (input: CreateBatchLoadTaskRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataModelConfiguration != null && {
-      DataModelConfiguration: se_DataModelConfiguration(input.DataModelConfiguration, context),
-    }),
-    ...(input.DataSourceConfiguration != null && {
-      DataSourceConfiguration: se_DataSourceConfiguration(input.DataSourceConfiguration, context),
-    }),
-    ...(input.RecordVersion != null && { RecordVersion: input.RecordVersion }),
-    ...(input.ReportConfiguration != null && {
-      ReportConfiguration: se_ReportConfiguration(input.ReportConfiguration, context),
-    }),
-    ...(input.TargetDatabaseName != null && { TargetDatabaseName: input.TargetDatabaseName }),
-    ...(input.TargetTableName != null && { TargetTableName: input.TargetTableName }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DataModelConfiguration: _json,
+    DataSourceConfiguration: _json,
+    RecordVersion: [],
+    ReportConfiguration: _json,
+    TargetDatabaseName: [],
+    TargetTableName: [],
+  });
 };
 
-/**
- * serializeAws_json1_0CreateDatabaseRequest
- */
-const se_CreateDatabaseRequest = (input: CreateDatabaseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateDatabaseRequest omitted.
 
-/**
- * serializeAws_json1_0CreateTableRequest
- */
-const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.MagneticStoreWriteProperties != null && {
-      MagneticStoreWriteProperties: se_MagneticStoreWriteProperties(input.MagneticStoreWriteProperties, context),
-    }),
-    ...(input.RetentionProperties != null && {
-      RetentionProperties: se_RetentionProperties(input.RetentionProperties, context),
-    }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_CreateTableRequest omitted.
 
-/**
- * serializeAws_json1_0CsvConfiguration
- */
-const se_CsvConfiguration = (input: CsvConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ColumnSeparator != null && { ColumnSeparator: input.ColumnSeparator }),
-    ...(input.EscapeChar != null && { EscapeChar: input.EscapeChar }),
-    ...(input.NullValue != null && { NullValue: input.NullValue }),
-    ...(input.QuoteChar != null && { QuoteChar: input.QuoteChar }),
-    ...(input.TrimWhiteSpace != null && { TrimWhiteSpace: input.TrimWhiteSpace }),
-  };
-};
+// se_CsvConfiguration omitted.
 
-/**
- * serializeAws_json1_0DataModel
- */
-const se_DataModel = (input: DataModel, context: __SerdeContext): any => {
-  return {
-    ...(input.DimensionMappings != null && {
-      DimensionMappings: se_DimensionMappings(input.DimensionMappings, context),
-    }),
-    ...(input.MeasureNameColumn != null && { MeasureNameColumn: input.MeasureNameColumn }),
-    ...(input.MixedMeasureMappings != null && {
-      MixedMeasureMappings: se_MixedMeasureMappingList(input.MixedMeasureMappings, context),
-    }),
-    ...(input.MultiMeasureMappings != null && {
-      MultiMeasureMappings: se_MultiMeasureMappings(input.MultiMeasureMappings, context),
-    }),
-    ...(input.TimeColumn != null && { TimeColumn: input.TimeColumn }),
-    ...(input.TimeUnit != null && { TimeUnit: input.TimeUnit }),
-  };
-};
+// se_DataModel omitted.
 
-/**
- * serializeAws_json1_0DataModelConfiguration
- */
-const se_DataModelConfiguration = (input: DataModelConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.DataModel != null && { DataModel: se_DataModel(input.DataModel, context) }),
-    ...(input.DataModelS3Configuration != null && {
-      DataModelS3Configuration: se_DataModelS3Configuration(input.DataModelS3Configuration, context),
-    }),
-  };
-};
+// se_DataModelConfiguration omitted.
 
-/**
- * serializeAws_json1_0DataModelS3Configuration
- */
-const se_DataModelS3Configuration = (input: DataModelS3Configuration, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketName != null && { BucketName: input.BucketName }),
-    ...(input.ObjectKey != null && { ObjectKey: input.ObjectKey }),
-  };
-};
+// se_DataModelS3Configuration omitted.
 
-/**
- * serializeAws_json1_0DataSourceConfiguration
- */
-const se_DataSourceConfiguration = (input: DataSourceConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.CsvConfiguration != null && { CsvConfiguration: se_CsvConfiguration(input.CsvConfiguration, context) }),
-    ...(input.DataFormat != null && { DataFormat: input.DataFormat }),
-    ...(input.DataSourceS3Configuration != null && {
-      DataSourceS3Configuration: se_DataSourceS3Configuration(input.DataSourceS3Configuration, context),
-    }),
-  };
-};
+// se_DataSourceConfiguration omitted.
 
-/**
- * serializeAws_json1_0DataSourceS3Configuration
- */
-const se_DataSourceS3Configuration = (input: DataSourceS3Configuration, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketName != null && { BucketName: input.BucketName }),
-    ...(input.ObjectKeyPrefix != null && { ObjectKeyPrefix: input.ObjectKeyPrefix }),
-  };
-};
+// se_DataSourceS3Configuration omitted.
 
-/**
- * serializeAws_json1_0DeleteDatabaseRequest
- */
-const se_DeleteDatabaseRequest = (input: DeleteDatabaseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-  };
-};
+// se_DeleteDatabaseRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteTableRequest
- */
-const se_DeleteTableRequest = (input: DeleteTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  };
-};
+// se_DeleteTableRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeBatchLoadTaskRequest
- */
-const se_DescribeBatchLoadTaskRequest = (input: DescribeBatchLoadTaskRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.TaskId != null && { TaskId: input.TaskId }),
-  };
-};
+// se_DescribeBatchLoadTaskRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeDatabaseRequest
- */
-const se_DescribeDatabaseRequest = (input: DescribeDatabaseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-  };
-};
+// se_DescribeDatabaseRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeEndpointsRequest
- */
-const se_DescribeEndpointsRequest = (input: DescribeEndpointsRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_DescribeEndpointsRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeTableRequest
- */
-const se_DescribeTableRequest = (input: DescribeTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  };
-};
+// se_DescribeTableRequest omitted.
 
-/**
- * serializeAws_json1_0Dimension
- */
-const se_Dimension = (input: Dimension, context: __SerdeContext): any => {
-  return {
-    ...(input.DimensionValueType != null && { DimensionValueType: input.DimensionValueType }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Dimension omitted.
 
-/**
- * serializeAws_json1_0DimensionMapping
- */
-const se_DimensionMapping = (input: DimensionMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationColumn != null && { DestinationColumn: input.DestinationColumn }),
-    ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
-  };
-};
+// se_DimensionMapping omitted.
 
-/**
- * serializeAws_json1_0DimensionMappings
- */
-const se_DimensionMappings = (input: DimensionMapping[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DimensionMapping(entry, context);
-    });
-};
+// se_DimensionMappings omitted.
 
-/**
- * serializeAws_json1_0Dimensions
- */
-const se_Dimensions = (input: Dimension[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Dimension(entry, context);
-    });
-};
+// se_Dimensions omitted.
 
-/**
- * serializeAws_json1_0ListBatchLoadTasksRequest
- */
-const se_ListBatchLoadTasksRequest = (input: ListBatchLoadTasksRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TaskStatus != null && { TaskStatus: input.TaskStatus }),
-  };
-};
+// se_ListBatchLoadTasksRequest omitted.
 
-/**
- * serializeAws_json1_0ListDatabasesRequest
- */
-const se_ListDatabasesRequest = (input: ListDatabasesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListDatabasesRequest omitted.
 
-/**
- * serializeAws_json1_0ListTablesRequest
- */
-const se_ListTablesRequest = (input: ListTablesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListTablesRequest omitted.
 
-/**
- * serializeAws_json1_0ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_0MagneticStoreRejectedDataLocation
- */
-const se_MagneticStoreRejectedDataLocation = (
-  input: MagneticStoreRejectedDataLocation,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.S3Configuration != null && { S3Configuration: se_S3Configuration(input.S3Configuration, context) }),
-  };
-};
+// se_MagneticStoreRejectedDataLocation omitted.
 
-/**
- * serializeAws_json1_0MagneticStoreWriteProperties
- */
-const se_MagneticStoreWriteProperties = (input: MagneticStoreWriteProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.EnableMagneticStoreWrites != null && { EnableMagneticStoreWrites: input.EnableMagneticStoreWrites }),
-    ...(input.MagneticStoreRejectedDataLocation != null && {
-      MagneticStoreRejectedDataLocation: se_MagneticStoreRejectedDataLocation(
-        input.MagneticStoreRejectedDataLocation,
-        context
-      ),
-    }),
-  };
-};
+// se_MagneticStoreWriteProperties omitted.
 
-/**
- * serializeAws_json1_0MeasureValue
- */
-const se_MeasureValue = (input: MeasureValue, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_MeasureValue omitted.
 
-/**
- * serializeAws_json1_0MeasureValues
- */
-const se_MeasureValues = (input: MeasureValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MeasureValue(entry, context);
-    });
-};
+// se_MeasureValues omitted.
 
-/**
- * serializeAws_json1_0MixedMeasureMapping
- */
-const se_MixedMeasureMapping = (input: MixedMeasureMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.MeasureName != null && { MeasureName: input.MeasureName }),
-    ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
-    ...(input.MultiMeasureAttributeMappings != null && {
-      MultiMeasureAttributeMappings: se_MultiMeasureAttributeMappingList(input.MultiMeasureAttributeMappings, context),
-    }),
-    ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
-    ...(input.TargetMeasureName != null && { TargetMeasureName: input.TargetMeasureName }),
-  };
-};
+// se_MixedMeasureMapping omitted.
 
-/**
- * serializeAws_json1_0MixedMeasureMappingList
- */
-const se_MixedMeasureMappingList = (input: MixedMeasureMapping[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MixedMeasureMapping(entry, context);
-    });
-};
+// se_MixedMeasureMappingList omitted.
 
-/**
- * serializeAws_json1_0MultiMeasureAttributeMapping
- */
-const se_MultiMeasureAttributeMapping = (input: MultiMeasureAttributeMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
-    ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
-    ...(input.TargetMultiMeasureAttributeName != null && {
-      TargetMultiMeasureAttributeName: input.TargetMultiMeasureAttributeName,
-    }),
-  };
-};
+// se_MultiMeasureAttributeMapping omitted.
 
-/**
- * serializeAws_json1_0MultiMeasureAttributeMappingList
- */
-const se_MultiMeasureAttributeMappingList = (input: MultiMeasureAttributeMapping[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MultiMeasureAttributeMapping(entry, context);
-    });
-};
+// se_MultiMeasureAttributeMappingList omitted.
 
-/**
- * serializeAws_json1_0MultiMeasureMappings
- */
-const se_MultiMeasureMappings = (input: MultiMeasureMappings, context: __SerdeContext): any => {
-  return {
-    ...(input.MultiMeasureAttributeMappings != null && {
-      MultiMeasureAttributeMappings: se_MultiMeasureAttributeMappingList(input.MultiMeasureAttributeMappings, context),
-    }),
-    ...(input.TargetMultiMeasureName != null && { TargetMultiMeasureName: input.TargetMultiMeasureName }),
-  };
-};
+// se_MultiMeasureMappings omitted.
 
-/**
- * serializeAws_json1_0_Record
- */
-const se__Record = (input: _Record, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && { Dimensions: se_Dimensions(input.Dimensions, context) }),
-    ...(input.MeasureName != null && { MeasureName: input.MeasureName }),
-    ...(input.MeasureValue != null && { MeasureValue: input.MeasureValue }),
-    ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
-    ...(input.MeasureValues != null && { MeasureValues: se_MeasureValues(input.MeasureValues, context) }),
-    ...(input.Time != null && { Time: input.Time }),
-    ...(input.TimeUnit != null && { TimeUnit: input.TimeUnit }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
+// se__Record omitted.
 
-/**
- * serializeAws_json1_0Records
- */
-const se_Records = (input: _Record[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se__Record(entry, context);
-    });
-};
+// se_Records omitted.
 
-/**
- * serializeAws_json1_0ReportConfiguration
- */
-const se_ReportConfiguration = (input: ReportConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ReportS3Configuration != null && {
-      ReportS3Configuration: se_ReportS3Configuration(input.ReportS3Configuration, context),
-    }),
-  };
-};
+// se_ReportConfiguration omitted.
 
-/**
- * serializeAws_json1_0ReportS3Configuration
- */
-const se_ReportS3Configuration = (input: ReportS3Configuration, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketName != null && { BucketName: input.BucketName }),
-    ...(input.EncryptionOption != null && { EncryptionOption: input.EncryptionOption }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.ObjectKeyPrefix != null && { ObjectKeyPrefix: input.ObjectKeyPrefix }),
-  };
-};
+// se_ReportS3Configuration omitted.
 
-/**
- * serializeAws_json1_0ResumeBatchLoadTaskRequest
- */
-const se_ResumeBatchLoadTaskRequest = (input: ResumeBatchLoadTaskRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.TaskId != null && { TaskId: input.TaskId }),
-  };
-};
+// se_ResumeBatchLoadTaskRequest omitted.
 
-/**
- * serializeAws_json1_0RetentionProperties
- */
-const se_RetentionProperties = (input: RetentionProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.MagneticStoreRetentionPeriodInDays != null && {
-      MagneticStoreRetentionPeriodInDays: input.MagneticStoreRetentionPeriodInDays,
-    }),
-    ...(input.MemoryStoreRetentionPeriodInHours != null && {
-      MemoryStoreRetentionPeriodInHours: input.MemoryStoreRetentionPeriodInHours,
-    }),
-  };
-};
+// se_RetentionProperties omitted.
 
-/**
- * serializeAws_json1_0S3Configuration
- */
-const se_S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketName != null && { BucketName: input.BucketName }),
-    ...(input.EncryptionOption != null && { EncryptionOption: input.EncryptionOption }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.ObjectKeyPrefix != null && { ObjectKeyPrefix: input.ObjectKeyPrefix }),
-  };
-};
+// se_S3Configuration omitted.
 
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_0TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_0TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_0TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateDatabaseRequest
- */
-const se_UpdateDatabaseRequest = (input: UpdateDatabaseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-  };
-};
+// se_UpdateDatabaseRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateTableRequest
- */
-const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.MagneticStoreWriteProperties != null && {
-      MagneticStoreWriteProperties: se_MagneticStoreWriteProperties(input.MagneticStoreWriteProperties, context),
-    }),
-    ...(input.RetentionProperties != null && {
-      RetentionProperties: se_RetentionProperties(input.RetentionProperties, context),
-    }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  };
-};
+// se_UpdateTableRequest omitted.
 
-/**
- * serializeAws_json1_0WriteRecordsRequest
- */
-const se_WriteRecordsRequest = (input: WriteRecordsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CommonAttributes != null && { CommonAttributes: se__Record(input.CommonAttributes, context) }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Records != null && { Records: se_Records(input.Records, context) }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  };
-};
+// se_WriteRecordsRequest omitted.
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_0BatchLoadProgressReport
- */
-const de_BatchLoadProgressReport = (output: any, context: __SerdeContext): BatchLoadProgressReport => {
-  return {
-    BytesMetered: __expectLong(output.BytesMetered),
-    FileFailures: __expectLong(output.FileFailures),
-    ParseFailures: __expectLong(output.ParseFailures),
-    RecordIngestionFailures: __expectLong(output.RecordIngestionFailures),
-    RecordsIngested: __expectLong(output.RecordsIngested),
-    RecordsProcessed: __expectLong(output.RecordsProcessed),
-  } as any;
-};
+// de_BatchLoadProgressReport omitted.
 
 /**
  * deserializeAws_json1_0BatchLoadTask
  */
 const de_BatchLoadTask = (output: any, context: __SerdeContext): BatchLoadTask => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatabaseName: __expectString(output.DatabaseName),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    ResumableUntil:
-      output.ResumableUntil != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResumableUntil)))
-        : undefined,
-    TableName: __expectString(output.TableName),
-    TaskId: __expectString(output.TaskId),
-    TaskStatus: __expectString(output.TaskStatus),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatabaseName: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResumableUntil: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TableName: __expectString,
+    TaskId: __expectString,
+    TaskStatus: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0BatchLoadTaskDescription
  */
 const de_BatchLoadTaskDescription = (output: any, context: __SerdeContext): BatchLoadTaskDescription => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataModelConfiguration:
-      output.DataModelConfiguration != null
-        ? de_DataModelConfiguration(output.DataModelConfiguration, context)
-        : undefined,
-    DataSourceConfiguration:
-      output.DataSourceConfiguration != null
-        ? de_DataSourceConfiguration(output.DataSourceConfiguration, context)
-        : undefined,
-    ErrorMessage: __expectString(output.ErrorMessage),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    ProgressReport:
-      output.ProgressReport != null ? de_BatchLoadProgressReport(output.ProgressReport, context) : undefined,
-    RecordVersion: __expectLong(output.RecordVersion),
-    ReportConfiguration:
-      output.ReportConfiguration != null ? de_ReportConfiguration(output.ReportConfiguration, context) : undefined,
-    ResumableUntil:
-      output.ResumableUntil != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResumableUntil)))
-        : undefined,
-    TargetDatabaseName: __expectString(output.TargetDatabaseName),
-    TargetTableName: __expectString(output.TargetTableName),
-    TaskId: __expectString(output.TaskId),
-    TaskStatus: __expectString(output.TaskStatus),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataModelConfiguration: _json,
+    DataSourceConfiguration: _json,
+    ErrorMessage: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ProgressReport: _json,
+    RecordVersion: __expectLong,
+    ReportConfiguration: _json,
+    ResumableUntil: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TargetDatabaseName: __expectString,
+    TargetTableName: __expectString,
+    TaskId: __expectString,
+    TaskStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -2315,81 +1796,47 @@ const de_BatchLoadTaskList = (output: any, context: __SerdeContext): BatchLoadTa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchLoadTask(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_0CreateBatchLoadTaskResponse
- */
-const de_CreateBatchLoadTaskResponse = (output: any, context: __SerdeContext): CreateBatchLoadTaskResponse => {
-  return {
-    TaskId: __expectString(output.TaskId),
-  } as any;
-};
+// de_CreateBatchLoadTaskResponse omitted.
 
 /**
  * deserializeAws_json1_0CreateDatabaseResponse
  */
 const de_CreateDatabaseResponse = (output: any, context: __SerdeContext): CreateDatabaseResponse => {
-  return {
-    Database: output.Database != null ? de_Database(output.Database, context) : undefined,
-  } as any;
+  return take(output, {
+    Database: (_: any) => de_Database(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0CreateTableResponse
  */
 const de_CreateTableResponse = (output: any, context: __SerdeContext): CreateTableResponse => {
-  return {
-    Table: output.Table != null ? de_Table(output.Table, context) : undefined,
-  } as any;
+  return take(output, {
+    Table: (_: any) => de_Table(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CsvConfiguration
- */
-const de_CsvConfiguration = (output: any, context: __SerdeContext): CsvConfiguration => {
-  return {
-    ColumnSeparator: __expectString(output.ColumnSeparator),
-    EscapeChar: __expectString(output.EscapeChar),
-    NullValue: __expectString(output.NullValue),
-    QuoteChar: __expectString(output.QuoteChar),
-    TrimWhiteSpace: __expectBoolean(output.TrimWhiteSpace),
-  } as any;
-};
+// de_CsvConfiguration omitted.
 
 /**
  * deserializeAws_json1_0Database
  */
 const de_Database = (output: any, context: __SerdeContext): Database => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatabaseName: __expectString(output.DatabaseName),
-    KmsKeyId: __expectString(output.KmsKeyId),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    TableCount: __expectLong(output.TableCount),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatabaseName: __expectString,
+    KmsKeyId: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TableCount: __expectLong,
+  }) as any;
 };
 
 /**
@@ -2399,464 +1846,144 @@ const de_DatabaseList = (output: any, context: __SerdeContext): Database[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Database(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0DataModel
- */
-const de_DataModel = (output: any, context: __SerdeContext): DataModel => {
-  return {
-    DimensionMappings:
-      output.DimensionMappings != null ? de_DimensionMappings(output.DimensionMappings, context) : undefined,
-    MeasureNameColumn: __expectString(output.MeasureNameColumn),
-    MixedMeasureMappings:
-      output.MixedMeasureMappings != null
-        ? de_MixedMeasureMappingList(output.MixedMeasureMappings, context)
-        : undefined,
-    MultiMeasureMappings:
-      output.MultiMeasureMappings != null ? de_MultiMeasureMappings(output.MultiMeasureMappings, context) : undefined,
-    TimeColumn: __expectString(output.TimeColumn),
-    TimeUnit: __expectString(output.TimeUnit),
-  } as any;
-};
+// de_DataModel omitted.
 
-/**
- * deserializeAws_json1_0DataModelConfiguration
- */
-const de_DataModelConfiguration = (output: any, context: __SerdeContext): DataModelConfiguration => {
-  return {
-    DataModel: output.DataModel != null ? de_DataModel(output.DataModel, context) : undefined,
-    DataModelS3Configuration:
-      output.DataModelS3Configuration != null
-        ? de_DataModelS3Configuration(output.DataModelS3Configuration, context)
-        : undefined,
-  } as any;
-};
+// de_DataModelConfiguration omitted.
 
-/**
- * deserializeAws_json1_0DataModelS3Configuration
- */
-const de_DataModelS3Configuration = (output: any, context: __SerdeContext): DataModelS3Configuration => {
-  return {
-    BucketName: __expectString(output.BucketName),
-    ObjectKey: __expectString(output.ObjectKey),
-  } as any;
-};
+// de_DataModelS3Configuration omitted.
 
-/**
- * deserializeAws_json1_0DataSourceConfiguration
- */
-const de_DataSourceConfiguration = (output: any, context: __SerdeContext): DataSourceConfiguration => {
-  return {
-    CsvConfiguration:
-      output.CsvConfiguration != null ? de_CsvConfiguration(output.CsvConfiguration, context) : undefined,
-    DataFormat: __expectString(output.DataFormat),
-    DataSourceS3Configuration:
-      output.DataSourceS3Configuration != null
-        ? de_DataSourceS3Configuration(output.DataSourceS3Configuration, context)
-        : undefined,
-  } as any;
-};
+// de_DataSourceConfiguration omitted.
 
-/**
- * deserializeAws_json1_0DataSourceS3Configuration
- */
-const de_DataSourceS3Configuration = (output: any, context: __SerdeContext): DataSourceS3Configuration => {
-  return {
-    BucketName: __expectString(output.BucketName),
-    ObjectKeyPrefix: __expectString(output.ObjectKeyPrefix),
-  } as any;
-};
+// de_DataSourceS3Configuration omitted.
 
 /**
  * deserializeAws_json1_0DescribeBatchLoadTaskResponse
  */
 const de_DescribeBatchLoadTaskResponse = (output: any, context: __SerdeContext): DescribeBatchLoadTaskResponse => {
-  return {
-    BatchLoadTaskDescription:
-      output.BatchLoadTaskDescription != null
-        ? de_BatchLoadTaskDescription(output.BatchLoadTaskDescription, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    BatchLoadTaskDescription: (_: any) => de_BatchLoadTaskDescription(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribeDatabaseResponse
  */
 const de_DescribeDatabaseResponse = (output: any, context: __SerdeContext): DescribeDatabaseResponse => {
-  return {
-    Database: output.Database != null ? de_Database(output.Database, context) : undefined,
-  } as any;
+  return take(output, {
+    Database: (_: any) => de_Database(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DescribeEndpointsResponse
- */
-const de_DescribeEndpointsResponse = (output: any, context: __SerdeContext): DescribeEndpointsResponse => {
-  return {
-    Endpoints: output.Endpoints != null ? de_Endpoints(output.Endpoints, context) : undefined,
-  } as any;
-};
+// de_DescribeEndpointsResponse omitted.
 
 /**
  * deserializeAws_json1_0DescribeTableResponse
  */
 const de_DescribeTableResponse = (output: any, context: __SerdeContext): DescribeTableResponse => {
-  return {
-    Table: output.Table != null ? de_Table(output.Table, context) : undefined,
-  } as any;
+  return take(output, {
+    Table: (_: any) => de_Table(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DimensionMapping
- */
-const de_DimensionMapping = (output: any, context: __SerdeContext): DimensionMapping => {
-  return {
-    DestinationColumn: __expectString(output.DestinationColumn),
-    SourceColumn: __expectString(output.SourceColumn),
-  } as any;
-};
+// de_DimensionMapping omitted.
 
-/**
- * deserializeAws_json1_0DimensionMappings
- */
-const de_DimensionMappings = (output: any, context: __SerdeContext): DimensionMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DimensionMapping(entry, context);
-    });
-  return retVal;
-};
+// de_DimensionMappings omitted.
 
-/**
- * deserializeAws_json1_0Endpoint
- */
-const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
-  return {
-    Address: __expectString(output.Address),
-    CachePeriodInMinutes: __expectLong(output.CachePeriodInMinutes),
-  } as any;
-};
+// de_Endpoint omitted.
 
-/**
- * deserializeAws_json1_0Endpoints
- */
-const de_Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Endpoint(entry, context);
-    });
-  return retVal;
-};
+// de_Endpoints omitted.
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_0InvalidEndpointException
- */
-const de_InvalidEndpointException = (output: any, context: __SerdeContext): InvalidEndpointException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidEndpointException omitted.
 
 /**
  * deserializeAws_json1_0ListBatchLoadTasksResponse
  */
 const de_ListBatchLoadTasksResponse = (output: any, context: __SerdeContext): ListBatchLoadTasksResponse => {
-  return {
-    BatchLoadTasks: output.BatchLoadTasks != null ? de_BatchLoadTaskList(output.BatchLoadTasks, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    BatchLoadTasks: (_: any) => de_BatchLoadTaskList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListDatabasesResponse
  */
 const de_ListDatabasesResponse = (output: any, context: __SerdeContext): ListDatabasesResponse => {
-  return {
-    Databases: output.Databases != null ? de_DatabaseList(output.Databases, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Databases: (_: any) => de_DatabaseList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListTablesResponse
  */
 const de_ListTablesResponse = (output: any, context: __SerdeContext): ListTablesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tables: output.Tables != null ? de_TableList(output.Tables, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Tables: (_: any) => de_TableList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0MagneticStoreRejectedDataLocation
- */
-const de_MagneticStoreRejectedDataLocation = (
-  output: any,
-  context: __SerdeContext
-): MagneticStoreRejectedDataLocation => {
-  return {
-    S3Configuration: output.S3Configuration != null ? de_S3Configuration(output.S3Configuration, context) : undefined,
-  } as any;
-};
+// de_MagneticStoreRejectedDataLocation omitted.
 
-/**
- * deserializeAws_json1_0MagneticStoreWriteProperties
- */
-const de_MagneticStoreWriteProperties = (output: any, context: __SerdeContext): MagneticStoreWriteProperties => {
-  return {
-    EnableMagneticStoreWrites: __expectBoolean(output.EnableMagneticStoreWrites),
-    MagneticStoreRejectedDataLocation:
-      output.MagneticStoreRejectedDataLocation != null
-        ? de_MagneticStoreRejectedDataLocation(output.MagneticStoreRejectedDataLocation, context)
-        : undefined,
-  } as any;
-};
+// de_MagneticStoreWriteProperties omitted.
 
-/**
- * deserializeAws_json1_0MixedMeasureMapping
- */
-const de_MixedMeasureMapping = (output: any, context: __SerdeContext): MixedMeasureMapping => {
-  return {
-    MeasureName: __expectString(output.MeasureName),
-    MeasureValueType: __expectString(output.MeasureValueType),
-    MultiMeasureAttributeMappings:
-      output.MultiMeasureAttributeMappings != null
-        ? de_MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
-        : undefined,
-    SourceColumn: __expectString(output.SourceColumn),
-    TargetMeasureName: __expectString(output.TargetMeasureName),
-  } as any;
-};
+// de_MixedMeasureMapping omitted.
 
-/**
- * deserializeAws_json1_0MixedMeasureMappingList
- */
-const de_MixedMeasureMappingList = (output: any, context: __SerdeContext): MixedMeasureMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MixedMeasureMapping(entry, context);
-    });
-  return retVal;
-};
+// de_MixedMeasureMappingList omitted.
 
-/**
- * deserializeAws_json1_0MultiMeasureAttributeMapping
- */
-const de_MultiMeasureAttributeMapping = (output: any, context: __SerdeContext): MultiMeasureAttributeMapping => {
-  return {
-    MeasureValueType: __expectString(output.MeasureValueType),
-    SourceColumn: __expectString(output.SourceColumn),
-    TargetMultiMeasureAttributeName: __expectString(output.TargetMultiMeasureAttributeName),
-  } as any;
-};
+// de_MultiMeasureAttributeMapping omitted.
 
-/**
- * deserializeAws_json1_0MultiMeasureAttributeMappingList
- */
-const de_MultiMeasureAttributeMappingList = (output: any, context: __SerdeContext): MultiMeasureAttributeMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MultiMeasureAttributeMapping(entry, context);
-    });
-  return retVal;
-};
+// de_MultiMeasureAttributeMappingList omitted.
 
-/**
- * deserializeAws_json1_0MultiMeasureMappings
- */
-const de_MultiMeasureMappings = (output: any, context: __SerdeContext): MultiMeasureMappings => {
-  return {
-    MultiMeasureAttributeMappings:
-      output.MultiMeasureAttributeMappings != null
-        ? de_MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
-        : undefined,
-    TargetMultiMeasureName: __expectString(output.TargetMultiMeasureName),
-  } as any;
-};
+// de_MultiMeasureMappings omitted.
 
-/**
- * deserializeAws_json1_0RecordsIngested
- */
-const de_RecordsIngested = (output: any, context: __SerdeContext): RecordsIngested => {
-  return {
-    MagneticStore: __expectInt32(output.MagneticStore),
-    MemoryStore: __expectInt32(output.MemoryStore),
-    Total: __expectInt32(output.Total),
-  } as any;
-};
+// de_RecordsIngested omitted.
 
-/**
- * deserializeAws_json1_0RejectedRecord
- */
-const de_RejectedRecord = (output: any, context: __SerdeContext): RejectedRecord => {
-  return {
-    ExistingVersion: __expectLong(output.ExistingVersion),
-    Reason: __expectString(output.Reason),
-    RecordIndex: __expectInt32(output.RecordIndex),
-  } as any;
-};
+// de_RejectedRecord omitted.
 
-/**
- * deserializeAws_json1_0RejectedRecords
- */
-const de_RejectedRecords = (output: any, context: __SerdeContext): RejectedRecord[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RejectedRecord(entry, context);
-    });
-  return retVal;
-};
+// de_RejectedRecords omitted.
 
-/**
- * deserializeAws_json1_0RejectedRecordsException
- */
-const de_RejectedRecordsException = (output: any, context: __SerdeContext): RejectedRecordsException => {
-  return {
-    Message: __expectString(output.Message),
-    RejectedRecords: output.RejectedRecords != null ? de_RejectedRecords(output.RejectedRecords, context) : undefined,
-  } as any;
-};
+// de_RejectedRecordsException omitted.
 
-/**
- * deserializeAws_json1_0ReportConfiguration
- */
-const de_ReportConfiguration = (output: any, context: __SerdeContext): ReportConfiguration => {
-  return {
-    ReportS3Configuration:
-      output.ReportS3Configuration != null
-        ? de_ReportS3Configuration(output.ReportS3Configuration, context)
-        : undefined,
-  } as any;
-};
+// de_ReportConfiguration omitted.
 
-/**
- * deserializeAws_json1_0ReportS3Configuration
- */
-const de_ReportS3Configuration = (output: any, context: __SerdeContext): ReportS3Configuration => {
-  return {
-    BucketName: __expectString(output.BucketName),
-    EncryptionOption: __expectString(output.EncryptionOption),
-    KmsKeyId: __expectString(output.KmsKeyId),
-    ObjectKeyPrefix: __expectString(output.ObjectKeyPrefix),
-  } as any;
-};
+// de_ReportS3Configuration omitted.
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0ResumeBatchLoadTaskResponse
- */
-const de_ResumeBatchLoadTaskResponse = (output: any, context: __SerdeContext): ResumeBatchLoadTaskResponse => {
-  return {} as any;
-};
+// de_ResumeBatchLoadTaskResponse omitted.
 
-/**
- * deserializeAws_json1_0RetentionProperties
- */
-const de_RetentionProperties = (output: any, context: __SerdeContext): RetentionProperties => {
-  return {
-    MagneticStoreRetentionPeriodInDays: __expectLong(output.MagneticStoreRetentionPeriodInDays),
-    MemoryStoreRetentionPeriodInHours: __expectLong(output.MemoryStoreRetentionPeriodInHours),
-  } as any;
-};
+// de_RetentionProperties omitted.
 
-/**
- * deserializeAws_json1_0S3Configuration
- */
-const de_S3Configuration = (output: any, context: __SerdeContext): S3Configuration => {
-  return {
-    BucketName: __expectString(output.BucketName),
-    EncryptionOption: __expectString(output.EncryptionOption),
-    KmsKeyId: __expectString(output.KmsKeyId),
-    ObjectKeyPrefix: __expectString(output.ObjectKeyPrefix),
-  } as any;
-};
+// de_S3Configuration omitted.
 
-/**
- * deserializeAws_json1_0ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
 /**
  * deserializeAws_json1_0Table
  */
 const de_Table = (output: any, context: __SerdeContext): Table => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatabaseName: __expectString(output.DatabaseName),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    MagneticStoreWriteProperties:
-      output.MagneticStoreWriteProperties != null
-        ? de_MagneticStoreWriteProperties(output.MagneticStoreWriteProperties, context)
-        : undefined,
-    RetentionProperties:
-      output.RetentionProperties != null ? de_RetentionProperties(output.RetentionProperties, context) : undefined,
-    TableName: __expectString(output.TableName),
-    TableStatus: __expectString(output.TableStatus),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatabaseName: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MagneticStoreWriteProperties: _json,
+    RetentionProperties: _json,
+    TableName: __expectString,
+    TableStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -2866,97 +1993,42 @@ const de_TableList = (output: any, context: __SerdeContext): Table[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Table(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_0TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_0UpdateDatabaseResponse
  */
 const de_UpdateDatabaseResponse = (output: any, context: __SerdeContext): UpdateDatabaseResponse => {
-  return {
-    Database: output.Database != null ? de_Database(output.Database, context) : undefined,
-  } as any;
+  return take(output, {
+    Database: (_: any) => de_Database(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0UpdateTableResponse
  */
 const de_UpdateTableResponse = (output: any, context: __SerdeContext): UpdateTableResponse => {
-  return {
-    Table: output.Table != null ? de_Table(output.Table, context) : undefined,
-  } as any;
+  return take(output, {
+    Table: (_: any) => de_Table(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
-/**
- * deserializeAws_json1_0WriteRecordsResponse
- */
-const de_WriteRecordsResponse = (output: any, context: __SerdeContext): WriteRecordsResponse => {
-  return {
-    RecordsIngested: output.RecordsIngested != null ? de_RecordsIngested(output.RecordsIngested, context) : undefined,
-  } as any;
-};
+// de_WriteRecordsResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2978,6 +2050,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

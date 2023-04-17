@@ -1,5 +1,9 @@
 {
   "editor.tabSize": 2,
+  "[java]": {
+    "editor.tabSize": 4
+  },
+  "java.format.enabled": false,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.rulers": [80, 120],

@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -21,11 +22,8 @@ import { ListAccountRolesCommandInput, ListAccountRolesCommandOutput } from "../
 import { ListAccountsCommandInput, ListAccountsCommandOutput } from "../commands/ListAccountsCommand";
 import { LogoutCommandInput, LogoutCommandOutput } from "../commands/LogoutCommand";
 import {
-  AccountInfo,
   InvalidRequestException,
   ResourceNotFoundException,
-  RoleCredentials,
-  RoleInfo,
   TooManyRequestsException,
   UnauthorizedException,
 } from "../models/models_0";
@@ -155,9 +153,10 @@ export const de_GetRoleCredentialsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.roleCredentials != null) {
-    contents.roleCredentials = de_RoleCredentials(data.roleCredentials, context);
-  }
+  const doc = take(data, {
+    roleCredentials: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -188,10 +187,9 @@ const de_GetRoleCredentialsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -211,12 +209,11 @@ export const de_ListAccountRolesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.roleList != null) {
-    contents.roleList = de_RoleListType(data.roleList, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    roleList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -247,10 +244,9 @@ const de_ListAccountRolesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -270,12 +266,11 @@ export const de_ListAccountsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accountList != null) {
-    contents.accountList = de_AccountListType(data.accountList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    accountList: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -306,10 +301,9 @@ const de_ListAccountsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -353,16 +347,15 @@ const de_LogoutCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InvalidRequestExceptionRes
  */
@@ -372,9 +365,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -391,9 +385,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -410,9 +405,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -429,9 +425,10 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -439,68 +436,15 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * deserializeAws_restJson1AccountInfo
- */
-const de_AccountInfo = (output: any, context: __SerdeContext): AccountInfo => {
-  return {
-    accountId: __expectString(output.accountId),
-    accountName: __expectString(output.accountName),
-    emailAddress: __expectString(output.emailAddress),
-  } as any;
-};
+// de_AccountInfo omitted.
 
-/**
- * deserializeAws_restJson1AccountListType
- */
-const de_AccountListType = (output: any, context: __SerdeContext): AccountInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AccountInfo(entry, context);
-    });
-  return retVal;
-};
+// de_AccountListType omitted.
 
-/**
- * deserializeAws_restJson1RoleCredentials
- */
-const de_RoleCredentials = (output: any, context: __SerdeContext): RoleCredentials => {
-  return {
-    accessKeyId: __expectString(output.accessKeyId),
-    expiration: __expectLong(output.expiration),
-    secretAccessKey: __expectString(output.secretAccessKey),
-    sessionToken: __expectString(output.sessionToken),
-  } as any;
-};
+// de_RoleCredentials omitted.
 
-/**
- * deserializeAws_restJson1RoleInfo
- */
-const de_RoleInfo = (output: any, context: __SerdeContext): RoleInfo => {
-  return {
-    accountId: __expectString(output.accountId),
-    roleName: __expectString(output.roleName),
-  } as any;
-};
+// de_RoleInfo omitted.
 
-/**
- * deserializeAws_restJson1RoleListType
- */
-const de_RoleListType = (output: any, context: __SerdeContext): RoleInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RoleInfo(entry, context);
-    });
-  return retVal;
-};
+// de_RoleListType omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

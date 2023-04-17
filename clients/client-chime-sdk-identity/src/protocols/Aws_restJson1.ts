@@ -1,17 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -126,24 +127,17 @@ import { ChimeSDKIdentityServiceException as __BaseException } from "../models/C
 import {
   AppInstance,
   AppInstanceAdmin,
-  AppInstanceAdminSummary,
   AppInstanceBot,
-  AppInstanceBotSummary,
   AppInstanceRetentionSettings,
-  AppInstanceSummary,
   AppInstanceUser,
   AppInstanceUserEndpoint,
-  AppInstanceUserEndpointSummary,
-  AppInstanceUserSummary,
   BadRequestException,
   ChannelRetentionSettings,
   Configuration,
   ConflictException,
   EndpointAttributes,
-  EndpointState,
   ExpirationSettings,
   ForbiddenException,
-  Identity,
   LexConfiguration,
   NotFoundException,
   ResourceLimitExceededException,
@@ -167,12 +161,14 @@ export const se_CreateAppInstanceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instances";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Metadata: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -206,9 +202,11 @@ export const se_CreateAppInstanceAdminCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceAdminArn != null && { AppInstanceAdminArn: input.AppInstanceAdminArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceAdminArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -233,14 +231,16 @@ export const se_CreateAppInstanceBotCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-bots";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceArn != null && { AppInstanceArn: input.AppInstanceArn }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Configuration != null && { Configuration: se_Configuration(input.Configuration, context) }),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceArn: [],
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Configuration: (_) => _json(_),
+      Metadata: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -265,17 +265,17 @@ export const se_CreateAppInstanceUserCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-users";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceArn != null && { AppInstanceArn: input.AppInstanceArn }),
-    ...(input.AppInstanceUserId != null && { AppInstanceUserId: input.AppInstanceUserId }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExpirationSettings != null && {
-      ExpirationSettings: se_ExpirationSettings(input.ExpirationSettings, context),
-    }),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceArn: [],
+      AppInstanceUserId: [],
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ExpirationSettings: (_) => _json(_),
+      Metadata: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -856,11 +856,11 @@ export const se_PutAppInstanceRetentionSettingsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceRetentionSettings != null && {
-      AppInstanceRetentionSettings: se_AppInstanceRetentionSettings(input.AppInstanceRetentionSettings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceRetentionSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -895,11 +895,11 @@ export const se_PutAppInstanceUserExpirationSettingsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ExpirationSettings != null && {
-      ExpirationSettings: se_ExpirationSettings(input.ExpirationSettings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ExpirationSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -934,16 +934,16 @@ export const se_RegisterAppInstanceUserEndpointCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AllowMessages != null && { AllowMessages: input.AllowMessages }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.EndpointAttributes != null && {
-      EndpointAttributes: se_EndpointAttributes(input.EndpointAttributes, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AllowMessages: [],
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      EndpointAttributes: (_) => _json(_),
+      Name: [],
+      ResourceArn: [],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -971,10 +971,12 @@ export const se_TagResourceCommand = async (
     operation: [, "tag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1003,10 +1005,12 @@ export const se_UntagResourceCommand = async (
     operation: [, "untag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1041,10 +1045,12 @@ export const se_UpdateAppInstanceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Metadata: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1078,10 +1084,12 @@ export const se_UpdateAppInstanceBotCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Metadata: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1115,10 +1123,12 @@ export const se_UpdateAppInstanceUserCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Metadata: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1154,10 +1164,12 @@ export const se_UpdateAppInstanceUserEndpointCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "EndpointId", () => input.EndpointId!, "{EndpointId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AllowMessages != null && { AllowMessages: input.AllowMessages }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AllowMessages: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1183,9 +1195,10 @@ export const de_CreateAppInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
+  const doc = take(data, {
+    AppInstanceArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1228,10 +1241,9 @@ const de_CreateAppInstanceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1251,12 +1263,11 @@ export const de_CreateAppInstanceAdminCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceAdmin != null) {
-    contents.AppInstanceAdmin = de_Identity(data.AppInstanceAdmin, context);
-  }
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
+  const doc = take(data, {
+    AppInstanceAdmin: _json,
+    AppInstanceArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1299,10 +1310,9 @@ const de_CreateAppInstanceAdminCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1322,9 +1332,10 @@ export const de_CreateAppInstanceBotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceBotArn != null) {
-    contents.AppInstanceBotArn = __expectString(data.AppInstanceBotArn);
-  }
+  const doc = take(data, {
+    AppInstanceBotArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1367,10 +1378,9 @@ const de_CreateAppInstanceBotCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1390,9 +1400,10 @@ export const de_CreateAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUserArn != null) {
-    contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
-  }
+  const doc = take(data, {
+    AppInstanceUserArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1435,10 +1446,9 @@ const de_CreateAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1497,10 +1507,9 @@ const de_DeleteAppInstanceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1562,10 +1571,9 @@ const de_DeleteAppInstanceAdminCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1627,10 +1635,9 @@ const de_DeleteAppInstanceBotCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1692,10 +1699,9 @@ const de_DeleteAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1751,10 +1757,9 @@ const de_DeregisterAppInstanceUserEndpointCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1774,9 +1779,10 @@ export const de_DescribeAppInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstance != null) {
-    contents.AppInstance = de_AppInstance(data.AppInstance, context);
-  }
+  const doc = take(data, {
+    AppInstance: (_) => de_AppInstance(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1813,10 +1819,9 @@ const de_DescribeAppInstanceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1836,9 +1841,10 @@ export const de_DescribeAppInstanceAdminCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceAdmin != null) {
-    contents.AppInstanceAdmin = de_AppInstanceAdmin(data.AppInstanceAdmin, context);
-  }
+  const doc = take(data, {
+    AppInstanceAdmin: (_) => de_AppInstanceAdmin(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1875,10 +1881,9 @@ const de_DescribeAppInstanceAdminCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1898,9 +1903,10 @@ export const de_DescribeAppInstanceBotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceBot != null) {
-    contents.AppInstanceBot = de_AppInstanceBot(data.AppInstanceBot, context);
-  }
+  const doc = take(data, {
+    AppInstanceBot: (_) => de_AppInstanceBot(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1940,10 +1946,9 @@ const de_DescribeAppInstanceBotCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1963,9 +1968,10 @@ export const de_DescribeAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUser != null) {
-    contents.AppInstanceUser = de_AppInstanceUser(data.AppInstanceUser, context);
-  }
+  const doc = take(data, {
+    AppInstanceUser: (_) => de_AppInstanceUser(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2002,10 +2008,9 @@ const de_DescribeAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2025,9 +2030,10 @@ export const de_DescribeAppInstanceUserEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUserEndpoint != null) {
-    contents.AppInstanceUserEndpoint = de_AppInstanceUserEndpoint(data.AppInstanceUserEndpoint, context);
-  }
+  const doc = take(data, {
+    AppInstanceUserEndpoint: (_) => de_AppInstanceUserEndpoint(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2064,10 +2070,9 @@ const de_DescribeAppInstanceUserEndpointCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2087,14 +2092,11 @@ export const de_GetAppInstanceRetentionSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceRetentionSettings != null) {
-    contents.AppInstanceRetentionSettings = de_AppInstanceRetentionSettings(data.AppInstanceRetentionSettings, context);
-  }
-  if (data.InitiateDeletionTimestamp != null) {
-    contents.InitiateDeletionTimestamp = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.InitiateDeletionTimestamp))
-    );
-  }
+  const doc = take(data, {
+    AppInstanceRetentionSettings: _json,
+    InitiateDeletionTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2131,10 +2133,9 @@ const de_GetAppInstanceRetentionSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2154,15 +2155,12 @@ export const de_ListAppInstanceAdminsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceAdmins != null) {
-    contents.AppInstanceAdmins = de_AppInstanceAdminList(data.AppInstanceAdmins, context);
-  }
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AppInstanceAdmins: _json,
+    AppInstanceArn: __expectString,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2202,10 +2200,9 @@ const de_ListAppInstanceAdminsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2225,15 +2222,12 @@ export const de_ListAppInstanceBotsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
-  if (data.AppInstanceBots != null) {
-    contents.AppInstanceBots = de_AppInstanceBotList(data.AppInstanceBots, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AppInstanceArn: __expectString,
+    AppInstanceBots: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2273,10 +2267,9 @@ const de_ListAppInstanceBotsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2296,12 +2289,11 @@ export const de_ListAppInstancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstances != null) {
-    contents.AppInstances = de_AppInstanceList(data.AppInstances, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AppInstances: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2338,10 +2330,9 @@ const de_ListAppInstancesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2361,12 +2352,11 @@ export const de_ListAppInstanceUserEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUserEndpoints != null) {
-    contents.AppInstanceUserEndpoints = de_AppInstanceUserEndpointSummaryList(data.AppInstanceUserEndpoints, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AppInstanceUserEndpoints: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2403,10 +2393,9 @@ const de_ListAppInstanceUserEndpointsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2426,15 +2415,12 @@ export const de_ListAppInstanceUsersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
-  if (data.AppInstanceUsers != null) {
-    contents.AppInstanceUsers = de_AppInstanceUserList(data.AppInstanceUsers, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AppInstanceArn: __expectString,
+    AppInstanceUsers: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2471,10 +2457,9 @@ const de_ListAppInstanceUsersCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2494,9 +2479,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2533,10 +2519,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2556,14 +2541,11 @@ export const de_PutAppInstanceRetentionSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceRetentionSettings != null) {
-    contents.AppInstanceRetentionSettings = de_AppInstanceRetentionSettings(data.AppInstanceRetentionSettings, context);
-  }
-  if (data.InitiateDeletionTimestamp != null) {
-    contents.InitiateDeletionTimestamp = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.InitiateDeletionTimestamp))
-    );
-  }
+  const doc = take(data, {
+    AppInstanceRetentionSettings: _json,
+    InitiateDeletionTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2600,10 +2582,9 @@ const de_PutAppInstanceRetentionSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2623,12 +2604,11 @@ export const de_PutAppInstanceUserExpirationSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUserArn != null) {
-    contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
-  }
-  if (data.ExpirationSettings != null) {
-    contents.ExpirationSettings = de_ExpirationSettings(data.ExpirationSettings, context);
-  }
+  const doc = take(data, {
+    AppInstanceUserArn: __expectString,
+    ExpirationSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2668,10 +2648,9 @@ const de_PutAppInstanceUserExpirationSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2691,12 +2670,11 @@ export const de_RegisterAppInstanceUserEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUserArn != null) {
-    contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
-  }
-  if (data.EndpointId != null) {
-    contents.EndpointId = __expectString(data.EndpointId);
-  }
+  const doc = take(data, {
+    AppInstanceUserArn: __expectString,
+    EndpointId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2739,10 +2717,9 @@ const de_RegisterAppInstanceUserEndpointCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2801,10 +2778,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2860,10 +2836,9 @@ const de_UntagResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2883,9 +2858,10 @@ export const de_UpdateAppInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
+  const doc = take(data, {
+    AppInstanceArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2925,10 +2901,9 @@ const de_UpdateAppInstanceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2948,9 +2923,10 @@ export const de_UpdateAppInstanceBotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceBotArn != null) {
-    contents.AppInstanceBotArn = __expectString(data.AppInstanceBotArn);
-  }
+  const doc = take(data, {
+    AppInstanceBotArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2993,10 +2969,9 @@ const de_UpdateAppInstanceBotCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3016,9 +2991,10 @@ export const de_UpdateAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUserArn != null) {
-    contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
-  }
+  const doc = take(data, {
+    AppInstanceUserArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3061,10 +3037,9 @@ const de_UpdateAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3084,12 +3059,11 @@ export const de_UpdateAppInstanceUserEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUserArn != null) {
-    contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
-  }
-  if (data.EndpointId != null) {
-    contents.EndpointId = __expectString(data.EndpointId);
-  }
+  const doc = take(data, {
+    AppInstanceUserArn: __expectString,
+    EndpointId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3129,28 +3103,26 @@ const de_UpdateAppInstanceUserEndpointCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3164,12 +3136,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3183,12 +3154,11 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3202,12 +3172,11 @@ const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeConte
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3224,12 +3193,11 @@ const de_ResourceLimitExceededExceptionRes = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3246,12 +3214,11 @@ const de_ServiceFailureExceptionRes = async (
 ): Promise<ServiceFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3268,12 +3235,11 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3290,12 +3256,11 @@ const de_ThrottledClientExceptionRes = async (
 ): Promise<ThrottledClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottledClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3312,12 +3277,11 @@ const de_UnauthorizedClientExceptionRes = async (
 ): Promise<UnauthorizedClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3325,438 +3289,133 @@ const de_UnauthorizedClientExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AppInstanceRetentionSettings
- */
-const se_AppInstanceRetentionSettings = (input: AppInstanceRetentionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelRetentionSettings != null && {
-      ChannelRetentionSettings: se_ChannelRetentionSettings(input.ChannelRetentionSettings, context),
-    }),
-  };
-};
+// se_AppInstanceRetentionSettings omitted.
 
-/**
- * serializeAws_restJson1ChannelRetentionSettings
- */
-const se_ChannelRetentionSettings = (input: ChannelRetentionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.RetentionDays != null && { RetentionDays: input.RetentionDays }),
-  };
-};
+// se_ChannelRetentionSettings omitted.
 
-/**
- * serializeAws_restJson1Configuration
- */
-const se_Configuration = (input: Configuration, context: __SerdeContext): any => {
-  return {
-    ...(input.Lex != null && { Lex: se_LexConfiguration(input.Lex, context) }),
-  };
-};
+// se_Configuration omitted.
 
-/**
- * serializeAws_restJson1EndpointAttributes
- */
-const se_EndpointAttributes = (input: EndpointAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.DeviceToken != null && { DeviceToken: input.DeviceToken }),
-    ...(input.VoipDeviceToken != null && { VoipDeviceToken: input.VoipDeviceToken }),
-  };
-};
+// se_EndpointAttributes omitted.
 
-/**
- * serializeAws_restJson1ExpirationSettings
- */
-const se_ExpirationSettings = (input: ExpirationSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ExpirationCriterion != null && { ExpirationCriterion: input.ExpirationCriterion }),
-    ...(input.ExpirationDays != null && { ExpirationDays: input.ExpirationDays }),
-  };
-};
+// se_ExpirationSettings omitted.
 
-/**
- * serializeAws_restJson1LexConfiguration
- */
-const se_LexConfiguration = (input: LexConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.LexBotAliasArn != null && { LexBotAliasArn: input.LexBotAliasArn }),
-    ...(input.LocaleId != null && { LocaleId: input.LocaleId }),
-    ...(input.RespondsTo != null && { RespondsTo: input.RespondsTo }),
-    ...(input.WelcomeIntent != null && { WelcomeIntent: input.WelcomeIntent }),
-  };
-};
+// se_LexConfiguration omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
 /**
  * deserializeAws_restJson1AppInstance
  */
 const de_AppInstance = (output: any, context: __SerdeContext): AppInstance => {
-  return {
-    AppInstanceArn: __expectString(output.AppInstanceArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    AppInstanceArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: __expectString,
+    Name: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AppInstanceAdmin
  */
 const de_AppInstanceAdmin = (output: any, context: __SerdeContext): AppInstanceAdmin => {
-  return {
-    Admin: output.Admin != null ? de_Identity(output.Admin, context) : undefined,
-    AppInstanceArn: __expectString(output.AppInstanceArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Admin: _json,
+    AppInstanceArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AppInstanceAdminList
- */
-const de_AppInstanceAdminList = (output: any, context: __SerdeContext): AppInstanceAdminSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInstanceAdminSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AppInstanceAdminList omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceAdminSummary
- */
-const de_AppInstanceAdminSummary = (output: any, context: __SerdeContext): AppInstanceAdminSummary => {
-  return {
-    Admin: output.Admin != null ? de_Identity(output.Admin, context) : undefined,
-  } as any;
-};
+// de_AppInstanceAdminSummary omitted.
 
 /**
  * deserializeAws_restJson1AppInstanceBot
  */
 const de_AppInstanceBot = (output: any, context: __SerdeContext): AppInstanceBot => {
-  return {
-    AppInstanceBotArn: __expectString(output.AppInstanceBotArn),
-    Configuration: output.Configuration != null ? de_Configuration(output.Configuration, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    AppInstanceBotArn: __expectString,
+    Configuration: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: __expectString,
+    Name: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AppInstanceBotList
- */
-const de_AppInstanceBotList = (output: any, context: __SerdeContext): AppInstanceBotSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInstanceBotSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AppInstanceBotList omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceBotSummary
- */
-const de_AppInstanceBotSummary = (output: any, context: __SerdeContext): AppInstanceBotSummary => {
-  return {
-    AppInstanceBotArn: __expectString(output.AppInstanceBotArn),
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_AppInstanceBotSummary omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceList
- */
-const de_AppInstanceList = (output: any, context: __SerdeContext): AppInstanceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInstanceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AppInstanceList omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceRetentionSettings
- */
-const de_AppInstanceRetentionSettings = (output: any, context: __SerdeContext): AppInstanceRetentionSettings => {
-  return {
-    ChannelRetentionSettings:
-      output.ChannelRetentionSettings != null
-        ? de_ChannelRetentionSettings(output.ChannelRetentionSettings, context)
-        : undefined,
-  } as any;
-};
+// de_AppInstanceRetentionSettings omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceSummary
- */
-const de_AppInstanceSummary = (output: any, context: __SerdeContext): AppInstanceSummary => {
-  return {
-    AppInstanceArn: __expectString(output.AppInstanceArn),
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_AppInstanceSummary omitted.
 
 /**
  * deserializeAws_restJson1AppInstanceUser
  */
 const de_AppInstanceUser = (output: any, context: __SerdeContext): AppInstanceUser => {
-  return {
-    AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    ExpirationSettings:
-      output.ExpirationSettings != null ? de_ExpirationSettings(output.ExpirationSettings, context) : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    AppInstanceUserArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpirationSettings: _json,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: __expectString,
+    Name: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AppInstanceUserEndpoint
  */
 const de_AppInstanceUserEndpoint = (output: any, context: __SerdeContext): AppInstanceUserEndpoint => {
-  return {
-    AllowMessages: __expectString(output.AllowMessages),
-    AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    EndpointAttributes:
-      output.EndpointAttributes != null ? de_EndpointAttributes(output.EndpointAttributes, context) : undefined,
-    EndpointId: __expectString(output.EndpointId),
-    EndpointState: output.EndpointState != null ? de_EndpointState(output.EndpointState, context) : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    ResourceArn: __expectString(output.ResourceArn),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    AllowMessages: __expectString,
+    AppInstanceUserArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndpointAttributes: _json,
+    EndpointId: __expectString,
+    EndpointState: _json,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    ResourceArn: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AppInstanceUserEndpointSummary
- */
-const de_AppInstanceUserEndpointSummary = (output: any, context: __SerdeContext): AppInstanceUserEndpointSummary => {
-  return {
-    AllowMessages: __expectString(output.AllowMessages),
-    AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
-    EndpointId: __expectString(output.EndpointId),
-    EndpointState: output.EndpointState != null ? de_EndpointState(output.EndpointState, context) : undefined,
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_AppInstanceUserEndpointSummary omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceUserEndpointSummaryList
- */
-const de_AppInstanceUserEndpointSummaryList = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceUserEndpointSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInstanceUserEndpointSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AppInstanceUserEndpointSummaryList omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceUserList
- */
-const de_AppInstanceUserList = (output: any, context: __SerdeContext): AppInstanceUserSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInstanceUserSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AppInstanceUserList omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceUserSummary
- */
-const de_AppInstanceUserSummary = (output: any, context: __SerdeContext): AppInstanceUserSummary => {
-  return {
-    AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_AppInstanceUserSummary omitted.
 
-/**
- * deserializeAws_restJson1ChannelRetentionSettings
- */
-const de_ChannelRetentionSettings = (output: any, context: __SerdeContext): ChannelRetentionSettings => {
-  return {
-    RetentionDays: __expectInt32(output.RetentionDays),
-  } as any;
-};
+// de_ChannelRetentionSettings omitted.
 
-/**
- * deserializeAws_restJson1Configuration
- */
-const de_Configuration = (output: any, context: __SerdeContext): Configuration => {
-  return {
-    Lex: output.Lex != null ? de_LexConfiguration(output.Lex, context) : undefined,
-  } as any;
-};
+// de_Configuration omitted.
 
-/**
- * deserializeAws_restJson1EndpointAttributes
- */
-const de_EndpointAttributes = (output: any, context: __SerdeContext): EndpointAttributes => {
-  return {
-    DeviceToken: __expectString(output.DeviceToken),
-    VoipDeviceToken: __expectString(output.VoipDeviceToken),
-  } as any;
-};
+// de_EndpointAttributes omitted.
 
-/**
- * deserializeAws_restJson1EndpointState
- */
-const de_EndpointState = (output: any, context: __SerdeContext): EndpointState => {
-  return {
-    Status: __expectString(output.Status),
-    StatusReason: __expectString(output.StatusReason),
-  } as any;
-};
+// de_EndpointState omitted.
 
-/**
- * deserializeAws_restJson1ExpirationSettings
- */
-const de_ExpirationSettings = (output: any, context: __SerdeContext): ExpirationSettings => {
-  return {
-    ExpirationCriterion: __expectString(output.ExpirationCriterion),
-    ExpirationDays: __expectInt32(output.ExpirationDays),
-  } as any;
-};
+// de_ExpirationSettings omitted.
 
-/**
- * deserializeAws_restJson1Identity
- */
-const de_Identity = (output: any, context: __SerdeContext): Identity => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Identity omitted.
 
-/**
- * deserializeAws_restJson1LexConfiguration
- */
-const de_LexConfiguration = (output: any, context: __SerdeContext): LexConfiguration => {
-  return {
-    LexBotAliasArn: __expectString(output.LexBotAliasArn),
-    LocaleId: __expectString(output.LocaleId),
-    RespondsTo: __expectString(output.RespondsTo),
-    WelcomeIntent: __expectString(output.WelcomeIntent),
-  } as any;
-};
+// de_LexConfiguration omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

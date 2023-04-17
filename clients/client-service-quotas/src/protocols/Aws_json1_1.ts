@@ -1,16 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -83,16 +84,11 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import {
   AccessDeniedException,
   AssociateServiceQuotaTemplateRequest,
-  AssociateServiceQuotaTemplateResponse,
   AWSServiceAccessNotEnabledException,
   DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
-  DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
   DependencyAccessDeniedException,
   DisassociateServiceQuotaTemplateRequest,
-  DisassociateServiceQuotaTemplateResponse,
-  ErrorReason,
   GetAssociationForServiceQuotaTemplateRequest,
-  GetAssociationForServiceQuotaTemplateResponse,
   GetAWSDefaultServiceQuotaRequest,
   GetAWSDefaultServiceQuotaResponse,
   GetRequestedServiceQuotaChangeRequest,
@@ -115,35 +111,28 @@ import {
   ListServiceQuotasRequest,
   ListServiceQuotasResponse,
   ListServicesRequest,
-  ListServicesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  MetricInfo,
   NoAvailableOrganizationException,
   NoSuchResourceException,
   OrganizationNotInAllFeaturesModeException,
   PutServiceQuotaIncreaseRequestIntoTemplateRequest,
   PutServiceQuotaIncreaseRequestIntoTemplateResponse,
   QuotaExceededException,
-  QuotaPeriod,
   RequestedServiceQuotaChange,
   RequestServiceQuotaIncreaseRequest,
   RequestServiceQuotaIncreaseResponse,
   ResourceAlreadyExistsException,
   ServiceException,
-  ServiceInfo,
   ServiceQuota,
   ServiceQuotaIncreaseRequestInTemplate,
   ServiceQuotaTemplateNotInUseException,
   Tag,
   TagPolicyViolationException,
   TagResourceRequest,
-  TagResourceResponse,
   TemplatesNotAvailableInRegionException,
   TooManyRequestsException,
   TooManyTagsException,
   UntagResourceRequest,
-  UntagResourceResponse,
 } from "../models/models_0";
 import { ServiceQuotasServiceException as __BaseException } from "../models/ServiceQuotasServiceException";
 
@@ -156,7 +145,7 @@ export const se_AssociateServiceQuotaTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateServiceQuotaTemplate");
   let body: any;
-  body = JSON.stringify(se_AssociateServiceQuotaTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -169,7 +158,7 @@ export const se_DeleteServiceQuotaIncreaseRequestFromTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteServiceQuotaIncreaseRequestFromTemplate");
   let body: any;
-  body = JSON.stringify(se_DeleteServiceQuotaIncreaseRequestFromTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -182,7 +171,7 @@ export const se_DisassociateServiceQuotaTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateServiceQuotaTemplate");
   let body: any;
-  body = JSON.stringify(se_DisassociateServiceQuotaTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -195,7 +184,7 @@ export const se_GetAssociationForServiceQuotaTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAssociationForServiceQuotaTemplate");
   let body: any;
-  body = JSON.stringify(se_GetAssociationForServiceQuotaTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -208,7 +197,7 @@ export const se_GetAWSDefaultServiceQuotaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAWSDefaultServiceQuota");
   let body: any;
-  body = JSON.stringify(se_GetAWSDefaultServiceQuotaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -221,7 +210,7 @@ export const se_GetRequestedServiceQuotaChangeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRequestedServiceQuotaChange");
   let body: any;
-  body = JSON.stringify(se_GetRequestedServiceQuotaChangeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -234,7 +223,7 @@ export const se_GetServiceQuotaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServiceQuota");
   let body: any;
-  body = JSON.stringify(se_GetServiceQuotaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -247,7 +236,7 @@ export const se_GetServiceQuotaIncreaseRequestFromTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetServiceQuotaIncreaseRequestFromTemplate");
   let body: any;
-  body = JSON.stringify(se_GetServiceQuotaIncreaseRequestFromTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -260,7 +249,7 @@ export const se_ListAWSDefaultServiceQuotasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAWSDefaultServiceQuotas");
   let body: any;
-  body = JSON.stringify(se_ListAWSDefaultServiceQuotasRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -273,7 +262,7 @@ export const se_ListRequestedServiceQuotaChangeHistoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRequestedServiceQuotaChangeHistory");
   let body: any;
-  body = JSON.stringify(se_ListRequestedServiceQuotaChangeHistoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -286,7 +275,7 @@ export const se_ListRequestedServiceQuotaChangeHistoryByQuotaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRequestedServiceQuotaChangeHistoryByQuota");
   let body: any;
-  body = JSON.stringify(se_ListRequestedServiceQuotaChangeHistoryByQuotaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -299,7 +288,7 @@ export const se_ListServiceQuotaIncreaseRequestsInTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServiceQuotaIncreaseRequestsInTemplate");
   let body: any;
-  body = JSON.stringify(se_ListServiceQuotaIncreaseRequestsInTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -312,7 +301,7 @@ export const se_ListServiceQuotasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServiceQuotas");
   let body: any;
-  body = JSON.stringify(se_ListServiceQuotasRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -325,7 +314,7 @@ export const se_ListServicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServices");
   let body: any;
-  body = JSON.stringify(se_ListServicesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -338,7 +327,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -377,7 +366,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -390,7 +379,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -406,12 +395,12 @@ export const de_AssociateServiceQuotaTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateServiceQuotaTemplateResponse(data, context);
+  contents = _json(data);
   const response: AssociateServiceQuotaTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -453,10 +442,9 @@ const de_AssociateServiceQuotaTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -474,12 +462,12 @@ export const de_DeleteServiceQuotaIncreaseRequestFromTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteServiceQuotaIncreaseRequestFromTemplateResponse(data, context);
+  contents = _json(data);
   const response: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -524,10 +512,9 @@ const de_DeleteServiceQuotaIncreaseRequestFromTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -545,12 +532,12 @@ export const de_DisassociateServiceQuotaTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateServiceQuotaTemplateResponse(data, context);
+  contents = _json(data);
   const response: DisassociateServiceQuotaTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -592,10 +579,9 @@ const de_DisassociateServiceQuotaTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -613,12 +599,12 @@ export const de_GetAssociationForServiceQuotaTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAssociationForServiceQuotaTemplateResponse(data, context);
+  contents = _json(data);
   const response: GetAssociationForServiceQuotaTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -660,10 +646,9 @@ const de_GetAssociationForServiceQuotaTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -686,7 +671,7 @@ export const de_GetAWSDefaultServiceQuotaCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -719,10 +704,9 @@ const de_GetAWSDefaultServiceQuotaCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -745,7 +729,7 @@ export const de_GetRequestedServiceQuotaChangeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -778,10 +762,9 @@ const de_GetRequestedServiceQuotaChangeCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -804,7 +787,7 @@ export const de_GetServiceQuotaCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -837,10 +820,9 @@ const de_GetServiceQuotaCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -863,7 +845,7 @@ export const de_GetServiceQuotaIncreaseRequestFromTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -908,10 +890,9 @@ const de_GetServiceQuotaIncreaseRequestFromTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -934,7 +915,7 @@ export const de_ListAWSDefaultServiceQuotasCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -970,10 +951,9 @@ const de_ListAWSDefaultServiceQuotasCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -996,7 +976,7 @@ export const de_ListRequestedServiceQuotaChangeHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1032,10 +1012,9 @@ const de_ListRequestedServiceQuotaChangeHistoryCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1058,7 +1037,7 @@ export const de_ListRequestedServiceQuotaChangeHistoryByQuotaCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1094,10 +1073,9 @@ const de_ListRequestedServiceQuotaChangeHistoryByQuotaCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1120,7 +1098,7 @@ export const de_ListServiceQuotaIncreaseRequestsInTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1162,10 +1140,9 @@ const de_ListServiceQuotaIncreaseRequestsInTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1188,7 +1165,7 @@ export const de_ListServiceQuotasCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1224,10 +1201,9 @@ const de_ListServiceQuotasCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1245,12 +1221,12 @@ export const de_ListServicesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListServicesResponse(data, context);
+  contents = _json(data);
   const response: ListServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1283,10 +1259,9 @@ const de_ListServicesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1304,12 +1279,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1342,10 +1317,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1368,7 +1342,7 @@ export const de_PutServiceQuotaIncreaseRequestIntoTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1416,10 +1390,9 @@ const de_PutServiceQuotaIncreaseRequestIntoTemplateCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1442,7 +1415,7 @@ export const de_RequestServiceQuotaIncreaseCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1487,10 +1460,9 @@ const de_RequestServiceQuotaIncreaseCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1508,12 +1480,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1552,10 +1524,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1573,12 +1544,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1611,10 +1582,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1628,7 +1598,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1644,7 +1614,7 @@ const de_AWSServiceAccessNotEnabledExceptionRes = async (
   context: __SerdeContext
 ): Promise<AWSServiceAccessNotEnabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AWSServiceAccessNotEnabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AWSServiceAccessNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1660,7 +1630,7 @@ const de_DependencyAccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<DependencyAccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DependencyAccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DependencyAccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1676,7 +1646,7 @@ const de_IllegalArgumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<IllegalArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IllegalArgumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IllegalArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1692,7 +1662,7 @@ const de_InvalidPaginationTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPaginationTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPaginationTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPaginationTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1708,7 +1678,7 @@ const de_InvalidResourceStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidResourceStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidResourceStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidResourceStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1724,7 +1694,7 @@ const de_NoAvailableOrganizationExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoAvailableOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoAvailableOrganizationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoAvailableOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1740,7 +1710,7 @@ const de_NoSuchResourceExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchResourceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchResourceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchResourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1756,7 +1726,7 @@ const de_OrganizationNotInAllFeaturesModeExceptionRes = async (
   context: __SerdeContext
 ): Promise<OrganizationNotInAllFeaturesModeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OrganizationNotInAllFeaturesModeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OrganizationNotInAllFeaturesModeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1772,7 +1742,7 @@ const de_QuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<QuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_QuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new QuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1788,7 +1758,7 @@ const de_ResourceAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1801,7 +1771,7 @@ const de_ResourceAlreadyExistsExceptionRes = async (
  */
 const de_ServiceExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1817,7 +1787,7 @@ const de_ServiceQuotaTemplateNotInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaTemplateNotInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaTemplateNotInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaTemplateNotInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1833,7 +1803,7 @@ const de_TagPolicyViolationExceptionRes = async (
   context: __SerdeContext
 ): Promise<TagPolicyViolationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagPolicyViolationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagPolicyViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1849,7 +1819,7 @@ const de_TemplatesNotAvailableInRegionExceptionRes = async (
   context: __SerdeContext
 ): Promise<TemplatesNotAvailableInRegionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TemplatesNotAvailableInRegionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TemplatesNotAvailableInRegionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1865,7 +1835,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyRequestsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1881,7 +1851,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1889,207 +1859,39 @@ const de_TooManyTagsExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AssociateServiceQuotaTemplateRequest
- */
-const se_AssociateServiceQuotaTemplateRequest = (
-  input: AssociateServiceQuotaTemplateRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_AssociateServiceQuotaTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest
- */
-const se_DeleteServiceQuotaIncreaseRequestFromTemplateRequest = (
-  input: DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.QuotaCode != null && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_DeleteServiceQuotaIncreaseRequestFromTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateServiceQuotaTemplateRequest
- */
-const se_DisassociateServiceQuotaTemplateRequest = (
-  input: DisassociateServiceQuotaTemplateRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_DisassociateServiceQuotaTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1GetAssociationForServiceQuotaTemplateRequest
- */
-const se_GetAssociationForServiceQuotaTemplateRequest = (
-  input: GetAssociationForServiceQuotaTemplateRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_GetAssociationForServiceQuotaTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1GetAWSDefaultServiceQuotaRequest
- */
-const se_GetAWSDefaultServiceQuotaRequest = (input: GetAWSDefaultServiceQuotaRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.QuotaCode != null && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_GetAWSDefaultServiceQuotaRequest omitted.
 
-/**
- * serializeAws_json1_1GetRequestedServiceQuotaChangeRequest
- */
-const se_GetRequestedServiceQuotaChangeRequest = (
-  input: GetRequestedServiceQuotaChangeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RequestId != null && { RequestId: input.RequestId }),
-  };
-};
+// se_GetRequestedServiceQuotaChangeRequest omitted.
 
-/**
- * serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest
- */
-const se_GetServiceQuotaIncreaseRequestFromTemplateRequest = (
-  input: GetServiceQuotaIncreaseRequestFromTemplateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.QuotaCode != null && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_GetServiceQuotaIncreaseRequestFromTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1GetServiceQuotaRequest
- */
-const se_GetServiceQuotaRequest = (input: GetServiceQuotaRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.QuotaCode != null && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_GetServiceQuotaRequest omitted.
 
-/**
- * serializeAws_json1_1InputTagKeys
- */
-const se_InputTagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InputTagKeys omitted.
 
-/**
- * serializeAws_json1_1InputTags
- */
-const se_InputTags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_InputTags omitted.
 
-/**
- * serializeAws_json1_1ListAWSDefaultServiceQuotasRequest
- */
-const se_ListAWSDefaultServiceQuotasRequest = (
-  input: ListAWSDefaultServiceQuotasRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_ListAWSDefaultServiceQuotasRequest omitted.
 
-/**
- * serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest
- */
-const se_ListRequestedServiceQuotaChangeHistoryByQuotaRequest = (
-  input: ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.QuotaCode != null && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_ListRequestedServiceQuotaChangeHistoryByQuotaRequest omitted.
 
-/**
- * serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest
- */
-const se_ListRequestedServiceQuotaChangeHistoryRequest = (
-  input: ListRequestedServiceQuotaChangeHistoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_ListRequestedServiceQuotaChangeHistoryRequest omitted.
 
-/**
- * serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest
- */
-const se_ListServiceQuotaIncreaseRequestsInTemplateRequest = (
-  input: ListServiceQuotaIncreaseRequestsInTemplateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_ListServiceQuotaIncreaseRequestsInTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1ListServiceQuotasRequest
- */
-const se_ListServiceQuotasRequest = (input: ListServiceQuotasRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_ListServiceQuotasRequest omitted.
 
-/**
- * serializeAws_json1_1ListServicesRequest
- */
-const se_ListServicesRequest = (input: ListServicesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListServicesRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
 /**
  * serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest
@@ -2098,12 +1900,12 @@ const se_PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
   input: PutServiceQuotaIncreaseRequestIntoTemplateRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.DesiredValue != null && { DesiredValue: __serializeFloat(input.DesiredValue) }),
-    ...(input.QuotaCode != null && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
+  return take(input, {
+    AwsRegion: [],
+    DesiredValue: __serializeFloat,
+    QuotaCode: [],
+    ServiceCode: [],
+  });
 };
 
 /**
@@ -2113,124 +1915,34 @@ const se_RequestServiceQuotaIncreaseRequest = (
   input: RequestServiceQuotaIncreaseRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DesiredValue != null && { DesiredValue: __serializeFloat(input.DesiredValue) }),
-    ...(input.QuotaCode != null && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
+  return take(input, {
+    DesiredValue: __serializeFloat,
+    QuotaCode: [],
+    ServiceCode: [],
+  });
 };
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_InputTags(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_InputTagKeys(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AssociateServiceQuotaTemplateResponse
- */
-const de_AssociateServiceQuotaTemplateResponse = (
-  output: any,
-  context: __SerdeContext
-): AssociateServiceQuotaTemplateResponse => {
-  return {} as any;
-};
+// de_AssociateServiceQuotaTemplateResponse omitted.
 
-/**
- * deserializeAws_json1_1AWSServiceAccessNotEnabledException
- */
-const de_AWSServiceAccessNotEnabledException = (
-  output: any,
-  context: __SerdeContext
-): AWSServiceAccessNotEnabledException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AWSServiceAccessNotEnabledException omitted.
 
-/**
- * deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateResponse
- */
-const de_DeleteServiceQuotaIncreaseRequestFromTemplateResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteServiceQuotaIncreaseRequestFromTemplateResponse => {
-  return {} as any;
-};
+// de_DeleteServiceQuotaIncreaseRequestFromTemplateResponse omitted.
 
-/**
- * deserializeAws_json1_1DependencyAccessDeniedException
- */
-const de_DependencyAccessDeniedException = (output: any, context: __SerdeContext): DependencyAccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DependencyAccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1DisassociateServiceQuotaTemplateResponse
- */
-const de_DisassociateServiceQuotaTemplateResponse = (
-  output: any,
-  context: __SerdeContext
-): DisassociateServiceQuotaTemplateResponse => {
-  return {} as any;
-};
+// de_DisassociateServiceQuotaTemplateResponse omitted.
 
-/**
- * deserializeAws_json1_1ErrorReason
- */
-const de_ErrorReason = (output: any, context: __SerdeContext): ErrorReason => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-  } as any;
-};
+// de_ErrorReason omitted.
 
-/**
- * deserializeAws_json1_1GetAssociationForServiceQuotaTemplateResponse
- */
-const de_GetAssociationForServiceQuotaTemplateResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAssociationForServiceQuotaTemplateResponse => {
-  return {
-    ServiceQuotaTemplateAssociationStatus: __expectString(output.ServiceQuotaTemplateAssociationStatus),
-  } as any;
-};
+// de_GetAssociationForServiceQuotaTemplateResponse omitted.
 
 /**
  * deserializeAws_json1_1GetAWSDefaultServiceQuotaResponse
@@ -2239,9 +1951,9 @@ const de_GetAWSDefaultServiceQuotaResponse = (
   output: any,
   context: __SerdeContext
 ): GetAWSDefaultServiceQuotaResponse => {
-  return {
-    Quota: output.Quota != null ? de_ServiceQuota(output.Quota, context) : undefined,
-  } as any;
+  return take(output, {
+    Quota: (_: any) => de_ServiceQuota(_, context),
+  }) as any;
 };
 
 /**
@@ -2251,10 +1963,9 @@ const de_GetRequestedServiceQuotaChangeResponse = (
   output: any,
   context: __SerdeContext
 ): GetRequestedServiceQuotaChangeResponse => {
-  return {
-    RequestedQuota:
-      output.RequestedQuota != null ? de_RequestedServiceQuotaChange(output.RequestedQuota, context) : undefined,
-  } as any;
+  return take(output, {
+    RequestedQuota: (_: any) => de_RequestedServiceQuotaChange(_, context),
+  }) as any;
 };
 
 /**
@@ -2264,49 +1975,25 @@ const de_GetServiceQuotaIncreaseRequestFromTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceQuotaIncreaseRequestFromTemplateResponse => {
-  return {
-    ServiceQuotaIncreaseRequestInTemplate:
-      output.ServiceQuotaIncreaseRequestInTemplate != null
-        ? de_ServiceQuotaIncreaseRequestInTemplate(output.ServiceQuotaIncreaseRequestInTemplate, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ServiceQuotaIncreaseRequestInTemplate: (_: any) => de_ServiceQuotaIncreaseRequestInTemplate(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetServiceQuotaResponse
  */
 const de_GetServiceQuotaResponse = (output: any, context: __SerdeContext): GetServiceQuotaResponse => {
-  return {
-    Quota: output.Quota != null ? de_ServiceQuota(output.Quota, context) : undefined,
-  } as any;
+  return take(output, {
+    Quota: (_: any) => de_ServiceQuota(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1IllegalArgumentException
- */
-const de_IllegalArgumentException = (output: any, context: __SerdeContext): IllegalArgumentException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_IllegalArgumentException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPaginationTokenException
- */
-const de_InvalidPaginationTokenException = (output: any, context: __SerdeContext): InvalidPaginationTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidPaginationTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidResourceStateException
- */
-const de_InvalidResourceStateException = (output: any, context: __SerdeContext): InvalidResourceStateException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidResourceStateException omitted.
 
 /**
  * deserializeAws_json1_1ListAWSDefaultServiceQuotasResponse
@@ -2315,10 +2002,10 @@ const de_ListAWSDefaultServiceQuotasResponse = (
   output: any,
   context: __SerdeContext
 ): ListAWSDefaultServiceQuotasResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Quotas: output.Quotas != null ? de_ServiceQuotaListDefinition(output.Quotas, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Quotas: (_: any) => de_ServiceQuotaListDefinition(_, context),
+  }) as any;
 };
 
 /**
@@ -2328,13 +2015,10 @@ const de_ListRequestedServiceQuotaChangeHistoryByQuotaResponse = (
   output: any,
   context: __SerdeContext
 ): ListRequestedServiceQuotaChangeHistoryByQuotaResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RequestedQuotas:
-      output.RequestedQuotas != null
-        ? de_RequestedServiceQuotaChangeHistoryListDefinition(output.RequestedQuotas, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    RequestedQuotas: (_: any) => de_RequestedServiceQuotaChangeHistoryListDefinition(_, context),
+  }) as any;
 };
 
 /**
@@ -2344,13 +2028,10 @@ const de_ListRequestedServiceQuotaChangeHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): ListRequestedServiceQuotaChangeHistoryResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RequestedQuotas:
-      output.RequestedQuotas != null
-        ? de_RequestedServiceQuotaChangeHistoryListDefinition(output.RequestedQuotas, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    RequestedQuotas: (_: any) => de_RequestedServiceQuotaChangeHistoryListDefinition(_, context),
+  }) as any;
 };
 
 /**
@@ -2360,117 +2041,37 @@ const de_ListServiceQuotaIncreaseRequestsInTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): ListServiceQuotaIncreaseRequestsInTemplateResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ServiceQuotaIncreaseRequestInTemplateList:
-      output.ServiceQuotaIncreaseRequestInTemplateList != null
-        ? de_ServiceQuotaIncreaseRequestInTemplateList(output.ServiceQuotaIncreaseRequestInTemplateList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ServiceQuotaIncreaseRequestInTemplateList: (_: any) => de_ServiceQuotaIncreaseRequestInTemplateList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListServiceQuotasResponse
  */
 const de_ListServiceQuotasResponse = (output: any, context: __SerdeContext): ListServiceQuotasResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Quotas: output.Quotas != null ? de_ServiceQuotaListDefinition(output.Quotas, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Quotas: (_: any) => de_ServiceQuotaListDefinition(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListServicesResponse
- */
-const de_ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Services: output.Services != null ? de_ServiceInfoListDefinition(output.Services, context) : undefined,
-  } as any;
-};
+// de_ListServicesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_OutputTags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1MetricDimensionsMapDefinition
- */
-const de_MetricDimensionsMapDefinition = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_MetricDimensionsMapDefinition omitted.
 
-/**
- * deserializeAws_json1_1MetricInfo
- */
-const de_MetricInfo = (output: any, context: __SerdeContext): MetricInfo => {
-  return {
-    MetricDimensions:
-      output.MetricDimensions != null ? de_MetricDimensionsMapDefinition(output.MetricDimensions, context) : undefined,
-    MetricName: __expectString(output.MetricName),
-    MetricNamespace: __expectString(output.MetricNamespace),
-    MetricStatisticRecommendation: __expectString(output.MetricStatisticRecommendation),
-  } as any;
-};
+// de_MetricInfo omitted.
 
-/**
- * deserializeAws_json1_1NoAvailableOrganizationException
- */
-const de_NoAvailableOrganizationException = (
-  output: any,
-  context: __SerdeContext
-): NoAvailableOrganizationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NoAvailableOrganizationException omitted.
 
-/**
- * deserializeAws_json1_1NoSuchResourceException
- */
-const de_NoSuchResourceException = (output: any, context: __SerdeContext): NoSuchResourceException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NoSuchResourceException omitted.
 
-/**
- * deserializeAws_json1_1OrganizationNotInAllFeaturesModeException
- */
-const de_OrganizationNotInAllFeaturesModeException = (
-  output: any,
-  context: __SerdeContext
-): OrganizationNotInAllFeaturesModeException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_OrganizationNotInAllFeaturesModeException omitted.
 
-/**
- * deserializeAws_json1_1OutputTags
- */
-const de_OutputTags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_OutputTags omitted.
 
 /**
  * deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse
@@ -2479,57 +2080,35 @@ const de_PutServiceQuotaIncreaseRequestIntoTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): PutServiceQuotaIncreaseRequestIntoTemplateResponse => {
-  return {
-    ServiceQuotaIncreaseRequestInTemplate:
-      output.ServiceQuotaIncreaseRequestInTemplate != null
-        ? de_ServiceQuotaIncreaseRequestInTemplate(output.ServiceQuotaIncreaseRequestInTemplate, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ServiceQuotaIncreaseRequestInTemplate: (_: any) => de_ServiceQuotaIncreaseRequestInTemplate(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1QuotaExceededException
- */
-const de_QuotaExceededException = (output: any, context: __SerdeContext): QuotaExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_QuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_1QuotaPeriod
- */
-const de_QuotaPeriod = (output: any, context: __SerdeContext): QuotaPeriod => {
-  return {
-    PeriodUnit: __expectString(output.PeriodUnit),
-    PeriodValue: __expectInt32(output.PeriodValue),
-  } as any;
-};
+// de_QuotaPeriod omitted.
 
 /**
  * deserializeAws_json1_1RequestedServiceQuotaChange
  */
 const de_RequestedServiceQuotaChange = (output: any, context: __SerdeContext): RequestedServiceQuotaChange => {
-  return {
-    CaseId: __expectString(output.CaseId),
-    Created:
-      output.Created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created))) : undefined,
-    DesiredValue: __limitedParseDouble(output.DesiredValue),
-    GlobalQuota: __expectBoolean(output.GlobalQuota),
-    Id: __expectString(output.Id),
-    LastUpdated:
-      output.LastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
-        : undefined,
-    QuotaArn: __expectString(output.QuotaArn),
-    QuotaCode: __expectString(output.QuotaCode),
-    QuotaName: __expectString(output.QuotaName),
-    Requester: __expectString(output.Requester),
-    ServiceCode: __expectString(output.ServiceCode),
-    ServiceName: __expectString(output.ServiceName),
-    Status: __expectString(output.Status),
-    Unit: __expectString(output.Unit),
-  } as any;
+  return take(output, {
+    CaseId: __expectString,
+    Created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DesiredValue: __limitedParseDouble,
+    GlobalQuota: __expectBoolean,
+    Id: __expectString,
+    LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    QuotaArn: __expectString,
+    QuotaCode: __expectString,
+    QuotaName: __expectString,
+    Requester: __expectString,
+    ServiceCode: __expectString,
+    ServiceName: __expectString,
+    Status: __expectString,
+    Unit: __expectString,
+  }) as any;
 };
 
 /**
@@ -2542,9 +2121,6 @@ const de_RequestedServiceQuotaChangeHistoryListDefinition = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RequestedServiceQuotaChange(entry, context);
     });
   return retVal;
@@ -2557,73 +2133,37 @@ const de_RequestServiceQuotaIncreaseResponse = (
   output: any,
   context: __SerdeContext
 ): RequestServiceQuotaIncreaseResponse => {
-  return {
-    RequestedQuota:
-      output.RequestedQuota != null ? de_RequestedServiceQuotaChange(output.RequestedQuota, context) : undefined,
-  } as any;
+  return take(output, {
+    RequestedQuota: (_: any) => de_RequestedServiceQuotaChange(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ResourceAlreadyExistsException
- */
-const de_ResourceAlreadyExistsException = (output: any, context: __SerdeContext): ResourceAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1ServiceException
- */
-const de_ServiceException = (output: any, context: __SerdeContext): ServiceException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceException omitted.
 
-/**
- * deserializeAws_json1_1ServiceInfo
- */
-const de_ServiceInfo = (output: any, context: __SerdeContext): ServiceInfo => {
-  return {
-    ServiceCode: __expectString(output.ServiceCode),
-    ServiceName: __expectString(output.ServiceName),
-  } as any;
-};
+// de_ServiceInfo omitted.
 
-/**
- * deserializeAws_json1_1ServiceInfoListDefinition
- */
-const de_ServiceInfoListDefinition = (output: any, context: __SerdeContext): ServiceInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServiceInfo(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceInfoListDefinition omitted.
 
 /**
  * deserializeAws_json1_1ServiceQuota
  */
 const de_ServiceQuota = (output: any, context: __SerdeContext): ServiceQuota => {
-  return {
-    Adjustable: __expectBoolean(output.Adjustable),
-    ErrorReason: output.ErrorReason != null ? de_ErrorReason(output.ErrorReason, context) : undefined,
-    GlobalQuota: __expectBoolean(output.GlobalQuota),
-    Period: output.Period != null ? de_QuotaPeriod(output.Period, context) : undefined,
-    QuotaArn: __expectString(output.QuotaArn),
-    QuotaCode: __expectString(output.QuotaCode),
-    QuotaName: __expectString(output.QuotaName),
-    ServiceCode: __expectString(output.ServiceCode),
-    ServiceName: __expectString(output.ServiceName),
-    Unit: __expectString(output.Unit),
-    UsageMetric: output.UsageMetric != null ? de_MetricInfo(output.UsageMetric, context) : undefined,
-    Value: __limitedParseDouble(output.Value),
-  } as any;
+  return take(output, {
+    Adjustable: __expectBoolean,
+    ErrorReason: _json,
+    GlobalQuota: __expectBoolean,
+    Period: _json,
+    QuotaArn: __expectString,
+    QuotaCode: __expectString,
+    QuotaName: __expectString,
+    ServiceCode: __expectString,
+    ServiceName: __expectString,
+    Unit: __expectString,
+    UsageMetric: _json,
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -2633,16 +2173,16 @@ const de_ServiceQuotaIncreaseRequestInTemplate = (
   output: any,
   context: __SerdeContext
 ): ServiceQuotaIncreaseRequestInTemplate => {
-  return {
-    AwsRegion: __expectString(output.AwsRegion),
-    DesiredValue: __limitedParseDouble(output.DesiredValue),
-    GlobalQuota: __expectBoolean(output.GlobalQuota),
-    QuotaCode: __expectString(output.QuotaCode),
-    QuotaName: __expectString(output.QuotaName),
-    ServiceCode: __expectString(output.ServiceCode),
-    ServiceName: __expectString(output.ServiceName),
-    Unit: __expectString(output.Unit),
-  } as any;
+  return take(output, {
+    AwsRegion: __expectString,
+    DesiredValue: __limitedParseDouble,
+    GlobalQuota: __expectBoolean,
+    QuotaCode: __expectString,
+    QuotaName: __expectString,
+    ServiceCode: __expectString,
+    ServiceName: __expectString,
+    Unit: __expectString,
+  }) as any;
 };
 
 /**
@@ -2655,9 +2195,6 @@ const de_ServiceQuotaIncreaseRequestInTemplateList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServiceQuotaIncreaseRequestInTemplate(entry, context);
     });
   return retVal;
@@ -2670,88 +2207,26 @@ const de_ServiceQuotaListDefinition = (output: any, context: __SerdeContext): Se
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServiceQuota(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ServiceQuotaTemplateNotInUseException
- */
-const de_ServiceQuotaTemplateNotInUseException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaTemplateNotInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceQuotaTemplateNotInUseException omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagPolicyViolationException
- */
-const de_TagPolicyViolationException = (output: any, context: __SerdeContext): TagPolicyViolationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TagPolicyViolationException omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TemplatesNotAvailableInRegionException
- */
-const de_TemplatesNotAvailableInRegionException = (
-  output: any,
-  context: __SerdeContext
-): TemplatesNotAvailableInRegionException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TemplatesNotAvailableInRegionException omitted.
 
-/**
- * deserializeAws_json1_1TooManyRequestsException
- */
-const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TooManyRequestsException omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2773,6 +2248,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

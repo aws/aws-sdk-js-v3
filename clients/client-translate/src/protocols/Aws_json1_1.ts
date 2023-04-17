@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -8,7 +9,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -52,13 +54,10 @@ import { TranslateTextCommandInput, TranslateTextCommandOutput } from "../comman
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateParallelDataCommandInput, UpdateParallelDataCommandOutput } from "../commands/UpdateParallelDataCommand";
 import {
-  AppliedTerminology,
   ConcurrentModificationException,
   ConflictException,
   CreateParallelDataRequest,
-  CreateParallelDataResponse,
   DeleteParallelDataRequest,
-  DeleteParallelDataResponse,
   DeleteTerminologyRequest,
   DescribeTextTranslationJobRequest,
   DescribeTextTranslationJobResponse,
@@ -75,35 +74,25 @@ import {
   InvalidFilterException,
   InvalidParameterValueException,
   InvalidRequestException,
-  JobDetails,
-  Language,
   LimitExceededException,
   ListLanguagesRequest,
-  ListLanguagesResponse,
   ListParallelDataRequest,
   ListParallelDataResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListTerminologiesRequest,
   ListTerminologiesResponse,
   ListTextTranslationJobsRequest,
   ListTextTranslationJobsResponse,
   OutputDataConfig,
   ParallelDataConfig,
-  ParallelDataDataLocation,
   ParallelDataProperties,
   ResourceNotFoundException,
   ServiceUnavailableException,
   StartTextTranslationJobRequest,
-  StartTextTranslationJobResponse,
   StopTextTranslationJobRequest,
-  StopTextTranslationJobResponse,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
-  Term,
   TerminologyData,
-  TerminologyDataLocation,
   TerminologyProperties,
   TextSizeLimitExceededException,
   TextTranslationJobFilter,
@@ -111,12 +100,10 @@ import {
   TooManyRequestsException,
   TooManyTagsException,
   TranslateTextRequest,
-  TranslateTextResponse,
   TranslationSettings,
   UnsupportedDisplayLanguageCodeException,
   UnsupportedLanguagePairException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateParallelDataRequest,
   UpdateParallelDataResponse,
 } from "../models/models_0";
@@ -144,7 +131,7 @@ export const se_DeleteParallelDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteParallelData");
   let body: any;
-  body = JSON.stringify(se_DeleteParallelDataRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -157,7 +144,7 @@ export const se_DeleteTerminologyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTerminology");
   let body: any;
-  body = JSON.stringify(se_DeleteTerminologyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -170,7 +157,7 @@ export const se_DescribeTextTranslationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTextTranslationJob");
   let body: any;
-  body = JSON.stringify(se_DescribeTextTranslationJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -183,7 +170,7 @@ export const se_GetParallelDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetParallelData");
   let body: any;
-  body = JSON.stringify(se_GetParallelDataRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -196,7 +183,7 @@ export const se_GetTerminologyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTerminology");
   let body: any;
-  body = JSON.stringify(se_GetTerminologyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -222,7 +209,7 @@ export const se_ListLanguagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLanguages");
   let body: any;
-  body = JSON.stringify(se_ListLanguagesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -235,7 +222,7 @@ export const se_ListParallelDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListParallelData");
   let body: any;
-  body = JSON.stringify(se_ListParallelDataRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -248,7 +235,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -261,7 +248,7 @@ export const se_ListTerminologiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTerminologies");
   let body: any;
-  body = JSON.stringify(se_ListTerminologiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -300,7 +287,7 @@ export const se_StopTextTranslationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopTextTranslationJob");
   let body: any;
-  body = JSON.stringify(se_StopTextTranslationJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -313,7 +300,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -326,7 +313,7 @@ export const se_TranslateTextCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TranslateText");
   let body: any;
-  body = JSON.stringify(se_TranslateTextRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -339,7 +326,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -368,12 +355,12 @@ export const de_CreateParallelDataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateParallelDataResponse(data, context);
+  contents = _json(data);
   const response: CreateParallelDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -415,10 +402,9 @@ const de_CreateParallelDataCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -436,12 +422,12 @@ export const de_DeleteParallelDataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteParallelDataResponse(data, context);
+  contents = _json(data);
   const response: DeleteParallelDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -471,10 +457,9 @@ const de_DeleteParallelDataCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -494,7 +479,7 @@ export const de_DeleteTerminologyCommand = async (
   const response: DeleteTerminologyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -524,10 +509,9 @@ const de_DeleteTerminologyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -550,7 +534,7 @@ export const de_DescribeTextTranslationJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -577,10 +561,9 @@ const de_DescribeTextTranslationJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -603,7 +586,7 @@ export const de_GetParallelDataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -633,10 +616,9 @@ const de_GetParallelDataCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -659,7 +641,7 @@ export const de_GetTerminologyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -689,10 +671,9 @@ const de_GetTerminologyCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -715,7 +696,7 @@ export const de_ImportTerminologyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -751,10 +732,9 @@ const de_ImportTerminologyCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -772,12 +752,12 @@ export const de_ListLanguagesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLanguagesResponse(data, context);
+  contents = _json(data);
   const response: ListLanguagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -807,10 +787,9 @@ const de_ListLanguagesCommandError = async (
       throw await de_UnsupportedDisplayLanguageCodeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -833,7 +812,7 @@ export const de_ListParallelDataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -860,10 +839,9 @@ const de_ListParallelDataCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -881,12 +859,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -913,10 +891,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -939,7 +916,7 @@ export const de_ListTerminologiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -966,10 +943,9 @@ const de_ListTerminologiesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -992,7 +968,7 @@ export const de_ListTextTranslationJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1022,10 +998,9 @@ const de_ListTextTranslationJobsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1043,12 +1018,12 @@ export const de_StartTextTranslationJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartTextTranslationJobResponse(data, context);
+  contents = _json(data);
   const response: StartTextTranslationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1084,10 +1059,9 @@ const de_StartTextTranslationJobCommandError = async (
       throw await de_UnsupportedLanguagePairExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1105,12 +1079,12 @@ export const de_StopTextTranslationJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopTextTranslationJobResponse(data, context);
+  contents = _json(data);
   const response: StopTextTranslationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1137,10 +1111,9 @@ const de_StopTextTranslationJobCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1158,12 +1131,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1196,10 +1169,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1217,12 +1189,12 @@ export const de_TranslateTextCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TranslateTextResponse(data, context);
+  contents = _json(data);
   const response: TranslateTextCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1264,10 +1236,9 @@ const de_TranslateTextCommandError = async (
       throw await de_UnsupportedLanguagePairExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1285,12 +1256,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1320,10 +1291,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1346,7 +1316,7 @@ export const de_UpdateParallelDataCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1388,10 +1358,9 @@ const de_UpdateParallelDataCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1405,7 +1374,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1418,7 +1387,7 @@ const de_ConcurrentModificationExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1434,7 +1403,7 @@ const de_DetectedLanguageLowConfidenceExceptionRes = async (
   context: __SerdeContext
 ): Promise<DetectedLanguageLowConfidenceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DetectedLanguageLowConfidenceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DetectedLanguageLowConfidenceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1450,7 +1419,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1466,7 +1435,7 @@ const de_InvalidFilterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidFilterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidFilterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidFilterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1482,7 +1451,7 @@ const de_InvalidParameterValueExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterValueException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1498,7 +1467,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1514,7 +1483,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1530,7 +1499,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1546,7 +1515,7 @@ const de_ServiceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1562,7 +1531,7 @@ const de_TextSizeLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<TextSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TextSizeLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TextSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1578,7 +1547,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyRequestsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1594,7 +1563,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1610,7 +1579,7 @@ const de_UnsupportedDisplayLanguageCodeExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedDisplayLanguageCodeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedDisplayLanguageCodeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedDisplayLanguageCodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1626,7 +1595,7 @@ const de_UnsupportedLanguagePairExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedLanguagePairException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedLanguagePairException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedLanguagePairException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1638,403 +1607,151 @@ const de_UnsupportedLanguagePairExceptionRes = async (
  * serializeAws_json1_1CreateParallelDataRequest
  */
 const se_CreateParallelDataRequest = (input: CreateParallelDataRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EncryptionKey != null && { EncryptionKey: se_EncryptionKey(input.EncryptionKey, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParallelDataConfig != null && {
-      ParallelDataConfig: se_ParallelDataConfig(input.ParallelDataConfig, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    EncryptionKey: _json,
+    Name: [],
+    ParallelDataConfig: _json,
+    Tags: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1DeleteParallelDataRequest
- */
-const se_DeleteParallelDataRequest = (input: DeleteParallelDataRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteParallelDataRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteTerminologyRequest
- */
-const se_DeleteTerminologyRequest = (input: DeleteTerminologyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteTerminologyRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeTextTranslationJobRequest
- */
-const se_DescribeTextTranslationJobRequest = (
-  input: DescribeTextTranslationJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeTextTranslationJobRequest omitted.
 
-/**
- * serializeAws_json1_1EncryptionKey
- */
-const se_EncryptionKey = (input: EncryptionKey, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_EncryptionKey omitted.
 
-/**
- * serializeAws_json1_1GetParallelDataRequest
- */
-const se_GetParallelDataRequest = (input: GetParallelDataRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_GetParallelDataRequest omitted.
 
-/**
- * serializeAws_json1_1GetTerminologyRequest
- */
-const se_GetTerminologyRequest = (input: GetTerminologyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.TerminologyDataFormat != null && { TerminologyDataFormat: input.TerminologyDataFormat }),
-  };
-};
+// se_GetTerminologyRequest omitted.
 
 /**
  * serializeAws_json1_1ImportTerminologyRequest
  */
 const se_ImportTerminologyRequest = (input: ImportTerminologyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EncryptionKey != null && { EncryptionKey: se_EncryptionKey(input.EncryptionKey, context) }),
-    ...(input.MergeStrategy != null && { MergeStrategy: input.MergeStrategy }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.TerminologyData != null && { TerminologyData: se_TerminologyData(input.TerminologyData, context) }),
-  };
+  return take(input, {
+    Description: [],
+    EncryptionKey: _json,
+    MergeStrategy: [],
+    Name: [],
+    Tags: _json,
+    TerminologyData: (_) => se_TerminologyData(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1InputDataConfig
- */
-const se_InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentType != null && { ContentType: input.ContentType }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_InputDataConfig omitted.
 
-/**
- * serializeAws_json1_1ListLanguagesRequest
- */
-const se_ListLanguagesRequest = (input: ListLanguagesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DisplayLanguageCode != null && { DisplayLanguageCode: input.DisplayLanguageCode }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListLanguagesRequest omitted.
 
-/**
- * serializeAws_json1_1ListParallelDataRequest
- */
-const se_ListParallelDataRequest = (input: ListParallelDataRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListParallelDataRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1ListTerminologiesRequest
- */
-const se_ListTerminologiesRequest = (input: ListTerminologiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListTerminologiesRequest omitted.
 
 /**
  * serializeAws_json1_1ListTextTranslationJobsRequest
  */
 const se_ListTextTranslationJobsRequest = (input: ListTextTranslationJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_TextTranslationJobFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_TextTranslationJobFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1OutputDataConfig
- */
-const se_OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionKey != null && { EncryptionKey: se_EncryptionKey(input.EncryptionKey, context) }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_OutputDataConfig omitted.
 
-/**
- * serializeAws_json1_1ParallelDataConfig
- */
-const se_ParallelDataConfig = (input: ParallelDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_ParallelDataConfig omitted.
 
-/**
- * serializeAws_json1_1ResourceNameList
- */
-const se_ResourceNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceNameList omitted.
 
 /**
  * serializeAws_json1_1StartTextTranslationJobRequest
  */
 const se_StartTextTranslationJobRequest = (input: StartTextTranslationJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-    ...(input.ParallelDataNames != null && {
-      ParallelDataNames: se_ResourceNameList(input.ParallelDataNames, context),
-    }),
-    ...(input.Settings != null && { Settings: se_TranslationSettings(input.Settings, context) }),
-    ...(input.SourceLanguageCode != null && { SourceLanguageCode: input.SourceLanguageCode }),
-    ...(input.TargetLanguageCodes != null && {
-      TargetLanguageCodes: se_TargetLanguageCodeStringList(input.TargetLanguageCodes, context),
-    }),
-    ...(input.TerminologyNames != null && { TerminologyNames: se_ResourceNameList(input.TerminologyNames, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    InputDataConfig: _json,
+    JobName: [],
+    OutputDataConfig: _json,
+    ParallelDataNames: _json,
+    Settings: _json,
+    SourceLanguageCode: [],
+    TargetLanguageCodes: _json,
+    TerminologyNames: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1StopTextTranslationJobRequest
- */
-const se_StopTextTranslationJobRequest = (input: StopTextTranslationJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_StopTextTranslationJobRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1TargetLanguageCodeStringList
- */
-const se_TargetLanguageCodeStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TargetLanguageCodeStringList omitted.
 
 /**
  * serializeAws_json1_1TerminologyData
  */
 const se_TerminologyData = (input: TerminologyData, context: __SerdeContext): any => {
-  return {
-    ...(input.Directionality != null && { Directionality: input.Directionality }),
-    ...(input.File != null && { File: context.base64Encoder(input.File) }),
-    ...(input.Format != null && { Format: input.Format }),
-  };
+  return take(input, {
+    Directionality: [],
+    File: context.base64Encoder,
+    Format: [],
+  });
 };
 
 /**
  * serializeAws_json1_1TextTranslationJobFilter
  */
 const se_TextTranslationJobFilter = (input: TextTranslationJobFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.SubmittedAfterTime != null && {
-      SubmittedAfterTime: Math.round(input.SubmittedAfterTime.getTime() / 1000),
-    }),
-    ...(input.SubmittedBeforeTime != null && {
-      SubmittedBeforeTime: Math.round(input.SubmittedBeforeTime.getTime() / 1000),
-    }),
-  };
+  return take(input, {
+    JobName: [],
+    JobStatus: [],
+    SubmittedAfterTime: (_) => Math.round(_.getTime() / 1000),
+    SubmittedBeforeTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1TranslateTextRequest
- */
-const se_TranslateTextRequest = (input: TranslateTextRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Settings != null && { Settings: se_TranslationSettings(input.Settings, context) }),
-    ...(input.SourceLanguageCode != null && { SourceLanguageCode: input.SourceLanguageCode }),
-    ...(input.TargetLanguageCode != null && { TargetLanguageCode: input.TargetLanguageCode }),
-    ...(input.TerminologyNames != null && { TerminologyNames: se_ResourceNameList(input.TerminologyNames, context) }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_TranslateTextRequest omitted.
 
-/**
- * serializeAws_json1_1TranslationSettings
- */
-const se_TranslationSettings = (input: TranslationSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.Formality != null && { Formality: input.Formality }),
-    ...(input.Profanity != null && { Profanity: input.Profanity }),
-  };
-};
+// se_TranslationSettings omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateParallelDataRequest
  */
 const se_UpdateParallelDataRequest = (input: UpdateParallelDataRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParallelDataConfig != null && {
-      ParallelDataConfig: se_ParallelDataConfig(input.ParallelDataConfig, context),
-    }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    Name: [],
+    ParallelDataConfig: _json,
+  });
 };
 
-/**
- * deserializeAws_json1_1AppliedTerminology
- */
-const de_AppliedTerminology = (output: any, context: __SerdeContext): AppliedTerminology => {
-  return {
-    Name: __expectString(output.Name),
-    Terms: output.Terms != null ? de_TermList(output.Terms, context) : undefined,
-  } as any;
-};
+// de_AppliedTerminology omitted.
 
-/**
- * deserializeAws_json1_1AppliedTerminologyList
- */
-const de_AppliedTerminologyList = (output: any, context: __SerdeContext): AppliedTerminology[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppliedTerminology(entry, context);
-    });
-  return retVal;
-};
+// de_AppliedTerminologyList omitted.
 
-/**
- * deserializeAws_json1_1ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_1CreateParallelDataResponse
- */
-const de_CreateParallelDataResponse = (output: any, context: __SerdeContext): CreateParallelDataResponse => {
-  return {
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_CreateParallelDataResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteParallelDataResponse
- */
-const de_DeleteParallelDataResponse = (output: any, context: __SerdeContext): DeleteParallelDataResponse => {
-  return {
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DeleteParallelDataResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeTextTranslationJobResponse
@@ -2043,321 +1760,131 @@ const de_DescribeTextTranslationJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTextTranslationJobResponse => {
-  return {
-    TextTranslationJobProperties:
-      output.TextTranslationJobProperties != null
-        ? de_TextTranslationJobProperties(output.TextTranslationJobProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    TextTranslationJobProperties: (_: any) => de_TextTranslationJobProperties(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DetectedLanguageLowConfidenceException
- */
-const de_DetectedLanguageLowConfidenceException = (
-  output: any,
-  context: __SerdeContext
-): DetectedLanguageLowConfidenceException => {
-  return {
-    DetectedLanguageCode: __expectString(output.DetectedLanguageCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DetectedLanguageLowConfidenceException omitted.
 
-/**
- * deserializeAws_json1_1EncryptionKey
- */
-const de_EncryptionKey = (output: any, context: __SerdeContext): EncryptionKey => {
-  return {
-    Id: __expectString(output.Id),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_EncryptionKey omitted.
 
 /**
  * deserializeAws_json1_1GetParallelDataResponse
  */
 const de_GetParallelDataResponse = (output: any, context: __SerdeContext): GetParallelDataResponse => {
-  return {
-    AuxiliaryDataLocation:
-      output.AuxiliaryDataLocation != null
-        ? de_ParallelDataDataLocation(output.AuxiliaryDataLocation, context)
-        : undefined,
-    DataLocation: output.DataLocation != null ? de_ParallelDataDataLocation(output.DataLocation, context) : undefined,
-    LatestUpdateAttemptAuxiliaryDataLocation:
-      output.LatestUpdateAttemptAuxiliaryDataLocation != null
-        ? de_ParallelDataDataLocation(output.LatestUpdateAttemptAuxiliaryDataLocation, context)
-        : undefined,
-    ParallelDataProperties:
-      output.ParallelDataProperties != null
-        ? de_ParallelDataProperties(output.ParallelDataProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AuxiliaryDataLocation: _json,
+    DataLocation: _json,
+    LatestUpdateAttemptAuxiliaryDataLocation: _json,
+    ParallelDataProperties: (_: any) => de_ParallelDataProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetTerminologyResponse
  */
 const de_GetTerminologyResponse = (output: any, context: __SerdeContext): GetTerminologyResponse => {
-  return {
-    AuxiliaryDataLocation:
-      output.AuxiliaryDataLocation != null
-        ? de_TerminologyDataLocation(output.AuxiliaryDataLocation, context)
-        : undefined,
-    TerminologyDataLocation:
-      output.TerminologyDataLocation != null
-        ? de_TerminologyDataLocation(output.TerminologyDataLocation, context)
-        : undefined,
-    TerminologyProperties:
-      output.TerminologyProperties != null
-        ? de_TerminologyProperties(output.TerminologyProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AuxiliaryDataLocation: _json,
+    TerminologyDataLocation: _json,
+    TerminologyProperties: (_: any) => de_TerminologyProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ImportTerminologyResponse
  */
 const de_ImportTerminologyResponse = (output: any, context: __SerdeContext): ImportTerminologyResponse => {
-  return {
-    AuxiliaryDataLocation:
-      output.AuxiliaryDataLocation != null
-        ? de_TerminologyDataLocation(output.AuxiliaryDataLocation, context)
-        : undefined,
-    TerminologyProperties:
-      output.TerminologyProperties != null
-        ? de_TerminologyProperties(output.TerminologyProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AuxiliaryDataLocation: _json,
+    TerminologyProperties: (_: any) => de_TerminologyProperties(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InputDataConfig
- */
-const de_InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  return {
-    ContentType: __expectString(output.ContentType),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_InputDataConfig omitted.
 
-/**
- * deserializeAws_json1_1InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_1InvalidFilterException
- */
-const de_InvalidFilterException = (output: any, context: __SerdeContext): InvalidFilterException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidFilterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterValueException
- */
-const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidParameterValueException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
-/**
- * deserializeAws_json1_1JobDetails
- */
-const de_JobDetails = (output: any, context: __SerdeContext): JobDetails => {
-  return {
-    DocumentsWithErrorsCount: __expectInt32(output.DocumentsWithErrorsCount),
-    InputDocumentsCount: __expectInt32(output.InputDocumentsCount),
-    TranslatedDocumentsCount: __expectInt32(output.TranslatedDocumentsCount),
-  } as any;
-};
+// de_JobDetails omitted.
 
-/**
- * deserializeAws_json1_1Language
- */
-const de_Language = (output: any, context: __SerdeContext): Language => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LanguageName: __expectString(output.LanguageName),
-  } as any;
-};
+// de_Language omitted.
 
-/**
- * deserializeAws_json1_1LanguageCodeStringList
- */
-const de_LanguageCodeStringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LanguageCodeStringList omitted.
 
-/**
- * deserializeAws_json1_1LanguagesList
- */
-const de_LanguagesList = (output: any, context: __SerdeContext): Language[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Language(entry, context);
-    });
-  return retVal;
-};
+// de_LanguagesList omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListLanguagesResponse
- */
-const de_ListLanguagesResponse = (output: any, context: __SerdeContext): ListLanguagesResponse => {
-  return {
-    DisplayLanguageCode: __expectString(output.DisplayLanguageCode),
-    Languages: output.Languages != null ? de_LanguagesList(output.Languages, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListLanguagesResponse omitted.
 
 /**
  * deserializeAws_json1_1ListParallelDataResponse
  */
 const de_ListParallelDataResponse = (output: any, context: __SerdeContext): ListParallelDataResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ParallelDataPropertiesList:
-      output.ParallelDataPropertiesList != null
-        ? de_ParallelDataPropertiesList(output.ParallelDataPropertiesList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ParallelDataPropertiesList: (_: any) => de_ParallelDataPropertiesList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1ListTerminologiesResponse
  */
 const de_ListTerminologiesResponse = (output: any, context: __SerdeContext): ListTerminologiesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    TerminologyPropertiesList:
-      output.TerminologyPropertiesList != null
-        ? de_TerminologyPropertiesList(output.TerminologyPropertiesList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    TerminologyPropertiesList: (_: any) => de_TerminologyPropertiesList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListTextTranslationJobsResponse
  */
 const de_ListTextTranslationJobsResponse = (output: any, context: __SerdeContext): ListTextTranslationJobsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    TextTranslationJobPropertiesList:
-      output.TextTranslationJobPropertiesList != null
-        ? de_TextTranslationJobPropertiesList(output.TextTranslationJobPropertiesList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    TextTranslationJobPropertiesList: (_: any) => de_TextTranslationJobPropertiesList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1OutputDataConfig
- */
-const de_OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
-  return {
-    EncryptionKey: output.EncryptionKey != null ? de_EncryptionKey(output.EncryptionKey, context) : undefined,
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_OutputDataConfig omitted.
 
-/**
- * deserializeAws_json1_1ParallelDataConfig
- */
-const de_ParallelDataConfig = (output: any, context: __SerdeContext): ParallelDataConfig => {
-  return {
-    Format: __expectString(output.Format),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_ParallelDataConfig omitted.
 
-/**
- * deserializeAws_json1_1ParallelDataDataLocation
- */
-const de_ParallelDataDataLocation = (output: any, context: __SerdeContext): ParallelDataDataLocation => {
-  return {
-    Location: __expectString(output.Location),
-    RepositoryType: __expectString(output.RepositoryType),
-  } as any;
-};
+// de_ParallelDataDataLocation omitted.
 
 /**
  * deserializeAws_json1_1ParallelDataProperties
  */
 const de_ParallelDataProperties = (output: any, context: __SerdeContext): ParallelDataProperties => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Description: __expectString(output.Description),
-    EncryptionKey: output.EncryptionKey != null ? de_EncryptionKey(output.EncryptionKey, context) : undefined,
-    FailedRecordCount: __expectLong(output.FailedRecordCount),
-    ImportedDataSize: __expectLong(output.ImportedDataSize),
-    ImportedRecordCount: __expectLong(output.ImportedRecordCount),
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    LatestUpdateAttemptAt:
-      output.LatestUpdateAttemptAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestUpdateAttemptAt)))
-        : undefined,
-    LatestUpdateAttemptStatus: __expectString(output.LatestUpdateAttemptStatus),
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    ParallelDataConfig:
-      output.ParallelDataConfig != null ? de_ParallelDataConfig(output.ParallelDataConfig, context) : undefined,
-    SkippedRecordCount: __expectLong(output.SkippedRecordCount),
-    SourceLanguageCode: __expectString(output.SourceLanguageCode),
-    Status: __expectString(output.Status),
-    TargetLanguageCodes:
-      output.TargetLanguageCodes != null ? de_LanguageCodeStringList(output.TargetLanguageCodes, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EncryptionKey: _json,
+    FailedRecordCount: __expectLong,
+    ImportedDataSize: __expectLong,
+    ImportedRecordCount: __expectLong,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestUpdateAttemptAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestUpdateAttemptStatus: __expectString,
+    Message: __expectString,
+    Name: __expectString,
+    ParallelDataConfig: _json,
+    SkippedRecordCount: __expectLong,
+    SourceLanguageCode: __expectString,
+    Status: __expectString,
+    TargetLanguageCodes: _json,
+  }) as any;
 };
 
 /**
@@ -2367,159 +1894,53 @@ const de_ParallelDataPropertiesList = (output: any, context: __SerdeContext): Pa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ParallelDataProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ResourceNameList
- */
-const de_ResourceNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceNameList omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ServiceUnavailableException
- */
-const de_ServiceUnavailableException = (output: any, context: __SerdeContext): ServiceUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1StartTextTranslationJobResponse
- */
-const de_StartTextTranslationJobResponse = (output: any, context: __SerdeContext): StartTextTranslationJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartTextTranslationJobResponse omitted.
 
-/**
- * deserializeAws_json1_1StopTextTranslationJobResponse
- */
-const de_StopTextTranslationJobResponse = (output: any, context: __SerdeContext): StopTextTranslationJobResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StopTextTranslationJobResponse omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TargetLanguageCodeStringList
- */
-const de_TargetLanguageCodeStringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TargetLanguageCodeStringList omitted.
 
-/**
- * deserializeAws_json1_1Term
- */
-const de_Term = (output: any, context: __SerdeContext): Term => {
-  return {
-    SourceText: __expectString(output.SourceText),
-    TargetText: __expectString(output.TargetText),
-  } as any;
-};
+// de_Term omitted.
 
-/**
- * deserializeAws_json1_1TerminologyDataLocation
- */
-const de_TerminologyDataLocation = (output: any, context: __SerdeContext): TerminologyDataLocation => {
-  return {
-    Location: __expectString(output.Location),
-    RepositoryType: __expectString(output.RepositoryType),
-  } as any;
-};
+// de_TerminologyDataLocation omitted.
 
 /**
  * deserializeAws_json1_1TerminologyProperties
  */
 const de_TerminologyProperties = (output: any, context: __SerdeContext): TerminologyProperties => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Description: __expectString(output.Description),
-    Directionality: __expectString(output.Directionality),
-    EncryptionKey: output.EncryptionKey != null ? de_EncryptionKey(output.EncryptionKey, context) : undefined,
-    Format: __expectString(output.Format),
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-    SizeBytes: __expectInt32(output.SizeBytes),
-    SkippedTermCount: __expectInt32(output.SkippedTermCount),
-    SourceLanguageCode: __expectString(output.SourceLanguageCode),
-    TargetLanguageCodes:
-      output.TargetLanguageCodes != null ? de_LanguageCodeStringList(output.TargetLanguageCodes, context) : undefined,
-    TermCount: __expectInt32(output.TermCount),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Directionality: __expectString,
+    EncryptionKey: _json,
+    Format: __expectString,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Name: __expectString,
+    SizeBytes: __expectInt32,
+    SkippedTermCount: __expectInt32,
+    SourceLanguageCode: __expectString,
+    TargetLanguageCodes: _json,
+    TermCount: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -2529,69 +1950,36 @@ const de_TerminologyPropertiesList = (output: any, context: __SerdeContext): Ter
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TerminologyProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1TermList
- */
-const de_TermList = (output: any, context: __SerdeContext): Term[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Term(entry, context);
-    });
-  return retVal;
-};
+// de_TermList omitted.
 
-/**
- * deserializeAws_json1_1TextSizeLimitExceededException
- */
-const de_TextSizeLimitExceededException = (output: any, context: __SerdeContext): TextSizeLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TextSizeLimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1TextTranslationJobProperties
  */
 const de_TextTranslationJobProperties = (output: any, context: __SerdeContext): TextTranslationJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    InputDataConfig: output.InputDataConfig != null ? de_InputDataConfig(output.InputDataConfig, context) : undefined,
-    JobDetails: output.JobDetails != null ? de_JobDetails(output.JobDetails, context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    Message: __expectString(output.Message),
-    OutputDataConfig:
-      output.OutputDataConfig != null ? de_OutputDataConfig(output.OutputDataConfig, context) : undefined,
-    ParallelDataNames:
-      output.ParallelDataNames != null ? de_ResourceNameList(output.ParallelDataNames, context) : undefined,
-    Settings: output.Settings != null ? de_TranslationSettings(output.Settings, context) : undefined,
-    SourceLanguageCode: __expectString(output.SourceLanguageCode),
-    SubmittedTime:
-      output.SubmittedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedTime)))
-        : undefined,
-    TargetLanguageCodes:
-      output.TargetLanguageCodes != null
-        ? de_TargetLanguageCodeStringList(output.TargetLanguageCodes, context)
-        : undefined,
-    TerminologyNames:
-      output.TerminologyNames != null ? de_ResourceNameList(output.TerminologyNames, context) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: _json,
+    JobDetails: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    Message: __expectString,
+    OutputDataConfig: _json,
+    ParallelDataNames: _json,
+    Settings: _json,
+    SourceLanguageCode: __expectString,
+    SubmittedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TargetLanguageCodes: _json,
+    TerminologyNames: _json,
+  }) as any;
 };
 
 /**
@@ -2601,105 +1989,35 @@ const de_TextTranslationJobPropertiesList = (output: any, context: __SerdeContex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TextTranslationJobProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1TooManyRequestsException
- */
-const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TooManyRequestsException omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    ResourceArn: __expectString(output.ResourceArn),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-/**
- * deserializeAws_json1_1TranslateTextResponse
- */
-const de_TranslateTextResponse = (output: any, context: __SerdeContext): TranslateTextResponse => {
-  return {
-    AppliedSettings:
-      output.AppliedSettings != null ? de_TranslationSettings(output.AppliedSettings, context) : undefined,
-    AppliedTerminologies:
-      output.AppliedTerminologies != null ? de_AppliedTerminologyList(output.AppliedTerminologies, context) : undefined,
-    SourceLanguageCode: __expectString(output.SourceLanguageCode),
-    TargetLanguageCode: __expectString(output.TargetLanguageCode),
-    TranslatedText: __expectString(output.TranslatedText),
-  } as any;
-};
+// de_TranslateTextResponse omitted.
 
-/**
- * deserializeAws_json1_1TranslationSettings
- */
-const de_TranslationSettings = (output: any, context: __SerdeContext): TranslationSettings => {
-  return {
-    Formality: __expectString(output.Formality),
-    Profanity: __expectString(output.Profanity),
-  } as any;
-};
+// de_TranslationSettings omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedDisplayLanguageCodeException
- */
-const de_UnsupportedDisplayLanguageCodeException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedDisplayLanguageCodeException => {
-  return {
-    DisplayLanguageCode: __expectString(output.DisplayLanguageCode),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnsupportedDisplayLanguageCodeException omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedLanguagePairException
- */
-const de_UnsupportedLanguagePairException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedLanguagePairException => {
-  return {
-    Message: __expectString(output.Message),
-    SourceLanguageCode: __expectString(output.SourceLanguageCode),
-    TargetLanguageCode: __expectString(output.TargetLanguageCode),
-  } as any;
-};
+// de_UnsupportedLanguagePairException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateParallelDataResponse
  */
 const de_UpdateParallelDataResponse = (output: any, context: __SerdeContext): UpdateParallelDataResponse => {
-  return {
-    LatestUpdateAttemptAt:
-      output.LatestUpdateAttemptAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestUpdateAttemptAt)))
-        : undefined,
-    LatestUpdateAttemptStatus: __expectString(output.LatestUpdateAttemptStatus),
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    LatestUpdateAttemptAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestUpdateAttemptStatus: __expectString,
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2722,6 +2040,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

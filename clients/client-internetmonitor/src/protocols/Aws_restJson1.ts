@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -9,10 +10,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -47,9 +49,6 @@ import {
   InternetHealth,
   InternetMeasurementsLogDelivery,
   LimitExceededException,
-  Monitor,
-  Network,
-  NetworkImpairment,
   NotFoundException,
   PerformanceMeasurement,
   ResourceNotFoundException,
@@ -73,19 +72,16 @@ export const se_CreateMonitorCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.InternetMeasurementsLogDelivery != null && {
-      InternetMeasurementsLogDelivery: se_InternetMeasurementsLogDelivery(
-        input.InternetMeasurementsLogDelivery,
-        context
-      ),
-    }),
-    ...(input.MaxCityNetworksToMonitor != null && { MaxCityNetworksToMonitor: input.MaxCityNetworksToMonitor }),
-    ...(input.MonitorName != null && { MonitorName: input.MonitorName }),
-    ...(input.Resources != null && { Resources: se_SetOfARNs(input.Resources, context) }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      InternetMeasurementsLogDelivery: (_) => _json(_),
+      MaxCityNetworksToMonitor: [],
+      MonitorName: [],
+      Resources: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -272,9 +268,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -331,19 +329,16 @@ export const se_UpdateMonitorCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors/{MonitorName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.InternetMeasurementsLogDelivery != null && {
-      InternetMeasurementsLogDelivery: se_InternetMeasurementsLogDelivery(
-        input.InternetMeasurementsLogDelivery,
-        context
-      ),
-    }),
-    ...(input.MaxCityNetworksToMonitor != null && { MaxCityNetworksToMonitor: input.MaxCityNetworksToMonitor }),
-    ...(input.ResourcesToAdd != null && { ResourcesToAdd: se_SetOfARNs(input.ResourcesToAdd, context) }),
-    ...(input.ResourcesToRemove != null && { ResourcesToRemove: se_SetOfARNs(input.ResourcesToRemove, context) }),
-    ...(input.Status != null && { Status: input.Status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      InternetMeasurementsLogDelivery: (_) => _json(_),
+      MaxCityNetworksToMonitor: [],
+      ResourcesToAdd: (_) => _json(_),
+      ResourcesToRemove: (_) => _json(_),
+      Status: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -369,12 +364,11 @@ export const de_CreateMonitorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -411,10 +405,9 @@ const de_CreateMonitorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -464,10 +457,9 @@ const de_DeleteMonitorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -487,36 +479,19 @@ export const de_GetHealthEventCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.EndedAt != null) {
-    contents.EndedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.EndedAt));
-  }
-  if (data.EventArn != null) {
-    contents.EventArn = __expectString(data.EventArn);
-  }
-  if (data.EventId != null) {
-    contents.EventId = __expectString(data.EventId);
-  }
-  if (data.ImpactType != null) {
-    contents.ImpactType = __expectString(data.ImpactType);
-  }
-  if (data.ImpactedLocations != null) {
-    contents.ImpactedLocations = de_ImpactedLocationsList(data.ImpactedLocations, context);
-  }
-  if (data.LastUpdatedAt != null) {
-    contents.LastUpdatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastUpdatedAt));
-  }
-  if (data.PercentOfTotalTrafficImpacted != null) {
-    contents.PercentOfTotalTrafficImpacted = __limitedParseDouble(data.PercentOfTotalTrafficImpacted);
-  }
-  if (data.StartedAt != null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.StartedAt));
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EndedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EventArn: __expectString,
+    EventId: __expectString,
+    ImpactType: __expectString,
+    ImpactedLocations: (_) => de_ImpactedLocationsList(_, context),
+    LastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    PercentOfTotalTrafficImpacted: __limitedParseDouble,
+    StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -547,10 +522,9 @@ const de_GetHealthEventCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -570,42 +544,20 @@ export const de_GetMonitorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
-  }
-  if (data.InternetMeasurementsLogDelivery != null) {
-    contents.InternetMeasurementsLogDelivery = de_InternetMeasurementsLogDelivery(
-      data.InternetMeasurementsLogDelivery,
-      context
-    );
-  }
-  if (data.MaxCityNetworksToMonitor != null) {
-    contents.MaxCityNetworksToMonitor = __expectInt32(data.MaxCityNetworksToMonitor);
-  }
-  if (data.ModifiedAt != null) {
-    contents.ModifiedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.ModifiedAt));
-  }
-  if (data.MonitorArn != null) {
-    contents.MonitorArn = __expectString(data.MonitorArn);
-  }
-  if (data.MonitorName != null) {
-    contents.MonitorName = __expectString(data.MonitorName);
-  }
-  if (data.ProcessingStatus != null) {
-    contents.ProcessingStatus = __expectString(data.ProcessingStatus);
-  }
-  if (data.ProcessingStatusInfo != null) {
-    contents.ProcessingStatusInfo = __expectString(data.ProcessingStatusInfo);
-  }
-  if (data.Resources != null) {
-    contents.Resources = de_SetOfARNs(data.Resources, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    InternetMeasurementsLogDelivery: _json,
+    MaxCityNetworksToMonitor: __expectInt32,
+    ModifiedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MonitorArn: __expectString,
+    MonitorName: __expectString,
+    ProcessingStatus: __expectString,
+    ProcessingStatusInfo: __expectString,
+    Resources: _json,
+    Status: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -636,10 +588,9 @@ const de_GetMonitorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -659,12 +610,11 @@ export const de_ListHealthEventsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HealthEvents != null) {
-    contents.HealthEvents = de_HealthEventList(data.HealthEvents, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    HealthEvents: (_) => de_HealthEventList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -695,10 +645,9 @@ const de_ListHealthEventsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -718,12 +667,11 @@ export const de_ListMonitorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Monitors != null) {
-    contents.Monitors = de_MonitorList(data.Monitors, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Monitors: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -754,10 +702,9 @@ const de_ListMonitorsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -777,9 +724,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -813,10 +761,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -869,10 +816,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -925,10 +871,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -948,12 +893,11 @@ export const de_UpdateMonitorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MonitorArn != null) {
-    contents.MonitorArn = __expectString(data.MonitorArn);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    MonitorArn: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -990,16 +934,15 @@ const de_UpdateMonitorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1009,9 +952,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1025,9 +969,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1041,9 +986,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1060,9 +1006,10 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1079,9 +1026,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1098,9 +1046,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1114,9 +1063,10 @@ const de_LimitExceededExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1133,9 +1083,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1149,9 +1100,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1168,9 +1120,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1184,9 +1137,10 @@ const de_TooManyRequestsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1194,83 +1148,41 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1InternetMeasurementsLogDelivery
- */
-const se_InternetMeasurementsLogDelivery = (input: InternetMeasurementsLogDelivery, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Config != null && { S3Config: se_S3Config(input.S3Config, context) }),
-  };
-};
+// se_InternetMeasurementsLogDelivery omitted.
 
-/**
- * serializeAws_restJson1S3Config
- */
-const se_S3Config = (input: S3Config, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketName != null && { BucketName: input.BucketName }),
-    ...(input.BucketPrefix != null && { BucketPrefix: input.BucketPrefix }),
-    ...(input.LogDeliveryStatus != null && { LogDeliveryStatus: input.LogDeliveryStatus }),
-  };
-};
+// se_S3Config omitted.
 
-/**
- * serializeAws_restJson1SetOfARNs
- */
-const se_SetOfARNs = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SetOfARNs omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
 /**
  * deserializeAws_restJson1AvailabilityMeasurement
  */
 const de_AvailabilityMeasurement = (output: any, context: __SerdeContext): AvailabilityMeasurement => {
-  return {
-    ExperienceScore: __limitedParseDouble(output.ExperienceScore),
-    PercentOfClientLocationImpacted: __limitedParseDouble(output.PercentOfClientLocationImpacted),
-    PercentOfTotalTrafficImpacted: __limitedParseDouble(output.PercentOfTotalTrafficImpacted),
-  } as any;
+  return take(output, {
+    ExperienceScore: __limitedParseDouble,
+    PercentOfClientLocationImpacted: __limitedParseDouble,
+    PercentOfTotalTrafficImpacted: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1HealthEvent
  */
 const de_HealthEvent = (output: any, context: __SerdeContext): HealthEvent => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedAt)) : undefined,
-    EndedAt: output.EndedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.EndedAt)) : undefined,
-    EventArn: __expectString(output.EventArn),
-    EventId: __expectString(output.EventId),
-    ImpactType: __expectString(output.ImpactType),
-    ImpactedLocations:
-      output.ImpactedLocations != null ? de_ImpactedLocationsList(output.ImpactedLocations, context) : undefined,
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdatedAt))
-        : undefined,
-    PercentOfTotalTrafficImpacted: __limitedParseDouble(output.PercentOfTotalTrafficImpacted),
-    StartedAt:
-      output.StartedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartedAt)) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EndedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EventArn: __expectString,
+    EventId: __expectString,
+    ImpactType: __expectString,
+    ImpactedLocations: (_: any) => de_ImpactedLocationsList(_, context),
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    PercentOfTotalTrafficImpacted: __limitedParseDouble,
+    StartedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -1280,9 +1192,6 @@ const de_HealthEventList = (output: any, context: __SerdeContext): HealthEvent[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_HealthEvent(entry, context);
     });
   return retVal;
@@ -1292,22 +1201,22 @@ const de_HealthEventList = (output: any, context: __SerdeContext): HealthEvent[]
  * deserializeAws_restJson1ImpactedLocation
  */
 const de_ImpactedLocation = (output: any, context: __SerdeContext): ImpactedLocation => {
-  return {
-    ASName: __expectString(output.ASName),
-    ASNumber: __expectLong(output.ASNumber),
-    CausedBy: output.CausedBy != null ? de_NetworkImpairment(output.CausedBy, context) : undefined,
-    City: __expectString(output.City),
-    Country: __expectString(output.Country),
-    CountryCode: __expectString(output.CountryCode),
-    InternetHealth: output.InternetHealth != null ? de_InternetHealth(output.InternetHealth, context) : undefined,
-    Latitude: __limitedParseDouble(output.Latitude),
-    Longitude: __limitedParseDouble(output.Longitude),
-    Metro: __expectString(output.Metro),
-    ServiceLocation: __expectString(output.ServiceLocation),
-    Status: __expectString(output.Status),
-    Subdivision: __expectString(output.Subdivision),
-    SubdivisionCode: __expectString(output.SubdivisionCode),
-  } as any;
+  return take(output, {
+    ASName: __expectString,
+    ASNumber: __expectLong,
+    CausedBy: _json,
+    City: __expectString,
+    Country: __expectString,
+    CountryCode: __expectString,
+    InternetHealth: (_: any) => de_InternetHealth(_, context),
+    Latitude: __limitedParseDouble,
+    Longitude: __limitedParseDouble,
+    Metro: __expectString,
+    ServiceLocation: __expectString,
+    Status: __expectString,
+    Subdivision: __expectString,
+    SubdivisionCode: __expectString,
+  }) as any;
 };
 
 /**
@@ -1317,9 +1226,6 @@ const de_ImpactedLocationsList = (output: any, context: __SerdeContext): Impacte
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ImpactedLocation(entry, context);
     });
   return retVal;
@@ -1329,145 +1235,52 @@ const de_ImpactedLocationsList = (output: any, context: __SerdeContext): Impacte
  * deserializeAws_restJson1InternetHealth
  */
 const de_InternetHealth = (output: any, context: __SerdeContext): InternetHealth => {
-  return {
-    Availability: output.Availability != null ? de_AvailabilityMeasurement(output.Availability, context) : undefined,
-    Performance: output.Performance != null ? de_PerformanceMeasurement(output.Performance, context) : undefined,
-  } as any;
+  return take(output, {
+    Availability: (_: any) => de_AvailabilityMeasurement(_, context),
+    Performance: (_: any) => de_PerformanceMeasurement(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1InternetMeasurementsLogDelivery
- */
-const de_InternetMeasurementsLogDelivery = (output: any, context: __SerdeContext): InternetMeasurementsLogDelivery => {
-  return {
-    S3Config: output.S3Config != null ? de_S3Config(output.S3Config, context) : undefined,
-  } as any;
-};
+// de_InternetMeasurementsLogDelivery omitted.
 
-/**
- * deserializeAws_restJson1Monitor
- */
-const de_Monitor = (output: any, context: __SerdeContext): Monitor => {
-  return {
-    MonitorArn: __expectString(output.MonitorArn),
-    MonitorName: __expectString(output.MonitorName),
-    ProcessingStatus: __expectString(output.ProcessingStatus),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_Monitor omitted.
 
-/**
- * deserializeAws_restJson1MonitorList
- */
-const de_MonitorList = (output: any, context: __SerdeContext): Monitor[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Monitor(entry, context);
-    });
-  return retVal;
-};
+// de_MonitorList omitted.
 
-/**
- * deserializeAws_restJson1Network
- */
-const de_Network = (output: any, context: __SerdeContext): Network => {
-  return {
-    ASName: __expectString(output.ASName),
-    ASNumber: __expectLong(output.ASNumber),
-  } as any;
-};
+// de_Network omitted.
 
-/**
- * deserializeAws_restJson1NetworkImpairment
- */
-const de_NetworkImpairment = (output: any, context: __SerdeContext): NetworkImpairment => {
-  return {
-    AsPath: output.AsPath != null ? de_NetworkList(output.AsPath, context) : undefined,
-    NetworkEventType: __expectString(output.NetworkEventType),
-    Networks: output.Networks != null ? de_NetworkList(output.Networks, context) : undefined,
-  } as any;
-};
+// de_NetworkImpairment omitted.
 
-/**
- * deserializeAws_restJson1NetworkList
- */
-const de_NetworkList = (output: any, context: __SerdeContext): Network[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Network(entry, context);
-    });
-  return retVal;
-};
+// de_NetworkList omitted.
 
 /**
  * deserializeAws_restJson1PerformanceMeasurement
  */
 const de_PerformanceMeasurement = (output: any, context: __SerdeContext): PerformanceMeasurement => {
-  return {
-    ExperienceScore: __limitedParseDouble(output.ExperienceScore),
-    PercentOfClientLocationImpacted: __limitedParseDouble(output.PercentOfClientLocationImpacted),
-    PercentOfTotalTrafficImpacted: __limitedParseDouble(output.PercentOfTotalTrafficImpacted),
-    RoundTripTime: output.RoundTripTime != null ? de_RoundTripTime(output.RoundTripTime, context) : undefined,
-  } as any;
+  return take(output, {
+    ExperienceScore: __limitedParseDouble,
+    PercentOfClientLocationImpacted: __limitedParseDouble,
+    PercentOfTotalTrafficImpacted: __limitedParseDouble,
+    RoundTripTime: (_: any) => de_RoundTripTime(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RoundTripTime
  */
 const de_RoundTripTime = (output: any, context: __SerdeContext): RoundTripTime => {
-  return {
-    P50: __limitedParseDouble(output.P50),
-    P90: __limitedParseDouble(output.P90),
-    P95: __limitedParseDouble(output.P95),
-  } as any;
+  return take(output, {
+    P50: __limitedParseDouble,
+    P90: __limitedParseDouble,
+    P95: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1S3Config
- */
-const de_S3Config = (output: any, context: __SerdeContext): S3Config => {
-  return {
-    BucketName: __expectString(output.BucketName),
-    BucketPrefix: __expectString(output.BucketPrefix),
-    LogDeliveryStatus: __expectString(output.LogDeliveryStatus),
-  } as any;
-};
+// de_S3Config omitted.
 
-/**
- * deserializeAws_restJson1SetOfARNs
- */
-const de_SetOfARNs = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SetOfARNs omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

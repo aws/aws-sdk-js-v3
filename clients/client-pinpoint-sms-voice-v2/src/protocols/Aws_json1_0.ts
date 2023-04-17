@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -135,10 +136,7 @@ import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from ".
 import { UpdatePoolCommandInput, UpdatePoolCommandOutput } from "../commands/UpdatePoolCommand";
 import {
   AccessDeniedException,
-  AccountAttribute,
-  AccountLimit,
   AssociateOriginationIdentityRequest,
-  AssociateOriginationIdentityResult,
   CloudWatchLogsDestination,
   ConfigurationSetFilter,
   ConfigurationSetInformation,
@@ -146,7 +144,6 @@ import {
   CreateConfigurationSetRequest,
   CreateConfigurationSetResult,
   CreateEventDestinationRequest,
-  CreateEventDestinationResult,
   CreateOptOutListRequest,
   CreateOptOutListResult,
   CreatePoolRequest,
@@ -154,13 +151,9 @@ import {
   DeleteConfigurationSetRequest,
   DeleteConfigurationSetResult,
   DeleteDefaultMessageTypeRequest,
-  DeleteDefaultMessageTypeResult,
   DeleteDefaultSenderIdRequest,
-  DeleteDefaultSenderIdResult,
   DeleteEventDestinationRequest,
-  DeleteEventDestinationResult,
   DeleteKeywordRequest,
-  DeleteKeywordResult,
   DeleteOptedOutNumberRequest,
   DeleteOptedOutNumberResult,
   DeleteOptOutListRequest,
@@ -168,17 +161,12 @@ import {
   DeletePoolRequest,
   DeletePoolResult,
   DeleteTextMessageSpendLimitOverrideRequest,
-  DeleteTextMessageSpendLimitOverrideResult,
   DeleteVoiceMessageSpendLimitOverrideRequest,
-  DeleteVoiceMessageSpendLimitOverrideResult,
   DescribeAccountAttributesRequest,
-  DescribeAccountAttributesResult,
   DescribeAccountLimitsRequest,
-  DescribeAccountLimitsResult,
   DescribeConfigurationSetsRequest,
   DescribeConfigurationSetsResult,
   DescribeKeywordsRequest,
-  DescribeKeywordsResult,
   DescribeOptedOutNumbersRequest,
   DescribeOptedOutNumbersResult,
   DescribeOptOutListsRequest,
@@ -188,35 +176,24 @@ import {
   DescribePoolsRequest,
   DescribePoolsResult,
   DescribeSenderIdsRequest,
-  DescribeSenderIdsResult,
   DescribeSpendLimitsRequest,
-  DescribeSpendLimitsResult,
-  DestinationCountryParameterKey,
   DisassociateOriginationIdentityRequest,
-  DisassociateOriginationIdentityResult,
-  EventDestination,
   EventType,
   InternalServerException,
   KeywordFilter,
-  KeywordInformation,
   KinesisFirehoseDestination,
   ListPoolOriginationIdentitiesRequest,
-  ListPoolOriginationIdentitiesResult,
   ListTagsForResourceRequest,
-  ListTagsForResourceResult,
-  MessageType,
   NumberCapability,
   OptedOutFilter,
   OptedOutNumberInformation,
   OptOutListInformation,
-  OriginationIdentityMetadata,
   PhoneNumberFilter,
   PhoneNumberInformation,
   PoolFilter,
   PoolInformation,
   PoolOriginationIdentitiesFilter,
   PutKeywordRequest,
-  PutKeywordResult,
   PutOptedOutNumberRequest,
   PutOptedOutNumberResult,
   ReleasePhoneNumberRequest,
@@ -226,36 +203,24 @@ import {
   ResourceNotFoundException,
   SenderIdAndCountry,
   SenderIdFilter,
-  SenderIdInformation,
   SendTextMessageRequest,
-  SendTextMessageResult,
   SendVoiceMessageRequest,
-  SendVoiceMessageResult,
   ServiceQuotaExceededException,
   SetDefaultMessageTypeRequest,
-  SetDefaultMessageTypeResult,
   SetDefaultSenderIdRequest,
-  SetDefaultSenderIdResult,
   SetTextMessageSpendLimitOverrideRequest,
-  SetTextMessageSpendLimitOverrideResult,
   SetVoiceMessageSpendLimitOverrideRequest,
-  SetVoiceMessageSpendLimitOverrideResult,
   SnsDestination,
-  SpendLimit,
   Tag,
   TagResourceRequest,
-  TagResourceResult,
   ThrottlingException,
   UntagResourceRequest,
-  UntagResourceResult,
   UpdateEventDestinationRequest,
-  UpdateEventDestinationResult,
   UpdatePhoneNumberRequest,
   UpdatePhoneNumberResult,
   UpdatePoolRequest,
   UpdatePoolResult,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 import { PinpointSMSVoiceV2ServiceException as __BaseException } from "../models/PinpointSMSVoiceV2ServiceException";
 
@@ -333,7 +298,7 @@ export const se_DeleteConfigurationSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConfigurationSet");
   let body: any;
-  body = JSON.stringify(se_DeleteConfigurationSetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -346,7 +311,7 @@ export const se_DeleteDefaultMessageTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDefaultMessageType");
   let body: any;
-  body = JSON.stringify(se_DeleteDefaultMessageTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -359,7 +324,7 @@ export const se_DeleteDefaultSenderIdCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDefaultSenderId");
   let body: any;
-  body = JSON.stringify(se_DeleteDefaultSenderIdRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -372,7 +337,7 @@ export const se_DeleteEventDestinationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEventDestination");
   let body: any;
-  body = JSON.stringify(se_DeleteEventDestinationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -385,7 +350,7 @@ export const se_DeleteKeywordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteKeyword");
   let body: any;
-  body = JSON.stringify(se_DeleteKeywordRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -398,7 +363,7 @@ export const se_DeleteOptedOutNumberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteOptedOutNumber");
   let body: any;
-  body = JSON.stringify(se_DeleteOptedOutNumberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -411,7 +376,7 @@ export const se_DeleteOptOutListCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteOptOutList");
   let body: any;
-  body = JSON.stringify(se_DeleteOptOutListRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -424,7 +389,7 @@ export const se_DeletePoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePool");
   let body: any;
-  body = JSON.stringify(se_DeletePoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -437,7 +402,7 @@ export const se_DeleteTextMessageSpendLimitOverrideCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTextMessageSpendLimitOverride");
   let body: any;
-  body = JSON.stringify(se_DeleteTextMessageSpendLimitOverrideRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -450,7 +415,7 @@ export const se_DeleteVoiceMessageSpendLimitOverrideCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteVoiceMessageSpendLimitOverride");
   let body: any;
-  body = JSON.stringify(se_DeleteVoiceMessageSpendLimitOverrideRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -463,7 +428,7 @@ export const se_DescribeAccountAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccountAttributes");
   let body: any;
-  body = JSON.stringify(se_DescribeAccountAttributesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -476,7 +441,7 @@ export const se_DescribeAccountLimitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccountLimits");
   let body: any;
-  body = JSON.stringify(se_DescribeAccountLimitsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -489,7 +454,7 @@ export const se_DescribeConfigurationSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConfigurationSets");
   let body: any;
-  body = JSON.stringify(se_DescribeConfigurationSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -502,7 +467,7 @@ export const se_DescribeKeywordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeKeywords");
   let body: any;
-  body = JSON.stringify(se_DescribeKeywordsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -515,7 +480,7 @@ export const se_DescribeOptedOutNumbersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeOptedOutNumbers");
   let body: any;
-  body = JSON.stringify(se_DescribeOptedOutNumbersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -528,7 +493,7 @@ export const se_DescribeOptOutListsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeOptOutLists");
   let body: any;
-  body = JSON.stringify(se_DescribeOptOutListsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -541,7 +506,7 @@ export const se_DescribePhoneNumbersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePhoneNumbers");
   let body: any;
-  body = JSON.stringify(se_DescribePhoneNumbersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -554,7 +519,7 @@ export const se_DescribePoolsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePools");
   let body: any;
-  body = JSON.stringify(se_DescribePoolsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -567,7 +532,7 @@ export const se_DescribeSenderIdsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSenderIds");
   let body: any;
-  body = JSON.stringify(se_DescribeSenderIdsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -580,7 +545,7 @@ export const se_DescribeSpendLimitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSpendLimits");
   let body: any;
-  body = JSON.stringify(se_DescribeSpendLimitsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -606,7 +571,7 @@ export const se_ListPoolOriginationIdentitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPoolOriginationIdentities");
   let body: any;
-  body = JSON.stringify(se_ListPoolOriginationIdentitiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -619,7 +584,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -632,7 +597,7 @@ export const se_PutKeywordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutKeyword");
   let body: any;
-  body = JSON.stringify(se_PutKeywordRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -645,7 +610,7 @@ export const se_PutOptedOutNumberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutOptedOutNumber");
   let body: any;
-  body = JSON.stringify(se_PutOptedOutNumberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -658,7 +623,7 @@ export const se_ReleasePhoneNumberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ReleasePhoneNumber");
   let body: any;
-  body = JSON.stringify(se_ReleasePhoneNumberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -684,7 +649,7 @@ export const se_SendTextMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendTextMessage");
   let body: any;
-  body = JSON.stringify(se_SendTextMessageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -697,7 +662,7 @@ export const se_SendVoiceMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendVoiceMessage");
   let body: any;
-  body = JSON.stringify(se_SendVoiceMessageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -710,7 +675,7 @@ export const se_SetDefaultMessageTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetDefaultMessageType");
   let body: any;
-  body = JSON.stringify(se_SetDefaultMessageTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -723,7 +688,7 @@ export const se_SetDefaultSenderIdCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetDefaultSenderId");
   let body: any;
-  body = JSON.stringify(se_SetDefaultSenderIdRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -736,7 +701,7 @@ export const se_SetTextMessageSpendLimitOverrideCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetTextMessageSpendLimitOverride");
   let body: any;
-  body = JSON.stringify(se_SetTextMessageSpendLimitOverrideRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -749,7 +714,7 @@ export const se_SetVoiceMessageSpendLimitOverrideCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetVoiceMessageSpendLimitOverride");
   let body: any;
-  body = JSON.stringify(se_SetVoiceMessageSpendLimitOverrideRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -762,7 +727,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -775,7 +740,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -788,7 +753,7 @@ export const se_UpdateEventDestinationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateEventDestination");
   let body: any;
-  body = JSON.stringify(se_UpdateEventDestinationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -801,7 +766,7 @@ export const se_UpdatePhoneNumberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePhoneNumber");
   let body: any;
-  body = JSON.stringify(se_UpdatePhoneNumberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -814,7 +779,7 @@ export const se_UpdatePoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePool");
   let body: any;
-  body = JSON.stringify(se_UpdatePoolRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -830,12 +795,12 @@ export const de_AssociateOriginationIdentityCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateOriginationIdentityResult(data, context);
+  contents = _json(data);
   const response: AssociateOriginationIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -874,10 +839,9 @@ const de_AssociateOriginationIdentityCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -900,7 +864,7 @@ export const de_CreateConfigurationSetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -936,10 +900,9 @@ const de_CreateConfigurationSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -957,12 +920,12 @@ export const de_CreateEventDestinationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateEventDestinationResult(data, context);
+  contents = _json(data);
   const response: CreateEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1001,10 +964,9 @@ const de_CreateEventDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1027,7 +989,7 @@ export const de_CreateOptOutListCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1063,10 +1025,9 @@ const de_CreateOptOutListCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1089,7 +1050,7 @@ export const de_CreatePoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1128,10 +1089,9 @@ const de_CreatePoolCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1154,7 +1114,7 @@ export const de_DeleteConfigurationSetCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1187,10 +1147,9 @@ const de_DeleteConfigurationSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1208,12 +1167,12 @@ export const de_DeleteDefaultMessageTypeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDefaultMessageTypeResult(data, context);
+  contents = _json(data);
   const response: DeleteDefaultMessageTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1246,10 +1205,9 @@ const de_DeleteDefaultMessageTypeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1267,12 +1225,12 @@ export const de_DeleteDefaultSenderIdCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDefaultSenderIdResult(data, context);
+  contents = _json(data);
   const response: DeleteDefaultSenderIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1305,10 +1263,9 @@ const de_DeleteDefaultSenderIdCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1326,12 +1283,12 @@ export const de_DeleteEventDestinationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteEventDestinationResult(data, context);
+  contents = _json(data);
   const response: DeleteEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1364,10 +1321,9 @@ const de_DeleteEventDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1385,12 +1341,12 @@ export const de_DeleteKeywordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteKeywordResult(data, context);
+  contents = _json(data);
   const response: DeleteKeywordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1426,10 +1382,9 @@ const de_DeleteKeywordCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1452,7 +1407,7 @@ export const de_DeleteOptedOutNumberCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1488,10 +1443,9 @@ const de_DeleteOptedOutNumberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1514,7 +1468,7 @@ export const de_DeleteOptOutListCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1550,10 +1504,9 @@ const de_DeleteOptOutListCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1576,7 +1529,7 @@ export const de_DeletePoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1612,10 +1565,9 @@ const de_DeletePoolCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1633,12 +1585,12 @@ export const de_DeleteTextMessageSpendLimitOverrideCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteTextMessageSpendLimitOverrideResult(data, context);
+  contents = _json(data);
   const response: DeleteTextMessageSpendLimitOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1668,10 +1620,9 @@ const de_DeleteTextMessageSpendLimitOverrideCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1689,12 +1640,12 @@ export const de_DeleteVoiceMessageSpendLimitOverrideCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteVoiceMessageSpendLimitOverrideResult(data, context);
+  contents = _json(data);
   const response: DeleteVoiceMessageSpendLimitOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1724,10 +1675,9 @@ const de_DeleteVoiceMessageSpendLimitOverrideCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1745,12 +1695,12 @@ export const de_DescribeAccountAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAccountAttributesResult(data, context);
+  contents = _json(data);
   const response: DescribeAccountAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1780,10 +1730,9 @@ const de_DescribeAccountAttributesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1801,12 +1750,12 @@ export const de_DescribeAccountLimitsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAccountLimitsResult(data, context);
+  contents = _json(data);
   const response: DescribeAccountLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1836,10 +1785,9 @@ const de_DescribeAccountLimitsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1862,7 +1810,7 @@ export const de_DescribeConfigurationSetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1895,10 +1843,9 @@ const de_DescribeConfigurationSetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1916,12 +1863,12 @@ export const de_DescribeKeywordsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeKeywordsResult(data, context);
+  contents = _json(data);
   const response: DescribeKeywordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1954,10 +1901,9 @@ const de_DescribeKeywordsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1980,7 +1926,7 @@ export const de_DescribeOptedOutNumbersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2013,10 +1959,9 @@ const de_DescribeOptedOutNumbersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2039,7 +1984,7 @@ export const de_DescribeOptOutListsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2072,10 +2017,9 @@ const de_DescribeOptOutListsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2098,7 +2042,7 @@ export const de_DescribePhoneNumbersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2131,10 +2075,9 @@ const de_DescribePhoneNumbersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2157,7 +2100,7 @@ export const de_DescribePoolsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2190,10 +2133,9 @@ const de_DescribePoolsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2211,12 +2153,12 @@ export const de_DescribeSenderIdsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeSenderIdsResult(data, context);
+  contents = _json(data);
   const response: DescribeSenderIdsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2249,10 +2191,9 @@ const de_DescribeSenderIdsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2270,12 +2211,12 @@ export const de_DescribeSpendLimitsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeSpendLimitsResult(data, context);
+  contents = _json(data);
   const response: DescribeSpendLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2305,10 +2246,9 @@ const de_DescribeSpendLimitsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2326,12 +2266,12 @@ export const de_DisassociateOriginationIdentityCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateOriginationIdentityResult(data, context);
+  contents = _json(data);
   const response: DisassociateOriginationIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2367,10 +2307,9 @@ const de_DisassociateOriginationIdentityCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2388,12 +2327,12 @@ export const de_ListPoolOriginationIdentitiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPoolOriginationIdentitiesResult(data, context);
+  contents = _json(data);
   const response: ListPoolOriginationIdentitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2426,10 +2365,9 @@ const de_ListPoolOriginationIdentitiesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2447,12 +2385,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResult(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2485,10 +2423,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2506,12 +2443,12 @@ export const de_PutKeywordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutKeywordResult(data, context);
+  contents = _json(data);
   const response: PutKeywordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2550,10 +2487,9 @@ const de_PutKeywordCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2576,7 +2512,7 @@ export const de_PutOptedOutNumberCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2609,10 +2545,9 @@ const de_PutOptedOutNumberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2635,7 +2570,7 @@ export const de_ReleasePhoneNumberCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2671,10 +2606,9 @@ const de_ReleasePhoneNumberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2697,7 +2631,7 @@ export const de_RequestPhoneNumberCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2736,10 +2670,9 @@ const de_RequestPhoneNumberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2757,12 +2690,12 @@ export const de_SendTextMessageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SendTextMessageResult(data, context);
+  contents = _json(data);
   const response: SendTextMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2801,10 +2734,9 @@ const de_SendTextMessageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2822,12 +2754,12 @@ export const de_SendVoiceMessageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SendVoiceMessageResult(data, context);
+  contents = _json(data);
   const response: SendVoiceMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2866,10 +2798,9 @@ const de_SendVoiceMessageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2887,12 +2818,12 @@ export const de_SetDefaultMessageTypeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetDefaultMessageTypeResult(data, context);
+  contents = _json(data);
   const response: SetDefaultMessageTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2925,10 +2856,9 @@ const de_SetDefaultMessageTypeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2946,12 +2876,12 @@ export const de_SetDefaultSenderIdCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetDefaultSenderIdResult(data, context);
+  contents = _json(data);
   const response: SetDefaultSenderIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2984,10 +2914,9 @@ const de_SetDefaultSenderIdCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3005,12 +2934,12 @@ export const de_SetTextMessageSpendLimitOverrideCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetTextMessageSpendLimitOverrideResult(data, context);
+  contents = _json(data);
   const response: SetTextMessageSpendLimitOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3040,10 +2969,9 @@ const de_SetTextMessageSpendLimitOverrideCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3061,12 +2989,12 @@ export const de_SetVoiceMessageSpendLimitOverrideCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetVoiceMessageSpendLimitOverrideResult(data, context);
+  contents = _json(data);
   const response: SetVoiceMessageSpendLimitOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3096,10 +3024,9 @@ const de_SetVoiceMessageSpendLimitOverrideCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3117,12 +3044,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResult(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3158,10 +3085,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3179,12 +3105,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResult(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3217,10 +3143,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3238,12 +3163,12 @@ export const de_UpdateEventDestinationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateEventDestinationResult(data, context);
+  contents = _json(data);
   const response: UpdateEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3279,10 +3204,9 @@ const de_UpdateEventDestinationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3305,7 +3229,7 @@ export const de_UpdatePhoneNumberCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3341,10 +3265,9 @@ const de_UpdatePhoneNumberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3367,7 +3290,7 @@ export const de_UpdatePoolCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3403,10 +3326,9 @@ const de_UpdatePoolCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3420,7 +3342,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3433,7 +3355,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3449,7 +3371,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3465,7 +3387,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3481,7 +3403,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3494,7 +3416,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3507,7 +3429,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3522,353 +3444,116 @@ const se_AssociateOriginationIdentityRequest = (
   input: AssociateOriginationIdentityRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.PoolId != null && { PoolId: input.PoolId }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    IsoCountryCode: [],
+    OriginationIdentity: [],
+    PoolId: [],
+  });
 };
 
-/**
- * serializeAws_json1_0CloudWatchLogsDestination
- */
-const se_CloudWatchLogsDestination = (input: CloudWatchLogsDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.LogGroupArn != null && { LogGroupArn: input.LogGroupArn }),
-  };
-};
+// se_CloudWatchLogsDestination omitted.
 
-/**
- * serializeAws_json1_0ConfigurationSetFilter
- */
-const se_ConfigurationSetFilter = (input: ConfigurationSetFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
-  };
-};
+// se_ConfigurationSetFilter omitted.
 
-/**
- * serializeAws_json1_0ConfigurationSetFilterList
- */
-const se_ConfigurationSetFilterList = (input: ConfigurationSetFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ConfigurationSetFilter(entry, context);
-    });
-};
+// se_ConfigurationSetFilterList omitted.
 
-/**
- * serializeAws_json1_0ConfigurationSetNameList
- */
-const se_ConfigurationSetNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ConfigurationSetNameList omitted.
 
-/**
- * serializeAws_json1_0ContextMap
- */
-const se_ContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ContextMap omitted.
 
 /**
  * serializeAws_json1_0CreateConfigurationSetRequest
  */
 const se_CreateConfigurationSetRequest = (input: CreateConfigurationSetRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ConfigurationSetName: [],
+    Tags: _json,
+  });
 };
 
 /**
  * serializeAws_json1_0CreateEventDestinationRequest
  */
 const se_CreateEventDestinationRequest = (input: CreateEventDestinationRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.CloudWatchLogsDestination != null && {
-      CloudWatchLogsDestination: se_CloudWatchLogsDestination(input.CloudWatchLogsDestination, context),
-    }),
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
-    ...(input.KinesisFirehoseDestination != null && {
-      KinesisFirehoseDestination: se_KinesisFirehoseDestination(input.KinesisFirehoseDestination, context),
-    }),
-    ...(input.MatchingEventTypes != null && {
-      MatchingEventTypes: se_EventTypeList(input.MatchingEventTypes, context),
-    }),
-    ...(input.SnsDestination != null && { SnsDestination: se_SnsDestination(input.SnsDestination, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    CloudWatchLogsDestination: _json,
+    ConfigurationSetName: [],
+    EventDestinationName: [],
+    KinesisFirehoseDestination: _json,
+    MatchingEventTypes: _json,
+    SnsDestination: _json,
+  });
 };
 
 /**
  * serializeAws_json1_0CreateOptOutListRequest
  */
 const se_CreateOptOutListRequest = (input: CreateOptOutListRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    OptOutListName: [],
+    Tags: _json,
+  });
 };
 
 /**
  * serializeAws_json1_0CreatePoolRequest
  */
 const se_CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
-    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DeletionProtectionEnabled: [],
+    IsoCountryCode: [],
+    MessageType: [],
+    OriginationIdentity: [],
+    Tags: _json,
+  });
 };
 
-/**
- * serializeAws_json1_0DeleteConfigurationSetRequest
- */
-const se_DeleteConfigurationSetRequest = (input: DeleteConfigurationSetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-  };
-};
+// se_DeleteConfigurationSetRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteDefaultMessageTypeRequest
- */
-const se_DeleteDefaultMessageTypeRequest = (input: DeleteDefaultMessageTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-  };
-};
+// se_DeleteDefaultMessageTypeRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteDefaultSenderIdRequest
- */
-const se_DeleteDefaultSenderIdRequest = (input: DeleteDefaultSenderIdRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-  };
-};
+// se_DeleteDefaultSenderIdRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteEventDestinationRequest
- */
-const se_DeleteEventDestinationRequest = (input: DeleteEventDestinationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
-  };
-};
+// se_DeleteEventDestinationRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteKeywordRequest
- */
-const se_DeleteKeywordRequest = (input: DeleteKeywordRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Keyword != null && { Keyword: input.Keyword }),
-    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-  };
-};
+// se_DeleteKeywordRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteOptedOutNumberRequest
- */
-const se_DeleteOptedOutNumberRequest = (input: DeleteOptedOutNumberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-    ...(input.OptedOutNumber != null && { OptedOutNumber: input.OptedOutNumber }),
-  };
-};
+// se_DeleteOptedOutNumberRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteOptOutListRequest
- */
-const se_DeleteOptOutListRequest = (input: DeleteOptOutListRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-  };
-};
+// se_DeleteOptOutListRequest omitted.
 
-/**
- * serializeAws_json1_0DeletePoolRequest
- */
-const se_DeletePoolRequest = (input: DeletePoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PoolId != null && { PoolId: input.PoolId }),
-  };
-};
+// se_DeletePoolRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteTextMessageSpendLimitOverrideRequest
- */
-const se_DeleteTextMessageSpendLimitOverrideRequest = (
-  input: DeleteTextMessageSpendLimitOverrideRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_DeleteTextMessageSpendLimitOverrideRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideRequest
- */
-const se_DeleteVoiceMessageSpendLimitOverrideRequest = (
-  input: DeleteVoiceMessageSpendLimitOverrideRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_DeleteVoiceMessageSpendLimitOverrideRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeAccountAttributesRequest
- */
-const se_DescribeAccountAttributesRequest = (input: DescribeAccountAttributesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeAccountAttributesRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeAccountLimitsRequest
- */
-const se_DescribeAccountLimitsRequest = (input: DescribeAccountLimitsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeAccountLimitsRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeConfigurationSetsRequest
- */
-const se_DescribeConfigurationSetsRequest = (input: DescribeConfigurationSetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSetNames != null && {
-      ConfigurationSetNames: se_ConfigurationSetNameList(input.ConfigurationSetNames, context),
-    }),
-    ...(input.Filters != null && { Filters: se_ConfigurationSetFilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeConfigurationSetsRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeKeywordsRequest
- */
-const se_DescribeKeywordsRequest = (input: DescribeKeywordsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_KeywordFilterList(input.Filters, context) }),
-    ...(input.Keywords != null && { Keywords: se_KeywordList(input.Keywords, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-  };
-};
+// se_DescribeKeywordsRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeOptedOutNumbersRequest
- */
-const se_DescribeOptedOutNumbersRequest = (input: DescribeOptedOutNumbersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_OptedOutFilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-    ...(input.OptedOutNumbers != null && { OptedOutNumbers: se_OptedOutNumberList(input.OptedOutNumbers, context) }),
-  };
-};
+// se_DescribeOptedOutNumbersRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeOptOutListsRequest
- */
-const se_DescribeOptOutListsRequest = (input: DescribeOptOutListsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OptOutListNames != null && { OptOutListNames: se_OptOutListNameList(input.OptOutListNames, context) }),
-  };
-};
+// se_DescribeOptOutListsRequest omitted.
 
-/**
- * serializeAws_json1_0DescribePhoneNumbersRequest
- */
-const se_DescribePhoneNumbersRequest = (input: DescribePhoneNumbersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_PhoneNumberFilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PhoneNumberIds != null && { PhoneNumberIds: se_PhoneNumberIdList(input.PhoneNumberIds, context) }),
-  };
-};
+// se_DescribePhoneNumbersRequest omitted.
 
-/**
- * serializeAws_json1_0DescribePoolsRequest
- */
-const se_DescribePoolsRequest = (input: DescribePoolsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_PoolFilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PoolIds != null && { PoolIds: se_PoolIdList(input.PoolIds, context) }),
-  };
-};
+// se_DescribePoolsRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeSenderIdsRequest
- */
-const se_DescribeSenderIdsRequest = (input: DescribeSenderIdsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_SenderIdFilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SenderIds != null && { SenderIds: se_SenderIdList(input.SenderIds, context) }),
-  };
-};
+// se_DescribeSenderIdsRequest omitted.
 
-/**
- * serializeAws_json1_0DescribeSpendLimitsRequest
- */
-const se_DescribeSpendLimitsRequest = (input: DescribeSpendLimitsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeSpendLimitsRequest omitted.
 
-/**
- * serializeAws_json1_0DestinationCountryParameters
- */
-const se_DestinationCountryParameters = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [DestinationCountryParameterKey | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = value;
-      return acc;
-    },
-    {}
-  );
-};
+// se_DestinationCountryParameters omitted.
 
 /**
  * serializeAws_json1_0DisassociateOriginationIdentityRequest
@@ -3877,645 +3562,146 @@ const se_DisassociateOriginationIdentityRequest = (
   input: DisassociateOriginationIdentityRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.PoolId != null && { PoolId: input.PoolId }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    IsoCountryCode: [],
+    OriginationIdentity: [],
+    PoolId: [],
+  });
 };
 
-/**
- * serializeAws_json1_0EventTypeList
- */
-const se_EventTypeList = (input: (EventType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EventTypeList omitted.
 
-/**
- * serializeAws_json1_0FilterValueList
- */
-const se_FilterValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilterValueList omitted.
 
-/**
- * serializeAws_json1_0KeywordFilter
- */
-const se_KeywordFilter = (input: KeywordFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
-  };
-};
+// se_KeywordFilter omitted.
 
-/**
- * serializeAws_json1_0KeywordFilterList
- */
-const se_KeywordFilterList = (input: KeywordFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_KeywordFilter(entry, context);
-    });
-};
+// se_KeywordFilterList omitted.
 
-/**
- * serializeAws_json1_0KeywordList
- */
-const se_KeywordList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_KeywordList omitted.
 
-/**
- * serializeAws_json1_0KinesisFirehoseDestination
- */
-const se_KinesisFirehoseDestination = (input: KinesisFirehoseDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamArn != null && { DeliveryStreamArn: input.DeliveryStreamArn }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-  };
-};
+// se_KinesisFirehoseDestination omitted.
 
-/**
- * serializeAws_json1_0ListPoolOriginationIdentitiesRequest
- */
-const se_ListPoolOriginationIdentitiesRequest = (
-  input: ListPoolOriginationIdentitiesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_PoolOriginationIdentitiesFilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PoolId != null && { PoolId: input.PoolId }),
-  };
-};
+// se_ListPoolOriginationIdentitiesRequest omitted.
 
-/**
- * serializeAws_json1_0ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_0NonEmptyTagList
- */
-const se_NonEmptyTagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_NonEmptyTagList omitted.
 
-/**
- * serializeAws_json1_0NumberCapabilityList
- */
-const se_NumberCapabilityList = (input: (NumberCapability | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NumberCapabilityList omitted.
 
-/**
- * serializeAws_json1_0OptedOutFilter
- */
-const se_OptedOutFilter = (input: OptedOutFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
-  };
-};
+// se_OptedOutFilter omitted.
 
-/**
- * serializeAws_json1_0OptedOutFilterList
- */
-const se_OptedOutFilterList = (input: OptedOutFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_OptedOutFilter(entry, context);
-    });
-};
+// se_OptedOutFilterList omitted.
 
-/**
- * serializeAws_json1_0OptedOutNumberList
- */
-const se_OptedOutNumberList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OptedOutNumberList omitted.
 
-/**
- * serializeAws_json1_0OptOutListNameList
- */
-const se_OptOutListNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OptOutListNameList omitted.
 
-/**
- * serializeAws_json1_0PhoneNumberFilter
- */
-const se_PhoneNumberFilter = (input: PhoneNumberFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
-  };
-};
+// se_PhoneNumberFilter omitted.
 
-/**
- * serializeAws_json1_0PhoneNumberFilterList
- */
-const se_PhoneNumberFilterList = (input: PhoneNumberFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PhoneNumberFilter(entry, context);
-    });
-};
+// se_PhoneNumberFilterList omitted.
 
-/**
- * serializeAws_json1_0PhoneNumberIdList
- */
-const se_PhoneNumberIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PhoneNumberIdList omitted.
 
-/**
- * serializeAws_json1_0PoolFilter
- */
-const se_PoolFilter = (input: PoolFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
-  };
-};
+// se_PoolFilter omitted.
 
-/**
- * serializeAws_json1_0PoolFilterList
- */
-const se_PoolFilterList = (input: PoolFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PoolFilter(entry, context);
-    });
-};
+// se_PoolFilterList omitted.
 
-/**
- * serializeAws_json1_0PoolIdList
- */
-const se_PoolIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PoolIdList omitted.
 
-/**
- * serializeAws_json1_0PoolOriginationIdentitiesFilter
- */
-const se_PoolOriginationIdentitiesFilter = (input: PoolOriginationIdentitiesFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
-  };
-};
+// se_PoolOriginationIdentitiesFilter omitted.
 
-/**
- * serializeAws_json1_0PoolOriginationIdentitiesFilterList
- */
-const se_PoolOriginationIdentitiesFilterList = (
-  input: PoolOriginationIdentitiesFilter[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PoolOriginationIdentitiesFilter(entry, context);
-    });
-};
+// se_PoolOriginationIdentitiesFilterList omitted.
 
-/**
- * serializeAws_json1_0PutKeywordRequest
- */
-const se_PutKeywordRequest = (input: PutKeywordRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Keyword != null && { Keyword: input.Keyword }),
-    ...(input.KeywordAction != null && { KeywordAction: input.KeywordAction }),
-    ...(input.KeywordMessage != null && { KeywordMessage: input.KeywordMessage }),
-    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-  };
-};
+// se_PutKeywordRequest omitted.
 
-/**
- * serializeAws_json1_0PutOptedOutNumberRequest
- */
-const se_PutOptedOutNumberRequest = (input: PutOptedOutNumberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-    ...(input.OptedOutNumber != null && { OptedOutNumber: input.OptedOutNumber }),
-  };
-};
+// se_PutOptedOutNumberRequest omitted.
 
-/**
- * serializeAws_json1_0ReleasePhoneNumberRequest
- */
-const se_ReleasePhoneNumberRequest = (input: ReleasePhoneNumberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PhoneNumberId != null && { PhoneNumberId: input.PhoneNumberId }),
-  };
-};
+// se_ReleasePhoneNumberRequest omitted.
 
 /**
  * serializeAws_json1_0RequestPhoneNumberRequest
  */
 const se_RequestPhoneNumberRequest = (input: RequestPhoneNumberRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
-    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.NumberCapabilities != null && {
-      NumberCapabilities: se_NumberCapabilityList(input.NumberCapabilities, context),
-    }),
-    ...(input.NumberType != null && { NumberType: input.NumberType }),
-    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-    ...(input.PoolId != null && { PoolId: input.PoolId }),
-    ...(input.RegistrationId != null && { RegistrationId: input.RegistrationId }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DeletionProtectionEnabled: [],
+    IsoCountryCode: [],
+    MessageType: [],
+    NumberCapabilities: _json,
+    NumberType: [],
+    OptOutListName: [],
+    PoolId: [],
+    RegistrationId: [],
+    Tags: _json,
+  });
 };
 
-/**
- * serializeAws_json1_0SenderIdAndCountry
- */
-const se_SenderIdAndCountry = (input: SenderIdAndCountry, context: __SerdeContext): any => {
-  return {
-    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.SenderId != null && { SenderId: input.SenderId }),
-  };
-};
+// se_SenderIdAndCountry omitted.
 
-/**
- * serializeAws_json1_0SenderIdFilter
- */
-const se_SenderIdFilter = (input: SenderIdFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValueList(input.Values, context) }),
-  };
-};
+// se_SenderIdFilter omitted.
 
-/**
- * serializeAws_json1_0SenderIdFilterList
- */
-const se_SenderIdFilterList = (input: SenderIdFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SenderIdFilter(entry, context);
-    });
-};
+// se_SenderIdFilterList omitted.
 
-/**
- * serializeAws_json1_0SenderIdList
- */
-const se_SenderIdList = (input: SenderIdAndCountry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SenderIdAndCountry(entry, context);
-    });
-};
+// se_SenderIdList omitted.
 
-/**
- * serializeAws_json1_0SendTextMessageRequest
- */
-const se_SendTextMessageRequest = (input: SendTextMessageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Context != null && { Context: se_ContextMap(input.Context, context) }),
-    ...(input.DestinationCountryParameters != null && {
-      DestinationCountryParameters: se_DestinationCountryParameters(input.DestinationCountryParameters, context),
-    }),
-    ...(input.DestinationPhoneNumber != null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.Keyword != null && { Keyword: input.Keyword }),
-    ...(input.MaxPrice != null && { MaxPrice: input.MaxPrice }),
-    ...(input.MessageBody != null && { MessageBody: input.MessageBody }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
-  };
-};
+// se_SendTextMessageRequest omitted.
 
-/**
- * serializeAws_json1_0SendVoiceMessageRequest
- */
-const se_SendVoiceMessageRequest = (input: SendVoiceMessageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Context != null && { Context: se_ContextMap(input.Context, context) }),
-    ...(input.DestinationPhoneNumber != null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.MaxPricePerMinute != null && { MaxPricePerMinute: input.MaxPricePerMinute }),
-    ...(input.MessageBody != null && { MessageBody: input.MessageBody }),
-    ...(input.MessageBodyTextType != null && { MessageBodyTextType: input.MessageBodyTextType }),
-    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
-    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
-  };
-};
+// se_SendVoiceMessageRequest omitted.
 
-/**
- * serializeAws_json1_0SetDefaultMessageTypeRequest
- */
-const se_SetDefaultMessageTypeRequest = (input: SetDefaultMessageTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-  };
-};
+// se_SetDefaultMessageTypeRequest omitted.
 
-/**
- * serializeAws_json1_0SetDefaultSenderIdRequest
- */
-const se_SetDefaultSenderIdRequest = (input: SetDefaultSenderIdRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.SenderId != null && { SenderId: input.SenderId }),
-  };
-};
+// se_SetDefaultSenderIdRequest omitted.
 
-/**
- * serializeAws_json1_0SetTextMessageSpendLimitOverrideRequest
- */
-const se_SetTextMessageSpendLimitOverrideRequest = (
-  input: SetTextMessageSpendLimitOverrideRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MonthlyLimit != null && { MonthlyLimit: input.MonthlyLimit }),
-  };
-};
+// se_SetTextMessageSpendLimitOverrideRequest omitted.
 
-/**
- * serializeAws_json1_0SetVoiceMessageSpendLimitOverrideRequest
- */
-const se_SetVoiceMessageSpendLimitOverrideRequest = (
-  input: SetVoiceMessageSpendLimitOverrideRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MonthlyLimit != null && { MonthlyLimit: input.MonthlyLimit }),
-  };
-};
+// se_SetVoiceMessageSpendLimitOverrideRequest omitted.
 
-/**
- * serializeAws_json1_0SnsDestination
- */
-const se_SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
-  };
-};
+// se_SnsDestination omitted.
 
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_0TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_0TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_0TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_NonEmptyTagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateEventDestinationRequest
- */
-const se_UpdateEventDestinationRequest = (input: UpdateEventDestinationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLogsDestination != null && {
-      CloudWatchLogsDestination: se_CloudWatchLogsDestination(input.CloudWatchLogsDestination, context),
-    }),
-    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
-    ...(input.KinesisFirehoseDestination != null && {
-      KinesisFirehoseDestination: se_KinesisFirehoseDestination(input.KinesisFirehoseDestination, context),
-    }),
-    ...(input.MatchingEventTypes != null && {
-      MatchingEventTypes: se_EventTypeList(input.MatchingEventTypes, context),
-    }),
-    ...(input.SnsDestination != null && { SnsDestination: se_SnsDestination(input.SnsDestination, context) }),
-  };
-};
+// se_UpdateEventDestinationRequest omitted.
 
-/**
- * serializeAws_json1_0UpdatePhoneNumberRequest
- */
-const se_UpdatePhoneNumberRequest = (input: UpdatePhoneNumberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
-    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-    ...(input.PhoneNumberId != null && { PhoneNumberId: input.PhoneNumberId }),
-    ...(input.SelfManagedOptOutsEnabled != null && { SelfManagedOptOutsEnabled: input.SelfManagedOptOutsEnabled }),
-    ...(input.TwoWayChannelArn != null && { TwoWayChannelArn: input.TwoWayChannelArn }),
-    ...(input.TwoWayEnabled != null && { TwoWayEnabled: input.TwoWayEnabled }),
-  };
-};
+// se_UpdatePhoneNumberRequest omitted.
 
-/**
- * serializeAws_json1_0UpdatePoolRequest
- */
-const se_UpdatePoolRequest = (input: UpdatePoolRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
-    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
-    ...(input.PoolId != null && { PoolId: input.PoolId }),
-    ...(input.SelfManagedOptOutsEnabled != null && { SelfManagedOptOutsEnabled: input.SelfManagedOptOutsEnabled }),
-    ...(input.SharedRoutesEnabled != null && { SharedRoutesEnabled: input.SharedRoutesEnabled }),
-    ...(input.TwoWayChannelArn != null && { TwoWayChannelArn: input.TwoWayChannelArn }),
-    ...(input.TwoWayEnabled != null && { TwoWayEnabled: input.TwoWayEnabled }),
-  };
-};
+// se_UpdatePoolRequest omitted.
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_0AccountAttribute
- */
-const de_AccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_AccountAttribute omitted.
 
-/**
- * deserializeAws_json1_0AccountAttributeList
- */
-const de_AccountAttributeList = (output: any, context: __SerdeContext): AccountAttribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AccountAttribute(entry, context);
-    });
-  return retVal;
-};
+// de_AccountAttributeList omitted.
 
-/**
- * deserializeAws_json1_0AccountLimit
- */
-const de_AccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
-  return {
-    Max: __expectLong(output.Max),
-    Name: __expectString(output.Name),
-    Used: __expectLong(output.Used),
-  } as any;
-};
+// de_AccountLimit omitted.
 
-/**
- * deserializeAws_json1_0AccountLimitList
- */
-const de_AccountLimitList = (output: any, context: __SerdeContext): AccountLimit[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AccountLimit(entry, context);
-    });
-  return retVal;
-};
+// de_AccountLimitList omitted.
 
-/**
- * deserializeAws_json1_0AssociateOriginationIdentityResult
- */
-const de_AssociateOriginationIdentityResult = (
-  output: any,
-  context: __SerdeContext
-): AssociateOriginationIdentityResult => {
-  return {
-    IsoCountryCode: __expectString(output.IsoCountryCode),
-    OriginationIdentity: __expectString(output.OriginationIdentity),
-    OriginationIdentityArn: __expectString(output.OriginationIdentityArn),
-    PoolArn: __expectString(output.PoolArn),
-    PoolId: __expectString(output.PoolId),
-  } as any;
-};
+// de_AssociateOriginationIdentityResult omitted.
 
-/**
- * deserializeAws_json1_0CloudWatchLogsDestination
- */
-const de_CloudWatchLogsDestination = (output: any, context: __SerdeContext): CloudWatchLogsDestination => {
-  return {
-    IamRoleArn: __expectString(output.IamRoleArn),
-    LogGroupArn: __expectString(output.LogGroupArn),
-  } as any;
-};
+// de_CloudWatchLogsDestination omitted.
 
 /**
  * deserializeAws_json1_0ConfigurationSetInformation
  */
 const de_ConfigurationSetInformation = (output: any, context: __SerdeContext): ConfigurationSetInformation => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    DefaultMessageType: __expectString(output.DefaultMessageType),
-    DefaultSenderId: __expectString(output.DefaultSenderId),
-    EventDestinations:
-      output.EventDestinations != null ? de_EventDestinationList(output.EventDestinations, context) : undefined,
-  } as any;
+  return take(output, {
+    ConfigurationSetArn: __expectString,
+    ConfigurationSetName: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultMessageType: __expectString,
+    DefaultSenderId: __expectString,
+    EventDestinations: _json,
+  }) as any;
 };
 
 /**
@@ -4525,523 +3711,222 @@ const de_ConfigurationSetInformationList = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigurationSetInformation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ConflictException omitted.
 
 /**
  * deserializeAws_json1_0CreateConfigurationSetResult
  */
 const de_CreateConfigurationSetResult = (output: any, context: __SerdeContext): CreateConfigurationSetResult => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ConfigurationSetArn: __expectString,
+    ConfigurationSetName: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CreateEventDestinationResult
- */
-const de_CreateEventDestinationResult = (output: any, context: __SerdeContext): CreateEventDestinationResult => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    EventDestination:
-      output.EventDestination != null ? de_EventDestination(output.EventDestination, context) : undefined,
-  } as any;
-};
+// de_CreateEventDestinationResult omitted.
 
 /**
  * deserializeAws_json1_0CreateOptOutListResult
  */
 const de_CreateOptOutListResult = (output: any, context: __SerdeContext): CreateOptOutListResult => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    OptOutListArn: __expectString(output.OptOutListArn),
-    OptOutListName: __expectString(output.OptOutListName),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OptOutListArn: __expectString,
+    OptOutListName: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0CreatePoolResult
  */
 const de_CreatePoolResult = (output: any, context: __SerdeContext): CreatePoolResult => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
-    MessageType: __expectString(output.MessageType),
-    OptOutListName: __expectString(output.OptOutListName),
-    PoolArn: __expectString(output.PoolArn),
-    PoolId: __expectString(output.PoolId),
-    SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
-    SharedRoutesEnabled: __expectBoolean(output.SharedRoutesEnabled),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-    TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
-    TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    MessageType: __expectString,
+    OptOutListName: __expectString,
+    PoolArn: __expectString,
+    PoolId: __expectString,
+    SelfManagedOptOutsEnabled: __expectBoolean,
+    SharedRoutesEnabled: __expectBoolean,
+    Status: __expectString,
+    Tags: _json,
+    TwoWayChannelArn: __expectString,
+    TwoWayEnabled: __expectBoolean,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DeleteConfigurationSetResult
  */
 const de_DeleteConfigurationSetResult = (output: any, context: __SerdeContext): DeleteConfigurationSetResult => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    DefaultMessageType: __expectString(output.DefaultMessageType),
-    DefaultSenderId: __expectString(output.DefaultSenderId),
-    EventDestinations:
-      output.EventDestinations != null ? de_EventDestinationList(output.EventDestinations, context) : undefined,
-  } as any;
+  return take(output, {
+    ConfigurationSetArn: __expectString,
+    ConfigurationSetName: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultMessageType: __expectString,
+    DefaultSenderId: __expectString,
+    EventDestinations: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DeleteDefaultMessageTypeResult
- */
-const de_DeleteDefaultMessageTypeResult = (output: any, context: __SerdeContext): DeleteDefaultMessageTypeResult => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    MessageType: __expectString(output.MessageType),
-  } as any;
-};
+// de_DeleteDefaultMessageTypeResult omitted.
 
-/**
- * deserializeAws_json1_0DeleteDefaultSenderIdResult
- */
-const de_DeleteDefaultSenderIdResult = (output: any, context: __SerdeContext): DeleteDefaultSenderIdResult => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    SenderId: __expectString(output.SenderId),
-  } as any;
-};
+// de_DeleteDefaultSenderIdResult omitted.
 
-/**
- * deserializeAws_json1_0DeleteEventDestinationResult
- */
-const de_DeleteEventDestinationResult = (output: any, context: __SerdeContext): DeleteEventDestinationResult => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    EventDestination:
-      output.EventDestination != null ? de_EventDestination(output.EventDestination, context) : undefined,
-  } as any;
-};
+// de_DeleteEventDestinationResult omitted.
 
-/**
- * deserializeAws_json1_0DeleteKeywordResult
- */
-const de_DeleteKeywordResult = (output: any, context: __SerdeContext): DeleteKeywordResult => {
-  return {
-    Keyword: __expectString(output.Keyword),
-    KeywordAction: __expectString(output.KeywordAction),
-    KeywordMessage: __expectString(output.KeywordMessage),
-    OriginationIdentity: __expectString(output.OriginationIdentity),
-    OriginationIdentityArn: __expectString(output.OriginationIdentityArn),
-  } as any;
-};
+// de_DeleteKeywordResult omitted.
 
 /**
  * deserializeAws_json1_0DeleteOptedOutNumberResult
  */
 const de_DeleteOptedOutNumberResult = (output: any, context: __SerdeContext): DeleteOptedOutNumberResult => {
-  return {
-    EndUserOptedOut: __expectBoolean(output.EndUserOptedOut),
-    OptOutListArn: __expectString(output.OptOutListArn),
-    OptOutListName: __expectString(output.OptOutListName),
-    OptedOutNumber: __expectString(output.OptedOutNumber),
-    OptedOutTimestamp:
-      output.OptedOutTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OptedOutTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    EndUserOptedOut: __expectBoolean,
+    OptOutListArn: __expectString,
+    OptOutListName: __expectString,
+    OptedOutNumber: __expectString,
+    OptedOutTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DeleteOptOutListResult
  */
 const de_DeleteOptOutListResult = (output: any, context: __SerdeContext): DeleteOptOutListResult => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    OptOutListArn: __expectString(output.OptOutListArn),
-    OptOutListName: __expectString(output.OptOutListName),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OptOutListArn: __expectString,
+    OptOutListName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DeletePoolResult
  */
 const de_DeletePoolResult = (output: any, context: __SerdeContext): DeletePoolResult => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    MessageType: __expectString(output.MessageType),
-    OptOutListName: __expectString(output.OptOutListName),
-    PoolArn: __expectString(output.PoolArn),
-    PoolId: __expectString(output.PoolId),
-    SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
-    SharedRoutesEnabled: __expectBoolean(output.SharedRoutesEnabled),
-    Status: __expectString(output.Status),
-    TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
-    TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MessageType: __expectString,
+    OptOutListName: __expectString,
+    PoolArn: __expectString,
+    PoolId: __expectString,
+    SelfManagedOptOutsEnabled: __expectBoolean,
+    SharedRoutesEnabled: __expectBoolean,
+    Status: __expectString,
+    TwoWayChannelArn: __expectString,
+    TwoWayEnabled: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideResult
- */
-const de_DeleteTextMessageSpendLimitOverrideResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteTextMessageSpendLimitOverrideResult => {
-  return {
-    MonthlyLimit: __expectLong(output.MonthlyLimit),
-  } as any;
-};
+// de_DeleteTextMessageSpendLimitOverrideResult omitted.
 
-/**
- * deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideResult
- */
-const de_DeleteVoiceMessageSpendLimitOverrideResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteVoiceMessageSpendLimitOverrideResult => {
-  return {
-    MonthlyLimit: __expectLong(output.MonthlyLimit),
-  } as any;
-};
+// de_DeleteVoiceMessageSpendLimitOverrideResult omitted.
 
-/**
- * deserializeAws_json1_0DescribeAccountAttributesResult
- */
-const de_DescribeAccountAttributesResult = (output: any, context: __SerdeContext): DescribeAccountAttributesResult => {
-  return {
-    AccountAttributes:
-      output.AccountAttributes != null ? de_AccountAttributeList(output.AccountAttributes, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_DescribeAccountAttributesResult omitted.
 
-/**
- * deserializeAws_json1_0DescribeAccountLimitsResult
- */
-const de_DescribeAccountLimitsResult = (output: any, context: __SerdeContext): DescribeAccountLimitsResult => {
-  return {
-    AccountLimits: output.AccountLimits != null ? de_AccountLimitList(output.AccountLimits, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_DescribeAccountLimitsResult omitted.
 
 /**
  * deserializeAws_json1_0DescribeConfigurationSetsResult
  */
 const de_DescribeConfigurationSetsResult = (output: any, context: __SerdeContext): DescribeConfigurationSetsResult => {
-  return {
-    ConfigurationSets:
-      output.ConfigurationSets != null
-        ? de_ConfigurationSetInformationList(output.ConfigurationSets, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ConfigurationSets: (_: any) => de_ConfigurationSetInformationList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DescribeKeywordsResult
- */
-const de_DescribeKeywordsResult = (output: any, context: __SerdeContext): DescribeKeywordsResult => {
-  return {
-    Keywords: output.Keywords != null ? de_KeywordInformationList(output.Keywords, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    OriginationIdentity: __expectString(output.OriginationIdentity),
-    OriginationIdentityArn: __expectString(output.OriginationIdentityArn),
-  } as any;
-};
+// de_DescribeKeywordsResult omitted.
 
 /**
  * deserializeAws_json1_0DescribeOptedOutNumbersResult
  */
 const de_DescribeOptedOutNumbersResult = (output: any, context: __SerdeContext): DescribeOptedOutNumbersResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OptOutListArn: __expectString(output.OptOutListArn),
-    OptOutListName: __expectString(output.OptOutListName),
-    OptedOutNumbers:
-      output.OptedOutNumbers != null ? de_OptedOutNumberInformationList(output.OptedOutNumbers, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    OptOutListArn: __expectString,
+    OptOutListName: __expectString,
+    OptedOutNumbers: (_: any) => de_OptedOutNumberInformationList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribeOptOutListsResult
  */
 const de_DescribeOptOutListsResult = (output: any, context: __SerdeContext): DescribeOptOutListsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OptOutLists: output.OptOutLists != null ? de_OptOutListInformationList(output.OptOutLists, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    OptOutLists: (_: any) => de_OptOutListInformationList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribePhoneNumbersResult
  */
 const de_DescribePhoneNumbersResult = (output: any, context: __SerdeContext): DescribePhoneNumbersResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PhoneNumbers: output.PhoneNumbers != null ? de_PhoneNumberInformationList(output.PhoneNumbers, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    PhoneNumbers: (_: any) => de_PhoneNumberInformationList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribePoolsResult
  */
 const de_DescribePoolsResult = (output: any, context: __SerdeContext): DescribePoolsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Pools: output.Pools != null ? de_PoolInformationList(output.Pools, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Pools: (_: any) => de_PoolInformationList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DescribeSenderIdsResult
- */
-const de_DescribeSenderIdsResult = (output: any, context: __SerdeContext): DescribeSenderIdsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SenderIds: output.SenderIds != null ? de_SenderIdInformationList(output.SenderIds, context) : undefined,
-  } as any;
-};
+// de_DescribeSenderIdsResult omitted.
 
-/**
- * deserializeAws_json1_0DescribeSpendLimitsResult
- */
-const de_DescribeSpendLimitsResult = (output: any, context: __SerdeContext): DescribeSpendLimitsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SpendLimits: output.SpendLimits != null ? de_SpendLimitList(output.SpendLimits, context) : undefined,
-  } as any;
-};
+// de_DescribeSpendLimitsResult omitted.
 
-/**
- * deserializeAws_json1_0DisassociateOriginationIdentityResult
- */
-const de_DisassociateOriginationIdentityResult = (
-  output: any,
-  context: __SerdeContext
-): DisassociateOriginationIdentityResult => {
-  return {
-    IsoCountryCode: __expectString(output.IsoCountryCode),
-    OriginationIdentity: __expectString(output.OriginationIdentity),
-    OriginationIdentityArn: __expectString(output.OriginationIdentityArn),
-    PoolArn: __expectString(output.PoolArn),
-    PoolId: __expectString(output.PoolId),
-  } as any;
-};
+// de_DisassociateOriginationIdentityResult omitted.
 
-/**
- * deserializeAws_json1_0EventDestination
- */
-const de_EventDestination = (output: any, context: __SerdeContext): EventDestination => {
-  return {
-    CloudWatchLogsDestination:
-      output.CloudWatchLogsDestination != null
-        ? de_CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
-        : undefined,
-    Enabled: __expectBoolean(output.Enabled),
-    EventDestinationName: __expectString(output.EventDestinationName),
-    KinesisFirehoseDestination:
-      output.KinesisFirehoseDestination != null
-        ? de_KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
-        : undefined,
-    MatchingEventTypes:
-      output.MatchingEventTypes != null ? de_EventTypeList(output.MatchingEventTypes, context) : undefined,
-    SnsDestination: output.SnsDestination != null ? de_SnsDestination(output.SnsDestination, context) : undefined,
-  } as any;
-};
+// de_EventDestination omitted.
 
-/**
- * deserializeAws_json1_0EventDestinationList
- */
-const de_EventDestinationList = (output: any, context: __SerdeContext): EventDestination[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventDestination(entry, context);
-    });
-  return retVal;
-};
+// de_EventDestinationList omitted.
 
-/**
- * deserializeAws_json1_0EventTypeList
- */
-const de_EventTypeList = (output: any, context: __SerdeContext): (EventType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EventTypeList omitted.
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-    RequestId: __expectString(output.RequestId),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_0KeywordInformation
- */
-const de_KeywordInformation = (output: any, context: __SerdeContext): KeywordInformation => {
-  return {
-    Keyword: __expectString(output.Keyword),
-    KeywordAction: __expectString(output.KeywordAction),
-    KeywordMessage: __expectString(output.KeywordMessage),
-  } as any;
-};
+// de_KeywordInformation omitted.
 
-/**
- * deserializeAws_json1_0KeywordInformationList
- */
-const de_KeywordInformationList = (output: any, context: __SerdeContext): KeywordInformation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_KeywordInformation(entry, context);
-    });
-  return retVal;
-};
+// de_KeywordInformationList omitted.
 
-/**
- * deserializeAws_json1_0KinesisFirehoseDestination
- */
-const de_KinesisFirehoseDestination = (output: any, context: __SerdeContext): KinesisFirehoseDestination => {
-  return {
-    DeliveryStreamArn: __expectString(output.DeliveryStreamArn),
-    IamRoleArn: __expectString(output.IamRoleArn),
-  } as any;
-};
+// de_KinesisFirehoseDestination omitted.
 
-/**
- * deserializeAws_json1_0ListPoolOriginationIdentitiesResult
- */
-const de_ListPoolOriginationIdentitiesResult = (
-  output: any,
-  context: __SerdeContext
-): ListPoolOriginationIdentitiesResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    OriginationIdentities:
-      output.OriginationIdentities != null
-        ? de_OriginationIdentityMetadataList(output.OriginationIdentities, context)
-        : undefined,
-    PoolArn: __expectString(output.PoolArn),
-    PoolId: __expectString(output.PoolId),
-  } as any;
-};
+// de_ListPoolOriginationIdentitiesResult omitted.
 
-/**
- * deserializeAws_json1_0ListTagsForResourceResult
- */
-const de_ListTagsForResourceResult = (output: any, context: __SerdeContext): ListTagsForResourceResult => {
-  return {
-    ResourceArn: __expectString(output.ResourceArn),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResult omitted.
 
-/**
- * deserializeAws_json1_0MessageTypeList
- */
-const de_MessageTypeList = (output: any, context: __SerdeContext): (MessageType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MessageTypeList omitted.
 
-/**
- * deserializeAws_json1_0NumberCapabilityList
- */
-const de_NumberCapabilityList = (output: any, context: __SerdeContext): (NumberCapability | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NumberCapabilityList omitted.
 
 /**
  * deserializeAws_json1_0OptedOutNumberInformation
  */
 const de_OptedOutNumberInformation = (output: any, context: __SerdeContext): OptedOutNumberInformation => {
-  return {
-    EndUserOptedOut: __expectBoolean(output.EndUserOptedOut),
-    OptedOutNumber: __expectString(output.OptedOutNumber),
-    OptedOutTimestamp:
-      output.OptedOutTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OptedOutTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    EndUserOptedOut: __expectBoolean,
+    OptedOutNumber: __expectString,
+    OptedOutTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -5051,9 +3936,6 @@ const de_OptedOutNumberInformationList = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OptedOutNumberInformation(entry, context);
     });
   return retVal;
@@ -5063,14 +3945,11 @@ const de_OptedOutNumberInformationList = (output: any, context: __SerdeContext):
  * deserializeAws_json1_0OptOutListInformation
  */
 const de_OptOutListInformation = (output: any, context: __SerdeContext): OptOutListInformation => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    OptOutListArn: __expectString(output.OptOutListArn),
-    OptOutListName: __expectString(output.OptOutListName),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OptOutListArn: __expectString,
+    OptOutListName: __expectString,
+  }) as any;
 };
 
 /**
@@ -5080,68 +3959,37 @@ const de_OptOutListInformationList = (output: any, context: __SerdeContext): Opt
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OptOutListInformation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0OriginationIdentityMetadata
- */
-const de_OriginationIdentityMetadata = (output: any, context: __SerdeContext): OriginationIdentityMetadata => {
-  return {
-    IsoCountryCode: __expectString(output.IsoCountryCode),
-    NumberCapabilities:
-      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
-    OriginationIdentity: __expectString(output.OriginationIdentity),
-    OriginationIdentityArn: __expectString(output.OriginationIdentityArn),
-  } as any;
-};
+// de_OriginationIdentityMetadata omitted.
 
-/**
- * deserializeAws_json1_0OriginationIdentityMetadataList
- */
-const de_OriginationIdentityMetadataList = (output: any, context: __SerdeContext): OriginationIdentityMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OriginationIdentityMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_OriginationIdentityMetadataList omitted.
 
 /**
  * deserializeAws_json1_0PhoneNumberInformation
  */
 const de_PhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
-    IsoCountryCode: __expectString(output.IsoCountryCode),
-    MessageType: __expectString(output.MessageType),
-    MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
-    NumberCapabilities:
-      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
-    NumberType: __expectString(output.NumberType),
-    OptOutListName: __expectString(output.OptOutListName),
-    PhoneNumber: __expectString(output.PhoneNumber),
-    PhoneNumberArn: __expectString(output.PhoneNumberArn),
-    PhoneNumberId: __expectString(output.PhoneNumberId),
-    PoolId: __expectString(output.PoolId),
-    SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
-    Status: __expectString(output.Status),
-    TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
-    TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    IsoCountryCode: __expectString,
+    MessageType: __expectString,
+    MonthlyLeasingPrice: __expectString,
+    NumberCapabilities: _json,
+    NumberType: __expectString,
+    OptOutListName: __expectString,
+    PhoneNumber: __expectString,
+    PhoneNumberArn: __expectString,
+    PhoneNumberId: __expectString,
+    PoolId: __expectString,
+    SelfManagedOptOutsEnabled: __expectBoolean,
+    Status: __expectString,
+    TwoWayChannelArn: __expectString,
+    TwoWayEnabled: __expectBoolean,
+  }) as any;
 };
 
 /**
@@ -5151,9 +3999,6 @@ const de_PhoneNumberInformationList = (output: any, context: __SerdeContext): Ph
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PhoneNumberInformation(entry, context);
     });
   return retVal;
@@ -5163,22 +4008,19 @@ const de_PhoneNumberInformationList = (output: any, context: __SerdeContext): Ph
  * deserializeAws_json1_0PoolInformation
  */
 const de_PoolInformation = (output: any, context: __SerdeContext): PoolInformation => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
-    MessageType: __expectString(output.MessageType),
-    OptOutListName: __expectString(output.OptOutListName),
-    PoolArn: __expectString(output.PoolArn),
-    PoolId: __expectString(output.PoolId),
-    SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
-    SharedRoutesEnabled: __expectBoolean(output.SharedRoutesEnabled),
-    Status: __expectString(output.Status),
-    TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
-    TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    MessageType: __expectString,
+    OptOutListName: __expectString,
+    PoolArn: __expectString,
+    PoolId: __expectString,
+    SelfManagedOptOutsEnabled: __expectBoolean,
+    SharedRoutesEnabled: __expectBoolean,
+    Status: __expectString,
+    TwoWayChannelArn: __expectString,
+    TwoWayEnabled: __expectBoolean,
+  }) as any;
 };
 
 /**
@@ -5188,391 +4030,158 @@ const de_PoolInformationList = (output: any, context: __SerdeContext): PoolInfor
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PoolInformation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0PutKeywordResult
- */
-const de_PutKeywordResult = (output: any, context: __SerdeContext): PutKeywordResult => {
-  return {
-    Keyword: __expectString(output.Keyword),
-    KeywordAction: __expectString(output.KeywordAction),
-    KeywordMessage: __expectString(output.KeywordMessage),
-    OriginationIdentity: __expectString(output.OriginationIdentity),
-    OriginationIdentityArn: __expectString(output.OriginationIdentityArn),
-  } as any;
-};
+// de_PutKeywordResult omitted.
 
 /**
  * deserializeAws_json1_0PutOptedOutNumberResult
  */
 const de_PutOptedOutNumberResult = (output: any, context: __SerdeContext): PutOptedOutNumberResult => {
-  return {
-    EndUserOptedOut: __expectBoolean(output.EndUserOptedOut),
-    OptOutListArn: __expectString(output.OptOutListArn),
-    OptOutListName: __expectString(output.OptOutListName),
-    OptedOutNumber: __expectString(output.OptedOutNumber),
-    OptedOutTimestamp:
-      output.OptedOutTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OptedOutTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    EndUserOptedOut: __expectBoolean,
+    OptOutListArn: __expectString,
+    OptOutListName: __expectString,
+    OptedOutNumber: __expectString,
+    OptedOutTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ReleasePhoneNumberResult
  */
 const de_ReleasePhoneNumberResult = (output: any, context: __SerdeContext): ReleasePhoneNumberResult => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    IsoCountryCode: __expectString(output.IsoCountryCode),
-    MessageType: __expectString(output.MessageType),
-    MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
-    NumberCapabilities:
-      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
-    NumberType: __expectString(output.NumberType),
-    OptOutListName: __expectString(output.OptOutListName),
-    PhoneNumber: __expectString(output.PhoneNumber),
-    PhoneNumberArn: __expectString(output.PhoneNumberArn),
-    PhoneNumberId: __expectString(output.PhoneNumberId),
-    SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
-    Status: __expectString(output.Status),
-    TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
-    TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsoCountryCode: __expectString,
+    MessageType: __expectString,
+    MonthlyLeasingPrice: __expectString,
+    NumberCapabilities: _json,
+    NumberType: __expectString,
+    OptOutListName: __expectString,
+    PhoneNumber: __expectString,
+    PhoneNumberArn: __expectString,
+    PhoneNumberId: __expectString,
+    SelfManagedOptOutsEnabled: __expectBoolean,
+    Status: __expectString,
+    TwoWayChannelArn: __expectString,
+    TwoWayEnabled: __expectBoolean,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0RequestPhoneNumberResult
  */
 const de_RequestPhoneNumberResult = (output: any, context: __SerdeContext): RequestPhoneNumberResult => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
-    IsoCountryCode: __expectString(output.IsoCountryCode),
-    MessageType: __expectString(output.MessageType),
-    MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
-    NumberCapabilities:
-      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
-    NumberType: __expectString(output.NumberType),
-    OptOutListName: __expectString(output.OptOutListName),
-    PhoneNumber: __expectString(output.PhoneNumber),
-    PhoneNumberArn: __expectString(output.PhoneNumberArn),
-    PhoneNumberId: __expectString(output.PhoneNumberId),
-    PoolId: __expectString(output.PoolId),
-    SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-    TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
-    TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    IsoCountryCode: __expectString,
+    MessageType: __expectString,
+    MonthlyLeasingPrice: __expectString,
+    NumberCapabilities: _json,
+    NumberType: __expectString,
+    OptOutListName: __expectString,
+    PhoneNumber: __expectString,
+    PhoneNumberArn: __expectString,
+    PhoneNumberId: __expectString,
+    PoolId: __expectString,
+    SelfManagedOptOutsEnabled: __expectBoolean,
+    Status: __expectString,
+    Tags: _json,
+    TwoWayChannelArn: __expectString,
+    TwoWayEnabled: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0SenderIdInformation
- */
-const de_SenderIdInformation = (output: any, context: __SerdeContext): SenderIdInformation => {
-  return {
-    IsoCountryCode: __expectString(output.IsoCountryCode),
-    MessageTypes: output.MessageTypes != null ? de_MessageTypeList(output.MessageTypes, context) : undefined,
-    MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
-    SenderId: __expectString(output.SenderId),
-    SenderIdArn: __expectString(output.SenderIdArn),
-  } as any;
-};
+// de_SenderIdInformation omitted.
 
-/**
- * deserializeAws_json1_0SenderIdInformationList
- */
-const de_SenderIdInformationList = (output: any, context: __SerdeContext): SenderIdInformation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SenderIdInformation(entry, context);
-    });
-  return retVal;
-};
+// de_SenderIdInformationList omitted.
 
-/**
- * deserializeAws_json1_0SendTextMessageResult
- */
-const de_SendTextMessageResult = (output: any, context: __SerdeContext): SendTextMessageResult => {
-  return {
-    MessageId: __expectString(output.MessageId),
-  } as any;
-};
+// de_SendTextMessageResult omitted.
 
-/**
- * deserializeAws_json1_0SendVoiceMessageResult
- */
-const de_SendVoiceMessageResult = (output: any, context: __SerdeContext): SendVoiceMessageResult => {
-  return {
-    MessageId: __expectString(output.MessageId),
-  } as any;
-};
+// de_SendVoiceMessageResult omitted.
 
-/**
- * deserializeAws_json1_0ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_0SetDefaultMessageTypeResult
- */
-const de_SetDefaultMessageTypeResult = (output: any, context: __SerdeContext): SetDefaultMessageTypeResult => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    MessageType: __expectString(output.MessageType),
-  } as any;
-};
+// de_SetDefaultMessageTypeResult omitted.
 
-/**
- * deserializeAws_json1_0SetDefaultSenderIdResult
- */
-const de_SetDefaultSenderIdResult = (output: any, context: __SerdeContext): SetDefaultSenderIdResult => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    SenderId: __expectString(output.SenderId),
-  } as any;
-};
+// de_SetDefaultSenderIdResult omitted.
 
-/**
- * deserializeAws_json1_0SetTextMessageSpendLimitOverrideResult
- */
-const de_SetTextMessageSpendLimitOverrideResult = (
-  output: any,
-  context: __SerdeContext
-): SetTextMessageSpendLimitOverrideResult => {
-  return {
-    MonthlyLimit: __expectLong(output.MonthlyLimit),
-  } as any;
-};
+// de_SetTextMessageSpendLimitOverrideResult omitted.
 
-/**
- * deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideResult
- */
-const de_SetVoiceMessageSpendLimitOverrideResult = (
-  output: any,
-  context: __SerdeContext
-): SetVoiceMessageSpendLimitOverrideResult => {
-  return {
-    MonthlyLimit: __expectLong(output.MonthlyLimit),
-  } as any;
-};
+// de_SetVoiceMessageSpendLimitOverrideResult omitted.
 
-/**
- * deserializeAws_json1_0SnsDestination
- */
-const de_SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
-  return {
-    TopicArn: __expectString(output.TopicArn),
-  } as any;
-};
+// de_SnsDestination omitted.
 
-/**
- * deserializeAws_json1_0SpendLimit
- */
-const de_SpendLimit = (output: any, context: __SerdeContext): SpendLimit => {
-  return {
-    EnforcedLimit: __expectLong(output.EnforcedLimit),
-    MaxLimit: __expectLong(output.MaxLimit),
-    Name: __expectString(output.Name),
-    Overridden: __expectBoolean(output.Overridden),
-  } as any;
-};
+// de_SpendLimit omitted.
 
-/**
- * deserializeAws_json1_0SpendLimitList
- */
-const de_SpendLimitList = (output: any, context: __SerdeContext): SpendLimit[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SpendLimit(entry, context);
-    });
-  return retVal;
-};
+// de_SpendLimitList omitted.
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_0TagResourceResult
- */
-const de_TagResourceResult = (output: any, context: __SerdeContext): TagResourceResult => {
-  return {} as any;
-};
+// de_TagResourceResult omitted.
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceResult
- */
-const de_UntagResourceResult = (output: any, context: __SerdeContext): UntagResourceResult => {
-  return {} as any;
-};
+// de_UntagResourceResult omitted.
 
-/**
- * deserializeAws_json1_0UpdateEventDestinationResult
- */
-const de_UpdateEventDestinationResult = (output: any, context: __SerdeContext): UpdateEventDestinationResult => {
-  return {
-    ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
-    ConfigurationSetName: __expectString(output.ConfigurationSetName),
-    EventDestination:
-      output.EventDestination != null ? de_EventDestination(output.EventDestination, context) : undefined,
-  } as any;
-};
+// de_UpdateEventDestinationResult omitted.
 
 /**
  * deserializeAws_json1_0UpdatePhoneNumberResult
  */
 const de_UpdatePhoneNumberResult = (output: any, context: __SerdeContext): UpdatePhoneNumberResult => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
-    IsoCountryCode: __expectString(output.IsoCountryCode),
-    MessageType: __expectString(output.MessageType),
-    MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
-    NumberCapabilities:
-      output.NumberCapabilities != null ? de_NumberCapabilityList(output.NumberCapabilities, context) : undefined,
-    NumberType: __expectString(output.NumberType),
-    OptOutListName: __expectString(output.OptOutListName),
-    PhoneNumber: __expectString(output.PhoneNumber),
-    PhoneNumberArn: __expectString(output.PhoneNumberArn),
-    PhoneNumberId: __expectString(output.PhoneNumberId),
-    SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
-    Status: __expectString(output.Status),
-    TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
-    TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    IsoCountryCode: __expectString,
+    MessageType: __expectString,
+    MonthlyLeasingPrice: __expectString,
+    NumberCapabilities: _json,
+    NumberType: __expectString,
+    OptOutListName: __expectString,
+    PhoneNumber: __expectString,
+    PhoneNumberArn: __expectString,
+    PhoneNumberId: __expectString,
+    SelfManagedOptOutsEnabled: __expectBoolean,
+    Status: __expectString,
+    TwoWayChannelArn: __expectString,
+    TwoWayEnabled: __expectBoolean,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0UpdatePoolResult
  */
 const de_UpdatePoolResult = (output: any, context: __SerdeContext): UpdatePoolResult => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
-    MessageType: __expectString(output.MessageType),
-    OptOutListName: __expectString(output.OptOutListName),
-    PoolArn: __expectString(output.PoolArn),
-    PoolId: __expectString(output.PoolId),
-    SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
-    SharedRoutesEnabled: __expectBoolean(output.SharedRoutesEnabled),
-    Status: __expectString(output.Status),
-    TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
-    TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    MessageType: __expectString,
+    OptOutListName: __expectString,
+    PoolArn: __expectString,
+    PoolId: __expectString,
+    SelfManagedOptOutsEnabled: __expectBoolean,
+    SharedRoutesEnabled: __expectBoolean,
+    Status: __expectString,
+    TwoWayChannelArn: __expectString,
+    TwoWayEnabled: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Fields: output.Fields != null ? de_ValidationExceptionFieldList(output.Fields, context) : undefined,
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_ValidationException omitted.
 
-/**
- * deserializeAws_json1_0ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_json1_0ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -5594,6 +4203,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

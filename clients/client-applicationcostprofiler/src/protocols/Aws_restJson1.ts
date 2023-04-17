@@ -1,16 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -116,9 +118,11 @@ export const se_ImportApplicationUsageCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importApplicationUsage";
   let body: any;
-  body = JSON.stringify({
-    ...(input.sourceS3Location != null && { sourceS3Location: se_SourceS3Location(input.sourceS3Location, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      sourceS3Location: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -170,15 +174,15 @@ export const se_PutReportDefinitionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition";
   let body: any;
-  body = JSON.stringify({
-    ...(input.destinationS3Location != null && {
-      destinationS3Location: se_S3Location(input.destinationS3Location, context),
-    }),
-    ...(input.format != null && { format: input.format }),
-    ...(input.reportDescription != null && { reportDescription: input.reportDescription }),
-    ...(input.reportFrequency != null && { reportFrequency: input.reportFrequency }),
-    ...(input.reportId != null && { reportId: input.reportId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      destinationS3Location: (_) => _json(_),
+      format: [],
+      reportDescription: [],
+      reportFrequency: [],
+      reportId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -205,14 +209,14 @@ export const se_UpdateReportDefinitionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition/{reportId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "reportId", () => input.reportId!, "{reportId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.destinationS3Location != null && {
-      destinationS3Location: se_S3Location(input.destinationS3Location, context),
-    }),
-    ...(input.format != null && { format: input.format }),
-    ...(input.reportDescription != null && { reportDescription: input.reportDescription }),
-    ...(input.reportFrequency != null && { reportFrequency: input.reportFrequency }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      destinationS3Location: (_) => _json(_),
+      format: [],
+      reportDescription: [],
+      reportFrequency: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -238,9 +242,10 @@ export const de_DeleteReportDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.reportId != null) {
-    contents.reportId = __expectString(data.reportId);
-  }
+  const doc = take(data, {
+    reportId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -271,10 +276,9 @@ const de_DeleteReportDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -294,27 +298,16 @@ export const de_GetReportDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.destinationS3Location != null) {
-    contents.destinationS3Location = de_S3Location(data.destinationS3Location, context);
-  }
-  if (data.format != null) {
-    contents.format = __expectString(data.format);
-  }
-  if (data.lastUpdated != null) {
-    contents.lastUpdated = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdated)));
-  }
-  if (data.reportDescription != null) {
-    contents.reportDescription = __expectString(data.reportDescription);
-  }
-  if (data.reportFrequency != null) {
-    contents.reportFrequency = __expectString(data.reportFrequency);
-  }
-  if (data.reportId != null) {
-    contents.reportId = __expectString(data.reportId);
-  }
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    destinationS3Location: _json,
+    format: __expectString,
+    lastUpdated: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    reportDescription: __expectString,
+    reportFrequency: __expectString,
+    reportId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -345,10 +338,9 @@ const de_GetReportDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -368,9 +360,10 @@ export const de_ImportApplicationUsageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.importId != null) {
-    contents.importId = __expectString(data.importId);
-  }
+  const doc = take(data, {
+    importId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -401,10 +394,9 @@ const de_ImportApplicationUsageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -424,12 +416,11 @@ export const de_ListReportDefinitionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.reportDefinitions != null) {
-    contents.reportDefinitions = de_ReportDefinitionList(data.reportDefinitions, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    reportDefinitions: (_) => de_ReportDefinitionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -460,10 +451,9 @@ const de_ListReportDefinitionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -483,9 +473,10 @@ export const de_PutReportDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.reportId != null) {
-    contents.reportId = __expectString(data.reportId);
-  }
+  const doc = take(data, {
+    reportId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -519,10 +510,9 @@ const de_PutReportDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -542,9 +532,10 @@ export const de_UpdateReportDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.reportId != null) {
-    contents.reportId = __expectString(data.reportId);
-  }
+  const doc = take(data, {
+    reportId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -575,16 +566,15 @@ const de_UpdateReportDefinitionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -594,9 +584,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -613,9 +604,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -632,9 +624,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -648,9 +641,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -664,9 +658,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -674,45 +669,23 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1S3Location
- */
-const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-  };
-};
+// se_S3Location omitted.
 
-/**
- * serializeAws_restJson1SourceS3Location
- */
-const se_SourceS3Location = (input: SourceS3Location, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.key != null && { key: input.key }),
-    ...(input.region != null && { region: input.region }),
-  };
-};
+// se_SourceS3Location omitted.
 
 /**
  * deserializeAws_restJson1ReportDefinition
  */
 const de_ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    destinationS3Location:
-      output.destinationS3Location != null ? de_S3Location(output.destinationS3Location, context) : undefined,
-    format: __expectString(output.format),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    reportDescription: __expectString(output.reportDescription),
-    reportFrequency: __expectString(output.reportFrequency),
-    reportId: __expectString(output.reportId),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    destinationS3Location: _json,
+    format: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    reportDescription: __expectString,
+    reportFrequency: __expectString,
+    reportId: __expectString,
+  }) as any;
 };
 
 /**
@@ -722,23 +695,12 @@ const de_ReportDefinitionList = (output: any, context: __SerdeContext): ReportDe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReportDefinition(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1S3Location
- */
-const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
-  return {
-    bucket: __expectString(output.bucket),
-    prefix: __expectString(output.prefix),
-  } as any;
-};
+// de_S3Location omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

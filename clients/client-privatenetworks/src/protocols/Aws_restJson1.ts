@@ -1,19 +1,20 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -84,27 +85,19 @@ import {
   AccessDeniedException,
   Address,
   DeviceIdentifier,
-  DeviceIdentifierFilterKeys,
   InternalServerException,
   LimitExceededException,
   NameValuePair,
   Network,
-  NetworkFilterKeys,
   NetworkResource,
   NetworkResourceDefinition,
-  NetworkResourceFilterKeys,
   NetworkSite,
-  NetworkSiteFilterKeys,
   Order,
-  OrderFilterKeys,
   Position,
   ResourceNotFoundException,
-  ReturnInformation,
   SitePlan,
   ThrottlingException,
-  TrackingInformation,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 import { PrivateNetworksServiceException as __BaseException } from "../models/PrivateNetworksServiceException";
 
@@ -121,9 +114,11 @@ export const se_AcknowledgeOrderReceiptCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/orders/acknowledge";
   let body: any;
-  body = JSON.stringify({
-    ...(input.orderArn != null && { orderArn: input.orderArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      orderArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -149,10 +144,12 @@ export const se_ActivateDeviceIdentifierCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/device-identifiers/activate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.deviceIdentifierArn != null && { deviceIdentifierArn: input.deviceIdentifierArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      deviceIdentifierArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -178,11 +175,13 @@ export const se_ActivateNetworkSiteCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/network-sites/activate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.networkSiteArn != null && { networkSiteArn: input.networkSiteArn }),
-    ...(input.shippingAddress != null && { shippingAddress: se_Address(input.shippingAddress, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      networkSiteArn: [],
+      shippingAddress: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -208,14 +207,16 @@ export const se_ConfigureAccessPointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/network-resources/configure";
   let body: any;
-  body = JSON.stringify({
-    ...(input.accessPointArn != null && { accessPointArn: input.accessPointArn }),
-    ...(input.cpiSecretKey != null && { cpiSecretKey: input.cpiSecretKey }),
-    ...(input.cpiUserId != null && { cpiUserId: input.cpiUserId }),
-    ...(input.cpiUserPassword != null && { cpiUserPassword: input.cpiUserPassword }),
-    ...(input.cpiUsername != null && { cpiUsername: input.cpiUsername }),
-    ...(input.position != null && { position: se_Position(input.position, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accessPointArn: [],
+      cpiSecretKey: [],
+      cpiUserId: [],
+      cpiUserPassword: [],
+      cpiUsername: [],
+      position: (_) => se_Position(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -240,12 +241,14 @@ export const se_CreateNetworkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/networks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.networkName != null && { networkName: input.networkName }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      description: [],
+      networkName: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -270,16 +273,18 @@ export const se_CreateNetworkSiteCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/network-sites";
   let body: any;
-  body = JSON.stringify({
-    ...(input.availabilityZone != null && { availabilityZone: input.availabilityZone }),
-    ...(input.availabilityZoneId != null && { availabilityZoneId: input.availabilityZoneId }),
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.networkArn != null && { networkArn: input.networkArn }),
-    ...(input.networkSiteName != null && { networkSiteName: input.networkSiteName }),
-    ...(input.pendingPlan != null && { pendingPlan: se_SitePlan(input.pendingPlan, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      availabilityZone: [],
+      availabilityZoneId: [],
+      clientToken: [],
+      description: [],
+      networkArn: [],
+      networkSiteName: [],
+      pendingPlan: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -305,10 +310,12 @@ export const se_DeactivateDeviceIdentifierCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/device-identifiers/deactivate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.deviceIdentifierArn != null && { deviceIdentifierArn: input.deviceIdentifierArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      deviceIdentifierArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -539,12 +546,14 @@ export const se_ListDeviceIdentifiersCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/device-identifiers/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_DeviceIdentifierFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.networkArn != null && { networkArn: input.networkArn }),
-    ...(input.startToken != null && { startToken: input.startToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      networkArn: [],
+      startToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -569,12 +578,14 @@ export const se_ListNetworkResourcesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/network-resources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_NetworkResourceFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.networkArn != null && { networkArn: input.networkArn }),
-    ...(input.startToken != null && { startToken: input.startToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      networkArn: [],
+      startToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -599,11 +610,13 @@ export const se_ListNetworksCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/networks/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_NetworkFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.startToken != null && { startToken: input.startToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      startToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -628,12 +641,14 @@ export const se_ListNetworkSitesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/network-sites/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_NetworkSiteFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.networkArn != null && { networkArn: input.networkArn }),
-    ...(input.startToken != null && { startToken: input.startToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      networkArn: [],
+      startToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -658,12 +673,14 @@ export const se_ListOrdersCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/orders/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: se_OrderFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.networkArn != null && { networkArn: input.networkArn }),
-    ...(input.startToken != null && { startToken: input.startToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      networkArn: [],
+      startToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -734,12 +751,14 @@ export const se_StartNetworkResourceUpdateCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/network-resources/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.networkResourceArn != null && { networkResourceArn: input.networkResourceArn }),
-    ...(input.returnReason != null && { returnReason: input.returnReason }),
-    ...(input.shippingAddress != null && { shippingAddress: se_Address(input.shippingAddress, context) }),
-    ...(input.updateType != null && { updateType: input.updateType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      networkResourceArn: [],
+      returnReason: [],
+      shippingAddress: (_) => _json(_),
+      updateType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -765,9 +784,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -822,11 +843,13 @@ export const se_UpdateNetworkSiteCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/network-sites/site";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.networkSiteArn != null && { networkSiteArn: input.networkSiteArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      description: [],
+      networkSiteArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -851,11 +874,13 @@ export const se_UpdateNetworkSitePlanCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/network-sites/plan";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.networkSiteArn != null && { networkSiteArn: input.networkSiteArn }),
-    ...(input.pendingPlan != null && { pendingPlan: se_SitePlan(input.pendingPlan, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      networkSiteArn: [],
+      pendingPlan: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -881,9 +906,10 @@ export const de_AcknowledgeOrderReceiptCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.order != null) {
-    contents.order = de_Order(data.order, context);
-  }
+  const doc = take(data, {
+    order: (_) => de_Order(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -911,10 +937,9 @@ const de_AcknowledgeOrderReceiptCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -934,12 +959,11 @@ export const de_ActivateDeviceIdentifierCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deviceIdentifier != null) {
-    contents.deviceIdentifier = de_DeviceIdentifier(data.deviceIdentifier, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    deviceIdentifier: (_) => de_DeviceIdentifier(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -967,10 +991,9 @@ const de_ActivateDeviceIdentifierCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -990,9 +1013,10 @@ export const de_ActivateNetworkSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSite != null) {
-    contents.networkSite = de_NetworkSite(data.networkSite, context);
-  }
+  const doc = take(data, {
+    networkSite: (_) => de_NetworkSite(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1020,10 +1044,9 @@ const de_ActivateNetworkSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1043,9 +1066,10 @@ export const de_ConfigureAccessPointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessPoint != null) {
-    contents.accessPoint = de_NetworkResource(data.accessPoint, context);
-  }
+  const doc = take(data, {
+    accessPoint: (_) => de_NetworkResource(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1073,10 +1097,9 @@ const de_ConfigureAccessPointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1096,12 +1119,11 @@ export const de_CreateNetworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.network != null) {
-    contents.network = de_Network(data.network, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    network: (_) => de_Network(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1129,10 +1151,9 @@ const de_CreateNetworkCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1152,12 +1173,11 @@ export const de_CreateNetworkSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSite != null) {
-    contents.networkSite = de_NetworkSite(data.networkSite, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    networkSite: (_) => de_NetworkSite(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1185,10 +1205,9 @@ const de_CreateNetworkSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1208,9 +1227,10 @@ export const de_DeactivateDeviceIdentifierCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deviceIdentifier != null) {
-    contents.deviceIdentifier = de_DeviceIdentifier(data.deviceIdentifier, context);
-  }
+  const doc = take(data, {
+    deviceIdentifier: (_) => de_DeviceIdentifier(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1238,10 +1258,9 @@ const de_DeactivateDeviceIdentifierCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1261,9 +1280,10 @@ export const de_DeleteNetworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.network != null) {
-    contents.network = de_Network(data.network, context);
-  }
+  const doc = take(data, {
+    network: (_) => de_Network(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1294,10 +1314,9 @@ const de_DeleteNetworkCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1317,9 +1336,10 @@ export const de_DeleteNetworkSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSite != null) {
-    contents.networkSite = de_NetworkSite(data.networkSite, context);
-  }
+  const doc = take(data, {
+    networkSite: (_) => de_NetworkSite(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1350,10 +1370,9 @@ const de_DeleteNetworkSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1373,12 +1392,11 @@ export const de_GetDeviceIdentifierCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deviceIdentifier != null) {
-    contents.deviceIdentifier = de_DeviceIdentifier(data.deviceIdentifier, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    deviceIdentifier: (_) => de_DeviceIdentifier(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1406,10 +1424,9 @@ const de_GetDeviceIdentifierCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1429,12 +1446,11 @@ export const de_GetNetworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.network != null) {
-    contents.network = de_Network(data.network, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    network: (_) => de_Network(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1462,10 +1478,9 @@ const de_GetNetworkCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1485,12 +1500,11 @@ export const de_GetNetworkResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkResource != null) {
-    contents.networkResource = de_NetworkResource(data.networkResource, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    networkResource: (_) => de_NetworkResource(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1518,10 +1532,9 @@ const de_GetNetworkResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1541,12 +1554,11 @@ export const de_GetNetworkSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSite != null) {
-    contents.networkSite = de_NetworkSite(data.networkSite, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    networkSite: (_) => de_NetworkSite(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1574,10 +1586,9 @@ const de_GetNetworkSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1597,12 +1608,11 @@ export const de_GetOrderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.order != null) {
-    contents.order = de_Order(data.order, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    order: (_) => de_Order(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1630,10 +1640,9 @@ const de_GetOrderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1653,12 +1662,11 @@ export const de_ListDeviceIdentifiersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.deviceIdentifiers != null) {
-    contents.deviceIdentifiers = de_DeviceIdentifierList(data.deviceIdentifiers, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    deviceIdentifiers: (_) => de_DeviceIdentifierList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1686,10 +1694,9 @@ const de_ListDeviceIdentifiersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1709,12 +1716,11 @@ export const de_ListNetworkResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkResources != null) {
-    contents.networkResources = de_NetworkResourceList(data.networkResources, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    networkResources: (_) => de_NetworkResourceList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1742,10 +1748,9 @@ const de_ListNetworkResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1765,12 +1770,11 @@ export const de_ListNetworksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networks != null) {
-    contents.networks = de_NetworkList(data.networks, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    networks: (_) => de_NetworkList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1798,10 +1802,9 @@ const de_ListNetworksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1821,12 +1824,11 @@ export const de_ListNetworkSitesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSites != null) {
-    contents.networkSites = de_NetworkSiteList(data.networkSites, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    networkSites: (_) => de_NetworkSiteList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1854,10 +1856,9 @@ const de_ListNetworkSitesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1877,12 +1878,11 @@ export const de_ListOrdersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.orders != null) {
-    contents.orders = de_OrderList(data.orders, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    orders: (_) => de_OrderList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1910,10 +1910,9 @@ const de_ListOrdersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1933,9 +1932,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1969,10 +1969,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1989,9 +1988,10 @@ export const de_PingCommand = async (output: __HttpResponse, context: __SerdeCon
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2010,10 +2010,9 @@ const de_PingCommandError = async (output: __HttpResponse, context: __SerdeConte
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2033,9 +2032,10 @@ export const de_StartNetworkResourceUpdateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkResource != null) {
-    contents.networkResource = de_NetworkResource(data.networkResource, context);
-  }
+  const doc = take(data, {
+    networkResource: (_) => de_NetworkResource(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2063,10 +2063,9 @@ const de_StartNetworkResourceUpdateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2119,10 +2118,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2175,10 +2173,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2198,12 +2195,11 @@ export const de_UpdateNetworkSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSite != null) {
-    contents.networkSite = de_NetworkSite(data.networkSite, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    networkSite: (_) => de_NetworkSite(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2231,10 +2227,9 @@ const de_UpdateNetworkSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2254,12 +2249,11 @@ export const de_UpdateNetworkSitePlanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSite != null) {
-    contents.networkSite = de_NetworkSite(data.networkSite, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    networkSite: (_) => de_NetworkSite(_, context),
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2287,16 +2281,15 @@ const de_UpdateNetworkSitePlanCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2306,9 +2299,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2330,9 +2324,10 @@ const de_InternalServerExceptionRes = async (
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2349,9 +2344,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2368,15 +2364,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2390,9 +2383,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2406,15 +2400,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList != null) {
-    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fieldList: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2422,268 +2413,70 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1Address
- */
-const se_Address = (input: Address, context: __SerdeContext): any => {
-  return {
-    ...(input.city != null && { city: input.city }),
-    ...(input.company != null && { company: input.company }),
-    ...(input.country != null && { country: input.country }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.phoneNumber != null && { phoneNumber: input.phoneNumber }),
-    ...(input.postalCode != null && { postalCode: input.postalCode }),
-    ...(input.stateOrProvince != null && { stateOrProvince: input.stateOrProvince }),
-    ...(input.street1 != null && { street1: input.street1 }),
-    ...(input.street2 != null && { street2: input.street2 }),
-    ...(input.street3 != null && { street3: input.street3 }),
-  };
-};
+// se_Address omitted.
 
-/**
- * serializeAws_restJson1DeviceIdentifierFilters
- */
-const se_DeviceIdentifierFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [DeviceIdentifierFilterKeys | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = se_DeviceIdentifierFilterValues(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// se_DeviceIdentifierFilters omitted.
 
-/**
- * serializeAws_restJson1DeviceIdentifierFilterValues
- */
-const se_DeviceIdentifierFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DeviceIdentifierFilterValues omitted.
 
-/**
- * serializeAws_restJson1NameValuePair
- */
-const se_NameValuePair = (input: NameValuePair, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_NameValuePair omitted.
 
-/**
- * serializeAws_restJson1NetworkFilters
- */
-const se_NetworkFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [NetworkFilterKeys | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_NetworkFilterValues(value, context);
-    return acc;
-  }, {});
-};
+// se_NetworkFilters omitted.
 
-/**
- * serializeAws_restJson1NetworkFilterValues
- */
-const se_NetworkFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NetworkFilterValues omitted.
 
-/**
- * serializeAws_restJson1NetworkResourceDefinition
- */
-const se_NetworkResourceDefinition = (input: NetworkResourceDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.count != null && { count: input.count }),
-    ...(input.options != null && { options: se_Options(input.options, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_NetworkResourceDefinition omitted.
 
-/**
- * serializeAws_restJson1NetworkResourceDefinitions
- */
-const se_NetworkResourceDefinitions = (input: NetworkResourceDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_NetworkResourceDefinition(entry, context);
-    });
-};
+// se_NetworkResourceDefinitions omitted.
 
-/**
- * serializeAws_restJson1NetworkResourceFilters
- */
-const se_NetworkResourceFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [NetworkResourceFilterKeys | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = se_NetworkResourceFilterValues(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// se_NetworkResourceFilters omitted.
 
-/**
- * serializeAws_restJson1NetworkResourceFilterValues
- */
-const se_NetworkResourceFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NetworkResourceFilterValues omitted.
 
-/**
- * serializeAws_restJson1NetworkSiteFilters
- */
-const se_NetworkSiteFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [NetworkSiteFilterKeys | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = se_NetworkSiteFilterValues(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// se_NetworkSiteFilters omitted.
 
-/**
- * serializeAws_restJson1NetworkSiteFilterValues
- */
-const se_NetworkSiteFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NetworkSiteFilterValues omitted.
 
-/**
- * serializeAws_restJson1Options
- */
-const se_Options = (input: NameValuePair[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_NameValuePair(entry, context);
-    });
-};
+// se_Options omitted.
 
-/**
- * serializeAws_restJson1OrderFilters
- */
-const se_OrderFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [OrderFilterKeys | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_OrderFilterValues(value, context);
-    return acc;
-  }, {});
-};
+// se_OrderFilters omitted.
 
-/**
- * serializeAws_restJson1OrderFilterValues
- */
-const se_OrderFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OrderFilterValues omitted.
 
 /**
  * serializeAws_restJson1Position
  */
 const se_Position = (input: Position, context: __SerdeContext): any => {
-  return {
-    ...(input.elevation != null && { elevation: __serializeFloat(input.elevation) }),
-    ...(input.elevationReference != null && { elevationReference: input.elevationReference }),
-    ...(input.elevationUnit != null && { elevationUnit: input.elevationUnit }),
-    ...(input.latitude != null && { latitude: __serializeFloat(input.latitude) }),
-    ...(input.longitude != null && { longitude: __serializeFloat(input.longitude) }),
-  };
+  return take(input, {
+    elevation: __serializeFloat,
+    elevationReference: [],
+    elevationUnit: [],
+    latitude: __serializeFloat,
+    longitude: __serializeFloat,
+  });
 };
 
-/**
- * serializeAws_restJson1SitePlan
- */
-const se_SitePlan = (input: SitePlan, context: __SerdeContext): any => {
-  return {
-    ...(input.options != null && { options: se_Options(input.options, context) }),
-    ...(input.resourceDefinitions != null && {
-      resourceDefinitions: se_NetworkResourceDefinitions(input.resourceDefinitions, context),
-    }),
-  };
-};
+// se_SitePlan omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1Address
- */
-const de_Address = (output: any, context: __SerdeContext): Address => {
-  return {
-    city: __expectString(output.city),
-    company: __expectString(output.company),
-    country: __expectString(output.country),
-    name: __expectString(output.name),
-    phoneNumber: __expectString(output.phoneNumber),
-    postalCode: __expectString(output.postalCode),
-    stateOrProvince: __expectString(output.stateOrProvince),
-    street1: __expectString(output.street1),
-    street2: __expectString(output.street2),
-    street3: __expectString(output.street3),
-  } as any;
-};
+// de_Address omitted.
 
 /**
  * deserializeAws_restJson1DeviceIdentifier
  */
 const de_DeviceIdentifier = (output: any, context: __SerdeContext): DeviceIdentifier => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    deviceIdentifierArn: __expectString(output.deviceIdentifierArn),
-    iccid: __expectString(output.iccid),
-    imsi: __expectString(output.imsi),
-    networkArn: __expectString(output.networkArn),
-    orderArn: __expectString(output.orderArn),
-    status: __expectString(output.status),
-    trafficGroupArn: __expectString(output.trafficGroupArn),
-    vendor: __expectString(output.vendor),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    deviceIdentifierArn: __expectString,
+    iccid: __expectString,
+    imsi: __expectString,
+    networkArn: __expectString,
+    orderArn: __expectString,
+    status: __expectString,
+    trafficGroupArn: __expectString,
+    vendor: __expectString,
+  }) as any;
 };
 
 /**
@@ -2693,52 +2486,27 @@ const de_DeviceIdentifierList = (output: any, context: __SerdeContext): DeviceId
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DeviceIdentifier(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1NameValuePair
- */
-const de_NameValuePair = (output: any, context: __SerdeContext): NameValuePair => {
-  return {
-    name: __expectString(output.name),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_NameValuePair omitted.
 
-/**
- * deserializeAws_restJson1NameValuePairs
- */
-const de_NameValuePairs = (output: any, context: __SerdeContext): NameValuePair[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NameValuePair(entry, context);
-    });
-  return retVal;
-};
+// de_NameValuePairs omitted.
 
 /**
  * deserializeAws_restJson1Network
  */
 const de_Network = (output: any, context: __SerdeContext): Network => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    description: __expectString(output.description),
-    networkArn: __expectString(output.networkArn),
-    networkName: __expectString(output.networkName),
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    networkArn: __expectString,
+    networkName: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+  }) as any;
 };
 
 /**
@@ -2748,9 +2516,6 @@ const de_NetworkList = (output: any, context: __SerdeContext): Network[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Network(entry, context);
     });
   return retVal;
@@ -2760,53 +2525,29 @@ const de_NetworkList = (output: any, context: __SerdeContext): Network[] => {
  * deserializeAws_restJson1NetworkResource
  */
 const de_NetworkResource = (output: any, context: __SerdeContext): NetworkResource => {
-  return {
-    attributes: output.attributes != null ? de_NameValuePairs(output.attributes, context) : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    description: __expectString(output.description),
-    health: __expectString(output.health),
-    model: __expectString(output.model),
-    networkArn: __expectString(output.networkArn),
-    networkResourceArn: __expectString(output.networkResourceArn),
-    networkSiteArn: __expectString(output.networkSiteArn),
-    orderArn: __expectString(output.orderArn),
-    position: output.position != null ? de_Position(output.position, context) : undefined,
-    returnInformation:
-      output.returnInformation != null ? de_ReturnInformation(output.returnInformation, context) : undefined,
-    serialNumber: __expectString(output.serialNumber),
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-    type: __expectString(output.type),
-    vendor: __expectString(output.vendor),
-  } as any;
+  return take(output, {
+    attributes: _json,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    health: __expectString,
+    model: __expectString,
+    networkArn: __expectString,
+    networkResourceArn: __expectString,
+    networkSiteArn: __expectString,
+    orderArn: __expectString,
+    position: (_: any) => de_Position(_, context),
+    returnInformation: _json,
+    serialNumber: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    type: __expectString,
+    vendor: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1NetworkResourceDefinition
- */
-const de_NetworkResourceDefinition = (output: any, context: __SerdeContext): NetworkResourceDefinition => {
-  return {
-    count: __expectInt32(output.count),
-    options: output.options != null ? de_Options(output.options, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_NetworkResourceDefinition omitted.
 
-/**
- * deserializeAws_restJson1NetworkResourceDefinitions
- */
-const de_NetworkResourceDefinitions = (output: any, context: __SerdeContext): NetworkResourceDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NetworkResourceDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_NetworkResourceDefinitions omitted.
 
 /**
  * deserializeAws_restJson1NetworkResourceList
@@ -2815,9 +2556,6 @@ const de_NetworkResourceList = (output: any, context: __SerdeContext): NetworkRe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_NetworkResource(entry, context);
     });
   return retVal;
@@ -2827,20 +2565,19 @@ const de_NetworkResourceList = (output: any, context: __SerdeContext): NetworkRe
  * deserializeAws_restJson1NetworkSite
  */
 const de_NetworkSite = (output: any, context: __SerdeContext): NetworkSite => {
-  return {
-    availabilityZone: __expectString(output.availabilityZone),
-    availabilityZoneId: __expectString(output.availabilityZoneId),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    currentPlan: output.currentPlan != null ? de_SitePlan(output.currentPlan, context) : undefined,
-    description: __expectString(output.description),
-    networkArn: __expectString(output.networkArn),
-    networkSiteArn: __expectString(output.networkSiteArn),
-    networkSiteName: __expectString(output.networkSiteName),
-    pendingPlan: output.pendingPlan != null ? de_SitePlan(output.pendingPlan, context) : undefined,
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-  } as any;
+  return take(output, {
+    availabilityZone: __expectString,
+    availabilityZoneId: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    currentPlan: _json,
+    description: __expectString,
+    networkArn: __expectString,
+    networkSiteArn: __expectString,
+    networkSiteName: __expectString,
+    pendingPlan: _json,
+    status: __expectString,
+    statusReason: __expectString,
+  }) as any;
 };
 
 /**
@@ -2850,44 +2587,26 @@ const de_NetworkSiteList = (output: any, context: __SerdeContext): NetworkSite[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_NetworkSite(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Options
- */
-const de_Options = (output: any, context: __SerdeContext): NameValuePair[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NameValuePair(entry, context);
-    });
-  return retVal;
-};
+// de_Options omitted.
 
 /**
  * deserializeAws_restJson1Order
  */
 const de_Order = (output: any, context: __SerdeContext): Order => {
-  return {
-    acknowledgmentStatus: __expectString(output.acknowledgmentStatus),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    networkArn: __expectString(output.networkArn),
-    networkSiteArn: __expectString(output.networkSiteArn),
-    orderArn: __expectString(output.orderArn),
-    shippingAddress: output.shippingAddress != null ? de_Address(output.shippingAddress, context) : undefined,
-    trackingInformation:
-      output.trackingInformation != null ? de_TrackingInformationList(output.trackingInformation, context) : undefined,
-  } as any;
+  return take(output, {
+    acknowledgmentStatus: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    networkArn: __expectString,
+    networkSiteArn: __expectString,
+    orderArn: __expectString,
+    shippingAddress: _json,
+    trackingInformation: _json,
+  }) as any;
 };
 
 /**
@@ -2897,9 +2616,6 @@ const de_OrderList = (output: any, context: __SerdeContext): Order[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Order(entry, context);
     });
   return retVal;
@@ -2909,101 +2625,28 @@ const de_OrderList = (output: any, context: __SerdeContext): Order[] => {
  * deserializeAws_restJson1Position
  */
 const de_Position = (output: any, context: __SerdeContext): Position => {
-  return {
-    elevation: __limitedParseDouble(output.elevation),
-    elevationReference: __expectString(output.elevationReference),
-    elevationUnit: __expectString(output.elevationUnit),
-    latitude: __limitedParseDouble(output.latitude),
-    longitude: __limitedParseDouble(output.longitude),
-  } as any;
+  return take(output, {
+    elevation: __limitedParseDouble,
+    elevationReference: __expectString,
+    elevationUnit: __expectString,
+    latitude: __limitedParseDouble,
+    longitude: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ReturnInformation
- */
-const de_ReturnInformation = (output: any, context: __SerdeContext): ReturnInformation => {
-  return {
-    replacementOrderArn: __expectString(output.replacementOrderArn),
-    returnReason: __expectString(output.returnReason),
-    shippingAddress: output.shippingAddress != null ? de_Address(output.shippingAddress, context) : undefined,
-    shippingLabel: __expectString(output.shippingLabel),
-  } as any;
-};
+// de_ReturnInformation omitted.
 
-/**
- * deserializeAws_restJson1SitePlan
- */
-const de_SitePlan = (output: any, context: __SerdeContext): SitePlan => {
-  return {
-    options: output.options != null ? de_Options(output.options, context) : undefined,
-    resourceDefinitions:
-      output.resourceDefinitions != null
-        ? de_NetworkResourceDefinitions(output.resourceDefinitions, context)
-        : undefined,
-  } as any;
-};
+// de_SitePlan omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1TrackingInformation
- */
-const de_TrackingInformation = (output: any, context: __SerdeContext): TrackingInformation => {
-  return {
-    trackingNumber: __expectString(output.trackingNumber),
-  } as any;
-};
+// de_TrackingInformation omitted.
 
-/**
- * deserializeAws_restJson1TrackingInformationList
- */
-const de_TrackingInformationList = (output: any, context: __SerdeContext): TrackingInformation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TrackingInformation(entry, context);
-    });
-  return retVal;
-};
+// de_TrackingInformationList omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,7 +9,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -305,72 +307,42 @@ import {
 import { UpdateTagOptionCommandInput, UpdateTagOptionCommandOutput } from "../commands/UpdateTagOptionCommand";
 import {
   AcceptPortfolioShareInput,
-  AcceptPortfolioShareOutput,
   AccessLevelFilter,
   AssociateBudgetWithResourceInput,
-  AssociateBudgetWithResourceOutput,
   AssociatePrincipalWithPortfolioInput,
-  AssociatePrincipalWithPortfolioOutput,
   AssociateProductWithPortfolioInput,
-  AssociateProductWithPortfolioOutput,
   AssociateServiceActionWithProvisioningArtifactInput,
-  AssociateServiceActionWithProvisioningArtifactOutput,
   AssociateTagOptionWithResourceInput,
-  AssociateTagOptionWithResourceOutput,
   BatchAssociateServiceActionWithProvisioningArtifactInput,
-  BatchAssociateServiceActionWithProvisioningArtifactOutput,
   BatchDisassociateServiceActionFromProvisioningArtifactInput,
-  BatchDisassociateServiceActionFromProvisioningArtifactOutput,
-  BudgetDetail,
-  CloudWatchDashboard,
   CodeStarParameters,
-  ConstraintDetail,
-  ConstraintSummary,
   CopyOption,
   CopyProductInput,
-  CopyProductOutput,
   CreateConstraintInput,
-  CreateConstraintOutput,
   CreatePortfolioInput,
   CreatePortfolioOutput,
   CreatePortfolioShareInput,
-  CreatePortfolioShareOutput,
   CreateProductInput,
   CreateProductOutput,
   CreateProvisionedProductPlanInput,
-  CreateProvisionedProductPlanOutput,
   CreateProvisioningArtifactInput,
   CreateProvisioningArtifactOutput,
   CreateServiceActionInput,
-  CreateServiceActionOutput,
   CreateTagOptionInput,
-  CreateTagOptionOutput,
   DeleteConstraintInput,
-  DeleteConstraintOutput,
   DeletePortfolioInput,
-  DeletePortfolioOutput,
   DeletePortfolioShareInput,
-  DeletePortfolioShareOutput,
   DeleteProductInput,
-  DeleteProductOutput,
   DeleteProvisionedProductPlanInput,
-  DeleteProvisionedProductPlanOutput,
   DeleteProvisioningArtifactInput,
-  DeleteProvisioningArtifactOutput,
   DeleteServiceActionInput,
-  DeleteServiceActionOutput,
   DeleteTagOptionInput,
-  DeleteTagOptionOutput,
   DescribeConstraintInput,
-  DescribeConstraintOutput,
   DescribeCopyProductStatusInput,
-  DescribeCopyProductStatusOutput,
   DescribePortfolioInput,
   DescribePortfolioOutput,
   DescribePortfolioSharesInput,
-  DescribePortfolioSharesOutput,
   DescribePortfolioShareStatusInput,
-  DescribePortfolioShareStatusOutput,
   DescribeProductAsAdminInput,
   DescribeProductAsAdminOutput,
   DescribeProductInput,
@@ -384,69 +356,45 @@ import {
   DescribeProvisioningArtifactInput,
   DescribeProvisioningArtifactOutput,
   DescribeProvisioningParametersInput,
-  DescribeProvisioningParametersOutput,
   DescribeRecordInput,
   DescribeRecordOutput,
   DescribeServiceActionExecutionParametersInput,
-  DescribeServiceActionExecutionParametersOutput,
   DescribeServiceActionInput,
-  DescribeServiceActionOutput,
   DescribeTagOptionInput,
-  DescribeTagOptionOutput,
   DisableAWSOrganizationsAccessInput,
-  DisableAWSOrganizationsAccessOutput,
   DisassociateBudgetFromResourceInput,
-  DisassociateBudgetFromResourceOutput,
   DisassociatePrincipalFromPortfolioInput,
-  DisassociatePrincipalFromPortfolioOutput,
   DisassociateProductFromPortfolioInput,
-  DisassociateProductFromPortfolioOutput,
   DisassociateServiceActionFromProvisioningArtifactInput,
-  DisassociateServiceActionFromProvisioningArtifactOutput,
   DisassociateTagOptionFromResourceInput,
-  DisassociateTagOptionFromResourceOutput,
   DuplicateResourceException,
   EnableAWSOrganizationsAccessInput,
-  EnableAWSOrganizationsAccessOutput,
   EngineWorkflowResourceIdentifier,
   ExecuteProvisionedProductPlanInput,
   ExecuteProvisionedProductPlanOutput,
   ExecuteProvisionedProductServiceActionInput,
   ExecuteProvisionedProductServiceActionOutput,
-  ExecutionParameter,
-  FailedServiceActionAssociation,
   GetAWSOrganizationsAccessStatusInput,
-  GetAWSOrganizationsAccessStatusOutput,
   GetProvisionedProductOutputsInput,
-  GetProvisionedProductOutputsOutput,
   ImportAsProvisionedProductInput,
   ImportAsProvisionedProductOutput,
   InvalidParametersException,
   InvalidStateException,
   LastSync,
-  LaunchPath,
-  LaunchPathSummary,
   LimitExceededException,
   ListAcceptedPortfolioSharesInput,
   ListAcceptedPortfolioSharesOutput,
   ListBudgetsForResourceInput,
-  ListBudgetsForResourceOutput,
   ListConstraintsForPortfolioInput,
-  ListConstraintsForPortfolioOutput,
   ListLaunchPathsInput,
-  ListLaunchPathsOutput,
   ListOrganizationPortfolioAccessInput,
-  ListOrganizationPortfolioAccessOutput,
   ListPortfolioAccessInput,
-  ListPortfolioAccessOutput,
   ListPortfoliosForProductInput,
   ListPortfoliosForProductOutput,
   ListPortfoliosInput,
   ListPortfoliosOutput,
   ListPrincipalsForPortfolioInput,
-  ListPrincipalsForPortfolioOutput,
   ListProvisionedProductPlansInput,
-  ListProvisionedProductPlansOutput,
   ListProvisioningArtifactsForServiceActionInput,
   ListProvisioningArtifactsForServiceActionOutput,
   ListProvisioningArtifactsInput,
@@ -457,43 +405,23 @@ import {
   ListResourcesForTagOptionInput,
   ListResourcesForTagOptionOutput,
   ListServiceActionsForProvisioningArtifactInput,
-  ListServiceActionsForProvisioningArtifactOutput,
   ListServiceActionsInput,
-  ListServiceActionsOutput,
   ListStackInstancesForProvisionedProductInput,
-  ListStackInstancesForProvisionedProductOutput,
   ListTagOptionsFilters,
   ListTagOptionsInput,
-  ListTagOptionsOutput,
   NotifyProvisionProductEngineWorkflowResultInput,
-  NotifyProvisionProductEngineWorkflowResultOutput,
   NotifyTerminateProvisionedProductEngineWorkflowResultInput,
-  NotifyTerminateProvisionedProductEngineWorkflowResultOutput,
   NotifyUpdateProvisionedProductEngineWorkflowResultInput,
-  NotifyUpdateProvisionedProductEngineWorkflowResultOutput,
   OperationNotSupportedException,
   OrganizationNode,
-  ParameterConstraints,
   PortfolioDetail,
-  PortfolioShareDetail,
-  Principal,
-  ProductViewAggregationValue,
   ProductViewDetail,
-  ProductViewFilterBy,
-  ProductViewSummary,
-  PropertyKey,
   ProvisionedProductAttribute,
   ProvisionedProductDetail,
   ProvisionedProductPlanDetails,
-  ProvisionedProductPlanSummary,
-  ProvisionedProductViewFilterBy,
   ProvisioningArtifact,
   ProvisioningArtifactDetail,
-  ProvisioningArtifactOutput,
-  ProvisioningArtifactParameter,
-  ProvisioningArtifactPreferences,
   ProvisioningArtifactProperties,
-  ProvisioningArtifactPropertyName,
   ProvisioningArtifactSummary,
   ProvisioningArtifactView,
   ProvisioningParameter,
@@ -501,64 +429,42 @@ import {
   ProvisionProductInput,
   ProvisionProductOutput,
   RecordDetail,
-  RecordError,
   RecordOutput,
-  RecordTag,
   RejectPortfolioShareInput,
-  RejectPortfolioShareOutput,
-  ResourceAttribute,
-  ResourceChange,
-  ResourceChangeDetail,
   ResourceDetail,
   ResourceInUseException,
   ResourceNotFoundException,
-  ResourceTargetDefinition,
   ScanProvisionedProductsInput,
   ScanProvisionedProductsOutput,
   SearchProductsAsAdminInput,
   SearchProductsAsAdminOutput,
   SearchProductsInput,
-  SearchProductsOutput,
   SearchProvisionedProductsInput,
   SearchProvisionedProductsOutput,
   ServiceActionAssociation,
-  ServiceActionDefinitionKey,
-  ServiceActionDetail,
-  ServiceActionSummary,
-  ShareDetails,
-  ShareError,
   SourceConnection,
   SourceConnectionDetail,
   SourceConnectionParameters,
-  StackInstance,
   Tag,
-  TagOptionDetail,
   TagOptionNotMigratedException,
-  TagOptionSummary,
   TerminateProvisionedProductInput,
   TerminateProvisionedProductOutput,
   UniqueTagResourceIdentifier,
   UpdateConstraintInput,
-  UpdateConstraintOutput,
   UpdatePortfolioInput,
   UpdatePortfolioOutput,
   UpdatePortfolioShareInput,
-  UpdatePortfolioShareOutput,
   UpdateProductInput,
   UpdateProductOutput,
   UpdateProvisionedProductInput,
   UpdateProvisionedProductOutput,
   UpdateProvisionedProductPropertiesInput,
-  UpdateProvisionedProductPropertiesOutput,
   UpdateProvisioningArtifactInput,
   UpdateProvisioningArtifactOutput,
   UpdateProvisioningParameter,
   UpdateProvisioningPreferences,
   UpdateServiceActionInput,
-  UpdateServiceActionOutput,
   UpdateTagOptionInput,
-  UpdateTagOptionOutput,
-  UsageInstruction,
 } from "../models/models_0";
 import { ServiceCatalogServiceException as __BaseException } from "../models/ServiceCatalogServiceException";
 
@@ -571,7 +477,7 @@ export const se_AcceptPortfolioShareCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AcceptPortfolioShare");
   let body: any;
-  body = JSON.stringify(se_AcceptPortfolioShareInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -584,7 +490,7 @@ export const se_AssociateBudgetWithResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateBudgetWithResource");
   let body: any;
-  body = JSON.stringify(se_AssociateBudgetWithResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -597,7 +503,7 @@ export const se_AssociatePrincipalWithPortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociatePrincipalWithPortfolio");
   let body: any;
-  body = JSON.stringify(se_AssociatePrincipalWithPortfolioInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -610,7 +516,7 @@ export const se_AssociateProductWithPortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateProductWithPortfolio");
   let body: any;
-  body = JSON.stringify(se_AssociateProductWithPortfolioInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -623,7 +529,7 @@ export const se_AssociateServiceActionWithProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateServiceActionWithProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(se_AssociateServiceActionWithProvisioningArtifactInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -636,7 +542,7 @@ export const se_AssociateTagOptionWithResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateTagOptionWithResource");
   let body: any;
-  body = JSON.stringify(se_AssociateTagOptionWithResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -649,7 +555,7 @@ export const se_BatchAssociateServiceActionWithProvisioningArtifactCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchAssociateServiceActionWithProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(se_BatchAssociateServiceActionWithProvisioningArtifactInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -662,7 +568,7 @@ export const se_BatchDisassociateServiceActionFromProvisioningArtifactCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDisassociateServiceActionFromProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(se_BatchDisassociateServiceActionFromProvisioningArtifactInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -714,7 +620,7 @@ export const se_CreatePortfolioShareCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePortfolioShare");
   let body: any;
-  body = JSON.stringify(se_CreatePortfolioShareInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -779,7 +685,7 @@ export const se_CreateTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTagOption");
   let body: any;
-  body = JSON.stringify(se_CreateTagOptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -792,7 +698,7 @@ export const se_DeleteConstraintCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConstraint");
   let body: any;
-  body = JSON.stringify(se_DeleteConstraintInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -805,7 +711,7 @@ export const se_DeletePortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePortfolio");
   let body: any;
-  body = JSON.stringify(se_DeletePortfolioInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -818,7 +724,7 @@ export const se_DeletePortfolioShareCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePortfolioShare");
   let body: any;
-  body = JSON.stringify(se_DeletePortfolioShareInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -831,7 +737,7 @@ export const se_DeleteProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProduct");
   let body: any;
-  body = JSON.stringify(se_DeleteProductInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -844,7 +750,7 @@ export const se_DeleteProvisionedProductPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProvisionedProductPlan");
   let body: any;
-  body = JSON.stringify(se_DeleteProvisionedProductPlanInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -857,7 +763,7 @@ export const se_DeleteProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(se_DeleteProvisioningArtifactInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -870,7 +776,7 @@ export const se_DeleteServiceActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteServiceAction");
   let body: any;
-  body = JSON.stringify(se_DeleteServiceActionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -883,7 +789,7 @@ export const se_DeleteTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTagOption");
   let body: any;
-  body = JSON.stringify(se_DeleteTagOptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -896,7 +802,7 @@ export const se_DescribeConstraintCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConstraint");
   let body: any;
-  body = JSON.stringify(se_DescribeConstraintInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -909,7 +815,7 @@ export const se_DescribeCopyProductStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCopyProductStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeCopyProductStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -922,7 +828,7 @@ export const se_DescribePortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePortfolio");
   let body: any;
-  body = JSON.stringify(se_DescribePortfolioInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -935,7 +841,7 @@ export const se_DescribePortfolioSharesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePortfolioShares");
   let body: any;
-  body = JSON.stringify(se_DescribePortfolioSharesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -948,7 +854,7 @@ export const se_DescribePortfolioShareStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePortfolioShareStatus");
   let body: any;
-  body = JSON.stringify(se_DescribePortfolioShareStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -961,7 +867,7 @@ export const se_DescribeProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProduct");
   let body: any;
-  body = JSON.stringify(se_DescribeProductInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -974,7 +880,7 @@ export const se_DescribeProductAsAdminCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProductAsAdmin");
   let body: any;
-  body = JSON.stringify(se_DescribeProductAsAdminInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -987,7 +893,7 @@ export const se_DescribeProductViewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProductView");
   let body: any;
-  body = JSON.stringify(se_DescribeProductViewInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1000,7 +906,7 @@ export const se_DescribeProvisionedProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProvisionedProduct");
   let body: any;
-  body = JSON.stringify(se_DescribeProvisionedProductInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1013,7 +919,7 @@ export const se_DescribeProvisionedProductPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProvisionedProductPlan");
   let body: any;
-  body = JSON.stringify(se_DescribeProvisionedProductPlanInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1026,7 +932,7 @@ export const se_DescribeProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(se_DescribeProvisioningArtifactInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1039,7 +945,7 @@ export const se_DescribeProvisioningParametersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProvisioningParameters");
   let body: any;
-  body = JSON.stringify(se_DescribeProvisioningParametersInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1052,7 +958,7 @@ export const se_DescribeRecordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRecord");
   let body: any;
-  body = JSON.stringify(se_DescribeRecordInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1065,7 +971,7 @@ export const se_DescribeServiceActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeServiceAction");
   let body: any;
-  body = JSON.stringify(se_DescribeServiceActionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1078,7 +984,7 @@ export const se_DescribeServiceActionExecutionParametersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeServiceActionExecutionParameters");
   let body: any;
-  body = JSON.stringify(se_DescribeServiceActionExecutionParametersInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1091,7 +997,7 @@ export const se_DescribeTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTagOption");
   let body: any;
-  body = JSON.stringify(se_DescribeTagOptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1104,7 +1010,7 @@ export const se_DisableAWSOrganizationsAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableAWSOrganizationsAccess");
   let body: any;
-  body = JSON.stringify(se_DisableAWSOrganizationsAccessInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1117,7 +1023,7 @@ export const se_DisassociateBudgetFromResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateBudgetFromResource");
   let body: any;
-  body = JSON.stringify(se_DisassociateBudgetFromResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1130,7 +1036,7 @@ export const se_DisassociatePrincipalFromPortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociatePrincipalFromPortfolio");
   let body: any;
-  body = JSON.stringify(se_DisassociatePrincipalFromPortfolioInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1143,7 +1049,7 @@ export const se_DisassociateProductFromPortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateProductFromPortfolio");
   let body: any;
-  body = JSON.stringify(se_DisassociateProductFromPortfolioInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1156,7 +1062,7 @@ export const se_DisassociateServiceActionFromProvisioningArtifactCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateServiceActionFromProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(se_DisassociateServiceActionFromProvisioningArtifactInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1169,7 +1075,7 @@ export const se_DisassociateTagOptionFromResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateTagOptionFromResource");
   let body: any;
-  body = JSON.stringify(se_DisassociateTagOptionFromResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1182,7 +1088,7 @@ export const se_EnableAWSOrganizationsAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableAWSOrganizationsAccess");
   let body: any;
-  body = JSON.stringify(se_EnableAWSOrganizationsAccessInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1221,7 +1127,7 @@ export const se_GetAWSOrganizationsAccessStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAWSOrganizationsAccessStatus");
   let body: any;
-  body = JSON.stringify(se_GetAWSOrganizationsAccessStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1234,7 +1140,7 @@ export const se_GetProvisionedProductOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetProvisionedProductOutputs");
   let body: any;
-  body = JSON.stringify(se_GetProvisionedProductOutputsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1260,7 +1166,7 @@ export const se_ListAcceptedPortfolioSharesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAcceptedPortfolioShares");
   let body: any;
-  body = JSON.stringify(se_ListAcceptedPortfolioSharesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1273,7 +1179,7 @@ export const se_ListBudgetsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListBudgetsForResource");
   let body: any;
-  body = JSON.stringify(se_ListBudgetsForResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1286,7 +1192,7 @@ export const se_ListConstraintsForPortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListConstraintsForPortfolio");
   let body: any;
-  body = JSON.stringify(se_ListConstraintsForPortfolioInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1299,7 +1205,7 @@ export const se_ListLaunchPathsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLaunchPaths");
   let body: any;
-  body = JSON.stringify(se_ListLaunchPathsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1312,7 +1218,7 @@ export const se_ListOrganizationPortfolioAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListOrganizationPortfolioAccess");
   let body: any;
-  body = JSON.stringify(se_ListOrganizationPortfolioAccessInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1325,7 +1231,7 @@ export const se_ListPortfolioAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPortfolioAccess");
   let body: any;
-  body = JSON.stringify(se_ListPortfolioAccessInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1338,7 +1244,7 @@ export const se_ListPortfoliosCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPortfolios");
   let body: any;
-  body = JSON.stringify(se_ListPortfoliosInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1351,7 +1257,7 @@ export const se_ListPortfoliosForProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPortfoliosForProduct");
   let body: any;
-  body = JSON.stringify(se_ListPortfoliosForProductInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1364,7 +1270,7 @@ export const se_ListPrincipalsForPortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPrincipalsForPortfolio");
   let body: any;
-  body = JSON.stringify(se_ListPrincipalsForPortfolioInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1377,7 +1283,7 @@ export const se_ListProvisionedProductPlansCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListProvisionedProductPlans");
   let body: any;
-  body = JSON.stringify(se_ListProvisionedProductPlansInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1390,7 +1296,7 @@ export const se_ListProvisioningArtifactsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListProvisioningArtifacts");
   let body: any;
-  body = JSON.stringify(se_ListProvisioningArtifactsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1403,7 +1309,7 @@ export const se_ListProvisioningArtifactsForServiceActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListProvisioningArtifactsForServiceAction");
   let body: any;
-  body = JSON.stringify(se_ListProvisioningArtifactsForServiceActionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1416,7 +1322,7 @@ export const se_ListRecordHistoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRecordHistory");
   let body: any;
-  body = JSON.stringify(se_ListRecordHistoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1429,7 +1335,7 @@ export const se_ListResourcesForTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListResourcesForTagOption");
   let body: any;
-  body = JSON.stringify(se_ListResourcesForTagOptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1442,7 +1348,7 @@ export const se_ListServiceActionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServiceActions");
   let body: any;
-  body = JSON.stringify(se_ListServiceActionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1455,7 +1361,7 @@ export const se_ListServiceActionsForProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServiceActionsForProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(se_ListServiceActionsForProvisioningArtifactInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1468,7 +1374,7 @@ export const se_ListStackInstancesForProvisionedProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListStackInstancesForProvisionedProduct");
   let body: any;
-  body = JSON.stringify(se_ListStackInstancesForProvisionedProductInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1481,7 +1387,7 @@ export const se_ListTagOptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagOptions");
   let body: any;
-  body = JSON.stringify(se_ListTagOptionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1546,7 +1452,7 @@ export const se_RejectPortfolioShareCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RejectPortfolioShare");
   let body: any;
-  body = JSON.stringify(se_RejectPortfolioShareInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1559,7 +1465,7 @@ export const se_ScanProvisionedProductsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ScanProvisionedProducts");
   let body: any;
-  body = JSON.stringify(se_ScanProvisionedProductsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1572,7 +1478,7 @@ export const se_SearchProductsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SearchProducts");
   let body: any;
-  body = JSON.stringify(se_SearchProductsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1585,7 +1491,7 @@ export const se_SearchProductsAsAdminCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SearchProductsAsAdmin");
   let body: any;
-  body = JSON.stringify(se_SearchProductsAsAdminInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1598,7 +1504,7 @@ export const se_SearchProvisionedProductsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SearchProvisionedProducts");
   let body: any;
-  body = JSON.stringify(se_SearchProvisionedProductsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1624,7 +1530,7 @@ export const se_UpdateConstraintCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateConstraint");
   let body: any;
-  body = JSON.stringify(se_UpdateConstraintInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1637,7 +1543,7 @@ export const se_UpdatePortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePortfolio");
   let body: any;
-  body = JSON.stringify(se_UpdatePortfolioInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1650,7 +1556,7 @@ export const se_UpdatePortfolioShareCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePortfolioShare");
   let body: any;
-  body = JSON.stringify(se_UpdatePortfolioShareInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1663,7 +1569,7 @@ export const se_UpdateProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateProduct");
   let body: any;
-  body = JSON.stringify(se_UpdateProductInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1702,7 +1608,7 @@ export const se_UpdateProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(se_UpdateProvisioningArtifactInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1715,7 +1621,7 @@ export const se_UpdateServiceActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateServiceAction");
   let body: any;
-  body = JSON.stringify(se_UpdateServiceActionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1728,7 +1634,7 @@ export const se_UpdateTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTagOption");
   let body: any;
-  body = JSON.stringify(se_UpdateTagOptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1744,12 +1650,12 @@ export const de_AcceptPortfolioShareCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AcceptPortfolioShareOutput(data, context);
+  contents = _json(data);
   const response: AcceptPortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1776,10 +1682,9 @@ const de_AcceptPortfolioShareCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1797,12 +1702,12 @@ export const de_AssociateBudgetWithResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateBudgetWithResourceOutput(data, context);
+  contents = _json(data);
   const response: AssociateBudgetWithResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1832,10 +1737,9 @@ const de_AssociateBudgetWithResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1853,12 +1757,12 @@ export const de_AssociatePrincipalWithPortfolioCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociatePrincipalWithPortfolioOutput(data, context);
+  contents = _json(data);
   const response: AssociatePrincipalWithPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1885,10 +1789,9 @@ const de_AssociatePrincipalWithPortfolioCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1906,12 +1809,12 @@ export const de_AssociateProductWithPortfolioCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateProductWithPortfolioOutput(data, context);
+  contents = _json(data);
   const response: AssociateProductWithPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1938,10 +1841,9 @@ const de_AssociateProductWithPortfolioCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1959,12 +1861,12 @@ export const de_AssociateServiceActionWithProvisioningArtifactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateServiceActionWithProvisioningArtifactOutput(data, context);
+  contents = _json(data);
   const response: AssociateServiceActionWithProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1994,10 +1896,9 @@ const de_AssociateServiceActionWithProvisioningArtifactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2015,12 +1916,12 @@ export const de_AssociateTagOptionWithResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateTagOptionWithResourceOutput(data, context);
+  contents = _json(data);
   const response: AssociateTagOptionWithResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2056,10 +1957,9 @@ const de_AssociateTagOptionWithResourceCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2077,12 +1977,12 @@ export const de_BatchAssociateServiceActionWithProvisioningArtifactCommand = asy
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchAssociateServiceActionWithProvisioningArtifactOutput(data, context);
+  contents = _json(data);
   const response: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2103,10 +2003,9 @@ const de_BatchAssociateServiceActionWithProvisioningArtifactCommandError = async
       throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2124,12 +2023,12 @@ export const de_BatchDisassociateServiceActionFromProvisioningArtifactCommand = 
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchDisassociateServiceActionFromProvisioningArtifactOutput(data, context);
+  contents = _json(data);
   const response: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2150,10 +2049,9 @@ const de_BatchDisassociateServiceActionFromProvisioningArtifactCommandError = as
       throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2171,12 +2069,12 @@ export const de_CopyProductCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CopyProductOutput(data, context);
+  contents = _json(data);
   const response: CopyProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2200,10 +2098,9 @@ const de_CopyProductCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2221,12 +2118,12 @@ export const de_CreateConstraintCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateConstraintOutput(data, context);
+  contents = _json(data);
   const response: CreateConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2256,10 +2153,9 @@ const de_CreateConstraintCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2282,7 +2178,7 @@ export const de_CreatePortfolioCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2309,10 +2205,9 @@ const de_CreatePortfolioCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2330,12 +2225,12 @@ export const de_CreatePortfolioShareCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreatePortfolioShareOutput(data, context);
+  contents = _json(data);
   const response: CreatePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2368,10 +2263,9 @@ const de_CreatePortfolioShareCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2394,7 +2288,7 @@ export const de_CreateProductCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2421,10 +2315,9 @@ const de_CreateProductCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2442,12 +2335,12 @@ export const de_CreateProvisionedProductPlanCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateProvisionedProductPlanOutput(data, context);
+  contents = _json(data);
   const response: CreateProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2474,10 +2367,9 @@ const de_CreateProvisionedProductPlanCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2500,7 +2392,7 @@ export const de_CreateProvisioningArtifactCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2527,10 +2419,9 @@ const de_CreateProvisioningArtifactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2548,12 +2439,12 @@ export const de_CreateServiceActionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateServiceActionOutput(data, context);
+  contents = _json(data);
   const response: CreateServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2577,10 +2468,9 @@ const de_CreateServiceActionCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2598,12 +2488,12 @@ export const de_CreateTagOptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateTagOptionOutput(data, context);
+  contents = _json(data);
   const response: CreateTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2630,10 +2520,9 @@ const de_CreateTagOptionCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2651,12 +2540,12 @@ export const de_DeleteConstraintCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteConstraintOutput(data, context);
+  contents = _json(data);
   const response: DeleteConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2680,10 +2569,9 @@ const de_DeleteConstraintCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2701,12 +2589,12 @@ export const de_DeletePortfolioCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeletePortfolioOutput(data, context);
+  contents = _json(data);
   const response: DeletePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2736,10 +2624,9 @@ const de_DeletePortfolioCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2757,12 +2644,12 @@ export const de_DeletePortfolioShareCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeletePortfolioShareOutput(data, context);
+  contents = _json(data);
   const response: DeletePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2792,10 +2679,9 @@ const de_DeletePortfolioShareCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2813,12 +2699,12 @@ export const de_DeleteProductCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteProductOutput(data, context);
+  contents = _json(data);
   const response: DeleteProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2848,10 +2734,9 @@ const de_DeleteProductCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2869,12 +2754,12 @@ export const de_DeleteProvisionedProductPlanCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteProvisionedProductPlanOutput(data, context);
+  contents = _json(data);
   const response: DeleteProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2898,10 +2783,9 @@ const de_DeleteProvisionedProductPlanCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2919,12 +2803,12 @@ export const de_DeleteProvisioningArtifactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteProvisioningArtifactOutput(data, context);
+  contents = _json(data);
   const response: DeleteProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2951,10 +2835,9 @@ const de_DeleteProvisioningArtifactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2972,12 +2855,12 @@ export const de_DeleteServiceActionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteServiceActionOutput(data, context);
+  contents = _json(data);
   const response: DeleteServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3001,10 +2884,9 @@ const de_DeleteServiceActionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3022,12 +2904,12 @@ export const de_DeleteTagOptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteTagOptionOutput(data, context);
+  contents = _json(data);
   const response: DeleteTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3054,10 +2936,9 @@ const de_DeleteTagOptionCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3075,12 +2956,12 @@ export const de_DescribeConstraintCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeConstraintOutput(data, context);
+  contents = _json(data);
   const response: DescribeConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3101,10 +2982,9 @@ const de_DescribeConstraintCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3122,12 +3002,12 @@ export const de_DescribeCopyProductStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeCopyProductStatusOutput(data, context);
+  contents = _json(data);
   const response: DescribeCopyProductStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3148,10 +3028,9 @@ const de_DescribeCopyProductStatusCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3174,7 +3053,7 @@ export const de_DescribePortfolioCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3195,10 +3074,9 @@ const de_DescribePortfolioCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3216,12 +3094,12 @@ export const de_DescribePortfolioSharesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribePortfolioSharesOutput(data, context);
+  contents = _json(data);
   const response: DescribePortfolioSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3245,10 +3123,9 @@ const de_DescribePortfolioSharesCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3266,12 +3143,12 @@ export const de_DescribePortfolioShareStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribePortfolioShareStatusOutput(data, context);
+  contents = _json(data);
   const response: DescribePortfolioShareStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3298,10 +3175,9 @@ const de_DescribePortfolioShareStatusCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3324,7 +3200,7 @@ export const de_DescribeProductCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3348,10 +3224,9 @@ const de_DescribeProductCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3374,7 +3249,7 @@ export const de_DescribeProductAsAdminCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3398,10 +3273,9 @@ const de_DescribeProductAsAdminCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3424,7 +3298,7 @@ export const de_DescribeProductViewCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3448,10 +3322,9 @@ const de_DescribeProductViewCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3474,7 +3347,7 @@ export const de_DescribeProvisionedProductCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3498,10 +3371,9 @@ const de_DescribeProvisionedProductCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3524,7 +3396,7 @@ export const de_DescribeProvisionedProductPlanCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3548,10 +3420,9 @@ const de_DescribeProvisionedProductPlanCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3574,7 +3445,7 @@ export const de_DescribeProvisioningArtifactCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3598,10 +3469,9 @@ const de_DescribeProvisioningArtifactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3619,12 +3489,12 @@ export const de_DescribeProvisioningParametersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeProvisioningParametersOutput(data, context);
+  contents = _json(data);
   const response: DescribeProvisioningParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3648,10 +3518,9 @@ const de_DescribeProvisioningParametersCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3674,7 +3543,7 @@ export const de_DescribeRecordCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3695,10 +3564,9 @@ const de_DescribeRecordCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3716,12 +3584,12 @@ export const de_DescribeServiceActionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeServiceActionOutput(data, context);
+  contents = _json(data);
   const response: DescribeServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3742,10 +3610,9 @@ const de_DescribeServiceActionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3763,12 +3630,12 @@ export const de_DescribeServiceActionExecutionParametersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeServiceActionExecutionParametersOutput(data, context);
+  contents = _json(data);
   const response: DescribeServiceActionExecutionParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3792,10 +3659,9 @@ const de_DescribeServiceActionExecutionParametersCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3813,12 +3679,12 @@ export const de_DescribeTagOptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeTagOptionOutput(data, context);
+  contents = _json(data);
   const response: DescribeTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3842,10 +3708,9 @@ const de_DescribeTagOptionCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3863,12 +3728,12 @@ export const de_DisableAWSOrganizationsAccessCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisableAWSOrganizationsAccessOutput(data, context);
+  contents = _json(data);
   const response: DisableAWSOrganizationsAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3895,10 +3760,9 @@ const de_DisableAWSOrganizationsAccessCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3916,12 +3780,12 @@ export const de_DisassociateBudgetFromResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateBudgetFromResourceOutput(data, context);
+  contents = _json(data);
   const response: DisassociateBudgetFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3942,10 +3806,9 @@ const de_DisassociateBudgetFromResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3963,12 +3826,12 @@ export const de_DisassociatePrincipalFromPortfolioCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociatePrincipalFromPortfolioOutput(data, context);
+  contents = _json(data);
   const response: DisassociatePrincipalFromPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3992,10 +3855,9 @@ const de_DisassociatePrincipalFromPortfolioCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4013,12 +3875,12 @@ export const de_DisassociateProductFromPortfolioCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateProductFromPortfolioOutput(data, context);
+  contents = _json(data);
   const response: DisassociateProductFromPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4045,10 +3907,9 @@ const de_DisassociateProductFromPortfolioCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4066,12 +3927,12 @@ export const de_DisassociateServiceActionFromProvisioningArtifactCommand = async
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateServiceActionFromProvisioningArtifactOutput(data, context);
+  contents = _json(data);
   const response: DisassociateServiceActionFromProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4092,10 +3953,9 @@ const de_DisassociateServiceActionFromProvisioningArtifactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4113,12 +3973,12 @@ export const de_DisassociateTagOptionFromResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateTagOptionFromResourceOutput(data, context);
+  contents = _json(data);
   const response: DisassociateTagOptionFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4142,10 +4002,9 @@ const de_DisassociateTagOptionFromResourceCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4163,12 +4022,12 @@ export const de_EnableAWSOrganizationsAccessCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EnableAWSOrganizationsAccessOutput(data, context);
+  contents = _json(data);
   const response: EnableAWSOrganizationsAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4195,10 +4054,9 @@ const de_EnableAWSOrganizationsAccessCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4221,7 +4079,7 @@ export const de_ExecuteProvisionedProductPlanCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4248,10 +4106,9 @@ const de_ExecuteProvisionedProductPlanCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4274,7 +4131,7 @@ export const de_ExecuteProvisionedProductServiceActionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4301,10 +4158,9 @@ const de_ExecuteProvisionedProductServiceActionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4322,12 +4178,12 @@ export const de_GetAWSOrganizationsAccessStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAWSOrganizationsAccessStatusOutput(data, context);
+  contents = _json(data);
   const response: GetAWSOrganizationsAccessStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4351,10 +4207,9 @@ const de_GetAWSOrganizationsAccessStatusCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4372,12 +4227,12 @@ export const de_GetProvisionedProductOutputsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetProvisionedProductOutputsOutput(data, context);
+  contents = _json(data);
   const response: GetProvisionedProductOutputsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4401,10 +4256,9 @@ const de_GetProvisionedProductOutputsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4427,7 +4281,7 @@ export const de_ImportAsProvisionedProductCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4457,10 +4311,9 @@ const de_ImportAsProvisionedProductCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4483,7 +4336,7 @@ export const de_ListAcceptedPortfolioSharesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4507,10 +4360,9 @@ const de_ListAcceptedPortfolioSharesCommandError = async (
       throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4528,12 +4380,12 @@ export const de_ListBudgetsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListBudgetsForResourceOutput(data, context);
+  contents = _json(data);
   const response: ListBudgetsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4557,10 +4409,9 @@ const de_ListBudgetsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4578,12 +4429,12 @@ export const de_ListConstraintsForPortfolioCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListConstraintsForPortfolioOutput(data, context);
+  contents = _json(data);
   const response: ListConstraintsForPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4607,10 +4458,9 @@ const de_ListConstraintsForPortfolioCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4628,12 +4478,12 @@ export const de_ListLaunchPathsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListLaunchPathsOutput(data, context);
+  contents = _json(data);
   const response: ListLaunchPathsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4657,10 +4507,9 @@ const de_ListLaunchPathsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4678,12 +4527,12 @@ export const de_ListOrganizationPortfolioAccessCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListOrganizationPortfolioAccessOutput(data, context);
+  contents = _json(data);
   const response: ListOrganizationPortfolioAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4710,10 +4559,9 @@ const de_ListOrganizationPortfolioAccessCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4731,12 +4579,12 @@ export const de_ListPortfolioAccessCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPortfolioAccessOutput(data, context);
+  contents = _json(data);
   const response: ListPortfolioAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4760,10 +4608,9 @@ const de_ListPortfolioAccessCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4786,7 +4633,7 @@ export const de_ListPortfoliosCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4807,10 +4654,9 @@ const de_ListPortfoliosCommandError = async (
       throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4833,7 +4679,7 @@ export const de_ListPortfoliosForProductCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4857,10 +4703,9 @@ const de_ListPortfoliosForProductCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4878,12 +4723,12 @@ export const de_ListPrincipalsForPortfolioCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPrincipalsForPortfolioOutput(data, context);
+  contents = _json(data);
   const response: ListPrincipalsForPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4907,10 +4752,9 @@ const de_ListPrincipalsForPortfolioCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4928,12 +4772,12 @@ export const de_ListProvisionedProductPlansCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListProvisionedProductPlansOutput(data, context);
+  contents = _json(data);
   const response: ListProvisionedProductPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4957,10 +4801,9 @@ const de_ListProvisionedProductPlansCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4983,7 +4826,7 @@ export const de_ListProvisioningArtifactsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5007,10 +4850,9 @@ const de_ListProvisioningArtifactsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5033,7 +4875,7 @@ export const de_ListProvisioningArtifactsForServiceActionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5057,10 +4899,9 @@ const de_ListProvisioningArtifactsForServiceActionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5083,7 +4924,7 @@ export const de_ListRecordHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5104,10 +4945,9 @@ const de_ListRecordHistoryCommandError = async (
       throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5130,7 +4970,7 @@ export const de_ListResourcesForTagOptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5157,10 +4997,9 @@ const de_ListResourcesForTagOptionCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5178,12 +5017,12 @@ export const de_ListServiceActionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListServiceActionsOutput(data, context);
+  contents = _json(data);
   const response: ListServiceActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5204,10 +5043,9 @@ const de_ListServiceActionsCommandError = async (
       throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5225,12 +5063,12 @@ export const de_ListServiceActionsForProvisioningArtifactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListServiceActionsForProvisioningArtifactOutput(data, context);
+  contents = _json(data);
   const response: ListServiceActionsForProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5254,10 +5092,9 @@ const de_ListServiceActionsForProvisioningArtifactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5275,12 +5112,12 @@ export const de_ListStackInstancesForProvisionedProductCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListStackInstancesForProvisionedProductOutput(data, context);
+  contents = _json(data);
   const response: ListStackInstancesForProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5304,10 +5141,9 @@ const de_ListStackInstancesForProvisionedProductCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5325,12 +5161,12 @@ export const de_ListTagOptionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagOptionsOutput(data, context);
+  contents = _json(data);
   const response: ListTagOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5354,10 +5190,9 @@ const de_ListTagOptionsCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5375,12 +5210,12 @@ export const de_NotifyProvisionProductEngineWorkflowResultCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NotifyProvisionProductEngineWorkflowResultOutput(data, context);
+  contents = _json(data);
   const response: NotifyProvisionProductEngineWorkflowResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5404,10 +5239,9 @@ const de_NotifyProvisionProductEngineWorkflowResultCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5425,12 +5259,12 @@ export const de_NotifyTerminateProvisionedProductEngineWorkflowResultCommand = a
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NotifyTerminateProvisionedProductEngineWorkflowResultOutput(data, context);
+  contents = _json(data);
   const response: NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5454,10 +5288,9 @@ const de_NotifyTerminateProvisionedProductEngineWorkflowResultCommandError = asy
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5475,12 +5308,12 @@ export const de_NotifyUpdateProvisionedProductEngineWorkflowResultCommand = asyn
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NotifyUpdateProvisionedProductEngineWorkflowResultOutput(data, context);
+  contents = _json(data);
   const response: NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5504,10 +5337,9 @@ const de_NotifyUpdateProvisionedProductEngineWorkflowResultCommandError = async 
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5530,7 +5362,7 @@ export const de_ProvisionProductCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5557,10 +5389,9 @@ const de_ProvisionProductCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5578,12 +5409,12 @@ export const de_RejectPortfolioShareCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RejectPortfolioShareOutput(data, context);
+  contents = _json(data);
   const response: RejectPortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5604,10 +5435,9 @@ const de_RejectPortfolioShareCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5630,7 +5460,7 @@ export const de_ScanProvisionedProductsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5651,10 +5481,9 @@ const de_ScanProvisionedProductsCommandError = async (
       throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5672,12 +5501,12 @@ export const de_SearchProductsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SearchProductsOutput(data, context);
+  contents = _json(data);
   const response: SearchProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5698,10 +5527,9 @@ const de_SearchProductsCommandError = async (
       throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5724,7 +5552,7 @@ export const de_SearchProductsAsAdminCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5748,10 +5576,9 @@ const de_SearchProductsAsAdminCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5774,7 +5601,7 @@ export const de_SearchProvisionedProductsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5795,10 +5622,9 @@ const de_SearchProvisionedProductsCommandError = async (
       throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5821,7 +5647,7 @@ export const de_TerminateProvisionedProductCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5842,10 +5668,9 @@ const de_TerminateProvisionedProductCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5863,12 +5688,12 @@ export const de_UpdateConstraintCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateConstraintOutput(data, context);
+  contents = _json(data);
   const response: UpdateConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5892,10 +5717,9 @@ const de_UpdateConstraintCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5918,7 +5742,7 @@ export const de_UpdatePortfolioCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5948,10 +5772,9 @@ const de_UpdatePortfolioCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5969,12 +5792,12 @@ export const de_UpdatePortfolioShareCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdatePortfolioShareOutput(data, context);
+  contents = _json(data);
   const response: UpdatePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6004,10 +5827,9 @@ const de_UpdatePortfolioShareCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6030,7 +5852,7 @@ export const de_UpdateProductCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6057,10 +5879,9 @@ const de_UpdateProductCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6083,7 +5904,7 @@ export const de_UpdateProvisionedProductCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6107,10 +5928,9 @@ const de_UpdateProvisionedProductCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6128,12 +5948,12 @@ export const de_UpdateProvisionedProductPropertiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateProvisionedProductPropertiesOutput(data, context);
+  contents = _json(data);
   const response: UpdateProvisionedProductPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6160,10 +5980,9 @@ const de_UpdateProvisionedProductPropertiesCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6186,7 +6005,7 @@ export const de_UpdateProvisioningArtifactCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6210,10 +6029,9 @@ const de_UpdateProvisioningArtifactCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6231,12 +6049,12 @@ export const de_UpdateServiceActionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateServiceActionOutput(data, context);
+  contents = _json(data);
   const response: UpdateServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6260,10 +6078,9 @@ const de_UpdateServiceActionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6281,12 +6098,12 @@ export const de_UpdateTagOptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateTagOptionOutput(data, context);
+  contents = _json(data);
   const response: UpdateTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6316,10 +6133,9 @@ const de_UpdateTagOptionCommandError = async (
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6333,7 +6149,7 @@ const de_DuplicateResourceExceptionRes = async (
   context: __SerdeContext
 ): Promise<DuplicateResourceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateResourceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateResourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6349,7 +6165,7 @@ const de_InvalidParametersExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParametersException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParametersException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParametersException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6365,7 +6181,7 @@ const de_InvalidStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6381,7 +6197,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6397,7 +6213,7 @@ const de_OperationNotSupportedExceptionRes = async (
   context: __SerdeContext
 ): Promise<OperationNotSupportedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OperationNotSupportedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OperationNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6413,7 +6229,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6429,7 +6245,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6445,7 +6261,7 @@ const de_TagOptionNotMigratedExceptionRes = async (
   context: __SerdeContext
 ): Promise<TagOptionNotMigratedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagOptionNotMigratedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagOptionNotMigratedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6453,243 +6269,95 @@ const de_TagOptionNotMigratedExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AcceptPortfolioShareInput
- */
-const se_AcceptPortfolioShareInput = (input: AcceptPortfolioShareInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.PortfolioShareType != null && { PortfolioShareType: input.PortfolioShareType }),
-  };
-};
+// se_AcceptPortfolioShareInput omitted.
 
-/**
- * serializeAws_json1_1AccessLevelFilter
- */
-const se_AccessLevelFilter = (input: AccessLevelFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_AccessLevelFilter omitted.
 
-/**
- * serializeAws_json1_1AddTags
- */
-const se_AddTags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_AddTags omitted.
 
-/**
- * serializeAws_json1_1AssociateBudgetWithResourceInput
- */
-const se_AssociateBudgetWithResourceInput = (input: AssociateBudgetWithResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-  };
-};
+// se_AssociateBudgetWithResourceInput omitted.
 
-/**
- * serializeAws_json1_1AssociatePrincipalWithPortfolioInput
- */
-const se_AssociatePrincipalWithPortfolioInput = (
-  input: AssociatePrincipalWithPortfolioInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.PrincipalARN != null && { PrincipalARN: input.PrincipalARN }),
-    ...(input.PrincipalType != null && { PrincipalType: input.PrincipalType }),
-  };
-};
+// se_AssociatePrincipalWithPortfolioInput omitted.
 
-/**
- * serializeAws_json1_1AssociateProductWithPortfolioInput
- */
-const se_AssociateProductWithPortfolioInput = (
-  input: AssociateProductWithPortfolioInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.SourcePortfolioId != null && { SourcePortfolioId: input.SourcePortfolioId }),
-  };
-};
+// se_AssociateProductWithPortfolioInput omitted.
 
-/**
- * serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput
- */
-const se_AssociateServiceActionWithProvisioningArtifactInput = (
-  input: AssociateServiceActionWithProvisioningArtifactInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
-  };
-};
+// se_AssociateServiceActionWithProvisioningArtifactInput omitted.
 
-/**
- * serializeAws_json1_1AssociateTagOptionWithResourceInput
- */
-const se_AssociateTagOptionWithResourceInput = (
-  input: AssociateTagOptionWithResourceInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.TagOptionId != null && { TagOptionId: input.TagOptionId }),
-  };
-};
+// se_AssociateTagOptionWithResourceInput omitted.
 
-/**
- * serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInput
- */
-const se_BatchAssociateServiceActionWithProvisioningArtifactInput = (
-  input: BatchAssociateServiceActionWithProvisioningArtifactInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ServiceActionAssociations != null && {
-      ServiceActionAssociations: se_ServiceActionAssociations(input.ServiceActionAssociations, context),
-    }),
-  };
-};
+// se_BatchAssociateServiceActionWithProvisioningArtifactInput omitted.
 
-/**
- * serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactInput
- */
-const se_BatchDisassociateServiceActionFromProvisioningArtifactInput = (
-  input: BatchDisassociateServiceActionFromProvisioningArtifactInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ServiceActionAssociations != null && {
-      ServiceActionAssociations: se_ServiceActionAssociations(input.ServiceActionAssociations, context),
-    }),
-  };
-};
+// se_BatchDisassociateServiceActionFromProvisioningArtifactInput omitted.
 
-/**
- * serializeAws_json1_1CodeStarParameters
- */
-const se_CodeStarParameters = (input: CodeStarParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.ArtifactPath != null && { ArtifactPath: input.ArtifactPath }),
-    ...(input.Branch != null && { Branch: input.Branch }),
-    ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
-    ...(input.Repository != null && { Repository: input.Repository }),
-  };
-};
+// se_CodeStarParameters omitted.
 
-/**
- * serializeAws_json1_1CopyOptions
- */
-const se_CopyOptions = (input: (CopyOption | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CopyOptions omitted.
 
 /**
  * serializeAws_json1_1CopyProductInput
  */
 const se_CopyProductInput = (input: CopyProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.CopyOptions != null && { CopyOptions: se_CopyOptions(input.CopyOptions, context) }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.SourceProductArn != null && { SourceProductArn: input.SourceProductArn }),
-    ...(input.SourceProvisioningArtifactIdentifiers != null && {
-      SourceProvisioningArtifactIdentifiers: se_SourceProvisioningArtifactProperties(
-        input.SourceProvisioningArtifactIdentifiers,
-        context
-      ),
-    }),
-    ...(input.TargetProductId != null && { TargetProductId: input.TargetProductId }),
-    ...(input.TargetProductName != null && { TargetProductName: input.TargetProductName }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    CopyOptions: _json,
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    SourceProductArn: [],
+    SourceProvisioningArtifactIdentifiers: _json,
+    TargetProductId: [],
+    TargetProductName: [],
+  });
 };
 
 /**
  * serializeAws_json1_1CreateConstraintInput
  */
 const se_CreateConstraintInput = (input: CreateConstraintInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Description != null && { Description: input.Description }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Parameters != null && { Parameters: input.Parameters }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    Description: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Parameters: [],
+    PortfolioId: [],
+    ProductId: [],
+    Type: [],
+  });
 };
 
 /**
  * serializeAws_json1_1CreatePortfolioInput
  */
 const se_CreatePortfolioInput = (input: CreatePortfolioInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-    ...(input.Tags != null && { Tags: se_AddTags(input.Tags, context) }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    Description: [],
+    DisplayName: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    ProviderName: [],
+    Tags: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1CreatePortfolioShareInput
- */
-const se_CreatePortfolioShareInput = (input: CreatePortfolioShareInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.OrganizationNode != null && { OrganizationNode: se_OrganizationNode(input.OrganizationNode, context) }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.SharePrincipals != null && { SharePrincipals: input.SharePrincipals }),
-    ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
-  };
-};
+// se_CreatePortfolioShareInput omitted.
 
 /**
  * serializeAws_json1_1CreateProductInput
  */
 const se_CreateProductInput = (input: CreateProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Distributor != null && { Distributor: input.Distributor }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Owner != null && { Owner: input.Owner }),
-    ...(input.ProductType != null && { ProductType: input.ProductType }),
-    ...(input.ProvisioningArtifactParameters != null && {
-      ProvisioningArtifactParameters: se_ProvisioningArtifactProperties(input.ProvisioningArtifactParameters, context),
-    }),
-    ...(input.SourceConnection != null && { SourceConnection: se_SourceConnection(input.SourceConnection, context) }),
-    ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
-    ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
-    ...(input.SupportUrl != null && { SupportUrl: input.SupportUrl }),
-    ...(input.Tags != null && { Tags: se_AddTags(input.Tags, context) }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    Description: [],
+    Distributor: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Name: [],
+    Owner: [],
+    ProductType: [],
+    ProvisioningArtifactParameters: _json,
+    SourceConnection: _json,
+    SupportDescription: [],
+    SupportEmail: [],
+    SupportUrl: [],
+    Tags: _json,
+  });
 };
 
 /**
@@ -6699,436 +6367,112 @@ const se_CreateProvisionedProductPlanInput = (
   input: CreateProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.NotificationArns != null && { NotificationArns: se_NotificationArns(input.NotificationArns, context) }),
-    ...(input.PathId != null && { PathId: input.PathId }),
-    ...(input.PlanName != null && { PlanName: input.PlanName }),
-    ...(input.PlanType != null && { PlanType: input.PlanType }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningParameters != null && {
-      ProvisioningParameters: se_UpdateProvisioningParameters(input.ProvisioningParameters, context),
-    }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    NotificationArns: _json,
+    PathId: [],
+    PlanName: [],
+    PlanType: [],
+    ProductId: [],
+    ProvisionedProductName: [],
+    ProvisioningArtifactId: [],
+    ProvisioningParameters: _json,
+    Tags: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1CreateProvisioningArtifactInput
  */
 const se_CreateProvisioningArtifactInput = (input: CreateProvisioningArtifactInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Parameters != null && { Parameters: se_ProvisioningArtifactProperties(input.Parameters, context) }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Parameters: _json,
+    ProductId: [],
+  });
 };
 
 /**
  * serializeAws_json1_1CreateServiceActionInput
  */
 const se_CreateServiceActionInput = (input: CreateServiceActionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Definition != null && { Definition: se_ServiceActionDefinitionMap(input.Definition, context) }),
-    ...(input.DefinitionType != null && { DefinitionType: input.DefinitionType }),
-    ...(input.Description != null && { Description: input.Description }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Name != null && { Name: input.Name }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    Definition: _json,
+    DefinitionType: [],
+    Description: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Name: [],
+  });
 };
 
-/**
- * serializeAws_json1_1CreateTagOptionInput
- */
-const se_CreateTagOptionInput = (input: CreateTagOptionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_CreateTagOptionInput omitted.
 
-/**
- * serializeAws_json1_1DeleteConstraintInput
- */
-const se_DeleteConstraintInput = (input: DeleteConstraintInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DeleteConstraintInput omitted.
 
-/**
- * serializeAws_json1_1DeletePortfolioInput
- */
-const se_DeletePortfolioInput = (input: DeletePortfolioInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DeletePortfolioInput omitted.
 
-/**
- * serializeAws_json1_1DeletePortfolioShareInput
- */
-const se_DeletePortfolioShareInput = (input: DeletePortfolioShareInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.OrganizationNode != null && { OrganizationNode: se_OrganizationNode(input.OrganizationNode, context) }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-  };
-};
+// se_DeletePortfolioShareInput omitted.
 
-/**
- * serializeAws_json1_1DeleteProductInput
- */
-const se_DeleteProductInput = (input: DeleteProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DeleteProductInput omitted.
 
-/**
- * serializeAws_json1_1DeleteProvisionedProductPlanInput
- */
-const se_DeleteProvisionedProductPlanInput = (
-  input: DeleteProvisionedProductPlanInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.IgnoreErrors != null && { IgnoreErrors: input.IgnoreErrors }),
-    ...(input.PlanId != null && { PlanId: input.PlanId }),
-  };
-};
+// se_DeleteProvisionedProductPlanInput omitted.
 
-/**
- * serializeAws_json1_1DeleteProvisioningArtifactInput
- */
-const se_DeleteProvisioningArtifactInput = (input: DeleteProvisioningArtifactInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-  };
-};
+// se_DeleteProvisioningArtifactInput omitted.
 
-/**
- * serializeAws_json1_1DeleteServiceActionInput
- */
-const se_DeleteServiceActionInput = (input: DeleteServiceActionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DeleteServiceActionInput omitted.
 
-/**
- * serializeAws_json1_1DeleteTagOptionInput
- */
-const se_DeleteTagOptionInput = (input: DeleteTagOptionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DeleteTagOptionInput omitted.
 
-/**
- * serializeAws_json1_1DescribeConstraintInput
- */
-const se_DescribeConstraintInput = (input: DescribeConstraintInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DescribeConstraintInput omitted.
 
-/**
- * serializeAws_json1_1DescribeCopyProductStatusInput
- */
-const se_DescribeCopyProductStatusInput = (input: DescribeCopyProductStatusInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.CopyProductToken != null && { CopyProductToken: input.CopyProductToken }),
-  };
-};
+// se_DescribeCopyProductStatusInput omitted.
 
-/**
- * serializeAws_json1_1DescribePortfolioInput
- */
-const se_DescribePortfolioInput = (input: DescribePortfolioInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DescribePortfolioInput omitted.
 
-/**
- * serializeAws_json1_1DescribePortfolioSharesInput
- */
-const se_DescribePortfolioSharesInput = (input: DescribePortfolioSharesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_DescribePortfolioSharesInput omitted.
 
-/**
- * serializeAws_json1_1DescribePortfolioShareStatusInput
- */
-const se_DescribePortfolioShareStatusInput = (
-  input: DescribePortfolioShareStatusInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PortfolioShareToken != null && { PortfolioShareToken: input.PortfolioShareToken }),
-  };
-};
+// se_DescribePortfolioShareStatusInput omitted.
 
-/**
- * serializeAws_json1_1DescribeProductAsAdminInput
- */
-const se_DescribeProductAsAdminInput = (input: DescribeProductAsAdminInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SourcePortfolioId != null && { SourcePortfolioId: input.SourcePortfolioId }),
-  };
-};
+// se_DescribeProductAsAdminInput omitted.
 
-/**
- * serializeAws_json1_1DescribeProductInput
- */
-const se_DescribeProductInput = (input: DescribeProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DescribeProductInput omitted.
 
-/**
- * serializeAws_json1_1DescribeProductViewInput
- */
-const se_DescribeProductViewInput = (input: DescribeProductViewInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DescribeProductViewInput omitted.
 
-/**
- * serializeAws_json1_1DescribeProvisionedProductInput
- */
-const se_DescribeProvisionedProductInput = (input: DescribeProvisionedProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DescribeProvisionedProductInput omitted.
 
-/**
- * serializeAws_json1_1DescribeProvisionedProductPlanInput
- */
-const se_DescribeProvisionedProductPlanInput = (
-  input: DescribeProvisionedProductPlanInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.PlanId != null && { PlanId: input.PlanId }),
-  };
-};
+// se_DescribeProvisionedProductPlanInput omitted.
 
-/**
- * serializeAws_json1_1DescribeProvisioningArtifactInput
- */
-const se_DescribeProvisioningArtifactInput = (
-  input: DescribeProvisioningArtifactInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProductName != null && { ProductName: input.ProductName }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
-    ...(input.Verbose != null && { Verbose: input.Verbose }),
-  };
-};
+// se_DescribeProvisioningArtifactInput omitted.
 
-/**
- * serializeAws_json1_1DescribeProvisioningParametersInput
- */
-const se_DescribeProvisioningParametersInput = (
-  input: DescribeProvisioningParametersInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PathId != null && { PathId: input.PathId }),
-    ...(input.PathName != null && { PathName: input.PathName }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProductName != null && { ProductName: input.ProductName }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
-  };
-};
+// se_DescribeProvisioningParametersInput omitted.
 
-/**
- * serializeAws_json1_1DescribeRecordInput
- */
-const se_DescribeRecordInput = (input: DescribeRecordInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-  };
-};
+// se_DescribeRecordInput omitted.
 
-/**
- * serializeAws_json1_1DescribeServiceActionExecutionParametersInput
- */
-const se_DescribeServiceActionExecutionParametersInput = (
-  input: DescribeServiceActionExecutionParametersInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
-  };
-};
+// se_DescribeServiceActionExecutionParametersInput omitted.
 
-/**
- * serializeAws_json1_1DescribeServiceActionInput
- */
-const se_DescribeServiceActionInput = (input: DescribeServiceActionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DescribeServiceActionInput omitted.
 
-/**
- * serializeAws_json1_1DescribeTagOptionInput
- */
-const se_DescribeTagOptionInput = (input: DescribeTagOptionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DescribeTagOptionInput omitted.
 
-/**
- * serializeAws_json1_1DisableAWSOrganizationsAccessInput
- */
-const se_DisableAWSOrganizationsAccessInput = (
-  input: DisableAWSOrganizationsAccessInput,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_DisableAWSOrganizationsAccessInput omitted.
 
-/**
- * serializeAws_json1_1DisassociateBudgetFromResourceInput
- */
-const se_DisassociateBudgetFromResourceInput = (
-  input: DisassociateBudgetFromResourceInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-  };
-};
+// se_DisassociateBudgetFromResourceInput omitted.
 
-/**
- * serializeAws_json1_1DisassociatePrincipalFromPortfolioInput
- */
-const se_DisassociatePrincipalFromPortfolioInput = (
-  input: DisassociatePrincipalFromPortfolioInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.PrincipalARN != null && { PrincipalARN: input.PrincipalARN }),
-    ...(input.PrincipalType != null && { PrincipalType: input.PrincipalType }),
-  };
-};
+// se_DisassociatePrincipalFromPortfolioInput omitted.
 
-/**
- * serializeAws_json1_1DisassociateProductFromPortfolioInput
- */
-const se_DisassociateProductFromPortfolioInput = (
-  input: DisassociateProductFromPortfolioInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-  };
-};
+// se_DisassociateProductFromPortfolioInput omitted.
 
-/**
- * serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput
- */
-const se_DisassociateServiceActionFromProvisioningArtifactInput = (
-  input: DisassociateServiceActionFromProvisioningArtifactInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
-  };
-};
+// se_DisassociateServiceActionFromProvisioningArtifactInput omitted.
 
-/**
- * serializeAws_json1_1DisassociateTagOptionFromResourceInput
- */
-const se_DisassociateTagOptionFromResourceInput = (
-  input: DisassociateTagOptionFromResourceInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.TagOptionId != null && { TagOptionId: input.TagOptionId }),
-  };
-};
+// se_DisassociateTagOptionFromResourceInput omitted.
 
-/**
- * serializeAws_json1_1EnableAWSOrganizationsAccessInput
- */
-const se_EnableAWSOrganizationsAccessInput = (
-  input: EnableAWSOrganizationsAccessInput,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_EnableAWSOrganizationsAccessInput omitted.
 
-/**
- * serializeAws_json1_1EngineWorkflowResourceIdentifier
- */
-const se_EngineWorkflowResourceIdentifier = (input: EngineWorkflowResourceIdentifier, context: __SerdeContext): any => {
-  return {
-    ...(input.UniqueTag != null && { UniqueTag: se_UniqueTagResourceIdentifier(input.UniqueTag, context) }),
-  };
-};
+// se_EngineWorkflowResourceIdentifier omitted.
 
 /**
  * serializeAws_json1_1ExecuteProvisionedProductPlanInput
@@ -7137,11 +6481,11 @@ const se_ExecuteProvisionedProductPlanInput = (
   input: ExecuteProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PlanId != null && { PlanId: input.PlanId }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    PlanId: [],
+  });
 };
 
 /**
@@ -7151,344 +6495,78 @@ const se_ExecuteProvisionedProductServiceActionInput = (
   input: ExecuteProvisionedProductServiceActionInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ExecuteToken: input.ExecuteToken ?? generateIdempotencyToken(),
-    ...(input.Parameters != null && { Parameters: se_ExecutionParameterMap(input.Parameters, context) }),
-    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    ExecuteToken: (_) => _ ?? generateIdempotencyToken(),
+    Parameters: _json,
+    ProvisionedProductId: [],
+    ServiceActionId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ExecutionParameterMap
- */
-const se_ExecutionParameterMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_ExecutionParameterValueList(value, context);
-    return acc;
-  }, {});
-};
+// se_ExecutionParameterMap omitted.
 
-/**
- * serializeAws_json1_1ExecutionParameterValueList
- */
-const se_ExecutionParameterValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExecutionParameterValueList omitted.
 
-/**
- * serializeAws_json1_1GetAWSOrganizationsAccessStatusInput
- */
-const se_GetAWSOrganizationsAccessStatusInput = (
-  input: GetAWSOrganizationsAccessStatusInput,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_GetAWSOrganizationsAccessStatusInput omitted.
 
-/**
- * serializeAws_json1_1GetProvisionedProductOutputsInput
- */
-const se_GetProvisionedProductOutputsInput = (
-  input: GetProvisionedProductOutputsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.OutputKeys != null && { OutputKeys: se_OutputKeys(input.OutputKeys, context) }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
-  };
-};
+// se_GetProvisionedProductOutputsInput omitted.
 
 /**
  * serializeAws_json1_1ImportAsProvisionedProductInput
  */
 const se_ImportAsProvisionedProductInput = (input: ImportAsProvisionedProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PhysicalId != null && { PhysicalId: input.PhysicalId }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    PhysicalId: [],
+    ProductId: [],
+    ProvisionedProductName: [],
+    ProvisioningArtifactId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ListAcceptedPortfolioSharesInput
- */
-const se_ListAcceptedPortfolioSharesInput = (input: ListAcceptedPortfolioSharesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.PortfolioShareType != null && { PortfolioShareType: input.PortfolioShareType }),
-  };
-};
+// se_ListAcceptedPortfolioSharesInput omitted.
 
-/**
- * serializeAws_json1_1ListBudgetsForResourceInput
- */
-const se_ListBudgetsForResourceInput = (input: ListBudgetsForResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-  };
-};
+// se_ListBudgetsForResourceInput omitted.
 
-/**
- * serializeAws_json1_1ListConstraintsForPortfolioInput
- */
-const se_ListConstraintsForPortfolioInput = (input: ListConstraintsForPortfolioInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-  };
-};
+// se_ListConstraintsForPortfolioInput omitted.
 
-/**
- * serializeAws_json1_1ListLaunchPathsInput
- */
-const se_ListLaunchPathsInput = (input: ListLaunchPathsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-  };
-};
+// se_ListLaunchPathsInput omitted.
 
-/**
- * serializeAws_json1_1ListOrganizationPortfolioAccessInput
- */
-const se_ListOrganizationPortfolioAccessInput = (
-  input: ListOrganizationPortfolioAccessInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.OrganizationNodeType != null && { OrganizationNodeType: input.OrganizationNodeType }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-  };
-};
+// se_ListOrganizationPortfolioAccessInput omitted.
 
-/**
- * serializeAws_json1_1ListPortfolioAccessInput
- */
-const se_ListPortfolioAccessInput = (input: ListPortfolioAccessInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.OrganizationParentId != null && { OrganizationParentId: input.OrganizationParentId }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-  };
-};
+// se_ListPortfolioAccessInput omitted.
 
-/**
- * serializeAws_json1_1ListPortfoliosForProductInput
- */
-const se_ListPortfoliosForProductInput = (input: ListPortfoliosForProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-  };
-};
+// se_ListPortfoliosForProductInput omitted.
 
-/**
- * serializeAws_json1_1ListPortfoliosInput
- */
-const se_ListPortfoliosInput = (input: ListPortfoliosInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-  };
-};
+// se_ListPortfoliosInput omitted.
 
-/**
- * serializeAws_json1_1ListPrincipalsForPortfolioInput
- */
-const se_ListPrincipalsForPortfolioInput = (input: ListPrincipalsForPortfolioInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-  };
-};
+// se_ListPrincipalsForPortfolioInput omitted.
 
-/**
- * serializeAws_json1_1ListProvisionedProductPlansInput
- */
-const se_ListProvisionedProductPlansInput = (input: ListProvisionedProductPlansInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccessLevelFilter != null && {
-      AccessLevelFilter: se_AccessLevelFilter(input.AccessLevelFilter, context),
-    }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.ProvisionProductId != null && { ProvisionProductId: input.ProvisionProductId }),
-  };
-};
+// se_ListProvisionedProductPlansInput omitted.
 
-/**
- * serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput
- */
-const se_ListProvisioningArtifactsForServiceActionInput = (
-  input: ListProvisioningArtifactsForServiceActionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
-  };
-};
+// se_ListProvisioningArtifactsForServiceActionInput omitted.
 
-/**
- * serializeAws_json1_1ListProvisioningArtifactsInput
- */
-const se_ListProvisioningArtifactsInput = (input: ListProvisioningArtifactsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-  };
-};
+// se_ListProvisioningArtifactsInput omitted.
 
-/**
- * serializeAws_json1_1ListRecordHistoryInput
- */
-const se_ListRecordHistoryInput = (input: ListRecordHistoryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccessLevelFilter != null && {
-      AccessLevelFilter: se_AccessLevelFilter(input.AccessLevelFilter, context),
-    }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.SearchFilter != null && { SearchFilter: se_ListRecordHistorySearchFilter(input.SearchFilter, context) }),
-  };
-};
+// se_ListRecordHistoryInput omitted.
 
-/**
- * serializeAws_json1_1ListRecordHistorySearchFilter
- */
-const se_ListRecordHistorySearchFilter = (input: ListRecordHistorySearchFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ListRecordHistorySearchFilter omitted.
 
-/**
- * serializeAws_json1_1ListResourcesForTagOptionInput
- */
-const se_ListResourcesForTagOptionInput = (input: ListResourcesForTagOptionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.TagOptionId != null && { TagOptionId: input.TagOptionId }),
-  };
-};
+// se_ListResourcesForTagOptionInput omitted.
 
-/**
- * serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput
- */
-const se_ListServiceActionsForProvisioningArtifactInput = (
-  input: ListServiceActionsForProvisioningArtifactInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-  };
-};
+// se_ListServiceActionsForProvisioningArtifactInput omitted.
 
-/**
- * serializeAws_json1_1ListServiceActionsInput
- */
-const se_ListServiceActionsInput = (input: ListServiceActionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-  };
-};
+// se_ListServiceActionsInput omitted.
 
-/**
- * serializeAws_json1_1ListStackInstancesForProvisionedProductInput
- */
-const se_ListStackInstancesForProvisionedProductInput = (
-  input: ListStackInstancesForProvisionedProductInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
-  };
-};
+// se_ListStackInstancesForProvisionedProductInput omitted.
 
-/**
- * serializeAws_json1_1ListTagOptionsFilters
- */
-const se_ListTagOptionsFilters = (input: ListTagOptionsFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.Active != null && { Active: input.Active }),
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ListTagOptionsFilters omitted.
 
-/**
- * serializeAws_json1_1ListTagOptionsInput
- */
-const se_ListTagOptionsInput = (input: ListTagOptionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_ListTagOptionsFilters(input.Filters, context) }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-  };
-};
+// se_ListTagOptionsInput omitted.
 
-/**
- * serializeAws_json1_1NotificationArns
- */
-const se_NotificationArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NotificationArns omitted.
 
 /**
  * serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultInput
@@ -7497,17 +6575,15 @@ const se_NotifyProvisionProductEngineWorkflowResultInput = (
   input: NotifyProvisionProductEngineWorkflowResultInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.FailureReason != null && { FailureReason: input.FailureReason }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Outputs != null && { Outputs: se_RecordOutputs(input.Outputs, context) }),
-    ...(input.RecordId != null && { RecordId: input.RecordId }),
-    ...(input.ResourceIdentifier != null && {
-      ResourceIdentifier: se_EngineWorkflowResourceIdentifier(input.ResourceIdentifier, context),
-    }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.WorkflowToken != null && { WorkflowToken: input.WorkflowToken }),
-  };
+  return take(input, {
+    FailureReason: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Outputs: _json,
+    RecordId: [],
+    ResourceIdentifier: _json,
+    Status: [],
+    WorkflowToken: [],
+  });
 };
 
 /**
@@ -7517,13 +6593,13 @@ const se_NotifyTerminateProvisionedProductEngineWorkflowResultInput = (
   input: NotifyTerminateProvisionedProductEngineWorkflowResultInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.FailureReason != null && { FailureReason: input.FailureReason }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.RecordId != null && { RecordId: input.RecordId }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.WorkflowToken != null && { WorkflowToken: input.WorkflowToken }),
-  };
+  return take(input, {
+    FailureReason: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    RecordId: [],
+    Status: [],
+    WorkflowToken: [],
+  });
 };
 
 /**
@@ -7533,537 +6609,142 @@ const se_NotifyUpdateProvisionedProductEngineWorkflowResultInput = (
   input: NotifyUpdateProvisionedProductEngineWorkflowResultInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.FailureReason != null && { FailureReason: input.FailureReason }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Outputs != null && { Outputs: se_RecordOutputs(input.Outputs, context) }),
-    ...(input.RecordId != null && { RecordId: input.RecordId }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.WorkflowToken != null && { WorkflowToken: input.WorkflowToken }),
-  };
+  return take(input, {
+    FailureReason: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Outputs: _json,
+    RecordId: [],
+    Status: [],
+    WorkflowToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1OrganizationNode
- */
-const se_OrganizationNode = (input: OrganizationNode, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_OrganizationNode omitted.
 
-/**
- * serializeAws_json1_1OutputKeys
- */
-const se_OutputKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OutputKeys omitted.
 
-/**
- * serializeAws_json1_1ProductViewFilters
- */
-const se_ProductViewFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ProductViewFilterBy | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_ProductViewFilterValues(value, context);
-    return acc;
-  }, {});
-};
+// se_ProductViewFilters omitted.
 
-/**
- * serializeAws_json1_1ProductViewFilterValues
- */
-const se_ProductViewFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ProductViewFilterValues omitted.
 
-/**
- * serializeAws_json1_1ProvisionedProductFilters
- */
-const se_ProvisionedProductFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [ProvisionedProductViewFilterBy | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = se_ProvisionedProductViewFilterValues(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// se_ProvisionedProductFilters omitted.
 
-/**
- * serializeAws_json1_1ProvisionedProductProperties
- */
-const se_ProvisionedProductProperties = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [PropertyKey | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ProvisionedProductProperties omitted.
 
-/**
- * serializeAws_json1_1ProvisionedProductViewFilterValues
- */
-const se_ProvisionedProductViewFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ProvisionedProductViewFilterValues omitted.
 
-/**
- * serializeAws_json1_1ProvisioningArtifactInfo
- */
-const se_ProvisioningArtifactInfo = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ProvisioningArtifactInfo omitted.
 
-/**
- * serializeAws_json1_1ProvisioningArtifactProperties
- */
-const se_ProvisioningArtifactProperties = (input: ProvisioningArtifactProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisableTemplateValidation != null && { DisableTemplateValidation: input.DisableTemplateValidation }),
-    ...(input.Info != null && { Info: se_ProvisioningArtifactInfo(input.Info, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_ProvisioningArtifactProperties omitted.
 
-/**
- * serializeAws_json1_1ProvisioningParameter
- */
-const se_ProvisioningParameter = (input: ProvisioningParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ProvisioningParameter omitted.
 
-/**
- * serializeAws_json1_1ProvisioningParameters
- */
-const se_ProvisioningParameters = (input: ProvisioningParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ProvisioningParameter(entry, context);
-    });
-};
+// se_ProvisioningParameters omitted.
 
-/**
- * serializeAws_json1_1ProvisioningPreferences
- */
-const se_ProvisioningPreferences = (input: ProvisioningPreferences, context: __SerdeContext): any => {
-  return {
-    ...(input.StackSetAccounts != null && { StackSetAccounts: se_StackSetAccounts(input.StackSetAccounts, context) }),
-    ...(input.StackSetFailureToleranceCount != null && {
-      StackSetFailureToleranceCount: input.StackSetFailureToleranceCount,
-    }),
-    ...(input.StackSetFailureTolerancePercentage != null && {
-      StackSetFailureTolerancePercentage: input.StackSetFailureTolerancePercentage,
-    }),
-    ...(input.StackSetMaxConcurrencyCount != null && {
-      StackSetMaxConcurrencyCount: input.StackSetMaxConcurrencyCount,
-    }),
-    ...(input.StackSetMaxConcurrencyPercentage != null && {
-      StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage,
-    }),
-    ...(input.StackSetRegions != null && { StackSetRegions: se_StackSetRegions(input.StackSetRegions, context) }),
-  };
-};
+// se_ProvisioningPreferences omitted.
 
 /**
  * serializeAws_json1_1ProvisionProductInput
  */
 const se_ProvisionProductInput = (input: ProvisionProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.NotificationArns != null && { NotificationArns: se_NotificationArns(input.NotificationArns, context) }),
-    ...(input.PathId != null && { PathId: input.PathId }),
-    ...(input.PathName != null && { PathName: input.PathName }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProductName != null && { ProductName: input.ProductName }),
-    ProvisionToken: input.ProvisionToken ?? generateIdempotencyToken(),
-    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
-    ...(input.ProvisioningParameters != null && {
-      ProvisioningParameters: se_ProvisioningParameters(input.ProvisioningParameters, context),
-    }),
-    ...(input.ProvisioningPreferences != null && {
-      ProvisioningPreferences: se_ProvisioningPreferences(input.ProvisioningPreferences, context),
-    }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    NotificationArns: _json,
+    PathId: [],
+    PathName: [],
+    ProductId: [],
+    ProductName: [],
+    ProvisionToken: (_) => _ ?? generateIdempotencyToken(),
+    ProvisionedProductName: [],
+    ProvisioningArtifactId: [],
+    ProvisioningArtifactName: [],
+    ProvisioningParameters: _json,
+    ProvisioningPreferences: _json,
+    Tags: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1RecordOutput
- */
-const se_RecordOutput = (input: RecordOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.OutputKey != null && { OutputKey: input.OutputKey }),
-    ...(input.OutputValue != null && { OutputValue: input.OutputValue }),
-  };
-};
+// se_RecordOutput omitted.
 
-/**
- * serializeAws_json1_1RecordOutputs
- */
-const se_RecordOutputs = (input: RecordOutput[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RecordOutput(entry, context);
-    });
-};
+// se_RecordOutputs omitted.
 
-/**
- * serializeAws_json1_1RejectPortfolioShareInput
- */
-const se_RejectPortfolioShareInput = (input: RejectPortfolioShareInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.PortfolioShareType != null && { PortfolioShareType: input.PortfolioShareType }),
-  };
-};
+// se_RejectPortfolioShareInput omitted.
 
-/**
- * serializeAws_json1_1ScanProvisionedProductsInput
- */
-const se_ScanProvisionedProductsInput = (input: ScanProvisionedProductsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccessLevelFilter != null && {
-      AccessLevelFilter: se_AccessLevelFilter(input.AccessLevelFilter, context),
-    }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-  };
-};
+// se_ScanProvisionedProductsInput omitted.
 
-/**
- * serializeAws_json1_1SearchProductsAsAdminInput
- */
-const se_SearchProductsAsAdminInput = (input: SearchProductsAsAdminInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Filters != null && { Filters: se_ProductViewFilters(input.Filters, context) }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductSource != null && { ProductSource: input.ProductSource }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_SearchProductsAsAdminInput omitted.
 
-/**
- * serializeAws_json1_1SearchProductsInput
- */
-const se_SearchProductsInput = (input: SearchProductsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Filters != null && { Filters: se_ProductViewFilters(input.Filters, context) }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_SearchProductsInput omitted.
 
-/**
- * serializeAws_json1_1SearchProvisionedProductsInput
- */
-const se_SearchProvisionedProductsInput = (input: SearchProvisionedProductsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccessLevelFilter != null && {
-      AccessLevelFilter: se_AccessLevelFilter(input.AccessLevelFilter, context),
-    }),
-    ...(input.Filters != null && { Filters: se_ProvisionedProductFilters(input.Filters, context) }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_SearchProvisionedProductsInput omitted.
 
-/**
- * serializeAws_json1_1ServiceActionAssociation
- */
-const se_ServiceActionAssociation = (input: ServiceActionAssociation, context: __SerdeContext): any => {
-  return {
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
-  };
-};
+// se_ServiceActionAssociation omitted.
 
-/**
- * serializeAws_json1_1ServiceActionAssociations
- */
-const se_ServiceActionAssociations = (input: ServiceActionAssociation[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ServiceActionAssociation(entry, context);
-    });
-};
+// se_ServiceActionAssociations omitted.
 
-/**
- * serializeAws_json1_1ServiceActionDefinitionMap
- */
-const se_ServiceActionDefinitionMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [ServiceActionDefinitionKey | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = value;
-      return acc;
-    },
-    {}
-  );
-};
+// se_ServiceActionDefinitionMap omitted.
 
-/**
- * serializeAws_json1_1SourceConnection
- */
-const se_SourceConnection = (input: SourceConnection, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectionParameters != null && {
-      ConnectionParameters: se_SourceConnectionParameters(input.ConnectionParameters, context),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_SourceConnection omitted.
 
-/**
- * serializeAws_json1_1SourceConnectionParameters
- */
-const se_SourceConnectionParameters = (input: SourceConnectionParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.CodeStar != null && { CodeStar: se_CodeStarParameters(input.CodeStar, context) }),
-  };
-};
+// se_SourceConnectionParameters omitted.
 
-/**
- * serializeAws_json1_1SourceProvisioningArtifactProperties
- */
-const se_SourceProvisioningArtifactProperties = (input: Record<string, string>[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SourceProvisioningArtifactPropertiesMap(entry, context);
-    });
-};
+// se_SourceProvisioningArtifactProperties omitted.
 
-/**
- * serializeAws_json1_1SourceProvisioningArtifactPropertiesMap
- */
-const se_SourceProvisioningArtifactPropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [ProvisioningArtifactPropertyName | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = value;
-      return acc;
-    },
-    {}
-  );
-};
+// se_SourceProvisioningArtifactPropertiesMap omitted.
 
-/**
- * serializeAws_json1_1StackSetAccounts
- */
-const se_StackSetAccounts = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StackSetAccounts omitted.
 
-/**
- * serializeAws_json1_1StackSetRegions
- */
-const se_StackSetRegions = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StackSetRegions omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_Tags omitted.
 
 /**
  * serializeAws_json1_1TerminateProvisionedProductInput
  */
 const se_TerminateProvisionedProductInput = (input: TerminateProvisionedProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.IgnoreErrors != null && { IgnoreErrors: input.IgnoreErrors }),
-    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.RetainPhysicalResources != null && { RetainPhysicalResources: input.RetainPhysicalResources }),
-    TerminateToken: input.TerminateToken ?? generateIdempotencyToken(),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    IgnoreErrors: [],
+    ProvisionedProductId: [],
+    ProvisionedProductName: [],
+    RetainPhysicalResources: [],
+    TerminateToken: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
-/**
- * serializeAws_json1_1UniqueTagResourceIdentifier
- */
-const se_UniqueTagResourceIdentifier = (input: UniqueTagResourceIdentifier, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_UniqueTagResourceIdentifier omitted.
 
-/**
- * serializeAws_json1_1UpdateConstraintInput
- */
-const se_UpdateConstraintInput = (input: UpdateConstraintInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Parameters != null && { Parameters: input.Parameters }),
-  };
-};
+// se_UpdateConstraintInput omitted.
 
-/**
- * serializeAws_json1_1UpdatePortfolioInput
- */
-const se_UpdatePortfolioInput = (input: UpdatePortfolioInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AddTags != null && { AddTags: se_AddTags(input.AddTags, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-    ...(input.RemoveTags != null && { RemoveTags: se_TagKeys(input.RemoveTags, context) }),
-  };
-};
+// se_UpdatePortfolioInput omitted.
 
-/**
- * serializeAws_json1_1UpdatePortfolioShareInput
- */
-const se_UpdatePortfolioShareInput = (input: UpdatePortfolioShareInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.OrganizationNode != null && { OrganizationNode: se_OrganizationNode(input.OrganizationNode, context) }),
-    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
-    ...(input.SharePrincipals != null && { SharePrincipals: input.SharePrincipals }),
-    ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
-  };
-};
+// se_UpdatePortfolioShareInput omitted.
 
-/**
- * serializeAws_json1_1UpdateProductInput
- */
-const se_UpdateProductInput = (input: UpdateProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AddTags != null && { AddTags: se_AddTags(input.AddTags, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Distributor != null && { Distributor: input.Distributor }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Owner != null && { Owner: input.Owner }),
-    ...(input.RemoveTags != null && { RemoveTags: se_TagKeys(input.RemoveTags, context) }),
-    ...(input.SourceConnection != null && { SourceConnection: se_SourceConnection(input.SourceConnection, context) }),
-    ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
-    ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
-    ...(input.SupportUrl != null && { SupportUrl: input.SupportUrl }),
-  };
-};
+// se_UpdateProductInput omitted.
 
 /**
  * serializeAws_json1_1UpdateProvisionedProductInput
  */
 const se_UpdateProvisionedProductInput = (input: UpdateProvisionedProductInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PathId != null && { PathId: input.PathId }),
-    ...(input.PathName != null && { PathName: input.PathName }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProductName != null && { ProductName: input.ProductName }),
-    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
-    ...(input.ProvisioningParameters != null && {
-      ProvisioningParameters: se_UpdateProvisioningParameters(input.ProvisioningParameters, context),
-    }),
-    ...(input.ProvisioningPreferences != null && {
-      ProvisioningPreferences: se_UpdateProvisioningPreferences(input.ProvisioningPreferences, context),
-    }),
-    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
-    UpdateToken: input.UpdateToken ?? generateIdempotencyToken(),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    PathId: [],
+    PathName: [],
+    ProductId: [],
+    ProductName: [],
+    ProvisionedProductId: [],
+    ProvisionedProductName: [],
+    ProvisioningArtifactId: [],
+    ProvisioningArtifactName: [],
+    ProvisioningParameters: _json,
+    ProvisioningPreferences: _json,
+    Tags: _json,
+    UpdateToken: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
 /**
@@ -8073,401 +6754,92 @@ const se_UpdateProvisionedProductPropertiesInput = (
   input: UpdateProvisionedProductPropertiesInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ProvisionedProductProperties != null && {
-      ProvisionedProductProperties: se_ProvisionedProductProperties(input.ProvisionedProductProperties, context),
-    }),
-  };
+  return take(input, {
+    AcceptLanguage: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    ProvisionedProductId: [],
+    ProvisionedProductProperties: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateProvisioningArtifactInput
- */
-const se_UpdateProvisioningArtifactInput = (input: UpdateProvisioningArtifactInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Active != null && { Active: input.Active }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Guidance != null && { Guidance: input.Guidance }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ProductId != null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-  };
-};
+// se_UpdateProvisioningArtifactInput omitted.
 
-/**
- * serializeAws_json1_1UpdateProvisioningParameter
- */
-const se_UpdateProvisioningParameter = (input: UpdateProvisioningParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.UsePreviousValue != null && { UsePreviousValue: input.UsePreviousValue }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_UpdateProvisioningParameter omitted.
 
-/**
- * serializeAws_json1_1UpdateProvisioningParameters
- */
-const se_UpdateProvisioningParameters = (input: UpdateProvisioningParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpdateProvisioningParameter(entry, context);
-    });
-};
+// se_UpdateProvisioningParameters omitted.
 
-/**
- * serializeAws_json1_1UpdateProvisioningPreferences
- */
-const se_UpdateProvisioningPreferences = (input: UpdateProvisioningPreferences, context: __SerdeContext): any => {
-  return {
-    ...(input.StackSetAccounts != null && { StackSetAccounts: se_StackSetAccounts(input.StackSetAccounts, context) }),
-    ...(input.StackSetFailureToleranceCount != null && {
-      StackSetFailureToleranceCount: input.StackSetFailureToleranceCount,
-    }),
-    ...(input.StackSetFailureTolerancePercentage != null && {
-      StackSetFailureTolerancePercentage: input.StackSetFailureTolerancePercentage,
-    }),
-    ...(input.StackSetMaxConcurrencyCount != null && {
-      StackSetMaxConcurrencyCount: input.StackSetMaxConcurrencyCount,
-    }),
-    ...(input.StackSetMaxConcurrencyPercentage != null && {
-      StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage,
-    }),
-    ...(input.StackSetOperationType != null && { StackSetOperationType: input.StackSetOperationType }),
-    ...(input.StackSetRegions != null && { StackSetRegions: se_StackSetRegions(input.StackSetRegions, context) }),
-  };
-};
+// se_UpdateProvisioningPreferences omitted.
 
-/**
- * serializeAws_json1_1UpdateServiceActionInput
- */
-const se_UpdateServiceActionInput = (input: UpdateServiceActionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Definition != null && { Definition: se_ServiceActionDefinitionMap(input.Definition, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_UpdateServiceActionInput omitted.
 
-/**
- * serializeAws_json1_1UpdateTagOptionInput
- */
-const se_UpdateTagOptionInput = (input: UpdateTagOptionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Active != null && { Active: input.Active }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_UpdateTagOptionInput omitted.
 
-/**
- * deserializeAws_json1_1AcceptPortfolioShareOutput
- */
-const de_AcceptPortfolioShareOutput = (output: any, context: __SerdeContext): AcceptPortfolioShareOutput => {
-  return {} as any;
-};
+// de_AcceptPortfolioShareOutput omitted.
 
-/**
- * deserializeAws_json1_1AccountIds
- */
-const de_AccountIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AccountIds omitted.
 
-/**
- * deserializeAws_json1_1AllowedValues
- */
-const de_AllowedValues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AllowedValues omitted.
 
-/**
- * deserializeAws_json1_1AssociateBudgetWithResourceOutput
- */
-const de_AssociateBudgetWithResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): AssociateBudgetWithResourceOutput => {
-  return {} as any;
-};
+// de_AssociateBudgetWithResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1AssociatePrincipalWithPortfolioOutput
- */
-const de_AssociatePrincipalWithPortfolioOutput = (
-  output: any,
-  context: __SerdeContext
-): AssociatePrincipalWithPortfolioOutput => {
-  return {} as any;
-};
+// de_AssociatePrincipalWithPortfolioOutput omitted.
 
-/**
- * deserializeAws_json1_1AssociateProductWithPortfolioOutput
- */
-const de_AssociateProductWithPortfolioOutput = (
-  output: any,
-  context: __SerdeContext
-): AssociateProductWithPortfolioOutput => {
-  return {} as any;
-};
+// de_AssociateProductWithPortfolioOutput omitted.
 
-/**
- * deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactOutput
- */
-const de_AssociateServiceActionWithProvisioningArtifactOutput = (
-  output: any,
-  context: __SerdeContext
-): AssociateServiceActionWithProvisioningArtifactOutput => {
-  return {} as any;
-};
+// de_AssociateServiceActionWithProvisioningArtifactOutput omitted.
 
-/**
- * deserializeAws_json1_1AssociateTagOptionWithResourceOutput
- */
-const de_AssociateTagOptionWithResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): AssociateTagOptionWithResourceOutput => {
-  return {} as any;
-};
+// de_AssociateTagOptionWithResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactOutput
- */
-const de_BatchAssociateServiceActionWithProvisioningArtifactOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchAssociateServiceActionWithProvisioningArtifactOutput => {
-  return {
-    FailedServiceActionAssociations:
-      output.FailedServiceActionAssociations != null
-        ? de_FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
-        : undefined,
-  } as any;
-};
+// de_BatchAssociateServiceActionWithProvisioningArtifactOutput omitted.
 
-/**
- * deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactOutput
- */
-const de_BatchDisassociateServiceActionFromProvisioningArtifactOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchDisassociateServiceActionFromProvisioningArtifactOutput => {
-  return {
-    FailedServiceActionAssociations:
-      output.FailedServiceActionAssociations != null
-        ? de_FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
-        : undefined,
-  } as any;
-};
+// de_BatchDisassociateServiceActionFromProvisioningArtifactOutput omitted.
 
-/**
- * deserializeAws_json1_1BudgetDetail
- */
-const de_BudgetDetail = (output: any, context: __SerdeContext): BudgetDetail => {
-  return {
-    BudgetName: __expectString(output.BudgetName),
-  } as any;
-};
+// de_BudgetDetail omitted.
 
-/**
- * deserializeAws_json1_1Budgets
- */
-const de_Budgets = (output: any, context: __SerdeContext): BudgetDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BudgetDetail(entry, context);
-    });
-  return retVal;
-};
+// de_Budgets omitted.
 
-/**
- * deserializeAws_json1_1CloudWatchDashboard
- */
-const de_CloudWatchDashboard = (output: any, context: __SerdeContext): CloudWatchDashboard => {
-  return {
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_CloudWatchDashboard omitted.
 
-/**
- * deserializeAws_json1_1CloudWatchDashboards
- */
-const de_CloudWatchDashboards = (output: any, context: __SerdeContext): CloudWatchDashboard[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CloudWatchDashboard(entry, context);
-    });
-  return retVal;
-};
+// de_CloudWatchDashboards omitted.
 
-/**
- * deserializeAws_json1_1CodeStarParameters
- */
-const de_CodeStarParameters = (output: any, context: __SerdeContext): CodeStarParameters => {
-  return {
-    ArtifactPath: __expectString(output.ArtifactPath),
-    Branch: __expectString(output.Branch),
-    ConnectionArn: __expectString(output.ConnectionArn),
-    Repository: __expectString(output.Repository),
-  } as any;
-};
+// de_CodeStarParameters omitted.
 
-/**
- * deserializeAws_json1_1ConstraintDetail
- */
-const de_ConstraintDetail = (output: any, context: __SerdeContext): ConstraintDetail => {
-  return {
-    ConstraintId: __expectString(output.ConstraintId),
-    Description: __expectString(output.Description),
-    Owner: __expectString(output.Owner),
-    PortfolioId: __expectString(output.PortfolioId),
-    ProductId: __expectString(output.ProductId),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ConstraintDetail omitted.
 
-/**
- * deserializeAws_json1_1ConstraintDetails
- */
-const de_ConstraintDetails = (output: any, context: __SerdeContext): ConstraintDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConstraintDetail(entry, context);
-    });
-  return retVal;
-};
+// de_ConstraintDetails omitted.
 
-/**
- * deserializeAws_json1_1ConstraintSummaries
- */
-const de_ConstraintSummaries = (output: any, context: __SerdeContext): ConstraintSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConstraintSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ConstraintSummaries omitted.
 
-/**
- * deserializeAws_json1_1ConstraintSummary
- */
-const de_ConstraintSummary = (output: any, context: __SerdeContext): ConstraintSummary => {
-  return {
-    Description: __expectString(output.Description),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ConstraintSummary omitted.
 
-/**
- * deserializeAws_json1_1CopyProductOutput
- */
-const de_CopyProductOutput = (output: any, context: __SerdeContext): CopyProductOutput => {
-  return {
-    CopyProductToken: __expectString(output.CopyProductToken),
-  } as any;
-};
+// de_CopyProductOutput omitted.
 
-/**
- * deserializeAws_json1_1CreateConstraintOutput
- */
-const de_CreateConstraintOutput = (output: any, context: __SerdeContext): CreateConstraintOutput => {
-  return {
-    ConstraintDetail:
-      output.ConstraintDetail != null ? de_ConstraintDetail(output.ConstraintDetail, context) : undefined,
-    ConstraintParameters: __expectString(output.ConstraintParameters),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_CreateConstraintOutput omitted.
 
 /**
  * deserializeAws_json1_1CreatePortfolioOutput
  */
 const de_CreatePortfolioOutput = (output: any, context: __SerdeContext): CreatePortfolioOutput => {
-  return {
-    PortfolioDetail: output.PortfolioDetail != null ? de_PortfolioDetail(output.PortfolioDetail, context) : undefined,
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    PortfolioDetail: (_: any) => de_PortfolioDetail(_, context),
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreatePortfolioShareOutput
- */
-const de_CreatePortfolioShareOutput = (output: any, context: __SerdeContext): CreatePortfolioShareOutput => {
-  return {
-    PortfolioShareToken: __expectString(output.PortfolioShareToken),
-  } as any;
-};
+// de_CreatePortfolioShareOutput omitted.
 
 /**
  * deserializeAws_json1_1CreateProductOutput
  */
 const de_CreateProductOutput = (output: any, context: __SerdeContext): CreateProductOutput => {
-  return {
-    ProductViewDetail:
-      output.ProductViewDetail != null ? de_ProductViewDetail(output.ProductViewDetail, context) : undefined,
-    ProvisioningArtifactDetail:
-      output.ProvisioningArtifactDetail != null
-        ? de_ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
-        : undefined,
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ProductViewDetail: (_: any) => de_ProductViewDetail(_, context),
+    ProvisioningArtifactDetail: (_: any) => de_ProvisioningArtifactDetail(_, context),
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateProvisionedProductPlanOutput
- */
-const de_CreateProvisionedProductPlanOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateProvisionedProductPlanOutput => {
-  return {
-    PlanId: __expectString(output.PlanId),
-    PlanName: __expectString(output.PlanName),
-    ProvisionProductId: __expectString(output.ProvisionProductId),
-    ProvisionedProductName: __expectString(output.ProvisionedProductName),
-    ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
-  } as any;
-};
+// de_CreateProvisionedProductPlanOutput omitted.
 
 /**
  * deserializeAws_json1_1CreateProvisioningArtifactOutput
@@ -8476,208 +6848,86 @@ const de_CreateProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): CreateProvisioningArtifactOutput => {
-  return {
-    Info: output.Info != null ? de_ProvisioningArtifactInfo(output.Info, context) : undefined,
-    ProvisioningArtifactDetail:
-      output.ProvisioningArtifactDetail != null
-        ? de_ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Info: _json,
+    ProvisioningArtifactDetail: (_: any) => de_ProvisioningArtifactDetail(_, context),
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateServiceActionOutput
- */
-const de_CreateServiceActionOutput = (output: any, context: __SerdeContext): CreateServiceActionOutput => {
-  return {
-    ServiceActionDetail:
-      output.ServiceActionDetail != null ? de_ServiceActionDetail(output.ServiceActionDetail, context) : undefined,
-  } as any;
-};
+// de_CreateServiceActionOutput omitted.
 
-/**
- * deserializeAws_json1_1CreateTagOptionOutput
- */
-const de_CreateTagOptionOutput = (output: any, context: __SerdeContext): CreateTagOptionOutput => {
-  return {
-    TagOptionDetail: output.TagOptionDetail != null ? de_TagOptionDetail(output.TagOptionDetail, context) : undefined,
-  } as any;
-};
+// de_CreateTagOptionOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteConstraintOutput
- */
-const de_DeleteConstraintOutput = (output: any, context: __SerdeContext): DeleteConstraintOutput => {
-  return {} as any;
-};
+// de_DeleteConstraintOutput omitted.
 
-/**
- * deserializeAws_json1_1DeletePortfolioOutput
- */
-const de_DeletePortfolioOutput = (output: any, context: __SerdeContext): DeletePortfolioOutput => {
-  return {} as any;
-};
+// de_DeletePortfolioOutput omitted.
 
-/**
- * deserializeAws_json1_1DeletePortfolioShareOutput
- */
-const de_DeletePortfolioShareOutput = (output: any, context: __SerdeContext): DeletePortfolioShareOutput => {
-  return {
-    PortfolioShareToken: __expectString(output.PortfolioShareToken),
-  } as any;
-};
+// de_DeletePortfolioShareOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteProductOutput
- */
-const de_DeleteProductOutput = (output: any, context: __SerdeContext): DeleteProductOutput => {
-  return {} as any;
-};
+// de_DeleteProductOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteProvisionedProductPlanOutput
- */
-const de_DeleteProvisionedProductPlanOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteProvisionedProductPlanOutput => {
-  return {} as any;
-};
+// de_DeleteProvisionedProductPlanOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteProvisioningArtifactOutput
- */
-const de_DeleteProvisioningArtifactOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteProvisioningArtifactOutput => {
-  return {} as any;
-};
+// de_DeleteProvisioningArtifactOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteServiceActionOutput
- */
-const de_DeleteServiceActionOutput = (output: any, context: __SerdeContext): DeleteServiceActionOutput => {
-  return {} as any;
-};
+// de_DeleteServiceActionOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteTagOptionOutput
- */
-const de_DeleteTagOptionOutput = (output: any, context: __SerdeContext): DeleteTagOptionOutput => {
-  return {} as any;
-};
+// de_DeleteTagOptionOutput omitted.
 
-/**
- * deserializeAws_json1_1DescribeConstraintOutput
- */
-const de_DescribeConstraintOutput = (output: any, context: __SerdeContext): DescribeConstraintOutput => {
-  return {
-    ConstraintDetail:
-      output.ConstraintDetail != null ? de_ConstraintDetail(output.ConstraintDetail, context) : undefined,
-    ConstraintParameters: __expectString(output.ConstraintParameters),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DescribeConstraintOutput omitted.
 
-/**
- * deserializeAws_json1_1DescribeCopyProductStatusOutput
- */
-const de_DescribeCopyProductStatusOutput = (output: any, context: __SerdeContext): DescribeCopyProductStatusOutput => {
-  return {
-    CopyProductStatus: __expectString(output.CopyProductStatus),
-    StatusDetail: __expectString(output.StatusDetail),
-    TargetProductId: __expectString(output.TargetProductId),
-  } as any;
-};
+// de_DescribeCopyProductStatusOutput omitted.
 
 /**
  * deserializeAws_json1_1DescribePortfolioOutput
  */
 const de_DescribePortfolioOutput = (output: any, context: __SerdeContext): DescribePortfolioOutput => {
-  return {
-    Budgets: output.Budgets != null ? de_Budgets(output.Budgets, context) : undefined,
-    PortfolioDetail: output.PortfolioDetail != null ? de_PortfolioDetail(output.PortfolioDetail, context) : undefined,
-    TagOptions: output.TagOptions != null ? de_TagOptionDetails(output.TagOptions, context) : undefined,
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Budgets: _json,
+    PortfolioDetail: (_: any) => de_PortfolioDetail(_, context),
+    TagOptions: _json,
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribePortfolioSharesOutput
- */
-const de_DescribePortfolioSharesOutput = (output: any, context: __SerdeContext): DescribePortfolioSharesOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    PortfolioShareDetails:
-      output.PortfolioShareDetails != null
-        ? de_PortfolioShareDetails(output.PortfolioShareDetails, context)
-        : undefined,
-  } as any;
-};
+// de_DescribePortfolioSharesOutput omitted.
 
-/**
- * deserializeAws_json1_1DescribePortfolioShareStatusOutput
- */
-const de_DescribePortfolioShareStatusOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribePortfolioShareStatusOutput => {
-  return {
-    OrganizationNodeValue: __expectString(output.OrganizationNodeValue),
-    PortfolioId: __expectString(output.PortfolioId),
-    PortfolioShareToken: __expectString(output.PortfolioShareToken),
-    ShareDetails: output.ShareDetails != null ? de_ShareDetails(output.ShareDetails, context) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DescribePortfolioShareStatusOutput omitted.
 
 /**
  * deserializeAws_json1_1DescribeProductAsAdminOutput
  */
 const de_DescribeProductAsAdminOutput = (output: any, context: __SerdeContext): DescribeProductAsAdminOutput => {
-  return {
-    Budgets: output.Budgets != null ? de_Budgets(output.Budgets, context) : undefined,
-    ProductViewDetail:
-      output.ProductViewDetail != null ? de_ProductViewDetail(output.ProductViewDetail, context) : undefined,
-    ProvisioningArtifactSummaries:
-      output.ProvisioningArtifactSummaries != null
-        ? de_ProvisioningArtifactSummaries(output.ProvisioningArtifactSummaries, context)
-        : undefined,
-    TagOptions: output.TagOptions != null ? de_TagOptionDetails(output.TagOptions, context) : undefined,
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Budgets: _json,
+    ProductViewDetail: (_: any) => de_ProductViewDetail(_, context),
+    ProvisioningArtifactSummaries: (_: any) => de_ProvisioningArtifactSummaries(_, context),
+    TagOptions: _json,
+    Tags: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeProductOutput
  */
 const de_DescribeProductOutput = (output: any, context: __SerdeContext): DescribeProductOutput => {
-  return {
-    Budgets: output.Budgets != null ? de_Budgets(output.Budgets, context) : undefined,
-    LaunchPaths: output.LaunchPaths != null ? de_LaunchPaths(output.LaunchPaths, context) : undefined,
-    ProductViewSummary:
-      output.ProductViewSummary != null ? de_ProductViewSummary(output.ProductViewSummary, context) : undefined,
-    ProvisioningArtifacts:
-      output.ProvisioningArtifacts != null
-        ? de_ProvisioningArtifacts(output.ProvisioningArtifacts, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    Budgets: _json,
+    LaunchPaths: _json,
+    ProductViewSummary: _json,
+    ProvisioningArtifacts: (_: any) => de_ProvisioningArtifacts(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeProductViewOutput
  */
 const de_DescribeProductViewOutput = (output: any, context: __SerdeContext): DescribeProductViewOutput => {
-  return {
-    ProductViewSummary:
-      output.ProductViewSummary != null ? de_ProductViewSummary(output.ProductViewSummary, context) : undefined,
-    ProvisioningArtifacts:
-      output.ProvisioningArtifacts != null
-        ? de_ProvisioningArtifacts(output.ProvisioningArtifacts, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ProductViewSummary: _json,
+    ProvisioningArtifacts: (_: any) => de_ProvisioningArtifacts(_, context),
+  }) as any;
 };
 
 /**
@@ -8687,14 +6937,10 @@ const de_DescribeProvisionedProductOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeProvisionedProductOutput => {
-  return {
-    CloudWatchDashboards:
-      output.CloudWatchDashboards != null ? de_CloudWatchDashboards(output.CloudWatchDashboards, context) : undefined,
-    ProvisionedProductDetail:
-      output.ProvisionedProductDetail != null
-        ? de_ProvisionedProductDetail(output.ProvisionedProductDetail, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CloudWatchDashboards: _json,
+    ProvisionedProductDetail: (_: any) => de_ProvisionedProductDetail(_, context),
+  }) as any;
 };
 
 /**
@@ -8704,14 +6950,11 @@ const de_DescribeProvisionedProductPlanOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeProvisionedProductPlanOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ProvisionedProductPlanDetails:
-      output.ProvisionedProductPlanDetails != null
-        ? de_ProvisionedProductPlanDetails(output.ProvisionedProductPlanDetails, context)
-        : undefined,
-    ResourceChanges: output.ResourceChanges != null ? de_ResourceChanges(output.ResourceChanges, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    ProvisionedProductPlanDetails: (_: any) => de_ProvisionedProductPlanDetails(_, context),
+    ResourceChanges: _json,
+  }) as any;
 };
 
 /**
@@ -8721,171 +6964,47 @@ const de_DescribeProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeProvisioningArtifactOutput => {
-  return {
-    Info: output.Info != null ? de_ProvisioningArtifactInfo(output.Info, context) : undefined,
-    ProvisioningArtifactDetail:
-      output.ProvisioningArtifactDetail != null
-        ? de_ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Info: _json,
+    ProvisioningArtifactDetail: (_: any) => de_ProvisioningArtifactDetail(_, context),
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeProvisioningParametersOutput
- */
-const de_DescribeProvisioningParametersOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeProvisioningParametersOutput => {
-  return {
-    ConstraintSummaries:
-      output.ConstraintSummaries != null ? de_ConstraintSummaries(output.ConstraintSummaries, context) : undefined,
-    ProvisioningArtifactOutputKeys:
-      output.ProvisioningArtifactOutputKeys != null
-        ? de_ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputKeys, context)
-        : undefined,
-    ProvisioningArtifactOutputs:
-      output.ProvisioningArtifactOutputs != null
-        ? de_ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputs, context)
-        : undefined,
-    ProvisioningArtifactParameters:
-      output.ProvisioningArtifactParameters != null
-        ? de_ProvisioningArtifactParameters(output.ProvisioningArtifactParameters, context)
-        : undefined,
-    ProvisioningArtifactPreferences:
-      output.ProvisioningArtifactPreferences != null
-        ? de_ProvisioningArtifactPreferences(output.ProvisioningArtifactPreferences, context)
-        : undefined,
-    TagOptions: output.TagOptions != null ? de_TagOptionSummaries(output.TagOptions, context) : undefined,
-    UsageInstructions:
-      output.UsageInstructions != null ? de_UsageInstructions(output.UsageInstructions, context) : undefined,
-  } as any;
-};
+// de_DescribeProvisioningParametersOutput omitted.
 
 /**
  * deserializeAws_json1_1DescribeRecordOutput
  */
 const de_DescribeRecordOutput = (output: any, context: __SerdeContext): DescribeRecordOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
-    RecordOutputs: output.RecordOutputs != null ? de_RecordOutputs(output.RecordOutputs, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    RecordDetail: (_: any) => de_RecordDetail(_, context),
+    RecordOutputs: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeServiceActionExecutionParametersOutput
- */
-const de_DescribeServiceActionExecutionParametersOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeServiceActionExecutionParametersOutput => {
-  return {
-    ServiceActionParameters:
-      output.ServiceActionParameters != null
-        ? de_ExecutionParameters(output.ServiceActionParameters, context)
-        : undefined,
-  } as any;
-};
+// de_DescribeServiceActionExecutionParametersOutput omitted.
 
-/**
- * deserializeAws_json1_1DescribeServiceActionOutput
- */
-const de_DescribeServiceActionOutput = (output: any, context: __SerdeContext): DescribeServiceActionOutput => {
-  return {
-    ServiceActionDetail:
-      output.ServiceActionDetail != null ? de_ServiceActionDetail(output.ServiceActionDetail, context) : undefined,
-  } as any;
-};
+// de_DescribeServiceActionOutput omitted.
 
-/**
- * deserializeAws_json1_1DescribeTagOptionOutput
- */
-const de_DescribeTagOptionOutput = (output: any, context: __SerdeContext): DescribeTagOptionOutput => {
-  return {
-    TagOptionDetail: output.TagOptionDetail != null ? de_TagOptionDetail(output.TagOptionDetail, context) : undefined,
-  } as any;
-};
+// de_DescribeTagOptionOutput omitted.
 
-/**
- * deserializeAws_json1_1DisableAWSOrganizationsAccessOutput
- */
-const de_DisableAWSOrganizationsAccessOutput = (
-  output: any,
-  context: __SerdeContext
-): DisableAWSOrganizationsAccessOutput => {
-  return {} as any;
-};
+// de_DisableAWSOrganizationsAccessOutput omitted.
 
-/**
- * deserializeAws_json1_1DisassociateBudgetFromResourceOutput
- */
-const de_DisassociateBudgetFromResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): DisassociateBudgetFromResourceOutput => {
-  return {} as any;
-};
+// de_DisassociateBudgetFromResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1DisassociatePrincipalFromPortfolioOutput
- */
-const de_DisassociatePrincipalFromPortfolioOutput = (
-  output: any,
-  context: __SerdeContext
-): DisassociatePrincipalFromPortfolioOutput => {
-  return {} as any;
-};
+// de_DisassociatePrincipalFromPortfolioOutput omitted.
 
-/**
- * deserializeAws_json1_1DisassociateProductFromPortfolioOutput
- */
-const de_DisassociateProductFromPortfolioOutput = (
-  output: any,
-  context: __SerdeContext
-): DisassociateProductFromPortfolioOutput => {
-  return {} as any;
-};
+// de_DisassociateProductFromPortfolioOutput omitted.
 
-/**
- * deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactOutput
- */
-const de_DisassociateServiceActionFromProvisioningArtifactOutput = (
-  output: any,
-  context: __SerdeContext
-): DisassociateServiceActionFromProvisioningArtifactOutput => {
-  return {} as any;
-};
+// de_DisassociateServiceActionFromProvisioningArtifactOutput omitted.
 
-/**
- * deserializeAws_json1_1DisassociateTagOptionFromResourceOutput
- */
-const de_DisassociateTagOptionFromResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): DisassociateTagOptionFromResourceOutput => {
-  return {} as any;
-};
+// de_DisassociateTagOptionFromResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1DuplicateResourceException
- */
-const de_DuplicateResourceException = (output: any, context: __SerdeContext): DuplicateResourceException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DuplicateResourceException omitted.
 
-/**
- * deserializeAws_json1_1EnableAWSOrganizationsAccessOutput
- */
-const de_EnableAWSOrganizationsAccessOutput = (
-  output: any,
-  context: __SerdeContext
-): EnableAWSOrganizationsAccessOutput => {
-  return {} as any;
-};
+// de_EnableAWSOrganizationsAccessOutput omitted.
 
 /**
  * deserializeAws_json1_1ExecuteProvisionedProductPlanOutput
@@ -8894,9 +7013,9 @@ const de_ExecuteProvisionedProductPlanOutput = (
   output: any,
   context: __SerdeContext
 ): ExecuteProvisionedProductPlanOutput => {
-  return {
-    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    RecordDetail: (_: any) => de_RecordDetail(_, context),
+  }) as any;
 };
 
 /**
@@ -8906,105 +7025,24 @@ const de_ExecuteProvisionedProductServiceActionOutput = (
   output: any,
   context: __SerdeContext
 ): ExecuteProvisionedProductServiceActionOutput => {
-  return {
-    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    RecordDetail: (_: any) => de_RecordDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ExecutionParameter
- */
-const de_ExecutionParameter = (output: any, context: __SerdeContext): ExecutionParameter => {
-  return {
-    DefaultValues:
-      output.DefaultValues != null ? de_ExecutionParameterValueList(output.DefaultValues, context) : undefined,
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ExecutionParameter omitted.
 
-/**
- * deserializeAws_json1_1ExecutionParameters
- */
-const de_ExecutionParameters = (output: any, context: __SerdeContext): ExecutionParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExecutionParameter(entry, context);
-    });
-  return retVal;
-};
+// de_ExecutionParameters omitted.
 
-/**
- * deserializeAws_json1_1ExecutionParameterValueList
- */
-const de_ExecutionParameterValueList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ExecutionParameterValueList omitted.
 
-/**
- * deserializeAws_json1_1FailedServiceActionAssociation
- */
-const de_FailedServiceActionAssociation = (output: any, context: __SerdeContext): FailedServiceActionAssociation => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ProductId: __expectString(output.ProductId),
-    ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
-    ServiceActionId: __expectString(output.ServiceActionId),
-  } as any;
-};
+// de_FailedServiceActionAssociation omitted.
 
-/**
- * deserializeAws_json1_1FailedServiceActionAssociations
- */
-const de_FailedServiceActionAssociations = (output: any, context: __SerdeContext): FailedServiceActionAssociation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FailedServiceActionAssociation(entry, context);
-    });
-  return retVal;
-};
+// de_FailedServiceActionAssociations omitted.
 
-/**
- * deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput
- */
-const de_GetAWSOrganizationsAccessStatusOutput = (
-  output: any,
-  context: __SerdeContext
-): GetAWSOrganizationsAccessStatusOutput => {
-  return {
-    AccessStatus: __expectString(output.AccessStatus),
-  } as any;
-};
+// de_GetAWSOrganizationsAccessStatusOutput omitted.
 
-/**
- * deserializeAws_json1_1GetProvisionedProductOutputsOutput
- */
-const de_GetProvisionedProductOutputsOutput = (
-  output: any,
-  context: __SerdeContext
-): GetProvisionedProductOutputsOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    Outputs: output.Outputs != null ? de_RecordOutputs(output.Outputs, context) : undefined,
-  } as any;
-};
+// de_GetProvisionedProductOutputsOutput omitted.
 
 /**
  * deserializeAws_json1_1ImportAsProvisionedProductOutput
@@ -9013,109 +7051,37 @@ const de_ImportAsProvisionedProductOutput = (
   output: any,
   context: __SerdeContext
 ): ImportAsProvisionedProductOutput => {
-  return {
-    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    RecordDetail: (_: any) => de_RecordDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InvalidParametersException
- */
-const de_InvalidParametersException = (output: any, context: __SerdeContext): InvalidParametersException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidParametersException omitted.
 
-/**
- * deserializeAws_json1_1InvalidStateException
- */
-const de_InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidStateException omitted.
 
 /**
  * deserializeAws_json1_1LastSync
  */
 const de_LastSync = (output: any, context: __SerdeContext): LastSync => {
-  return {
-    LastSuccessfulSyncProvisioningArtifactId: __expectString(output.LastSuccessfulSyncProvisioningArtifactId),
-    LastSuccessfulSyncTime:
-      output.LastSuccessfulSyncTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulSyncTime)))
-        : undefined,
-    LastSyncStatus: __expectString(output.LastSyncStatus),
-    LastSyncStatusMessage: __expectString(output.LastSyncStatusMessage),
-    LastSyncTime:
-      output.LastSyncTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSyncTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    LastSuccessfulSyncProvisioningArtifactId: __expectString,
+    LastSuccessfulSyncTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastSyncStatus: __expectString,
+    LastSyncStatusMessage: __expectString,
+    LastSyncTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1LaunchPath
- */
-const de_LaunchPath = (output: any, context: __SerdeContext): LaunchPath => {
-  return {
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_LaunchPath omitted.
 
-/**
- * deserializeAws_json1_1LaunchPaths
- */
-const de_LaunchPaths = (output: any, context: __SerdeContext): LaunchPath[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LaunchPath(entry, context);
-    });
-  return retVal;
-};
+// de_LaunchPaths omitted.
 
-/**
- * deserializeAws_json1_1LaunchPathSummaries
- */
-const de_LaunchPathSummaries = (output: any, context: __SerdeContext): LaunchPathSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LaunchPathSummary(entry, context);
-    });
-  return retVal;
-};
+// de_LaunchPathSummaries omitted.
 
-/**
- * deserializeAws_json1_1LaunchPathSummary
- */
-const de_LaunchPathSummary = (output: any, context: __SerdeContext): LaunchPathSummary => {
-  return {
-    ConstraintSummaries:
-      output.ConstraintSummaries != null ? de_ConstraintSummaries(output.ConstraintSummaries, context) : undefined,
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
-};
+// de_LaunchPathSummary omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListAcceptedPortfolioSharesOutput
@@ -9124,122 +7090,45 @@ const de_ListAcceptedPortfolioSharesOutput = (
   output: any,
   context: __SerdeContext
 ): ListAcceptedPortfolioSharesOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    PortfolioDetails:
-      output.PortfolioDetails != null ? de_PortfolioDetails(output.PortfolioDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    PortfolioDetails: (_: any) => de_PortfolioDetails(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListBudgetsForResourceOutput
- */
-const de_ListBudgetsForResourceOutput = (output: any, context: __SerdeContext): ListBudgetsForResourceOutput => {
-  return {
-    Budgets: output.Budgets != null ? de_Budgets(output.Budgets, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-  } as any;
-};
+// de_ListBudgetsForResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1ListConstraintsForPortfolioOutput
- */
-const de_ListConstraintsForPortfolioOutput = (
-  output: any,
-  context: __SerdeContext
-): ListConstraintsForPortfolioOutput => {
-  return {
-    ConstraintDetails:
-      output.ConstraintDetails != null ? de_ConstraintDetails(output.ConstraintDetails, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-  } as any;
-};
+// de_ListConstraintsForPortfolioOutput omitted.
 
-/**
- * deserializeAws_json1_1ListLaunchPathsOutput
- */
-const de_ListLaunchPathsOutput = (output: any, context: __SerdeContext): ListLaunchPathsOutput => {
-  return {
-    LaunchPathSummaries:
-      output.LaunchPathSummaries != null ? de_LaunchPathSummaries(output.LaunchPathSummaries, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-  } as any;
-};
+// de_ListLaunchPathsOutput omitted.
 
-/**
- * deserializeAws_json1_1ListOrganizationPortfolioAccessOutput
- */
-const de_ListOrganizationPortfolioAccessOutput = (
-  output: any,
-  context: __SerdeContext
-): ListOrganizationPortfolioAccessOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    OrganizationNodes:
-      output.OrganizationNodes != null ? de_OrganizationNodes(output.OrganizationNodes, context) : undefined,
-  } as any;
-};
+// de_ListOrganizationPortfolioAccessOutput omitted.
 
-/**
- * deserializeAws_json1_1ListPortfolioAccessOutput
- */
-const de_ListPortfolioAccessOutput = (output: any, context: __SerdeContext): ListPortfolioAccessOutput => {
-  return {
-    AccountIds: output.AccountIds != null ? de_AccountIds(output.AccountIds, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-  } as any;
-};
+// de_ListPortfolioAccessOutput omitted.
 
 /**
  * deserializeAws_json1_1ListPortfoliosForProductOutput
  */
 const de_ListPortfoliosForProductOutput = (output: any, context: __SerdeContext): ListPortfoliosForProductOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    PortfolioDetails:
-      output.PortfolioDetails != null ? de_PortfolioDetails(output.PortfolioDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    PortfolioDetails: (_: any) => de_PortfolioDetails(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListPortfoliosOutput
  */
 const de_ListPortfoliosOutput = (output: any, context: __SerdeContext): ListPortfoliosOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    PortfolioDetails:
-      output.PortfolioDetails != null ? de_PortfolioDetails(output.PortfolioDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    PortfolioDetails: (_: any) => de_PortfolioDetails(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListPrincipalsForPortfolioOutput
- */
-const de_ListPrincipalsForPortfolioOutput = (
-  output: any,
-  context: __SerdeContext
-): ListPrincipalsForPortfolioOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    Principals: output.Principals != null ? de_Principals(output.Principals, context) : undefined,
-  } as any;
-};
+// de_ListPrincipalsForPortfolioOutput omitted.
 
-/**
- * deserializeAws_json1_1ListProvisionedProductPlansOutput
- */
-const de_ListProvisionedProductPlansOutput = (
-  output: any,
-  context: __SerdeContext
-): ListProvisionedProductPlansOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ProvisionedProductPlans:
-      output.ProvisionedProductPlans != null
-        ? de_ProvisionedProductPlans(output.ProvisionedProductPlans, context)
-        : undefined,
-  } as any;
-};
+// de_ListProvisionedProductPlansOutput omitted.
 
 /**
  * deserializeAws_json1_1ListProvisioningArtifactsForServiceActionOutput
@@ -9248,225 +7137,80 @@ const de_ListProvisioningArtifactsForServiceActionOutput = (
   output: any,
   context: __SerdeContext
 ): ListProvisioningArtifactsForServiceActionOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ProvisioningArtifactViews:
-      output.ProvisioningArtifactViews != null
-        ? de_ProvisioningArtifactViews(output.ProvisioningArtifactViews, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    ProvisioningArtifactViews: (_: any) => de_ProvisioningArtifactViews(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListProvisioningArtifactsOutput
  */
 const de_ListProvisioningArtifactsOutput = (output: any, context: __SerdeContext): ListProvisioningArtifactsOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ProvisioningArtifactDetails:
-      output.ProvisioningArtifactDetails != null
-        ? de_ProvisioningArtifactDetails(output.ProvisioningArtifactDetails, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    ProvisioningArtifactDetails: (_: any) => de_ProvisioningArtifactDetails(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListRecordHistoryOutput
  */
 const de_ListRecordHistoryOutput = (output: any, context: __SerdeContext): ListRecordHistoryOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    RecordDetails: output.RecordDetails != null ? de_RecordDetails(output.RecordDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    RecordDetails: (_: any) => de_RecordDetails(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListResourcesForTagOptionOutput
  */
 const de_ListResourcesForTagOptionOutput = (output: any, context: __SerdeContext): ListResourcesForTagOptionOutput => {
-  return {
-    PageToken: __expectString(output.PageToken),
-    ResourceDetails: output.ResourceDetails != null ? de_ResourceDetails(output.ResourceDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    PageToken: __expectString,
+    ResourceDetails: (_: any) => de_ResourceDetails(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput
- */
-const de_ListServiceActionsForProvisioningArtifactOutput = (
-  output: any,
-  context: __SerdeContext
-): ListServiceActionsForProvisioningArtifactOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ServiceActionSummaries:
-      output.ServiceActionSummaries != null
-        ? de_ServiceActionSummaries(output.ServiceActionSummaries, context)
-        : undefined,
-  } as any;
-};
+// de_ListServiceActionsForProvisioningArtifactOutput omitted.
 
-/**
- * deserializeAws_json1_1ListServiceActionsOutput
- */
-const de_ListServiceActionsOutput = (output: any, context: __SerdeContext): ListServiceActionsOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ServiceActionSummaries:
-      output.ServiceActionSummaries != null
-        ? de_ServiceActionSummaries(output.ServiceActionSummaries, context)
-        : undefined,
-  } as any;
-};
+// de_ListServiceActionsOutput omitted.
 
-/**
- * deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput
- */
-const de_ListStackInstancesForProvisionedProductOutput = (
-  output: any,
-  context: __SerdeContext
-): ListStackInstancesForProvisionedProductOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    StackInstances: output.StackInstances != null ? de_StackInstances(output.StackInstances, context) : undefined,
-  } as any;
-};
+// de_ListStackInstancesForProvisionedProductOutput omitted.
 
-/**
- * deserializeAws_json1_1ListTagOptionsOutput
- */
-const de_ListTagOptionsOutput = (output: any, context: __SerdeContext): ListTagOptionsOutput => {
-  return {
-    PageToken: __expectString(output.PageToken),
-    TagOptionDetails:
-      output.TagOptionDetails != null ? de_TagOptionDetails(output.TagOptionDetails, context) : undefined,
-  } as any;
-};
+// de_ListTagOptionsOutput omitted.
 
-/**
- * deserializeAws_json1_1Namespaces
- */
-const de_Namespaces = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Namespaces omitted.
 
-/**
- * deserializeAws_json1_1NotificationArns
- */
-const de_NotificationArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NotificationArns omitted.
 
-/**
- * deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultOutput
- */
-const de_NotifyProvisionProductEngineWorkflowResultOutput = (
-  output: any,
-  context: __SerdeContext
-): NotifyProvisionProductEngineWorkflowResultOutput => {
-  return {} as any;
-};
+// de_NotifyProvisionProductEngineWorkflowResultOutput omitted.
 
-/**
- * deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultOutput
- */
-const de_NotifyTerminateProvisionedProductEngineWorkflowResultOutput = (
-  output: any,
-  context: __SerdeContext
-): NotifyTerminateProvisionedProductEngineWorkflowResultOutput => {
-  return {} as any;
-};
+// de_NotifyTerminateProvisionedProductEngineWorkflowResultOutput omitted.
 
-/**
- * deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultOutput
- */
-const de_NotifyUpdateProvisionedProductEngineWorkflowResultOutput = (
-  output: any,
-  context: __SerdeContext
-): NotifyUpdateProvisionedProductEngineWorkflowResultOutput => {
-  return {} as any;
-};
+// de_NotifyUpdateProvisionedProductEngineWorkflowResultOutput omitted.
 
-/**
- * deserializeAws_json1_1OperationNotSupportedException
- */
-const de_OperationNotSupportedException = (output: any, context: __SerdeContext): OperationNotSupportedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_OperationNotSupportedException omitted.
 
-/**
- * deserializeAws_json1_1OrganizationNode
- */
-const de_OrganizationNode = (output: any, context: __SerdeContext): OrganizationNode => {
-  return {
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_OrganizationNode omitted.
 
-/**
- * deserializeAws_json1_1OrganizationNodes
- */
-const de_OrganizationNodes = (output: any, context: __SerdeContext): OrganizationNode[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OrganizationNode(entry, context);
-    });
-  return retVal;
-};
+// de_OrganizationNodes omitted.
 
-/**
- * deserializeAws_json1_1ParameterConstraints
- */
-const de_ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
-  return {
-    AllowedPattern: __expectString(output.AllowedPattern),
-    AllowedValues: output.AllowedValues != null ? de_AllowedValues(output.AllowedValues, context) : undefined,
-    ConstraintDescription: __expectString(output.ConstraintDescription),
-    MaxLength: __expectString(output.MaxLength),
-    MaxValue: __expectString(output.MaxValue),
-    MinLength: __expectString(output.MinLength),
-    MinValue: __expectString(output.MinValue),
-  } as any;
-};
+// de_ParameterConstraints omitted.
 
 /**
  * deserializeAws_json1_1PortfolioDetail
  */
 const de_PortfolioDetail = (output: any, context: __SerdeContext): PortfolioDetail => {
-  return {
-    ARN: __expectString(output.ARN),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    DisplayName: __expectString(output.DisplayName),
-    Id: __expectString(output.Id),
-    ProviderName: __expectString(output.ProviderName),
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    Id: __expectString,
+    ProviderName: __expectString,
+  }) as any;
 };
 
 /**
@@ -9476,127 +7220,36 @@ const de_PortfolioDetails = (output: any, context: __SerdeContext): PortfolioDet
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PortfolioDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1PortfolioShareDetail
- */
-const de_PortfolioShareDetail = (output: any, context: __SerdeContext): PortfolioShareDetail => {
-  return {
-    Accepted: __expectBoolean(output.Accepted),
-    PrincipalId: __expectString(output.PrincipalId),
-    SharePrincipals: __expectBoolean(output.SharePrincipals),
-    ShareTagOptions: __expectBoolean(output.ShareTagOptions),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_PortfolioShareDetail omitted.
 
-/**
- * deserializeAws_json1_1PortfolioShareDetails
- */
-const de_PortfolioShareDetails = (output: any, context: __SerdeContext): PortfolioShareDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PortfolioShareDetail(entry, context);
-    });
-  return retVal;
-};
+// de_PortfolioShareDetails omitted.
 
-/**
- * deserializeAws_json1_1Principal
- */
-const de_Principal = (output: any, context: __SerdeContext): Principal => {
-  return {
-    PrincipalARN: __expectString(output.PrincipalARN),
-    PrincipalType: __expectString(output.PrincipalType),
-  } as any;
-};
+// de_Principal omitted.
 
-/**
- * deserializeAws_json1_1Principals
- */
-const de_Principals = (output: any, context: __SerdeContext): Principal[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Principal(entry, context);
-    });
-  return retVal;
-};
+// de_Principals omitted.
 
-/**
- * deserializeAws_json1_1ProductViewAggregations
- */
-const de_ProductViewAggregations = (
-  output: any,
-  context: __SerdeContext
-): Record<string, ProductViewAggregationValue[]> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, ProductViewAggregationValue[]>, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_ProductViewAggregationValues(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_ProductViewAggregations omitted.
 
-/**
- * deserializeAws_json1_1ProductViewAggregationValue
- */
-const de_ProductViewAggregationValue = (output: any, context: __SerdeContext): ProductViewAggregationValue => {
-  return {
-    ApproximateCount: __expectInt32(output.ApproximateCount),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ProductViewAggregationValue omitted.
 
-/**
- * deserializeAws_json1_1ProductViewAggregationValues
- */
-const de_ProductViewAggregationValues = (output: any, context: __SerdeContext): ProductViewAggregationValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProductViewAggregationValue(entry, context);
-    });
-  return retVal;
-};
+// de_ProductViewAggregationValues omitted.
 
 /**
  * deserializeAws_json1_1ProductViewDetail
  */
 const de_ProductViewDetail = (output: any, context: __SerdeContext): ProductViewDetail => {
-  return {
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    ProductARN: __expectString(output.ProductARN),
-    ProductViewSummary:
-      output.ProductViewSummary != null ? de_ProductViewSummary(output.ProductViewSummary, context) : undefined,
-    SourceConnection:
-      output.SourceConnection != null ? de_SourceConnectionDetail(output.SourceConnection, context) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ProductARN: __expectString,
+    ProductViewSummary: _json,
+    SourceConnection: (_: any) => de_SourceConnectionDetail(_, context),
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -9606,76 +7259,40 @@ const de_ProductViewDetails = (output: any, context: __SerdeContext): ProductVie
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProductViewDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ProductViewSummaries
- */
-const de_ProductViewSummaries = (output: any, context: __SerdeContext): ProductViewSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProductViewSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ProductViewSummaries omitted.
 
-/**
- * deserializeAws_json1_1ProductViewSummary
- */
-const de_ProductViewSummary = (output: any, context: __SerdeContext): ProductViewSummary => {
-  return {
-    Distributor: __expectString(output.Distributor),
-    HasDefaultPath: __expectBoolean(output.HasDefaultPath),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Owner: __expectString(output.Owner),
-    ProductId: __expectString(output.ProductId),
-    ShortDescription: __expectString(output.ShortDescription),
-    SupportDescription: __expectString(output.SupportDescription),
-    SupportEmail: __expectString(output.SupportEmail),
-    SupportUrl: __expectString(output.SupportUrl),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ProductViewSummary omitted.
 
 /**
  * deserializeAws_json1_1ProvisionedProductAttribute
  */
 const de_ProvisionedProductAttribute = (output: any, context: __SerdeContext): ProvisionedProductAttribute => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Id: __expectString(output.Id),
-    IdempotencyToken: __expectString(output.IdempotencyToken),
-    LastProvisioningRecordId: __expectString(output.LastProvisioningRecordId),
-    LastRecordId: __expectString(output.LastRecordId),
-    LastSuccessfulProvisioningRecordId: __expectString(output.LastSuccessfulProvisioningRecordId),
-    Name: __expectString(output.Name),
-    PhysicalId: __expectString(output.PhysicalId),
-    ProductId: __expectString(output.ProductId),
-    ProductName: __expectString(output.ProductName),
-    ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
-    ProvisioningArtifactName: __expectString(output.ProvisioningArtifactName),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-    Type: __expectString(output.Type),
-    UserArn: __expectString(output.UserArn),
-    UserArnSession: __expectString(output.UserArnSession),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    IdempotencyToken: __expectString,
+    LastProvisioningRecordId: __expectString,
+    LastRecordId: __expectString,
+    LastSuccessfulProvisioningRecordId: __expectString,
+    Name: __expectString,
+    PhysicalId: __expectString,
+    ProductId: __expectString,
+    ProductName: __expectString,
+    ProvisioningArtifactId: __expectString,
+    ProvisioningArtifactName: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    Tags: _json,
+    Type: __expectString,
+    UserArn: __expectString,
+    UserArnSession: __expectString,
+  }) as any;
 };
 
 /**
@@ -9685,9 +7302,6 @@ const de_ProvisionedProductAttributes = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProvisionedProductAttribute(entry, context);
     });
   return retVal;
@@ -9697,25 +7311,22 @@ const de_ProvisionedProductAttributes = (output: any, context: __SerdeContext): 
  * deserializeAws_json1_1ProvisionedProductDetail
  */
 const de_ProvisionedProductDetail = (output: any, context: __SerdeContext): ProvisionedProductDetail => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Id: __expectString(output.Id),
-    IdempotencyToken: __expectString(output.IdempotencyToken),
-    LastProvisioningRecordId: __expectString(output.LastProvisioningRecordId),
-    LastRecordId: __expectString(output.LastRecordId),
-    LastSuccessfulProvisioningRecordId: __expectString(output.LastSuccessfulProvisioningRecordId),
-    LaunchRoleArn: __expectString(output.LaunchRoleArn),
-    Name: __expectString(output.Name),
-    ProductId: __expectString(output.ProductId),
-    ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    IdempotencyToken: __expectString,
+    LastProvisioningRecordId: __expectString,
+    LastRecordId: __expectString,
+    LastSuccessfulProvisioningRecordId: __expectString,
+    LaunchRoleArn: __expectString,
+    Name: __expectString,
+    ProductId: __expectString,
+    ProvisioningArtifactId: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -9725,9 +7336,6 @@ const de_ProvisionedProductDetails = (output: any, context: __SerdeContext): Pro
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProvisionedProductDetail(entry, context);
     });
   return retVal;
@@ -9737,110 +7345,58 @@ const de_ProvisionedProductDetails = (output: any, context: __SerdeContext): Pro
  * deserializeAws_json1_1ProvisionedProductPlanDetails
  */
 const de_ProvisionedProductPlanDetails = (output: any, context: __SerdeContext): ProvisionedProductPlanDetails => {
-  return {
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    NotificationArns:
-      output.NotificationArns != null ? de_NotificationArns(output.NotificationArns, context) : undefined,
-    PathId: __expectString(output.PathId),
-    PlanId: __expectString(output.PlanId),
-    PlanName: __expectString(output.PlanName),
-    PlanType: __expectString(output.PlanType),
-    ProductId: __expectString(output.ProductId),
-    ProvisionProductId: __expectString(output.ProvisionProductId),
-    ProvisionProductName: __expectString(output.ProvisionProductName),
-    ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
-    ProvisioningParameters:
-      output.ProvisioningParameters != null
-        ? de_UpdateProvisioningParameters(output.ProvisioningParameters, context)
-        : undefined,
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-    UpdatedTime:
-      output.UpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotificationArns: _json,
+    PathId: __expectString,
+    PlanId: __expectString,
+    PlanName: __expectString,
+    PlanType: __expectString,
+    ProductId: __expectString,
+    ProvisionProductId: __expectString,
+    ProvisionProductName: __expectString,
+    ProvisioningArtifactId: __expectString,
+    ProvisioningParameters: _json,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    Tags: _json,
+    UpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ProvisionedProductPlans
- */
-const de_ProvisionedProductPlans = (output: any, context: __SerdeContext): ProvisionedProductPlanSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProvisionedProductPlanSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ProvisionedProductPlans omitted.
 
-/**
- * deserializeAws_json1_1ProvisionedProductPlanSummary
- */
-const de_ProvisionedProductPlanSummary = (output: any, context: __SerdeContext): ProvisionedProductPlanSummary => {
-  return {
-    PlanId: __expectString(output.PlanId),
-    PlanName: __expectString(output.PlanName),
-    PlanType: __expectString(output.PlanType),
-    ProvisionProductId: __expectString(output.ProvisionProductId),
-    ProvisionProductName: __expectString(output.ProvisionProductName),
-    ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
-  } as any;
-};
+// de_ProvisionedProductPlanSummary omitted.
 
-/**
- * deserializeAws_json1_1ProvisionedProductProperties
- */
-const de_ProvisionedProductProperties = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [PropertyKey | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ProvisionedProductProperties omitted.
 
 /**
  * deserializeAws_json1_1ProvisioningArtifact
  */
 const de_ProvisioningArtifact = (output: any, context: __SerdeContext): ProvisioningArtifact => {
-  return {
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Guidance: __expectString(output.Guidance),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Guidance: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ProvisioningArtifactDetail
  */
 const de_ProvisioningArtifactDetail = (output: any, context: __SerdeContext): ProvisioningArtifactDetail => {
-  return {
-    Active: __expectBoolean(output.Active),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Guidance: __expectString(output.Guidance),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    SourceRevision: __expectString(output.SourceRevision),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Active: __expectBoolean,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Guidance: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    SourceRevision: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -9850,92 +7406,22 @@ const de_ProvisioningArtifactDetails = (output: any, context: __SerdeContext): P
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProvisioningArtifactDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ProvisioningArtifactInfo
- */
-const de_ProvisioningArtifactInfo = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ProvisioningArtifactInfo omitted.
 
-/**
- * deserializeAws_json1_1ProvisioningArtifactOutput
- */
-const de_ProvisioningArtifactOutput = (output: any, context: __SerdeContext): ProvisioningArtifactOutput => {
-  return {
-    Description: __expectString(output.Description),
-    Key: __expectString(output.Key),
-  } as any;
-};
+// de_ProvisioningArtifactOutput omitted.
 
-/**
- * deserializeAws_json1_1ProvisioningArtifactOutputs
- */
-const de_ProvisioningArtifactOutputs = (output: any, context: __SerdeContext): ProvisioningArtifactOutput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProvisioningArtifactOutput(entry, context);
-    });
-  return retVal;
-};
+// de_ProvisioningArtifactOutputs omitted.
 
-/**
- * deserializeAws_json1_1ProvisioningArtifactParameter
- */
-const de_ProvisioningArtifactParameter = (output: any, context: __SerdeContext): ProvisioningArtifactParameter => {
-  return {
-    DefaultValue: __expectString(output.DefaultValue),
-    Description: __expectString(output.Description),
-    IsNoEcho: __expectBoolean(output.IsNoEcho),
-    ParameterConstraints:
-      output.ParameterConstraints != null ? de_ParameterConstraints(output.ParameterConstraints, context) : undefined,
-    ParameterKey: __expectString(output.ParameterKey),
-    ParameterType: __expectString(output.ParameterType),
-  } as any;
-};
+// de_ProvisioningArtifactParameter omitted.
 
-/**
- * deserializeAws_json1_1ProvisioningArtifactParameters
- */
-const de_ProvisioningArtifactParameters = (output: any, context: __SerdeContext): ProvisioningArtifactParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProvisioningArtifactParameter(entry, context);
-    });
-  return retVal;
-};
+// de_ProvisioningArtifactParameters omitted.
 
-/**
- * deserializeAws_json1_1ProvisioningArtifactPreferences
- */
-const de_ProvisioningArtifactPreferences = (output: any, context: __SerdeContext): ProvisioningArtifactPreferences => {
-  return {
-    StackSetAccounts:
-      output.StackSetAccounts != null ? de_StackSetAccounts(output.StackSetAccounts, context) : undefined,
-    StackSetRegions: output.StackSetRegions != null ? de_StackSetRegions(output.StackSetRegions, context) : undefined,
-  } as any;
-};
+// de_ProvisioningArtifactPreferences omitted.
 
 /**
  * deserializeAws_json1_1ProvisioningArtifacts
@@ -9944,9 +7430,6 @@ const de_ProvisioningArtifacts = (output: any, context: __SerdeContext): Provisi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProvisioningArtifact(entry, context);
     });
   return retVal;
@@ -9959,9 +7442,6 @@ const de_ProvisioningArtifactSummaries = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProvisioningArtifactSummary(entry, context);
     });
   return retVal;
@@ -9971,31 +7451,23 @@ const de_ProvisioningArtifactSummaries = (output: any, context: __SerdeContext):
  * deserializeAws_json1_1ProvisioningArtifactSummary
  */
 const de_ProvisioningArtifactSummary = (output: any, context: __SerdeContext): ProvisioningArtifactSummary => {
-  return {
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    ProvisioningArtifactMetadata:
-      output.ProvisioningArtifactMetadata != null
-        ? de_ProvisioningArtifactInfo(output.ProvisioningArtifactMetadata, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ProvisioningArtifactMetadata: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ProvisioningArtifactView
  */
 const de_ProvisioningArtifactView = (output: any, context: __SerdeContext): ProvisioningArtifactView => {
-  return {
-    ProductViewSummary:
-      output.ProductViewSummary != null ? de_ProductViewSummary(output.ProductViewSummary, context) : undefined,
-    ProvisioningArtifact:
-      output.ProvisioningArtifact != null ? de_ProvisioningArtifact(output.ProvisioningArtifact, context) : undefined,
-  } as any;
+  return take(output, {
+    ProductViewSummary: _json,
+    ProvisioningArtifact: (_: any) => de_ProvisioningArtifact(_, context),
+  }) as any;
 };
 
 /**
@@ -10005,9 +7477,6 @@ const de_ProvisioningArtifactViews = (output: any, context: __SerdeContext): Pro
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProvisioningArtifactView(entry, context);
     });
   return retVal;
@@ -10017,37 +7486,31 @@ const de_ProvisioningArtifactViews = (output: any, context: __SerdeContext): Pro
  * deserializeAws_json1_1ProvisionProductOutput
  */
 const de_ProvisionProductOutput = (output: any, context: __SerdeContext): ProvisionProductOutput => {
-  return {
-    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    RecordDetail: (_: any) => de_RecordDetail(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1RecordDetail
  */
 const de_RecordDetail = (output: any, context: __SerdeContext): RecordDetail => {
-  return {
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    LaunchRoleArn: __expectString(output.LaunchRoleArn),
-    PathId: __expectString(output.PathId),
-    ProductId: __expectString(output.ProductId),
-    ProvisionedProductId: __expectString(output.ProvisionedProductId),
-    ProvisionedProductName: __expectString(output.ProvisionedProductName),
-    ProvisionedProductType: __expectString(output.ProvisionedProductType),
-    ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
-    RecordErrors: output.RecordErrors != null ? de_RecordErrors(output.RecordErrors, context) : undefined,
-    RecordId: __expectString(output.RecordId),
-    RecordTags: output.RecordTags != null ? de_RecordTags(output.RecordTags, context) : undefined,
-    RecordType: __expectString(output.RecordType),
-    Status: __expectString(output.Status),
-    UpdatedTime:
-      output.UpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LaunchRoleArn: __expectString,
+    PathId: __expectString,
+    ProductId: __expectString,
+    ProvisionedProductId: __expectString,
+    ProvisionedProductName: __expectString,
+    ProvisionedProductType: __expectString,
+    ProvisioningArtifactId: __expectString,
+    RecordErrors: _json,
+    RecordId: __expectString,
+    RecordTags: _json,
+    RecordType: __expectString,
+    Status: __expectString,
+    UpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -10057,167 +7520,44 @@ const de_RecordDetails = (output: any, context: __SerdeContext): RecordDetail[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecordDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1RecordError
- */
-const de_RecordError = (output: any, context: __SerdeContext): RecordError => {
-  return {
-    Code: __expectString(output.Code),
-    Description: __expectString(output.Description),
-  } as any;
-};
+// de_RecordError omitted.
 
-/**
- * deserializeAws_json1_1RecordErrors
- */
-const de_RecordErrors = (output: any, context: __SerdeContext): RecordError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecordError(entry, context);
-    });
-  return retVal;
-};
+// de_RecordErrors omitted.
 
-/**
- * deserializeAws_json1_1RecordOutput
- */
-const de_RecordOutput = (output: any, context: __SerdeContext): RecordOutput => {
-  return {
-    Description: __expectString(output.Description),
-    OutputKey: __expectString(output.OutputKey),
-    OutputValue: __expectString(output.OutputValue),
-  } as any;
-};
+// de_RecordOutput omitted.
 
-/**
- * deserializeAws_json1_1RecordOutputs
- */
-const de_RecordOutputs = (output: any, context: __SerdeContext): RecordOutput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecordOutput(entry, context);
-    });
-  return retVal;
-};
+// de_RecordOutputs omitted.
 
-/**
- * deserializeAws_json1_1RecordTag
- */
-const de_RecordTag = (output: any, context: __SerdeContext): RecordTag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_RecordTag omitted.
 
-/**
- * deserializeAws_json1_1RecordTags
- */
-const de_RecordTags = (output: any, context: __SerdeContext): RecordTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecordTag(entry, context);
-    });
-  return retVal;
-};
+// de_RecordTags omitted.
 
-/**
- * deserializeAws_json1_1RejectPortfolioShareOutput
- */
-const de_RejectPortfolioShareOutput = (output: any, context: __SerdeContext): RejectPortfolioShareOutput => {
-  return {} as any;
-};
+// de_RejectPortfolioShareOutput omitted.
 
-/**
- * deserializeAws_json1_1ResourceChange
- */
-const de_ResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
-  return {
-    Action: __expectString(output.Action),
-    Details: output.Details != null ? de_ResourceChangeDetails(output.Details, context) : undefined,
-    LogicalResourceId: __expectString(output.LogicalResourceId),
-    PhysicalResourceId: __expectString(output.PhysicalResourceId),
-    Replacement: __expectString(output.Replacement),
-    ResourceType: __expectString(output.ResourceType),
-    Scope: output.Scope != null ? de_Scope(output.Scope, context) : undefined,
-  } as any;
-};
+// de_ResourceChange omitted.
 
-/**
- * deserializeAws_json1_1ResourceChangeDetail
- */
-const de_ResourceChangeDetail = (output: any, context: __SerdeContext): ResourceChangeDetail => {
-  return {
-    CausingEntity: __expectString(output.CausingEntity),
-    Evaluation: __expectString(output.Evaluation),
-    Target: output.Target != null ? de_ResourceTargetDefinition(output.Target, context) : undefined,
-  } as any;
-};
+// de_ResourceChangeDetail omitted.
 
-/**
- * deserializeAws_json1_1ResourceChangeDetails
- */
-const de_ResourceChangeDetails = (output: any, context: __SerdeContext): ResourceChangeDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceChangeDetail(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceChangeDetails omitted.
 
-/**
- * deserializeAws_json1_1ResourceChanges
- */
-const de_ResourceChanges = (output: any, context: __SerdeContext): ResourceChange[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceChange(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceChanges omitted.
 
 /**
  * deserializeAws_json1_1ResourceDetail
  */
 const de_ResourceDetail = (output: any, context: __SerdeContext): ResourceDetail => {
-  return {
-    ARN: __expectString(output.ARN),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+  }) as any;
 };
 
 /**
@@ -10227,397 +7567,104 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ResourceTargetDefinition
- */
-const de_ResourceTargetDefinition = (output: any, context: __SerdeContext): ResourceTargetDefinition => {
-  return {
-    Attribute: __expectString(output.Attribute),
-    Name: __expectString(output.Name),
-    RequiresRecreation: __expectString(output.RequiresRecreation),
-  } as any;
-};
+// de_ResourceTargetDefinition omitted.
 
 /**
  * deserializeAws_json1_1ScanProvisionedProductsOutput
  */
 const de_ScanProvisionedProductsOutput = (output: any, context: __SerdeContext): ScanProvisionedProductsOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ProvisionedProducts:
-      output.ProvisionedProducts != null
-        ? de_ProvisionedProductDetails(output.ProvisionedProducts, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    ProvisionedProducts: (_: any) => de_ProvisionedProductDetails(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Scope
- */
-const de_Scope = (output: any, context: __SerdeContext): (ResourceAttribute | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Scope omitted.
 
 /**
  * deserializeAws_json1_1SearchProductsAsAdminOutput
  */
 const de_SearchProductsAsAdminOutput = (output: any, context: __SerdeContext): SearchProductsAsAdminOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ProductViewDetails:
-      output.ProductViewDetails != null ? de_ProductViewDetails(output.ProductViewDetails, context) : undefined,
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    ProductViewDetails: (_: any) => de_ProductViewDetails(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SearchProductsOutput
- */
-const de_SearchProductsOutput = (output: any, context: __SerdeContext): SearchProductsOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ProductViewAggregations:
-      output.ProductViewAggregations != null
-        ? de_ProductViewAggregations(output.ProductViewAggregations, context)
-        : undefined,
-    ProductViewSummaries:
-      output.ProductViewSummaries != null ? de_ProductViewSummaries(output.ProductViewSummaries, context) : undefined,
-  } as any;
-};
+// de_SearchProductsOutput omitted.
 
 /**
  * deserializeAws_json1_1SearchProvisionedProductsOutput
  */
 const de_SearchProvisionedProductsOutput = (output: any, context: __SerdeContext): SearchProvisionedProductsOutput => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ProvisionedProducts:
-      output.ProvisionedProducts != null
-        ? de_ProvisionedProductAttributes(output.ProvisionedProducts, context)
-        : undefined,
-    TotalResultsCount: __expectInt32(output.TotalResultsCount),
-  } as any;
+  return take(output, {
+    NextPageToken: __expectString,
+    ProvisionedProducts: (_: any) => de_ProvisionedProductAttributes(_, context),
+    TotalResultsCount: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ServiceActionDefinitionMap
- */
-const de_ServiceActionDefinitionMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [ServiceActionDefinitionKey | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_ServiceActionDefinitionMap omitted.
 
-/**
- * deserializeAws_json1_1ServiceActionDetail
- */
-const de_ServiceActionDetail = (output: any, context: __SerdeContext): ServiceActionDetail => {
-  return {
-    Definition: output.Definition != null ? de_ServiceActionDefinitionMap(output.Definition, context) : undefined,
-    ServiceActionSummary:
-      output.ServiceActionSummary != null ? de_ServiceActionSummary(output.ServiceActionSummary, context) : undefined,
-  } as any;
-};
+// de_ServiceActionDetail omitted.
 
-/**
- * deserializeAws_json1_1ServiceActionSummaries
- */
-const de_ServiceActionSummaries = (output: any, context: __SerdeContext): ServiceActionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServiceActionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceActionSummaries omitted.
 
-/**
- * deserializeAws_json1_1ServiceActionSummary
- */
-const de_ServiceActionSummary = (output: any, context: __SerdeContext): ServiceActionSummary => {
-  return {
-    DefinitionType: __expectString(output.DefinitionType),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ServiceActionSummary omitted.
 
-/**
- * deserializeAws_json1_1ShareDetails
- */
-const de_ShareDetails = (output: any, context: __SerdeContext): ShareDetails => {
-  return {
-    ShareErrors: output.ShareErrors != null ? de_ShareErrors(output.ShareErrors, context) : undefined,
-    SuccessfulShares:
-      output.SuccessfulShares != null ? de_SuccessfulShares(output.SuccessfulShares, context) : undefined,
-  } as any;
-};
+// de_ShareDetails omitted.
 
-/**
- * deserializeAws_json1_1ShareError
- */
-const de_ShareError = (output: any, context: __SerdeContext): ShareError => {
-  return {
-    Accounts: output.Accounts != null ? de_Namespaces(output.Accounts, context) : undefined,
-    Error: __expectString(output.Error),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ShareError omitted.
 
-/**
- * deserializeAws_json1_1ShareErrors
- */
-const de_ShareErrors = (output: any, context: __SerdeContext): ShareError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ShareError(entry, context);
-    });
-  return retVal;
-};
+// de_ShareErrors omitted.
 
 /**
  * deserializeAws_json1_1SourceConnectionDetail
  */
 const de_SourceConnectionDetail = (output: any, context: __SerdeContext): SourceConnectionDetail => {
-  return {
-    ConnectionParameters:
-      output.ConnectionParameters != null
-        ? de_SourceConnectionParameters(output.ConnectionParameters, context)
-        : undefined,
-    LastSync: output.LastSync != null ? de_LastSync(output.LastSync, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    ConnectionParameters: _json,
+    LastSync: (_: any) => de_LastSync(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SourceConnectionParameters
- */
-const de_SourceConnectionParameters = (output: any, context: __SerdeContext): SourceConnectionParameters => {
-  return {
-    CodeStar: output.CodeStar != null ? de_CodeStarParameters(output.CodeStar, context) : undefined,
-  } as any;
-};
+// de_SourceConnectionParameters omitted.
 
-/**
- * deserializeAws_json1_1StackInstance
- */
-const de_StackInstance = (output: any, context: __SerdeContext): StackInstance => {
-  return {
-    Account: __expectString(output.Account),
-    Region: __expectString(output.Region),
-    StackInstanceStatus: __expectString(output.StackInstanceStatus),
-  } as any;
-};
+// de_StackInstance omitted.
 
-/**
- * deserializeAws_json1_1StackInstances
- */
-const de_StackInstances = (output: any, context: __SerdeContext): StackInstance[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StackInstance(entry, context);
-    });
-  return retVal;
-};
+// de_StackInstances omitted.
 
-/**
- * deserializeAws_json1_1StackSetAccounts
- */
-const de_StackSetAccounts = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StackSetAccounts omitted.
 
-/**
- * deserializeAws_json1_1StackSetRegions
- */
-const de_StackSetRegions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StackSetRegions omitted.
 
-/**
- * deserializeAws_json1_1SuccessfulShares
- */
-const de_SuccessfulShares = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SuccessfulShares omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagOptionDetail
- */
-const de_TagOptionDetail = (output: any, context: __SerdeContext): TagOptionDetail => {
-  return {
-    Active: __expectBoolean(output.Active),
-    Id: __expectString(output.Id),
-    Key: __expectString(output.Key),
-    Owner: __expectString(output.Owner),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_TagOptionDetail omitted.
 
-/**
- * deserializeAws_json1_1TagOptionDetails
- */
-const de_TagOptionDetails = (output: any, context: __SerdeContext): TagOptionDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TagOptionDetail(entry, context);
-    });
-  return retVal;
-};
+// de_TagOptionDetails omitted.
 
-/**
- * deserializeAws_json1_1TagOptionNotMigratedException
- */
-const de_TagOptionNotMigratedException = (output: any, context: __SerdeContext): TagOptionNotMigratedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TagOptionNotMigratedException omitted.
 
-/**
- * deserializeAws_json1_1TagOptionSummaries
- */
-const de_TagOptionSummaries = (output: any, context: __SerdeContext): TagOptionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TagOptionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TagOptionSummaries omitted.
 
-/**
- * deserializeAws_json1_1TagOptionSummary
- */
-const de_TagOptionSummary = (output: any, context: __SerdeContext): TagOptionSummary => {
-  return {
-    Key: __expectString(output.Key),
-    Values: output.Values != null ? de_TagOptionValues(output.Values, context) : undefined,
-  } as any;
-};
+// de_TagOptionSummary omitted.
 
-/**
- * deserializeAws_json1_1TagOptionValues
- */
-const de_TagOptionValues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagOptionValues omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
 /**
  * deserializeAws_json1_1TerminateProvisionedProductOutput
@@ -10626,80 +7673,45 @@ const de_TerminateProvisionedProductOutput = (
   output: any,
   context: __SerdeContext
 ): TerminateProvisionedProductOutput => {
-  return {
-    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    RecordDetail: (_: any) => de_RecordDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateConstraintOutput
- */
-const de_UpdateConstraintOutput = (output: any, context: __SerdeContext): UpdateConstraintOutput => {
-  return {
-    ConstraintDetail:
-      output.ConstraintDetail != null ? de_ConstraintDetail(output.ConstraintDetail, context) : undefined,
-    ConstraintParameters: __expectString(output.ConstraintParameters),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_UpdateConstraintOutput omitted.
 
 /**
  * deserializeAws_json1_1UpdatePortfolioOutput
  */
 const de_UpdatePortfolioOutput = (output: any, context: __SerdeContext): UpdatePortfolioOutput => {
-  return {
-    PortfolioDetail: output.PortfolioDetail != null ? de_PortfolioDetail(output.PortfolioDetail, context) : undefined,
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    PortfolioDetail: (_: any) => de_PortfolioDetail(_, context),
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdatePortfolioShareOutput
- */
-const de_UpdatePortfolioShareOutput = (output: any, context: __SerdeContext): UpdatePortfolioShareOutput => {
-  return {
-    PortfolioShareToken: __expectString(output.PortfolioShareToken),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_UpdatePortfolioShareOutput omitted.
 
 /**
  * deserializeAws_json1_1UpdateProductOutput
  */
 const de_UpdateProductOutput = (output: any, context: __SerdeContext): UpdateProductOutput => {
-  return {
-    ProductViewDetail:
-      output.ProductViewDetail != null ? de_ProductViewDetail(output.ProductViewDetail, context) : undefined,
-    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ProductViewDetail: (_: any) => de_ProductViewDetail(_, context),
+    Tags: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateProvisionedProductOutput
  */
 const de_UpdateProvisionedProductOutput = (output: any, context: __SerdeContext): UpdateProvisionedProductOutput => {
-  return {
-    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
-  } as any;
+  return take(output, {
+    RecordDetail: (_: any) => de_RecordDetail(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateProvisionedProductPropertiesOutput
- */
-const de_UpdateProvisionedProductPropertiesOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateProvisionedProductPropertiesOutput => {
-  return {
-    ProvisionedProductId: __expectString(output.ProvisionedProductId),
-    ProvisionedProductProperties:
-      output.ProvisionedProductProperties != null
-        ? de_ProvisionedProductProperties(output.ProvisionedProductProperties, context)
-        : undefined,
-    RecordId: __expectString(output.RecordId),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_UpdateProvisionedProductPropertiesOutput omitted.
 
 /**
  * deserializeAws_json1_1UpdateProvisioningArtifactOutput
@@ -10708,85 +7720,24 @@ const de_UpdateProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateProvisioningArtifactOutput => {
-  return {
-    Info: output.Info != null ? de_ProvisioningArtifactInfo(output.Info, context) : undefined,
-    ProvisioningArtifactDetail:
-      output.ProvisioningArtifactDetail != null
-        ? de_ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Info: _json,
+    ProvisioningArtifactDetail: (_: any) => de_ProvisioningArtifactDetail(_, context),
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateProvisioningParameter
- */
-const de_UpdateProvisioningParameter = (output: any, context: __SerdeContext): UpdateProvisioningParameter => {
-  return {
-    Key: __expectString(output.Key),
-    UsePreviousValue: __expectBoolean(output.UsePreviousValue),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_UpdateProvisioningParameter omitted.
 
-/**
- * deserializeAws_json1_1UpdateProvisioningParameters
- */
-const de_UpdateProvisioningParameters = (output: any, context: __SerdeContext): UpdateProvisioningParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UpdateProvisioningParameter(entry, context);
-    });
-  return retVal;
-};
+// de_UpdateProvisioningParameters omitted.
 
-/**
- * deserializeAws_json1_1UpdateServiceActionOutput
- */
-const de_UpdateServiceActionOutput = (output: any, context: __SerdeContext): UpdateServiceActionOutput => {
-  return {
-    ServiceActionDetail:
-      output.ServiceActionDetail != null ? de_ServiceActionDetail(output.ServiceActionDetail, context) : undefined,
-  } as any;
-};
+// de_UpdateServiceActionOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateTagOptionOutput
- */
-const de_UpdateTagOptionOutput = (output: any, context: __SerdeContext): UpdateTagOptionOutput => {
-  return {
-    TagOptionDetail: output.TagOptionDetail != null ? de_TagOptionDetail(output.TagOptionDetail, context) : undefined,
-  } as any;
-};
+// de_UpdateTagOptionOutput omitted.
 
-/**
- * deserializeAws_json1_1UsageInstruction
- */
-const de_UsageInstruction = (output: any, context: __SerdeContext): UsageInstruction => {
-  return {
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_UsageInstruction omitted.
 
-/**
- * deserializeAws_json1_1UsageInstructions
- */
-const de_UsageInstructions = (output: any, context: __SerdeContext): UsageInstruction[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UsageInstruction(entry, context);
-    });
-  return retVal;
-};
+// de_UsageInstructions omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -10808,6 +7759,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

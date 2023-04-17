@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -79,7 +80,6 @@ import {
   CreateIdentityPoolInput,
   Credentials,
   DeleteIdentitiesInput,
-  DeleteIdentitiesResponse,
   DeleteIdentityPoolInput,
   DescribeIdentityInput,
   DescribeIdentityPoolInput,
@@ -88,18 +88,12 @@ import {
   GetCredentialsForIdentityInput,
   GetCredentialsForIdentityResponse,
   GetIdentityPoolRolesInput,
-  GetIdentityPoolRolesResponse,
   GetIdInput,
-  GetIdResponse,
   GetOpenIdTokenForDeveloperIdentityInput,
-  GetOpenIdTokenForDeveloperIdentityResponse,
   GetOpenIdTokenInput,
-  GetOpenIdTokenResponse,
   GetPrincipalTagAttributeMapInput,
-  GetPrincipalTagAttributeMapResponse,
   IdentityDescription,
   IdentityPool,
-  IdentityPoolShortDescription,
   InternalErrorException,
   InvalidIdentityPoolConfigurationException,
   InvalidParameterException,
@@ -107,14 +101,10 @@ import {
   ListIdentitiesInput,
   ListIdentitiesResponse,
   ListIdentityPoolsInput,
-  ListIdentityPoolsResponse,
   ListTagsForResourceInput,
-  ListTagsForResourceResponse,
   LookupDeveloperIdentityInput,
-  LookupDeveloperIdentityResponse,
   MappingRule,
   MergeDeveloperIdentitiesInput,
-  MergeDeveloperIdentitiesResponse,
   NotAuthorizedException,
   ResourceConflictException,
   ResourceNotFoundException,
@@ -122,15 +112,11 @@ import {
   RulesConfigurationType,
   SetIdentityPoolRolesInput,
   SetPrincipalTagAttributeMapInput,
-  SetPrincipalTagAttributeMapResponse,
   TagResourceInput,
-  TagResourceResponse,
   TooManyRequestsException,
   UnlinkDeveloperIdentityInput,
   UnlinkIdentityInput,
-  UnprocessedIdentityId,
   UntagResourceInput,
-  UntagResourceResponse,
 } from "../models/models_0";
 
 /**
@@ -142,7 +128,7 @@ export const se_CreateIdentityPoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateIdentityPool");
   let body: any;
-  body = JSON.stringify(se_CreateIdentityPoolInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -155,7 +141,7 @@ export const se_DeleteIdentitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteIdentities");
   let body: any;
-  body = JSON.stringify(se_DeleteIdentitiesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -168,7 +154,7 @@ export const se_DeleteIdentityPoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteIdentityPool");
   let body: any;
-  body = JSON.stringify(se_DeleteIdentityPoolInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -181,7 +167,7 @@ export const se_DescribeIdentityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeIdentity");
   let body: any;
-  body = JSON.stringify(se_DescribeIdentityInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -194,7 +180,7 @@ export const se_DescribeIdentityPoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeIdentityPool");
   let body: any;
-  body = JSON.stringify(se_DescribeIdentityPoolInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -207,7 +193,7 @@ export const se_GetCredentialsForIdentityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCredentialsForIdentity");
   let body: any;
-  body = JSON.stringify(se_GetCredentialsForIdentityInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -217,7 +203,7 @@ export const se_GetCredentialsForIdentityCommand = async (
 export const se_GetIdCommand = async (input: GetIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetId");
   let body: any;
-  body = JSON.stringify(se_GetIdInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -230,7 +216,7 @@ export const se_GetIdentityPoolRolesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetIdentityPoolRoles");
   let body: any;
-  body = JSON.stringify(se_GetIdentityPoolRolesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -243,7 +229,7 @@ export const se_GetOpenIdTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetOpenIdToken");
   let body: any;
-  body = JSON.stringify(se_GetOpenIdTokenInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -256,7 +242,7 @@ export const se_GetOpenIdTokenForDeveloperIdentityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetOpenIdTokenForDeveloperIdentity");
   let body: any;
-  body = JSON.stringify(se_GetOpenIdTokenForDeveloperIdentityInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -269,7 +255,7 @@ export const se_GetPrincipalTagAttributeMapCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPrincipalTagAttributeMap");
   let body: any;
-  body = JSON.stringify(se_GetPrincipalTagAttributeMapInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -282,7 +268,7 @@ export const se_ListIdentitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListIdentities");
   let body: any;
-  body = JSON.stringify(se_ListIdentitiesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -295,7 +281,7 @@ export const se_ListIdentityPoolsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListIdentityPools");
   let body: any;
-  body = JSON.stringify(se_ListIdentityPoolsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -308,7 +294,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -321,7 +307,7 @@ export const se_LookupDeveloperIdentityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("LookupDeveloperIdentity");
   let body: any;
-  body = JSON.stringify(se_LookupDeveloperIdentityInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -334,7 +320,7 @@ export const se_MergeDeveloperIdentitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("MergeDeveloperIdentities");
   let body: any;
-  body = JSON.stringify(se_MergeDeveloperIdentitiesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -347,7 +333,7 @@ export const se_SetIdentityPoolRolesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetIdentityPoolRoles");
   let body: any;
-  body = JSON.stringify(se_SetIdentityPoolRolesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -360,7 +346,7 @@ export const se_SetPrincipalTagAttributeMapCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetPrincipalTagAttributeMap");
   let body: any;
-  body = JSON.stringify(se_SetPrincipalTagAttributeMapInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -373,7 +359,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -386,7 +372,7 @@ export const se_UnlinkDeveloperIdentityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UnlinkDeveloperIdentity");
   let body: any;
-  body = JSON.stringify(se_UnlinkDeveloperIdentityInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -399,7 +385,7 @@ export const se_UnlinkIdentityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UnlinkIdentity");
   let body: any;
-  body = JSON.stringify(se_UnlinkIdentityInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -412,7 +398,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -425,7 +411,7 @@ export const se_UpdateIdentityPoolCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateIdentityPool");
   let body: any;
-  body = JSON.stringify(se_IdentityPool(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -441,12 +427,12 @@ export const de_CreateIdentityPoolCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_IdentityPool(data, context);
+  contents = _json(data);
   const response: CreateIdentityPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -482,10 +468,9 @@ const de_CreateIdentityPoolCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -503,12 +488,12 @@ export const de_DeleteIdentitiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteIdentitiesResponse(data, context);
+  contents = _json(data);
   const response: DeleteIdentitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -535,10 +520,9 @@ const de_DeleteIdentitiesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -558,7 +542,7 @@ export const de_DeleteIdentityPoolCommand = async (
   const response: DeleteIdentityPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -591,10 +575,9 @@ const de_DeleteIdentityPoolCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -617,7 +600,7 @@ export const de_DescribeIdentityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -650,10 +633,9 @@ const de_DescribeIdentityCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -671,12 +653,12 @@ export const de_DescribeIdentityPoolCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_IdentityPool(data, context);
+  contents = _json(data);
   const response: DescribeIdentityPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -709,10 +691,9 @@ const de_DescribeIdentityPoolCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -735,7 +716,7 @@ export const de_GetCredentialsForIdentityCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -777,10 +758,9 @@ const de_GetCredentialsForIdentityCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -795,12 +775,12 @@ export const de_GetIdCommand = async (output: __HttpResponse, context: __SerdeCo
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetIdResponse(data, context);
+  contents = _json(data);
   const response: GetIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -839,10 +819,9 @@ const de_GetIdCommandError = async (output: __HttpResponse, context: __SerdeCont
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -860,12 +839,12 @@ export const de_GetIdentityPoolRolesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetIdentityPoolRolesResponse(data, context);
+  contents = _json(data);
   const response: GetIdentityPoolRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -901,10 +880,9 @@ const de_GetIdentityPoolRolesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -922,12 +900,12 @@ export const de_GetOpenIdTokenCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetOpenIdTokenResponse(data, context);
+  contents = _json(data);
   const response: GetOpenIdTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -966,10 +944,9 @@ const de_GetOpenIdTokenCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -987,12 +964,12 @@ export const de_GetOpenIdTokenForDeveloperIdentityCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetOpenIdTokenForDeveloperIdentityResponse(data, context);
+  contents = _json(data);
   const response: GetOpenIdTokenForDeveloperIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1031,10 +1008,9 @@ const de_GetOpenIdTokenForDeveloperIdentityCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1052,12 +1028,12 @@ export const de_GetPrincipalTagAttributeMapCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetPrincipalTagAttributeMapResponse(data, context);
+  contents = _json(data);
   const response: GetPrincipalTagAttributeMapCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1090,10 +1066,9 @@ const de_GetPrincipalTagAttributeMapCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1116,7 +1091,7 @@ export const de_ListIdentitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1149,10 +1124,9 @@ const de_ListIdentitiesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1170,12 +1144,12 @@ export const de_ListIdentityPoolsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListIdentityPoolsResponse(data, context);
+  contents = _json(data);
   const response: ListIdentityPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1208,10 +1182,9 @@ const de_ListIdentityPoolsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1229,12 +1202,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1267,10 +1240,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1288,12 +1260,12 @@ export const de_LookupDeveloperIdentityCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_LookupDeveloperIdentityResponse(data, context);
+  contents = _json(data);
   const response: LookupDeveloperIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1329,10 +1301,9 @@ const de_LookupDeveloperIdentityCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1350,12 +1321,12 @@ export const de_MergeDeveloperIdentitiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_MergeDeveloperIdentitiesResponse(data, context);
+  contents = _json(data);
   const response: MergeDeveloperIdentitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1391,10 +1362,9 @@ const de_MergeDeveloperIdentitiesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1414,7 +1384,7 @@ export const de_SetIdentityPoolRolesCommand = async (
   const response: SetIdentityPoolRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1453,10 +1423,9 @@ const de_SetIdentityPoolRolesCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1474,12 +1443,12 @@ export const de_SetPrincipalTagAttributeMapCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SetPrincipalTagAttributeMapResponse(data, context);
+  contents = _json(data);
   const response: SetPrincipalTagAttributeMapCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1512,10 +1481,9 @@ const de_SetPrincipalTagAttributeMapCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1533,12 +1501,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1571,10 +1539,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1594,7 +1561,7 @@ export const de_UnlinkDeveloperIdentityCommand = async (
   const response: UnlinkDeveloperIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1630,10 +1597,9 @@ const de_UnlinkDeveloperIdentityCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1653,7 +1619,7 @@ export const de_UnlinkIdentityCommand = async (
   const response: UnlinkIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1692,10 +1658,9 @@ const de_UnlinkIdentityCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1713,12 +1678,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1751,10 +1716,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1772,12 +1736,12 @@ export const de_UpdateIdentityPoolCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_IdentityPool(data, context);
+  contents = _json(data);
   const response: UpdateIdentityPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1819,10 +1783,9 @@ const de_UpdateIdentityPoolCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1836,7 +1799,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1852,7 +1815,7 @@ const de_DeveloperUserAlreadyRegisteredExceptionRes = async (
   context: __SerdeContext
 ): Promise<DeveloperUserAlreadyRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DeveloperUserAlreadyRegisteredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DeveloperUserAlreadyRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1868,7 +1831,7 @@ const de_ExternalServiceExceptionRes = async (
   context: __SerdeContext
 ): Promise<ExternalServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ExternalServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1884,7 +1847,7 @@ const de_InternalErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1900,7 +1863,7 @@ const de_InvalidIdentityPoolConfigurationExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidIdentityPoolConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidIdentityPoolConfigurationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidIdentityPoolConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1916,7 +1879,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1932,7 +1895,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1948,7 +1911,7 @@ const de_NotAuthorizedExceptionRes = async (
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotAuthorizedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1964,7 +1927,7 @@ const de_ResourceConflictExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1980,7 +1943,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1996,7 +1959,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyRequestsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2004,583 +1967,111 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1CognitoIdentityProvider
- */
-const se_CognitoIdentityProvider = (input: CognitoIdentityProvider, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-    ...(input.ServerSideTokenCheck != null && { ServerSideTokenCheck: input.ServerSideTokenCheck }),
-  };
-};
+// se_CognitoIdentityProvider omitted.
 
-/**
- * serializeAws_json1_1CognitoIdentityProviderList
- */
-const se_CognitoIdentityProviderList = (input: CognitoIdentityProvider[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CognitoIdentityProvider(entry, context);
-    });
-};
+// se_CognitoIdentityProviderList omitted.
 
-/**
- * serializeAws_json1_1CreateIdentityPoolInput
- */
-const se_CreateIdentityPoolInput = (input: CreateIdentityPoolInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowClassicFlow != null && { AllowClassicFlow: input.AllowClassicFlow }),
-    ...(input.AllowUnauthenticatedIdentities != null && {
-      AllowUnauthenticatedIdentities: input.AllowUnauthenticatedIdentities,
-    }),
-    ...(input.CognitoIdentityProviders != null && {
-      CognitoIdentityProviders: se_CognitoIdentityProviderList(input.CognitoIdentityProviders, context),
-    }),
-    ...(input.DeveloperProviderName != null && { DeveloperProviderName: input.DeveloperProviderName }),
-    ...(input.IdentityPoolName != null && { IdentityPoolName: input.IdentityPoolName }),
-    ...(input.IdentityPoolTags != null && {
-      IdentityPoolTags: se_IdentityPoolTagsType(input.IdentityPoolTags, context),
-    }),
-    ...(input.OpenIdConnectProviderARNs != null && {
-      OpenIdConnectProviderARNs: se_OIDCProviderList(input.OpenIdConnectProviderARNs, context),
-    }),
-    ...(input.SamlProviderARNs != null && { SamlProviderARNs: se_SAMLProviderList(input.SamlProviderARNs, context) }),
-    ...(input.SupportedLoginProviders != null && {
-      SupportedLoginProviders: se_IdentityProviders(input.SupportedLoginProviders, context),
-    }),
-  };
-};
+// se_CreateIdentityPoolInput omitted.
 
-/**
- * serializeAws_json1_1DeleteIdentitiesInput
- */
-const se_DeleteIdentitiesInput = (input: DeleteIdentitiesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityIdsToDelete != null && {
-      IdentityIdsToDelete: se_IdentityIdList(input.IdentityIdsToDelete, context),
-    }),
-  };
-};
+// se_DeleteIdentitiesInput omitted.
 
-/**
- * serializeAws_json1_1DeleteIdentityPoolInput
- */
-const se_DeleteIdentityPoolInput = (input: DeleteIdentityPoolInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-  };
-};
+// se_DeleteIdentityPoolInput omitted.
 
-/**
- * serializeAws_json1_1DescribeIdentityInput
- */
-const se_DescribeIdentityInput = (input: DescribeIdentityInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
-  };
-};
+// se_DescribeIdentityInput omitted.
 
-/**
- * serializeAws_json1_1DescribeIdentityPoolInput
- */
-const se_DescribeIdentityPoolInput = (input: DescribeIdentityPoolInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-  };
-};
+// se_DescribeIdentityPoolInput omitted.
 
-/**
- * serializeAws_json1_1GetCredentialsForIdentityInput
- */
-const se_GetCredentialsForIdentityInput = (input: GetCredentialsForIdentityInput, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomRoleArn != null && { CustomRoleArn: input.CustomRoleArn }),
-    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
-    ...(input.Logins != null && { Logins: se_LoginsMap(input.Logins, context) }),
-  };
-};
+// se_GetCredentialsForIdentityInput omitted.
 
-/**
- * serializeAws_json1_1GetIdentityPoolRolesInput
- */
-const se_GetIdentityPoolRolesInput = (input: GetIdentityPoolRolesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-  };
-};
+// se_GetIdentityPoolRolesInput omitted.
 
-/**
- * serializeAws_json1_1GetIdInput
- */
-const se_GetIdInput = (input: GetIdInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.Logins != null && { Logins: se_LoginsMap(input.Logins, context) }),
-  };
-};
+// se_GetIdInput omitted.
 
-/**
- * serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityInput
- */
-const se_GetOpenIdTokenForDeveloperIdentityInput = (
-  input: GetOpenIdTokenForDeveloperIdentityInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.Logins != null && { Logins: se_LoginsMap(input.Logins, context) }),
-    ...(input.PrincipalTags != null && { PrincipalTags: se_PrincipalTags(input.PrincipalTags, context) }),
-    ...(input.TokenDuration != null && { TokenDuration: input.TokenDuration }),
-  };
-};
+// se_GetOpenIdTokenForDeveloperIdentityInput omitted.
 
-/**
- * serializeAws_json1_1GetOpenIdTokenInput
- */
-const se_GetOpenIdTokenInput = (input: GetOpenIdTokenInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
-    ...(input.Logins != null && { Logins: se_LoginsMap(input.Logins, context) }),
-  };
-};
+// se_GetOpenIdTokenInput omitted.
 
-/**
- * serializeAws_json1_1GetPrincipalTagAttributeMapInput
- */
-const se_GetPrincipalTagAttributeMapInput = (input: GetPrincipalTagAttributeMapInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.IdentityProviderName != null && { IdentityProviderName: input.IdentityProviderName }),
-  };
-};
+// se_GetPrincipalTagAttributeMapInput omitted.
 
-/**
- * serializeAws_json1_1IdentityIdList
- */
-const se_IdentityIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_IdentityIdList omitted.
 
-/**
- * serializeAws_json1_1IdentityPool
- */
-const se_IdentityPool = (input: IdentityPool, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowClassicFlow != null && { AllowClassicFlow: input.AllowClassicFlow }),
-    ...(input.AllowUnauthenticatedIdentities != null && {
-      AllowUnauthenticatedIdentities: input.AllowUnauthenticatedIdentities,
-    }),
-    ...(input.CognitoIdentityProviders != null && {
-      CognitoIdentityProviders: se_CognitoIdentityProviderList(input.CognitoIdentityProviders, context),
-    }),
-    ...(input.DeveloperProviderName != null && { DeveloperProviderName: input.DeveloperProviderName }),
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.IdentityPoolName != null && { IdentityPoolName: input.IdentityPoolName }),
-    ...(input.IdentityPoolTags != null && {
-      IdentityPoolTags: se_IdentityPoolTagsType(input.IdentityPoolTags, context),
-    }),
-    ...(input.OpenIdConnectProviderARNs != null && {
-      OpenIdConnectProviderARNs: se_OIDCProviderList(input.OpenIdConnectProviderARNs, context),
-    }),
-    ...(input.SamlProviderARNs != null && { SamlProviderARNs: se_SAMLProviderList(input.SamlProviderARNs, context) }),
-    ...(input.SupportedLoginProviders != null && {
-      SupportedLoginProviders: se_IdentityProviders(input.SupportedLoginProviders, context),
-    }),
-  };
-};
+// se_IdentityPool omitted.
 
-/**
- * serializeAws_json1_1IdentityPoolTagsListType
- */
-const se_IdentityPoolTagsListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_IdentityPoolTagsListType omitted.
 
-/**
- * serializeAws_json1_1IdentityPoolTagsType
- */
-const se_IdentityPoolTagsType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_IdentityPoolTagsType omitted.
 
-/**
- * serializeAws_json1_1IdentityProviders
- */
-const se_IdentityProviders = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_IdentityProviders omitted.
 
-/**
- * serializeAws_json1_1ListIdentitiesInput
- */
-const se_ListIdentitiesInput = (input: ListIdentitiesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.HideDisabled != null && { HideDisabled: input.HideDisabled }),
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListIdentitiesInput omitted.
 
-/**
- * serializeAws_json1_1ListIdentityPoolsInput
- */
-const se_ListIdentityPoolsInput = (input: ListIdentityPoolsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListIdentityPoolsInput omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceInput
- */
-const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceInput omitted.
 
-/**
- * serializeAws_json1_1LoginsList
- */
-const se_LoginsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LoginsList omitted.
 
-/**
- * serializeAws_json1_1LoginsMap
- */
-const se_LoginsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_LoginsMap omitted.
 
-/**
- * serializeAws_json1_1LookupDeveloperIdentityInput
- */
-const se_LookupDeveloperIdentityInput = (input: LookupDeveloperIdentityInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DeveloperUserIdentifier != null && { DeveloperUserIdentifier: input.DeveloperUserIdentifier }),
-    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_LookupDeveloperIdentityInput omitted.
 
-/**
- * serializeAws_json1_1MappingRule
- */
-const se_MappingRule = (input: MappingRule, context: __SerdeContext): any => {
-  return {
-    ...(input.Claim != null && { Claim: input.Claim }),
-    ...(input.MatchType != null && { MatchType: input.MatchType }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_MappingRule omitted.
 
-/**
- * serializeAws_json1_1MappingRulesList
- */
-const se_MappingRulesList = (input: MappingRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MappingRule(entry, context);
-    });
-};
+// se_MappingRulesList omitted.
 
-/**
- * serializeAws_json1_1MergeDeveloperIdentitiesInput
- */
-const se_MergeDeveloperIdentitiesInput = (input: MergeDeveloperIdentitiesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationUserIdentifier != null && { DestinationUserIdentifier: input.DestinationUserIdentifier }),
-    ...(input.DeveloperProviderName != null && { DeveloperProviderName: input.DeveloperProviderName }),
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.SourceUserIdentifier != null && { SourceUserIdentifier: input.SourceUserIdentifier }),
-  };
-};
+// se_MergeDeveloperIdentitiesInput omitted.
 
-/**
- * serializeAws_json1_1OIDCProviderList
- */
-const se_OIDCProviderList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OIDCProviderList omitted.
 
-/**
- * serializeAws_json1_1PrincipalTags
- */
-const se_PrincipalTags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_PrincipalTags omitted.
 
-/**
- * serializeAws_json1_1RoleMapping
- */
-const se_RoleMapping = (input: RoleMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.AmbiguousRoleResolution != null && { AmbiguousRoleResolution: input.AmbiguousRoleResolution }),
-    ...(input.RulesConfiguration != null && {
-      RulesConfiguration: se_RulesConfigurationType(input.RulesConfiguration, context),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_RoleMapping omitted.
 
-/**
- * serializeAws_json1_1RoleMappingMap
- */
-const se_RoleMappingMap = (input: Record<string, RoleMapping>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_RoleMapping(value, context);
-    return acc;
-  }, {});
-};
+// se_RoleMappingMap omitted.
 
-/**
- * serializeAws_json1_1RolesMap
- */
-const se_RolesMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_RolesMap omitted.
 
-/**
- * serializeAws_json1_1RulesConfigurationType
- */
-const se_RulesConfigurationType = (input: RulesConfigurationType, context: __SerdeContext): any => {
-  return {
-    ...(input.Rules != null && { Rules: se_MappingRulesList(input.Rules, context) }),
-  };
-};
+// se_RulesConfigurationType omitted.
 
-/**
- * serializeAws_json1_1SAMLProviderList
- */
-const se_SAMLProviderList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SAMLProviderList omitted.
 
-/**
- * serializeAws_json1_1SetIdentityPoolRolesInput
- */
-const se_SetIdentityPoolRolesInput = (input: SetIdentityPoolRolesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.RoleMappings != null && { RoleMappings: se_RoleMappingMap(input.RoleMappings, context) }),
-    ...(input.Roles != null && { Roles: se_RolesMap(input.Roles, context) }),
-  };
-};
+// se_SetIdentityPoolRolesInput omitted.
 
-/**
- * serializeAws_json1_1SetPrincipalTagAttributeMapInput
- */
-const se_SetPrincipalTagAttributeMapInput = (input: SetPrincipalTagAttributeMapInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.IdentityProviderName != null && { IdentityProviderName: input.IdentityProviderName }),
-    ...(input.PrincipalTags != null && { PrincipalTags: se_PrincipalTags(input.PrincipalTags, context) }),
-    ...(input.UseDefaults != null && { UseDefaults: input.UseDefaults }),
-  };
-};
+// se_SetPrincipalTagAttributeMapInput omitted.
 
-/**
- * serializeAws_json1_1TagResourceInput
- */
-const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: se_IdentityPoolTagsType(input.Tags, context) }),
-  };
-};
+// se_TagResourceInput omitted.
 
-/**
- * serializeAws_json1_1UnlinkDeveloperIdentityInput
- */
-const se_UnlinkDeveloperIdentityInput = (input: UnlinkDeveloperIdentityInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DeveloperProviderName != null && { DeveloperProviderName: input.DeveloperProviderName }),
-    ...(input.DeveloperUserIdentifier != null && { DeveloperUserIdentifier: input.DeveloperUserIdentifier }),
-    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-  };
-};
+// se_UnlinkDeveloperIdentityInput omitted.
 
-/**
- * serializeAws_json1_1UnlinkIdentityInput
- */
-const se_UnlinkIdentityInput = (input: UnlinkIdentityInput, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
-    ...(input.Logins != null && { Logins: se_LoginsMap(input.Logins, context) }),
-    ...(input.LoginsToRemove != null && { LoginsToRemove: se_LoginsList(input.LoginsToRemove, context) }),
-  };
-};
+// se_UnlinkIdentityInput omitted.
 
-/**
- * serializeAws_json1_1UntagResourceInput
- */
-const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: se_IdentityPoolTagsListType(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceInput omitted.
 
-/**
- * deserializeAws_json1_1CognitoIdentityProvider
- */
-const de_CognitoIdentityProvider = (output: any, context: __SerdeContext): CognitoIdentityProvider => {
-  return {
-    ClientId: __expectString(output.ClientId),
-    ProviderName: __expectString(output.ProviderName),
-    ServerSideTokenCheck: __expectBoolean(output.ServerSideTokenCheck),
-  } as any;
-};
+// de_CognitoIdentityProvider omitted.
 
-/**
- * deserializeAws_json1_1CognitoIdentityProviderList
- */
-const de_CognitoIdentityProviderList = (output: any, context: __SerdeContext): CognitoIdentityProvider[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CognitoIdentityProvider(entry, context);
-    });
-  return retVal;
-};
+// de_CognitoIdentityProviderList omitted.
 
-/**
- * deserializeAws_json1_1ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
 /**
  * deserializeAws_json1_1Credentials
  */
 const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
-  return {
-    AccessKeyId: __expectString(output.AccessKeyId),
-    Expiration:
-      output.Expiration != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiration))) : undefined,
-    SecretKey: __expectString(output.SecretKey),
-    SessionToken: __expectString(output.SessionToken),
-  } as any;
+  return take(output, {
+    AccessKeyId: __expectString,
+    Expiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SecretKey: __expectString,
+    SessionToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteIdentitiesResponse
- */
-const de_DeleteIdentitiesResponse = (output: any, context: __SerdeContext): DeleteIdentitiesResponse => {
-  return {
-    UnprocessedIdentityIds:
-      output.UnprocessedIdentityIds != null
-        ? de_UnprocessedIdentityIdList(output.UnprocessedIdentityIds, context)
-        : undefined,
-  } as any;
-};
+// de_DeleteIdentitiesResponse omitted.
 
-/**
- * deserializeAws_json1_1DeveloperUserAlreadyRegisteredException
- */
-const de_DeveloperUserAlreadyRegisteredException = (
-  output: any,
-  context: __SerdeContext
-): DeveloperUserAlreadyRegisteredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DeveloperUserAlreadyRegisteredException omitted.
 
-/**
- * deserializeAws_json1_1DeveloperUserIdentifierList
- */
-const de_DeveloperUserIdentifierList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DeveloperUserIdentifierList omitted.
 
-/**
- * deserializeAws_json1_1ExternalServiceException
- */
-const de_ExternalServiceException = (output: any, context: __SerdeContext): ExternalServiceException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ExternalServiceException omitted.
 
 /**
  * deserializeAws_json1_1GetCredentialsForIdentityResponse
@@ -2589,69 +2080,21 @@ const de_GetCredentialsForIdentityResponse = (
   output: any,
   context: __SerdeContext
 ): GetCredentialsForIdentityResponse => {
-  return {
-    Credentials: output.Credentials != null ? de_Credentials(output.Credentials, context) : undefined,
-    IdentityId: __expectString(output.IdentityId),
-  } as any;
+  return take(output, {
+    Credentials: (_: any) => de_Credentials(_, context),
+    IdentityId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetIdentityPoolRolesResponse
- */
-const de_GetIdentityPoolRolesResponse = (output: any, context: __SerdeContext): GetIdentityPoolRolesResponse => {
-  return {
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    RoleMappings: output.RoleMappings != null ? de_RoleMappingMap(output.RoleMappings, context) : undefined,
-    Roles: output.Roles != null ? de_RolesMap(output.Roles, context) : undefined,
-  } as any;
-};
+// de_GetIdentityPoolRolesResponse omitted.
 
-/**
- * deserializeAws_json1_1GetIdResponse
- */
-const de_GetIdResponse = (output: any, context: __SerdeContext): GetIdResponse => {
-  return {
-    IdentityId: __expectString(output.IdentityId),
-  } as any;
-};
+// de_GetIdResponse omitted.
 
-/**
- * deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityResponse
- */
-const de_GetOpenIdTokenForDeveloperIdentityResponse = (
-  output: any,
-  context: __SerdeContext
-): GetOpenIdTokenForDeveloperIdentityResponse => {
-  return {
-    IdentityId: __expectString(output.IdentityId),
-    Token: __expectString(output.Token),
-  } as any;
-};
+// de_GetOpenIdTokenForDeveloperIdentityResponse omitted.
 
-/**
- * deserializeAws_json1_1GetOpenIdTokenResponse
- */
-const de_GetOpenIdTokenResponse = (output: any, context: __SerdeContext): GetOpenIdTokenResponse => {
-  return {
-    IdentityId: __expectString(output.IdentityId),
-    Token: __expectString(output.Token),
-  } as any;
-};
+// de_GetOpenIdTokenResponse omitted.
 
-/**
- * deserializeAws_json1_1GetPrincipalTagAttributeMapResponse
- */
-const de_GetPrincipalTagAttributeMapResponse = (
-  output: any,
-  context: __SerdeContext
-): GetPrincipalTagAttributeMapResponse => {
-  return {
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    IdentityProviderName: __expectString(output.IdentityProviderName),
-    PrincipalTags: output.PrincipalTags != null ? de_PrincipalTags(output.PrincipalTags, context) : undefined,
-    UseDefaults: __expectBoolean(output.UseDefaults),
-  } as any;
-};
+// de_GetPrincipalTagAttributeMapResponse omitted.
 
 /**
  * deserializeAws_json1_1IdentitiesList
@@ -2660,9 +2103,6 @@ const de_IdentitiesList = (output: any, context: __SerdeContext): IdentityDescri
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_IdentityDescription(entry, context);
     });
   return retVal;
@@ -2672,416 +2112,88 @@ const de_IdentitiesList = (output: any, context: __SerdeContext): IdentityDescri
  * deserializeAws_json1_1IdentityDescription
  */
 const de_IdentityDescription = (output: any, context: __SerdeContext): IdentityDescription => {
-  return {
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    IdentityId: __expectString(output.IdentityId),
-    LastModifiedDate:
-      output.LastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
-        : undefined,
-    Logins: output.Logins != null ? de_LoginsList(output.Logins, context) : undefined,
-  } as any;
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IdentityId: __expectString,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Logins: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1IdentityPool
- */
-const de_IdentityPool = (output: any, context: __SerdeContext): IdentityPool => {
-  return {
-    AllowClassicFlow: __expectBoolean(output.AllowClassicFlow),
-    AllowUnauthenticatedIdentities: __expectBoolean(output.AllowUnauthenticatedIdentities),
-    CognitoIdentityProviders:
-      output.CognitoIdentityProviders != null
-        ? de_CognitoIdentityProviderList(output.CognitoIdentityProviders, context)
-        : undefined,
-    DeveloperProviderName: __expectString(output.DeveloperProviderName),
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    IdentityPoolName: __expectString(output.IdentityPoolName),
-    IdentityPoolTags:
-      output.IdentityPoolTags != null ? de_IdentityPoolTagsType(output.IdentityPoolTags, context) : undefined,
-    OpenIdConnectProviderARNs:
-      output.OpenIdConnectProviderARNs != null
-        ? de_OIDCProviderList(output.OpenIdConnectProviderARNs, context)
-        : undefined,
-    SamlProviderARNs:
-      output.SamlProviderARNs != null ? de_SAMLProviderList(output.SamlProviderARNs, context) : undefined,
-    SupportedLoginProviders:
-      output.SupportedLoginProviders != null
-        ? de_IdentityProviders(output.SupportedLoginProviders, context)
-        : undefined,
-  } as any;
-};
+// de_IdentityPool omitted.
 
-/**
- * deserializeAws_json1_1IdentityPoolShortDescription
- */
-const de_IdentityPoolShortDescription = (output: any, context: __SerdeContext): IdentityPoolShortDescription => {
-  return {
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    IdentityPoolName: __expectString(output.IdentityPoolName),
-  } as any;
-};
+// de_IdentityPoolShortDescription omitted.
 
-/**
- * deserializeAws_json1_1IdentityPoolsList
- */
-const de_IdentityPoolsList = (output: any, context: __SerdeContext): IdentityPoolShortDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IdentityPoolShortDescription(entry, context);
-    });
-  return retVal;
-};
+// de_IdentityPoolsList omitted.
 
-/**
- * deserializeAws_json1_1IdentityPoolTagsType
- */
-const de_IdentityPoolTagsType = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_IdentityPoolTagsType omitted.
 
-/**
- * deserializeAws_json1_1IdentityProviders
- */
-const de_IdentityProviders = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_IdentityProviders omitted.
 
-/**
- * deserializeAws_json1_1InternalErrorException
- */
-const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalErrorException omitted.
 
-/**
- * deserializeAws_json1_1InvalidIdentityPoolConfigurationException
- */
-const de_InvalidIdentityPoolConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidIdentityPoolConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidIdentityPoolConfigurationException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListIdentitiesResponse
  */
 const de_ListIdentitiesResponse = (output: any, context: __SerdeContext): ListIdentitiesResponse => {
-  return {
-    Identities: output.Identities != null ? de_IdentitiesList(output.Identities, context) : undefined,
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Identities: (_: any) => de_IdentitiesList(_, context),
+    IdentityPoolId: __expectString,
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListIdentityPoolsResponse
- */
-const de_ListIdentityPoolsResponse = (output: any, context: __SerdeContext): ListIdentityPoolsResponse => {
-  return {
-    IdentityPools: output.IdentityPools != null ? de_IdentityPoolsList(output.IdentityPools, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListIdentityPoolsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_IdentityPoolTagsType(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1LoginsList
- */
-const de_LoginsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LoginsList omitted.
 
-/**
- * deserializeAws_json1_1LookupDeveloperIdentityResponse
- */
-const de_LookupDeveloperIdentityResponse = (output: any, context: __SerdeContext): LookupDeveloperIdentityResponse => {
-  return {
-    DeveloperUserIdentifierList:
-      output.DeveloperUserIdentifierList != null
-        ? de_DeveloperUserIdentifierList(output.DeveloperUserIdentifierList, context)
-        : undefined,
-    IdentityId: __expectString(output.IdentityId),
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_LookupDeveloperIdentityResponse omitted.
 
-/**
- * deserializeAws_json1_1MappingRule
- */
-const de_MappingRule = (output: any, context: __SerdeContext): MappingRule => {
-  return {
-    Claim: __expectString(output.Claim),
-    MatchType: __expectString(output.MatchType),
-    RoleARN: __expectString(output.RoleARN),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_MappingRule omitted.
 
-/**
- * deserializeAws_json1_1MappingRulesList
- */
-const de_MappingRulesList = (output: any, context: __SerdeContext): MappingRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MappingRule(entry, context);
-    });
-  return retVal;
-};
+// de_MappingRulesList omitted.
 
-/**
- * deserializeAws_json1_1MergeDeveloperIdentitiesResponse
- */
-const de_MergeDeveloperIdentitiesResponse = (
-  output: any,
-  context: __SerdeContext
-): MergeDeveloperIdentitiesResponse => {
-  return {
-    IdentityId: __expectString(output.IdentityId),
-  } as any;
-};
+// de_MergeDeveloperIdentitiesResponse omitted.
 
-/**
- * deserializeAws_json1_1NotAuthorizedException
- */
-const de_NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NotAuthorizedException omitted.
 
-/**
- * deserializeAws_json1_1OIDCProviderList
- */
-const de_OIDCProviderList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_OIDCProviderList omitted.
 
-/**
- * deserializeAws_json1_1PrincipalTags
- */
-const de_PrincipalTags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_PrincipalTags omitted.
 
-/**
- * deserializeAws_json1_1ResourceConflictException
- */
-const de_ResourceConflictException = (output: any, context: __SerdeContext): ResourceConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceConflictException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1RoleMapping
- */
-const de_RoleMapping = (output: any, context: __SerdeContext): RoleMapping => {
-  return {
-    AmbiguousRoleResolution: __expectString(output.AmbiguousRoleResolution),
-    RulesConfiguration:
-      output.RulesConfiguration != null ? de_RulesConfigurationType(output.RulesConfiguration, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_RoleMapping omitted.
 
-/**
- * deserializeAws_json1_1RoleMappingMap
- */
-const de_RoleMappingMap = (output: any, context: __SerdeContext): Record<string, RoleMapping> => {
-  return Object.entries(output).reduce((acc: Record<string, RoleMapping>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_RoleMapping(value, context);
-    return acc;
-  }, {});
-};
+// de_RoleMappingMap omitted.
 
-/**
- * deserializeAws_json1_1RolesMap
- */
-const de_RolesMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_RolesMap omitted.
 
-/**
- * deserializeAws_json1_1RulesConfigurationType
- */
-const de_RulesConfigurationType = (output: any, context: __SerdeContext): RulesConfigurationType => {
-  return {
-    Rules: output.Rules != null ? de_MappingRulesList(output.Rules, context) : undefined,
-  } as any;
-};
+// de_RulesConfigurationType omitted.
 
-/**
- * deserializeAws_json1_1SAMLProviderList
- */
-const de_SAMLProviderList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SAMLProviderList omitted.
 
-/**
- * deserializeAws_json1_1SetPrincipalTagAttributeMapResponse
- */
-const de_SetPrincipalTagAttributeMapResponse = (
-  output: any,
-  context: __SerdeContext
-): SetPrincipalTagAttributeMapResponse => {
-  return {
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    IdentityProviderName: __expectString(output.IdentityProviderName),
-    PrincipalTags: output.PrincipalTags != null ? de_PrincipalTags(output.PrincipalTags, context) : undefined,
-    UseDefaults: __expectBoolean(output.UseDefaults),
-  } as any;
-};
+// de_SetPrincipalTagAttributeMapResponse omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TooManyRequestsException
- */
-const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyRequestsException omitted.
 
-/**
- * deserializeAws_json1_1UnprocessedIdentityId
- */
-const de_UnprocessedIdentityId = (output: any, context: __SerdeContext): UnprocessedIdentityId => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    IdentityId: __expectString(output.IdentityId),
-  } as any;
-};
+// de_UnprocessedIdentityId omitted.
 
-/**
- * deserializeAws_json1_1UnprocessedIdentityIdList
- */
-const de_UnprocessedIdentityIdList = (output: any, context: __SerdeContext): UnprocessedIdentityId[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UnprocessedIdentityId(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedIdentityIdList omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3103,6 +2215,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

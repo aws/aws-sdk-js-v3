@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -19,13 +21,11 @@ import { PutAuditEventsCommandInput, PutAuditEventsCommandOutput } from "../comm
 import { CloudTrailDataServiceException as __BaseException } from "../models/CloudTrailDataServiceException";
 import {
   AuditEvent,
-  AuditEventResultEntry,
   ChannelInsufficientPermission,
   ChannelNotFound,
   ChannelUnsupportedSchema,
   DuplicatedAuditEventId,
   InvalidChannelARN,
-  ResultErrorEntry,
   UnsupportedOperationException,
 } from "../models/models_0";
 
@@ -46,9 +46,11 @@ export const se_PutAuditEventsCommand = async (
     externalId: [, input.externalId!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.auditEvents != null && { auditEvents: se_AuditEvents(input.auditEvents, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      auditEvents: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -75,12 +77,11 @@ export const de_PutAuditEventsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failed != null) {
-    contents.failed = de_ResultErrorEntries(data.failed, context);
-  }
-  if (data.successful != null) {
-    contents.successful = de_AuditEventResultEntries(data.successful, context);
-  }
+  const doc = take(data, {
+    failed: _json,
+    successful: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -117,16 +118,15 @@ const de_PutAuditEventsCommandError = async (
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ChannelInsufficientPermissionRes
  */
@@ -136,9 +136,10 @@ const de_ChannelInsufficientPermissionRes = async (
 ): Promise<ChannelInsufficientPermission> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ChannelInsufficientPermission({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -152,9 +153,10 @@ const de_ChannelInsufficientPermissionRes = async (
 const de_ChannelNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ChannelNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ChannelNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -171,9 +173,10 @@ const de_ChannelUnsupportedSchemaRes = async (
 ): Promise<ChannelUnsupportedSchema> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ChannelUnsupportedSchema({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -190,9 +193,10 @@ const de_DuplicatedAuditEventIdRes = async (
 ): Promise<DuplicatedAuditEventId> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DuplicatedAuditEventId({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -206,9 +210,10 @@ const de_DuplicatedAuditEventIdRes = async (
 const de_InvalidChannelARNRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidChannelARN> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidChannelARN({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -225,9 +230,10 @@ const de_UnsupportedOperationExceptionRes = async (
 ): Promise<UnsupportedOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -235,78 +241,17 @@ const de_UnsupportedOperationExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AuditEvent
- */
-const se_AuditEvent = (input: AuditEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.eventData != null && { eventData: input.eventData }),
-    ...(input.eventDataChecksum != null && { eventDataChecksum: input.eventDataChecksum }),
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_AuditEvent omitted.
 
-/**
- * serializeAws_restJson1AuditEvents
- */
-const se_AuditEvents = (input: AuditEvent[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AuditEvent(entry, context);
-    });
-};
+// se_AuditEvents omitted.
 
-/**
- * deserializeAws_restJson1AuditEventResultEntries
- */
-const de_AuditEventResultEntries = (output: any, context: __SerdeContext): AuditEventResultEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AuditEventResultEntry(entry, context);
-    });
-  return retVal;
-};
+// de_AuditEventResultEntries omitted.
 
-/**
- * deserializeAws_restJson1AuditEventResultEntry
- */
-const de_AuditEventResultEntry = (output: any, context: __SerdeContext): AuditEventResultEntry => {
-  return {
-    eventID: __expectString(output.eventID),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_AuditEventResultEntry omitted.
 
-/**
- * deserializeAws_restJson1ResultErrorEntries
- */
-const de_ResultErrorEntries = (output: any, context: __SerdeContext): ResultErrorEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResultErrorEntry(entry, context);
-    });
-  return retVal;
-};
+// de_ResultErrorEntries omitted.
 
-/**
- * deserializeAws_restJson1ResultErrorEntry
- */
-const de_ResultErrorEntry = (output: any, context: __SerdeContext): ResultErrorEntry => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_ResultErrorEntry omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

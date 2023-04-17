@@ -1,10 +1,12 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectString as __expectString,
   LazyJsonString as __LazyJsonString,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -23,25 +25,18 @@ import { GetProductsCommandInput, GetProductsCommandOutput } from "../commands/G
 import { ListPriceListsCommandInput, ListPriceListsCommandOutput } from "../commands/ListPriceListsCommand";
 import {
   AccessDeniedException,
-  AttributeValue,
   DescribeServicesRequest,
-  DescribeServicesResponse,
   ExpiredNextTokenException,
   Filter,
   GetAttributeValuesRequest,
-  GetAttributeValuesResponse,
   GetPriceListFileUrlRequest,
-  GetPriceListFileUrlResponse,
   GetProductsRequest,
   GetProductsResponse,
   InternalErrorException,
   InvalidNextTokenException,
   InvalidParameterException,
   ListPriceListsRequest,
-  ListPriceListsResponse,
   NotFoundException,
-  PriceList,
-  Service,
 } from "../models/models_0";
 import { PricingServiceException as __BaseException } from "../models/PricingServiceException";
 
@@ -54,7 +49,7 @@ export const se_DescribeServicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeServices");
   let body: any;
-  body = JSON.stringify(se_DescribeServicesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -67,7 +62,7 @@ export const se_GetAttributeValuesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAttributeValues");
   let body: any;
-  body = JSON.stringify(se_GetAttributeValuesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -80,7 +75,7 @@ export const se_GetPriceListFileUrlCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPriceListFileUrl");
   let body: any;
-  body = JSON.stringify(se_GetPriceListFileUrlRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -93,7 +88,7 @@ export const se_GetProductsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetProducts");
   let body: any;
-  body = JSON.stringify(se_GetProductsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -122,12 +117,12 @@ export const de_DescribeServicesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeServicesResponse(data, context);
+  contents = _json(data);
   const response: DescribeServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -160,10 +155,9 @@ const de_DescribeServicesCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -181,12 +175,12 @@ export const de_GetAttributeValuesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAttributeValuesResponse(data, context);
+  contents = _json(data);
   const response: GetAttributeValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -219,10 +213,9 @@ const de_GetAttributeValuesCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -240,12 +233,12 @@ export const de_GetPriceListFileUrlCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetPriceListFileUrlResponse(data, context);
+  contents = _json(data);
   const response: GetPriceListFileUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -275,10 +268,9 @@ const de_GetPriceListFileUrlCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -301,7 +293,7 @@ export const de_GetProductsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -334,10 +326,9 @@ const de_GetProductsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -355,12 +346,12 @@ export const de_ListPriceListsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPriceListsResponse(data, context);
+  contents = _json(data);
   const response: ListPriceListsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -396,10 +387,9 @@ const de_ListPriceListsCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -413,7 +403,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -429,7 +419,7 @@ const de_ExpiredNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<ExpiredNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ExpiredNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExpiredNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -445,7 +435,7 @@ const de_InternalErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -461,7 +451,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -477,7 +467,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -490,7 +480,7 @@ const de_InvalidParameterExceptionRes = async (
  */
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -498,260 +488,72 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1DescribeServicesRequest
- */
-const se_DescribeServicesRequest = (input: DescribeServicesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FormatVersion != null && { FormatVersion: input.FormatVersion }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_DescribeServicesRequest omitted.
 
-/**
- * serializeAws_json1_1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Field != null && { Field: input.Field }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_json1_1Filters
- */
-const se_Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_Filters omitted.
 
-/**
- * serializeAws_json1_1GetAttributeValuesRequest
- */
-const se_GetAttributeValuesRequest = (input: GetAttributeValuesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_GetAttributeValuesRequest omitted.
 
-/**
- * serializeAws_json1_1GetPriceListFileUrlRequest
- */
-const se_GetPriceListFileUrlRequest = (input: GetPriceListFileUrlRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FileFormat != null && { FileFormat: input.FileFormat }),
-    ...(input.PriceListArn != null && { PriceListArn: input.PriceListArn }),
-  };
-};
+// se_GetPriceListFileUrlRequest omitted.
 
-/**
- * serializeAws_json1_1GetProductsRequest
- */
-const se_GetProductsRequest = (input: GetProductsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.FormatVersion != null && { FormatVersion: input.FormatVersion }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
-};
+// se_GetProductsRequest omitted.
 
 /**
  * serializeAws_json1_1ListPriceListsRequest
  */
 const se_ListPriceListsRequest = (input: ListPriceListsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CurrencyCode != null && { CurrencyCode: input.CurrencyCode }),
-    ...(input.EffectiveDate != null && { EffectiveDate: Math.round(input.EffectiveDate.getTime() / 1000) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RegionCode != null && { RegionCode: input.RegionCode }),
-    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
-  };
+  return take(input, {
+    CurrencyCode: [],
+    EffectiveDate: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+    RegionCode: [],
+    ServiceCode: [],
+  });
 };
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AttributeNameList
- */
-const de_AttributeNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AttributeNameList omitted.
 
-/**
- * deserializeAws_json1_1AttributeValue
- */
-const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
-  return {
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_AttributeValue omitted.
 
-/**
- * deserializeAws_json1_1AttributeValueList
- */
-const de_AttributeValueList = (output: any, context: __SerdeContext): AttributeValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AttributeValue(entry, context);
-    });
-  return retVal;
-};
+// de_AttributeValueList omitted.
 
-/**
- * deserializeAws_json1_1DescribeServicesResponse
- */
-const de_DescribeServicesResponse = (output: any, context: __SerdeContext): DescribeServicesResponse => {
-  return {
-    FormatVersion: __expectString(output.FormatVersion),
-    NextToken: __expectString(output.NextToken),
-    Services: output.Services != null ? de_ServiceList(output.Services, context) : undefined,
-  } as any;
-};
+// de_DescribeServicesResponse omitted.
 
-/**
- * deserializeAws_json1_1ExpiredNextTokenException
- */
-const de_ExpiredNextTokenException = (output: any, context: __SerdeContext): ExpiredNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ExpiredNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1FileFormats
- */
-const de_FileFormats = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FileFormats omitted.
 
-/**
- * deserializeAws_json1_1GetAttributeValuesResponse
- */
-const de_GetAttributeValuesResponse = (output: any, context: __SerdeContext): GetAttributeValuesResponse => {
-  return {
-    AttributeValues:
-      output.AttributeValues != null ? de_AttributeValueList(output.AttributeValues, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_GetAttributeValuesResponse omitted.
 
-/**
- * deserializeAws_json1_1GetPriceListFileUrlResponse
- */
-const de_GetPriceListFileUrlResponse = (output: any, context: __SerdeContext): GetPriceListFileUrlResponse => {
-  return {
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_GetPriceListFileUrlResponse omitted.
 
 /**
  * deserializeAws_json1_1GetProductsResponse
  */
 const de_GetProductsResponse = (output: any, context: __SerdeContext): GetProductsResponse => {
-  return {
-    FormatVersion: __expectString(output.FormatVersion),
-    NextToken: __expectString(output.NextToken),
-    PriceList: output.PriceList != null ? de_PriceListJsonItems(output.PriceList, context) : undefined,
-  } as any;
+  return take(output, {
+    FormatVersion: __expectString,
+    NextToken: __expectString,
+    PriceList: (_: any) => de_PriceListJsonItems(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InternalErrorException
- */
-const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalErrorException omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1ListPriceListsResponse
- */
-const de_ListPriceListsResponse = (output: any, context: __SerdeContext): ListPriceListsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PriceLists: output.PriceLists != null ? de_PriceLists(output.PriceLists, context) : undefined,
-  } as any;
-};
+// de_ListPriceListsResponse omitted.
 
-/**
- * deserializeAws_json1_1NotFoundException
- */
-const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NotFoundException omitted.
 
-/**
- * deserializeAws_json1_1PriceList
- */
-const de_PriceList = (output: any, context: __SerdeContext): PriceList => {
-  return {
-    CurrencyCode: __expectString(output.CurrencyCode),
-    FileFormats: output.FileFormats != null ? de_FileFormats(output.FileFormats, context) : undefined,
-    PriceListArn: __expectString(output.PriceListArn),
-    RegionCode: __expectString(output.RegionCode),
-  } as any;
-};
+// de_PriceList omitted.
 
 /**
  * deserializeAws_json1_1PriceListJsonItems
@@ -760,53 +562,16 @@ const de_PriceListJsonItems = (output: any, context: __SerdeContext): (__LazyJso
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return new __LazyJsonString(entry);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1PriceLists
- */
-const de_PriceLists = (output: any, context: __SerdeContext): PriceList[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PriceList(entry, context);
-    });
-  return retVal;
-};
+// de_PriceLists omitted.
 
-/**
- * deserializeAws_json1_1Service
- */
-const de_Service = (output: any, context: __SerdeContext): Service => {
-  return {
-    AttributeNames: output.AttributeNames != null ? de_AttributeNameList(output.AttributeNames, context) : undefined,
-    ServiceCode: __expectString(output.ServiceCode),
-  } as any;
-};
+// de_Service omitted.
 
-/**
- * deserializeAws_json1_1ServiceList
- */
-const de_ServiceList = (output: any, context: __SerdeContext): Service[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Service(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -828,6 +593,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

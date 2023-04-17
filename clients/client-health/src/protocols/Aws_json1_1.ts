@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -68,15 +69,12 @@ import {
   ConcurrentModificationException,
   DateTimeRange,
   DescribeAffectedAccountsForOrganizationRequest,
-  DescribeAffectedAccountsForOrganizationResponse,
   DescribeAffectedEntitiesForOrganizationRequest,
   DescribeAffectedEntitiesForOrganizationResponse,
   DescribeAffectedEntitiesRequest,
   DescribeAffectedEntitiesResponse,
   DescribeEntityAggregatesRequest,
-  DescribeEntityAggregatesResponse,
   DescribeEventAggregatesRequest,
-  DescribeEventAggregatesResponse,
   DescribeEventDetailsForOrganizationRequest,
   DescribeEventDetailsForOrganizationResponse,
   DescribeEventDetailsRequest,
@@ -86,27 +84,18 @@ import {
   DescribeEventsRequest,
   DescribeEventsResponse,
   DescribeEventTypesRequest,
-  DescribeEventTypesResponse,
-  DescribeHealthServiceStatusForOrganizationResponse,
-  EntityAggregate,
   EntityFilter,
   EntityStatusCode,
   Event,
   EventAccountFilter,
-  EventAggregate,
-  EventDescription,
   EventDetails,
-  EventDetailsErrorItem,
   EventFilter,
   EventStatusCode,
-  EventType,
   EventTypeCategory,
   EventTypeFilter,
   InvalidPaginationToken,
-  OrganizationAffectedEntitiesErrorItem,
   OrganizationEvent,
   OrganizationEventDetails,
-  OrganizationEventDetailsErrorItem,
   OrganizationEventFilter,
   UnsupportedLocale,
 } from "../models/models_0";
@@ -120,7 +109,7 @@ export const se_DescribeAffectedAccountsForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAffectedAccountsForOrganization");
   let body: any;
-  body = JSON.stringify(se_DescribeAffectedAccountsForOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -146,7 +135,7 @@ export const se_DescribeAffectedEntitiesForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAffectedEntitiesForOrganization");
   let body: any;
-  body = JSON.stringify(se_DescribeAffectedEntitiesForOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -159,7 +148,7 @@ export const se_DescribeEntityAggregatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEntityAggregates");
   let body: any;
-  body = JSON.stringify(se_DescribeEntityAggregatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -185,7 +174,7 @@ export const se_DescribeEventDetailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEventDetails");
   let body: any;
-  body = JSON.stringify(se_DescribeEventDetailsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -198,7 +187,7 @@ export const se_DescribeEventDetailsForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEventDetailsForOrganization");
   let body: any;
-  body = JSON.stringify(se_DescribeEventDetailsForOrganizationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -237,7 +226,7 @@ export const se_DescribeEventTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEventTypes");
   let body: any;
-  body = JSON.stringify(se_DescribeEventTypesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -289,12 +278,12 @@ export const de_DescribeAffectedAccountsForOrganizationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeAffectedAccountsForOrganizationResponse(data, context);
+  contents = _json(data);
   const response: DescribeAffectedAccountsForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -315,10 +304,9 @@ const de_DescribeAffectedAccountsForOrganizationCommandError = async (
       throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -341,7 +329,7 @@ export const de_DescribeAffectedEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -365,10 +353,9 @@ const de_DescribeAffectedEntitiesCommandError = async (
       throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -391,7 +378,7 @@ export const de_DescribeAffectedEntitiesForOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -415,10 +402,9 @@ const de_DescribeAffectedEntitiesForOrganizationCommandError = async (
       throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -436,12 +422,12 @@ export const de_DescribeEntityAggregatesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeEntityAggregatesResponse(data, context);
+  contents = _json(data);
   const response: DescribeEntityAggregatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -457,10 +443,9 @@ const de_DescribeEntityAggregatesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -477,12 +462,12 @@ export const de_DescribeEventAggregatesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeEventAggregatesResponse(data, context);
+  contents = _json(data);
   const response: DescribeEventAggregatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -503,10 +488,9 @@ const de_DescribeEventAggregatesCommandError = async (
       throw await de_InvalidPaginationTokenRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -529,7 +513,7 @@ export const de_DescribeEventDetailsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -550,10 +534,9 @@ const de_DescribeEventDetailsCommandError = async (
       throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -576,7 +559,7 @@ export const de_DescribeEventDetailsForOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -597,10 +580,9 @@ const de_DescribeEventDetailsForOrganizationCommandError = async (
       throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -623,7 +605,7 @@ export const de_DescribeEventsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -647,10 +629,9 @@ const de_DescribeEventsCommandError = async (
       throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -673,7 +654,7 @@ export const de_DescribeEventsForOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -697,10 +678,9 @@ const de_DescribeEventsForOrganizationCommandError = async (
       throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -718,12 +698,12 @@ export const de_DescribeEventTypesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeEventTypesResponse(data, context);
+  contents = _json(data);
   const response: DescribeEventTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -747,10 +727,9 @@ const de_DescribeEventTypesCommandError = async (
       throw await de_UnsupportedLocaleRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -768,12 +747,12 @@ export const de_DescribeHealthServiceStatusForOrganizationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeHealthServiceStatusForOrganizationResponse(data, context);
+  contents = _json(data);
   const response: DescribeHealthServiceStatusForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -789,10 +768,9 @@ const de_DescribeHealthServiceStatusForOrganizationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -811,7 +789,7 @@ export const de_DisableHealthServiceAccessForOrganizationCommand = async (
   const response: DisableHealthServiceAccessForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -832,10 +810,9 @@ const de_DisableHealthServiceAccessForOrganizationCommandError = async (
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -855,7 +832,7 @@ export const de_EnableHealthServiceAccessForOrganizationCommand = async (
   const response: EnableHealthServiceAccessForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -876,10 +853,9 @@ const de_EnableHealthServiceAccessForOrganizationCommandError = async (
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -893,7 +869,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -909,7 +885,7 @@ const de_InvalidPaginationTokenRes = async (
   context: __SerdeContext
 ): Promise<InvalidPaginationToken> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPaginationToken(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPaginationToken({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -922,7 +898,7 @@ const de_InvalidPaginationTokenRes = async (
  */
 const de_UnsupportedLocaleRes = async (parsedOutput: any, context: __SerdeContext): Promise<UnsupportedLocale> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedLocale(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedLocale({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -930,36 +906,18 @@ const de_UnsupportedLocaleRes = async (parsedOutput: any, context: __SerdeContex
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1availabilityZones
- */
-const se_availabilityZones = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_availabilityZones omitted.
 
-/**
- * serializeAws_json1_1awsAccountIdsList
- */
-const se_awsAccountIdsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_awsAccountIdsList omitted.
 
 /**
  * serializeAws_json1_1DateTimeRange
  */
 const se_DateTimeRange = (input: DateTimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.from != null && { from: Math.round(input.from.getTime() / 1000) }),
-    ...(input.to != null && { to: Math.round(input.to.getTime() / 1000) }),
-  };
+  return take(input, {
+    from: (_) => Math.round(_.getTime() / 1000),
+    to: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
@@ -973,97 +931,39 @@ const se_dateTimeRangeList = (input: DateTimeRange[], context: __SerdeContext): 
     });
 };
 
-/**
- * serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest
- */
-const se_DescribeAffectedAccountsForOrganizationRequest = (
-  input: DescribeAffectedAccountsForOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.eventArn != null && { eventArn: input.eventArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_DescribeAffectedAccountsForOrganizationRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest
- */
-const se_DescribeAffectedEntitiesForOrganizationRequest = (
-  input: DescribeAffectedEntitiesForOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.organizationEntityFilters != null && {
-      organizationEntityFilters: se_OrganizationEntityFiltersList(input.organizationEntityFilters, context),
-    }),
-  };
-};
+// se_DescribeAffectedEntitiesForOrganizationRequest omitted.
 
 /**
  * serializeAws_json1_1DescribeAffectedEntitiesRequest
  */
 const se_DescribeAffectedEntitiesRequest = (input: DescribeAffectedEntitiesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: se_EntityFilter(input.filter, context) }),
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
+  return take(input, {
+    filter: (_) => se_EntityFilter(_, context),
+    locale: [],
+    maxResults: [],
+    nextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DescribeEntityAggregatesRequest
- */
-const se_DescribeEntityAggregatesRequest = (input: DescribeEntityAggregatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.eventArns != null && { eventArns: se_EventArnsList(input.eventArns, context) }),
-  };
-};
+// se_DescribeEntityAggregatesRequest omitted.
 
 /**
  * serializeAws_json1_1DescribeEventAggregatesRequest
  */
 const se_DescribeEventAggregatesRequest = (input: DescribeEventAggregatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.aggregateField != null && { aggregateField: input.aggregateField }),
-    ...(input.filter != null && { filter: se_EventFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
+  return take(input, {
+    aggregateField: [],
+    filter: (_) => se_EventFilter(_, context),
+    maxResults: [],
+    nextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DescribeEventDetailsForOrganizationRequest
- */
-const se_DescribeEventDetailsForOrganizationRequest = (
-  input: DescribeEventDetailsForOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.organizationEventDetailFilters != null && {
-      organizationEventDetailFilters: se_OrganizationEventDetailFiltersList(
-        input.organizationEventDetailFilters,
-        context
-      ),
-    }),
-  };
-};
+// se_DescribeEventDetailsForOrganizationRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEventDetailsRequest
- */
-const se_DescribeEventDetailsRequest = (input: DescribeEventDetailsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.eventArns != null && { eventArns: se_eventArnList(input.eventArns, context) }),
-    ...(input.locale != null && { locale: input.locale }),
-  };
-};
+// se_DescribeEventDetailsRequest omitted.
 
 /**
  * serializeAws_json1_1DescribeEventsForOrganizationRequest
@@ -1072,378 +972,141 @@ const se_DescribeEventsForOrganizationRequest = (
   input: DescribeEventsForOrganizationRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.filter != null && { filter: se_OrganizationEventFilter(input.filter, context) }),
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
+  return take(input, {
+    filter: (_) => se_OrganizationEventFilter(_, context),
+    locale: [],
+    maxResults: [],
+    nextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_1DescribeEventsRequest
  */
 const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: se_EventFilter(input.filter, context) }),
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
+  return take(input, {
+    filter: (_) => se_EventFilter(_, context),
+    locale: [],
+    maxResults: [],
+    nextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DescribeEventTypesRequest
- */
-const se_DescribeEventTypesRequest = (input: DescribeEventTypesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: se_EventTypeFilter(input.filter, context) }),
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_DescribeEventTypesRequest omitted.
 
-/**
- * serializeAws_json1_1entityArnList
- */
-const se_entityArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_entityArnList omitted.
 
 /**
  * serializeAws_json1_1EntityFilter
  */
 const se_EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.entityArns != null && { entityArns: se_entityArnList(input.entityArns, context) }),
-    ...(input.entityValues != null && { entityValues: se_entityValueList(input.entityValues, context) }),
-    ...(input.eventArns != null && { eventArns: se_eventArnList(input.eventArns, context) }),
-    ...(input.lastUpdatedTimes != null && { lastUpdatedTimes: se_dateTimeRangeList(input.lastUpdatedTimes, context) }),
-    ...(input.statusCodes != null && { statusCodes: se_entityStatusCodeList(input.statusCodes, context) }),
-    ...(input.tags != null && { tags: se_tagFilter(input.tags, context) }),
-  };
+  return take(input, {
+    entityArns: _json,
+    entityValues: _json,
+    eventArns: _json,
+    lastUpdatedTimes: (_) => se_dateTimeRangeList(_, context),
+    statusCodes: _json,
+    tags: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1entityStatusCodeList
- */
-const se_entityStatusCodeList = (input: (EntityStatusCode | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_entityStatusCodeList omitted.
 
-/**
- * serializeAws_json1_1entityValueList
- */
-const se_entityValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_entityValueList omitted.
 
-/**
- * serializeAws_json1_1EventAccountFilter
- */
-const se_EventAccountFilter = (input: EventAccountFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.awsAccountId != null && { awsAccountId: input.awsAccountId }),
-    ...(input.eventArn != null && { eventArn: input.eventArn }),
-  };
-};
+// se_EventAccountFilter omitted.
 
-/**
- * serializeAws_json1_1eventArnList
- */
-const se_eventArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_eventArnList omitted.
 
-/**
- * serializeAws_json1_1EventArnsList
- */
-const se_EventArnsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EventArnsList omitted.
 
 /**
  * serializeAws_json1_1EventFilter
  */
 const se_EventFilter = (input: EventFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.availabilityZones != null && {
-      availabilityZones: se_availabilityZones(input.availabilityZones, context),
-    }),
-    ...(input.endTimes != null && { endTimes: se_dateTimeRangeList(input.endTimes, context) }),
-    ...(input.entityArns != null && { entityArns: se_entityArnList(input.entityArns, context) }),
-    ...(input.entityValues != null && { entityValues: se_entityValueList(input.entityValues, context) }),
-    ...(input.eventArns != null && { eventArns: se_eventArnList(input.eventArns, context) }),
-    ...(input.eventStatusCodes != null && {
-      eventStatusCodes: se_eventStatusCodeList(input.eventStatusCodes, context),
-    }),
-    ...(input.eventTypeCategories != null && {
-      eventTypeCategories: se_eventTypeCategoryList2(input.eventTypeCategories, context),
-    }),
-    ...(input.eventTypeCodes != null && { eventTypeCodes: se_eventTypeList2(input.eventTypeCodes, context) }),
-    ...(input.lastUpdatedTimes != null && { lastUpdatedTimes: se_dateTimeRangeList(input.lastUpdatedTimes, context) }),
-    ...(input.regions != null && { regions: se_regionList(input.regions, context) }),
-    ...(input.services != null && { services: se_serviceList(input.services, context) }),
-    ...(input.startTimes != null && { startTimes: se_dateTimeRangeList(input.startTimes, context) }),
-    ...(input.tags != null && { tags: se_tagFilter(input.tags, context) }),
-  };
+  return take(input, {
+    availabilityZones: _json,
+    endTimes: (_) => se_dateTimeRangeList(_, context),
+    entityArns: _json,
+    entityValues: _json,
+    eventArns: _json,
+    eventStatusCodes: _json,
+    eventTypeCategories: _json,
+    eventTypeCodes: _json,
+    lastUpdatedTimes: (_) => se_dateTimeRangeList(_, context),
+    regions: _json,
+    services: _json,
+    startTimes: (_) => se_dateTimeRangeList(_, context),
+    tags: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1eventStatusCodeList
- */
-const se_eventStatusCodeList = (input: (EventStatusCode | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_eventStatusCodeList omitted.
 
-/**
- * serializeAws_json1_1EventTypeCategoryList
- */
-const se_EventTypeCategoryList = (input: (EventTypeCategory | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EventTypeCategoryList omitted.
 
-/**
- * serializeAws_json1_1eventTypeCategoryList2
- */
-const se_eventTypeCategoryList2 = (input: (EventTypeCategory | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_eventTypeCategoryList2 omitted.
 
-/**
- * serializeAws_json1_1EventTypeCodeList
- */
-const se_EventTypeCodeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EventTypeCodeList omitted.
 
-/**
- * serializeAws_json1_1EventTypeFilter
- */
-const se_EventTypeFilter = (input: EventTypeFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.eventTypeCategories != null && {
-      eventTypeCategories: se_EventTypeCategoryList(input.eventTypeCategories, context),
-    }),
-    ...(input.eventTypeCodes != null && { eventTypeCodes: se_EventTypeCodeList(input.eventTypeCodes, context) }),
-    ...(input.services != null && { services: se_serviceList(input.services, context) }),
-  };
-};
+// se_EventTypeFilter omitted.
 
-/**
- * serializeAws_json1_1eventTypeList2
- */
-const se_eventTypeList2 = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_eventTypeList2 omitted.
 
-/**
- * serializeAws_json1_1OrganizationEntityFiltersList
- */
-const se_OrganizationEntityFiltersList = (input: EventAccountFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EventAccountFilter(entry, context);
-    });
-};
+// se_OrganizationEntityFiltersList omitted.
 
-/**
- * serializeAws_json1_1OrganizationEventDetailFiltersList
- */
-const se_OrganizationEventDetailFiltersList = (input: EventAccountFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EventAccountFilter(entry, context);
-    });
-};
+// se_OrganizationEventDetailFiltersList omitted.
 
 /**
  * serializeAws_json1_1OrganizationEventFilter
  */
 const se_OrganizationEventFilter = (input: OrganizationEventFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.awsAccountIds != null && { awsAccountIds: se_awsAccountIdsList(input.awsAccountIds, context) }),
-    ...(input.endTime != null && { endTime: se_DateTimeRange(input.endTime, context) }),
-    ...(input.entityArns != null && { entityArns: se_entityArnList(input.entityArns, context) }),
-    ...(input.entityValues != null && { entityValues: se_entityValueList(input.entityValues, context) }),
-    ...(input.eventStatusCodes != null && {
-      eventStatusCodes: se_eventStatusCodeList(input.eventStatusCodes, context),
-    }),
-    ...(input.eventTypeCategories != null && {
-      eventTypeCategories: se_eventTypeCategoryList2(input.eventTypeCategories, context),
-    }),
-    ...(input.eventTypeCodes != null && { eventTypeCodes: se_eventTypeList2(input.eventTypeCodes, context) }),
-    ...(input.lastUpdatedTime != null && { lastUpdatedTime: se_DateTimeRange(input.lastUpdatedTime, context) }),
-    ...(input.regions != null && { regions: se_regionList(input.regions, context) }),
-    ...(input.services != null && { services: se_serviceList(input.services, context) }),
-    ...(input.startTime != null && { startTime: se_DateTimeRange(input.startTime, context) }),
-  };
+  return take(input, {
+    awsAccountIds: _json,
+    endTime: (_) => se_DateTimeRange(_, context),
+    entityArns: _json,
+    entityValues: _json,
+    eventStatusCodes: _json,
+    eventTypeCategories: _json,
+    eventTypeCodes: _json,
+    lastUpdatedTime: (_) => se_DateTimeRange(_, context),
+    regions: _json,
+    services: _json,
+    startTime: (_) => se_DateTimeRange(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1regionList
- */
-const se_regionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_regionList omitted.
 
-/**
- * serializeAws_json1_1serviceList
- */
-const se_serviceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_serviceList omitted.
 
-/**
- * serializeAws_json1_1tagFilter
- */
-const se_tagFilter = (input: Record<string, string>[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_tagSet(entry, context);
-    });
-};
+// se_tagFilter omitted.
 
-/**
- * serializeAws_json1_1tagSet
- */
-const se_tagSet = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_tagSet omitted.
 
-/**
- * deserializeAws_json1_1affectedAccountsList
- */
-const de_affectedAccountsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_affectedAccountsList omitted.
 
 /**
  * deserializeAws_json1_1AffectedEntity
  */
 const de_AffectedEntity = (output: any, context: __SerdeContext): AffectedEntity => {
-  return {
-    awsAccountId: __expectString(output.awsAccountId),
-    entityArn: __expectString(output.entityArn),
-    entityUrl: __expectString(output.entityUrl),
-    entityValue: __expectString(output.entityValue),
-    eventArn: __expectString(output.eventArn),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    statusCode: __expectString(output.statusCode),
-    tags: output.tags != null ? de_tagSet(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    awsAccountId: __expectString,
+    entityArn: __expectString,
+    entityUrl: __expectString,
+    entityValue: __expectString,
+    eventArn: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    statusCode: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
-/**
- * deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse
- */
-const de_DescribeAffectedAccountsForOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeAffectedAccountsForOrganizationResponse => {
-  return {
-    affectedAccounts:
-      output.affectedAccounts != null ? de_affectedAccountsList(output.affectedAccounts, context) : undefined,
-    eventScopeCode: __expectString(output.eventScopeCode),
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_DescribeAffectedAccountsForOrganizationResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet
- */
-const de_DescribeAffectedEntitiesForOrganizationFailedSet = (
-  output: any,
-  context: __SerdeContext
-): OrganizationAffectedEntitiesErrorItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OrganizationAffectedEntitiesErrorItem(entry, context);
-    });
-  return retVal;
-};
+// de_DescribeAffectedEntitiesForOrganizationFailedSet omitted.
 
 /**
  * deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse
@@ -1452,14 +1115,11 @@ const de_DescribeAffectedEntitiesForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAffectedEntitiesForOrganizationResponse => {
-  return {
-    entities: output.entities != null ? de_EntityList(output.entities, context) : undefined,
-    failedSet:
-      output.failedSet != null
-        ? de_DescribeAffectedEntitiesForOrganizationFailedSet(output.failedSet, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    entities: (_: any) => de_EntityList(_, context),
+    failedSet: _json,
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -1469,68 +1129,19 @@ const de_DescribeAffectedEntitiesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAffectedEntitiesResponse => {
-  return {
-    entities: output.entities != null ? de_EntityList(output.entities, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    entities: (_: any) => de_EntityList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeEntityAggregatesResponse
- */
-const de_DescribeEntityAggregatesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEntityAggregatesResponse => {
-  return {
-    entityAggregates:
-      output.entityAggregates != null ? de_EntityAggregateList(output.entityAggregates, context) : undefined,
-  } as any;
-};
+// de_DescribeEntityAggregatesResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeEventAggregatesResponse
- */
-const de_DescribeEventAggregatesResponse = (output: any, context: __SerdeContext): DescribeEventAggregatesResponse => {
-  return {
-    eventAggregates:
-      output.eventAggregates != null ? de_EventAggregateList(output.eventAggregates, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_DescribeEventAggregatesResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeEventDetailsFailedSet
- */
-const de_DescribeEventDetailsFailedSet = (output: any, context: __SerdeContext): EventDetailsErrorItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventDetailsErrorItem(entry, context);
-    });
-  return retVal;
-};
+// de_DescribeEventDetailsFailedSet omitted.
 
-/**
- * deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet
- */
-const de_DescribeEventDetailsForOrganizationFailedSet = (
-  output: any,
-  context: __SerdeContext
-): OrganizationEventDetailsErrorItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OrganizationEventDetailsErrorItem(entry, context);
-    });
-  return retVal;
-};
+// de_DescribeEventDetailsForOrganizationFailedSet omitted.
 
 /**
  * deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse
@@ -1539,14 +1150,10 @@ const de_DescribeEventDetailsForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventDetailsForOrganizationResponse => {
-  return {
-    failedSet:
-      output.failedSet != null ? de_DescribeEventDetailsForOrganizationFailedSet(output.failedSet, context) : undefined,
-    successfulSet:
-      output.successfulSet != null
-        ? de_DescribeEventDetailsForOrganizationSuccessfulSet(output.successfulSet, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    failedSet: _json,
+    successfulSet: (_: any) => de_DescribeEventDetailsForOrganizationSuccessfulSet(_, context),
+  }) as any;
 };
 
 /**
@@ -1559,9 +1166,6 @@ const de_DescribeEventDetailsForOrganizationSuccessfulSet = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrganizationEventDetails(entry, context);
     });
   return retVal;
@@ -1571,11 +1175,10 @@ const de_DescribeEventDetailsForOrganizationSuccessfulSet = (
  * deserializeAws_json1_1DescribeEventDetailsResponse
  */
 const de_DescribeEventDetailsResponse = (output: any, context: __SerdeContext): DescribeEventDetailsResponse => {
-  return {
-    failedSet: output.failedSet != null ? de_DescribeEventDetailsFailedSet(output.failedSet, context) : undefined,
-    successfulSet:
-      output.successfulSet != null ? de_DescribeEventDetailsSuccessfulSet(output.successfulSet, context) : undefined,
-  } as any;
+  return take(output, {
+    failedSet: _json,
+    successfulSet: (_: any) => de_DescribeEventDetailsSuccessfulSet(_, context),
+  }) as any;
 };
 
 /**
@@ -1585,9 +1188,6 @@ const de_DescribeEventDetailsSuccessfulSet = (output: any, context: __SerdeConte
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EventDetails(entry, context);
     });
   return retVal;
@@ -1600,68 +1200,29 @@ const de_DescribeEventsForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventsForOrganizationResponse => {
-  return {
-    events: output.events != null ? de_OrganizationEventList(output.events, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    events: (_: any) => de_OrganizationEventList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeEventsResponse
  */
 const de_DescribeEventsResponse = (output: any, context: __SerdeContext): DescribeEventsResponse => {
-  return {
-    events: output.events != null ? de_EventList(output.events, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    events: (_: any) => de_EventList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeEventTypesResponse
- */
-const de_DescribeEventTypesResponse = (output: any, context: __SerdeContext): DescribeEventTypesResponse => {
-  return {
-    eventTypes: output.eventTypes != null ? de_EventTypeList(output.eventTypes, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_DescribeEventTypesResponse omitted.
 
-/**
- * deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse
- */
-const de_DescribeHealthServiceStatusForOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeHealthServiceStatusForOrganizationResponse => {
-  return {
-    healthServiceAccessStatusForOrganization: __expectString(output.healthServiceAccessStatusForOrganization),
-  } as any;
-};
+// de_DescribeHealthServiceStatusForOrganizationResponse omitted.
 
-/**
- * deserializeAws_json1_1EntityAggregate
- */
-const de_EntityAggregate = (output: any, context: __SerdeContext): EntityAggregate => {
-  return {
-    count: __expectInt32(output.count),
-    eventArn: __expectString(output.eventArn),
-  } as any;
-};
+// de_EntityAggregate omitted.
 
-/**
- * deserializeAws_json1_1EntityAggregateList
- */
-const de_EntityAggregateList = (output: any, context: __SerdeContext): EntityAggregate[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EntityAggregate(entry, context);
-    });
-  return retVal;
-};
+// de_EntityAggregateList omitted.
 
 /**
  * deserializeAws_json1_1EntityList
@@ -1670,9 +1231,6 @@ const de_EntityList = (output: any, context: __SerdeContext): AffectedEntity[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AffectedEntity(entry, context);
     });
   return retVal;
@@ -1682,82 +1240,39 @@ const de_EntityList = (output: any, context: __SerdeContext): AffectedEntity[] =
  * deserializeAws_json1_1Event
  */
 const de_Event = (output: any, context: __SerdeContext): Event => {
-  return {
-    arn: __expectString(output.arn),
-    availabilityZone: __expectString(output.availabilityZone),
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    eventScopeCode: __expectString(output.eventScopeCode),
-    eventTypeCategory: __expectString(output.eventTypeCategory),
-    eventTypeCode: __expectString(output.eventTypeCode),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    region: __expectString(output.region),
-    service: __expectString(output.service),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    statusCode: __expectString(output.statusCode),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    availabilityZone: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    eventScopeCode: __expectString,
+    eventTypeCategory: __expectString,
+    eventTypeCode: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    region: __expectString,
+    service: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    statusCode: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EventAggregate
- */
-const de_EventAggregate = (output: any, context: __SerdeContext): EventAggregate => {
-  return {
-    aggregateValue: __expectString(output.aggregateValue),
-    count: __expectInt32(output.count),
-  } as any;
-};
+// de_EventAggregate omitted.
 
-/**
- * deserializeAws_json1_1EventAggregateList
- */
-const de_EventAggregateList = (output: any, context: __SerdeContext): EventAggregate[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventAggregate(entry, context);
-    });
-  return retVal;
-};
+// de_EventAggregateList omitted.
 
-/**
- * deserializeAws_json1_1EventDescription
- */
-const de_EventDescription = (output: any, context: __SerdeContext): EventDescription => {
-  return {
-    latestDescription: __expectString(output.latestDescription),
-  } as any;
-};
+// de_EventDescription omitted.
 
 /**
  * deserializeAws_json1_1EventDetails
  */
 const de_EventDetails = (output: any, context: __SerdeContext): EventDetails => {
-  return {
-    event: output.event != null ? de_Event(output.event, context) : undefined,
-    eventDescription:
-      output.eventDescription != null ? de_EventDescription(output.eventDescription, context) : undefined,
-    eventMetadata: output.eventMetadata != null ? de_eventMetadata(output.eventMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    event: (_: any) => de_Event(_, context),
+    eventDescription: _json,
+    eventMetadata: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EventDetailsErrorItem
- */
-const de_EventDetailsErrorItem = (output: any, context: __SerdeContext): EventDetailsErrorItem => {
-  return {
-    errorMessage: __expectString(output.errorMessage),
-    errorName: __expectString(output.errorName),
-    eventArn: __expectString(output.eventArn),
-  } as any;
-};
+// de_EventDetailsErrorItem omitted.
 
 /**
  * deserializeAws_json1_1EventList
@@ -1766,127 +1281,52 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Event(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1eventMetadata
- */
-const de_eventMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_eventMetadata omitted.
 
-/**
- * deserializeAws_json1_1EventType
- */
-const de_EventType = (output: any, context: __SerdeContext): EventType => {
-  return {
-    category: __expectString(output.category),
-    code: __expectString(output.code),
-    service: __expectString(output.service),
-  } as any;
-};
+// de_EventType omitted.
 
-/**
- * deserializeAws_json1_1EventTypeList
- */
-const de_EventTypeList = (output: any, context: __SerdeContext): EventType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventType(entry, context);
-    });
-  return retVal;
-};
+// de_EventTypeList omitted.
 
-/**
- * deserializeAws_json1_1InvalidPaginationToken
- */
-const de_InvalidPaginationToken = (output: any, context: __SerdeContext): InvalidPaginationToken => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidPaginationToken omitted.
 
-/**
- * deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem
- */
-const de_OrganizationAffectedEntitiesErrorItem = (
-  output: any,
-  context: __SerdeContext
-): OrganizationAffectedEntitiesErrorItem => {
-  return {
-    awsAccountId: __expectString(output.awsAccountId),
-    errorMessage: __expectString(output.errorMessage),
-    errorName: __expectString(output.errorName),
-    eventArn: __expectString(output.eventArn),
-  } as any;
-};
+// de_OrganizationAffectedEntitiesErrorItem omitted.
 
 /**
  * deserializeAws_json1_1OrganizationEvent
  */
 const de_OrganizationEvent = (output: any, context: __SerdeContext): OrganizationEvent => {
-  return {
-    arn: __expectString(output.arn),
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    eventScopeCode: __expectString(output.eventScopeCode),
-    eventTypeCategory: __expectString(output.eventTypeCategory),
-    eventTypeCode: __expectString(output.eventTypeCode),
-    lastUpdatedTime:
-      output.lastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    region: __expectString(output.region),
-    service: __expectString(output.service),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    statusCode: __expectString(output.statusCode),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    eventScopeCode: __expectString,
+    eventTypeCategory: __expectString,
+    eventTypeCode: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    region: __expectString,
+    service: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    statusCode: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1OrganizationEventDetails
  */
 const de_OrganizationEventDetails = (output: any, context: __SerdeContext): OrganizationEventDetails => {
-  return {
-    awsAccountId: __expectString(output.awsAccountId),
-    event: output.event != null ? de_Event(output.event, context) : undefined,
-    eventDescription:
-      output.eventDescription != null ? de_EventDescription(output.eventDescription, context) : undefined,
-    eventMetadata: output.eventMetadata != null ? de_eventMetadata(output.eventMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    awsAccountId: __expectString,
+    event: (_: any) => de_Event(_, context),
+    eventDescription: _json,
+    eventMetadata: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1OrganizationEventDetailsErrorItem
- */
-const de_OrganizationEventDetailsErrorItem = (
-  output: any,
-  context: __SerdeContext
-): OrganizationEventDetailsErrorItem => {
-  return {
-    awsAccountId: __expectString(output.awsAccountId),
-    errorMessage: __expectString(output.errorMessage),
-    errorName: __expectString(output.errorName),
-    eventArn: __expectString(output.eventArn),
-  } as any;
-};
+// de_OrganizationEventDetailsErrorItem omitted.
 
 /**
  * deserializeAws_json1_1OrganizationEventList
@@ -1895,35 +1335,14 @@ const de_OrganizationEventList = (output: any, context: __SerdeContext): Organiz
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrganizationEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1tagSet
- */
-const de_tagSet = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_tagSet omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedLocale
- */
-const de_UnsupportedLocale = (output: any, context: __SerdeContext): UnsupportedLocale => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedLocale omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1945,6 +1364,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -9,10 +10,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -61,25 +63,14 @@ import {
   AssetInfo,
   AssetLocation,
   CatalogItem,
-  ComputeAttributes,
   ConflictException,
-  ConnectionDetails,
-  EC2Capacity,
-  InstanceTypeItem,
   InternalServerException,
-  LineItem,
-  LineItemAssetInformation,
   LineItemRequest,
-  LineItemStatus,
   NotFoundException,
   Order,
   OrderSummary,
-  Outpost,
   RackPhysicalProperties,
   ServiceQuotaExceededException,
-  ShipmentInformation,
-  Site,
-  SupportedStorageEnum,
   ValidationException,
 } from "../models/models_0";
 import { OutpostsServiceException as __BaseException } from "../models/OutpostsServiceException";
@@ -120,12 +111,14 @@ export const se_CreateOrderCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orders";
   let body: any;
-  body = JSON.stringify({
-    ...(input.LineItems != null && { LineItems: se_LineItemRequestListDefinition(input.LineItems, context) }),
-    ...(input.OutpostIdentifier != null && { OutpostIdentifier: input.OutpostIdentifier }),
-    ...(input.PaymentOption != null && { PaymentOption: input.PaymentOption }),
-    ...(input.PaymentTerm != null && { PaymentTerm: input.PaymentTerm }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LineItems: (_) => _json(_),
+      OutpostIdentifier: [],
+      PaymentOption: [],
+      PaymentTerm: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -150,15 +143,17 @@ export const se_CreateOutpostCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.AvailabilityZoneId != null && { AvailabilityZoneId: input.AvailabilityZoneId }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SiteId != null && { SiteId: input.SiteId }),
-    ...(input.SupportedHardwareType != null && { SupportedHardwareType: input.SupportedHardwareType }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AvailabilityZone: [],
+      AvailabilityZoneId: [],
+      Description: [],
+      Name: [],
+      SiteId: [],
+      SupportedHardwareType: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -183,17 +178,17 @@ export const se_CreateSiteCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Notes != null && { Notes: input.Notes }),
-    ...(input.OperatingAddress != null && { OperatingAddress: se_Address(input.OperatingAddress, context) }),
-    ...(input.RackPhysicalProperties != null && {
-      RackPhysicalProperties: se_RackPhysicalProperties(input.RackPhysicalProperties, context),
-    }),
-    ...(input.ShippingAddress != null && { ShippingAddress: se_Address(input.ShippingAddress, context) }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+      Notes: [],
+      OperatingAddress: (_) => _json(_),
+      RackPhysicalProperties: (_) => _json(_),
+      ShippingAddress: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -663,14 +658,14 @@ export const se_StartConnectionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connections";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AssetId != null && { AssetId: input.AssetId }),
-    ...(input.ClientPublicKey != null && { ClientPublicKey: input.ClientPublicKey }),
-    ...(input.DeviceSerialNumber != null && { DeviceSerialNumber: input.DeviceSerialNumber }),
-    ...(input.NetworkInterfaceDeviceIndex != null && {
-      NetworkInterfaceDeviceIndex: input.NetworkInterfaceDeviceIndex,
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AssetId: [],
+      ClientPublicKey: [],
+      DeviceSerialNumber: [],
+      NetworkInterfaceDeviceIndex: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -696,9 +691,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -754,11 +751,13 @@ export const se_UpdateOutpostCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts/{OutpostId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "OutpostId", () => input.OutpostId!, "{OutpostId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SupportedHardwareType != null && { SupportedHardwareType: input.SupportedHardwareType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+      SupportedHardwareType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -784,11 +783,13 @@ export const se_UpdateSiteCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites/{SiteId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Notes != null && { Notes: input.Notes }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+      Notes: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -814,10 +815,12 @@ export const se_UpdateSiteAddressCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites/{SiteId}/address";
   resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Address != null && { Address: se_Address(input.Address, context) }),
-    ...(input.AddressType != null && { AddressType: input.AddressType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Address: (_) => _json(_),
+      AddressType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -844,17 +847,19 @@ export const se_UpdateSiteRackPhysicalPropertiesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites/{SiteId}/rackPhysicalProperties";
   resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FiberOpticCableType != null && { FiberOpticCableType: input.FiberOpticCableType }),
-    ...(input.MaximumSupportedWeightLbs != null && { MaximumSupportedWeightLbs: input.MaximumSupportedWeightLbs }),
-    ...(input.OpticalStandard != null && { OpticalStandard: input.OpticalStandard }),
-    ...(input.PowerConnector != null && { PowerConnector: input.PowerConnector }),
-    ...(input.PowerDrawKva != null && { PowerDrawKva: input.PowerDrawKva }),
-    ...(input.PowerFeedDrop != null && { PowerFeedDrop: input.PowerFeedDrop }),
-    ...(input.PowerPhase != null && { PowerPhase: input.PowerPhase }),
-    ...(input.UplinkCount != null && { UplinkCount: input.UplinkCount }),
-    ...(input.UplinkGbps != null && { UplinkGbps: input.UplinkGbps }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FiberOpticCableType: [],
+      MaximumSupportedWeightLbs: [],
+      OpticalStandard: [],
+      PowerConnector: [],
+      PowerDrawKva: [],
+      PowerFeedDrop: [],
+      PowerPhase: [],
+      UplinkCount: [],
+      UplinkGbps: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -913,10 +918,9 @@ const de_CancelOrderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -936,9 +940,10 @@ export const de_CreateOrderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Order != null) {
-    contents.Order = de_Order(data.Order, context);
-  }
+  const doc = take(data, {
+    Order: (_) => de_Order(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -975,10 +980,9 @@ const de_CreateOrderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -998,9 +1002,10 @@ export const de_CreateOutpostCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Outpost != null) {
-    contents.Outpost = de_Outpost(data.Outpost, context);
-  }
+  const doc = take(data, {
+    Outpost: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1037,10 +1042,9 @@ const de_CreateOutpostCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1060,9 +1064,10 @@ export const de_CreateSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Site != null) {
-    contents.Site = de_Site(data.Site, context);
-  }
+  const doc = take(data, {
+    Site: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1096,10 +1101,9 @@ const de_CreateSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1152,10 +1156,9 @@ const de_DeleteOutpostCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1208,10 +1211,9 @@ const de_DeleteSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1231,9 +1233,10 @@ export const de_GetCatalogItemCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CatalogItem != null) {
-    contents.CatalogItem = de_CatalogItem(data.CatalogItem, context);
-  }
+  const doc = take(data, {
+    CatalogItem: (_) => de_CatalogItem(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1261,10 +1264,9 @@ const de_GetCatalogItemCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1284,12 +1286,11 @@ export const de_GetConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectionDetails != null) {
-    contents.ConnectionDetails = de_ConnectionDetails(data.ConnectionDetails, context);
-  }
-  if (data.ConnectionId != null) {
-    contents.ConnectionId = __expectString(data.ConnectionId);
-  }
+  const doc = take(data, {
+    ConnectionDetails: _json,
+    ConnectionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1320,10 +1321,9 @@ const de_GetConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1343,9 +1343,10 @@ export const de_GetOrderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Order != null) {
-    contents.Order = de_Order(data.Order, context);
-  }
+  const doc = take(data, {
+    Order: (_) => de_Order(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1373,10 +1374,9 @@ const de_GetOrderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1396,9 +1396,10 @@ export const de_GetOutpostCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Outpost != null) {
-    contents.Outpost = de_Outpost(data.Outpost, context);
-  }
+  const doc = take(data, {
+    Outpost: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1429,10 +1430,9 @@ const de_GetOutpostCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1452,18 +1452,13 @@ export const de_GetOutpostInstanceTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InstanceTypes != null) {
-    contents.InstanceTypes = de_InstanceTypeListDefinition(data.InstanceTypes, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.OutpostArn != null) {
-    contents.OutpostArn = __expectString(data.OutpostArn);
-  }
-  if (data.OutpostId != null) {
-    contents.OutpostId = __expectString(data.OutpostId);
-  }
+  const doc = take(data, {
+    InstanceTypes: _json,
+    NextToken: __expectString,
+    OutpostArn: __expectString,
+    OutpostId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1494,10 +1489,9 @@ const de_GetOutpostInstanceTypesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1517,9 +1511,10 @@ export const de_GetSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Site != null) {
-    contents.Site = de_Site(data.Site, context);
-  }
+  const doc = take(data, {
+    Site: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1550,10 +1545,9 @@ const de_GetSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1573,15 +1567,12 @@ export const de_GetSiteAddressCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Address != null) {
-    contents.Address = de_Address(data.Address, context);
-  }
-  if (data.AddressType != null) {
-    contents.AddressType = __expectString(data.AddressType);
-  }
-  if (data.SiteId != null) {
-    contents.SiteId = __expectString(data.SiteId);
-  }
+  const doc = take(data, {
+    Address: _json,
+    AddressType: __expectString,
+    SiteId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1612,10 +1603,9 @@ const de_GetSiteAddressCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1635,12 +1625,11 @@ export const de_ListAssetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Assets != null) {
-    contents.Assets = de_AssetListDefinition(data.Assets, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Assets: (_) => de_AssetListDefinition(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1671,10 +1660,9 @@ const de_ListAssetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1694,12 +1682,11 @@ export const de_ListCatalogItemsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CatalogItems != null) {
-    contents.CatalogItems = de_CatalogItemListDefinition(data.CatalogItems, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CatalogItems: (_) => de_CatalogItemListDefinition(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1727,10 +1714,9 @@ const de_ListCatalogItemsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1750,12 +1736,11 @@ export const de_ListOrdersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Orders != null) {
-    contents.Orders = de_OrderSummaryListDefinition(data.Orders, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Orders: (_) => de_OrderSummaryListDefinition(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1786,10 +1771,9 @@ const de_ListOrdersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1809,12 +1793,11 @@ export const de_ListOutpostsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Outposts != null) {
-    contents.Outposts = de_outpostListDefinition(data.Outposts, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Outposts: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1842,10 +1825,9 @@ const de_ListOutpostsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1865,12 +1847,11 @@ export const de_ListSitesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Sites != null) {
-    contents.Sites = de_siteListDefinition(data.Sites, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Sites: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1898,10 +1879,9 @@ const de_ListSitesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1921,9 +1901,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1951,10 +1932,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1974,12 +1954,11 @@ export const de_StartConnectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectionId != null) {
-    contents.ConnectionId = __expectString(data.ConnectionId);
-  }
-  if (data.UnderlayIpAddress != null) {
-    contents.UnderlayIpAddress = __expectString(data.UnderlayIpAddress);
-  }
+  const doc = take(data, {
+    ConnectionId: __expectString,
+    UnderlayIpAddress: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2010,10 +1989,9 @@ const de_StartConnectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2060,10 +2038,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2110,10 +2087,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2133,9 +2109,10 @@ export const de_UpdateOutpostCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Outpost != null) {
-    contents.Outpost = de_Outpost(data.Outpost, context);
-  }
+  const doc = take(data, {
+    Outpost: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2169,10 +2146,9 @@ const de_UpdateOutpostCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2192,9 +2168,10 @@ export const de_UpdateSiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Site != null) {
-    contents.Site = de_Site(data.Site, context);
-  }
+  const doc = take(data, {
+    Site: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2228,10 +2205,9 @@ const de_UpdateSiteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2251,12 +2227,11 @@ export const de_UpdateSiteAddressCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Address != null) {
-    contents.Address = de_Address(data.Address, context);
-  }
-  if (data.AddressType != null) {
-    contents.AddressType = __expectString(data.AddressType);
-  }
+  const doc = take(data, {
+    Address: _json,
+    AddressType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2290,10 +2265,9 @@ const de_UpdateSiteAddressCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2313,9 +2287,10 @@ export const de_UpdateSiteRackPhysicalPropertiesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Site != null) {
-    contents.Site = de_Site(data.Site, context);
-  }
+  const doc = take(data, {
+    Site: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2349,16 +2324,15 @@ const de_UpdateSiteRackPhysicalPropertiesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2368,9 +2342,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2384,15 +2359,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2409,9 +2381,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2425,9 +2398,10 @@ const de_InternalServerExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2444,9 +2418,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2460,9 +2435,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2470,107 +2446,29 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1Address
- */
-const se_Address = (input: Address, context: __SerdeContext): any => {
-  return {
-    ...(input.AddressLine1 != null && { AddressLine1: input.AddressLine1 }),
-    ...(input.AddressLine2 != null && { AddressLine2: input.AddressLine2 }),
-    ...(input.AddressLine3 != null && { AddressLine3: input.AddressLine3 }),
-    ...(input.City != null && { City: input.City }),
-    ...(input.ContactName != null && { ContactName: input.ContactName }),
-    ...(input.ContactPhoneNumber != null && { ContactPhoneNumber: input.ContactPhoneNumber }),
-    ...(input.CountryCode != null && { CountryCode: input.CountryCode }),
-    ...(input.DistrictOrCounty != null && { DistrictOrCounty: input.DistrictOrCounty }),
-    ...(input.Municipality != null && { Municipality: input.Municipality }),
-    ...(input.PostalCode != null && { PostalCode: input.PostalCode }),
-    ...(input.StateOrRegion != null && { StateOrRegion: input.StateOrRegion }),
-  };
-};
+// se_Address omitted.
 
-/**
- * serializeAws_restJson1LineItemRequest
- */
-const se_LineItemRequest = (input: LineItemRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogItemId != null && { CatalogItemId: input.CatalogItemId }),
-    ...(input.Quantity != null && { Quantity: input.Quantity }),
-  };
-};
+// se_LineItemRequest omitted.
 
-/**
- * serializeAws_restJson1LineItemRequestListDefinition
- */
-const se_LineItemRequestListDefinition = (input: LineItemRequest[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LineItemRequest(entry, context);
-    });
-};
+// se_LineItemRequestListDefinition omitted.
 
-/**
- * serializeAws_restJson1RackPhysicalProperties
- */
-const se_RackPhysicalProperties = (input: RackPhysicalProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.FiberOpticCableType != null && { FiberOpticCableType: input.FiberOpticCableType }),
-    ...(input.MaximumSupportedWeightLbs != null && { MaximumSupportedWeightLbs: input.MaximumSupportedWeightLbs }),
-    ...(input.OpticalStandard != null && { OpticalStandard: input.OpticalStandard }),
-    ...(input.PowerConnector != null && { PowerConnector: input.PowerConnector }),
-    ...(input.PowerDrawKva != null && { PowerDrawKva: input.PowerDrawKva }),
-    ...(input.PowerFeedDrop != null && { PowerFeedDrop: input.PowerFeedDrop }),
-    ...(input.PowerPhase != null && { PowerPhase: input.PowerPhase }),
-    ...(input.UplinkCount != null && { UplinkCount: input.UplinkCount }),
-    ...(input.UplinkGbps != null && { UplinkGbps: input.UplinkGbps }),
-  };
-};
+// se_RackPhysicalProperties omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * deserializeAws_restJson1Address
- */
-const de_Address = (output: any, context: __SerdeContext): Address => {
-  return {
-    AddressLine1: __expectString(output.AddressLine1),
-    AddressLine2: __expectString(output.AddressLine2),
-    AddressLine3: __expectString(output.AddressLine3),
-    City: __expectString(output.City),
-    ContactName: __expectString(output.ContactName),
-    ContactPhoneNumber: __expectString(output.ContactPhoneNumber),
-    CountryCode: __expectString(output.CountryCode),
-    DistrictOrCounty: __expectString(output.DistrictOrCounty),
-    Municipality: __expectString(output.Municipality),
-    PostalCode: __expectString(output.PostalCode),
-    StateOrRegion: __expectString(output.StateOrRegion),
-  } as any;
-};
+// de_Address omitted.
 
 /**
  * deserializeAws_restJson1AssetInfo
  */
 const de_AssetInfo = (output: any, context: __SerdeContext): AssetInfo => {
-  return {
-    AssetId: __expectString(output.AssetId),
-    AssetLocation: output.AssetLocation != null ? de_AssetLocation(output.AssetLocation, context) : undefined,
-    AssetType: __expectString(output.AssetType),
-    ComputeAttributes:
-      output.ComputeAttributes != null ? de_ComputeAttributes(output.ComputeAttributes, context) : undefined,
-    RackId: __expectString(output.RackId),
-  } as any;
+  return take(output, {
+    AssetId: __expectString,
+    AssetLocation: (_: any) => de_AssetLocation(_, context),
+    AssetType: __expectString,
+    ComputeAttributes: _json,
+    RackId: __expectString,
+  }) as any;
 };
 
 /**
@@ -2580,9 +2478,6 @@ const de_AssetListDefinition = (output: any, context: __SerdeContext): AssetInfo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssetInfo(entry, context);
     });
   return retVal;
@@ -2592,29 +2487,24 @@ const de_AssetListDefinition = (output: any, context: __SerdeContext): AssetInfo
  * deserializeAws_restJson1AssetLocation
  */
 const de_AssetLocation = (output: any, context: __SerdeContext): AssetLocation => {
-  return {
-    RackElevation: __limitedParseFloat32(output.RackElevation),
-  } as any;
+  return take(output, {
+    RackElevation: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CatalogItem
  */
 const de_CatalogItem = (output: any, context: __SerdeContext): CatalogItem => {
-  return {
-    CatalogItemId: __expectString(output.CatalogItemId),
-    EC2Capacities:
-      output.EC2Capacities != null ? de_EC2CapacityListDefinition(output.EC2Capacities, context) : undefined,
-    ItemStatus: __expectString(output.ItemStatus),
-    PowerKva: __limitedParseFloat32(output.PowerKva),
-    SupportedStorage:
-      output.SupportedStorage != null ? de_SupportedStorageList(output.SupportedStorage, context) : undefined,
-    SupportedUplinkGbps:
-      output.SupportedUplinkGbps != null
-        ? de_SupportedUplinkGbpsListDefinition(output.SupportedUplinkGbps, context)
-        : undefined,
-    WeightLbs: __expectInt32(output.WeightLbs),
-  } as any;
+  return take(output, {
+    CatalogItemId: __expectString,
+    EC2Capacities: _json,
+    ItemStatus: __expectString,
+    PowerKva: __limitedParseFloat32,
+    SupportedStorage: _json,
+    SupportedUplinkGbps: _json,
+    WeightLbs: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -2624,236 +2514,67 @@ const de_CatalogItemListDefinition = (output: any, context: __SerdeContext): Cat
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CatalogItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1CIDRList
- */
-const de_CIDRList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CIDRList omitted.
 
-/**
- * deserializeAws_restJson1ComputeAttributes
- */
-const de_ComputeAttributes = (output: any, context: __SerdeContext): ComputeAttributes => {
-  return {
-    HostId: __expectString(output.HostId),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_ComputeAttributes omitted.
 
-/**
- * deserializeAws_restJson1ConnectionDetails
- */
-const de_ConnectionDetails = (output: any, context: __SerdeContext): ConnectionDetails => {
-  return {
-    AllowedIps: output.AllowedIps != null ? de_CIDRList(output.AllowedIps, context) : undefined,
-    ClientPublicKey: __expectString(output.ClientPublicKey),
-    ClientTunnelAddress: __expectString(output.ClientTunnelAddress),
-    ServerEndpoint: __expectString(output.ServerEndpoint),
-    ServerPublicKey: __expectString(output.ServerPublicKey),
-    ServerTunnelAddress: __expectString(output.ServerTunnelAddress),
-  } as any;
-};
+// de_ConnectionDetails omitted.
 
-/**
- * deserializeAws_restJson1EC2Capacity
- */
-const de_EC2Capacity = (output: any, context: __SerdeContext): EC2Capacity => {
-  return {
-    Family: __expectString(output.Family),
-    MaxSize: __expectString(output.MaxSize),
-    Quantity: __expectString(output.Quantity),
-  } as any;
-};
+// de_EC2Capacity omitted.
 
-/**
- * deserializeAws_restJson1EC2CapacityListDefinition
- */
-const de_EC2CapacityListDefinition = (output: any, context: __SerdeContext): EC2Capacity[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EC2Capacity(entry, context);
-    });
-  return retVal;
-};
+// de_EC2CapacityListDefinition omitted.
 
-/**
- * deserializeAws_restJson1InstanceTypeItem
- */
-const de_InstanceTypeItem = (output: any, context: __SerdeContext): InstanceTypeItem => {
-  return {
-    InstanceType: __expectString(output.InstanceType),
-  } as any;
-};
+// de_InstanceTypeItem omitted.
 
-/**
- * deserializeAws_restJson1InstanceTypeListDefinition
- */
-const de_InstanceTypeListDefinition = (output: any, context: __SerdeContext): InstanceTypeItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InstanceTypeItem(entry, context);
-    });
-  return retVal;
-};
+// de_InstanceTypeListDefinition omitted.
 
-/**
- * deserializeAws_restJson1LineItem
- */
-const de_LineItem = (output: any, context: __SerdeContext): LineItem => {
-  return {
-    AssetInformationList:
-      output.AssetInformationList != null
-        ? de_LineItemAssetInformationList(output.AssetInformationList, context)
-        : undefined,
-    CatalogItemId: __expectString(output.CatalogItemId),
-    LineItemId: __expectString(output.LineItemId),
-    PreviousLineItemId: __expectString(output.PreviousLineItemId),
-    PreviousOrderId: __expectString(output.PreviousOrderId),
-    Quantity: __expectInt32(output.Quantity),
-    ShipmentInformation:
-      output.ShipmentInformation != null ? de_ShipmentInformation(output.ShipmentInformation, context) : undefined,
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_LineItem omitted.
 
-/**
- * deserializeAws_restJson1LineItemAssetInformation
- */
-const de_LineItemAssetInformation = (output: any, context: __SerdeContext): LineItemAssetInformation => {
-  return {
-    AssetId: __expectString(output.AssetId),
-    MacAddressList: output.MacAddressList != null ? de_MacAddressList(output.MacAddressList, context) : undefined,
-  } as any;
-};
+// de_LineItemAssetInformation omitted.
 
-/**
- * deserializeAws_restJson1LineItemAssetInformationList
- */
-const de_LineItemAssetInformationList = (output: any, context: __SerdeContext): LineItemAssetInformation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LineItemAssetInformation(entry, context);
-    });
-  return retVal;
-};
+// de_LineItemAssetInformationList omitted.
 
-/**
- * deserializeAws_restJson1LineItemListDefinition
- */
-const de_LineItemListDefinition = (output: any, context: __SerdeContext): LineItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LineItem(entry, context);
-    });
-  return retVal;
-};
+// de_LineItemListDefinition omitted.
 
-/**
- * deserializeAws_restJson1LineItemStatusCounts
- */
-const de_LineItemStatusCounts = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [LineItemStatus | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
+// de_LineItemStatusCounts omitted.
 
-/**
- * deserializeAws_restJson1MacAddressList
- */
-const de_MacAddressList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MacAddressList omitted.
 
 /**
  * deserializeAws_restJson1Order
  */
 const de_Order = (output: any, context: __SerdeContext): Order => {
-  return {
-    LineItems: output.LineItems != null ? de_LineItemListDefinition(output.LineItems, context) : undefined,
-    OrderFulfilledDate:
-      output.OrderFulfilledDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderFulfilledDate)))
-        : undefined,
-    OrderId: __expectString(output.OrderId),
-    OrderSubmissionDate:
-      output.OrderSubmissionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderSubmissionDate)))
-        : undefined,
-    OrderType: __expectString(output.OrderType),
-    OutpostId: __expectString(output.OutpostId),
-    PaymentOption: __expectString(output.PaymentOption),
-    PaymentTerm: __expectString(output.PaymentTerm),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    LineItems: _json,
+    OrderFulfilledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrderId: __expectString,
+    OrderSubmissionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrderType: __expectString,
+    OutpostId: __expectString,
+    PaymentOption: __expectString,
+    PaymentTerm: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1OrderSummary
  */
 const de_OrderSummary = (output: any, context: __SerdeContext): OrderSummary => {
-  return {
-    LineItemCountsByStatus:
-      output.LineItemCountsByStatus != null
-        ? de_LineItemStatusCounts(output.LineItemCountsByStatus, context)
-        : undefined,
-    OrderFulfilledDate:
-      output.OrderFulfilledDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderFulfilledDate)))
-        : undefined,
-    OrderId: __expectString(output.OrderId),
-    OrderSubmissionDate:
-      output.OrderSubmissionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderSubmissionDate)))
-        : undefined,
-    OrderType: __expectString(output.OrderType),
-    OutpostId: __expectString(output.OutpostId),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    LineItemCountsByStatus: _json,
+    OrderFulfilledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrderId: __expectString,
+    OrderSubmissionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrderType: __expectString,
+    OutpostId: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -2863,155 +2584,28 @@ const de_OrderSummaryListDefinition = (output: any, context: __SerdeContext): Or
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_OrderSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Outpost
- */
-const de_Outpost = (output: any, context: __SerdeContext): Outpost => {
-  return {
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    AvailabilityZoneId: __expectString(output.AvailabilityZoneId),
-    Description: __expectString(output.Description),
-    LifeCycleStatus: __expectString(output.LifeCycleStatus),
-    Name: __expectString(output.Name),
-    OutpostArn: __expectString(output.OutpostArn),
-    OutpostId: __expectString(output.OutpostId),
-    OwnerId: __expectString(output.OwnerId),
-    SiteArn: __expectString(output.SiteArn),
-    SiteId: __expectString(output.SiteId),
-    SupportedHardwareType: __expectString(output.SupportedHardwareType),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
-};
+// de_Outpost omitted.
 
-/**
- * deserializeAws_restJson1outpostListDefinition
- */
-const de_outpostListDefinition = (output: any, context: __SerdeContext): Outpost[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Outpost(entry, context);
-    });
-  return retVal;
-};
+// de_outpostListDefinition omitted.
 
-/**
- * deserializeAws_restJson1RackPhysicalProperties
- */
-const de_RackPhysicalProperties = (output: any, context: __SerdeContext): RackPhysicalProperties => {
-  return {
-    FiberOpticCableType: __expectString(output.FiberOpticCableType),
-    MaximumSupportedWeightLbs: __expectString(output.MaximumSupportedWeightLbs),
-    OpticalStandard: __expectString(output.OpticalStandard),
-    PowerConnector: __expectString(output.PowerConnector),
-    PowerDrawKva: __expectString(output.PowerDrawKva),
-    PowerFeedDrop: __expectString(output.PowerFeedDrop),
-    PowerPhase: __expectString(output.PowerPhase),
-    UplinkCount: __expectString(output.UplinkCount),
-    UplinkGbps: __expectString(output.UplinkGbps),
-  } as any;
-};
+// de_RackPhysicalProperties omitted.
 
-/**
- * deserializeAws_restJson1ShipmentInformation
- */
-const de_ShipmentInformation = (output: any, context: __SerdeContext): ShipmentInformation => {
-  return {
-    ShipmentCarrier: __expectString(output.ShipmentCarrier),
-    ShipmentTrackingNumber: __expectString(output.ShipmentTrackingNumber),
-  } as any;
-};
+// de_ShipmentInformation omitted.
 
-/**
- * deserializeAws_restJson1Site
- */
-const de_Site = (output: any, context: __SerdeContext): Site => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Description: __expectString(output.Description),
-    Name: __expectString(output.Name),
-    Notes: __expectString(output.Notes),
-    OperatingAddressCity: __expectString(output.OperatingAddressCity),
-    OperatingAddressCountryCode: __expectString(output.OperatingAddressCountryCode),
-    OperatingAddressStateOrRegion: __expectString(output.OperatingAddressStateOrRegion),
-    RackPhysicalProperties:
-      output.RackPhysicalProperties != null
-        ? de_RackPhysicalProperties(output.RackPhysicalProperties, context)
-        : undefined,
-    SiteArn: __expectString(output.SiteArn),
-    SiteId: __expectString(output.SiteId),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
-};
+// de_Site omitted.
 
-/**
- * deserializeAws_restJson1siteListDefinition
- */
-const de_siteListDefinition = (output: any, context: __SerdeContext): Site[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Site(entry, context);
-    });
-  return retVal;
-};
+// de_siteListDefinition omitted.
 
-/**
- * deserializeAws_restJson1SupportedStorageList
- */
-const de_SupportedStorageList = (output: any, context: __SerdeContext): (SupportedStorageEnum | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SupportedStorageList omitted.
 
-/**
- * deserializeAws_restJson1SupportedUplinkGbpsListDefinition
- */
-const de_SupportedUplinkGbpsListDefinition = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_SupportedUplinkGbpsListDefinition omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

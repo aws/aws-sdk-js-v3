@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -10,10 +10,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -104,17 +105,14 @@ import {
   AlertFilters,
   AlertSummary,
   AnomalyDetectorConfig,
-  AnomalyDetectorConfigSummary,
   AnomalyDetectorDataQualityMetric,
   AnomalyDetectorSummary,
   AnomalyGroup,
-  AnomalyGroupStatistics,
   AnomalyGroupSummary,
   AnomalyGroupTimeSeries,
   AnomalyGroupTimeSeriesFeedback,
   AppFlowConfig,
   AthenaSourceConfig,
-  AttributeValue,
   AutoDetectionMetricSource,
   AutoDetectionS3SourceConfig,
   BackTestConfiguration,
@@ -123,23 +121,13 @@ import {
   ContributionMatrix,
   CsvFormatDescriptor,
   DataQualityMetric,
-  DetectedCsvFormatDescriptor,
-  DetectedField,
-  DetectedFileFormatDescriptor,
-  DetectedJsonFormatDescriptor,
-  DetectedMetricSetConfig,
-  DetectedMetricSource,
-  DetectedS3SourceConfig,
   DimensionContribution,
   DimensionFilter,
-  DimensionNameValue,
   DimensionValueContribution,
-  ExecutionStatus,
   FileFormatDescriptor,
   Filter,
   InterMetricImpactDetails,
   InternalServerException,
-  ItemizedMetricStats,
   JsonFormatDescriptor,
   LambdaConfiguration,
   Metric,
@@ -156,11 +144,9 @@ import {
   ServiceQuotaExceededException,
   SNSConfiguration,
   TimeSeries,
-  TimeSeriesFeedback,
   TimestampColumn,
   TooManyRequestsException,
   ValidationException,
-  ValidationExceptionField,
   VpcConfiguration,
 } from "../models/models_0";
 
@@ -178,9 +164,11 @@ export const se_ActivateAnomalyDetectorCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ActivateAnomalyDetector";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -206,9 +194,11 @@ export const se_BackTestAnomalyDetectorCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BackTestAnomalyDetector";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -233,15 +223,17 @@ export const se_CreateAlertCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateAlert";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Action != null && { Action: se_Action(input.Action, context) }),
-    ...(input.AlertDescription != null && { AlertDescription: input.AlertDescription }),
-    ...(input.AlertFilters != null && { AlertFilters: se_AlertFilters(input.AlertFilters, context) }),
-    ...(input.AlertName != null && { AlertName: input.AlertName }),
-    ...(input.AlertSensitivityThreshold != null && { AlertSensitivityThreshold: input.AlertSensitivityThreshold }),
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Action: (_) => _json(_),
+      AlertDescription: [],
+      AlertFilters: (_) => _json(_),
+      AlertName: [],
+      AlertSensitivityThreshold: [],
+      AnomalyDetectorArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -266,15 +258,15 @@ export const se_CreateAnomalyDetectorCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateAnomalyDetector";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorConfig != null && {
-      AnomalyDetectorConfig: se_AnomalyDetectorConfig(input.AnomalyDetectorConfig, context),
-    }),
-    ...(input.AnomalyDetectorDescription != null && { AnomalyDetectorDescription: input.AnomalyDetectorDescription }),
-    ...(input.AnomalyDetectorName != null && { AnomalyDetectorName: input.AnomalyDetectorName }),
-    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorConfig: (_) => _json(_),
+      AnomalyDetectorDescription: [],
+      AnomalyDetectorName: [],
+      KmsKeyArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -299,22 +291,22 @@ export const se_CreateMetricSetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateMetricSet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.DimensionFilterList != null && {
-      DimensionFilterList: se_MetricSetDimensionFilterList(input.DimensionFilterList, context),
-    }),
-    ...(input.DimensionList != null && { DimensionList: se_DimensionList(input.DimensionList, context) }),
-    ...(input.MetricList != null && { MetricList: se_MetricList(input.MetricList, context) }),
-    ...(input.MetricSetDescription != null && { MetricSetDescription: input.MetricSetDescription }),
-    ...(input.MetricSetFrequency != null && { MetricSetFrequency: input.MetricSetFrequency }),
-    ...(input.MetricSetName != null && { MetricSetName: input.MetricSetName }),
-    ...(input.MetricSource != null && { MetricSource: se_MetricSource(input.MetricSource, context) }),
-    ...(input.Offset != null && { Offset: input.Offset }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.TimestampColumn != null && { TimestampColumn: se_TimestampColumn(input.TimestampColumn, context) }),
-    ...(input.Timezone != null && { Timezone: input.Timezone }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      DimensionFilterList: (_) => _json(_),
+      DimensionList: (_) => _json(_),
+      MetricList: (_) => _json(_),
+      MetricSetDescription: [],
+      MetricSetFrequency: [],
+      MetricSetName: [],
+      MetricSource: (_) => _json(_),
+      Offset: [],
+      Tags: (_) => _json(_),
+      TimestampColumn: (_) => _json(_),
+      Timezone: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -340,9 +332,11 @@ export const se_DeactivateAnomalyDetectorCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeactivateAnomalyDetector";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -367,9 +361,11 @@ export const se_DeleteAlertCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteAlert";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AlertArn != null && { AlertArn: input.AlertArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AlertArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -394,9 +390,11 @@ export const se_DeleteAnomalyDetectorCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteAnomalyDetector";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -421,9 +419,11 @@ export const se_DescribeAlertCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeAlert";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AlertArn != null && { AlertArn: input.AlertArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AlertArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -449,12 +449,14 @@ export const se_DescribeAnomalyDetectionExecutionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeAnomalyDetectionExecutions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Timestamp != null && { Timestamp: input.Timestamp }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      MaxResults: [],
+      NextToken: [],
+      Timestamp: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -480,9 +482,11 @@ export const se_DescribeAnomalyDetectorCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeAnomalyDetector";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -507,9 +511,11 @@ export const se_DescribeMetricSetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeMetricSet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MetricSetArn != null && { MetricSetArn: input.MetricSetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MetricSetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -534,12 +540,12 @@ export const se_DetectMetricSetConfigCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DetectMetricSetConfig";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.AutoDetectionMetricSource != null && {
-      AutoDetectionMetricSource: se_AutoDetectionMetricSource(input.AutoDetectionMetricSource, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      AutoDetectionMetricSource: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -564,10 +570,12 @@ export const se_GetAnomalyGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetAnomalyGroup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.AnomalyGroupId != null && { AnomalyGroupId: input.AnomalyGroupId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      AnomalyGroupId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -592,10 +600,12 @@ export const se_GetDataQualityMetricsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDataQualityMetrics";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.MetricSetArn != null && { MetricSetArn: input.MetricSetArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      MetricSetArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -620,14 +630,14 @@ export const se_GetFeedbackCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetFeedback";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.AnomalyGroupTimeSeriesFeedback != null && {
-      AnomalyGroupTimeSeriesFeedback: se_AnomalyGroupTimeSeries(input.AnomalyGroupTimeSeriesFeedback, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      AnomalyGroupTimeSeriesFeedback: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -652,9 +662,11 @@ export const se_GetSampleDataCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetSampleData";
   let body: any;
-  body = JSON.stringify({
-    ...(input.S3SourceConfig != null && { S3SourceConfig: se_SampleDataS3SourceConfig(input.S3SourceConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      S3SourceConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -679,11 +691,13 @@ export const se_ListAlertsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListAlerts";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -708,10 +722,12 @@ export const se_ListAnomalyDetectorsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListAnomalyDetectors";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -737,13 +753,15 @@ export const se_ListAnomalyGroupRelatedMetricsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListAnomalyGroupRelatedMetrics";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.AnomalyGroupId != null && { AnomalyGroupId: input.AnomalyGroupId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RelationshipTypeFilter != null && { RelationshipTypeFilter: input.RelationshipTypeFilter }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      AnomalyGroupId: [],
+      MaxResults: [],
+      NextToken: [],
+      RelationshipTypeFilter: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -769,12 +787,14 @@ export const se_ListAnomalyGroupSummariesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListAnomalyGroupSummaries";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SensitivityThreshold != null && { SensitivityThreshold: input.SensitivityThreshold }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      MaxResults: [],
+      NextToken: [],
+      SensitivityThreshold: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -800,13 +820,15 @@ export const se_ListAnomalyGroupTimeSeriesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListAnomalyGroupTimeSeries";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.AnomalyGroupId != null && { AnomalyGroupId: input.AnomalyGroupId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      AnomalyGroupId: [],
+      MaxResults: [],
+      MetricName: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -831,11 +853,13 @@ export const se_ListMetricSetsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListMetricSets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -883,12 +907,12 @@ export const se_PutFeedbackCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutFeedback";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.AnomalyGroupTimeSeriesFeedback != null && {
-      AnomalyGroupTimeSeriesFeedback: se_AnomalyGroupTimeSeriesFeedback(input.AnomalyGroupTimeSeriesFeedback, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      AnomalyGroupTimeSeriesFeedback: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -914,9 +938,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -971,13 +997,15 @@ export const se_UpdateAlertCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateAlert";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Action != null && { Action: se_Action(input.Action, context) }),
-    ...(input.AlertArn != null && { AlertArn: input.AlertArn }),
-    ...(input.AlertDescription != null && { AlertDescription: input.AlertDescription }),
-    ...(input.AlertFilters != null && { AlertFilters: se_AlertFilters(input.AlertFilters, context) }),
-    ...(input.AlertSensitivityThreshold != null && { AlertSensitivityThreshold: input.AlertSensitivityThreshold }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Action: (_) => _json(_),
+      AlertArn: [],
+      AlertDescription: [],
+      AlertFilters: (_) => _json(_),
+      AlertSensitivityThreshold: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1002,14 +1030,14 @@ export const se_UpdateAnomalyDetectorCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateAnomalyDetector";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
-    ...(input.AnomalyDetectorConfig != null && {
-      AnomalyDetectorConfig: se_AnomalyDetectorConfig(input.AnomalyDetectorConfig, context),
-    }),
-    ...(input.AnomalyDetectorDescription != null && { AnomalyDetectorDescription: input.AnomalyDetectorDescription }),
-    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AnomalyDetectorArn: [],
+      AnomalyDetectorConfig: (_) => _json(_),
+      AnomalyDetectorDescription: [],
+      KmsKeyArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1034,19 +1062,19 @@ export const se_UpdateMetricSetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateMetricSet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DimensionFilterList != null && {
-      DimensionFilterList: se_MetricSetDimensionFilterList(input.DimensionFilterList, context),
-    }),
-    ...(input.DimensionList != null && { DimensionList: se_DimensionList(input.DimensionList, context) }),
-    ...(input.MetricList != null && { MetricList: se_MetricList(input.MetricList, context) }),
-    ...(input.MetricSetArn != null && { MetricSetArn: input.MetricSetArn }),
-    ...(input.MetricSetDescription != null && { MetricSetDescription: input.MetricSetDescription }),
-    ...(input.MetricSetFrequency != null && { MetricSetFrequency: input.MetricSetFrequency }),
-    ...(input.MetricSource != null && { MetricSource: se_MetricSource(input.MetricSource, context) }),
-    ...(input.Offset != null && { Offset: input.Offset }),
-    ...(input.TimestampColumn != null && { TimestampColumn: se_TimestampColumn(input.TimestampColumn, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DimensionFilterList: (_) => _json(_),
+      DimensionList: (_) => _json(_),
+      MetricList: (_) => _json(_),
+      MetricSetArn: [],
+      MetricSetDescription: [],
+      MetricSetFrequency: [],
+      MetricSource: (_) => _json(_),
+      Offset: [],
+      TimestampColumn: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1108,10 +1136,9 @@ const de_ActivateAnomalyDetectorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1164,10 +1191,9 @@ const de_BackTestAnomalyDetectorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1187,9 +1213,10 @@ export const de_CreateAlertCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AlertArn != null) {
-    contents.AlertArn = __expectString(data.AlertArn);
-  }
+  const doc = take(data, {
+    AlertArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1229,10 +1256,9 @@ const de_CreateAlertCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1252,9 +1278,10 @@ export const de_CreateAnomalyDetectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyDetectorArn != null) {
-    contents.AnomalyDetectorArn = __expectString(data.AnomalyDetectorArn);
-  }
+  const doc = take(data, {
+    AnomalyDetectorArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1291,10 +1318,9 @@ const de_CreateAnomalyDetectorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1314,9 +1340,10 @@ export const de_CreateMetricSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MetricSetArn != null) {
-    contents.MetricSetArn = __expectString(data.MetricSetArn);
-  }
+  const doc = take(data, {
+    MetricSetArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1356,10 +1383,9 @@ const de_CreateMetricSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1415,10 +1441,9 @@ const de_DeactivateAnomalyDetectorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1471,10 +1496,9 @@ const de_DeleteAlertCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1530,10 +1554,9 @@ const de_DeleteAnomalyDetectorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1553,9 +1576,10 @@ export const de_DescribeAlertCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Alert != null) {
-    contents.Alert = de_Alert(data.Alert, context);
-  }
+  const doc = take(data, {
+    Alert: (_) => de_Alert(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1589,10 +1613,9 @@ const de_DescribeAlertCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1612,12 +1635,11 @@ export const de_DescribeAnomalyDetectionExecutionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ExecutionList != null) {
-    contents.ExecutionList = de_ExecutionList(data.ExecutionList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ExecutionList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1651,10 +1673,9 @@ const de_DescribeAnomalyDetectionExecutionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1674,36 +1695,19 @@ export const de_DescribeAnomalyDetectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyDetectorArn != null) {
-    contents.AnomalyDetectorArn = __expectString(data.AnomalyDetectorArn);
-  }
-  if (data.AnomalyDetectorConfig != null) {
-    contents.AnomalyDetectorConfig = de_AnomalyDetectorConfigSummary(data.AnomalyDetectorConfig, context);
-  }
-  if (data.AnomalyDetectorDescription != null) {
-    contents.AnomalyDetectorDescription = __expectString(data.AnomalyDetectorDescription);
-  }
-  if (data.AnomalyDetectorName != null) {
-    contents.AnomalyDetectorName = __expectString(data.AnomalyDetectorName);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.FailureReason != null) {
-    contents.FailureReason = __expectString(data.FailureReason);
-  }
-  if (data.FailureType != null) {
-    contents.FailureType = __expectString(data.FailureType);
-  }
-  if (data.KmsKeyArn != null) {
-    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
-  }
-  if (data.LastModificationTime != null) {
-    contents.LastModificationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModificationTime)));
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    AnomalyDetectorArn: __expectString,
+    AnomalyDetectorConfig: _json,
+    AnomalyDetectorDescription: __expectString,
+    AnomalyDetectorName: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    FailureType: __expectString,
+    KmsKeyArn: __expectString,
+    LastModificationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1737,10 +1741,9 @@ const de_DescribeAnomalyDetectorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1760,48 +1763,23 @@ export const de_DescribeMetricSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyDetectorArn != null) {
-    contents.AnomalyDetectorArn = __expectString(data.AnomalyDetectorArn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DimensionFilterList != null) {
-    contents.DimensionFilterList = de_MetricSetDimensionFilterList(data.DimensionFilterList, context);
-  }
-  if (data.DimensionList != null) {
-    contents.DimensionList = de_DimensionList(data.DimensionList, context);
-  }
-  if (data.LastModificationTime != null) {
-    contents.LastModificationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModificationTime)));
-  }
-  if (data.MetricList != null) {
-    contents.MetricList = de_MetricList(data.MetricList, context);
-  }
-  if (data.MetricSetArn != null) {
-    contents.MetricSetArn = __expectString(data.MetricSetArn);
-  }
-  if (data.MetricSetDescription != null) {
-    contents.MetricSetDescription = __expectString(data.MetricSetDescription);
-  }
-  if (data.MetricSetFrequency != null) {
-    contents.MetricSetFrequency = __expectString(data.MetricSetFrequency);
-  }
-  if (data.MetricSetName != null) {
-    contents.MetricSetName = __expectString(data.MetricSetName);
-  }
-  if (data.MetricSource != null) {
-    contents.MetricSource = de_MetricSource(data.MetricSource, context);
-  }
-  if (data.Offset != null) {
-    contents.Offset = __expectInt32(data.Offset);
-  }
-  if (data.TimestampColumn != null) {
-    contents.TimestampColumn = de_TimestampColumn(data.TimestampColumn, context);
-  }
-  if (data.Timezone != null) {
-    contents.Timezone = __expectString(data.Timezone);
-  }
+  const doc = take(data, {
+    AnomalyDetectorArn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DimensionFilterList: _json,
+    DimensionList: _json,
+    LastModificationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MetricList: _json,
+    MetricSetArn: __expectString,
+    MetricSetDescription: __expectString,
+    MetricSetFrequency: __expectString,
+    MetricSetName: __expectString,
+    MetricSource: _json,
+    Offset: __expectInt32,
+    TimestampColumn: _json,
+    Timezone: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1835,10 +1813,9 @@ const de_DescribeMetricSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1858,9 +1835,10 @@ export const de_DetectMetricSetConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DetectedMetricSetConfig != null) {
-    contents.DetectedMetricSetConfig = de_DetectedMetricSetConfig(data.DetectedMetricSetConfig, context);
-  }
+  const doc = take(data, {
+    DetectedMetricSetConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1894,10 +1872,9 @@ const de_DetectMetricSetConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1917,9 +1894,10 @@ export const de_GetAnomalyGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyGroup != null) {
-    contents.AnomalyGroup = de_AnomalyGroup(data.AnomalyGroup, context);
-  }
+  const doc = take(data, {
+    AnomalyGroup: (_) => de_AnomalyGroup(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1953,10 +1931,9 @@ const de_GetAnomalyGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1976,12 +1953,10 @@ export const de_GetDataQualityMetricsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyDetectorDataQualityMetricList != null) {
-    contents.AnomalyDetectorDataQualityMetricList = de_AnomalyDetectorDataQualityMetricList(
-      data.AnomalyDetectorDataQualityMetricList,
-      context
-    );
-  }
+  const doc = take(data, {
+    AnomalyDetectorDataQualityMetricList: (_) => de_AnomalyDetectorDataQualityMetricList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2015,10 +1990,9 @@ const de_GetDataQualityMetricsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2038,12 +2012,11 @@ export const de_GetFeedbackCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyGroupTimeSeriesFeedback != null) {
-    contents.AnomalyGroupTimeSeriesFeedback = de_TimeSeriesFeedbackList(data.AnomalyGroupTimeSeriesFeedback, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AnomalyGroupTimeSeriesFeedback: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2077,10 +2050,9 @@ const de_GetFeedbackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2100,12 +2072,11 @@ export const de_GetSampleDataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HeaderValues != null) {
-    contents.HeaderValues = de_HeaderValueList(data.HeaderValues, context);
-  }
-  if (data.SampleRows != null) {
-    contents.SampleRows = de_SampleRows(data.SampleRows, context);
-  }
+  const doc = take(data, {
+    HeaderValues: _json,
+    SampleRows: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2139,10 +2110,9 @@ const de_GetSampleDataCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2162,12 +2132,11 @@ export const de_ListAlertsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AlertSummaryList != null) {
-    contents.AlertSummaryList = de_AlertSummaryList(data.AlertSummaryList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AlertSummaryList: (_) => de_AlertSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2201,10 +2170,9 @@ const de_ListAlertsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2224,12 +2192,11 @@ export const de_ListAnomalyDetectorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyDetectorSummaryList != null) {
-    contents.AnomalyDetectorSummaryList = de_AnomalyDetectorSummaryList(data.AnomalyDetectorSummaryList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AnomalyDetectorSummaryList: (_) => de_AnomalyDetectorSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2263,10 +2230,9 @@ const de_ListAnomalyDetectorsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2286,12 +2252,11 @@ export const de_ListAnomalyGroupRelatedMetricsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InterMetricImpactList != null) {
-    contents.InterMetricImpactList = de_InterMetricImpactList(data.InterMetricImpactList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    InterMetricImpactList: (_) => de_InterMetricImpactList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2325,10 +2290,9 @@ const de_ListAnomalyGroupRelatedMetricsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2348,15 +2312,12 @@ export const de_ListAnomalyGroupSummariesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyGroupStatistics != null) {
-    contents.AnomalyGroupStatistics = de_AnomalyGroupStatistics(data.AnomalyGroupStatistics, context);
-  }
-  if (data.AnomalyGroupSummaryList != null) {
-    contents.AnomalyGroupSummaryList = de_AnomalyGroupSummaryList(data.AnomalyGroupSummaryList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AnomalyGroupStatistics: _json,
+    AnomalyGroupSummaryList: (_) => de_AnomalyGroupSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2390,10 +2351,9 @@ const de_ListAnomalyGroupSummariesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2413,21 +2373,14 @@ export const de_ListAnomalyGroupTimeSeriesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyGroupId != null) {
-    contents.AnomalyGroupId = __expectString(data.AnomalyGroupId);
-  }
-  if (data.MetricName != null) {
-    contents.MetricName = __expectString(data.MetricName);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.TimeSeriesList != null) {
-    contents.TimeSeriesList = de_TimeSeriesList(data.TimeSeriesList, context);
-  }
-  if (data.TimestampList != null) {
-    contents.TimestampList = de_TimestampList(data.TimestampList, context);
-  }
+  const doc = take(data, {
+    AnomalyGroupId: __expectString,
+    MetricName: __expectString,
+    NextToken: __expectString,
+    TimeSeriesList: (_) => de_TimeSeriesList(_, context),
+    TimestampList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2461,10 +2414,9 @@ const de_ListAnomalyGroupTimeSeriesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2484,12 +2436,11 @@ export const de_ListMetricSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MetricSetSummaryList != null) {
-    contents.MetricSetSummaryList = de_MetricSetSummaryList(data.MetricSetSummaryList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MetricSetSummaryList: (_) => de_MetricSetSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2523,10 +2474,9 @@ const de_ListMetricSetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2546,9 +2496,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `Tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2576,10 +2527,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2632,10 +2582,9 @@ const de_PutFeedbackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2682,10 +2631,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2732,10 +2680,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2755,9 +2702,10 @@ export const de_UpdateAlertCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AlertArn != null) {
-    contents.AlertArn = __expectString(data.AlertArn);
-  }
+  const doc = take(data, {
+    AlertArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2791,10 +2739,9 @@ const de_UpdateAlertCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2814,9 +2761,10 @@ export const de_UpdateAnomalyDetectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalyDetectorArn != null) {
-    contents.AnomalyDetectorArn = __expectString(data.AnomalyDetectorArn);
-  }
+  const doc = take(data, {
+    AnomalyDetectorArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2850,10 +2798,9 @@ const de_UpdateAnomalyDetectorCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2873,9 +2820,10 @@ export const de_UpdateMetricSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MetricSetArn != null) {
-    contents.MetricSetArn = __expectString(data.MetricSetArn);
-  }
+  const doc = take(data, {
+    MetricSetArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2912,16 +2860,15 @@ const de_UpdateMetricSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2931,9 +2878,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2947,15 +2895,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2972,9 +2917,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2991,15 +2937,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3016,21 +2959,14 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.QuotaCode != null) {
-    contents.QuotaCode = __expectString(data.QuotaCode);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.ServiceCode != null) {
-    contents.ServiceCode = __expectString(data.ServiceCode);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    QuotaCode: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+    ServiceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3047,9 +2983,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3063,15 +3000,12 @@ const de_TooManyRequestsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Fields != null) {
-    contents.Fields = de_ValidationExceptionFieldList(data.Fields, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Fields: _json,
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3079,557 +3013,124 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1Action
- */
-const se_Action = (input: Action, context: __SerdeContext): any => {
-  return {
-    ...(input.LambdaConfiguration != null && {
-      LambdaConfiguration: se_LambdaConfiguration(input.LambdaConfiguration, context),
-    }),
-    ...(input.SNSConfiguration != null && { SNSConfiguration: se_SNSConfiguration(input.SNSConfiguration, context) }),
-  };
-};
+// se_Action omitted.
 
-/**
- * serializeAws_restJson1AlertFilters
- */
-const se_AlertFilters = (input: AlertFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.DimensionFilterList != null && {
-      DimensionFilterList: se_DimensionFilterList(input.DimensionFilterList, context),
-    }),
-    ...(input.MetricList != null && { MetricList: se_MetricNameList(input.MetricList, context) }),
-  };
-};
+// se_AlertFilters omitted.
 
-/**
- * serializeAws_restJson1AnomalyDetectorConfig
- */
-const se_AnomalyDetectorConfig = (input: AnomalyDetectorConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AnomalyDetectorFrequency != null && { AnomalyDetectorFrequency: input.AnomalyDetectorFrequency }),
-  };
-};
+// se_AnomalyDetectorConfig omitted.
 
-/**
- * serializeAws_restJson1AnomalyGroupTimeSeries
- */
-const se_AnomalyGroupTimeSeries = (input: AnomalyGroupTimeSeries, context: __SerdeContext): any => {
-  return {
-    ...(input.AnomalyGroupId != null && { AnomalyGroupId: input.AnomalyGroupId }),
-    ...(input.TimeSeriesId != null && { TimeSeriesId: input.TimeSeriesId }),
-  };
-};
+// se_AnomalyGroupTimeSeries omitted.
 
-/**
- * serializeAws_restJson1AnomalyGroupTimeSeriesFeedback
- */
-const se_AnomalyGroupTimeSeriesFeedback = (input: AnomalyGroupTimeSeriesFeedback, context: __SerdeContext): any => {
-  return {
-    ...(input.AnomalyGroupId != null && { AnomalyGroupId: input.AnomalyGroupId }),
-    ...(input.IsAnomaly != null && { IsAnomaly: input.IsAnomaly }),
-    ...(input.TimeSeriesId != null && { TimeSeriesId: input.TimeSeriesId }),
-  };
-};
+// se_AnomalyGroupTimeSeriesFeedback omitted.
 
-/**
- * serializeAws_restJson1AppFlowConfig
- */
-const se_AppFlowConfig = (input: AppFlowConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.FlowName != null && { FlowName: input.FlowName }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  };
-};
+// se_AppFlowConfig omitted.
 
-/**
- * serializeAws_restJson1AthenaSourceConfig
- */
-const se_AthenaSourceConfig = (input: AthenaSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.BackTestConfiguration != null && {
-      BackTestConfiguration: se_BackTestConfiguration(input.BackTestConfiguration, context),
-    }),
-    ...(input.DataCatalog != null && { DataCatalog: input.DataCatalog }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.S3ResultsPath != null && { S3ResultsPath: input.S3ResultsPath }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-    ...(input.WorkGroupName != null && { WorkGroupName: input.WorkGroupName }),
-  };
-};
+// se_AthenaSourceConfig omitted.
 
-/**
- * serializeAws_restJson1AutoDetectionMetricSource
- */
-const se_AutoDetectionMetricSource = (input: AutoDetectionMetricSource, context: __SerdeContext): any => {
-  return {
-    ...(input.S3SourceConfig != null && {
-      S3SourceConfig: se_AutoDetectionS3SourceConfig(input.S3SourceConfig, context),
-    }),
-  };
-};
+// se_AutoDetectionMetricSource omitted.
 
-/**
- * serializeAws_restJson1AutoDetectionS3SourceConfig
- */
-const se_AutoDetectionS3SourceConfig = (input: AutoDetectionS3SourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.HistoricalDataPathList != null && {
-      HistoricalDataPathList: se_HistoricalDataPathList(input.HistoricalDataPathList, context),
-    }),
-    ...(input.TemplatedPathList != null && {
-      TemplatedPathList: se_TemplatedPathList(input.TemplatedPathList, context),
-    }),
-  };
-};
+// se_AutoDetectionS3SourceConfig omitted.
 
-/**
- * serializeAws_restJson1BackTestConfiguration
- */
-const se_BackTestConfiguration = (input: BackTestConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.RunBackTestMode != null && { RunBackTestMode: input.RunBackTestMode }),
-  };
-};
+// se_BackTestConfiguration omitted.
 
-/**
- * serializeAws_restJson1CloudWatchConfig
- */
-const se_CloudWatchConfig = (input: CloudWatchConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.BackTestConfiguration != null && {
-      BackTestConfiguration: se_BackTestConfiguration(input.BackTestConfiguration, context),
-    }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  };
-};
+// se_CloudWatchConfig omitted.
 
-/**
- * serializeAws_restJson1CsvFormatDescriptor
- */
-const se_CsvFormatDescriptor = (input: CsvFormatDescriptor, context: __SerdeContext): any => {
-  return {
-    ...(input.Charset != null && { Charset: input.Charset }),
-    ...(input.ContainsHeader != null && { ContainsHeader: input.ContainsHeader }),
-    ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
-    ...(input.FileCompression != null && { FileCompression: input.FileCompression }),
-    ...(input.HeaderList != null && { HeaderList: se_HeaderList(input.HeaderList, context) }),
-    ...(input.QuoteSymbol != null && { QuoteSymbol: input.QuoteSymbol }),
-  };
-};
+// se_CsvFormatDescriptor omitted.
 
-/**
- * serializeAws_restJson1DimensionFilter
- */
-const se_DimensionFilter = (input: DimensionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.DimensionName != null && { DimensionName: input.DimensionName }),
-    ...(input.DimensionValueList != null && {
-      DimensionValueList: se_DimensionValueList(input.DimensionValueList, context),
-    }),
-  };
-};
+// se_DimensionFilter omitted.
 
-/**
- * serializeAws_restJson1DimensionFilterList
- */
-const se_DimensionFilterList = (input: DimensionFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DimensionFilter(entry, context);
-    });
-};
+// se_DimensionFilterList omitted.
 
-/**
- * serializeAws_restJson1DimensionList
- */
-const se_DimensionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DimensionList omitted.
 
-/**
- * serializeAws_restJson1DimensionValueList
- */
-const se_DimensionValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DimensionValueList omitted.
 
-/**
- * serializeAws_restJson1FileFormatDescriptor
- */
-const se_FileFormatDescriptor = (input: FileFormatDescriptor, context: __SerdeContext): any => {
-  return {
-    ...(input.CsvFormatDescriptor != null && {
-      CsvFormatDescriptor: se_CsvFormatDescriptor(input.CsvFormatDescriptor, context),
-    }),
-    ...(input.JsonFormatDescriptor != null && {
-      JsonFormatDescriptor: se_JsonFormatDescriptor(input.JsonFormatDescriptor, context),
-    }),
-  };
-};
+// se_FileFormatDescriptor omitted.
 
-/**
- * serializeAws_restJson1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.DimensionValue != null && { DimensionValue: input.DimensionValue }),
-    ...(input.FilterOperation != null && { FilterOperation: input.FilterOperation }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_restJson1FilterList
- */
-const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_FilterList omitted.
 
-/**
- * serializeAws_restJson1HeaderList
- */
-const se_HeaderList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_HeaderList omitted.
 
-/**
- * serializeAws_restJson1HistoricalDataPathList
- */
-const se_HistoricalDataPathList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_HistoricalDataPathList omitted.
 
-/**
- * serializeAws_restJson1JsonFormatDescriptor
- */
-const se_JsonFormatDescriptor = (input: JsonFormatDescriptor, context: __SerdeContext): any => {
-  return {
-    ...(input.Charset != null && { Charset: input.Charset }),
-    ...(input.FileCompression != null && { FileCompression: input.FileCompression }),
-  };
-};
+// se_JsonFormatDescriptor omitted.
 
-/**
- * serializeAws_restJson1LambdaConfiguration
- */
-const se_LambdaConfiguration = (input: LambdaConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.LambdaArn != null && { LambdaArn: input.LambdaArn }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  };
-};
+// se_LambdaConfiguration omitted.
 
-/**
- * serializeAws_restJson1Metric
- */
-const se_Metric = (input: Metric, context: __SerdeContext): any => {
-  return {
-    ...(input.AggregationFunction != null && { AggregationFunction: input.AggregationFunction }),
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Namespace != null && { Namespace: input.Namespace }),
-  };
-};
+// se_Metric omitted.
 
-/**
- * serializeAws_restJson1MetricList
- */
-const se_MetricList = (input: Metric[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Metric(entry, context);
-    });
-};
+// se_MetricList omitted.
 
-/**
- * serializeAws_restJson1MetricNameList
- */
-const se_MetricNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MetricNameList omitted.
 
-/**
- * serializeAws_restJson1MetricSetDimensionFilter
- */
-const se_MetricSetDimensionFilter = (input: MetricSetDimensionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.FilterList != null && { FilterList: se_FilterList(input.FilterList, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_MetricSetDimensionFilter omitted.
 
-/**
- * serializeAws_restJson1MetricSetDimensionFilterList
- */
-const se_MetricSetDimensionFilterList = (input: MetricSetDimensionFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MetricSetDimensionFilter(entry, context);
-    });
-};
+// se_MetricSetDimensionFilterList omitted.
 
-/**
- * serializeAws_restJson1MetricSource
- */
-const se_MetricSource = (input: MetricSource, context: __SerdeContext): any => {
-  return {
-    ...(input.AppFlowConfig != null && { AppFlowConfig: se_AppFlowConfig(input.AppFlowConfig, context) }),
-    ...(input.AthenaSourceConfig != null && {
-      AthenaSourceConfig: se_AthenaSourceConfig(input.AthenaSourceConfig, context),
-    }),
-    ...(input.CloudWatchConfig != null && { CloudWatchConfig: se_CloudWatchConfig(input.CloudWatchConfig, context) }),
-    ...(input.RDSSourceConfig != null && { RDSSourceConfig: se_RDSSourceConfig(input.RDSSourceConfig, context) }),
-    ...(input.RedshiftSourceConfig != null && {
-      RedshiftSourceConfig: se_RedshiftSourceConfig(input.RedshiftSourceConfig, context),
-    }),
-    ...(input.S3SourceConfig != null && { S3SourceConfig: se_S3SourceConfig(input.S3SourceConfig, context) }),
-  };
-};
+// se_MetricSource omitted.
 
-/**
- * serializeAws_restJson1RDSSourceConfig
- */
-const se_RDSSourceConfig = (input: RDSSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DBInstanceIdentifier != null && { DBInstanceIdentifier: input.DBInstanceIdentifier }),
-    ...(input.DatabaseHost != null && { DatabaseHost: input.DatabaseHost }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.DatabasePort != null && { DatabasePort: input.DatabasePort }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.SecretManagerArn != null && { SecretManagerArn: input.SecretManagerArn }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
-  };
-};
+// se_RDSSourceConfig omitted.
 
-/**
- * serializeAws_restJson1RedshiftSourceConfig
- */
-const se_RedshiftSourceConfig = (input: RedshiftSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.DatabaseHost != null && { DatabaseHost: input.DatabaseHost }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.DatabasePort != null && { DatabasePort: input.DatabasePort }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.SecretManagerArn != null && { SecretManagerArn: input.SecretManagerArn }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
-  };
-};
+// se_RedshiftSourceConfig omitted.
 
-/**
- * serializeAws_restJson1S3SourceConfig
- */
-const se_S3SourceConfig = (input: S3SourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.FileFormatDescriptor != null && {
-      FileFormatDescriptor: se_FileFormatDescriptor(input.FileFormatDescriptor, context),
-    }),
-    ...(input.HistoricalDataPathList != null && {
-      HistoricalDataPathList: se_HistoricalDataPathList(input.HistoricalDataPathList, context),
-    }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.TemplatedPathList != null && {
-      TemplatedPathList: se_TemplatedPathList(input.TemplatedPathList, context),
-    }),
-  };
-};
+// se_S3SourceConfig omitted.
 
-/**
- * serializeAws_restJson1SampleDataS3SourceConfig
- */
-const se_SampleDataS3SourceConfig = (input: SampleDataS3SourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.FileFormatDescriptor != null && {
-      FileFormatDescriptor: se_FileFormatDescriptor(input.FileFormatDescriptor, context),
-    }),
-    ...(input.HistoricalDataPathList != null && {
-      HistoricalDataPathList: se_HistoricalDataPathList(input.HistoricalDataPathList, context),
-    }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.TemplatedPathList != null && {
-      TemplatedPathList: se_TemplatedPathList(input.TemplatedPathList, context),
-    }),
-  };
-};
+// se_SampleDataS3SourceConfig omitted.
 
-/**
- * serializeAws_restJson1SecurityGroupIdList
- */
-const se_SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIdList omitted.
 
-/**
- * serializeAws_restJson1SNSConfiguration
- */
-const se_SNSConfiguration = (input: SNSConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.SnsFormat != null && { SnsFormat: input.SnsFormat }),
-    ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
-  };
-};
+// se_SNSConfiguration omitted.
 
-/**
- * serializeAws_restJson1SubnetIdList
- */
-const se_SubnetIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIdList omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1TemplatedPathList
- */
-const se_TemplatedPathList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TemplatedPathList omitted.
 
-/**
- * serializeAws_restJson1TimestampColumn
- */
-const se_TimestampColumn = (input: TimestampColumn, context: __SerdeContext): any => {
-  return {
-    ...(input.ColumnFormat != null && { ColumnFormat: input.ColumnFormat }),
-    ...(input.ColumnName != null && { ColumnName: input.ColumnName }),
-  };
-};
+// se_TimestampColumn omitted.
 
-/**
- * serializeAws_restJson1VpcConfiguration
- */
-const se_VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupIdList != null && {
-      SecurityGroupIdList: se_SecurityGroupIdList(input.SecurityGroupIdList, context),
-    }),
-    ...(input.SubnetIdList != null && { SubnetIdList: se_SubnetIdList(input.SubnetIdList, context) }),
-  };
-};
+// se_VpcConfiguration omitted.
 
-/**
- * deserializeAws_restJson1Action
- */
-const de_Action = (output: any, context: __SerdeContext): Action => {
-  return {
-    LambdaConfiguration:
-      output.LambdaConfiguration != null ? de_LambdaConfiguration(output.LambdaConfiguration, context) : undefined,
-    SNSConfiguration:
-      output.SNSConfiguration != null ? de_SNSConfiguration(output.SNSConfiguration, context) : undefined,
-  } as any;
-};
+// de_Action omitted.
 
 /**
  * deserializeAws_restJson1Alert
  */
 const de_Alert = (output: any, context: __SerdeContext): Alert => {
-  return {
-    Action: output.Action != null ? de_Action(output.Action, context) : undefined,
-    AlertArn: __expectString(output.AlertArn),
-    AlertDescription: __expectString(output.AlertDescription),
-    AlertFilters: output.AlertFilters != null ? de_AlertFilters(output.AlertFilters, context) : undefined,
-    AlertName: __expectString(output.AlertName),
-    AlertSensitivityThreshold: __expectInt32(output.AlertSensitivityThreshold),
-    AlertStatus: __expectString(output.AlertStatus),
-    AlertType: __expectString(output.AlertType),
-    AnomalyDetectorArn: __expectString(output.AnomalyDetectorArn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Action: _json,
+    AlertArn: __expectString,
+    AlertDescription: __expectString,
+    AlertFilters: _json,
+    AlertName: __expectString,
+    AlertSensitivityThreshold: __expectInt32,
+    AlertStatus: __expectString,
+    AlertType: __expectString,
+    AnomalyDetectorArn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AlertFilters
- */
-const de_AlertFilters = (output: any, context: __SerdeContext): AlertFilters => {
-  return {
-    DimensionFilterList:
-      output.DimensionFilterList != null ? de_DimensionFilterList(output.DimensionFilterList, context) : undefined,
-    MetricList: output.MetricList != null ? de_MetricNameList(output.MetricList, context) : undefined,
-  } as any;
-};
+// de_AlertFilters omitted.
 
 /**
  * deserializeAws_restJson1AlertSummary
  */
 const de_AlertSummary = (output: any, context: __SerdeContext): AlertSummary => {
-  return {
-    AlertArn: __expectString(output.AlertArn),
-    AlertName: __expectString(output.AlertName),
-    AlertSensitivityThreshold: __expectInt32(output.AlertSensitivityThreshold),
-    AlertStatus: __expectString(output.AlertStatus),
-    AlertType: __expectString(output.AlertType),
-    AnomalyDetectorArn: __expectString(output.AnomalyDetectorArn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    AlertArn: __expectString,
+    AlertName: __expectString,
+    AlertSensitivityThreshold: __expectInt32,
+    AlertStatus: __expectString,
+    AlertType: __expectString,
+    AnomalyDetectorArn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+  }) as any;
 };
 
 /**
@@ -3639,22 +3140,12 @@ const de_AlertSummaryList = (output: any, context: __SerdeContext): AlertSummary
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AlertSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1AnomalyDetectorConfigSummary
- */
-const de_AnomalyDetectorConfigSummary = (output: any, context: __SerdeContext): AnomalyDetectorConfigSummary => {
-  return {
-    AnomalyDetectorFrequency: __expectString(output.AnomalyDetectorFrequency),
-  } as any;
-};
+// de_AnomalyDetectorConfigSummary omitted.
 
 /**
  * deserializeAws_restJson1AnomalyDetectorDataQualityMetric
@@ -3663,16 +3154,10 @@ const de_AnomalyDetectorDataQualityMetric = (
   output: any,
   context: __SerdeContext
 ): AnomalyDetectorDataQualityMetric => {
-  return {
-    MetricSetDataQualityMetricList:
-      output.MetricSetDataQualityMetricList != null
-        ? de_MetricSetDataQualityMetricList(output.MetricSetDataQualityMetricList, context)
-        : undefined,
-    StartTimestamp:
-      output.StartTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    MetricSetDataQualityMetricList: (_: any) => de_MetricSetDataQualityMetricList(_, context),
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -3685,9 +3170,6 @@ const de_AnomalyDetectorDataQualityMetricList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AnomalyDetectorDataQualityMetric(entry, context);
     });
   return retVal;
@@ -3697,21 +3179,15 @@ const de_AnomalyDetectorDataQualityMetricList = (
  * deserializeAws_restJson1AnomalyDetectorSummary
  */
 const de_AnomalyDetectorSummary = (output: any, context: __SerdeContext): AnomalyDetectorSummary => {
-  return {
-    AnomalyDetectorArn: __expectString(output.AnomalyDetectorArn),
-    AnomalyDetectorDescription: __expectString(output.AnomalyDetectorDescription),
-    AnomalyDetectorName: __expectString(output.AnomalyDetectorName),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    AnomalyDetectorArn: __expectString,
+    AnomalyDetectorDescription: __expectString,
+    AnomalyDetectorName: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
 /**
@@ -3721,9 +3197,6 @@ const de_AnomalyDetectorSummaryList = (output: any, context: __SerdeContext): An
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AnomalyDetectorSummary(entry, context);
     });
   return retVal;
@@ -3733,44 +3206,29 @@ const de_AnomalyDetectorSummaryList = (output: any, context: __SerdeContext): An
  * deserializeAws_restJson1AnomalyGroup
  */
 const de_AnomalyGroup = (output: any, context: __SerdeContext): AnomalyGroup => {
-  return {
-    AnomalyGroupId: __expectString(output.AnomalyGroupId),
-    AnomalyGroupScore: __limitedParseDouble(output.AnomalyGroupScore),
-    EndTime: __expectString(output.EndTime),
-    MetricLevelImpactList:
-      output.MetricLevelImpactList != null
-        ? de_MetricLevelImpactList(output.MetricLevelImpactList, context)
-        : undefined,
-    PrimaryMetricName: __expectString(output.PrimaryMetricName),
-    StartTime: __expectString(output.StartTime),
-  } as any;
+  return take(output, {
+    AnomalyGroupId: __expectString,
+    AnomalyGroupScore: __limitedParseDouble,
+    EndTime: __expectString,
+    MetricLevelImpactList: (_: any) => de_MetricLevelImpactList(_, context),
+    PrimaryMetricName: __expectString,
+    StartTime: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AnomalyGroupStatistics
- */
-const de_AnomalyGroupStatistics = (output: any, context: __SerdeContext): AnomalyGroupStatistics => {
-  return {
-    EvaluationStartDate: __expectString(output.EvaluationStartDate),
-    ItemizedMetricStatsList:
-      output.ItemizedMetricStatsList != null
-        ? de_ItemizedMetricStatsList(output.ItemizedMetricStatsList, context)
-        : undefined,
-    TotalCount: __expectInt32(output.TotalCount),
-  } as any;
-};
+// de_AnomalyGroupStatistics omitted.
 
 /**
  * deserializeAws_restJson1AnomalyGroupSummary
  */
 const de_AnomalyGroupSummary = (output: any, context: __SerdeContext): AnomalyGroupSummary => {
-  return {
-    AnomalyGroupId: __expectString(output.AnomalyGroupId),
-    AnomalyGroupScore: __limitedParseDouble(output.AnomalyGroupScore),
-    EndTime: __expectString(output.EndTime),
-    PrimaryMetricName: __expectString(output.PrimaryMetricName),
-    StartTime: __expectString(output.StartTime),
-  } as any;
+  return take(output, {
+    AnomalyGroupId: __expectString,
+    AnomalyGroupScore: __limitedParseDouble,
+    EndTime: __expectString,
+    PrimaryMetricName: __expectString,
+    StartTime: __expectString,
+  }) as any;
 };
 
 /**
@@ -3780,129 +3238,44 @@ const de_AnomalyGroupSummaryList = (output: any, context: __SerdeContext): Anoma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AnomalyGroupSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1AppFlowConfig
- */
-const de_AppFlowConfig = (output: any, context: __SerdeContext): AppFlowConfig => {
-  return {
-    FlowName: __expectString(output.FlowName),
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
+// de_AppFlowConfig omitted.
 
-/**
- * deserializeAws_restJson1AthenaSourceConfig
- */
-const de_AthenaSourceConfig = (output: any, context: __SerdeContext): AthenaSourceConfig => {
-  return {
-    BackTestConfiguration:
-      output.BackTestConfiguration != null
-        ? de_BackTestConfiguration(output.BackTestConfiguration, context)
-        : undefined,
-    DataCatalog: __expectString(output.DataCatalog),
-    DatabaseName: __expectString(output.DatabaseName),
-    RoleArn: __expectString(output.RoleArn),
-    S3ResultsPath: __expectString(output.S3ResultsPath),
-    TableName: __expectString(output.TableName),
-    WorkGroupName: __expectString(output.WorkGroupName),
-  } as any;
-};
+// de_AthenaSourceConfig omitted.
 
-/**
- * deserializeAws_restJson1AttributeValue
- */
-const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
-  return {
-    B: __expectString(output.B),
-    BS: output.BS != null ? de_BinaryListAttributeValue(output.BS, context) : undefined,
-    N: __expectString(output.N),
-    NS: output.NS != null ? de_NumberListAttributeValue(output.NS, context) : undefined,
-    S: __expectString(output.S),
-    SS: output.SS != null ? de_StringListAttributeValue(output.SS, context) : undefined,
-  } as any;
-};
+// de_AttributeValue omitted.
 
-/**
- * deserializeAws_restJson1BackTestConfiguration
- */
-const de_BackTestConfiguration = (output: any, context: __SerdeContext): BackTestConfiguration => {
-  return {
-    RunBackTestMode: __expectBoolean(output.RunBackTestMode),
-  } as any;
-};
+// de_BackTestConfiguration omitted.
 
-/**
- * deserializeAws_restJson1BinaryListAttributeValue
- */
-const de_BinaryListAttributeValue = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_BinaryListAttributeValue omitted.
 
-/**
- * deserializeAws_restJson1CloudWatchConfig
- */
-const de_CloudWatchConfig = (output: any, context: __SerdeContext): CloudWatchConfig => {
-  return {
-    BackTestConfiguration:
-      output.BackTestConfiguration != null
-        ? de_BackTestConfiguration(output.BackTestConfiguration, context)
-        : undefined,
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
+// de_CloudWatchConfig omitted.
 
 /**
  * deserializeAws_restJson1ContributionMatrix
  */
 const de_ContributionMatrix = (output: any, context: __SerdeContext): ContributionMatrix => {
-  return {
-    DimensionContributionList:
-      output.DimensionContributionList != null
-        ? de_DimensionContributionList(output.DimensionContributionList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    DimensionContributionList: (_: any) => de_DimensionContributionList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CsvFormatDescriptor
- */
-const de_CsvFormatDescriptor = (output: any, context: __SerdeContext): CsvFormatDescriptor => {
-  return {
-    Charset: __expectString(output.Charset),
-    ContainsHeader: __expectBoolean(output.ContainsHeader),
-    Delimiter: __expectString(output.Delimiter),
-    FileCompression: __expectString(output.FileCompression),
-    HeaderList: output.HeaderList != null ? de_HeaderList(output.HeaderList, context) : undefined,
-    QuoteSymbol: __expectString(output.QuoteSymbol),
-  } as any;
-};
+// de_CsvFormatDescriptor omitted.
 
 /**
  * deserializeAws_restJson1DataQualityMetric
  */
 const de_DataQualityMetric = (output: any, context: __SerdeContext): DataQualityMetric => {
-  return {
-    MetricDescription: __expectString(output.MetricDescription),
-    MetricType: __expectString(output.MetricType),
-    MetricValue: __limitedParseDouble(output.MetricValue),
-    RelatedColumnName: __expectString(output.RelatedColumnName),
-  } as any;
+  return take(output, {
+    MetricDescription: __expectString,
+    MetricType: __expectString,
+    MetricValue: __limitedParseDouble,
+    RelatedColumnName: __expectString,
+  }) as any;
 };
 
 /**
@@ -3912,110 +3285,33 @@ const de_DataQualityMetricList = (output: any, context: __SerdeContext): DataQua
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DataQualityMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DetectedCsvFormatDescriptor
- */
-const de_DetectedCsvFormatDescriptor = (output: any, context: __SerdeContext): DetectedCsvFormatDescriptor => {
-  return {
-    Charset: output.Charset != null ? de_DetectedField(output.Charset, context) : undefined,
-    ContainsHeader: output.ContainsHeader != null ? de_DetectedField(output.ContainsHeader, context) : undefined,
-    Delimiter: output.Delimiter != null ? de_DetectedField(output.Delimiter, context) : undefined,
-    FileCompression: output.FileCompression != null ? de_DetectedField(output.FileCompression, context) : undefined,
-    HeaderList: output.HeaderList != null ? de_DetectedField(output.HeaderList, context) : undefined,
-    QuoteSymbol: output.QuoteSymbol != null ? de_DetectedField(output.QuoteSymbol, context) : undefined,
-  } as any;
-};
+// de_DetectedCsvFormatDescriptor omitted.
 
-/**
- * deserializeAws_restJson1DetectedField
- */
-const de_DetectedField = (output: any, context: __SerdeContext): DetectedField => {
-  return {
-    Confidence: __expectString(output.Confidence),
-    Message: __expectString(output.Message),
-    Value: output.Value != null ? de_AttributeValue(output.Value, context) : undefined,
-  } as any;
-};
+// de_DetectedField omitted.
 
-/**
- * deserializeAws_restJson1DetectedFileFormatDescriptor
- */
-const de_DetectedFileFormatDescriptor = (output: any, context: __SerdeContext): DetectedFileFormatDescriptor => {
-  return {
-    CsvFormatDescriptor:
-      output.CsvFormatDescriptor != null
-        ? de_DetectedCsvFormatDescriptor(output.CsvFormatDescriptor, context)
-        : undefined,
-    JsonFormatDescriptor:
-      output.JsonFormatDescriptor != null
-        ? de_DetectedJsonFormatDescriptor(output.JsonFormatDescriptor, context)
-        : undefined,
-  } as any;
-};
+// de_DetectedFileFormatDescriptor omitted.
 
-/**
- * deserializeAws_restJson1DetectedJsonFormatDescriptor
- */
-const de_DetectedJsonFormatDescriptor = (output: any, context: __SerdeContext): DetectedJsonFormatDescriptor => {
-  return {
-    Charset: output.Charset != null ? de_DetectedField(output.Charset, context) : undefined,
-    FileCompression: output.FileCompression != null ? de_DetectedField(output.FileCompression, context) : undefined,
-  } as any;
-};
+// de_DetectedJsonFormatDescriptor omitted.
 
-/**
- * deserializeAws_restJson1DetectedMetricSetConfig
- */
-const de_DetectedMetricSetConfig = (output: any, context: __SerdeContext): DetectedMetricSetConfig => {
-  return {
-    MetricSetFrequency:
-      output.MetricSetFrequency != null ? de_DetectedField(output.MetricSetFrequency, context) : undefined,
-    MetricSource: output.MetricSource != null ? de_DetectedMetricSource(output.MetricSource, context) : undefined,
-    Offset: output.Offset != null ? de_DetectedField(output.Offset, context) : undefined,
-  } as any;
-};
+// de_DetectedMetricSetConfig omitted.
 
-/**
- * deserializeAws_restJson1DetectedMetricSource
- */
-const de_DetectedMetricSource = (output: any, context: __SerdeContext): DetectedMetricSource => {
-  return {
-    S3SourceConfig:
-      output.S3SourceConfig != null ? de_DetectedS3SourceConfig(output.S3SourceConfig, context) : undefined,
-  } as any;
-};
+// de_DetectedMetricSource omitted.
 
-/**
- * deserializeAws_restJson1DetectedS3SourceConfig
- */
-const de_DetectedS3SourceConfig = (output: any, context: __SerdeContext): DetectedS3SourceConfig => {
-  return {
-    FileFormatDescriptor:
-      output.FileFormatDescriptor != null
-        ? de_DetectedFileFormatDescriptor(output.FileFormatDescriptor, context)
-        : undefined,
-  } as any;
-};
+// de_DetectedS3SourceConfig omitted.
 
 /**
  * deserializeAws_restJson1DimensionContribution
  */
 const de_DimensionContribution = (output: any, context: __SerdeContext): DimensionContribution => {
-  return {
-    DimensionName: __expectString(output.DimensionName),
-    DimensionValueContributionList:
-      output.DimensionValueContributionList != null
-        ? de_DimensionValueContributionList(output.DimensionValueContributionList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    DimensionName: __expectString,
+    DimensionValueContributionList: (_: any) => de_DimensionValueContributionList(_, context),
+  }) as any;
 };
 
 /**
@@ -4025,88 +3321,29 @@ const de_DimensionContributionList = (output: any, context: __SerdeContext): Dim
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DimensionContribution(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DimensionFilter
- */
-const de_DimensionFilter = (output: any, context: __SerdeContext): DimensionFilter => {
-  return {
-    DimensionName: __expectString(output.DimensionName),
-    DimensionValueList:
-      output.DimensionValueList != null ? de_DimensionValueList(output.DimensionValueList, context) : undefined,
-  } as any;
-};
+// de_DimensionFilter omitted.
 
-/**
- * deserializeAws_restJson1DimensionFilterList
- */
-const de_DimensionFilterList = (output: any, context: __SerdeContext): DimensionFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DimensionFilter(entry, context);
-    });
-  return retVal;
-};
+// de_DimensionFilterList omitted.
 
-/**
- * deserializeAws_restJson1DimensionList
- */
-const de_DimensionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DimensionList omitted.
 
-/**
- * deserializeAws_restJson1DimensionNameValue
- */
-const de_DimensionNameValue = (output: any, context: __SerdeContext): DimensionNameValue => {
-  return {
-    DimensionName: __expectString(output.DimensionName),
-    DimensionValue: __expectString(output.DimensionValue),
-  } as any;
-};
+// de_DimensionNameValue omitted.
 
-/**
- * deserializeAws_restJson1DimensionNameValueList
- */
-const de_DimensionNameValueList = (output: any, context: __SerdeContext): DimensionNameValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DimensionNameValue(entry, context);
-    });
-  return retVal;
-};
+// de_DimensionNameValueList omitted.
 
 /**
  * deserializeAws_restJson1DimensionValueContribution
  */
 const de_DimensionValueContribution = (output: any, context: __SerdeContext): DimensionValueContribution => {
-  return {
-    ContributionScore: __limitedParseDouble(output.ContributionScore),
-    DimensionValue: __expectString(output.DimensionValue),
-  } as any;
+  return take(output, {
+    ContributionScore: __limitedParseDouble,
+    DimensionValue: __expectString,
+  }) as any;
 };
 
 /**
@@ -4116,147 +3353,39 @@ const de_DimensionValueContributionList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DimensionValueContribution(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DimensionValueList
- */
-const de_DimensionValueList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DimensionValueList omitted.
 
-/**
- * deserializeAws_restJson1ExecutionList
- */
-const de_ExecutionList = (output: any, context: __SerdeContext): ExecutionStatus[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExecutionStatus(entry, context);
-    });
-  return retVal;
-};
+// de_ExecutionList omitted.
 
-/**
- * deserializeAws_restJson1ExecutionStatus
- */
-const de_ExecutionStatus = (output: any, context: __SerdeContext): ExecutionStatus => {
-  return {
-    FailureReason: __expectString(output.FailureReason),
-    Status: __expectString(output.Status),
-    Timestamp: __expectString(output.Timestamp),
-  } as any;
-};
+// de_ExecutionStatus omitted.
 
-/**
- * deserializeAws_restJson1FileFormatDescriptor
- */
-const de_FileFormatDescriptor = (output: any, context: __SerdeContext): FileFormatDescriptor => {
-  return {
-    CsvFormatDescriptor:
-      output.CsvFormatDescriptor != null ? de_CsvFormatDescriptor(output.CsvFormatDescriptor, context) : undefined,
-    JsonFormatDescriptor:
-      output.JsonFormatDescriptor != null ? de_JsonFormatDescriptor(output.JsonFormatDescriptor, context) : undefined,
-  } as any;
-};
+// de_FileFormatDescriptor omitted.
 
-/**
- * deserializeAws_restJson1Filter
- */
-const de_Filter = (output: any, context: __SerdeContext): Filter => {
-  return {
-    DimensionValue: __expectString(output.DimensionValue),
-    FilterOperation: __expectString(output.FilterOperation),
-  } as any;
-};
+// de_Filter omitted.
 
-/**
- * deserializeAws_restJson1FilterList
- */
-const de_FilterList = (output: any, context: __SerdeContext): Filter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Filter(entry, context);
-    });
-  return retVal;
-};
+// de_FilterList omitted.
 
-/**
- * deserializeAws_restJson1HeaderList
- */
-const de_HeaderList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HeaderList omitted.
 
-/**
- * deserializeAws_restJson1HeaderValueList
- */
-const de_HeaderValueList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HeaderValueList omitted.
 
-/**
- * deserializeAws_restJson1HistoricalDataPathList
- */
-const de_HistoricalDataPathList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HistoricalDataPathList omitted.
 
 /**
  * deserializeAws_restJson1InterMetricImpactDetails
  */
 const de_InterMetricImpactDetails = (output: any, context: __SerdeContext): InterMetricImpactDetails => {
-  return {
-    AnomalyGroupId: __expectString(output.AnomalyGroupId),
-    ContributionPercentage: __limitedParseDouble(output.ContributionPercentage),
-    MetricName: __expectString(output.MetricName),
-    RelationshipType: __expectString(output.RelationshipType),
-  } as any;
+  return take(output, {
+    AnomalyGroupId: __expectString,
+    ContributionPercentage: __limitedParseDouble,
+    MetricName: __expectString,
+    RelationshipType: __expectString,
+  }) as any;
 };
 
 /**
@@ -4266,80 +3395,30 @@ const de_InterMetricImpactList = (output: any, context: __SerdeContext): InterMe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_InterMetricImpactDetails(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ItemizedMetricStats
- */
-const de_ItemizedMetricStats = (output: any, context: __SerdeContext): ItemizedMetricStats => {
-  return {
-    MetricName: __expectString(output.MetricName),
-    OccurrenceCount: __expectInt32(output.OccurrenceCount),
-  } as any;
-};
+// de_ItemizedMetricStats omitted.
 
-/**
- * deserializeAws_restJson1ItemizedMetricStatsList
- */
-const de_ItemizedMetricStatsList = (output: any, context: __SerdeContext): ItemizedMetricStats[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ItemizedMetricStats(entry, context);
-    });
-  return retVal;
-};
+// de_ItemizedMetricStatsList omitted.
 
-/**
- * deserializeAws_restJson1JsonFormatDescriptor
- */
-const de_JsonFormatDescriptor = (output: any, context: __SerdeContext): JsonFormatDescriptor => {
-  return {
-    Charset: __expectString(output.Charset),
-    FileCompression: __expectString(output.FileCompression),
-  } as any;
-};
+// de_JsonFormatDescriptor omitted.
 
-/**
- * deserializeAws_restJson1LambdaConfiguration
- */
-const de_LambdaConfiguration = (output: any, context: __SerdeContext): LambdaConfiguration => {
-  return {
-    LambdaArn: __expectString(output.LambdaArn),
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
+// de_LambdaConfiguration omitted.
 
-/**
- * deserializeAws_restJson1Metric
- */
-const de_Metric = (output: any, context: __SerdeContext): Metric => {
-  return {
-    AggregationFunction: __expectString(output.AggregationFunction),
-    MetricName: __expectString(output.MetricName),
-    Namespace: __expectString(output.Namespace),
-  } as any;
-};
+// de_Metric omitted.
 
 /**
  * deserializeAws_restJson1MetricLevelImpact
  */
 const de_MetricLevelImpact = (output: any, context: __SerdeContext): MetricLevelImpact => {
-  return {
-    ContributionMatrix:
-      output.ContributionMatrix != null ? de_ContributionMatrix(output.ContributionMatrix, context) : undefined,
-    MetricName: __expectString(output.MetricName),
-    NumTimeSeries: __expectInt32(output.NumTimeSeries),
-  } as any;
+  return take(output, {
+    ContributionMatrix: (_: any) => de_ContributionMatrix(_, context),
+    MetricName: __expectString,
+    NumTimeSeries: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -4349,55 +3428,23 @@ const de_MetricLevelImpactList = (output: any, context: __SerdeContext): MetricL
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MetricLevelImpact(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1MetricList
- */
-const de_MetricList = (output: any, context: __SerdeContext): Metric[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Metric(entry, context);
-    });
-  return retVal;
-};
+// de_MetricList omitted.
 
-/**
- * deserializeAws_restJson1MetricNameList
- */
-const de_MetricNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MetricNameList omitted.
 
 /**
  * deserializeAws_restJson1MetricSetDataQualityMetric
  */
 const de_MetricSetDataQualityMetric = (output: any, context: __SerdeContext): MetricSetDataQualityMetric => {
-  return {
-    DataQualityMetricList:
-      output.DataQualityMetricList != null
-        ? de_DataQualityMetricList(output.DataQualityMetricList, context)
-        : undefined,
-    MetricSetArn: __expectString(output.MetricSetArn),
-  } as any;
+  return take(output, {
+    DataQualityMetricList: (_: any) => de_DataQualityMetricList(_, context),
+    MetricSetArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -4407,58 +3454,28 @@ const de_MetricSetDataQualityMetricList = (output: any, context: __SerdeContext)
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MetricSetDataQualityMetric(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1MetricSetDimensionFilter
- */
-const de_MetricSetDimensionFilter = (output: any, context: __SerdeContext): MetricSetDimensionFilter => {
-  return {
-    FilterList: output.FilterList != null ? de_FilterList(output.FilterList, context) : undefined,
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_MetricSetDimensionFilter omitted.
 
-/**
- * deserializeAws_restJson1MetricSetDimensionFilterList
- */
-const de_MetricSetDimensionFilterList = (output: any, context: __SerdeContext): MetricSetDimensionFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MetricSetDimensionFilter(entry, context);
-    });
-  return retVal;
-};
+// de_MetricSetDimensionFilterList omitted.
 
 /**
  * deserializeAws_restJson1MetricSetSummary
  */
 const de_MetricSetSummary = (output: any, context: __SerdeContext): MetricSetSummary => {
-  return {
-    AnomalyDetectorArn: __expectString(output.AnomalyDetectorArn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    MetricSetArn: __expectString(output.MetricSetArn),
-    MetricSetDescription: __expectString(output.MetricSetDescription),
-    MetricSetName: __expectString(output.MetricSetName),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    AnomalyDetectorArn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MetricSetArn: __expectString,
+    MetricSetDescription: __expectString,
+    MetricSetName: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
 /**
@@ -4468,30 +3485,12 @@ const de_MetricSetSummaryList = (output: any, context: __SerdeContext): MetricSe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MetricSetSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1MetricSource
- */
-const de_MetricSource = (output: any, context: __SerdeContext): MetricSource => {
-  return {
-    AppFlowConfig: output.AppFlowConfig != null ? de_AppFlowConfig(output.AppFlowConfig, context) : undefined,
-    AthenaSourceConfig:
-      output.AthenaSourceConfig != null ? de_AthenaSourceConfig(output.AthenaSourceConfig, context) : undefined,
-    CloudWatchConfig:
-      output.CloudWatchConfig != null ? de_CloudWatchConfig(output.CloudWatchConfig, context) : undefined,
-    RDSSourceConfig: output.RDSSourceConfig != null ? de_RDSSourceConfig(output.RDSSourceConfig, context) : undefined,
-    RedshiftSourceConfig:
-      output.RedshiftSourceConfig != null ? de_RedshiftSourceConfig(output.RedshiftSourceConfig, context) : undefined,
-    S3SourceConfig: output.S3SourceConfig != null ? de_S3SourceConfig(output.S3SourceConfig, context) : undefined,
-  } as any;
-};
+// de_MetricSource omitted.
 
 /**
  * deserializeAws_restJson1MetricValueList
@@ -4500,229 +3499,49 @@ const de_MetricValueList = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseDouble(entry) as any;
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1NumberListAttributeValue
- */
-const de_NumberListAttributeValue = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NumberListAttributeValue omitted.
 
-/**
- * deserializeAws_restJson1RDSSourceConfig
- */
-const de_RDSSourceConfig = (output: any, context: __SerdeContext): RDSSourceConfig => {
-  return {
-    DBInstanceIdentifier: __expectString(output.DBInstanceIdentifier),
-    DatabaseHost: __expectString(output.DatabaseHost),
-    DatabaseName: __expectString(output.DatabaseName),
-    DatabasePort: __expectInt32(output.DatabasePort),
-    RoleArn: __expectString(output.RoleArn),
-    SecretManagerArn: __expectString(output.SecretManagerArn),
-    TableName: __expectString(output.TableName),
-    VpcConfiguration:
-      output.VpcConfiguration != null ? de_VpcConfiguration(output.VpcConfiguration, context) : undefined,
-  } as any;
-};
+// de_RDSSourceConfig omitted.
 
-/**
- * deserializeAws_restJson1RedshiftSourceConfig
- */
-const de_RedshiftSourceConfig = (output: any, context: __SerdeContext): RedshiftSourceConfig => {
-  return {
-    ClusterIdentifier: __expectString(output.ClusterIdentifier),
-    DatabaseHost: __expectString(output.DatabaseHost),
-    DatabaseName: __expectString(output.DatabaseName),
-    DatabasePort: __expectInt32(output.DatabasePort),
-    RoleArn: __expectString(output.RoleArn),
-    SecretManagerArn: __expectString(output.SecretManagerArn),
-    TableName: __expectString(output.TableName),
-    VpcConfiguration:
-      output.VpcConfiguration != null ? de_VpcConfiguration(output.VpcConfiguration, context) : undefined,
-  } as any;
-};
+// de_RedshiftSourceConfig omitted.
 
-/**
- * deserializeAws_restJson1S3SourceConfig
- */
-const de_S3SourceConfig = (output: any, context: __SerdeContext): S3SourceConfig => {
-  return {
-    FileFormatDescriptor:
-      output.FileFormatDescriptor != null ? de_FileFormatDescriptor(output.FileFormatDescriptor, context) : undefined,
-    HistoricalDataPathList:
-      output.HistoricalDataPathList != null
-        ? de_HistoricalDataPathList(output.HistoricalDataPathList, context)
-        : undefined,
-    RoleArn: __expectString(output.RoleArn),
-    TemplatedPathList:
-      output.TemplatedPathList != null ? de_TemplatedPathList(output.TemplatedPathList, context) : undefined,
-  } as any;
-};
+// de_S3SourceConfig omitted.
 
-/**
- * deserializeAws_restJson1SampleRow
- */
-const de_SampleRow = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SampleRow omitted.
 
-/**
- * deserializeAws_restJson1SampleRows
- */
-const de_SampleRows = (output: any, context: __SerdeContext): string[][] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SampleRow(entry, context);
-    });
-  return retVal;
-};
+// de_SampleRows omitted.
 
-/**
- * deserializeAws_restJson1SecurityGroupIdList
- */
-const de_SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIdList omitted.
 
-/**
- * deserializeAws_restJson1SNSConfiguration
- */
-const de_SNSConfiguration = (output: any, context: __SerdeContext): SNSConfiguration => {
-  return {
-    RoleArn: __expectString(output.RoleArn),
-    SnsFormat: __expectString(output.SnsFormat),
-    SnsTopicArn: __expectString(output.SnsTopicArn),
-  } as any;
-};
+// de_SNSConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StringListAttributeValue
- */
-const de_StringListAttributeValue = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringListAttributeValue omitted.
 
-/**
- * deserializeAws_restJson1SubnetIdList
- */
-const de_SubnetIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIdList omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1TemplatedPathList
- */
-const de_TemplatedPathList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TemplatedPathList omitted.
 
 /**
  * deserializeAws_restJson1TimeSeries
  */
 const de_TimeSeries = (output: any, context: __SerdeContext): TimeSeries => {
-  return {
-    DimensionList: output.DimensionList != null ? de_DimensionNameValueList(output.DimensionList, context) : undefined,
-    MetricValueList: output.MetricValueList != null ? de_MetricValueList(output.MetricValueList, context) : undefined,
-    TimeSeriesId: __expectString(output.TimeSeriesId),
-  } as any;
+  return take(output, {
+    DimensionList: _json,
+    MetricValueList: (_: any) => de_MetricValueList(_, context),
+    TimeSeriesId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TimeSeriesFeedback
- */
-const de_TimeSeriesFeedback = (output: any, context: __SerdeContext): TimeSeriesFeedback => {
-  return {
-    IsAnomaly: __expectBoolean(output.IsAnomaly),
-    TimeSeriesId: __expectString(output.TimeSeriesId),
-  } as any;
-};
+// de_TimeSeriesFeedback omitted.
 
-/**
- * deserializeAws_restJson1TimeSeriesFeedbackList
- */
-const de_TimeSeriesFeedbackList = (output: any, context: __SerdeContext): TimeSeriesFeedback[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TimeSeriesFeedback(entry, context);
-    });
-  return retVal;
-};
+// de_TimeSeriesFeedbackList omitted.
 
 /**
  * deserializeAws_restJson1TimeSeriesList
@@ -4731,74 +3550,20 @@ const de_TimeSeriesList = (output: any, context: __SerdeContext): TimeSeries[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TimeSeries(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1TimestampColumn
- */
-const de_TimestampColumn = (output: any, context: __SerdeContext): TimestampColumn => {
-  return {
-    ColumnFormat: __expectString(output.ColumnFormat),
-    ColumnName: __expectString(output.ColumnName),
-  } as any;
-};
+// de_TimestampColumn omitted.
 
-/**
- * deserializeAws_restJson1TimestampList
- */
-const de_TimestampList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TimestampList omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
-/**
- * deserializeAws_restJson1VpcConfiguration
- */
-const de_VpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
-  return {
-    SecurityGroupIdList:
-      output.SecurityGroupIdList != null ? de_SecurityGroupIdList(output.SecurityGroupIdList, context) : undefined,
-    SubnetIdList: output.SubnetIdList != null ? de_SubnetIdList(output.SubnetIdList, context) : undefined,
-  } as any;
-};
+// de_VpcConfiguration omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

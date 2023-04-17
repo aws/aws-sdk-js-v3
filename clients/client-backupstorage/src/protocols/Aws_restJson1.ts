@@ -1,16 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -34,8 +35,6 @@ import { StartObjectCommandInput, StartObjectCommandOutput } from "../commands/S
 import { BackupStorageServiceException as __BaseException } from "../models/BackupStorageServiceException";
 import {
   AccessDeniedException,
-  BackupObject,
-  Chunk,
   DataAlreadyExistsException,
   IllegalArgumentException,
   KMSInvalidKeyUsageException,
@@ -369,9 +368,11 @@ export const se_StartObjectCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "ObjectName", () => input.ObjectName!, "{ObjectName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ThrowOnDuplicate != null && { ThrowOnDuplicate: input.ThrowOnDuplicate }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ThrowOnDuplicate: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -436,10 +437,9 @@ const de_DeleteObjectCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -506,10 +506,9 @@ const de_GetChunkCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -580,10 +579,9 @@ const de_GetObjectMetadataCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -603,12 +601,11 @@ export const de_ListChunksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChunkList != null) {
-    contents.ChunkList = de_ChunkList(data.ChunkList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChunkList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -645,10 +642,9 @@ const de_ListChunksCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -668,12 +664,11 @@ export const de_ListObjectsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ObjectList != null) {
-    contents.ObjectList = de_ObjectList(data.ObjectList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ObjectList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -716,10 +711,9 @@ const de_ListObjectsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -739,12 +733,11 @@ export const de_NotifyObjectCompleteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectChecksum != null) {
-    contents.ObjectChecksum = __expectString(data.ObjectChecksum);
-  }
-  if (data.ObjectChecksumAlgorithm != null) {
-    contents.ObjectChecksumAlgorithm = __expectString(data.ObjectChecksumAlgorithm);
-  }
+  const doc = take(data, {
+    ObjectChecksum: __expectString,
+    ObjectChecksumAlgorithm: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -787,10 +780,9 @@ const de_NotifyObjectCompleteCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -810,12 +802,11 @@ export const de_PutChunkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChunkChecksum != null) {
-    contents.ChunkChecksum = __expectString(data.ChunkChecksum);
-  }
-  if (data.ChunkChecksumAlgorithm != null) {
-    contents.ChunkChecksumAlgorithm = __expectString(data.ChunkChecksumAlgorithm);
-  }
+  const doc = take(data, {
+    ChunkChecksum: __expectString,
+    ChunkChecksumAlgorithm: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -858,10 +849,9 @@ const de_PutChunkCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -881,18 +871,13 @@ export const de_PutObjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InlineChunkChecksum != null) {
-    contents.InlineChunkChecksum = __expectString(data.InlineChunkChecksum);
-  }
-  if (data.InlineChunkChecksumAlgorithm != null) {
-    contents.InlineChunkChecksumAlgorithm = __expectString(data.InlineChunkChecksumAlgorithm);
-  }
-  if (data.ObjectChecksum != null) {
-    contents.ObjectChecksum = __expectString(data.ObjectChecksum);
-  }
-  if (data.ObjectChecksumAlgorithm != null) {
-    contents.ObjectChecksumAlgorithm = __expectString(data.ObjectChecksumAlgorithm);
-  }
+  const doc = take(data, {
+    InlineChunkChecksum: __expectString,
+    InlineChunkChecksumAlgorithm: __expectString,
+    ObjectChecksum: __expectString,
+    ObjectChecksumAlgorithm: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -935,10 +920,9 @@ const de_PutObjectCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -958,9 +942,10 @@ export const de_StartObjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.UploadId != null) {
-    contents.UploadId = __expectString(data.UploadId);
-  }
+  const doc = take(data, {
+    UploadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1003,16 +988,15 @@ const de_StartObjectCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1022,9 +1006,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1041,15 +1026,12 @@ const de_DataAlreadyExistsExceptionRes = async (
 ): Promise<DataAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Checksum != null) {
-    contents.Checksum = __expectString(data.Checksum);
-  }
-  if (data.ChecksumAlgorithm != null) {
-    contents.ChecksumAlgorithm = __expectString(data.ChecksumAlgorithm);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Checksum: __expectString,
+    ChecksumAlgorithm: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DataAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1066,9 +1048,10 @@ const de_IllegalArgumentExceptionRes = async (
 ): Promise<IllegalArgumentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IllegalArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1085,9 +1068,10 @@ const de_KMSInvalidKeyUsageExceptionRes = async (
 ): Promise<KMSInvalidKeyUsageException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new KMSInvalidKeyUsageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1104,9 +1088,10 @@ const de_NotReadableInputStreamExceptionRes = async (
 ): Promise<NotReadableInputStreamException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotReadableInputStreamException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1123,9 +1108,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1139,9 +1125,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_RetryableExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<RetryableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RetryableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1158,9 +1145,10 @@ const de_ServiceInternalExceptionRes = async (
 ): Promise<ServiceInternalException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceInternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1177,9 +1165,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1193,9 +1182,10 @@ const de_ServiceUnavailableExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1203,62 +1193,13 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * deserializeAws_restJson1BackupObject
- */
-const de_BackupObject = (output: any, context: __SerdeContext): BackupObject => {
-  return {
-    ChunksCount: __expectLong(output.ChunksCount),
-    MetadataString: __expectString(output.MetadataString),
-    Name: __expectString(output.Name),
-    ObjectChecksum: __expectString(output.ObjectChecksum),
-    ObjectChecksumAlgorithm: __expectString(output.ObjectChecksumAlgorithm),
-    ObjectToken: __expectString(output.ObjectToken),
-  } as any;
-};
+// de_BackupObject omitted.
 
-/**
- * deserializeAws_restJson1Chunk
- */
-const de_Chunk = (output: any, context: __SerdeContext): Chunk => {
-  return {
-    Checksum: __expectString(output.Checksum),
-    ChecksumAlgorithm: __expectString(output.ChecksumAlgorithm),
-    ChunkToken: __expectString(output.ChunkToken),
-    Index: __expectLong(output.Index),
-    Length: __expectLong(output.Length),
-  } as any;
-};
+// de_Chunk omitted.
 
-/**
- * deserializeAws_restJson1ChunkList
- */
-const de_ChunkList = (output: any, context: __SerdeContext): Chunk[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Chunk(entry, context);
-    });
-  return retVal;
-};
+// de_ChunkList omitted.
 
-/**
- * deserializeAws_restJson1ObjectList
- */
-const de_ObjectList = (output: any, context: __SerdeContext): BackupObject[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BackupObject(entry, context);
-    });
-  return retVal;
-};
+// de_ObjectList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

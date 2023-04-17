@@ -1,15 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -243,44 +244,30 @@ import {
 import { CodeCommitServiceException as __BaseException } from "../models/CodeCommitServiceException";
 import {
   ActorDoesNotExistException,
-  Approval,
   ApprovalRule,
   ApprovalRuleContentRequiredException,
   ApprovalRuleDoesNotExistException,
-  ApprovalRuleEventMetadata,
   ApprovalRuleNameAlreadyExistsException,
   ApprovalRuleNameRequiredException,
-  ApprovalRuleOverriddenEventMetadata,
   ApprovalRuleTemplate,
   ApprovalRuleTemplateContentRequiredException,
   ApprovalRuleTemplateDoesNotExistException,
   ApprovalRuleTemplateInUseException,
   ApprovalRuleTemplateNameAlreadyExistsException,
   ApprovalRuleTemplateNameRequiredException,
-  ApprovalStateChangedEventMetadata,
   ApprovalStateRequiredException,
   AssociateApprovalRuleTemplateWithRepositoryInput,
   AuthorDoesNotExistException,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesError,
   BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
-  BatchDescribeMergeConflictsError,
   BatchDescribeMergeConflictsInput,
-  BatchDescribeMergeConflictsOutput,
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesError,
   BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
-  BatchGetCommitsError,
   BatchGetCommitsInput,
-  BatchGetCommitsOutput,
   BatchGetRepositoriesInput,
   BatchGetRepositoriesOutput,
   BeforeCommitIdAndAfterCommitIdAreSameException,
   BlobIdDoesNotExistException,
   BlobIdRequiredException,
-  BlobMetadata,
   BranchDoesNotExistException,
-  BranchInfo,
   BranchNameExistsException,
   BranchNameIsTagNameException,
   BranchNameRequiredException,
@@ -293,7 +280,6 @@ import {
   CommentIdRequiredException,
   CommentsForComparedCommit,
   CommentsForPullRequest,
-  Commit,
   CommitDoesNotExistException,
   CommitIdDoesNotExistException,
   CommitIdRequiredException,
@@ -302,14 +288,11 @@ import {
   CommitMessageLengthExceededException,
   CommitRequiredException,
   ConcurrentReferenceUpdateException,
-  Conflict,
-  ConflictMetadata,
   ConflictResolution,
   CreateApprovalRuleTemplateInput,
   CreateApprovalRuleTemplateOutput,
   CreateBranchInput,
   CreateCommitInput,
-  CreateCommitOutput,
   CreatePullRequestApprovalRuleInput,
   CreatePullRequestApprovalRuleOutput,
   CreatePullRequestInput,
@@ -317,26 +300,18 @@ import {
   CreateRepositoryInput,
   CreateRepositoryOutput,
   CreateUnreferencedMergeCommitInput,
-  CreateUnreferencedMergeCommitOutput,
   DefaultBranchCannotBeDeletedException,
   DeleteApprovalRuleTemplateInput,
-  DeleteApprovalRuleTemplateOutput,
   DeleteBranchInput,
-  DeleteBranchOutput,
   DeleteCommentContentInput,
   DeleteCommentContentOutput,
   DeleteFileEntry,
   DeleteFileInput,
-  DeleteFileOutput,
   DeletePullRequestApprovalRuleInput,
-  DeletePullRequestApprovalRuleOutput,
   DeleteRepositoryInput,
-  DeleteRepositoryOutput,
   DescribeMergeConflictsInput,
-  DescribeMergeConflictsOutput,
   DescribePullRequestEventsInput,
   DescribePullRequestEventsOutput,
-  Difference,
   DirectoryNameConflictsWithFileNameException,
   DisassociateApprovalRuleTemplateFromRepositoryInput,
   EncryptionIntegrityChecksFailedException,
@@ -345,21 +320,14 @@ import {
   EncryptionKeyNotFoundException,
   EncryptionKeyUnavailableException,
   EvaluatePullRequestApprovalRulesInput,
-  EvaluatePullRequestApprovalRulesOutput,
-  Evaluation,
-  File,
   FileContentAndSourceFileSpecifiedException,
   FileContentSizeLimitExceededException,
   FileDoesNotExistException,
   FileEntryRequiredException,
-  FileMetadata,
   FileModeRequiredException,
-  FileModes,
   FileNameConflictsWithDirectoryNameException,
   FilePathConflictsWithSubmodulePathException,
-  FileSizes,
   FileTooLargeException,
-  Folder,
   FolderContentSizeLimitExceededException,
   FolderDoesNotExistException,
   GetApprovalRuleTemplateInput,
@@ -367,39 +335,28 @@ import {
   GetBlobInput,
   GetBlobOutput,
   GetBranchInput,
-  GetBranchOutput,
   GetCommentInput,
   GetCommentOutput,
   GetCommentReactionsInput,
-  GetCommentReactionsOutput,
   GetCommentsForComparedCommitInput,
   GetCommentsForComparedCommitOutput,
   GetCommentsForPullRequestInput,
   GetCommentsForPullRequestOutput,
   GetCommitInput,
-  GetCommitOutput,
   GetDifferencesInput,
-  GetDifferencesOutput,
   GetFileInput,
   GetFileOutput,
   GetFolderInput,
-  GetFolderOutput,
   GetMergeCommitInput,
-  GetMergeCommitOutput,
   GetMergeConflictsInput,
-  GetMergeConflictsOutput,
   GetMergeOptionsInput,
-  GetMergeOptionsOutput,
   GetPullRequestApprovalStatesInput,
-  GetPullRequestApprovalStatesOutput,
   GetPullRequestInput,
   GetPullRequestOutput,
   GetPullRequestOverrideStateInput,
-  GetPullRequestOverrideStateOutput,
   GetRepositoryInput,
   GetRepositoryOutput,
   GetRepositoryTriggersInput,
-  GetRepositoryTriggersOutput,
   IdempotencyParameterMismatchException,
   InvalidActorArnException,
   InvalidApprovalRuleContentException,
@@ -447,15 +404,10 @@ import {
   InvalidTargetException,
   InvalidTargetsException,
   InvalidTitleException,
-  IsBinaryFile,
   ListApprovalRuleTemplatesInput,
-  ListApprovalRuleTemplatesOutput,
   ListAssociatedApprovalRuleTemplatesForRepositoryInput,
-  ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
   ListBranchesInput,
-  ListBranchesOutput,
   ListPullRequestsInput,
-  ListPullRequestsOutput,
   Location,
   ManualMergeRequiredException,
   MaximumConflictResolutionEntriesExceededException,
@@ -465,20 +417,13 @@ import {
   MaximumOpenPullRequestsExceededException,
   MaximumRepositoryNamesExceededException,
   MaximumRuleTemplatesAssociatedWithRepositoryException,
-  MergeHunk,
-  MergeHunkDetail,
-  MergeMetadata,
-  MergeOperations,
   MergeOptionRequiredException,
-  MergeOptionTypeEnum,
   MultipleConflictResolutionEntriesException,
   MultipleRepositoriesInPullRequestException,
   NameLengthExceededException,
   NoChangeException,
   NumberOfRulesExceededException,
   NumberOfRuleTemplatesExceededException,
-  ObjectTypes,
-  OriginApprovalRuleTemplate,
   ParentCommitDoesNotExistException,
   ParentCommitIdOutdatedException,
   ParentCommitIdRequiredException,
@@ -486,18 +431,11 @@ import {
   PathRequiredException,
   PullRequest,
   PullRequestAlreadyClosedException,
-  PullRequestCreatedEventMetadata,
   PullRequestDoesNotExistException,
   PullRequestEvent,
   PullRequestIdRequiredException,
-  PullRequestMergedStateChangedEventMetadata,
-  PullRequestSourceReferenceUpdatedEventMetadata,
-  PullRequestStatusChangedEventMetadata,
-  PullRequestTarget,
   PutFileEntry,
   PutFileEntryConflictException,
-  ReactionForComment,
-  ReactionValueFormats,
   ReferenceDoesNotExistException,
   ReferenceNameRequiredException,
   ReferenceTypeNotSupportedException,
@@ -521,8 +459,6 @@ import {
   SourceAndDestinationAreSameException,
   SourceFileOrContentRequiredException,
   SourceFileSpecifier,
-  SubModule,
-  SymbolicLink,
   TagPolicyException,
   Target,
   TargetRequiredException,
@@ -530,7 +466,6 @@ import {
   TipsDivergenceExceededException,
   TitleRequiredException,
   TooManyTagsException,
-  UserInfo,
 } from "../models/models_0";
 import {
   CommentContentRequiredException,
@@ -555,20 +490,14 @@ import {
   InvalidTagKeysListException,
   InvalidTargetBranchException,
   ListRepositoriesForApprovalRuleTemplateInput,
-  ListRepositoriesForApprovalRuleTemplateOutput,
   ListRepositoriesInput,
-  ListRepositoriesOutput,
   ListTagsForResourceInput,
-  ListTagsForResourceOutput,
   MaximumBranchesExceededException,
   MaximumNumberOfApprovalsExceededException,
   MaximumRepositoryTriggersExceededException,
   MergeBranchesByFastForwardInput,
-  MergeBranchesByFastForwardOutput,
   MergeBranchesBySquashInput,
-  MergeBranchesBySquashOutput,
   MergeBranchesByThreeWayInput,
-  MergeBranchesByThreeWayOutput,
   MergePullRequestByFastForwardInput,
   MergePullRequestByFastForwardOutput,
   MergePullRequestBySquashInput,
@@ -589,16 +518,12 @@ import {
   PullRequestStatusRequiredException,
   PutCommentReactionInput,
   PutFileInput,
-  PutFileOutput,
   PutRepositoryTriggersInput,
-  PutRepositoryTriggersOutput,
   ReactionLimitExceededException,
   ReactionValueRequiredException,
-  RepositoryNameIdPair,
   RepositoryTriggerBranchNameListRequiredException,
   RepositoryTriggerDestinationArnRequiredException,
   RepositoryTriggerEventsListRequiredException,
-  RepositoryTriggerExecutionFailure,
   RepositoryTriggerNameRequiredException,
   RepositoryTriggersListRequiredException,
   ResourceArnRequiredException,
@@ -607,7 +532,6 @@ import {
   TagResourceInput,
   TagsMapRequiredException,
   TestRepositoryTriggersInput,
-  TestRepositoryTriggersOutput,
   TipOfSourceReferenceIsDifferentException,
   UntagResourceInput,
   UpdateApprovalRuleTemplateContentInput,
@@ -641,7 +565,7 @@ export const se_AssociateApprovalRuleTemplateWithRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateApprovalRuleTemplateWithRepository");
   let body: any;
-  body = JSON.stringify(se_AssociateApprovalRuleTemplateWithRepositoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -654,7 +578,7 @@ export const se_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchAssociateApprovalRuleTemplateWithRepositories");
   let body: any;
-  body = JSON.stringify(se_BatchAssociateApprovalRuleTemplateWithRepositoriesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -667,7 +591,7 @@ export const se_BatchDescribeMergeConflictsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDescribeMergeConflicts");
   let body: any;
-  body = JSON.stringify(se_BatchDescribeMergeConflictsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -680,7 +604,7 @@ export const se_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchDisassociateApprovalRuleTemplateFromRepositories");
   let body: any;
-  body = JSON.stringify(se_BatchDisassociateApprovalRuleTemplateFromRepositoriesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -693,7 +617,7 @@ export const se_BatchGetCommitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetCommits");
   let body: any;
-  body = JSON.stringify(se_BatchGetCommitsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -706,7 +630,7 @@ export const se_BatchGetRepositoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetRepositories");
   let body: any;
-  body = JSON.stringify(se_BatchGetRepositoriesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -719,7 +643,7 @@ export const se_CreateApprovalRuleTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateApprovalRuleTemplate");
   let body: any;
-  body = JSON.stringify(se_CreateApprovalRuleTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -732,7 +656,7 @@ export const se_CreateBranchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateBranch");
   let body: any;
-  body = JSON.stringify(se_CreateBranchInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -771,7 +695,7 @@ export const se_CreatePullRequestApprovalRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePullRequestApprovalRule");
   let body: any;
-  body = JSON.stringify(se_CreatePullRequestApprovalRuleInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -784,7 +708,7 @@ export const se_CreateRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateRepository");
   let body: any;
-  body = JSON.stringify(se_CreateRepositoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -810,7 +734,7 @@ export const se_DeleteApprovalRuleTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteApprovalRuleTemplate");
   let body: any;
-  body = JSON.stringify(se_DeleteApprovalRuleTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -823,7 +747,7 @@ export const se_DeleteBranchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteBranch");
   let body: any;
-  body = JSON.stringify(se_DeleteBranchInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -836,7 +760,7 @@ export const se_DeleteCommentContentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCommentContent");
   let body: any;
-  body = JSON.stringify(se_DeleteCommentContentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -849,7 +773,7 @@ export const se_DeleteFileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFile");
   let body: any;
-  body = JSON.stringify(se_DeleteFileInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -862,7 +786,7 @@ export const se_DeletePullRequestApprovalRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePullRequestApprovalRule");
   let body: any;
-  body = JSON.stringify(se_DeletePullRequestApprovalRuleInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -875,7 +799,7 @@ export const se_DeleteRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRepository");
   let body: any;
-  body = JSON.stringify(se_DeleteRepositoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -888,7 +812,7 @@ export const se_DescribeMergeConflictsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeMergeConflicts");
   let body: any;
-  body = JSON.stringify(se_DescribeMergeConflictsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -901,7 +825,7 @@ export const se_DescribePullRequestEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePullRequestEvents");
   let body: any;
-  body = JSON.stringify(se_DescribePullRequestEventsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -914,7 +838,7 @@ export const se_DisassociateApprovalRuleTemplateFromRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateApprovalRuleTemplateFromRepository");
   let body: any;
-  body = JSON.stringify(se_DisassociateApprovalRuleTemplateFromRepositoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -927,7 +851,7 @@ export const se_EvaluatePullRequestApprovalRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EvaluatePullRequestApprovalRules");
   let body: any;
-  body = JSON.stringify(se_EvaluatePullRequestApprovalRulesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -940,7 +864,7 @@ export const se_GetApprovalRuleTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetApprovalRuleTemplate");
   let body: any;
-  body = JSON.stringify(se_GetApprovalRuleTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -953,7 +877,7 @@ export const se_GetBlobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetBlob");
   let body: any;
-  body = JSON.stringify(se_GetBlobInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -966,7 +890,7 @@ export const se_GetBranchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetBranch");
   let body: any;
-  body = JSON.stringify(se_GetBranchInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -979,7 +903,7 @@ export const se_GetCommentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetComment");
   let body: any;
-  body = JSON.stringify(se_GetCommentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -992,7 +916,7 @@ export const se_GetCommentReactionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCommentReactions");
   let body: any;
-  body = JSON.stringify(se_GetCommentReactionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1005,7 +929,7 @@ export const se_GetCommentsForComparedCommitCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCommentsForComparedCommit");
   let body: any;
-  body = JSON.stringify(se_GetCommentsForComparedCommitInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1018,7 +942,7 @@ export const se_GetCommentsForPullRequestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCommentsForPullRequest");
   let body: any;
-  body = JSON.stringify(se_GetCommentsForPullRequestInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1031,7 +955,7 @@ export const se_GetCommitCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCommit");
   let body: any;
-  body = JSON.stringify(se_GetCommitInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1044,7 +968,7 @@ export const se_GetDifferencesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDifferences");
   let body: any;
-  body = JSON.stringify(se_GetDifferencesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1057,7 +981,7 @@ export const se_GetFileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFile");
   let body: any;
-  body = JSON.stringify(se_GetFileInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1070,7 +994,7 @@ export const se_GetFolderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFolder");
   let body: any;
-  body = JSON.stringify(se_GetFolderInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1083,7 +1007,7 @@ export const se_GetMergeCommitCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetMergeCommit");
   let body: any;
-  body = JSON.stringify(se_GetMergeCommitInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1096,7 +1020,7 @@ export const se_GetMergeConflictsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetMergeConflicts");
   let body: any;
-  body = JSON.stringify(se_GetMergeConflictsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1109,7 +1033,7 @@ export const se_GetMergeOptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetMergeOptions");
   let body: any;
-  body = JSON.stringify(se_GetMergeOptionsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1122,7 +1046,7 @@ export const se_GetPullRequestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPullRequest");
   let body: any;
-  body = JSON.stringify(se_GetPullRequestInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1135,7 +1059,7 @@ export const se_GetPullRequestApprovalStatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPullRequestApprovalStates");
   let body: any;
-  body = JSON.stringify(se_GetPullRequestApprovalStatesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1148,7 +1072,7 @@ export const se_GetPullRequestOverrideStateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetPullRequestOverrideState");
   let body: any;
-  body = JSON.stringify(se_GetPullRequestOverrideStateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1161,7 +1085,7 @@ export const se_GetRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRepository");
   let body: any;
-  body = JSON.stringify(se_GetRepositoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1174,7 +1098,7 @@ export const se_GetRepositoryTriggersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRepositoryTriggers");
   let body: any;
-  body = JSON.stringify(se_GetRepositoryTriggersInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1187,7 +1111,7 @@ export const se_ListApprovalRuleTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListApprovalRuleTemplates");
   let body: any;
-  body = JSON.stringify(se_ListApprovalRuleTemplatesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1200,7 +1124,7 @@ export const se_ListAssociatedApprovalRuleTemplatesForRepositoryCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAssociatedApprovalRuleTemplatesForRepository");
   let body: any;
-  body = JSON.stringify(se_ListAssociatedApprovalRuleTemplatesForRepositoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1213,7 +1137,7 @@ export const se_ListBranchesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListBranches");
   let body: any;
-  body = JSON.stringify(se_ListBranchesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1226,7 +1150,7 @@ export const se_ListPullRequestsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPullRequests");
   let body: any;
-  body = JSON.stringify(se_ListPullRequestsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1239,7 +1163,7 @@ export const se_ListRepositoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRepositories");
   let body: any;
-  body = JSON.stringify(se_ListRepositoriesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1252,7 +1176,7 @@ export const se_ListRepositoriesForApprovalRuleTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRepositoriesForApprovalRuleTemplate");
   let body: any;
-  body = JSON.stringify(se_ListRepositoriesForApprovalRuleTemplateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1265,7 +1189,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1278,7 +1202,7 @@ export const se_MergeBranchesByFastForwardCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("MergeBranchesByFastForward");
   let body: any;
-  body = JSON.stringify(se_MergeBranchesByFastForwardInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1317,7 +1241,7 @@ export const se_MergePullRequestByFastForwardCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("MergePullRequestByFastForward");
   let body: any;
-  body = JSON.stringify(se_MergePullRequestByFastForwardInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1356,7 +1280,7 @@ export const se_OverridePullRequestApprovalRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("OverridePullRequestApprovalRules");
   let body: any;
-  body = JSON.stringify(se_OverridePullRequestApprovalRulesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1408,7 +1332,7 @@ export const se_PutCommentReactionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutCommentReaction");
   let body: any;
-  body = JSON.stringify(se_PutCommentReactionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1434,7 +1358,7 @@ export const se_PutRepositoryTriggersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutRepositoryTriggers");
   let body: any;
-  body = JSON.stringify(se_PutRepositoryTriggersInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1447,7 +1371,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1460,7 +1384,7 @@ export const se_TestRepositoryTriggersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TestRepositoryTriggers");
   let body: any;
-  body = JSON.stringify(se_TestRepositoryTriggersInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1473,7 +1397,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1486,7 +1410,7 @@ export const se_UpdateApprovalRuleTemplateContentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateApprovalRuleTemplateContent");
   let body: any;
-  body = JSON.stringify(se_UpdateApprovalRuleTemplateContentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1499,7 +1423,7 @@ export const se_UpdateApprovalRuleTemplateDescriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateApprovalRuleTemplateDescription");
   let body: any;
-  body = JSON.stringify(se_UpdateApprovalRuleTemplateDescriptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1512,7 +1436,7 @@ export const se_UpdateApprovalRuleTemplateNameCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateApprovalRuleTemplateName");
   let body: any;
-  body = JSON.stringify(se_UpdateApprovalRuleTemplateNameInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1525,7 +1449,7 @@ export const se_UpdateCommentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateComment");
   let body: any;
-  body = JSON.stringify(se_UpdateCommentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1538,7 +1462,7 @@ export const se_UpdateDefaultBranchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDefaultBranch");
   let body: any;
-  body = JSON.stringify(se_UpdateDefaultBranchInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1551,7 +1475,7 @@ export const se_UpdatePullRequestApprovalRuleContentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePullRequestApprovalRuleContent");
   let body: any;
-  body = JSON.stringify(se_UpdatePullRequestApprovalRuleContentInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1564,7 +1488,7 @@ export const se_UpdatePullRequestApprovalStateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePullRequestApprovalState");
   let body: any;
-  body = JSON.stringify(se_UpdatePullRequestApprovalStateInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1577,7 +1501,7 @@ export const se_UpdatePullRequestDescriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePullRequestDescription");
   let body: any;
-  body = JSON.stringify(se_UpdatePullRequestDescriptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1590,7 +1514,7 @@ export const se_UpdatePullRequestStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePullRequestStatus");
   let body: any;
-  body = JSON.stringify(se_UpdatePullRequestStatusInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1603,7 +1527,7 @@ export const se_UpdatePullRequestTitleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePullRequestTitle");
   let body: any;
-  body = JSON.stringify(se_UpdatePullRequestTitleInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1616,7 +1540,7 @@ export const se_UpdateRepositoryDescriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRepositoryDescription");
   let body: any;
-  body = JSON.stringify(se_UpdateRepositoryDescriptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1629,7 +1553,7 @@ export const se_UpdateRepositoryNameCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRepositoryName");
   let body: any;
-  body = JSON.stringify(se_UpdateRepositoryNameInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1647,7 +1571,7 @@ export const de_AssociateApprovalRuleTemplateWithRepositoryCommand = async (
   const response: AssociateApprovalRuleTemplateWithRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1701,10 +1625,9 @@ const de_AssociateApprovalRuleTemplateWithRepositoryCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1722,12 +1645,12 @@ export const de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand = asyn
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchAssociateApprovalRuleTemplateWithRepositoriesOutput(data, context);
+  contents = _json(data);
   const response: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1775,10 +1698,9 @@ const de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError = async 
       throw await de_RepositoryNamesRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1796,12 +1718,12 @@ export const de_BatchDescribeMergeConflictsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchDescribeMergeConflictsOutput(data, context);
+  contents = _json(data);
   const response: BatchDescribeMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1882,10 +1804,9 @@ const de_BatchDescribeMergeConflictsCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1903,12 +1824,12 @@ export const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = a
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput(data, context);
+  contents = _json(data);
   const response: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1956,10 +1877,9 @@ const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError = asy
       throw await de_RepositoryNamesRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1977,12 +1897,12 @@ export const de_BatchGetCommitsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_BatchGetCommitsOutput(data, context);
+  contents = _json(data);
   const response: BatchGetCommitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2030,10 +1950,9 @@ const de_BatchGetCommitsCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2056,7 +1975,7 @@ export const de_BatchGetRepositoriesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2098,10 +2017,9 @@ const de_BatchGetRepositoriesCommandError = async (
       throw await de_RepositoryNamesRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2124,7 +2042,7 @@ export const de_CreateApprovalRuleTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2163,10 +2081,9 @@ const de_CreateApprovalRuleTemplateCommandError = async (
       throw await de_NumberOfRuleTemplatesExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2186,7 +2103,7 @@ export const de_CreateBranchCommand = async (
   const response: CreateBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2246,10 +2163,9 @@ const de_CreateBranchCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2267,12 +2183,12 @@ export const de_CreateCommitCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateCommitOutput(data, context);
+  contents = _json(data);
   const response: CreateCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2404,10 +2320,9 @@ const de_CreateCommitCommandError = async (
       throw await de_SourceFileOrContentRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2430,7 +2345,7 @@ export const de_CreatePullRequestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2523,10 +2438,9 @@ const de_CreatePullRequestCommandError = async (
       throw await de_TitleRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2549,7 +2463,7 @@ export const de_CreatePullRequestApprovalRuleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2612,10 +2526,9 @@ const de_CreatePullRequestApprovalRuleCommandError = async (
       throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2638,7 +2551,7 @@ export const de_CreateRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2698,10 +2611,9 @@ const de_CreateRepositoryCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2719,12 +2631,12 @@ export const de_CreateUnreferencedMergeCommitCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateUnreferencedMergeCommitOutput(data, context);
+  contents = _json(data);
   const response: CreateUnreferencedMergeCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2850,10 +2762,9 @@ const de_CreateUnreferencedMergeCommitCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2871,12 +2782,12 @@ export const de_DeleteApprovalRuleTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteApprovalRuleTemplateOutput(data, context);
+  contents = _json(data);
   const response: DeleteApprovalRuleTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2903,10 +2814,9 @@ const de_DeleteApprovalRuleTemplateCommandError = async (
       throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2924,12 +2834,12 @@ export const de_DeleteBranchCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteBranchOutput(data, context);
+  contents = _json(data);
   const response: DeleteBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2980,10 +2890,9 @@ const de_DeleteBranchCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3006,7 +2915,7 @@ export const de_DeleteCommentContentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3036,10 +2945,9 @@ const de_DeleteCommentContentCommandError = async (
       throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3057,12 +2965,12 @@ export const de_DeleteFileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteFileOutput(data, context);
+  contents = _json(data);
   const response: DeleteFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3146,10 +3054,9 @@ const de_DeleteFileCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3167,12 +3074,12 @@ export const de_DeletePullRequestApprovalRuleCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeletePullRequestApprovalRuleOutput(data, context);
+  contents = _json(data);
   const response: DeletePullRequestApprovalRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3226,10 +3133,9 @@ const de_DeletePullRequestApprovalRuleCommandError = async (
       throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3247,12 +3153,12 @@ export const de_DeleteRepositoryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRepositoryOutput(data, context);
+  contents = _json(data);
   const response: DeleteRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3291,10 +3197,9 @@ const de_DeleteRepositoryCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3312,12 +3217,12 @@ export const de_DescribeMergeConflictsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeMergeConflictsOutput(data, context);
+  contents = _json(data);
   const response: DescribeMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3404,10 +3309,9 @@ const de_DescribeMergeConflictsCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3430,7 +3334,7 @@ export const de_DescribePullRequestEventsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3487,10 +3391,9 @@ const de_DescribePullRequestEventsCommandError = async (
       throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3510,7 +3413,7 @@ export const de_DisassociateApprovalRuleTemplateFromRepositoryCommand = async (
   const response: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3561,10 +3464,9 @@ const de_DisassociateApprovalRuleTemplateFromRepositoryCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3582,12 +3484,12 @@ export const de_EvaluatePullRequestApprovalRulesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EvaluatePullRequestApprovalRulesOutput(data, context);
+  contents = _json(data);
   const response: EvaluatePullRequestApprovalRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3638,10 +3540,9 @@ const de_EvaluatePullRequestApprovalRulesCommandError = async (
       throw await de_RevisionNotCurrentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3664,7 +3565,7 @@ export const de_GetApprovalRuleTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3691,10 +3592,9 @@ const de_GetApprovalRuleTemplateCommandError = async (
       throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3717,7 +3617,7 @@ export const de_GetBlobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3771,10 +3671,9 @@ const de_GetBlobCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3792,12 +3691,12 @@ export const de_GetBranchCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetBranchOutput(data, context);
+  contents = _json(data);
   const response: GetBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3848,10 +3747,9 @@ const de_GetBranchCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3874,7 +3772,7 @@ export const de_GetCommentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3919,10 +3817,9 @@ const de_GetCommentCommandError = async (
       throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3940,12 +3837,12 @@ export const de_GetCommentReactionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCommentReactionsOutput(data, context);
+  contents = _json(data);
   const response: GetCommentReactionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3984,10 +3881,9 @@ const de_GetCommentReactionsCommandError = async (
       throw await de_InvalidReactionUserArnExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4010,7 +3906,7 @@ export const de_GetCommentsForComparedCommitCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4067,10 +3963,9 @@ const de_GetCommentsForComparedCommitCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4093,7 +3988,7 @@ export const de_GetCommentsForPullRequestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4162,10 +4057,9 @@ const de_GetCommentsForPullRequestCommandError = async (
       throw await de_RepositoryNotAssociatedWithPullRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4183,12 +4077,12 @@ export const de_GetCommitCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCommitOutput(data, context);
+  contents = _json(data);
   const response: GetCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4239,10 +4133,9 @@ const de_GetCommitCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4260,12 +4153,12 @@ export const de_GetDifferencesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDifferencesOutput(data, context);
+  contents = _json(data);
   const response: GetDifferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4331,10 +4224,9 @@ const de_GetDifferencesCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4357,7 +4249,7 @@ export const de_GetFileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4417,10 +4309,9 @@ const de_GetFileCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4438,12 +4329,12 @@ export const de_GetFolderCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetFolderOutput(data, context);
+  contents = _json(data);
   const response: GetFolderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4500,10 +4391,9 @@ const de_GetFolderCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4521,12 +4411,12 @@ export const de_GetMergeCommitCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetMergeCommitOutput(data, context);
+  contents = _json(data);
   const response: GetMergeCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4583,10 +4473,9 @@ const de_GetMergeCommitCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4604,12 +4493,12 @@ export const de_GetMergeConflictsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetMergeConflictsOutput(data, context);
+  contents = _json(data);
   const response: GetMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4693,10 +4582,9 @@ const de_GetMergeConflictsCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4714,12 +4602,12 @@ export const de_GetMergeOptionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetMergeOptionsOutput(data, context);
+  contents = _json(data);
   const response: GetMergeOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4785,10 +4673,9 @@ const de_GetMergeOptionsCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4811,7 +4698,7 @@ export const de_GetPullRequestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4853,10 +4740,9 @@ const de_GetPullRequestCommandError = async (
       throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4874,12 +4760,12 @@ export const de_GetPullRequestApprovalStatesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetPullRequestApprovalStatesOutput(data, context);
+  contents = _json(data);
   const response: GetPullRequestApprovalStatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -4927,10 +4813,9 @@ const de_GetPullRequestApprovalStatesCommandError = async (
       throw await de_RevisionIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4948,12 +4833,12 @@ export const de_GetPullRequestOverrideStateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetPullRequestOverrideStateOutput(data, context);
+  contents = _json(data);
   const response: GetPullRequestOverrideStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5001,10 +4886,9 @@ const de_GetPullRequestOverrideStateCommandError = async (
       throw await de_RevisionIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5027,7 +4911,7 @@ export const de_GetRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5069,10 +4953,9 @@ const de_GetRepositoryCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5090,12 +4973,12 @@ export const de_GetRepositoryTriggersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRepositoryTriggersOutput(data, context);
+  contents = _json(data);
   const response: GetRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5137,10 +5020,9 @@ const de_GetRepositoryTriggersCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5158,12 +5040,12 @@ export const de_ListApprovalRuleTemplatesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListApprovalRuleTemplatesOutput(data, context);
+  contents = _json(data);
   const response: ListApprovalRuleTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5187,10 +5069,9 @@ const de_ListApprovalRuleTemplatesCommandError = async (
       throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5208,12 +5089,12 @@ export const de_ListAssociatedApprovalRuleTemplatesForRepositoryCommand = async 
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAssociatedApprovalRuleTemplatesForRepositoryOutput(data, context);
+  contents = _json(data);
   const response: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5261,10 +5142,9 @@ const de_ListAssociatedApprovalRuleTemplatesForRepositoryCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5282,12 +5162,12 @@ export const de_ListBranchesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListBranchesOutput(data, context);
+  contents = _json(data);
   const response: ListBranchesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5332,10 +5212,9 @@ const de_ListBranchesCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5353,12 +5232,12 @@ export const de_ListPullRequestsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPullRequestsOutput(data, context);
+  contents = _json(data);
   const response: ListPullRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5415,10 +5294,9 @@ const de_ListPullRequestsCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5436,12 +5314,12 @@ export const de_ListRepositoriesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRepositoriesOutput(data, context);
+  contents = _json(data);
   const response: ListRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5468,10 +5346,9 @@ const de_ListRepositoriesCommandError = async (
       throw await de_InvalidSortByExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5489,12 +5366,12 @@ export const de_ListRepositoriesForApprovalRuleTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRepositoriesForApprovalRuleTemplateOutput(data, context);
+  contents = _json(data);
   const response: ListRepositoriesForApprovalRuleTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5542,10 +5419,9 @@ const de_ListRepositoriesForApprovalRuleTemplateCommandError = async (
       throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5563,12 +5439,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceOutput(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5598,10 +5474,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5619,12 +5494,12 @@ export const de_MergeBranchesByFastForwardCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_MergeBranchesByFastForwardOutput(data, context);
+  contents = _json(data);
   const response: MergeBranchesByFastForwardCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5699,10 +5574,9 @@ const de_MergeBranchesByFastForwardCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5720,12 +5594,12 @@ export const de_MergeBranchesBySquashCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_MergeBranchesBySquashOutput(data, context);
+  contents = _json(data);
   const response: MergeBranchesBySquashCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -5860,10 +5734,9 @@ const de_MergeBranchesBySquashCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5881,12 +5754,12 @@ export const de_MergeBranchesByThreeWayCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_MergeBranchesByThreeWayOutput(data, context);
+  contents = _json(data);
   const response: MergeBranchesByThreeWayCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6021,10 +5894,9 @@ const de_MergeBranchesByThreeWayCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6047,7 +5919,7 @@ export const de_MergePullRequestByFastForwardCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6122,10 +5994,9 @@ const de_MergePullRequestByFastForwardCommandError = async (
       throw await de_TipOfSourceReferenceIsDifferentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6148,7 +6019,7 @@ export const de_MergePullRequestBySquashCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6280,10 +6151,9 @@ const de_MergePullRequestBySquashCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6306,7 +6176,7 @@ export const de_MergePullRequestByThreeWayCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6438,10 +6308,9 @@ const de_MergePullRequestByThreeWayCommandError = async (
       throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6461,7 +6330,7 @@ export const de_OverridePullRequestApprovalRulesCommand = async (
   const response: OverridePullRequestApprovalRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6524,10 +6393,9 @@ const de_OverridePullRequestApprovalRulesCommandError = async (
       throw await de_RevisionNotCurrentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6550,7 +6418,7 @@ export const de_PostCommentForComparedCommitCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6637,10 +6505,9 @@ const de_PostCommentForComparedCommitCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6663,7 +6530,7 @@ export const de_PostCommentForPullRequestCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6762,10 +6629,9 @@ const de_PostCommentForPullRequestCommandError = async (
       throw await de_RepositoryNotAssociatedWithPullRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6788,7 +6654,7 @@ export const de_PostCommentReplyCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6830,10 +6696,9 @@ const de_PostCommentReplyCommandError = async (
       throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6853,7 +6718,7 @@ export const de_PutCommentReactionCommand = async (
   const response: PutCommentReactionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -6892,10 +6757,9 @@ const de_PutCommentReactionCommandError = async (
       throw await de_ReactionValueRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6913,12 +6777,12 @@ export const de_PutFileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutFileOutput(data, context);
+  contents = _json(data);
   const response: PutFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7026,10 +6890,9 @@ const de_PutFileCommandError = async (
       throw await de_SameFileContentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7047,12 +6910,12 @@ export const de_PutRepositoryTriggersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRepositoryTriggersOutput(data, context);
+  contents = _json(data);
   const response: PutRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7133,10 +6996,9 @@ const de_PutRepositoryTriggersCommandError = async (
       throw await de_RepositoryTriggersListRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7156,7 +7018,7 @@ export const de_TagResourceCommand = async (
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7201,10 +7063,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7222,12 +7083,12 @@ export const de_TestRepositoryTriggersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TestRepositoryTriggersOutput(data, context);
+  contents = _json(data);
   const response: TestRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7308,10 +7169,9 @@ const de_TestRepositoryTriggersCommandError = async (
       throw await de_RepositoryTriggersListRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7331,7 +7191,7 @@ export const de_UntagResourceCommand = async (
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7376,10 +7236,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7402,7 +7261,7 @@ export const de_UpdateApprovalRuleTemplateContentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7438,10 +7297,9 @@ const de_UpdateApprovalRuleTemplateContentCommandError = async (
       throw await de_InvalidRuleContentSha256ExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7464,7 +7322,7 @@ export const de_UpdateApprovalRuleTemplateDescriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7494,10 +7352,9 @@ const de_UpdateApprovalRuleTemplateDescriptionCommandError = async (
       throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7520,7 +7377,7 @@ export const de_UpdateApprovalRuleTemplateNameCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7550,10 +7407,9 @@ const de_UpdateApprovalRuleTemplateNameCommandError = async (
       throw await de_InvalidApprovalRuleTemplateNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7576,7 +7432,7 @@ export const de_UpdateCommentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7615,10 +7471,9 @@ const de_UpdateCommentCommandError = async (
       throw await de_InvalidCommentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7638,7 +7493,7 @@ export const de_UpdateDefaultBranchCommand = async (
   const response: UpdateDefaultBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7689,10 +7544,9 @@ const de_UpdateDefaultBranchCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7715,7 +7569,7 @@ export const de_UpdatePullRequestApprovalRuleContentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7781,10 +7635,9 @@ const de_UpdatePullRequestApprovalRuleContentCommandError = async (
       throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7804,7 +7657,7 @@ export const de_UpdatePullRequestApprovalStateCommand = async (
   const response: UpdatePullRequestApprovalStateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7870,10 +7723,9 @@ const de_UpdatePullRequestApprovalStateCommandError = async (
       throw await de_RevisionNotCurrentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7896,7 +7748,7 @@ export const de_UpdatePullRequestDescriptionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -7929,10 +7781,9 @@ const de_UpdatePullRequestDescriptionCommandError = async (
       throw await de_PullRequestIdRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7955,7 +7806,7 @@ export const de_UpdatePullRequestStatusCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8006,10 +7857,9 @@ const de_UpdatePullRequestStatusCommandError = async (
       throw await de_PullRequestStatusRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8032,7 +7882,7 @@ export const de_UpdatePullRequestTitleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8068,10 +7918,9 @@ const de_UpdatePullRequestTitleCommandError = async (
       throw await de_TitleRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8091,7 +7940,7 @@ export const de_UpdateRepositoryDescriptionCommand = async (
   const response: UpdateRepositoryDescriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8136,10 +7985,9 @@ const de_UpdateRepositoryDescriptionCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8159,7 +8007,7 @@ export const de_UpdateRepositoryNameCommand = async (
   const response: UpdateRepositoryNameCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -8189,10 +8037,9 @@ const de_UpdateRepositoryNameCommandError = async (
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8206,7 +8053,7 @@ const de_ActorDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<ActorDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ActorDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ActorDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8222,7 +8069,7 @@ const de_ApprovalRuleContentRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalRuleContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalRuleContentRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalRuleContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8238,7 +8085,7 @@ const de_ApprovalRuleDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalRuleDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalRuleDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalRuleDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8254,7 +8101,7 @@ const de_ApprovalRuleNameAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalRuleNameAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalRuleNameAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalRuleNameAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8270,7 +8117,7 @@ const de_ApprovalRuleNameRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalRuleNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalRuleNameRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalRuleNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8286,7 +8133,7 @@ const de_ApprovalRuleTemplateContentRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalRuleTemplateContentRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalRuleTemplateContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8302,7 +8149,7 @@ const de_ApprovalRuleTemplateDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalRuleTemplateDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalRuleTemplateDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8318,7 +8165,7 @@ const de_ApprovalRuleTemplateInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalRuleTemplateInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalRuleTemplateInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8334,7 +8181,7 @@ const de_ApprovalRuleTemplateNameAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateNameAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalRuleTemplateNameAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalRuleTemplateNameAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8350,7 +8197,7 @@ const de_ApprovalRuleTemplateNameRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalRuleTemplateNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalRuleTemplateNameRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalRuleTemplateNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8366,7 +8213,7 @@ const de_ApprovalStateRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ApprovalStateRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ApprovalStateRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ApprovalStateRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8382,7 +8229,7 @@ const de_AuthorDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<AuthorDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AuthorDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AuthorDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8398,7 +8245,7 @@ const de_BeforeCommitIdAndAfterCommitIdAreSameExceptionRes = async (
   context: __SerdeContext
 ): Promise<BeforeCommitIdAndAfterCommitIdAreSameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BeforeCommitIdAndAfterCommitIdAreSameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BeforeCommitIdAndAfterCommitIdAreSameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8414,7 +8261,7 @@ const de_BlobIdDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<BlobIdDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BlobIdDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BlobIdDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8430,7 +8277,7 @@ const de_BlobIdRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<BlobIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BlobIdRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BlobIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8446,7 +8293,7 @@ const de_BranchDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<BranchDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BranchDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BranchDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8462,7 +8309,7 @@ const de_BranchNameExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<BranchNameExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BranchNameExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BranchNameExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8478,7 +8325,7 @@ const de_BranchNameIsTagNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<BranchNameIsTagNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BranchNameIsTagNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BranchNameIsTagNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8494,7 +8341,7 @@ const de_BranchNameRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<BranchNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BranchNameRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BranchNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8510,7 +8357,7 @@ const de_CannotDeleteApprovalRuleFromTemplateExceptionRes = async (
   context: __SerdeContext
 ): Promise<CannotDeleteApprovalRuleFromTemplateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CannotDeleteApprovalRuleFromTemplateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CannotDeleteApprovalRuleFromTemplateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8526,7 +8373,7 @@ const de_CannotModifyApprovalRuleFromTemplateExceptionRes = async (
   context: __SerdeContext
 ): Promise<CannotModifyApprovalRuleFromTemplateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CannotModifyApprovalRuleFromTemplateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CannotModifyApprovalRuleFromTemplateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8542,7 +8389,7 @@ const de_ClientRequestTokenRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ClientRequestTokenRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ClientRequestTokenRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ClientRequestTokenRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8558,7 +8405,7 @@ const de_CommentContentRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommentContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommentContentRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommentContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8574,7 +8421,7 @@ const de_CommentContentSizeLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommentContentSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommentContentSizeLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommentContentSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8590,7 +8437,7 @@ const de_CommentDeletedExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommentDeletedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommentDeletedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommentDeletedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8606,7 +8453,7 @@ const de_CommentDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommentDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommentDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommentDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8622,7 +8469,7 @@ const de_CommentIdRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommentIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommentIdRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommentIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8638,7 +8485,7 @@ const de_CommentNotCreatedByCallerExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommentNotCreatedByCallerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommentNotCreatedByCallerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommentNotCreatedByCallerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8654,7 +8501,7 @@ const de_CommitDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommitDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommitDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommitDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8670,7 +8517,7 @@ const de_CommitIdDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommitIdDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommitIdDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommitIdDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8686,7 +8533,7 @@ const de_CommitIdRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommitIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommitIdRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommitIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8702,7 +8549,7 @@ const de_CommitIdsLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommitIdsLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommitIdsLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommitIdsLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8718,7 +8565,7 @@ const de_CommitIdsListRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommitIdsListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommitIdsListRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommitIdsListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8734,7 +8581,7 @@ const de_CommitMessageLengthExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommitMessageLengthExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommitMessageLengthExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommitMessageLengthExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8750,7 +8597,7 @@ const de_CommitRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<CommitRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CommitRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CommitRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8766,7 +8613,7 @@ const de_ConcurrentReferenceUpdateExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentReferenceUpdateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentReferenceUpdateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentReferenceUpdateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8782,7 +8629,7 @@ const de_DefaultBranchCannotBeDeletedExceptionRes = async (
   context: __SerdeContext
 ): Promise<DefaultBranchCannotBeDeletedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DefaultBranchCannotBeDeletedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DefaultBranchCannotBeDeletedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8798,7 +8645,7 @@ const de_DirectoryNameConflictsWithFileNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<DirectoryNameConflictsWithFileNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DirectoryNameConflictsWithFileNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DirectoryNameConflictsWithFileNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8814,7 +8661,7 @@ const de_EncryptionIntegrityChecksFailedExceptionRes = async (
   context: __SerdeContext
 ): Promise<EncryptionIntegrityChecksFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EncryptionIntegrityChecksFailedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EncryptionIntegrityChecksFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8830,7 +8677,7 @@ const de_EncryptionKeyAccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<EncryptionKeyAccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EncryptionKeyAccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EncryptionKeyAccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8846,7 +8693,7 @@ const de_EncryptionKeyDisabledExceptionRes = async (
   context: __SerdeContext
 ): Promise<EncryptionKeyDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EncryptionKeyDisabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EncryptionKeyDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8862,7 +8709,7 @@ const de_EncryptionKeyNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<EncryptionKeyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EncryptionKeyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EncryptionKeyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8878,7 +8725,7 @@ const de_EncryptionKeyUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<EncryptionKeyUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EncryptionKeyUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EncryptionKeyUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8894,7 +8741,7 @@ const de_FileContentAndSourceFileSpecifiedExceptionRes = async (
   context: __SerdeContext
 ): Promise<FileContentAndSourceFileSpecifiedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FileContentAndSourceFileSpecifiedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FileContentAndSourceFileSpecifiedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8910,7 +8757,7 @@ const de_FileContentRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<FileContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FileContentRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FileContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8926,7 +8773,7 @@ const de_FileContentSizeLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<FileContentSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FileContentSizeLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FileContentSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8942,7 +8789,7 @@ const de_FileDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<FileDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FileDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FileDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8958,7 +8805,7 @@ const de_FileEntryRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<FileEntryRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FileEntryRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FileEntryRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8974,7 +8821,7 @@ const de_FileModeRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<FileModeRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FileModeRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FileModeRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8990,7 +8837,7 @@ const de_FileNameConflictsWithDirectoryNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<FileNameConflictsWithDirectoryNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FileNameConflictsWithDirectoryNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FileNameConflictsWithDirectoryNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9006,7 +8853,7 @@ const de_FilePathConflictsWithSubmodulePathExceptionRes = async (
   context: __SerdeContext
 ): Promise<FilePathConflictsWithSubmodulePathException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FilePathConflictsWithSubmodulePathException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FilePathConflictsWithSubmodulePathException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9022,7 +8869,7 @@ const de_FileTooLargeExceptionRes = async (
   context: __SerdeContext
 ): Promise<FileTooLargeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FileTooLargeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FileTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9038,7 +8885,7 @@ const de_FolderContentSizeLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<FolderContentSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FolderContentSizeLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FolderContentSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9054,7 +8901,7 @@ const de_FolderDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<FolderDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FolderDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FolderDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9070,7 +8917,7 @@ const de_IdempotencyParameterMismatchExceptionRes = async (
   context: __SerdeContext
 ): Promise<IdempotencyParameterMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IdempotencyParameterMismatchException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IdempotencyParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9086,7 +8933,7 @@ const de_InvalidActorArnExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidActorArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidActorArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidActorArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9102,7 +8949,7 @@ const de_InvalidApprovalRuleContentExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleContentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidApprovalRuleContentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidApprovalRuleContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9118,7 +8965,7 @@ const de_InvalidApprovalRuleNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidApprovalRuleNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidApprovalRuleNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9134,7 +8981,7 @@ const de_InvalidApprovalRuleTemplateContentExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleTemplateContentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidApprovalRuleTemplateContentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidApprovalRuleTemplateContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9150,7 +8997,7 @@ const de_InvalidApprovalRuleTemplateDescriptionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleTemplateDescriptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidApprovalRuleTemplateDescriptionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidApprovalRuleTemplateDescriptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9166,7 +9013,7 @@ const de_InvalidApprovalRuleTemplateNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidApprovalRuleTemplateNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidApprovalRuleTemplateNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidApprovalRuleTemplateNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9182,7 +9029,7 @@ const de_InvalidApprovalStateExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidApprovalStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidApprovalStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidApprovalStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9198,7 +9045,7 @@ const de_InvalidAuthorArnExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidAuthorArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidAuthorArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidAuthorArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9214,7 +9061,7 @@ const de_InvalidBlobIdExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidBlobIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidBlobIdException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidBlobIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9230,7 +9077,7 @@ const de_InvalidBranchNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidBranchNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidBranchNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidBranchNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9246,7 +9093,7 @@ const de_InvalidClientRequestTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidClientRequestTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidClientRequestTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidClientRequestTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9262,7 +9109,7 @@ const de_InvalidCommentIdExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidCommentIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidCommentIdException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidCommentIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9278,7 +9125,7 @@ const de_InvalidCommitExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidCommitException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidCommitException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidCommitException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9294,7 +9141,7 @@ const de_InvalidCommitIdExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidCommitIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidCommitIdException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidCommitIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9310,7 +9157,7 @@ const de_InvalidConflictDetailLevelExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidConflictDetailLevelException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidConflictDetailLevelException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidConflictDetailLevelException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9326,7 +9173,7 @@ const de_InvalidConflictResolutionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidConflictResolutionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidConflictResolutionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidConflictResolutionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9342,7 +9189,7 @@ const de_InvalidConflictResolutionStrategyExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidConflictResolutionStrategyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidConflictResolutionStrategyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidConflictResolutionStrategyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9358,7 +9205,7 @@ const de_InvalidContinuationTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidContinuationTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidContinuationTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidContinuationTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9374,7 +9221,7 @@ const de_InvalidDeletionParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidDeletionParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidDeletionParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidDeletionParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9390,7 +9237,7 @@ const de_InvalidDescriptionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidDescriptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidDescriptionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidDescriptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9406,7 +9253,7 @@ const de_InvalidDestinationCommitSpecifierExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidDestinationCommitSpecifierException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidDestinationCommitSpecifierException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidDestinationCommitSpecifierException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9422,7 +9269,7 @@ const de_InvalidEmailExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidEmailException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidEmailException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidEmailException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9438,7 +9285,7 @@ const de_InvalidFileLocationExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidFileLocationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidFileLocationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidFileLocationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9454,7 +9301,7 @@ const de_InvalidFileModeExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidFileModeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidFileModeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidFileModeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9470,7 +9317,7 @@ const de_InvalidFilePositionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidFilePositionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidFilePositionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidFilePositionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9486,7 +9333,7 @@ const de_InvalidMaxConflictFilesExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidMaxConflictFilesException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidMaxConflictFilesException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidMaxConflictFilesException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9502,7 +9349,7 @@ const de_InvalidMaxMergeHunksExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidMaxMergeHunksException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidMaxMergeHunksException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidMaxMergeHunksException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9518,7 +9365,7 @@ const de_InvalidMaxResultsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidMaxResultsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidMaxResultsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidMaxResultsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9534,7 +9381,7 @@ const de_InvalidMergeOptionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidMergeOptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidMergeOptionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidMergeOptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9550,7 +9397,7 @@ const de_InvalidOrderExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidOrderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidOrderException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidOrderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9566,7 +9413,7 @@ const de_InvalidOverrideStatusExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidOverrideStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidOverrideStatusException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidOverrideStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9582,7 +9429,7 @@ const de_InvalidParentCommitIdExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParentCommitIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParentCommitIdException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParentCommitIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9598,7 +9445,7 @@ const de_InvalidPathExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPathException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPathException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPathException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9614,7 +9461,7 @@ const de_InvalidPullRequestEventTypeExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPullRequestEventTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPullRequestEventTypeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPullRequestEventTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9630,7 +9477,7 @@ const de_InvalidPullRequestIdExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPullRequestIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPullRequestIdException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPullRequestIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9646,7 +9493,7 @@ const de_InvalidPullRequestStatusExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPullRequestStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPullRequestStatusException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPullRequestStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9662,7 +9509,7 @@ const de_InvalidPullRequestStatusUpdateExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidPullRequestStatusUpdateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidPullRequestStatusUpdateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPullRequestStatusUpdateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9678,7 +9525,7 @@ const de_InvalidReactionUserArnExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidReactionUserArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidReactionUserArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidReactionUserArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9694,7 +9541,7 @@ const de_InvalidReactionValueExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidReactionValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidReactionValueException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidReactionValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9710,7 +9557,7 @@ const de_InvalidReferenceNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidReferenceNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidReferenceNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidReferenceNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9726,7 +9573,7 @@ const de_InvalidRelativeFileVersionEnumExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRelativeFileVersionEnumException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRelativeFileVersionEnumException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRelativeFileVersionEnumException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9742,7 +9589,7 @@ const de_InvalidReplacementContentExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidReplacementContentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidReplacementContentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidReplacementContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9758,7 +9605,7 @@ const de_InvalidReplacementTypeExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidReplacementTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidReplacementTypeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidReplacementTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9774,7 +9621,7 @@ const de_InvalidRepositoryDescriptionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRepositoryDescriptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRepositoryDescriptionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRepositoryDescriptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9790,7 +9637,7 @@ const de_InvalidRepositoryNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRepositoryNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRepositoryNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRepositoryNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9806,7 +9653,7 @@ const de_InvalidRepositoryTriggerBranchNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerBranchNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRepositoryTriggerBranchNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRepositoryTriggerBranchNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9822,7 +9669,7 @@ const de_InvalidRepositoryTriggerCustomDataExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerCustomDataException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRepositoryTriggerCustomDataException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRepositoryTriggerCustomDataException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9838,7 +9685,7 @@ const de_InvalidRepositoryTriggerDestinationArnExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerDestinationArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRepositoryTriggerDestinationArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRepositoryTriggerDestinationArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9854,7 +9701,7 @@ const de_InvalidRepositoryTriggerEventsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerEventsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRepositoryTriggerEventsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRepositoryTriggerEventsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9870,7 +9717,7 @@ const de_InvalidRepositoryTriggerNameExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRepositoryTriggerNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRepositoryTriggerNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9886,7 +9733,7 @@ const de_InvalidRepositoryTriggerRegionExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRepositoryTriggerRegionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRepositoryTriggerRegionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRepositoryTriggerRegionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9902,7 +9749,7 @@ const de_InvalidResourceArnExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidResourceArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidResourceArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidResourceArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9918,7 +9765,7 @@ const de_InvalidRevisionIdExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRevisionIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRevisionIdException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRevisionIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9934,7 +9781,7 @@ const de_InvalidRuleContentSha256ExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRuleContentSha256Exception> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRuleContentSha256Exception(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRuleContentSha256Exception({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9950,7 +9797,7 @@ const de_InvalidSortByExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidSortByException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidSortByException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidSortByException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9966,7 +9813,7 @@ const de_InvalidSourceCommitSpecifierExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidSourceCommitSpecifierException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidSourceCommitSpecifierException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidSourceCommitSpecifierException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9982,7 +9829,7 @@ const de_InvalidSystemTagUsageExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidSystemTagUsageException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidSystemTagUsageException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidSystemTagUsageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -9998,7 +9845,7 @@ const de_InvalidTagKeysListExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTagKeysListException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTagKeysListException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTagKeysListException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10014,7 +9861,7 @@ const de_InvalidTagsMapExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTagsMapException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTagsMapException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTagsMapException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10030,7 +9877,7 @@ const de_InvalidTargetBranchExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTargetBranchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTargetBranchException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTargetBranchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10046,7 +9893,7 @@ const de_InvalidTargetExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTargetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTargetException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTargetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10062,7 +9909,7 @@ const de_InvalidTargetsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTargetsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTargetsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTargetsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10078,7 +9925,7 @@ const de_InvalidTitleExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidTitleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidTitleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTitleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10094,7 +9941,7 @@ const de_ManualMergeRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ManualMergeRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ManualMergeRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ManualMergeRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10110,7 +9957,7 @@ const de_MaximumBranchesExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumBranchesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumBranchesExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumBranchesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10126,7 +9973,7 @@ const de_MaximumConflictResolutionEntriesExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumConflictResolutionEntriesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumConflictResolutionEntriesExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumConflictResolutionEntriesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10142,7 +9989,7 @@ const de_MaximumFileContentToLoadExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumFileContentToLoadExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumFileContentToLoadExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumFileContentToLoadExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10158,7 +10005,7 @@ const de_MaximumFileEntriesExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumFileEntriesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumFileEntriesExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumFileEntriesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10174,7 +10021,7 @@ const de_MaximumItemsToCompareExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumItemsToCompareExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumItemsToCompareExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumItemsToCompareExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10190,7 +10037,7 @@ const de_MaximumNumberOfApprovalsExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumNumberOfApprovalsExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumNumberOfApprovalsExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumNumberOfApprovalsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10206,7 +10053,7 @@ const de_MaximumOpenPullRequestsExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumOpenPullRequestsExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumOpenPullRequestsExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumOpenPullRequestsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10222,7 +10069,7 @@ const de_MaximumRepositoryNamesExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumRepositoryNamesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumRepositoryNamesExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumRepositoryNamesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10238,7 +10085,7 @@ const de_MaximumRepositoryTriggersExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumRepositoryTriggersExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumRepositoryTriggersExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumRepositoryTriggersExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10254,7 +10101,7 @@ const de_MaximumRuleTemplatesAssociatedWithRepositoryExceptionRes = async (
   context: __SerdeContext
 ): Promise<MaximumRuleTemplatesAssociatedWithRepositoryException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MaximumRuleTemplatesAssociatedWithRepositoryException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MaximumRuleTemplatesAssociatedWithRepositoryException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10270,7 +10117,7 @@ const de_MergeOptionRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<MergeOptionRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MergeOptionRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MergeOptionRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10286,7 +10133,7 @@ const de_MultipleConflictResolutionEntriesExceptionRes = async (
   context: __SerdeContext
 ): Promise<MultipleConflictResolutionEntriesException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MultipleConflictResolutionEntriesException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MultipleConflictResolutionEntriesException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10302,7 +10149,7 @@ const de_MultipleRepositoriesInPullRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<MultipleRepositoriesInPullRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MultipleRepositoriesInPullRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MultipleRepositoriesInPullRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10318,7 +10165,7 @@ const de_NameLengthExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<NameLengthExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NameLengthExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NameLengthExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10331,7 +10178,7 @@ const de_NameLengthExceededExceptionRes = async (
  */
 const de_NoChangeExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoChangeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoChangeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoChangeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10347,7 +10194,7 @@ const de_NumberOfRulesExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<NumberOfRulesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NumberOfRulesExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NumberOfRulesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10363,7 +10210,7 @@ const de_NumberOfRuleTemplatesExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<NumberOfRuleTemplatesExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NumberOfRuleTemplatesExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NumberOfRuleTemplatesExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10379,7 +10226,7 @@ const de_OverrideAlreadySetExceptionRes = async (
   context: __SerdeContext
 ): Promise<OverrideAlreadySetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OverrideAlreadySetException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OverrideAlreadySetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10395,7 +10242,7 @@ const de_OverrideStatusRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<OverrideStatusRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OverrideStatusRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OverrideStatusRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10411,7 +10258,7 @@ const de_ParentCommitDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<ParentCommitDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ParentCommitDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ParentCommitDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10427,7 +10274,7 @@ const de_ParentCommitIdOutdatedExceptionRes = async (
   context: __SerdeContext
 ): Promise<ParentCommitIdOutdatedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ParentCommitIdOutdatedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ParentCommitIdOutdatedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10443,7 +10290,7 @@ const de_ParentCommitIdRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ParentCommitIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ParentCommitIdRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ParentCommitIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10459,7 +10306,7 @@ const de_PathDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<PathDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PathDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PathDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10475,7 +10322,7 @@ const de_PathRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<PathRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PathRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PathRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10491,7 +10338,7 @@ const de_PullRequestAlreadyClosedExceptionRes = async (
   context: __SerdeContext
 ): Promise<PullRequestAlreadyClosedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PullRequestAlreadyClosedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PullRequestAlreadyClosedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10507,7 +10354,7 @@ const de_PullRequestApprovalRulesNotSatisfiedExceptionRes = async (
   context: __SerdeContext
 ): Promise<PullRequestApprovalRulesNotSatisfiedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PullRequestApprovalRulesNotSatisfiedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PullRequestApprovalRulesNotSatisfiedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10523,7 +10370,7 @@ const de_PullRequestCannotBeApprovedByAuthorExceptionRes = async (
   context: __SerdeContext
 ): Promise<PullRequestCannotBeApprovedByAuthorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PullRequestCannotBeApprovedByAuthorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PullRequestCannotBeApprovedByAuthorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10539,7 +10386,7 @@ const de_PullRequestDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<PullRequestDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PullRequestDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PullRequestDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10555,7 +10402,7 @@ const de_PullRequestIdRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<PullRequestIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PullRequestIdRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PullRequestIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10571,7 +10418,7 @@ const de_PullRequestStatusRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<PullRequestStatusRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PullRequestStatusRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PullRequestStatusRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10587,7 +10434,7 @@ const de_PutFileEntryConflictExceptionRes = async (
   context: __SerdeContext
 ): Promise<PutFileEntryConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PutFileEntryConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PutFileEntryConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10603,7 +10450,7 @@ const de_ReactionLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReactionLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReactionLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReactionLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10619,7 +10466,7 @@ const de_ReactionValueRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReactionValueRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReactionValueRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReactionValueRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10635,7 +10482,7 @@ const de_ReferenceDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReferenceDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReferenceDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReferenceDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10651,7 +10498,7 @@ const de_ReferenceNameRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReferenceNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReferenceNameRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReferenceNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10667,7 +10514,7 @@ const de_ReferenceTypeNotSupportedExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReferenceTypeNotSupportedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReferenceTypeNotSupportedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReferenceTypeNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10683,7 +10530,7 @@ const de_ReplacementContentRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReplacementContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReplacementContentRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReplacementContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10699,7 +10546,7 @@ const de_ReplacementTypeRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ReplacementTypeRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ReplacementTypeRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReplacementTypeRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10715,7 +10562,7 @@ const de_RepositoryDoesNotExistExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryDoesNotExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10731,7 +10578,7 @@ const de_RepositoryLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10747,7 +10594,7 @@ const de_RepositoryNameExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryNameExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryNameExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryNameExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10763,7 +10610,7 @@ const de_RepositoryNameRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryNameRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10779,7 +10626,7 @@ const de_RepositoryNamesRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryNamesRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryNamesRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryNamesRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10795,7 +10642,7 @@ const de_RepositoryNotAssociatedWithPullRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryNotAssociatedWithPullRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryNotAssociatedWithPullRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryNotAssociatedWithPullRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10811,7 +10658,7 @@ const de_RepositoryTriggerBranchNameListRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryTriggerBranchNameListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryTriggerBranchNameListRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryTriggerBranchNameListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10827,7 +10674,7 @@ const de_RepositoryTriggerDestinationArnRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryTriggerDestinationArnRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryTriggerDestinationArnRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryTriggerDestinationArnRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10843,7 +10690,7 @@ const de_RepositoryTriggerEventsListRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryTriggerEventsListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryTriggerEventsListRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryTriggerEventsListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10859,7 +10706,7 @@ const de_RepositoryTriggerNameRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryTriggerNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryTriggerNameRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryTriggerNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10875,7 +10722,7 @@ const de_RepositoryTriggersListRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<RepositoryTriggersListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RepositoryTriggersListRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryTriggersListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10891,7 +10738,7 @@ const de_ResourceArnRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceArnRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceArnRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceArnRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10907,7 +10754,7 @@ const de_RestrictedSourceFileExceptionRes = async (
   context: __SerdeContext
 ): Promise<RestrictedSourceFileException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RestrictedSourceFileException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RestrictedSourceFileException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10923,7 +10770,7 @@ const de_RevisionIdRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<RevisionIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RevisionIdRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RevisionIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10939,7 +10786,7 @@ const de_RevisionNotCurrentExceptionRes = async (
   context: __SerdeContext
 ): Promise<RevisionNotCurrentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RevisionNotCurrentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RevisionNotCurrentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10955,7 +10802,7 @@ const de_SameFileContentExceptionRes = async (
   context: __SerdeContext
 ): Promise<SameFileContentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SameFileContentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SameFileContentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10971,7 +10818,7 @@ const de_SamePathRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<SamePathRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SamePathRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SamePathRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10987,7 +10834,7 @@ const de_SourceAndDestinationAreSameExceptionRes = async (
   context: __SerdeContext
 ): Promise<SourceAndDestinationAreSameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SourceAndDestinationAreSameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SourceAndDestinationAreSameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11003,7 +10850,7 @@ const de_SourceFileOrContentRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<SourceFileOrContentRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SourceFileOrContentRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SourceFileOrContentRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11019,7 +10866,7 @@ const de_TagKeysListRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<TagKeysListRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagKeysListRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagKeysListRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11032,7 +10879,7 @@ const de_TagKeysListRequiredExceptionRes = async (
  */
 const de_TagPolicyExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<TagPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11048,7 +10895,7 @@ const de_TagsMapRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<TagsMapRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TagsMapRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagsMapRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11064,7 +10911,7 @@ const de_TargetRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<TargetRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TargetRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TargetRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11080,7 +10927,7 @@ const de_TargetsRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<TargetsRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TargetsRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TargetsRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11096,7 +10943,7 @@ const de_TipOfSourceReferenceIsDifferentExceptionRes = async (
   context: __SerdeContext
 ): Promise<TipOfSourceReferenceIsDifferentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TipOfSourceReferenceIsDifferentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TipOfSourceReferenceIsDifferentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11112,7 +10959,7 @@ const de_TipsDivergenceExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<TipsDivergenceExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TipsDivergenceExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TipsDivergenceExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11128,7 +10975,7 @@ const de_TitleRequiredExceptionRes = async (
   context: __SerdeContext
 ): Promise<TitleRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TitleRequiredException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TitleRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11144,7 +10991,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -11152,195 +10999,70 @@ const de_TooManyTagsExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput
- */
-const se_AssociateApprovalRuleTemplateWithRepositoryInput = (
-  input: AssociateApprovalRuleTemplateWithRepositoryInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_AssociateApprovalRuleTemplateWithRepositoryInput omitted.
 
-/**
- * serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput
- */
-const se_BatchAssociateApprovalRuleTemplateWithRepositoriesInput = (
-  input: BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-    ...(input.repositoryNames != null && { repositoryNames: se_RepositoryNameList(input.repositoryNames, context) }),
-  };
-};
+// se_BatchAssociateApprovalRuleTemplateWithRepositoriesInput omitted.
 
-/**
- * serializeAws_json1_1BatchDescribeMergeConflictsInput
- */
-const se_BatchDescribeMergeConflictsInput = (input: BatchDescribeMergeConflictsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.filePaths != null && { filePaths: se_FilePaths(input.filePaths, context) }),
-    ...(input.maxConflictFiles != null && { maxConflictFiles: input.maxConflictFiles }),
-    ...(input.maxMergeHunks != null && { maxMergeHunks: input.maxMergeHunks }),
-    ...(input.mergeOption != null && { mergeOption: input.mergeOption }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitSpecifier != null && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
-  };
-};
+// se_BatchDescribeMergeConflictsInput omitted.
 
-/**
- * serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput
- */
-const se_BatchDisassociateApprovalRuleTemplateFromRepositoriesInput = (
-  input: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-    ...(input.repositoryNames != null && { repositoryNames: se_RepositoryNameList(input.repositoryNames, context) }),
-  };
-};
+// se_BatchDisassociateApprovalRuleTemplateFromRepositoriesInput omitted.
 
-/**
- * serializeAws_json1_1BatchGetCommitsInput
- */
-const se_BatchGetCommitsInput = (input: BatchGetCommitsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.commitIds != null && { commitIds: se_CommitIdsInputList(input.commitIds, context) }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_BatchGetCommitsInput omitted.
 
-/**
- * serializeAws_json1_1BatchGetRepositoriesInput
- */
-const se_BatchGetRepositoriesInput = (input: BatchGetRepositoriesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryNames != null && { repositoryNames: se_RepositoryNameList(input.repositoryNames, context) }),
-  };
-};
+// se_BatchGetRepositoriesInput omitted.
 
-/**
- * serializeAws_json1_1BranchNameList
- */
-const se_BranchNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BranchNameList omitted.
 
-/**
- * serializeAws_json1_1CommitIdsInputList
- */
-const se_CommitIdsInputList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CommitIdsInputList omitted.
 
 /**
  * serializeAws_json1_1ConflictResolution
  */
 const se_ConflictResolution = (input: ConflictResolution, context: __SerdeContext): any => {
-  return {
-    ...(input.deleteFiles != null && { deleteFiles: se_DeleteFileEntries(input.deleteFiles, context) }),
-    ...(input.replaceContents != null && { replaceContents: se_ReplaceContentEntries(input.replaceContents, context) }),
-    ...(input.setFileModes != null && { setFileModes: se_SetFileModeEntries(input.setFileModes, context) }),
-  };
+  return take(input, {
+    deleteFiles: _json,
+    replaceContents: (_) => se_ReplaceContentEntries(_, context),
+    setFileModes: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1CreateApprovalRuleTemplateInput
- */
-const se_CreateApprovalRuleTemplateInput = (input: CreateApprovalRuleTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.approvalRuleTemplateContent != null && {
-      approvalRuleTemplateContent: input.approvalRuleTemplateContent,
-    }),
-    ...(input.approvalRuleTemplateDescription != null && {
-      approvalRuleTemplateDescription: input.approvalRuleTemplateDescription,
-    }),
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-  };
-};
+// se_CreateApprovalRuleTemplateInput omitted.
 
-/**
- * serializeAws_json1_1CreateBranchInput
- */
-const se_CreateBranchInput = (input: CreateBranchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.commitId != null && { commitId: input.commitId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_CreateBranchInput omitted.
 
 /**
  * serializeAws_json1_1CreateCommitInput
  */
 const se_CreateCommitInput = (input: CreateCommitInput, context: __SerdeContext): any => {
-  return {
-    ...(input.authorName != null && { authorName: input.authorName }),
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.deleteFiles != null && { deleteFiles: se_DeleteFileEntries(input.deleteFiles, context) }),
-    ...(input.email != null && { email: input.email }),
-    ...(input.keepEmptyFolders != null && { keepEmptyFolders: input.keepEmptyFolders }),
-    ...(input.parentCommitId != null && { parentCommitId: input.parentCommitId }),
-    ...(input.putFiles != null && { putFiles: se_PutFileEntries(input.putFiles, context) }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.setFileModes != null && { setFileModes: se_SetFileModeEntries(input.setFileModes, context) }),
-  };
+  return take(input, {
+    authorName: [],
+    branchName: [],
+    commitMessage: [],
+    deleteFiles: _json,
+    email: [],
+    keepEmptyFolders: [],
+    parentCommitId: [],
+    putFiles: (_) => se_PutFileEntries(_, context),
+    repositoryName: [],
+    setFileModes: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1CreatePullRequestApprovalRuleInput
- */
-const se_CreatePullRequestApprovalRuleInput = (
-  input: CreatePullRequestApprovalRuleInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleContent != null && { approvalRuleContent: input.approvalRuleContent }),
-    ...(input.approvalRuleName != null && { approvalRuleName: input.approvalRuleName }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-  };
-};
+// se_CreatePullRequestApprovalRuleInput omitted.
 
 /**
  * serializeAws_json1_1CreatePullRequestInput
  */
 const se_CreatePullRequestInput = (input: CreatePullRequestInput, context: __SerdeContext): any => {
-  return {
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.targets != null && { targets: se_TargetList(input.targets, context) }),
-    ...(input.title != null && { title: input.title }),
-  };
+  return take(input, {
+    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    description: [],
+    targets: _json,
+    title: [],
+  });
 };
 
-/**
- * serializeAws_json1_1CreateRepositoryInput
- */
-const se_CreateRepositoryInput = (input: CreateRepositoryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryDescription != null && { repositoryDescription: input.repositoryDescription }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
-  };
-};
+// se_CreateRepositoryInput omitted.
 
 /**
  * serializeAws_json1_1CreateUnreferencedMergeCommitInput
@@ -11349,609 +11071,180 @@ const se_CreateUnreferencedMergeCommitInput = (
   input: CreateUnreferencedMergeCommitInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.authorName != null && { authorName: input.authorName }),
-    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolution != null && {
-      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
-    }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.email != null && { email: input.email }),
-    ...(input.keepEmptyFolders != null && { keepEmptyFolders: input.keepEmptyFolders }),
-    ...(input.mergeOption != null && { mergeOption: input.mergeOption }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitSpecifier != null && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
-  };
+  return take(input, {
+    authorName: [],
+    commitMessage: [],
+    conflictDetailLevel: [],
+    conflictResolution: (_) => se_ConflictResolution(_, context),
+    conflictResolutionStrategy: [],
+    destinationCommitSpecifier: [],
+    email: [],
+    keepEmptyFolders: [],
+    mergeOption: [],
+    repositoryName: [],
+    sourceCommitSpecifier: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DeleteApprovalRuleTemplateInput
- */
-const se_DeleteApprovalRuleTemplateInput = (input: DeleteApprovalRuleTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-  };
-};
+// se_DeleteApprovalRuleTemplateInput omitted.
 
-/**
- * serializeAws_json1_1DeleteBranchInput
- */
-const se_DeleteBranchInput = (input: DeleteBranchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DeleteBranchInput omitted.
 
-/**
- * serializeAws_json1_1DeleteCommentContentInput
- */
-const se_DeleteCommentContentInput = (input: DeleteCommentContentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.commentId != null && { commentId: input.commentId }),
-  };
-};
+// se_DeleteCommentContentInput omitted.
 
-/**
- * serializeAws_json1_1DeleteFileEntries
- */
-const se_DeleteFileEntries = (input: DeleteFileEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DeleteFileEntry(entry, context);
-    });
-};
+// se_DeleteFileEntries omitted.
 
-/**
- * serializeAws_json1_1DeleteFileEntry
- */
-const se_DeleteFileEntry = (input: DeleteFileEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.filePath != null && { filePath: input.filePath }),
-  };
-};
+// se_DeleteFileEntry omitted.
 
-/**
- * serializeAws_json1_1DeleteFileInput
- */
-const se_DeleteFileInput = (input: DeleteFileInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.email != null && { email: input.email }),
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.keepEmptyFolders != null && { keepEmptyFolders: input.keepEmptyFolders }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.parentCommitId != null && { parentCommitId: input.parentCommitId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DeleteFileInput omitted.
 
-/**
- * serializeAws_json1_1DeletePullRequestApprovalRuleInput
- */
-const se_DeletePullRequestApprovalRuleInput = (
-  input: DeletePullRequestApprovalRuleInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleName != null && { approvalRuleName: input.approvalRuleName }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-  };
-};
+// se_DeletePullRequestApprovalRuleInput omitted.
 
-/**
- * serializeAws_json1_1DeleteRepositoryInput
- */
-const se_DeleteRepositoryInput = (input: DeleteRepositoryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DeleteRepositoryInput omitted.
 
-/**
- * serializeAws_json1_1DescribeMergeConflictsInput
- */
-const se_DescribeMergeConflictsInput = (input: DescribeMergeConflictsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.maxMergeHunks != null && { maxMergeHunks: input.maxMergeHunks }),
-    ...(input.mergeOption != null && { mergeOption: input.mergeOption }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitSpecifier != null && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
-  };
-};
+// se_DescribeMergeConflictsInput omitted.
 
-/**
- * serializeAws_json1_1DescribePullRequestEventsInput
- */
-const se_DescribePullRequestEventsInput = (input: DescribePullRequestEventsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.actorArn != null && { actorArn: input.actorArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.pullRequestEventType != null && { pullRequestEventType: input.pullRequestEventType }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-  };
-};
+// se_DescribePullRequestEventsInput omitted.
 
-/**
- * serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput
- */
-const se_DisassociateApprovalRuleTemplateFromRepositoryInput = (
-  input: DisassociateApprovalRuleTemplateFromRepositoryInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DisassociateApprovalRuleTemplateFromRepositoryInput omitted.
 
-/**
- * serializeAws_json1_1EvaluatePullRequestApprovalRulesInput
- */
-const se_EvaluatePullRequestApprovalRulesInput = (
-  input: EvaluatePullRequestApprovalRulesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.revisionId != null && { revisionId: input.revisionId }),
-  };
-};
+// se_EvaluatePullRequestApprovalRulesInput omitted.
 
-/**
- * serializeAws_json1_1FilePaths
- */
-const se_FilePaths = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilePaths omitted.
 
-/**
- * serializeAws_json1_1GetApprovalRuleTemplateInput
- */
-const se_GetApprovalRuleTemplateInput = (input: GetApprovalRuleTemplateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-  };
-};
+// se_GetApprovalRuleTemplateInput omitted.
 
-/**
- * serializeAws_json1_1GetBlobInput
- */
-const se_GetBlobInput = (input: GetBlobInput, context: __SerdeContext): any => {
-  return {
-    ...(input.blobId != null && { blobId: input.blobId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetBlobInput omitted.
 
-/**
- * serializeAws_json1_1GetBranchInput
- */
-const se_GetBranchInput = (input: GetBranchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetBranchInput omitted.
 
-/**
- * serializeAws_json1_1GetCommentInput
- */
-const se_GetCommentInput = (input: GetCommentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.commentId != null && { commentId: input.commentId }),
-  };
-};
+// se_GetCommentInput omitted.
 
-/**
- * serializeAws_json1_1GetCommentReactionsInput
- */
-const se_GetCommentReactionsInput = (input: GetCommentReactionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.commentId != null && { commentId: input.commentId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.reactionUserArn != null && { reactionUserArn: input.reactionUserArn }),
-  };
-};
+// se_GetCommentReactionsInput omitted.
 
-/**
- * serializeAws_json1_1GetCommentsForComparedCommitInput
- */
-const se_GetCommentsForComparedCommitInput = (
-  input: GetCommentsForComparedCommitInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.afterCommitId != null && { afterCommitId: input.afterCommitId }),
-    ...(input.beforeCommitId != null && { beforeCommitId: input.beforeCommitId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetCommentsForComparedCommitInput omitted.
 
-/**
- * serializeAws_json1_1GetCommentsForPullRequestInput
- */
-const se_GetCommentsForPullRequestInput = (input: GetCommentsForPullRequestInput, context: __SerdeContext): any => {
-  return {
-    ...(input.afterCommitId != null && { afterCommitId: input.afterCommitId }),
-    ...(input.beforeCommitId != null && { beforeCommitId: input.beforeCommitId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetCommentsForPullRequestInput omitted.
 
-/**
- * serializeAws_json1_1GetCommitInput
- */
-const se_GetCommitInput = (input: GetCommitInput, context: __SerdeContext): any => {
-  return {
-    ...(input.commitId != null && { commitId: input.commitId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetCommitInput omitted.
 
-/**
- * serializeAws_json1_1GetDifferencesInput
- */
-const se_GetDifferencesInput = (input: GetDifferencesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.afterCommitSpecifier != null && { afterCommitSpecifier: input.afterCommitSpecifier }),
-    ...(input.afterPath != null && { afterPath: input.afterPath }),
-    ...(input.beforeCommitSpecifier != null && { beforeCommitSpecifier: input.beforeCommitSpecifier }),
-    ...(input.beforePath != null && { beforePath: input.beforePath }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetDifferencesInput omitted.
 
-/**
- * serializeAws_json1_1GetFileInput
- */
-const se_GetFileInput = (input: GetFileInput, context: __SerdeContext): any => {
-  return {
-    ...(input.commitSpecifier != null && { commitSpecifier: input.commitSpecifier }),
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetFileInput omitted.
 
-/**
- * serializeAws_json1_1GetFolderInput
- */
-const se_GetFolderInput = (input: GetFolderInput, context: __SerdeContext): any => {
-  return {
-    ...(input.commitSpecifier != null && { commitSpecifier: input.commitSpecifier }),
-    ...(input.folderPath != null && { folderPath: input.folderPath }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetFolderInput omitted.
 
-/**
- * serializeAws_json1_1GetMergeCommitInput
- */
-const se_GetMergeCommitInput = (input: GetMergeCommitInput, context: __SerdeContext): any => {
-  return {
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitSpecifier != null && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
-  };
-};
+// se_GetMergeCommitInput omitted.
 
-/**
- * serializeAws_json1_1GetMergeConflictsInput
- */
-const se_GetMergeConflictsInput = (input: GetMergeConflictsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.maxConflictFiles != null && { maxConflictFiles: input.maxConflictFiles }),
-    ...(input.mergeOption != null && { mergeOption: input.mergeOption }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitSpecifier != null && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
-  };
-};
+// se_GetMergeConflictsInput omitted.
 
-/**
- * serializeAws_json1_1GetMergeOptionsInput
- */
-const se_GetMergeOptionsInput = (input: GetMergeOptionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitSpecifier != null && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
-  };
-};
+// se_GetMergeOptionsInput omitted.
 
-/**
- * serializeAws_json1_1GetPullRequestApprovalStatesInput
- */
-const se_GetPullRequestApprovalStatesInput = (
-  input: GetPullRequestApprovalStatesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.revisionId != null && { revisionId: input.revisionId }),
-  };
-};
+// se_GetPullRequestApprovalStatesInput omitted.
 
-/**
- * serializeAws_json1_1GetPullRequestInput
- */
-const se_GetPullRequestInput = (input: GetPullRequestInput, context: __SerdeContext): any => {
-  return {
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-  };
-};
+// se_GetPullRequestInput omitted.
 
-/**
- * serializeAws_json1_1GetPullRequestOverrideStateInput
- */
-const se_GetPullRequestOverrideStateInput = (input: GetPullRequestOverrideStateInput, context: __SerdeContext): any => {
-  return {
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.revisionId != null && { revisionId: input.revisionId }),
-  };
-};
+// se_GetPullRequestOverrideStateInput omitted.
 
-/**
- * serializeAws_json1_1GetRepositoryInput
- */
-const se_GetRepositoryInput = (input: GetRepositoryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetRepositoryInput omitted.
 
-/**
- * serializeAws_json1_1GetRepositoryTriggersInput
- */
-const se_GetRepositoryTriggersInput = (input: GetRepositoryTriggersInput, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetRepositoryTriggersInput omitted.
 
-/**
- * serializeAws_json1_1ListApprovalRuleTemplatesInput
- */
-const se_ListApprovalRuleTemplatesInput = (input: ListApprovalRuleTemplatesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListApprovalRuleTemplatesInput omitted.
 
-/**
- * serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput
- */
-const se_ListAssociatedApprovalRuleTemplatesForRepositoryInput = (
-  input: ListAssociatedApprovalRuleTemplatesForRepositoryInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_ListAssociatedApprovalRuleTemplatesForRepositoryInput omitted.
 
-/**
- * serializeAws_json1_1ListBranchesInput
- */
-const se_ListBranchesInput = (input: ListBranchesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_ListBranchesInput omitted.
 
-/**
- * serializeAws_json1_1ListPullRequestsInput
- */
-const se_ListPullRequestsInput = (input: ListPullRequestsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.authorArn != null && { authorArn: input.authorArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.pullRequestStatus != null && { pullRequestStatus: input.pullRequestStatus }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_ListPullRequestsInput omitted.
 
-/**
- * serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput
- */
-const se_ListRepositoriesForApprovalRuleTemplateInput = (
-  input: ListRepositoriesForApprovalRuleTemplateInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListRepositoriesForApprovalRuleTemplateInput omitted.
 
-/**
- * serializeAws_json1_1ListRepositoriesInput
- */
-const se_ListRepositoriesInput = (input: ListRepositoriesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.order != null && { order: input.order }),
-    ...(input.sortBy != null && { sortBy: input.sortBy }),
-  };
-};
+// se_ListRepositoriesInput omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceInput
- */
-const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTagsForResourceInput omitted.
 
-/**
- * serializeAws_json1_1Location
- */
-const se_Location = (input: Location, context: __SerdeContext): any => {
-  return {
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.filePosition != null && { filePosition: input.filePosition }),
-    ...(input.relativeFileVersion != null && { relativeFileVersion: input.relativeFileVersion }),
-  };
-};
+// se_Location omitted.
 
-/**
- * serializeAws_json1_1MergeBranchesByFastForwardInput
- */
-const se_MergeBranchesByFastForwardInput = (input: MergeBranchesByFastForwardInput, context: __SerdeContext): any => {
-  return {
-    ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitSpecifier != null && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
-    ...(input.targetBranch != null && { targetBranch: input.targetBranch }),
-  };
-};
+// se_MergeBranchesByFastForwardInput omitted.
 
 /**
  * serializeAws_json1_1MergeBranchesBySquashInput
  */
 const se_MergeBranchesBySquashInput = (input: MergeBranchesBySquashInput, context: __SerdeContext): any => {
-  return {
-    ...(input.authorName != null && { authorName: input.authorName }),
-    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolution != null && {
-      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
-    }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.email != null && { email: input.email }),
-    ...(input.keepEmptyFolders != null && { keepEmptyFolders: input.keepEmptyFolders }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitSpecifier != null && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
-    ...(input.targetBranch != null && { targetBranch: input.targetBranch }),
-  };
+  return take(input, {
+    authorName: [],
+    commitMessage: [],
+    conflictDetailLevel: [],
+    conflictResolution: (_) => se_ConflictResolution(_, context),
+    conflictResolutionStrategy: [],
+    destinationCommitSpecifier: [],
+    email: [],
+    keepEmptyFolders: [],
+    repositoryName: [],
+    sourceCommitSpecifier: [],
+    targetBranch: [],
+  });
 };
 
 /**
  * serializeAws_json1_1MergeBranchesByThreeWayInput
  */
 const se_MergeBranchesByThreeWayInput = (input: MergeBranchesByThreeWayInput, context: __SerdeContext): any => {
-  return {
-    ...(input.authorName != null && { authorName: input.authorName }),
-    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolution != null && {
-      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
-    }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.destinationCommitSpecifier != null && { destinationCommitSpecifier: input.destinationCommitSpecifier }),
-    ...(input.email != null && { email: input.email }),
-    ...(input.keepEmptyFolders != null && { keepEmptyFolders: input.keepEmptyFolders }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitSpecifier != null && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
-    ...(input.targetBranch != null && { targetBranch: input.targetBranch }),
-  };
+  return take(input, {
+    authorName: [],
+    commitMessage: [],
+    conflictDetailLevel: [],
+    conflictResolution: (_) => se_ConflictResolution(_, context),
+    conflictResolutionStrategy: [],
+    destinationCommitSpecifier: [],
+    email: [],
+    keepEmptyFolders: [],
+    repositoryName: [],
+    sourceCommitSpecifier: [],
+    targetBranch: [],
+  });
 };
 
-/**
- * serializeAws_json1_1MergePullRequestByFastForwardInput
- */
-const se_MergePullRequestByFastForwardInput = (
-  input: MergePullRequestByFastForwardInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitId != null && { sourceCommitId: input.sourceCommitId }),
-  };
-};
+// se_MergePullRequestByFastForwardInput omitted.
 
 /**
  * serializeAws_json1_1MergePullRequestBySquashInput
  */
 const se_MergePullRequestBySquashInput = (input: MergePullRequestBySquashInput, context: __SerdeContext): any => {
-  return {
-    ...(input.authorName != null && { authorName: input.authorName }),
-    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolution != null && {
-      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
-    }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.email != null && { email: input.email }),
-    ...(input.keepEmptyFolders != null && { keepEmptyFolders: input.keepEmptyFolders }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitId != null && { sourceCommitId: input.sourceCommitId }),
-  };
+  return take(input, {
+    authorName: [],
+    commitMessage: [],
+    conflictDetailLevel: [],
+    conflictResolution: (_) => se_ConflictResolution(_, context),
+    conflictResolutionStrategy: [],
+    email: [],
+    keepEmptyFolders: [],
+    pullRequestId: [],
+    repositoryName: [],
+    sourceCommitId: [],
+  });
 };
 
 /**
  * serializeAws_json1_1MergePullRequestByThreeWayInput
  */
 const se_MergePullRequestByThreeWayInput = (input: MergePullRequestByThreeWayInput, context: __SerdeContext): any => {
-  return {
-    ...(input.authorName != null && { authorName: input.authorName }),
-    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.conflictDetailLevel != null && { conflictDetailLevel: input.conflictDetailLevel }),
-    ...(input.conflictResolution != null && {
-      conflictResolution: se_ConflictResolution(input.conflictResolution, context),
-    }),
-    ...(input.conflictResolutionStrategy != null && { conflictResolutionStrategy: input.conflictResolutionStrategy }),
-    ...(input.email != null && { email: input.email }),
-    ...(input.keepEmptyFolders != null && { keepEmptyFolders: input.keepEmptyFolders }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceCommitId != null && { sourceCommitId: input.sourceCommitId }),
-  };
+  return take(input, {
+    authorName: [],
+    commitMessage: [],
+    conflictDetailLevel: [],
+    conflictResolution: (_) => se_ConflictResolution(_, context),
+    conflictResolutionStrategy: [],
+    email: [],
+    keepEmptyFolders: [],
+    pullRequestId: [],
+    repositoryName: [],
+    sourceCommitId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1OverridePullRequestApprovalRulesInput
- */
-const se_OverridePullRequestApprovalRulesInput = (
-  input: OverridePullRequestApprovalRulesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.overrideStatus != null && { overrideStatus: input.overrideStatus }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.revisionId != null && { revisionId: input.revisionId }),
-  };
-};
+// se_OverridePullRequestApprovalRulesInput omitted.
 
 /**
  * serializeAws_json1_1PostCommentForComparedCommitInput
@@ -11960,51 +11253,43 @@ const se_PostCommentForComparedCommitInput = (
   input: PostCommentForComparedCommitInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.afterCommitId != null && { afterCommitId: input.afterCommitId }),
-    ...(input.beforeCommitId != null && { beforeCommitId: input.beforeCommitId }),
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.content != null && { content: input.content }),
-    ...(input.location != null && { location: se_Location(input.location, context) }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
+  return take(input, {
+    afterCommitId: [],
+    beforeCommitId: [],
+    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    content: [],
+    location: _json,
+    repositoryName: [],
+  });
 };
 
 /**
  * serializeAws_json1_1PostCommentForPullRequestInput
  */
 const se_PostCommentForPullRequestInput = (input: PostCommentForPullRequestInput, context: __SerdeContext): any => {
-  return {
-    ...(input.afterCommitId != null && { afterCommitId: input.afterCommitId }),
-    ...(input.beforeCommitId != null && { beforeCommitId: input.beforeCommitId }),
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.content != null && { content: input.content }),
-    ...(input.location != null && { location: se_Location(input.location, context) }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
+  return take(input, {
+    afterCommitId: [],
+    beforeCommitId: [],
+    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    content: [],
+    location: _json,
+    pullRequestId: [],
+    repositoryName: [],
+  });
 };
 
 /**
  * serializeAws_json1_1PostCommentReplyInput
  */
 const se_PostCommentReplyInput = (input: PostCommentReplyInput, context: __SerdeContext): any => {
-  return {
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.content != null && { content: input.content }),
-    ...(input.inReplyTo != null && { inReplyTo: input.inReplyTo }),
-  };
+  return take(input, {
+    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    content: [],
+    inReplyTo: [],
+  });
 };
 
-/**
- * serializeAws_json1_1PutCommentReactionInput
- */
-const se_PutCommentReactionInput = (input: PutCommentReactionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.commentId != null && { commentId: input.commentId }),
-    ...(input.reactionValue != null && { reactionValue: input.reactionValue }),
-  };
-};
+// se_PutCommentReactionInput omitted.
 
 /**
  * serializeAws_json1_1PutFileEntries
@@ -12021,40 +11306,32 @@ const se_PutFileEntries = (input: PutFileEntry[], context: __SerdeContext): any 
  * serializeAws_json1_1PutFileEntry
  */
 const se_PutFileEntry = (input: PutFileEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.fileContent != null && { fileContent: context.base64Encoder(input.fileContent) }),
-    ...(input.fileMode != null && { fileMode: input.fileMode }),
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.sourceFile != null && { sourceFile: se_SourceFileSpecifier(input.sourceFile, context) }),
-  };
+  return take(input, {
+    fileContent: context.base64Encoder,
+    fileMode: [],
+    filePath: [],
+    sourceFile: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1PutFileInput
  */
 const se_PutFileInput = (input: PutFileInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branchName != null && { branchName: input.branchName }),
-    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
-    ...(input.email != null && { email: input.email }),
-    ...(input.fileContent != null && { fileContent: context.base64Encoder(input.fileContent) }),
-    ...(input.fileMode != null && { fileMode: input.fileMode }),
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.parentCommitId != null && { parentCommitId: input.parentCommitId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
+  return take(input, {
+    branchName: [],
+    commitMessage: [],
+    email: [],
+    fileContent: context.base64Encoder,
+    fileMode: [],
+    filePath: [],
+    name: [],
+    parentCommitId: [],
+    repositoryName: [],
+  });
 };
 
-/**
- * serializeAws_json1_1PutRepositoryTriggersInput
- */
-const se_PutRepositoryTriggersInput = (input: PutRepositoryTriggersInput, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.triggers != null && { triggers: se_RepositoryTriggersList(input.triggers, context) }),
-  };
-};
+// se_PutRepositoryTriggersInput omitted.
 
 /**
  * serializeAws_json1_1ReplaceContentEntries
@@ -12071,448 +11348,99 @@ const se_ReplaceContentEntries = (input: ReplaceContentEntry[], context: __Serde
  * serializeAws_json1_1ReplaceContentEntry
  */
 const se_ReplaceContentEntry = (input: ReplaceContentEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.content != null && { content: context.base64Encoder(input.content) }),
-    ...(input.fileMode != null && { fileMode: input.fileMode }),
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.replacementType != null && { replacementType: input.replacementType }),
-  };
+  return take(input, {
+    content: context.base64Encoder,
+    fileMode: [],
+    filePath: [],
+    replacementType: [],
+  });
 };
 
-/**
- * serializeAws_json1_1RepositoryNameList
- */
-const se_RepositoryNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RepositoryNameList omitted.
 
-/**
- * serializeAws_json1_1RepositoryTrigger
- */
-const se_RepositoryTrigger = (input: RepositoryTrigger, context: __SerdeContext): any => {
-  return {
-    ...(input.branches != null && { branches: se_BranchNameList(input.branches, context) }),
-    ...(input.customData != null && { customData: input.customData }),
-    ...(input.destinationArn != null && { destinationArn: input.destinationArn }),
-    ...(input.events != null && { events: se_RepositoryTriggerEventList(input.events, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_RepositoryTrigger omitted.
 
-/**
- * serializeAws_json1_1RepositoryTriggerEventList
- */
-const se_RepositoryTriggerEventList = (
-  input: (RepositoryTriggerEventEnum | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RepositoryTriggerEventList omitted.
 
-/**
- * serializeAws_json1_1RepositoryTriggersList
- */
-const se_RepositoryTriggersList = (input: RepositoryTrigger[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_RepositoryTrigger(entry, context);
-    });
-};
+// se_RepositoryTriggersList omitted.
 
-/**
- * serializeAws_json1_1SetFileModeEntries
- */
-const se_SetFileModeEntries = (input: SetFileModeEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SetFileModeEntry(entry, context);
-    });
-};
+// se_SetFileModeEntries omitted.
 
-/**
- * serializeAws_json1_1SetFileModeEntry
- */
-const se_SetFileModeEntry = (input: SetFileModeEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.fileMode != null && { fileMode: input.fileMode }),
-    ...(input.filePath != null && { filePath: input.filePath }),
-  };
-};
+// se_SetFileModeEntry omitted.
 
-/**
- * serializeAws_json1_1SourceFileSpecifier
- */
-const se_SourceFileSpecifier = (input: SourceFileSpecifier, context: __SerdeContext): any => {
-  return {
-    ...(input.filePath != null && { filePath: input.filePath }),
-    ...(input.isMove != null && { isMove: input.isMove }),
-  };
-};
+// se_SourceFileSpecifier omitted.
 
-/**
- * serializeAws_json1_1TagKeysList
- */
-const se_TagKeysList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeysList omitted.
 
-/**
- * serializeAws_json1_1TagResourceInput
- */
-const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
-  };
-};
+// se_TagResourceInput omitted.
 
-/**
- * serializeAws_json1_1TagsMap
- */
-const se_TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagsMap omitted.
 
-/**
- * serializeAws_json1_1Target
- */
-const se_Target = (input: Target, context: __SerdeContext): any => {
-  return {
-    ...(input.destinationReference != null && { destinationReference: input.destinationReference }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.sourceReference != null && { sourceReference: input.sourceReference }),
-  };
-};
+// se_Target omitted.
 
-/**
- * serializeAws_json1_1TargetList
- */
-const se_TargetList = (input: Target[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Target(entry, context);
-    });
-};
+// se_TargetList omitted.
 
-/**
- * serializeAws_json1_1TestRepositoryTriggersInput
- */
-const se_TestRepositoryTriggersInput = (input: TestRepositoryTriggersInput, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.triggers != null && { triggers: se_RepositoryTriggersList(input.triggers, context) }),
-  };
-};
+// se_TestRepositoryTriggersInput omitted.
 
-/**
- * serializeAws_json1_1UntagResourceInput
- */
-const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_TagKeysList(input.tagKeys, context) }),
-  };
-};
+// se_UntagResourceInput omitted.
 
-/**
- * serializeAws_json1_1UpdateApprovalRuleTemplateContentInput
- */
-const se_UpdateApprovalRuleTemplateContentInput = (
-  input: UpdateApprovalRuleTemplateContentInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-    ...(input.existingRuleContentSha256 != null && { existingRuleContentSha256: input.existingRuleContentSha256 }),
-    ...(input.newRuleContent != null && { newRuleContent: input.newRuleContent }),
-  };
-};
+// se_UpdateApprovalRuleTemplateContentInput omitted.
 
-/**
- * serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput
- */
-const se_UpdateApprovalRuleTemplateDescriptionInput = (
-  input: UpdateApprovalRuleTemplateDescriptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleTemplateDescription != null && {
-      approvalRuleTemplateDescription: input.approvalRuleTemplateDescription,
-    }),
-    ...(input.approvalRuleTemplateName != null && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
-  };
-};
+// se_UpdateApprovalRuleTemplateDescriptionInput omitted.
 
-/**
- * serializeAws_json1_1UpdateApprovalRuleTemplateNameInput
- */
-const se_UpdateApprovalRuleTemplateNameInput = (
-  input: UpdateApprovalRuleTemplateNameInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.newApprovalRuleTemplateName != null && {
-      newApprovalRuleTemplateName: input.newApprovalRuleTemplateName,
-    }),
-    ...(input.oldApprovalRuleTemplateName != null && {
-      oldApprovalRuleTemplateName: input.oldApprovalRuleTemplateName,
-    }),
-  };
-};
+// se_UpdateApprovalRuleTemplateNameInput omitted.
 
-/**
- * serializeAws_json1_1UpdateCommentInput
- */
-const se_UpdateCommentInput = (input: UpdateCommentInput, context: __SerdeContext): any => {
-  return {
-    ...(input.commentId != null && { commentId: input.commentId }),
-    ...(input.content != null && { content: input.content }),
-  };
-};
+// se_UpdateCommentInput omitted.
 
-/**
- * serializeAws_json1_1UpdateDefaultBranchInput
- */
-const se_UpdateDefaultBranchInput = (input: UpdateDefaultBranchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultBranchName != null && { defaultBranchName: input.defaultBranchName }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_UpdateDefaultBranchInput omitted.
 
-/**
- * serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput
- */
-const se_UpdatePullRequestApprovalRuleContentInput = (
-  input: UpdatePullRequestApprovalRuleContentInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalRuleName != null && { approvalRuleName: input.approvalRuleName }),
-    ...(input.existingRuleContentSha256 != null && { existingRuleContentSha256: input.existingRuleContentSha256 }),
-    ...(input.newRuleContent != null && { newRuleContent: input.newRuleContent }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-  };
-};
+// se_UpdatePullRequestApprovalRuleContentInput omitted.
 
-/**
- * serializeAws_json1_1UpdatePullRequestApprovalStateInput
- */
-const se_UpdatePullRequestApprovalStateInput = (
-  input: UpdatePullRequestApprovalStateInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.approvalState != null && { approvalState: input.approvalState }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.revisionId != null && { revisionId: input.revisionId }),
-  };
-};
+// se_UpdatePullRequestApprovalStateInput omitted.
 
-/**
- * serializeAws_json1_1UpdatePullRequestDescriptionInput
- */
-const se_UpdatePullRequestDescriptionInput = (
-  input: UpdatePullRequestDescriptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-  };
-};
+// se_UpdatePullRequestDescriptionInput omitted.
 
-/**
- * serializeAws_json1_1UpdatePullRequestStatusInput
- */
-const se_UpdatePullRequestStatusInput = (input: UpdatePullRequestStatusInput, context: __SerdeContext): any => {
-  return {
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.pullRequestStatus != null && { pullRequestStatus: input.pullRequestStatus }),
-  };
-};
+// se_UpdatePullRequestStatusInput omitted.
 
-/**
- * serializeAws_json1_1UpdatePullRequestTitleInput
- */
-const se_UpdatePullRequestTitleInput = (input: UpdatePullRequestTitleInput, context: __SerdeContext): any => {
-  return {
-    ...(input.pullRequestId != null && { pullRequestId: input.pullRequestId }),
-    ...(input.title != null && { title: input.title }),
-  };
-};
+// se_UpdatePullRequestTitleInput omitted.
 
-/**
- * serializeAws_json1_1UpdateRepositoryDescriptionInput
- */
-const se_UpdateRepositoryDescriptionInput = (input: UpdateRepositoryDescriptionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryDescription != null && { repositoryDescription: input.repositoryDescription }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_UpdateRepositoryDescriptionInput omitted.
 
-/**
- * serializeAws_json1_1UpdateRepositoryNameInput
- */
-const se_UpdateRepositoryNameInput = (input: UpdateRepositoryNameInput, context: __SerdeContext): any => {
-  return {
-    ...(input.newName != null && { newName: input.newName }),
-    ...(input.oldName != null && { oldName: input.oldName }),
-  };
-};
+// se_UpdateRepositoryNameInput omitted.
 
-/**
- * deserializeAws_json1_1ActorDoesNotExistException
- */
-const de_ActorDoesNotExistException = (output: any, context: __SerdeContext): ActorDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ActorDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1Approval
- */
-const de_Approval = (output: any, context: __SerdeContext): Approval => {
-  return {
-    approvalState: __expectString(output.approvalState),
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_Approval omitted.
 
-/**
- * deserializeAws_json1_1ApprovalList
- */
-const de_ApprovalList = (output: any, context: __SerdeContext): Approval[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Approval(entry, context);
-    });
-  return retVal;
-};
+// de_ApprovalList omitted.
 
 /**
  * deserializeAws_json1_1ApprovalRule
  */
 const de_ApprovalRule = (output: any, context: __SerdeContext): ApprovalRule => {
-  return {
-    approvalRuleContent: __expectString(output.approvalRuleContent),
-    approvalRuleId: __expectString(output.approvalRuleId),
-    approvalRuleName: __expectString(output.approvalRuleName),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    lastModifiedDate:
-      output.lastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
-        : undefined,
-    lastModifiedUser: __expectString(output.lastModifiedUser),
-    originApprovalRuleTemplate:
-      output.originApprovalRuleTemplate != null
-        ? de_OriginApprovalRuleTemplate(output.originApprovalRuleTemplate, context)
-        : undefined,
-    ruleContentSha256: __expectString(output.ruleContentSha256),
-  } as any;
+  return take(output, {
+    approvalRuleContent: __expectString,
+    approvalRuleId: __expectString,
+    approvalRuleName: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModifiedUser: __expectString,
+    originApprovalRuleTemplate: _json,
+    ruleContentSha256: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ApprovalRuleContentRequiredException
- */
-const de_ApprovalRuleContentRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleContentRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalRuleContentRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleDoesNotExistException
- */
-const de_ApprovalRuleDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalRuleDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleEventMetadata
- */
-const de_ApprovalRuleEventMetadata = (output: any, context: __SerdeContext): ApprovalRuleEventMetadata => {
-  return {
-    approvalRuleContent: __expectString(output.approvalRuleContent),
-    approvalRuleId: __expectString(output.approvalRuleId),
-    approvalRuleName: __expectString(output.approvalRuleName),
-  } as any;
-};
+// de_ApprovalRuleEventMetadata omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleNameAlreadyExistsException
- */
-const de_ApprovalRuleNameAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleNameAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalRuleNameAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleNameRequiredException
- */
-const de_ApprovalRuleNameRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleNameRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalRuleNameRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleOverriddenEventMetadata
- */
-const de_ApprovalRuleOverriddenEventMetadata = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleOverriddenEventMetadata => {
-  return {
-    overrideStatus: __expectString(output.overrideStatus),
-    revisionId: __expectString(output.revisionId),
-  } as any;
-};
+// de_ApprovalRuleOverriddenEventMetadata omitted.
 
 /**
  * deserializeAws_json1_1ApprovalRulesList
@@ -12521,606 +11449,140 @@ const de_ApprovalRulesList = (output: any, context: __SerdeContext): ApprovalRul
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ApprovalRule(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ApprovalRulesNotSatisfiedList
- */
-const de_ApprovalRulesNotSatisfiedList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ApprovalRulesNotSatisfiedList omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRulesSatisfiedList
- */
-const de_ApprovalRulesSatisfiedList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ApprovalRulesSatisfiedList omitted.
 
 /**
  * deserializeAws_json1_1ApprovalRuleTemplate
  */
 const de_ApprovalRuleTemplate = (output: any, context: __SerdeContext): ApprovalRuleTemplate => {
-  return {
-    approvalRuleTemplateContent: __expectString(output.approvalRuleTemplateContent),
-    approvalRuleTemplateDescription: __expectString(output.approvalRuleTemplateDescription),
-    approvalRuleTemplateId: __expectString(output.approvalRuleTemplateId),
-    approvalRuleTemplateName: __expectString(output.approvalRuleTemplateName),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    lastModifiedDate:
-      output.lastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
-        : undefined,
-    lastModifiedUser: __expectString(output.lastModifiedUser),
-    ruleContentSha256: __expectString(output.ruleContentSha256),
-  } as any;
+  return take(output, {
+    approvalRuleTemplateContent: __expectString,
+    approvalRuleTemplateDescription: __expectString,
+    approvalRuleTemplateId: __expectString,
+    approvalRuleTemplateName: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastModifiedUser: __expectString,
+    ruleContentSha256: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ApprovalRuleTemplateContentRequiredException
- */
-const de_ApprovalRuleTemplateContentRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleTemplateContentRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalRuleTemplateContentRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistException
- */
-const de_ApprovalRuleTemplateDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleTemplateDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalRuleTemplateDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleTemplateInUseException
- */
-const de_ApprovalRuleTemplateInUseException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleTemplateInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalRuleTemplateInUseException omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsException
- */
-const de_ApprovalRuleTemplateNameAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleTemplateNameAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalRuleTemplateNameAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleTemplateNameList
- */
-const de_ApprovalRuleTemplateNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ApprovalRuleTemplateNameList omitted.
 
-/**
- * deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException
- */
-const de_ApprovalRuleTemplateNameRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ApprovalRuleTemplateNameRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalRuleTemplateNameRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ApprovalStateChangedEventMetadata
- */
-const de_ApprovalStateChangedEventMetadata = (
-  output: any,
-  context: __SerdeContext
-): ApprovalStateChangedEventMetadata => {
-  return {
-    approvalStatus: __expectString(output.approvalStatus),
-    revisionId: __expectString(output.revisionId),
-  } as any;
-};
+// de_ApprovalStateChangedEventMetadata omitted.
 
-/**
- * deserializeAws_json1_1ApprovalStateRequiredException
- */
-const de_ApprovalStateRequiredException = (output: any, context: __SerdeContext): ApprovalStateRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ApprovalStateRequiredException omitted.
 
-/**
- * deserializeAws_json1_1AuthorDoesNotExistException
- */
-const de_AuthorDoesNotExistException = (output: any, context: __SerdeContext): AuthorDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AuthorDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesError
- */
-const de_BatchAssociateApprovalRuleTemplateWithRepositoriesError = (
-  output: any,
-  context: __SerdeContext
-): BatchAssociateApprovalRuleTemplateWithRepositoriesError => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_BatchAssociateApprovalRuleTemplateWithRepositoriesError omitted.
 
-/**
- * deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList
- */
-const de_BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList = (
-  output: any,
-  context: __SerdeContext
-): BatchAssociateApprovalRuleTemplateWithRepositoriesError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchAssociateApprovalRuleTemplateWithRepositoriesError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList omitted.
 
-/**
- * deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
- */
-const de_BatchAssociateApprovalRuleTemplateWithRepositoriesOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchAssociateApprovalRuleTemplateWithRepositoriesOutput => {
-  return {
-    associatedRepositoryNames:
-      output.associatedRepositoryNames != null
-        ? de_RepositoryNameList(output.associatedRepositoryNames, context)
-        : undefined,
-    errors:
-      output.errors != null
-        ? de_BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList(output.errors, context)
-        : undefined,
-  } as any;
-};
+// de_BatchAssociateApprovalRuleTemplateWithRepositoriesOutput omitted.
 
-/**
- * deserializeAws_json1_1BatchDescribeMergeConflictsError
- */
-const de_BatchDescribeMergeConflictsError = (
-  output: any,
-  context: __SerdeContext
-): BatchDescribeMergeConflictsError => {
-  return {
-    exceptionName: __expectString(output.exceptionName),
-    filePath: __expectString(output.filePath),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BatchDescribeMergeConflictsError omitted.
 
-/**
- * deserializeAws_json1_1BatchDescribeMergeConflictsErrors
- */
-const de_BatchDescribeMergeConflictsErrors = (
-  output: any,
-  context: __SerdeContext
-): BatchDescribeMergeConflictsError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchDescribeMergeConflictsError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchDescribeMergeConflictsErrors omitted.
 
-/**
- * deserializeAws_json1_1BatchDescribeMergeConflictsOutput
- */
-const de_BatchDescribeMergeConflictsOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchDescribeMergeConflictsOutput => {
-  return {
-    baseCommitId: __expectString(output.baseCommitId),
-    conflicts: output.conflicts != null ? de_Conflicts(output.conflicts, context) : undefined,
-    destinationCommitId: __expectString(output.destinationCommitId),
-    errors: output.errors != null ? de_BatchDescribeMergeConflictsErrors(output.errors, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-    sourceCommitId: __expectString(output.sourceCommitId),
-  } as any;
-};
+// de_BatchDescribeMergeConflictsOutput omitted.
 
-/**
- * deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesError
- */
-const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesError = (
-  output: any,
-  context: __SerdeContext
-): BatchDisassociateApprovalRuleTemplateFromRepositoriesError => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_BatchDisassociateApprovalRuleTemplateFromRepositoriesError omitted.
 
-/**
- * deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList
- */
-const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList = (
-  output: any,
-  context: __SerdeContext
-): BatchDisassociateApprovalRuleTemplateFromRepositoriesError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchDisassociateApprovalRuleTemplateFromRepositoriesError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList omitted.
 
-/**
- * deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
- */
-const de_BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput => {
-  return {
-    disassociatedRepositoryNames:
-      output.disassociatedRepositoryNames != null
-        ? de_RepositoryNameList(output.disassociatedRepositoryNames, context)
-        : undefined,
-    errors:
-      output.errors != null
-        ? de_BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList(output.errors, context)
-        : undefined,
-  } as any;
-};
+// de_BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput omitted.
 
-/**
- * deserializeAws_json1_1BatchGetCommitsError
- */
-const de_BatchGetCommitsError = (output: any, context: __SerdeContext): BatchGetCommitsError => {
-  return {
-    commitId: __expectString(output.commitId),
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-  } as any;
-};
+// de_BatchGetCommitsError omitted.
 
-/**
- * deserializeAws_json1_1BatchGetCommitsErrorsList
- */
-const de_BatchGetCommitsErrorsList = (output: any, context: __SerdeContext): BatchGetCommitsError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetCommitsError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetCommitsErrorsList omitted.
 
-/**
- * deserializeAws_json1_1BatchGetCommitsOutput
- */
-const de_BatchGetCommitsOutput = (output: any, context: __SerdeContext): BatchGetCommitsOutput => {
-  return {
-    commits: output.commits != null ? de_CommitObjectsList(output.commits, context) : undefined,
-    errors: output.errors != null ? de_BatchGetCommitsErrorsList(output.errors, context) : undefined,
-  } as any;
-};
+// de_BatchGetCommitsOutput omitted.
 
 /**
  * deserializeAws_json1_1BatchGetRepositoriesOutput
  */
 const de_BatchGetRepositoriesOutput = (output: any, context: __SerdeContext): BatchGetRepositoriesOutput => {
-  return {
-    repositories: output.repositories != null ? de_RepositoryMetadataList(output.repositories, context) : undefined,
-    repositoriesNotFound:
-      output.repositoriesNotFound != null ? de_RepositoryNotFoundList(output.repositoriesNotFound, context) : undefined,
-  } as any;
+  return take(output, {
+    repositories: (_: any) => de_RepositoryMetadataList(_, context),
+    repositoriesNotFound: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameException
- */
-const de_BeforeCommitIdAndAfterCommitIdAreSameException = (
-  output: any,
-  context: __SerdeContext
-): BeforeCommitIdAndAfterCommitIdAreSameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BeforeCommitIdAndAfterCommitIdAreSameException omitted.
 
-/**
- * deserializeAws_json1_1BlobIdDoesNotExistException
- */
-const de_BlobIdDoesNotExistException = (output: any, context: __SerdeContext): BlobIdDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BlobIdDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1BlobIdRequiredException
- */
-const de_BlobIdRequiredException = (output: any, context: __SerdeContext): BlobIdRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BlobIdRequiredException omitted.
 
-/**
- * deserializeAws_json1_1BlobMetadata
- */
-const de_BlobMetadata = (output: any, context: __SerdeContext): BlobMetadata => {
-  return {
-    blobId: __expectString(output.blobId),
-    mode: __expectString(output.mode),
-    path: __expectString(output.path),
-  } as any;
-};
+// de_BlobMetadata omitted.
 
-/**
- * deserializeAws_json1_1BranchDoesNotExistException
- */
-const de_BranchDoesNotExistException = (output: any, context: __SerdeContext): BranchDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BranchDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1BranchInfo
- */
-const de_BranchInfo = (output: any, context: __SerdeContext): BranchInfo => {
-  return {
-    branchName: __expectString(output.branchName),
-    commitId: __expectString(output.commitId),
-  } as any;
-};
+// de_BranchInfo omitted.
 
-/**
- * deserializeAws_json1_1BranchNameExistsException
- */
-const de_BranchNameExistsException = (output: any, context: __SerdeContext): BranchNameExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BranchNameExistsException omitted.
 
-/**
- * deserializeAws_json1_1BranchNameIsTagNameException
- */
-const de_BranchNameIsTagNameException = (output: any, context: __SerdeContext): BranchNameIsTagNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BranchNameIsTagNameException omitted.
 
-/**
- * deserializeAws_json1_1BranchNameList
- */
-const de_BranchNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_BranchNameList omitted.
 
-/**
- * deserializeAws_json1_1BranchNameRequiredException
- */
-const de_BranchNameRequiredException = (output: any, context: __SerdeContext): BranchNameRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BranchNameRequiredException omitted.
 
-/**
- * deserializeAws_json1_1CallerReactions
- */
-const de_CallerReactions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CallerReactions omitted.
 
-/**
- * deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateException
- */
-const de_CannotDeleteApprovalRuleFromTemplateException = (
-  output: any,
-  context: __SerdeContext
-): CannotDeleteApprovalRuleFromTemplateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CannotDeleteApprovalRuleFromTemplateException omitted.
 
-/**
- * deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateException
- */
-const de_CannotModifyApprovalRuleFromTemplateException = (
-  output: any,
-  context: __SerdeContext
-): CannotModifyApprovalRuleFromTemplateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CannotModifyApprovalRuleFromTemplateException omitted.
 
-/**
- * deserializeAws_json1_1ClientRequestTokenRequiredException
- */
-const de_ClientRequestTokenRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ClientRequestTokenRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ClientRequestTokenRequiredException omitted.
 
 /**
  * deserializeAws_json1_1Comment
  */
 const de_Comment = (output: any, context: __SerdeContext): Comment => {
-  return {
-    authorArn: __expectString(output.authorArn),
-    callerReactions: output.callerReactions != null ? de_CallerReactions(output.callerReactions, context) : undefined,
-    clientRequestToken: __expectString(output.clientRequestToken),
-    commentId: __expectString(output.commentId),
-    content: __expectString(output.content),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    deleted: __expectBoolean(output.deleted),
-    inReplyTo: __expectString(output.inReplyTo),
-    lastModifiedDate:
-      output.lastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
-        : undefined,
-    reactionCounts: output.reactionCounts != null ? de_ReactionCountsMap(output.reactionCounts, context) : undefined,
-  } as any;
+  return take(output, {
+    authorArn: __expectString,
+    callerReactions: _json,
+    clientRequestToken: __expectString,
+    commentId: __expectString,
+    content: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deleted: __expectBoolean,
+    inReplyTo: __expectString,
+    lastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    reactionCounts: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CommentContentRequiredException
- */
-const de_CommentContentRequiredException = (output: any, context: __SerdeContext): CommentContentRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommentContentRequiredException omitted.
 
-/**
- * deserializeAws_json1_1CommentContentSizeLimitExceededException
- */
-const de_CommentContentSizeLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): CommentContentSizeLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommentContentSizeLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1CommentDeletedException
- */
-const de_CommentDeletedException = (output: any, context: __SerdeContext): CommentDeletedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommentDeletedException omitted.
 
-/**
- * deserializeAws_json1_1CommentDoesNotExistException
- */
-const de_CommentDoesNotExistException = (output: any, context: __SerdeContext): CommentDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommentDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1CommentIdRequiredException
- */
-const de_CommentIdRequiredException = (output: any, context: __SerdeContext): CommentIdRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommentIdRequiredException omitted.
 
-/**
- * deserializeAws_json1_1CommentNotCreatedByCallerException
- */
-const de_CommentNotCreatedByCallerException = (
-  output: any,
-  context: __SerdeContext
-): CommentNotCreatedByCallerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommentNotCreatedByCallerException omitted.
 
 /**
  * deserializeAws_json1_1Comments
@@ -13129,9 +11591,6 @@ const de_Comments = (output: any, context: __SerdeContext): Comment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Comment(entry, context);
     });
   return retVal;
@@ -13141,15 +11600,15 @@ const de_Comments = (output: any, context: __SerdeContext): Comment[] => {
  * deserializeAws_json1_1CommentsForComparedCommit
  */
 const de_CommentsForComparedCommit = (output: any, context: __SerdeContext): CommentsForComparedCommit => {
-  return {
-    afterBlobId: __expectString(output.afterBlobId),
-    afterCommitId: __expectString(output.afterCommitId),
-    beforeBlobId: __expectString(output.beforeBlobId),
-    beforeCommitId: __expectString(output.beforeCommitId),
-    comments: output.comments != null ? de_Comments(output.comments, context) : undefined,
-    location: output.location != null ? de_Location(output.location, context) : undefined,
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
+  return take(output, {
+    afterBlobId: __expectString,
+    afterCommitId: __expectString,
+    beforeBlobId: __expectString,
+    beforeCommitId: __expectString,
+    comments: (_: any) => de_Comments(_, context),
+    location: _json,
+    repositoryName: __expectString,
+  }) as any;
 };
 
 /**
@@ -13159,9 +11618,6 @@ const de_CommentsForComparedCommitData = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CommentsForComparedCommit(entry, context);
     });
   return retVal;
@@ -13171,16 +11627,16 @@ const de_CommentsForComparedCommitData = (output: any, context: __SerdeContext):
  * deserializeAws_json1_1CommentsForPullRequest
  */
 const de_CommentsForPullRequest = (output: any, context: __SerdeContext): CommentsForPullRequest => {
-  return {
-    afterBlobId: __expectString(output.afterBlobId),
-    afterCommitId: __expectString(output.afterCommitId),
-    beforeBlobId: __expectString(output.beforeBlobId),
-    beforeCommitId: __expectString(output.beforeCommitId),
-    comments: output.comments != null ? de_Comments(output.comments, context) : undefined,
-    location: output.location != null ? de_Location(output.location, context) : undefined,
-    pullRequestId: __expectString(output.pullRequestId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
+  return take(output, {
+    afterBlobId: __expectString,
+    afterCommitId: __expectString,
+    beforeBlobId: __expectString,
+    beforeCommitId: __expectString,
+    comments: (_: any) => de_Comments(_, context),
+    location: _json,
+    pullRequestId: __expectString,
+    repositoryName: __expectString,
+  }) as any;
 };
 
 /**
@@ -13190,180 +11646,38 @@ const de_CommentsForPullRequestData = (output: any, context: __SerdeContext): Co
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CommentsForPullRequest(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Commit
- */
-const de_Commit = (output: any, context: __SerdeContext): Commit => {
-  return {
-    additionalData: __expectString(output.additionalData),
-    author: output.author != null ? de_UserInfo(output.author, context) : undefined,
-    commitId: __expectString(output.commitId),
-    committer: output.committer != null ? de_UserInfo(output.committer, context) : undefined,
-    message: __expectString(output.message),
-    parents: output.parents != null ? de_ParentList(output.parents, context) : undefined,
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_Commit omitted.
 
-/**
- * deserializeAws_json1_1CommitDoesNotExistException
- */
-const de_CommitDoesNotExistException = (output: any, context: __SerdeContext): CommitDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommitDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1CommitIdDoesNotExistException
- */
-const de_CommitIdDoesNotExistException = (output: any, context: __SerdeContext): CommitIdDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommitIdDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1CommitIdRequiredException
- */
-const de_CommitIdRequiredException = (output: any, context: __SerdeContext): CommitIdRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommitIdRequiredException omitted.
 
-/**
- * deserializeAws_json1_1CommitIdsLimitExceededException
- */
-const de_CommitIdsLimitExceededException = (output: any, context: __SerdeContext): CommitIdsLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommitIdsLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1CommitIdsListRequiredException
- */
-const de_CommitIdsListRequiredException = (output: any, context: __SerdeContext): CommitIdsListRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommitIdsListRequiredException omitted.
 
-/**
- * deserializeAws_json1_1CommitMessageLengthExceededException
- */
-const de_CommitMessageLengthExceededException = (
-  output: any,
-  context: __SerdeContext
-): CommitMessageLengthExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommitMessageLengthExceededException omitted.
 
-/**
- * deserializeAws_json1_1CommitObjectsList
- */
-const de_CommitObjectsList = (output: any, context: __SerdeContext): Commit[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Commit(entry, context);
-    });
-  return retVal;
-};
+// de_CommitObjectsList omitted.
 
-/**
- * deserializeAws_json1_1CommitRequiredException
- */
-const de_CommitRequiredException = (output: any, context: __SerdeContext): CommitRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CommitRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ConcurrentReferenceUpdateException
- */
-const de_ConcurrentReferenceUpdateException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentReferenceUpdateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConcurrentReferenceUpdateException omitted.
 
-/**
- * deserializeAws_json1_1Conflict
- */
-const de_Conflict = (output: any, context: __SerdeContext): Conflict => {
-  return {
-    conflictMetadata:
-      output.conflictMetadata != null ? de_ConflictMetadata(output.conflictMetadata, context) : undefined,
-    mergeHunks: output.mergeHunks != null ? de_MergeHunks(output.mergeHunks, context) : undefined,
-  } as any;
-};
+// de_Conflict omitted.
 
-/**
- * deserializeAws_json1_1ConflictMetadata
- */
-const de_ConflictMetadata = (output: any, context: __SerdeContext): ConflictMetadata => {
-  return {
-    contentConflict: __expectBoolean(output.contentConflict),
-    fileModeConflict: __expectBoolean(output.fileModeConflict),
-    fileModes: output.fileModes != null ? de_FileModes(output.fileModes, context) : undefined,
-    filePath: __expectString(output.filePath),
-    fileSizes: output.fileSizes != null ? de_FileSizes(output.fileSizes, context) : undefined,
-    isBinaryFile: output.isBinaryFile != null ? de_IsBinaryFile(output.isBinaryFile, context) : undefined,
-    mergeOperations: output.mergeOperations != null ? de_MergeOperations(output.mergeOperations, context) : undefined,
-    numberOfConflicts: __expectInt32(output.numberOfConflicts),
-    objectTypeConflict: __expectBoolean(output.objectTypeConflict),
-    objectTypes: output.objectTypes != null ? de_ObjectTypes(output.objectTypes, context) : undefined,
-  } as any;
-};
+// de_ConflictMetadata omitted.
 
-/**
- * deserializeAws_json1_1ConflictMetadataList
- */
-const de_ConflictMetadataList = (output: any, context: __SerdeContext): ConflictMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ConflictMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_ConflictMetadataList omitted.
 
-/**
- * deserializeAws_json1_1Conflicts
- */
-const de_Conflicts = (output: any, context: __SerdeContext): Conflict[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Conflict(entry, context);
-    });
-  return retVal;
-};
+// de_Conflicts omitted.
 
 /**
  * deserializeAws_json1_1CreateApprovalRuleTemplateOutput
@@ -13372,24 +11686,12 @@ const de_CreateApprovalRuleTemplateOutput = (
   output: any,
   context: __SerdeContext
 ): CreateApprovalRuleTemplateOutput => {
-  return {
-    approvalRuleTemplate:
-      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    approvalRuleTemplate: (_: any) => de_ApprovalRuleTemplate(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateCommitOutput
- */
-const de_CreateCommitOutput = (output: any, context: __SerdeContext): CreateCommitOutput => {
-  return {
-    commitId: __expectString(output.commitId),
-    filesAdded: output.filesAdded != null ? de_FilesMetadata(output.filesAdded, context) : undefined,
-    filesDeleted: output.filesDeleted != null ? de_FilesMetadata(output.filesDeleted, context) : undefined,
-    filesUpdated: output.filesUpdated != null ? de_FilesMetadata(output.filesUpdated, context) : undefined,
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_CreateCommitOutput omitted.
 
 /**
  * deserializeAws_json1_1CreatePullRequestApprovalRuleOutput
@@ -13398,528 +11700,152 @@ const de_CreatePullRequestApprovalRuleOutput = (
   output: any,
   context: __SerdeContext
 ): CreatePullRequestApprovalRuleOutput => {
-  return {
-    approvalRule: output.approvalRule != null ? de_ApprovalRule(output.approvalRule, context) : undefined,
-  } as any;
+  return take(output, {
+    approvalRule: (_: any) => de_ApprovalRule(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreatePullRequestOutput
  */
 const de_CreatePullRequestOutput = (output: any, context: __SerdeContext): CreatePullRequestOutput => {
-  return {
-    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
-  } as any;
+  return take(output, {
+    pullRequest: (_: any) => de_PullRequest(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1CreateRepositoryOutput
  */
 const de_CreateRepositoryOutput = (output: any, context: __SerdeContext): CreateRepositoryOutput => {
-  return {
-    repositoryMetadata:
-      output.repositoryMetadata != null ? de_RepositoryMetadata(output.repositoryMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    repositoryMetadata: (_: any) => de_RepositoryMetadata(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CreateUnreferencedMergeCommitOutput
- */
-const de_CreateUnreferencedMergeCommitOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateUnreferencedMergeCommitOutput => {
-  return {
-    commitId: __expectString(output.commitId),
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_CreateUnreferencedMergeCommitOutput omitted.
 
-/**
- * deserializeAws_json1_1DefaultBranchCannotBeDeletedException
- */
-const de_DefaultBranchCannotBeDeletedException = (
-  output: any,
-  context: __SerdeContext
-): DefaultBranchCannotBeDeletedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DefaultBranchCannotBeDeletedException omitted.
 
-/**
- * deserializeAws_json1_1DeleteApprovalRuleTemplateOutput
- */
-const de_DeleteApprovalRuleTemplateOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteApprovalRuleTemplateOutput => {
-  return {
-    approvalRuleTemplateId: __expectString(output.approvalRuleTemplateId),
-  } as any;
-};
+// de_DeleteApprovalRuleTemplateOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteBranchOutput
- */
-const de_DeleteBranchOutput = (output: any, context: __SerdeContext): DeleteBranchOutput => {
-  return {
-    deletedBranch: output.deletedBranch != null ? de_BranchInfo(output.deletedBranch, context) : undefined,
-  } as any;
-};
+// de_DeleteBranchOutput omitted.
 
 /**
  * deserializeAws_json1_1DeleteCommentContentOutput
  */
 const de_DeleteCommentContentOutput = (output: any, context: __SerdeContext): DeleteCommentContentOutput => {
-  return {
-    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
-  } as any;
+  return take(output, {
+    comment: (_: any) => de_Comment(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteFileOutput
- */
-const de_DeleteFileOutput = (output: any, context: __SerdeContext): DeleteFileOutput => {
-  return {
-    blobId: __expectString(output.blobId),
-    commitId: __expectString(output.commitId),
-    filePath: __expectString(output.filePath),
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_DeleteFileOutput omitted.
 
-/**
- * deserializeAws_json1_1DeletePullRequestApprovalRuleOutput
- */
-const de_DeletePullRequestApprovalRuleOutput = (
-  output: any,
-  context: __SerdeContext
-): DeletePullRequestApprovalRuleOutput => {
-  return {
-    approvalRuleId: __expectString(output.approvalRuleId),
-  } as any;
-};
+// de_DeletePullRequestApprovalRuleOutput omitted.
 
-/**
- * deserializeAws_json1_1DeleteRepositoryOutput
- */
-const de_DeleteRepositoryOutput = (output: any, context: __SerdeContext): DeleteRepositoryOutput => {
-  return {
-    repositoryId: __expectString(output.repositoryId),
-  } as any;
-};
+// de_DeleteRepositoryOutput omitted.
 
-/**
- * deserializeAws_json1_1DescribeMergeConflictsOutput
- */
-const de_DescribeMergeConflictsOutput = (output: any, context: __SerdeContext): DescribeMergeConflictsOutput => {
-  return {
-    baseCommitId: __expectString(output.baseCommitId),
-    conflictMetadata:
-      output.conflictMetadata != null ? de_ConflictMetadata(output.conflictMetadata, context) : undefined,
-    destinationCommitId: __expectString(output.destinationCommitId),
-    mergeHunks: output.mergeHunks != null ? de_MergeHunks(output.mergeHunks, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-    sourceCommitId: __expectString(output.sourceCommitId),
-  } as any;
-};
+// de_DescribeMergeConflictsOutput omitted.
 
 /**
  * deserializeAws_json1_1DescribePullRequestEventsOutput
  */
 const de_DescribePullRequestEventsOutput = (output: any, context: __SerdeContext): DescribePullRequestEventsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    pullRequestEvents:
-      output.pullRequestEvents != null ? de_PullRequestEventList(output.pullRequestEvents, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    pullRequestEvents: (_: any) => de_PullRequestEventList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Difference
- */
-const de_Difference = (output: any, context: __SerdeContext): Difference => {
-  return {
-    afterBlob: output.afterBlob != null ? de_BlobMetadata(output.afterBlob, context) : undefined,
-    beforeBlob: output.beforeBlob != null ? de_BlobMetadata(output.beforeBlob, context) : undefined,
-    changeType: __expectString(output.changeType),
-  } as any;
-};
+// de_Difference omitted.
 
-/**
- * deserializeAws_json1_1DifferenceList
- */
-const de_DifferenceList = (output: any, context: __SerdeContext): Difference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Difference(entry, context);
-    });
-  return retVal;
-};
+// de_DifferenceList omitted.
 
-/**
- * deserializeAws_json1_1DirectoryNameConflictsWithFileNameException
- */
-const de_DirectoryNameConflictsWithFileNameException = (
-  output: any,
-  context: __SerdeContext
-): DirectoryNameConflictsWithFileNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DirectoryNameConflictsWithFileNameException omitted.
 
-/**
- * deserializeAws_json1_1EncryptionIntegrityChecksFailedException
- */
-const de_EncryptionIntegrityChecksFailedException = (
-  output: any,
-  context: __SerdeContext
-): EncryptionIntegrityChecksFailedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_EncryptionIntegrityChecksFailedException omitted.
 
-/**
- * deserializeAws_json1_1EncryptionKeyAccessDeniedException
- */
-const de_EncryptionKeyAccessDeniedException = (
-  output: any,
-  context: __SerdeContext
-): EncryptionKeyAccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_EncryptionKeyAccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1EncryptionKeyDisabledException
- */
-const de_EncryptionKeyDisabledException = (output: any, context: __SerdeContext): EncryptionKeyDisabledException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_EncryptionKeyDisabledException omitted.
 
-/**
- * deserializeAws_json1_1EncryptionKeyNotFoundException
- */
-const de_EncryptionKeyNotFoundException = (output: any, context: __SerdeContext): EncryptionKeyNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_EncryptionKeyNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1EncryptionKeyUnavailableException
- */
-const de_EncryptionKeyUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): EncryptionKeyUnavailableException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_EncryptionKeyUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1EvaluatePullRequestApprovalRulesOutput
- */
-const de_EvaluatePullRequestApprovalRulesOutput = (
-  output: any,
-  context: __SerdeContext
-): EvaluatePullRequestApprovalRulesOutput => {
-  return {
-    evaluation: output.evaluation != null ? de_Evaluation(output.evaluation, context) : undefined,
-  } as any;
-};
+// de_EvaluatePullRequestApprovalRulesOutput omitted.
 
-/**
- * deserializeAws_json1_1Evaluation
- */
-const de_Evaluation = (output: any, context: __SerdeContext): Evaluation => {
-  return {
-    approvalRulesNotSatisfied:
-      output.approvalRulesNotSatisfied != null
-        ? de_ApprovalRulesNotSatisfiedList(output.approvalRulesNotSatisfied, context)
-        : undefined,
-    approvalRulesSatisfied:
-      output.approvalRulesSatisfied != null
-        ? de_ApprovalRulesSatisfiedList(output.approvalRulesSatisfied, context)
-        : undefined,
-    approved: __expectBoolean(output.approved),
-    overridden: __expectBoolean(output.overridden),
-  } as any;
-};
+// de_Evaluation omitted.
 
-/**
- * deserializeAws_json1_1File
- */
-const de_File = (output: any, context: __SerdeContext): File => {
-  return {
-    absolutePath: __expectString(output.absolutePath),
-    blobId: __expectString(output.blobId),
-    fileMode: __expectString(output.fileMode),
-    relativePath: __expectString(output.relativePath),
-  } as any;
-};
+// de_File omitted.
 
-/**
- * deserializeAws_json1_1FileContentAndSourceFileSpecifiedException
- */
-const de_FileContentAndSourceFileSpecifiedException = (
-  output: any,
-  context: __SerdeContext
-): FileContentAndSourceFileSpecifiedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FileContentAndSourceFileSpecifiedException omitted.
 
-/**
- * deserializeAws_json1_1FileContentRequiredException
- */
-const de_FileContentRequiredException = (output: any, context: __SerdeContext): FileContentRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FileContentRequiredException omitted.
 
-/**
- * deserializeAws_json1_1FileContentSizeLimitExceededException
- */
-const de_FileContentSizeLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): FileContentSizeLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FileContentSizeLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1FileDoesNotExistException
- */
-const de_FileDoesNotExistException = (output: any, context: __SerdeContext): FileDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FileDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1FileEntryRequiredException
- */
-const de_FileEntryRequiredException = (output: any, context: __SerdeContext): FileEntryRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FileEntryRequiredException omitted.
 
-/**
- * deserializeAws_json1_1FileList
- */
-const de_FileList = (output: any, context: __SerdeContext): File[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_File(entry, context);
-    });
-  return retVal;
-};
+// de_FileList omitted.
 
-/**
- * deserializeAws_json1_1FileMetadata
- */
-const de_FileMetadata = (output: any, context: __SerdeContext): FileMetadata => {
-  return {
-    absolutePath: __expectString(output.absolutePath),
-    blobId: __expectString(output.blobId),
-    fileMode: __expectString(output.fileMode),
-  } as any;
-};
+// de_FileMetadata omitted.
 
-/**
- * deserializeAws_json1_1FileModeRequiredException
- */
-const de_FileModeRequiredException = (output: any, context: __SerdeContext): FileModeRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FileModeRequiredException omitted.
 
-/**
- * deserializeAws_json1_1FileModes
- */
-const de_FileModes = (output: any, context: __SerdeContext): FileModes => {
-  return {
-    base: __expectString(output.base),
-    destination: __expectString(output.destination),
-    source: __expectString(output.source),
-  } as any;
-};
+// de_FileModes omitted.
 
-/**
- * deserializeAws_json1_1FileNameConflictsWithDirectoryNameException
- */
-const de_FileNameConflictsWithDirectoryNameException = (
-  output: any,
-  context: __SerdeContext
-): FileNameConflictsWithDirectoryNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FileNameConflictsWithDirectoryNameException omitted.
 
-/**
- * deserializeAws_json1_1FilePathConflictsWithSubmodulePathException
- */
-const de_FilePathConflictsWithSubmodulePathException = (
-  output: any,
-  context: __SerdeContext
-): FilePathConflictsWithSubmodulePathException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FilePathConflictsWithSubmodulePathException omitted.
 
-/**
- * deserializeAws_json1_1FileSizes
- */
-const de_FileSizes = (output: any, context: __SerdeContext): FileSizes => {
-  return {
-    base: __expectLong(output.base),
-    destination: __expectLong(output.destination),
-    source: __expectLong(output.source),
-  } as any;
-};
+// de_FileSizes omitted.
 
-/**
- * deserializeAws_json1_1FilesMetadata
- */
-const de_FilesMetadata = (output: any, context: __SerdeContext): FileMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FileMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_FilesMetadata omitted.
 
-/**
- * deserializeAws_json1_1FileTooLargeException
- */
-const de_FileTooLargeException = (output: any, context: __SerdeContext): FileTooLargeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FileTooLargeException omitted.
 
-/**
- * deserializeAws_json1_1Folder
- */
-const de_Folder = (output: any, context: __SerdeContext): Folder => {
-  return {
-    absolutePath: __expectString(output.absolutePath),
-    relativePath: __expectString(output.relativePath),
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_Folder omitted.
 
-/**
- * deserializeAws_json1_1FolderContentSizeLimitExceededException
- */
-const de_FolderContentSizeLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): FolderContentSizeLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FolderContentSizeLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1FolderDoesNotExistException
- */
-const de_FolderDoesNotExistException = (output: any, context: __SerdeContext): FolderDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_FolderDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1FolderList
- */
-const de_FolderList = (output: any, context: __SerdeContext): Folder[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Folder(entry, context);
-    });
-  return retVal;
-};
+// de_FolderList omitted.
 
 /**
  * deserializeAws_json1_1GetApprovalRuleTemplateOutput
  */
 const de_GetApprovalRuleTemplateOutput = (output: any, context: __SerdeContext): GetApprovalRuleTemplateOutput => {
-  return {
-    approvalRuleTemplate:
-      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    approvalRuleTemplate: (_: any) => de_ApprovalRuleTemplate(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetBlobOutput
  */
 const de_GetBlobOutput = (output: any, context: __SerdeContext): GetBlobOutput => {
-  return {
-    content: output.content != null ? context.base64Decoder(output.content) : undefined,
-  } as any;
+  return take(output, {
+    content: context.base64Decoder,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetBranchOutput
- */
-const de_GetBranchOutput = (output: any, context: __SerdeContext): GetBranchOutput => {
-  return {
-    branch: output.branch != null ? de_BranchInfo(output.branch, context) : undefined,
-  } as any;
-};
+// de_GetBranchOutput omitted.
 
 /**
  * deserializeAws_json1_1GetCommentOutput
  */
 const de_GetCommentOutput = (output: any, context: __SerdeContext): GetCommentOutput => {
-  return {
-    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
-  } as any;
+  return take(output, {
+    comment: (_: any) => de_Comment(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetCommentReactionsOutput
- */
-const de_GetCommentReactionsOutput = (output: any, context: __SerdeContext): GetCommentReactionsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    reactionsForComment:
-      output.reactionsForComment != null ? de_ReactionsForCommentList(output.reactionsForComment, context) : undefined,
-  } as any;
-};
+// de_GetCommentReactionsOutput omitted.
 
 /**
  * deserializeAws_json1_1GetCommentsForComparedCommitOutput
@@ -13928,1179 +11854,259 @@ const de_GetCommentsForComparedCommitOutput = (
   output: any,
   context: __SerdeContext
 ): GetCommentsForComparedCommitOutput => {
-  return {
-    commentsForComparedCommitData:
-      output.commentsForComparedCommitData != null
-        ? de_CommentsForComparedCommitData(output.commentsForComparedCommitData, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    commentsForComparedCommitData: (_: any) => de_CommentsForComparedCommitData(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetCommentsForPullRequestOutput
  */
 const de_GetCommentsForPullRequestOutput = (output: any, context: __SerdeContext): GetCommentsForPullRequestOutput => {
-  return {
-    commentsForPullRequestData:
-      output.commentsForPullRequestData != null
-        ? de_CommentsForPullRequestData(output.commentsForPullRequestData, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    commentsForPullRequestData: (_: any) => de_CommentsForPullRequestData(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetCommitOutput
- */
-const de_GetCommitOutput = (output: any, context: __SerdeContext): GetCommitOutput => {
-  return {
-    commit: output.commit != null ? de_Commit(output.commit, context) : undefined,
-  } as any;
-};
+// de_GetCommitOutput omitted.
 
-/**
- * deserializeAws_json1_1GetDifferencesOutput
- */
-const de_GetDifferencesOutput = (output: any, context: __SerdeContext): GetDifferencesOutput => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    differences: output.differences != null ? de_DifferenceList(output.differences, context) : undefined,
-  } as any;
-};
+// de_GetDifferencesOutput omitted.
 
 /**
  * deserializeAws_json1_1GetFileOutput
  */
 const de_GetFileOutput = (output: any, context: __SerdeContext): GetFileOutput => {
-  return {
-    blobId: __expectString(output.blobId),
-    commitId: __expectString(output.commitId),
-    fileContent: output.fileContent != null ? context.base64Decoder(output.fileContent) : undefined,
-    fileMode: __expectString(output.fileMode),
-    filePath: __expectString(output.filePath),
-    fileSize: __expectLong(output.fileSize),
-  } as any;
+  return take(output, {
+    blobId: __expectString,
+    commitId: __expectString,
+    fileContent: context.base64Decoder,
+    fileMode: __expectString,
+    filePath: __expectString,
+    fileSize: __expectLong,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetFolderOutput
- */
-const de_GetFolderOutput = (output: any, context: __SerdeContext): GetFolderOutput => {
-  return {
-    commitId: __expectString(output.commitId),
-    files: output.files != null ? de_FileList(output.files, context) : undefined,
-    folderPath: __expectString(output.folderPath),
-    subFolders: output.subFolders != null ? de_FolderList(output.subFolders, context) : undefined,
-    subModules: output.subModules != null ? de_SubModuleList(output.subModules, context) : undefined,
-    symbolicLinks: output.symbolicLinks != null ? de_SymbolicLinkList(output.symbolicLinks, context) : undefined,
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_GetFolderOutput omitted.
 
-/**
- * deserializeAws_json1_1GetMergeCommitOutput
- */
-const de_GetMergeCommitOutput = (output: any, context: __SerdeContext): GetMergeCommitOutput => {
-  return {
-    baseCommitId: __expectString(output.baseCommitId),
-    destinationCommitId: __expectString(output.destinationCommitId),
-    mergedCommitId: __expectString(output.mergedCommitId),
-    sourceCommitId: __expectString(output.sourceCommitId),
-  } as any;
-};
+// de_GetMergeCommitOutput omitted.
 
-/**
- * deserializeAws_json1_1GetMergeConflictsOutput
- */
-const de_GetMergeConflictsOutput = (output: any, context: __SerdeContext): GetMergeConflictsOutput => {
-  return {
-    baseCommitId: __expectString(output.baseCommitId),
-    conflictMetadataList:
-      output.conflictMetadataList != null ? de_ConflictMetadataList(output.conflictMetadataList, context) : undefined,
-    destinationCommitId: __expectString(output.destinationCommitId),
-    mergeable: __expectBoolean(output.mergeable),
-    nextToken: __expectString(output.nextToken),
-    sourceCommitId: __expectString(output.sourceCommitId),
-  } as any;
-};
+// de_GetMergeConflictsOutput omitted.
 
-/**
- * deserializeAws_json1_1GetMergeOptionsOutput
- */
-const de_GetMergeOptionsOutput = (output: any, context: __SerdeContext): GetMergeOptionsOutput => {
-  return {
-    baseCommitId: __expectString(output.baseCommitId),
-    destinationCommitId: __expectString(output.destinationCommitId),
-    mergeOptions: output.mergeOptions != null ? de_MergeOptions(output.mergeOptions, context) : undefined,
-    sourceCommitId: __expectString(output.sourceCommitId),
-  } as any;
-};
+// de_GetMergeOptionsOutput omitted.
 
-/**
- * deserializeAws_json1_1GetPullRequestApprovalStatesOutput
- */
-const de_GetPullRequestApprovalStatesOutput = (
-  output: any,
-  context: __SerdeContext
-): GetPullRequestApprovalStatesOutput => {
-  return {
-    approvals: output.approvals != null ? de_ApprovalList(output.approvals, context) : undefined,
-  } as any;
-};
+// de_GetPullRequestApprovalStatesOutput omitted.
 
 /**
  * deserializeAws_json1_1GetPullRequestOutput
  */
 const de_GetPullRequestOutput = (output: any, context: __SerdeContext): GetPullRequestOutput => {
-  return {
-    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
-  } as any;
+  return take(output, {
+    pullRequest: (_: any) => de_PullRequest(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetPullRequestOverrideStateOutput
- */
-const de_GetPullRequestOverrideStateOutput = (
-  output: any,
-  context: __SerdeContext
-): GetPullRequestOverrideStateOutput => {
-  return {
-    overridden: __expectBoolean(output.overridden),
-    overrider: __expectString(output.overrider),
-  } as any;
-};
+// de_GetPullRequestOverrideStateOutput omitted.
 
 /**
  * deserializeAws_json1_1GetRepositoryOutput
  */
 const de_GetRepositoryOutput = (output: any, context: __SerdeContext): GetRepositoryOutput => {
-  return {
-    repositoryMetadata:
-      output.repositoryMetadata != null ? de_RepositoryMetadata(output.repositoryMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    repositoryMetadata: (_: any) => de_RepositoryMetadata(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetRepositoryTriggersOutput
- */
-const de_GetRepositoryTriggersOutput = (output: any, context: __SerdeContext): GetRepositoryTriggersOutput => {
-  return {
-    configurationId: __expectString(output.configurationId),
-    triggers: output.triggers != null ? de_RepositoryTriggersList(output.triggers, context) : undefined,
-  } as any;
-};
+// de_GetRepositoryTriggersOutput omitted.
 
-/**
- * deserializeAws_json1_1IdempotencyParameterMismatchException
- */
-const de_IdempotencyParameterMismatchException = (
-  output: any,
-  context: __SerdeContext
-): IdempotencyParameterMismatchException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_IdempotencyParameterMismatchException omitted.
 
-/**
- * deserializeAws_json1_1InvalidActorArnException
- */
-const de_InvalidActorArnException = (output: any, context: __SerdeContext): InvalidActorArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidActorArnException omitted.
 
-/**
- * deserializeAws_json1_1InvalidApprovalRuleContentException
- */
-const de_InvalidApprovalRuleContentException = (
-  output: any,
-  context: __SerdeContext
-): InvalidApprovalRuleContentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidApprovalRuleContentException omitted.
 
-/**
- * deserializeAws_json1_1InvalidApprovalRuleNameException
- */
-const de_InvalidApprovalRuleNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidApprovalRuleNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidApprovalRuleNameException omitted.
 
-/**
- * deserializeAws_json1_1InvalidApprovalRuleTemplateContentException
- */
-const de_InvalidApprovalRuleTemplateContentException = (
-  output: any,
-  context: __SerdeContext
-): InvalidApprovalRuleTemplateContentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidApprovalRuleTemplateContentException omitted.
 
-/**
- * deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionException
- */
-const de_InvalidApprovalRuleTemplateDescriptionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidApprovalRuleTemplateDescriptionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidApprovalRuleTemplateDescriptionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidApprovalRuleTemplateNameException
- */
-const de_InvalidApprovalRuleTemplateNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidApprovalRuleTemplateNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidApprovalRuleTemplateNameException omitted.
 
-/**
- * deserializeAws_json1_1InvalidApprovalStateException
- */
-const de_InvalidApprovalStateException = (output: any, context: __SerdeContext): InvalidApprovalStateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidApprovalStateException omitted.
 
-/**
- * deserializeAws_json1_1InvalidAuthorArnException
- */
-const de_InvalidAuthorArnException = (output: any, context: __SerdeContext): InvalidAuthorArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidAuthorArnException omitted.
 
-/**
- * deserializeAws_json1_1InvalidBlobIdException
- */
-const de_InvalidBlobIdException = (output: any, context: __SerdeContext): InvalidBlobIdException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidBlobIdException omitted.
 
-/**
- * deserializeAws_json1_1InvalidBranchNameException
- */
-const de_InvalidBranchNameException = (output: any, context: __SerdeContext): InvalidBranchNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidBranchNameException omitted.
 
-/**
- * deserializeAws_json1_1InvalidClientRequestTokenException
- */
-const de_InvalidClientRequestTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidClientRequestTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidClientRequestTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidCommentIdException
- */
-const de_InvalidCommentIdException = (output: any, context: __SerdeContext): InvalidCommentIdException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidCommentIdException omitted.
 
-/**
- * deserializeAws_json1_1InvalidCommitException
- */
-const de_InvalidCommitException = (output: any, context: __SerdeContext): InvalidCommitException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidCommitException omitted.
 
-/**
- * deserializeAws_json1_1InvalidCommitIdException
- */
-const de_InvalidCommitIdException = (output: any, context: __SerdeContext): InvalidCommitIdException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidCommitIdException omitted.
 
-/**
- * deserializeAws_json1_1InvalidConflictDetailLevelException
- */
-const de_InvalidConflictDetailLevelException = (
-  output: any,
-  context: __SerdeContext
-): InvalidConflictDetailLevelException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidConflictDetailLevelException omitted.
 
-/**
- * deserializeAws_json1_1InvalidConflictResolutionException
- */
-const de_InvalidConflictResolutionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidConflictResolutionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidConflictResolutionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidConflictResolutionStrategyException
- */
-const de_InvalidConflictResolutionStrategyException = (
-  output: any,
-  context: __SerdeContext
-): InvalidConflictResolutionStrategyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidConflictResolutionStrategyException omitted.
 
-/**
- * deserializeAws_json1_1InvalidContinuationTokenException
- */
-const de_InvalidContinuationTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidContinuationTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidContinuationTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidDeletionParameterException
- */
-const de_InvalidDeletionParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidDeletionParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidDeletionParameterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidDescriptionException
- */
-const de_InvalidDescriptionException = (output: any, context: __SerdeContext): InvalidDescriptionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidDescriptionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidDestinationCommitSpecifierException
- */
-const de_InvalidDestinationCommitSpecifierException = (
-  output: any,
-  context: __SerdeContext
-): InvalidDestinationCommitSpecifierException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidDestinationCommitSpecifierException omitted.
 
-/**
- * deserializeAws_json1_1InvalidEmailException
- */
-const de_InvalidEmailException = (output: any, context: __SerdeContext): InvalidEmailException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidEmailException omitted.
 
-/**
- * deserializeAws_json1_1InvalidFileLocationException
- */
-const de_InvalidFileLocationException = (output: any, context: __SerdeContext): InvalidFileLocationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidFileLocationException omitted.
 
-/**
- * deserializeAws_json1_1InvalidFileModeException
- */
-const de_InvalidFileModeException = (output: any, context: __SerdeContext): InvalidFileModeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidFileModeException omitted.
 
-/**
- * deserializeAws_json1_1InvalidFilePositionException
- */
-const de_InvalidFilePositionException = (output: any, context: __SerdeContext): InvalidFilePositionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidFilePositionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidMaxConflictFilesException
- */
-const de_InvalidMaxConflictFilesException = (
-  output: any,
-  context: __SerdeContext
-): InvalidMaxConflictFilesException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidMaxConflictFilesException omitted.
 
-/**
- * deserializeAws_json1_1InvalidMaxMergeHunksException
- */
-const de_InvalidMaxMergeHunksException = (output: any, context: __SerdeContext): InvalidMaxMergeHunksException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidMaxMergeHunksException omitted.
 
-/**
- * deserializeAws_json1_1InvalidMaxResultsException
- */
-const de_InvalidMaxResultsException = (output: any, context: __SerdeContext): InvalidMaxResultsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidMaxResultsException omitted.
 
-/**
- * deserializeAws_json1_1InvalidMergeOptionException
- */
-const de_InvalidMergeOptionException = (output: any, context: __SerdeContext): InvalidMergeOptionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidMergeOptionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidOrderException
- */
-const de_InvalidOrderException = (output: any, context: __SerdeContext): InvalidOrderException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidOrderException omitted.
 
-/**
- * deserializeAws_json1_1InvalidOverrideStatusException
- */
-const de_InvalidOverrideStatusException = (output: any, context: __SerdeContext): InvalidOverrideStatusException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidOverrideStatusException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParentCommitIdException
- */
-const de_InvalidParentCommitIdException = (output: any, context: __SerdeContext): InvalidParentCommitIdException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidParentCommitIdException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPathException
- */
-const de_InvalidPathException = (output: any, context: __SerdeContext): InvalidPathException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidPathException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPullRequestEventTypeException
- */
-const de_InvalidPullRequestEventTypeException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPullRequestEventTypeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidPullRequestEventTypeException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPullRequestIdException
- */
-const de_InvalidPullRequestIdException = (output: any, context: __SerdeContext): InvalidPullRequestIdException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidPullRequestIdException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPullRequestStatusException
- */
-const de_InvalidPullRequestStatusException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPullRequestStatusException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidPullRequestStatusException omitted.
 
-/**
- * deserializeAws_json1_1InvalidPullRequestStatusUpdateException
- */
-const de_InvalidPullRequestStatusUpdateException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPullRequestStatusUpdateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidPullRequestStatusUpdateException omitted.
 
-/**
- * deserializeAws_json1_1InvalidReactionUserArnException
- */
-const de_InvalidReactionUserArnException = (output: any, context: __SerdeContext): InvalidReactionUserArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidReactionUserArnException omitted.
 
-/**
- * deserializeAws_json1_1InvalidReactionValueException
- */
-const de_InvalidReactionValueException = (output: any, context: __SerdeContext): InvalidReactionValueException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidReactionValueException omitted.
 
-/**
- * deserializeAws_json1_1InvalidReferenceNameException
- */
-const de_InvalidReferenceNameException = (output: any, context: __SerdeContext): InvalidReferenceNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidReferenceNameException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRelativeFileVersionEnumException
- */
-const de_InvalidRelativeFileVersionEnumException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRelativeFileVersionEnumException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRelativeFileVersionEnumException omitted.
 
-/**
- * deserializeAws_json1_1InvalidReplacementContentException
- */
-const de_InvalidReplacementContentException = (
-  output: any,
-  context: __SerdeContext
-): InvalidReplacementContentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidReplacementContentException omitted.
 
-/**
- * deserializeAws_json1_1InvalidReplacementTypeException
- */
-const de_InvalidReplacementTypeException = (output: any, context: __SerdeContext): InvalidReplacementTypeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidReplacementTypeException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRepositoryDescriptionException
- */
-const de_InvalidRepositoryDescriptionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRepositoryDescriptionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRepositoryDescriptionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRepositoryNameException
- */
-const de_InvalidRepositoryNameException = (output: any, context: __SerdeContext): InvalidRepositoryNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRepositoryNameException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRepositoryTriggerBranchNameException
- */
-const de_InvalidRepositoryTriggerBranchNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRepositoryTriggerBranchNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRepositoryTriggerBranchNameException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRepositoryTriggerCustomDataException
- */
-const de_InvalidRepositoryTriggerCustomDataException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRepositoryTriggerCustomDataException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRepositoryTriggerCustomDataException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnException
- */
-const de_InvalidRepositoryTriggerDestinationArnException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRepositoryTriggerDestinationArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRepositoryTriggerDestinationArnException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRepositoryTriggerEventsException
- */
-const de_InvalidRepositoryTriggerEventsException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRepositoryTriggerEventsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRepositoryTriggerEventsException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRepositoryTriggerNameException
- */
-const de_InvalidRepositoryTriggerNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRepositoryTriggerNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRepositoryTriggerNameException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRepositoryTriggerRegionException
- */
-const de_InvalidRepositoryTriggerRegionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRepositoryTriggerRegionException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRepositoryTriggerRegionException omitted.
 
-/**
- * deserializeAws_json1_1InvalidResourceArnException
- */
-const de_InvalidResourceArnException = (output: any, context: __SerdeContext): InvalidResourceArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidResourceArnException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRevisionIdException
- */
-const de_InvalidRevisionIdException = (output: any, context: __SerdeContext): InvalidRevisionIdException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRevisionIdException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRuleContentSha256Exception
- */
-const de_InvalidRuleContentSha256Exception = (
-  output: any,
-  context: __SerdeContext
-): InvalidRuleContentSha256Exception => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRuleContentSha256Exception omitted.
 
-/**
- * deserializeAws_json1_1InvalidSortByException
- */
-const de_InvalidSortByException = (output: any, context: __SerdeContext): InvalidSortByException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidSortByException omitted.
 
-/**
- * deserializeAws_json1_1InvalidSourceCommitSpecifierException
- */
-const de_InvalidSourceCommitSpecifierException = (
-  output: any,
-  context: __SerdeContext
-): InvalidSourceCommitSpecifierException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidSourceCommitSpecifierException omitted.
 
-/**
- * deserializeAws_json1_1InvalidSystemTagUsageException
- */
-const de_InvalidSystemTagUsageException = (output: any, context: __SerdeContext): InvalidSystemTagUsageException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidSystemTagUsageException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTagKeysListException
- */
-const de_InvalidTagKeysListException = (output: any, context: __SerdeContext): InvalidTagKeysListException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTagKeysListException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTagsMapException
- */
-const de_InvalidTagsMapException = (output: any, context: __SerdeContext): InvalidTagsMapException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTagsMapException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTargetBranchException
- */
-const de_InvalidTargetBranchException = (output: any, context: __SerdeContext): InvalidTargetBranchException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTargetBranchException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTargetException
- */
-const de_InvalidTargetException = (output: any, context: __SerdeContext): InvalidTargetException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTargetException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTargetsException
- */
-const de_InvalidTargetsException = (output: any, context: __SerdeContext): InvalidTargetsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTargetsException omitted.
 
-/**
- * deserializeAws_json1_1InvalidTitleException
- */
-const de_InvalidTitleException = (output: any, context: __SerdeContext): InvalidTitleException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTitleException omitted.
 
-/**
- * deserializeAws_json1_1IsBinaryFile
- */
-const de_IsBinaryFile = (output: any, context: __SerdeContext): IsBinaryFile => {
-  return {
-    base: __expectBoolean(output.base),
-    destination: __expectBoolean(output.destination),
-    source: __expectBoolean(output.source),
-  } as any;
-};
+// de_IsBinaryFile omitted.
 
-/**
- * deserializeAws_json1_1ListApprovalRuleTemplatesOutput
- */
-const de_ListApprovalRuleTemplatesOutput = (output: any, context: __SerdeContext): ListApprovalRuleTemplatesOutput => {
-  return {
-    approvalRuleTemplateNames:
-      output.approvalRuleTemplateNames != null
-        ? de_ApprovalRuleTemplateNameList(output.approvalRuleTemplateNames, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListApprovalRuleTemplatesOutput omitted.
 
-/**
- * deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryOutput
- */
-const de_ListAssociatedApprovalRuleTemplatesForRepositoryOutput = (
-  output: any,
-  context: __SerdeContext
-): ListAssociatedApprovalRuleTemplatesForRepositoryOutput => {
-  return {
-    approvalRuleTemplateNames:
-      output.approvalRuleTemplateNames != null
-        ? de_ApprovalRuleTemplateNameList(output.approvalRuleTemplateNames, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListAssociatedApprovalRuleTemplatesForRepositoryOutput omitted.
 
-/**
- * deserializeAws_json1_1ListBranchesOutput
- */
-const de_ListBranchesOutput = (output: any, context: __SerdeContext): ListBranchesOutput => {
-  return {
-    branches: output.branches != null ? de_BranchNameList(output.branches, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListBranchesOutput omitted.
 
-/**
- * deserializeAws_json1_1ListPullRequestsOutput
- */
-const de_ListPullRequestsOutput = (output: any, context: __SerdeContext): ListPullRequestsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    pullRequestIds: output.pullRequestIds != null ? de_PullRequestIdList(output.pullRequestIds, context) : undefined,
-  } as any;
-};
+// de_ListPullRequestsOutput omitted.
 
-/**
- * deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateOutput
- */
-const de_ListRepositoriesForApprovalRuleTemplateOutput = (
-  output: any,
-  context: __SerdeContext
-): ListRepositoriesForApprovalRuleTemplateOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    repositoryNames:
-      output.repositoryNames != null ? de_RepositoryNameList(output.repositoryNames, context) : undefined,
-  } as any;
-};
+// de_ListRepositoriesForApprovalRuleTemplateOutput omitted.
 
-/**
- * deserializeAws_json1_1ListRepositoriesOutput
- */
-const de_ListRepositoriesOutput = (output: any, context: __SerdeContext): ListRepositoriesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    repositories: output.repositories != null ? de_RepositoryNameIdPairList(output.repositories, context) : undefined,
-  } as any;
-};
+// de_ListRepositoriesOutput omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceOutput
- */
-const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tags: output.tags != null ? de_TagsMap(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceOutput omitted.
 
-/**
- * deserializeAws_json1_1Location
- */
-const de_Location = (output: any, context: __SerdeContext): Location => {
-  return {
-    filePath: __expectString(output.filePath),
-    filePosition: __expectLong(output.filePosition),
-    relativeFileVersion: __expectString(output.relativeFileVersion),
-  } as any;
-};
+// de_Location omitted.
 
-/**
- * deserializeAws_json1_1ManualMergeRequiredException
- */
-const de_ManualMergeRequiredException = (output: any, context: __SerdeContext): ManualMergeRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ManualMergeRequiredException omitted.
 
-/**
- * deserializeAws_json1_1MaximumBranchesExceededException
- */
-const de_MaximumBranchesExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaximumBranchesExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumBranchesExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaximumConflictResolutionEntriesExceededException
- */
-const de_MaximumConflictResolutionEntriesExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaximumConflictResolutionEntriesExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumConflictResolutionEntriesExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaximumFileContentToLoadExceededException
- */
-const de_MaximumFileContentToLoadExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaximumFileContentToLoadExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumFileContentToLoadExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaximumFileEntriesExceededException
- */
-const de_MaximumFileEntriesExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaximumFileEntriesExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumFileEntriesExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaximumItemsToCompareExceededException
- */
-const de_MaximumItemsToCompareExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaximumItemsToCompareExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumItemsToCompareExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaximumNumberOfApprovalsExceededException
- */
-const de_MaximumNumberOfApprovalsExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaximumNumberOfApprovalsExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumNumberOfApprovalsExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaximumOpenPullRequestsExceededException
- */
-const de_MaximumOpenPullRequestsExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaximumOpenPullRequestsExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumOpenPullRequestsExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaximumRepositoryNamesExceededException
- */
-const de_MaximumRepositoryNamesExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaximumRepositoryNamesExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumRepositoryNamesExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaximumRepositoryTriggersExceededException
- */
-const de_MaximumRepositoryTriggersExceededException = (
-  output: any,
-  context: __SerdeContext
-): MaximumRepositoryTriggersExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumRepositoryTriggersExceededException omitted.
 
-/**
- * deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryException
- */
-const de_MaximumRuleTemplatesAssociatedWithRepositoryException = (
-  output: any,
-  context: __SerdeContext
-): MaximumRuleTemplatesAssociatedWithRepositoryException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MaximumRuleTemplatesAssociatedWithRepositoryException omitted.
 
-/**
- * deserializeAws_json1_1MergeBranchesByFastForwardOutput
- */
-const de_MergeBranchesByFastForwardOutput = (
-  output: any,
-  context: __SerdeContext
-): MergeBranchesByFastForwardOutput => {
-  return {
-    commitId: __expectString(output.commitId),
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_MergeBranchesByFastForwardOutput omitted.
 
-/**
- * deserializeAws_json1_1MergeBranchesBySquashOutput
- */
-const de_MergeBranchesBySquashOutput = (output: any, context: __SerdeContext): MergeBranchesBySquashOutput => {
-  return {
-    commitId: __expectString(output.commitId),
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_MergeBranchesBySquashOutput omitted.
 
-/**
- * deserializeAws_json1_1MergeBranchesByThreeWayOutput
- */
-const de_MergeBranchesByThreeWayOutput = (output: any, context: __SerdeContext): MergeBranchesByThreeWayOutput => {
-  return {
-    commitId: __expectString(output.commitId),
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_MergeBranchesByThreeWayOutput omitted.
 
-/**
- * deserializeAws_json1_1MergeHunk
- */
-const de_MergeHunk = (output: any, context: __SerdeContext): MergeHunk => {
-  return {
-    base: output.base != null ? de_MergeHunkDetail(output.base, context) : undefined,
-    destination: output.destination != null ? de_MergeHunkDetail(output.destination, context) : undefined,
-    isConflict: __expectBoolean(output.isConflict),
-    source: output.source != null ? de_MergeHunkDetail(output.source, context) : undefined,
-  } as any;
-};
+// de_MergeHunk omitted.
 
-/**
- * deserializeAws_json1_1MergeHunkDetail
- */
-const de_MergeHunkDetail = (output: any, context: __SerdeContext): MergeHunkDetail => {
-  return {
-    endLine: __expectInt32(output.endLine),
-    hunkContent: __expectString(output.hunkContent),
-    startLine: __expectInt32(output.startLine),
-  } as any;
-};
+// de_MergeHunkDetail omitted.
 
-/**
- * deserializeAws_json1_1MergeHunks
- */
-const de_MergeHunks = (output: any, context: __SerdeContext): MergeHunk[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MergeHunk(entry, context);
-    });
-  return retVal;
-};
+// de_MergeHunks omitted.
 
-/**
- * deserializeAws_json1_1MergeMetadata
- */
-const de_MergeMetadata = (output: any, context: __SerdeContext): MergeMetadata => {
-  return {
-    isMerged: __expectBoolean(output.isMerged),
-    mergeCommitId: __expectString(output.mergeCommitId),
-    mergeOption: __expectString(output.mergeOption),
-    mergedBy: __expectString(output.mergedBy),
-  } as any;
-};
+// de_MergeMetadata omitted.
 
-/**
- * deserializeAws_json1_1MergeOperations
- */
-const de_MergeOperations = (output: any, context: __SerdeContext): MergeOperations => {
-  return {
-    destination: __expectString(output.destination),
-    source: __expectString(output.source),
-  } as any;
-};
+// de_MergeOperations omitted.
 
-/**
- * deserializeAws_json1_1MergeOptionRequiredException
- */
-const de_MergeOptionRequiredException = (output: any, context: __SerdeContext): MergeOptionRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MergeOptionRequiredException omitted.
 
-/**
- * deserializeAws_json1_1MergeOptions
- */
-const de_MergeOptions = (output: any, context: __SerdeContext): (MergeOptionTypeEnum | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MergeOptions omitted.
 
 /**
  * deserializeAws_json1_1MergePullRequestByFastForwardOutput
@@ -15109,18 +12115,18 @@ const de_MergePullRequestByFastForwardOutput = (
   output: any,
   context: __SerdeContext
 ): MergePullRequestByFastForwardOutput => {
-  return {
-    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
-  } as any;
+  return take(output, {
+    pullRequest: (_: any) => de_PullRequest(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1MergePullRequestBySquashOutput
  */
 const de_MergePullRequestBySquashOutput = (output: any, context: __SerdeContext): MergePullRequestBySquashOutput => {
-  return {
-    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
-  } as any;
+  return take(output, {
+    pullRequest: (_: any) => de_PullRequest(_, context),
+  }) as any;
 };
 
 /**
@@ -15130,175 +12136,42 @@ const de_MergePullRequestByThreeWayOutput = (
   output: any,
   context: __SerdeContext
 ): MergePullRequestByThreeWayOutput => {
-  return {
-    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
-  } as any;
+  return take(output, {
+    pullRequest: (_: any) => de_PullRequest(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1MultipleConflictResolutionEntriesException
- */
-const de_MultipleConflictResolutionEntriesException = (
-  output: any,
-  context: __SerdeContext
-): MultipleConflictResolutionEntriesException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MultipleConflictResolutionEntriesException omitted.
 
-/**
- * deserializeAws_json1_1MultipleRepositoriesInPullRequestException
- */
-const de_MultipleRepositoriesInPullRequestException = (
-  output: any,
-  context: __SerdeContext
-): MultipleRepositoriesInPullRequestException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MultipleRepositoriesInPullRequestException omitted.
 
-/**
- * deserializeAws_json1_1NameLengthExceededException
- */
-const de_NameLengthExceededException = (output: any, context: __SerdeContext): NameLengthExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NameLengthExceededException omitted.
 
-/**
- * deserializeAws_json1_1NoChangeException
- */
-const de_NoChangeException = (output: any, context: __SerdeContext): NoChangeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoChangeException omitted.
 
-/**
- * deserializeAws_json1_1NumberOfRulesExceededException
- */
-const de_NumberOfRulesExceededException = (output: any, context: __SerdeContext): NumberOfRulesExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NumberOfRulesExceededException omitted.
 
-/**
- * deserializeAws_json1_1NumberOfRuleTemplatesExceededException
- */
-const de_NumberOfRuleTemplatesExceededException = (
-  output: any,
-  context: __SerdeContext
-): NumberOfRuleTemplatesExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NumberOfRuleTemplatesExceededException omitted.
 
-/**
- * deserializeAws_json1_1ObjectTypes
- */
-const de_ObjectTypes = (output: any, context: __SerdeContext): ObjectTypes => {
-  return {
-    base: __expectString(output.base),
-    destination: __expectString(output.destination),
-    source: __expectString(output.source),
-  } as any;
-};
+// de_ObjectTypes omitted.
 
-/**
- * deserializeAws_json1_1OriginApprovalRuleTemplate
- */
-const de_OriginApprovalRuleTemplate = (output: any, context: __SerdeContext): OriginApprovalRuleTemplate => {
-  return {
-    approvalRuleTemplateId: __expectString(output.approvalRuleTemplateId),
-    approvalRuleTemplateName: __expectString(output.approvalRuleTemplateName),
-  } as any;
-};
+// de_OriginApprovalRuleTemplate omitted.
 
-/**
- * deserializeAws_json1_1OverrideAlreadySetException
- */
-const de_OverrideAlreadySetException = (output: any, context: __SerdeContext): OverrideAlreadySetException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OverrideAlreadySetException omitted.
 
-/**
- * deserializeAws_json1_1OverrideStatusRequiredException
- */
-const de_OverrideStatusRequiredException = (output: any, context: __SerdeContext): OverrideStatusRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OverrideStatusRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ParentCommitDoesNotExistException
- */
-const de_ParentCommitDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): ParentCommitDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ParentCommitDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1ParentCommitIdOutdatedException
- */
-const de_ParentCommitIdOutdatedException = (output: any, context: __SerdeContext): ParentCommitIdOutdatedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ParentCommitIdOutdatedException omitted.
 
-/**
- * deserializeAws_json1_1ParentCommitIdRequiredException
- */
-const de_ParentCommitIdRequiredException = (output: any, context: __SerdeContext): ParentCommitIdRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ParentCommitIdRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ParentList
- */
-const de_ParentList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ParentList omitted.
 
-/**
- * deserializeAws_json1_1PathDoesNotExistException
- */
-const de_PathDoesNotExistException = (output: any, context: __SerdeContext): PathDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PathDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1PathRequiredException
- */
-const de_PathRequiredException = (output: any, context: __SerdeContext): PathRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PathRequiredException omitted.
 
 /**
  * deserializeAws_json1_1PostCommentForComparedCommitOutput
@@ -15307,170 +12180,88 @@ const de_PostCommentForComparedCommitOutput = (
   output: any,
   context: __SerdeContext
 ): PostCommentForComparedCommitOutput => {
-  return {
-    afterBlobId: __expectString(output.afterBlobId),
-    afterCommitId: __expectString(output.afterCommitId),
-    beforeBlobId: __expectString(output.beforeBlobId),
-    beforeCommitId: __expectString(output.beforeCommitId),
-    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
-    location: output.location != null ? de_Location(output.location, context) : undefined,
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
+  return take(output, {
+    afterBlobId: __expectString,
+    afterCommitId: __expectString,
+    beforeBlobId: __expectString,
+    beforeCommitId: __expectString,
+    comment: (_: any) => de_Comment(_, context),
+    location: _json,
+    repositoryName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1PostCommentForPullRequestOutput
  */
 const de_PostCommentForPullRequestOutput = (output: any, context: __SerdeContext): PostCommentForPullRequestOutput => {
-  return {
-    afterBlobId: __expectString(output.afterBlobId),
-    afterCommitId: __expectString(output.afterCommitId),
-    beforeBlobId: __expectString(output.beforeBlobId),
-    beforeCommitId: __expectString(output.beforeCommitId),
-    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
-    location: output.location != null ? de_Location(output.location, context) : undefined,
-    pullRequestId: __expectString(output.pullRequestId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
+  return take(output, {
+    afterBlobId: __expectString,
+    afterCommitId: __expectString,
+    beforeBlobId: __expectString,
+    beforeCommitId: __expectString,
+    comment: (_: any) => de_Comment(_, context),
+    location: _json,
+    pullRequestId: __expectString,
+    repositoryName: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1PostCommentReplyOutput
  */
 const de_PostCommentReplyOutput = (output: any, context: __SerdeContext): PostCommentReplyOutput => {
-  return {
-    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
-  } as any;
+  return take(output, {
+    comment: (_: any) => de_Comment(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1PullRequest
  */
 const de_PullRequest = (output: any, context: __SerdeContext): PullRequest => {
-  return {
-    approvalRules: output.approvalRules != null ? de_ApprovalRulesList(output.approvalRules, context) : undefined,
-    authorArn: __expectString(output.authorArn),
-    clientRequestToken: __expectString(output.clientRequestToken),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    description: __expectString(output.description),
-    lastActivityDate:
-      output.lastActivityDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastActivityDate)))
-        : undefined,
-    pullRequestId: __expectString(output.pullRequestId),
-    pullRequestStatus: __expectString(output.pullRequestStatus),
-    pullRequestTargets:
-      output.pullRequestTargets != null ? de_PullRequestTargetList(output.pullRequestTargets, context) : undefined,
-    revisionId: __expectString(output.revisionId),
-    title: __expectString(output.title),
-  } as any;
+  return take(output, {
+    approvalRules: (_: any) => de_ApprovalRulesList(_, context),
+    authorArn: __expectString,
+    clientRequestToken: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastActivityDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    pullRequestId: __expectString,
+    pullRequestStatus: __expectString,
+    pullRequestTargets: _json,
+    revisionId: __expectString,
+    title: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1PullRequestAlreadyClosedException
- */
-const de_PullRequestAlreadyClosedException = (
-  output: any,
-  context: __SerdeContext
-): PullRequestAlreadyClosedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PullRequestAlreadyClosedException omitted.
 
-/**
- * deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedException
- */
-const de_PullRequestApprovalRulesNotSatisfiedException = (
-  output: any,
-  context: __SerdeContext
-): PullRequestApprovalRulesNotSatisfiedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PullRequestApprovalRulesNotSatisfiedException omitted.
 
-/**
- * deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorException
- */
-const de_PullRequestCannotBeApprovedByAuthorException = (
-  output: any,
-  context: __SerdeContext
-): PullRequestCannotBeApprovedByAuthorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PullRequestCannotBeApprovedByAuthorException omitted.
 
-/**
- * deserializeAws_json1_1PullRequestCreatedEventMetadata
- */
-const de_PullRequestCreatedEventMetadata = (output: any, context: __SerdeContext): PullRequestCreatedEventMetadata => {
-  return {
-    destinationCommitId: __expectString(output.destinationCommitId),
-    mergeBase: __expectString(output.mergeBase),
-    repositoryName: __expectString(output.repositoryName),
-    sourceCommitId: __expectString(output.sourceCommitId),
-  } as any;
-};
+// de_PullRequestCreatedEventMetadata omitted.
 
-/**
- * deserializeAws_json1_1PullRequestDoesNotExistException
- */
-const de_PullRequestDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): PullRequestDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PullRequestDoesNotExistException omitted.
 
 /**
  * deserializeAws_json1_1PullRequestEvent
  */
 const de_PullRequestEvent = (output: any, context: __SerdeContext): PullRequestEvent => {
-  return {
-    actorArn: __expectString(output.actorArn),
-    approvalRuleEventMetadata:
-      output.approvalRuleEventMetadata != null
-        ? de_ApprovalRuleEventMetadata(output.approvalRuleEventMetadata, context)
-        : undefined,
-    approvalRuleOverriddenEventMetadata:
-      output.approvalRuleOverriddenEventMetadata != null
-        ? de_ApprovalRuleOverriddenEventMetadata(output.approvalRuleOverriddenEventMetadata, context)
-        : undefined,
-    approvalStateChangedEventMetadata:
-      output.approvalStateChangedEventMetadata != null
-        ? de_ApprovalStateChangedEventMetadata(output.approvalStateChangedEventMetadata, context)
-        : undefined,
-    eventDate:
-      output.eventDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventDate))) : undefined,
-    pullRequestCreatedEventMetadata:
-      output.pullRequestCreatedEventMetadata != null
-        ? de_PullRequestCreatedEventMetadata(output.pullRequestCreatedEventMetadata, context)
-        : undefined,
-    pullRequestEventType: __expectString(output.pullRequestEventType),
-    pullRequestId: __expectString(output.pullRequestId),
-    pullRequestMergedStateChangedEventMetadata:
-      output.pullRequestMergedStateChangedEventMetadata != null
-        ? de_PullRequestMergedStateChangedEventMetadata(output.pullRequestMergedStateChangedEventMetadata, context)
-        : undefined,
-    pullRequestSourceReferenceUpdatedEventMetadata:
-      output.pullRequestSourceReferenceUpdatedEventMetadata != null
-        ? de_PullRequestSourceReferenceUpdatedEventMetadata(
-            output.pullRequestSourceReferenceUpdatedEventMetadata,
-            context
-          )
-        : undefined,
-    pullRequestStatusChangedEventMetadata:
-      output.pullRequestStatusChangedEventMetadata != null
-        ? de_PullRequestStatusChangedEventMetadata(output.pullRequestStatusChangedEventMetadata, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    actorArn: __expectString,
+    approvalRuleEventMetadata: _json,
+    approvalRuleOverriddenEventMetadata: _json,
+    approvalStateChangedEventMetadata: _json,
+    eventDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    pullRequestCreatedEventMetadata: _json,
+    pullRequestEventType: __expectString,
+    pullRequestId: __expectString,
+    pullRequestMergedStateChangedEventMetadata: _json,
+    pullRequestSourceReferenceUpdatedEventMetadata: _json,
+    pullRequestStatusChangedEventMetadata: _json,
+  }) as any;
 };
 
 /**
@@ -15480,330 +12271,77 @@ const de_PullRequestEventList = (output: any, context: __SerdeContext): PullRequ
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PullRequestEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1PullRequestIdList
- */
-const de_PullRequestIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PullRequestIdList omitted.
 
-/**
- * deserializeAws_json1_1PullRequestIdRequiredException
- */
-const de_PullRequestIdRequiredException = (output: any, context: __SerdeContext): PullRequestIdRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PullRequestIdRequiredException omitted.
 
-/**
- * deserializeAws_json1_1PullRequestMergedStateChangedEventMetadata
- */
-const de_PullRequestMergedStateChangedEventMetadata = (
-  output: any,
-  context: __SerdeContext
-): PullRequestMergedStateChangedEventMetadata => {
-  return {
-    destinationReference: __expectString(output.destinationReference),
-    mergeMetadata: output.mergeMetadata != null ? de_MergeMetadata(output.mergeMetadata, context) : undefined,
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_PullRequestMergedStateChangedEventMetadata omitted.
 
-/**
- * deserializeAws_json1_1PullRequestSourceReferenceUpdatedEventMetadata
- */
-const de_PullRequestSourceReferenceUpdatedEventMetadata = (
-  output: any,
-  context: __SerdeContext
-): PullRequestSourceReferenceUpdatedEventMetadata => {
-  return {
-    afterCommitId: __expectString(output.afterCommitId),
-    beforeCommitId: __expectString(output.beforeCommitId),
-    mergeBase: __expectString(output.mergeBase),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_PullRequestSourceReferenceUpdatedEventMetadata omitted.
 
-/**
- * deserializeAws_json1_1PullRequestStatusChangedEventMetadata
- */
-const de_PullRequestStatusChangedEventMetadata = (
-  output: any,
-  context: __SerdeContext
-): PullRequestStatusChangedEventMetadata => {
-  return {
-    pullRequestStatus: __expectString(output.pullRequestStatus),
-  } as any;
-};
+// de_PullRequestStatusChangedEventMetadata omitted.
 
-/**
- * deserializeAws_json1_1PullRequestStatusRequiredException
- */
-const de_PullRequestStatusRequiredException = (
-  output: any,
-  context: __SerdeContext
-): PullRequestStatusRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PullRequestStatusRequiredException omitted.
 
-/**
- * deserializeAws_json1_1PullRequestTarget
- */
-const de_PullRequestTarget = (output: any, context: __SerdeContext): PullRequestTarget => {
-  return {
-    destinationCommit: __expectString(output.destinationCommit),
-    destinationReference: __expectString(output.destinationReference),
-    mergeBase: __expectString(output.mergeBase),
-    mergeMetadata: output.mergeMetadata != null ? de_MergeMetadata(output.mergeMetadata, context) : undefined,
-    repositoryName: __expectString(output.repositoryName),
-    sourceCommit: __expectString(output.sourceCommit),
-    sourceReference: __expectString(output.sourceReference),
-  } as any;
-};
+// de_PullRequestTarget omitted.
 
-/**
- * deserializeAws_json1_1PullRequestTargetList
- */
-const de_PullRequestTargetList = (output: any, context: __SerdeContext): PullRequestTarget[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PullRequestTarget(entry, context);
-    });
-  return retVal;
-};
+// de_PullRequestTargetList omitted.
 
-/**
- * deserializeAws_json1_1PutFileEntryConflictException
- */
-const de_PutFileEntryConflictException = (output: any, context: __SerdeContext): PutFileEntryConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PutFileEntryConflictException omitted.
 
-/**
- * deserializeAws_json1_1PutFileOutput
- */
-const de_PutFileOutput = (output: any, context: __SerdeContext): PutFileOutput => {
-  return {
-    blobId: __expectString(output.blobId),
-    commitId: __expectString(output.commitId),
-    treeId: __expectString(output.treeId),
-  } as any;
-};
+// de_PutFileOutput omitted.
 
-/**
- * deserializeAws_json1_1PutRepositoryTriggersOutput
- */
-const de_PutRepositoryTriggersOutput = (output: any, context: __SerdeContext): PutRepositoryTriggersOutput => {
-  return {
-    configurationId: __expectString(output.configurationId),
-  } as any;
-};
+// de_PutRepositoryTriggersOutput omitted.
 
-/**
- * deserializeAws_json1_1ReactionCountsMap
- */
-const de_ReactionCountsMap = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
+// de_ReactionCountsMap omitted.
 
-/**
- * deserializeAws_json1_1ReactionForComment
- */
-const de_ReactionForComment = (output: any, context: __SerdeContext): ReactionForComment => {
-  return {
-    reaction: output.reaction != null ? de_ReactionValueFormats(output.reaction, context) : undefined,
-    reactionUsers: output.reactionUsers != null ? de_ReactionUsersList(output.reactionUsers, context) : undefined,
-    reactionsFromDeletedUsersCount: __expectInt32(output.reactionsFromDeletedUsersCount),
-  } as any;
-};
+// de_ReactionForComment omitted.
 
-/**
- * deserializeAws_json1_1ReactionLimitExceededException
- */
-const de_ReactionLimitExceededException = (output: any, context: __SerdeContext): ReactionLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReactionLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ReactionsForCommentList
- */
-const de_ReactionsForCommentList = (output: any, context: __SerdeContext): ReactionForComment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ReactionForComment(entry, context);
-    });
-  return retVal;
-};
+// de_ReactionsForCommentList omitted.
 
-/**
- * deserializeAws_json1_1ReactionUsersList
- */
-const de_ReactionUsersList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ReactionUsersList omitted.
 
-/**
- * deserializeAws_json1_1ReactionValueFormats
- */
-const de_ReactionValueFormats = (output: any, context: __SerdeContext): ReactionValueFormats => {
-  return {
-    emoji: __expectString(output.emoji),
-    shortCode: __expectString(output.shortCode),
-    unicode: __expectString(output.unicode),
-  } as any;
-};
+// de_ReactionValueFormats omitted.
 
-/**
- * deserializeAws_json1_1ReactionValueRequiredException
- */
-const de_ReactionValueRequiredException = (output: any, context: __SerdeContext): ReactionValueRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReactionValueRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ReferenceDoesNotExistException
- */
-const de_ReferenceDoesNotExistException = (output: any, context: __SerdeContext): ReferenceDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReferenceDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1ReferenceNameRequiredException
- */
-const de_ReferenceNameRequiredException = (output: any, context: __SerdeContext): ReferenceNameRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReferenceNameRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ReferenceTypeNotSupportedException
- */
-const de_ReferenceTypeNotSupportedException = (
-  output: any,
-  context: __SerdeContext
-): ReferenceTypeNotSupportedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReferenceTypeNotSupportedException omitted.
 
-/**
- * deserializeAws_json1_1ReplacementContentRequiredException
- */
-const de_ReplacementContentRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ReplacementContentRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReplacementContentRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ReplacementTypeRequiredException
- */
-const de_ReplacementTypeRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ReplacementTypeRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReplacementTypeRequiredException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryDoesNotExistException
- */
-const de_RepositoryDoesNotExistException = (output: any, context: __SerdeContext): RepositoryDoesNotExistException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryDoesNotExistException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryLimitExceededException
- */
-const de_RepositoryLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryLimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1RepositoryMetadata
  */
 const de_RepositoryMetadata = (output: any, context: __SerdeContext): RepositoryMetadata => {
-  return {
-    Arn: __expectString(output.Arn),
-    accountId: __expectString(output.accountId),
-    cloneUrlHttp: __expectString(output.cloneUrlHttp),
-    cloneUrlSsh: __expectString(output.cloneUrlSsh),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    defaultBranch: __expectString(output.defaultBranch),
-    lastModifiedDate:
-      output.lastModifiedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
-        : undefined,
-    repositoryDescription: __expectString(output.repositoryDescription),
-    repositoryId: __expectString(output.repositoryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    accountId: __expectString,
+    cloneUrlHttp: __expectString,
+    cloneUrlSsh: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultBranch: __expectString,
+    lastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    repositoryDescription: __expectString,
+    repositoryId: __expectString,
+    repositoryName: __expectString,
+  }) as any;
 };
 
 /**
@@ -15813,506 +12351,94 @@ const de_RepositoryMetadataList = (output: any, context: __SerdeContext): Reposi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RepositoryMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1RepositoryNameExistsException
- */
-const de_RepositoryNameExistsException = (output: any, context: __SerdeContext): RepositoryNameExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryNameExistsException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryNameIdPair
- */
-const de_RepositoryNameIdPair = (output: any, context: __SerdeContext): RepositoryNameIdPair => {
-  return {
-    repositoryId: __expectString(output.repositoryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_RepositoryNameIdPair omitted.
 
-/**
- * deserializeAws_json1_1RepositoryNameIdPairList
- */
-const de_RepositoryNameIdPairList = (output: any, context: __SerdeContext): RepositoryNameIdPair[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RepositoryNameIdPair(entry, context);
-    });
-  return retVal;
-};
+// de_RepositoryNameIdPairList omitted.
 
-/**
- * deserializeAws_json1_1RepositoryNameList
- */
-const de_RepositoryNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RepositoryNameList omitted.
 
-/**
- * deserializeAws_json1_1RepositoryNameRequiredException
- */
-const de_RepositoryNameRequiredException = (output: any, context: __SerdeContext): RepositoryNameRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryNameRequiredException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryNamesRequiredException
- */
-const de_RepositoryNamesRequiredException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryNamesRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryNamesRequiredException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestException
- */
-const de_RepositoryNotAssociatedWithPullRequestException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryNotAssociatedWithPullRequestException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryNotAssociatedWithPullRequestException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryNotFoundList
- */
-const de_RepositoryNotFoundList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RepositoryNotFoundList omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTrigger
- */
-const de_RepositoryTrigger = (output: any, context: __SerdeContext): RepositoryTrigger => {
-  return {
-    branches: output.branches != null ? de_BranchNameList(output.branches, context) : undefined,
-    customData: __expectString(output.customData),
-    destinationArn: __expectString(output.destinationArn),
-    events: output.events != null ? de_RepositoryTriggerEventList(output.events, context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_RepositoryTrigger omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredException
- */
-const de_RepositoryTriggerBranchNameListRequiredException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryTriggerBranchNameListRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryTriggerBranchNameListRequiredException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException
- */
-const de_RepositoryTriggerDestinationArnRequiredException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryTriggerDestinationArnRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryTriggerDestinationArnRequiredException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggerEventList
- */
-const de_RepositoryTriggerEventList = (
-  output: any,
-  context: __SerdeContext
-): (RepositoryTriggerEventEnum | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RepositoryTriggerEventList omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggerEventsListRequiredException
- */
-const de_RepositoryTriggerEventsListRequiredException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryTriggerEventsListRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryTriggerEventsListRequiredException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggerExecutionFailure
- */
-const de_RepositoryTriggerExecutionFailure = (
-  output: any,
-  context: __SerdeContext
-): RepositoryTriggerExecutionFailure => {
-  return {
-    failureMessage: __expectString(output.failureMessage),
-    trigger: __expectString(output.trigger),
-  } as any;
-};
+// de_RepositoryTriggerExecutionFailure omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggerExecutionFailureList
- */
-const de_RepositoryTriggerExecutionFailureList = (
-  output: any,
-  context: __SerdeContext
-): RepositoryTriggerExecutionFailure[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RepositoryTriggerExecutionFailure(entry, context);
-    });
-  return retVal;
-};
+// de_RepositoryTriggerExecutionFailureList omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggerNameList
- */
-const de_RepositoryTriggerNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RepositoryTriggerNameList omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggerNameRequiredException
- */
-const de_RepositoryTriggerNameRequiredException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryTriggerNameRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryTriggerNameRequiredException omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggersList
- */
-const de_RepositoryTriggersList = (output: any, context: __SerdeContext): RepositoryTrigger[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RepositoryTrigger(entry, context);
-    });
-  return retVal;
-};
+// de_RepositoryTriggersList omitted.
 
-/**
- * deserializeAws_json1_1RepositoryTriggersListRequiredException
- */
-const de_RepositoryTriggersListRequiredException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryTriggersListRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RepositoryTriggersListRequiredException omitted.
 
-/**
- * deserializeAws_json1_1ResourceArnRequiredException
- */
-const de_ResourceArnRequiredException = (output: any, context: __SerdeContext): ResourceArnRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceArnRequiredException omitted.
 
-/**
- * deserializeAws_json1_1RestrictedSourceFileException
- */
-const de_RestrictedSourceFileException = (output: any, context: __SerdeContext): RestrictedSourceFileException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RestrictedSourceFileException omitted.
 
-/**
- * deserializeAws_json1_1RevisionIdRequiredException
- */
-const de_RevisionIdRequiredException = (output: any, context: __SerdeContext): RevisionIdRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RevisionIdRequiredException omitted.
 
-/**
- * deserializeAws_json1_1RevisionNotCurrentException
- */
-const de_RevisionNotCurrentException = (output: any, context: __SerdeContext): RevisionNotCurrentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RevisionNotCurrentException omitted.
 
-/**
- * deserializeAws_json1_1SameFileContentException
- */
-const de_SameFileContentException = (output: any, context: __SerdeContext): SameFileContentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_SameFileContentException omitted.
 
-/**
- * deserializeAws_json1_1SamePathRequestException
- */
-const de_SamePathRequestException = (output: any, context: __SerdeContext): SamePathRequestException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_SamePathRequestException omitted.
 
-/**
- * deserializeAws_json1_1SourceAndDestinationAreSameException
- */
-const de_SourceAndDestinationAreSameException = (
-  output: any,
-  context: __SerdeContext
-): SourceAndDestinationAreSameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_SourceAndDestinationAreSameException omitted.
 
-/**
- * deserializeAws_json1_1SourceFileOrContentRequiredException
- */
-const de_SourceFileOrContentRequiredException = (
-  output: any,
-  context: __SerdeContext
-): SourceFileOrContentRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_SourceFileOrContentRequiredException omitted.
 
-/**
- * deserializeAws_json1_1SubModule
- */
-const de_SubModule = (output: any, context: __SerdeContext): SubModule => {
-  return {
-    absolutePath: __expectString(output.absolutePath),
-    commitId: __expectString(output.commitId),
-    relativePath: __expectString(output.relativePath),
-  } as any;
-};
+// de_SubModule omitted.
 
-/**
- * deserializeAws_json1_1SubModuleList
- */
-const de_SubModuleList = (output: any, context: __SerdeContext): SubModule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SubModule(entry, context);
-    });
-  return retVal;
-};
+// de_SubModuleList omitted.
 
-/**
- * deserializeAws_json1_1SymbolicLink
- */
-const de_SymbolicLink = (output: any, context: __SerdeContext): SymbolicLink => {
-  return {
-    absolutePath: __expectString(output.absolutePath),
-    blobId: __expectString(output.blobId),
-    fileMode: __expectString(output.fileMode),
-    relativePath: __expectString(output.relativePath),
-  } as any;
-};
+// de_SymbolicLink omitted.
 
-/**
- * deserializeAws_json1_1SymbolicLinkList
- */
-const de_SymbolicLinkList = (output: any, context: __SerdeContext): SymbolicLink[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SymbolicLink(entry, context);
-    });
-  return retVal;
-};
+// de_SymbolicLinkList omitted.
 
-/**
- * deserializeAws_json1_1TagKeysListRequiredException
- */
-const de_TagKeysListRequiredException = (output: any, context: __SerdeContext): TagKeysListRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TagKeysListRequiredException omitted.
 
-/**
- * deserializeAws_json1_1TagPolicyException
- */
-const de_TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TagPolicyException omitted.
 
-/**
- * deserializeAws_json1_1TagsMap
- */
-const de_TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagsMap omitted.
 
-/**
- * deserializeAws_json1_1TagsMapRequiredException
- */
-const de_TagsMapRequiredException = (output: any, context: __SerdeContext): TagsMapRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TagsMapRequiredException omitted.
 
-/**
- * deserializeAws_json1_1TargetRequiredException
- */
-const de_TargetRequiredException = (output: any, context: __SerdeContext): TargetRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TargetRequiredException omitted.
 
-/**
- * deserializeAws_json1_1TargetsRequiredException
- */
-const de_TargetsRequiredException = (output: any, context: __SerdeContext): TargetsRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TargetsRequiredException omitted.
 
-/**
- * deserializeAws_json1_1TestRepositoryTriggersOutput
- */
-const de_TestRepositoryTriggersOutput = (output: any, context: __SerdeContext): TestRepositoryTriggersOutput => {
-  return {
-    failedExecutions:
-      output.failedExecutions != null
-        ? de_RepositoryTriggerExecutionFailureList(output.failedExecutions, context)
-        : undefined,
-    successfulExecutions:
-      output.successfulExecutions != null
-        ? de_RepositoryTriggerNameList(output.successfulExecutions, context)
-        : undefined,
-  } as any;
-};
+// de_TestRepositoryTriggersOutput omitted.
 
-/**
- * deserializeAws_json1_1TipOfSourceReferenceIsDifferentException
- */
-const de_TipOfSourceReferenceIsDifferentException = (
-  output: any,
-  context: __SerdeContext
-): TipOfSourceReferenceIsDifferentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TipOfSourceReferenceIsDifferentException omitted.
 
-/**
- * deserializeAws_json1_1TipsDivergenceExceededException
- */
-const de_TipsDivergenceExceededException = (output: any, context: __SerdeContext): TipsDivergenceExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TipsDivergenceExceededException omitted.
 
-/**
- * deserializeAws_json1_1TitleRequiredException
- */
-const de_TitleRequiredException = (output: any, context: __SerdeContext): TitleRequiredException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TitleRequiredException omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
 /**
  * deserializeAws_json1_1UpdateApprovalRuleTemplateContentOutput
@@ -16321,10 +12447,9 @@ const de_UpdateApprovalRuleTemplateContentOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateApprovalRuleTemplateContentOutput => {
-  return {
-    approvalRuleTemplate:
-      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    approvalRuleTemplate: (_: any) => de_ApprovalRuleTemplate(_, context),
+  }) as any;
 };
 
 /**
@@ -16334,10 +12459,9 @@ const de_UpdateApprovalRuleTemplateDescriptionOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateApprovalRuleTemplateDescriptionOutput => {
-  return {
-    approvalRuleTemplate:
-      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    approvalRuleTemplate: (_: any) => de_ApprovalRuleTemplate(_, context),
+  }) as any;
 };
 
 /**
@@ -16347,19 +12471,18 @@ const de_UpdateApprovalRuleTemplateNameOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateApprovalRuleTemplateNameOutput => {
-  return {
-    approvalRuleTemplate:
-      output.approvalRuleTemplate != null ? de_ApprovalRuleTemplate(output.approvalRuleTemplate, context) : undefined,
-  } as any;
+  return take(output, {
+    approvalRuleTemplate: (_: any) => de_ApprovalRuleTemplate(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdateCommentOutput
  */
 const de_UpdateCommentOutput = (output: any, context: __SerdeContext): UpdateCommentOutput => {
-  return {
-    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
-  } as any;
+  return take(output, {
+    comment: (_: any) => de_Comment(_, context),
+  }) as any;
 };
 
 /**
@@ -16369,9 +12492,9 @@ const de_UpdatePullRequestApprovalRuleContentOutput = (
   output: any,
   context: __SerdeContext
 ): UpdatePullRequestApprovalRuleContentOutput => {
-  return {
-    approvalRule: output.approvalRule != null ? de_ApprovalRule(output.approvalRule, context) : undefined,
-  } as any;
+  return take(output, {
+    approvalRule: (_: any) => de_ApprovalRule(_, context),
+  }) as any;
 };
 
 /**
@@ -16381,39 +12504,30 @@ const de_UpdatePullRequestDescriptionOutput = (
   output: any,
   context: __SerdeContext
 ): UpdatePullRequestDescriptionOutput => {
-  return {
-    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
-  } as any;
+  return take(output, {
+    pullRequest: (_: any) => de_PullRequest(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdatePullRequestStatusOutput
  */
 const de_UpdatePullRequestStatusOutput = (output: any, context: __SerdeContext): UpdatePullRequestStatusOutput => {
-  return {
-    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
-  } as any;
+  return take(output, {
+    pullRequest: (_: any) => de_PullRequest(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1UpdatePullRequestTitleOutput
  */
 const de_UpdatePullRequestTitleOutput = (output: any, context: __SerdeContext): UpdatePullRequestTitleOutput => {
-  return {
-    pullRequest: output.pullRequest != null ? de_PullRequest(output.pullRequest, context) : undefined,
-  } as any;
+  return take(output, {
+    pullRequest: (_: any) => de_PullRequest(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UserInfo
- */
-const de_UserInfo = (output: any, context: __SerdeContext): UserInfo => {
-  return {
-    date: __expectString(output.date),
-    email: __expectString(output.email),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_UserInfo omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -16435,6 +12549,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

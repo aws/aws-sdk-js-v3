@@ -1,10 +1,12 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -42,7 +44,7 @@ export const se_QueryForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("QueryForecast");
   let body: any;
-  body = JSON.stringify(se_QueryForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -55,7 +57,7 @@ export const se_QueryWhatIfForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("QueryWhatIfForecast");
   let body: any;
-  body = JSON.stringify(se_QueryWhatIfForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -76,7 +78,7 @@ export const de_QueryForecastCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -109,10 +111,9 @@ const de_QueryForecastCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -135,7 +136,7 @@ export const de_QueryWhatIfForecastCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -168,10 +169,9 @@ const de_QueryWhatIfForecastCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -185,7 +185,7 @@ const de_InvalidInputExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidInputException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -201,7 +201,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -217,7 +217,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -233,7 +233,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -249,7 +249,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -257,90 +257,36 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1Filters
- */
-const se_Filters = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Filters omitted.
 
-/**
- * serializeAws_json1_1QueryForecastRequest
- */
-const se_QueryForecastRequest = (input: QueryForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndDate != null && { EndDate: input.EndDate }),
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.ForecastArn != null && { ForecastArn: input.ForecastArn }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartDate != null && { StartDate: input.StartDate }),
-  };
-};
+// se_QueryForecastRequest omitted.
 
-/**
- * serializeAws_json1_1QueryWhatIfForecastRequest
- */
-const se_QueryWhatIfForecastRequest = (input: QueryWhatIfForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndDate != null && { EndDate: input.EndDate }),
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartDate != null && { StartDate: input.StartDate }),
-    ...(input.WhatIfForecastArn != null && { WhatIfForecastArn: input.WhatIfForecastArn }),
-  };
-};
+// se_QueryWhatIfForecastRequest omitted.
 
 /**
  * deserializeAws_json1_1DataPoint
  */
 const de_DataPoint = (output: any, context: __SerdeContext): DataPoint => {
-  return {
-    Timestamp: __expectString(output.Timestamp),
-    Value: __limitedParseDouble(output.Value),
-  } as any;
+  return take(output, {
+    Timestamp: __expectString,
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Forecast
  */
 const de_Forecast = (output: any, context: __SerdeContext): Forecast => {
-  return {
-    Predictions: output.Predictions != null ? de_Predictions(output.Predictions, context) : undefined,
-  } as any;
+  return take(output, {
+    Predictions: (_: any) => de_Predictions(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InvalidInputException
- */
-const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidInputException omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1Predictions
@@ -359,37 +305,23 @@ const de_Predictions = (output: any, context: __SerdeContext): Record<string, Da
  * deserializeAws_json1_1QueryForecastResponse
  */
 const de_QueryForecastResponse = (output: any, context: __SerdeContext): QueryForecastResponse => {
-  return {
-    Forecast: output.Forecast != null ? de_Forecast(output.Forecast, context) : undefined,
-  } as any;
+  return take(output, {
+    Forecast: (_: any) => de_Forecast(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1QueryWhatIfForecastResponse
  */
 const de_QueryWhatIfForecastResponse = (output: any, context: __SerdeContext): QueryWhatIfForecastResponse => {
-  return {
-    Forecast: output.Forecast != null ? de_Forecast(output.Forecast, context) : undefined,
-  } as any;
+  return take(output, {
+    Forecast: (_: any) => de_Forecast(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1TimeSeries
@@ -398,9 +330,6 @@ const de_TimeSeries = (output: any, context: __SerdeContext): DataPoint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DataPoint(entry, context);
     });
   return retVal;
@@ -426,6 +355,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

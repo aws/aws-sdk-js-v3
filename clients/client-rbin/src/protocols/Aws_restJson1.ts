@@ -1,17 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -39,7 +40,6 @@ import {
   ResourceNotFoundException,
   ResourceTag,
   RetentionPeriod,
-  RuleSummary,
   ServiceQuotaExceededException,
   Tag,
   UnlockDelay,
@@ -60,16 +60,16 @@ export const se_CreateRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.LockConfiguration != null && {
-      LockConfiguration: se_LockConfiguration(input.LockConfiguration, context),
-    }),
-    ...(input.ResourceTags != null && { ResourceTags: se_ResourceTags(input.ResourceTags, context) }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.RetentionPeriod != null && { RetentionPeriod: se_RetentionPeriod(input.RetentionPeriod, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      LockConfiguration: (_) => _json(_),
+      ResourceTags: (_) => _json(_),
+      ResourceType: [],
+      RetentionPeriod: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -140,13 +140,15 @@ export const se_ListRulesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-rules";
   let body: any;
-  body = JSON.stringify({
-    ...(input.LockState != null && { LockState: input.LockState }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceTags != null && { ResourceTags: se_ResourceTags(input.ResourceTags, context) }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LockState: [],
+      MaxResults: [],
+      NextToken: [],
+      ResourceTags: (_) => _json(_),
+      ResourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -195,11 +197,11 @@ export const se_LockRuleCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{Identifier}/lock";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LockConfiguration != null && {
-      LockConfiguration: se_LockConfiguration(input.LockConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LockConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -225,9 +227,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -307,12 +311,14 @@ export const se_UpdateRuleCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.ResourceTags != null && { ResourceTags: se_ResourceTags(input.ResourceTags, context) }),
-    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
-    ...(input.RetentionPeriod != null && { RetentionPeriod: se_RetentionPeriod(input.RetentionPeriod, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      ResourceTags: (_) => _json(_),
+      ResourceType: [],
+      RetentionPeriod: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -338,33 +344,18 @@ export const de_CreateRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Identifier != null) {
-    contents.Identifier = __expectString(data.Identifier);
-  }
-  if (data.LockConfiguration != null) {
-    contents.LockConfiguration = de_LockConfiguration(data.LockConfiguration, context);
-  }
-  if (data.LockState != null) {
-    contents.LockState = __expectString(data.LockState);
-  }
-  if (data.ResourceTags != null) {
-    contents.ResourceTags = de_ResourceTags(data.ResourceTags, context);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.RetentionPeriod != null) {
-    contents.RetentionPeriod = de_RetentionPeriod(data.RetentionPeriod, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    Identifier: __expectString,
+    LockConfiguration: _json,
+    LockState: __expectString,
+    ResourceTags: _json,
+    ResourceType: __expectString,
+    RetentionPeriod: _json,
+    Status: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -392,10 +383,9 @@ const de_CreateRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -445,10 +435,9 @@ const de_DeleteRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -468,33 +457,18 @@ export const de_GetRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Identifier != null) {
-    contents.Identifier = __expectString(data.Identifier);
-  }
-  if (data.LockConfiguration != null) {
-    contents.LockConfiguration = de_LockConfiguration(data.LockConfiguration, context);
-  }
-  if (data.LockEndTime != null) {
-    contents.LockEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LockEndTime)));
-  }
-  if (data.LockState != null) {
-    contents.LockState = __expectString(data.LockState);
-  }
-  if (data.ResourceTags != null) {
-    contents.ResourceTags = de_ResourceTags(data.ResourceTags, context);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.RetentionPeriod != null) {
-    contents.RetentionPeriod = de_RetentionPeriod(data.RetentionPeriod, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    Identifier: __expectString,
+    LockConfiguration: _json,
+    LockEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LockState: __expectString,
+    ResourceTags: _json,
+    ResourceType: __expectString,
+    RetentionPeriod: _json,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -522,10 +496,9 @@ const de_GetRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -545,12 +518,11 @@ export const de_ListRulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Rules != null) {
-    contents.Rules = de_RuleSummaryList(data.Rules, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Rules: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -575,10 +547,9 @@ const de_ListRulesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -598,9 +569,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -628,10 +600,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -651,30 +622,17 @@ export const de_LockRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Identifier != null) {
-    contents.Identifier = __expectString(data.Identifier);
-  }
-  if (data.LockConfiguration != null) {
-    contents.LockConfiguration = de_LockConfiguration(data.LockConfiguration, context);
-  }
-  if (data.LockState != null) {
-    contents.LockState = __expectString(data.LockState);
-  }
-  if (data.ResourceTags != null) {
-    contents.ResourceTags = de_ResourceTags(data.ResourceTags, context);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.RetentionPeriod != null) {
-    contents.RetentionPeriod = de_RetentionPeriod(data.RetentionPeriod, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    Identifier: __expectString,
+    LockConfiguration: _json,
+    LockState: __expectString,
+    ResourceTags: _json,
+    ResourceType: __expectString,
+    RetentionPeriod: _json,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -705,10 +663,9 @@ const de_LockRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -758,10 +715,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -781,33 +737,18 @@ export const de_UnlockRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Identifier != null) {
-    contents.Identifier = __expectString(data.Identifier);
-  }
-  if (data.LockConfiguration != null) {
-    contents.LockConfiguration = de_LockConfiguration(data.LockConfiguration, context);
-  }
-  if (data.LockEndTime != null) {
-    contents.LockEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LockEndTime)));
-  }
-  if (data.LockState != null) {
-    contents.LockState = __expectString(data.LockState);
-  }
-  if (data.ResourceTags != null) {
-    contents.ResourceTags = de_ResourceTags(data.ResourceTags, context);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.RetentionPeriod != null) {
-    contents.RetentionPeriod = de_RetentionPeriod(data.RetentionPeriod, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    Identifier: __expectString,
+    LockConfiguration: _json,
+    LockEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LockState: __expectString,
+    ResourceTags: _json,
+    ResourceType: __expectString,
+    RetentionPeriod: _json,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -838,10 +779,9 @@ const de_UnlockRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -888,10 +828,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -911,30 +850,17 @@ export const de_UpdateRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Identifier != null) {
-    contents.Identifier = __expectString(data.Identifier);
-  }
-  if (data.LockEndTime != null) {
-    contents.LockEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LockEndTime)));
-  }
-  if (data.LockState != null) {
-    contents.LockState = __expectString(data.LockState);
-  }
-  if (data.ResourceTags != null) {
-    contents.ResourceTags = de_ResourceTags(data.ResourceTags, context);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.RetentionPeriod != null) {
-    contents.RetentionPeriod = de_RetentionPeriod(data.RetentionPeriod, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    Identifier: __expectString,
+    LockEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LockState: __expectString,
+    ResourceTags: _json,
+    ResourceType: __expectString,
+    RetentionPeriod: _json,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -965,28 +891,26 @@ const de_UpdateRuleCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1003,9 +927,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1022,12 +947,11 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1044,12 +968,11 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1063,12 +986,11 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1076,182 +998,37 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1LockConfiguration
- */
-const se_LockConfiguration = (input: LockConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.UnlockDelay != null && { UnlockDelay: se_UnlockDelay(input.UnlockDelay, context) }),
-  };
-};
+// se_LockConfiguration omitted.
 
-/**
- * serializeAws_restJson1ResourceTag
- */
-const se_ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceTagKey != null && { ResourceTagKey: input.ResourceTagKey }),
-    ...(input.ResourceTagValue != null && { ResourceTagValue: input.ResourceTagValue }),
-  };
-};
+// se_ResourceTag omitted.
 
-/**
- * serializeAws_restJson1ResourceTags
- */
-const se_ResourceTags = (input: ResourceTag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ResourceTag(entry, context);
-    });
-};
+// se_ResourceTags omitted.
 
-/**
- * serializeAws_restJson1RetentionPeriod
- */
-const se_RetentionPeriod = (input: RetentionPeriod, context: __SerdeContext): any => {
-  return {
-    ...(input.RetentionPeriodUnit != null && { RetentionPeriodUnit: input.RetentionPeriodUnit }),
-    ...(input.RetentionPeriodValue != null && { RetentionPeriodValue: input.RetentionPeriodValue }),
-  };
-};
+// se_RetentionPeriod omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_restJson1UnlockDelay
- */
-const se_UnlockDelay = (input: UnlockDelay, context: __SerdeContext): any => {
-  return {
-    ...(input.UnlockDelayUnit != null && { UnlockDelayUnit: input.UnlockDelayUnit }),
-    ...(input.UnlockDelayValue != null && { UnlockDelayValue: input.UnlockDelayValue }),
-  };
-};
+// se_UnlockDelay omitted.
 
-/**
- * deserializeAws_restJson1LockConfiguration
- */
-const de_LockConfiguration = (output: any, context: __SerdeContext): LockConfiguration => {
-  return {
-    UnlockDelay: output.UnlockDelay != null ? de_UnlockDelay(output.UnlockDelay, context) : undefined,
-  } as any;
-};
+// de_LockConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ResourceTag
- */
-const de_ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
-  return {
-    ResourceTagKey: __expectString(output.ResourceTagKey),
-    ResourceTagValue: __expectString(output.ResourceTagValue),
-  } as any;
-};
+// de_ResourceTag omitted.
 
-/**
- * deserializeAws_restJson1ResourceTags
- */
-const de_ResourceTags = (output: any, context: __SerdeContext): ResourceTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceTag(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceTags omitted.
 
-/**
- * deserializeAws_restJson1RetentionPeriod
- */
-const de_RetentionPeriod = (output: any, context: __SerdeContext): RetentionPeriod => {
-  return {
-    RetentionPeriodUnit: __expectString(output.RetentionPeriodUnit),
-    RetentionPeriodValue: __expectInt32(output.RetentionPeriodValue),
-  } as any;
-};
+// de_RetentionPeriod omitted.
 
-/**
- * deserializeAws_restJson1RuleSummary
- */
-const de_RuleSummary = (output: any, context: __SerdeContext): RuleSummary => {
-  return {
-    Description: __expectString(output.Description),
-    Identifier: __expectString(output.Identifier),
-    LockState: __expectString(output.LockState),
-    RetentionPeriod: output.RetentionPeriod != null ? de_RetentionPeriod(output.RetentionPeriod, context) : undefined,
-  } as any;
-};
+// de_RuleSummary omitted.
 
-/**
- * deserializeAws_restJson1RuleSummaryList
- */
-const de_RuleSummaryList = (output: any, context: __SerdeContext): RuleSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RuleSummary(entry, context);
-    });
-  return retVal;
-};
+// de_RuleSummaryList omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_restJson1UnlockDelay
- */
-const de_UnlockDelay = (output: any, context: __SerdeContext): UnlockDelay => {
-  return {
-    UnlockDelayUnit: __expectString(output.UnlockDelayUnit),
-    UnlockDelayValue: __expectInt32(output.UnlockDelayValue),
-  } as any;
-};
+// de_UnlockDelay omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

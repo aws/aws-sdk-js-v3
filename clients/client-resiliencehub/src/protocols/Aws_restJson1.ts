@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,10 +11,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -193,45 +195,31 @@ import {
 } from "../commands/UpdateResiliencyPolicyCommand";
 import {
   AccessDeniedException,
-  AlarmRecommendation,
   App,
   AppAssessment,
   AppAssessmentSummary,
-  AppComponent,
   AppComponentCompliance,
-  AppInputSource,
   AppSummary,
-  AppVersionSummary,
   ComponentRecommendation,
   ConfigRecommendation,
   ConflictException,
   Cost,
-  DisruptionCompliance,
   DisruptionType,
   EksSource,
   EksSourceClusterNamespace,
   FailurePolicy,
   InternalServerException,
   LogicalResourceId,
-  PhysicalResource,
   PhysicalResourceId,
-  RecommendationDisruptionCompliance,
-  RecommendationItem,
   RecommendationTemplate,
   RenderRecommendationType,
   ResiliencyPolicy,
   ResiliencyScore,
-  ResourceError,
-  ResourceErrorsDetails,
   ResourceMapping,
   ResourceNotFoundException,
-  S3Location,
   ServiceQuotaExceededException,
-  SopRecommendation,
   TerraformSource,
-  TestRecommendation,
   ThrottlingException,
-  UnsupportedResource,
   ValidationException,
 } from "../models/models_0";
 import { ResiliencehubServiceException as __BaseException } from "../models/ResiliencehubServiceException";
@@ -250,12 +238,12 @@ export const se_AddDraftAppVersionResourceMappingsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/add-draft-app-version-resource-mappings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.resourceMappings != null && {
-      resourceMappings: se_ResourceMappingList(input.resourceMappings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      resourceMappings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -280,14 +268,16 @@ export const se_CreateAppCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-app";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentSchedule != null && { assessmentSchedule: input.assessmentSchedule }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.policyArn != null && { policyArn: input.policyArn }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentSchedule: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      description: [],
+      name: [],
+      policyArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -313,14 +303,16 @@ export const se_CreateAppVersionAppComponentCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-app-version-app-component";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalInfo != null && { additionalInfo: se_AdditionalInfoMap(input.additionalInfo, context) }),
-    ...(input.appArn != null && { appArn: input.appArn }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalInfo: (_) => _json(_),
+      appArn: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      id: [],
+      name: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -346,20 +338,20 @@ export const se_CreateAppVersionResourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-app-version-resource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalInfo != null && { additionalInfo: se_AdditionalInfoMap(input.additionalInfo, context) }),
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appComponents != null && { appComponents: se_AppComponentNameList(input.appComponents, context) }),
-    ...(input.awsAccountId != null && { awsAccountId: input.awsAccountId }),
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.logicalResourceId != null && {
-      logicalResourceId: se_LogicalResourceId(input.logicalResourceId, context),
-    }),
-    ...(input.physicalResourceId != null && { physicalResourceId: input.physicalResourceId }),
-    ...(input.resourceName != null && { resourceName: input.resourceName }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalInfo: (_) => _json(_),
+      appArn: [],
+      appComponents: (_) => _json(_),
+      awsAccountId: [],
+      awsRegion: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      logicalResourceId: (_) => _json(_),
+      physicalResourceId: [],
+      resourceName: [],
+      resourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -385,20 +377,18 @@ export const se_CreateRecommendationTemplateCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-recommendation-template";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentArn != null && { assessmentArn: input.assessmentArn }),
-    ...(input.bucketName != null && { bucketName: input.bucketName }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.format != null && { format: input.format }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.recommendationIds != null && {
-      recommendationIds: se_RecommendationIdList(input.recommendationIds, context),
-    }),
-    ...(input.recommendationTypes != null && {
-      recommendationTypes: se_RenderRecommendationTypeList(input.recommendationTypes, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+      bucketName: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      format: [],
+      name: [],
+      recommendationIds: (_) => _json(_),
+      recommendationTypes: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -424,15 +414,17 @@ export const se_CreateResiliencyPolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-resiliency-policy";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.dataLocationConstraint != null && { dataLocationConstraint: input.dataLocationConstraint }),
-    ...(input.policy != null && { policy: se_DisruptionPolicy(input.policy, context) }),
-    ...(input.policyDescription != null && { policyDescription: input.policyDescription }),
-    ...(input.policyName != null && { policyName: input.policyName }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.tier != null && { tier: input.tier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      dataLocationConstraint: [],
+      policy: (_) => _json(_),
+      policyDescription: [],
+      policyName: [],
+      tags: (_) => _json(_),
+      tier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -457,11 +449,13 @@ export const se_DeleteAppCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.forceDelete != null && { forceDelete: input.forceDelete }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      forceDelete: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -486,10 +480,12 @@ export const se_DeleteAppAssessmentCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-assessment";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentArn != null && { assessmentArn: input.assessmentArn }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -515,15 +511,15 @@ export const se_DeleteAppInputSourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-input-source";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.eksSourceClusterNamespace != null && {
-      eksSourceClusterNamespace: se_EksSourceClusterNamespace(input.eksSourceClusterNamespace, context),
-    }),
-    ...(input.sourceArn != null && { sourceArn: input.sourceArn }),
-    ...(input.terraformSource != null && { terraformSource: se_TerraformSource(input.terraformSource, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      eksSourceClusterNamespace: (_) => _json(_),
+      sourceArn: [],
+      terraformSource: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -549,11 +545,13 @@ export const se_DeleteAppVersionAppComponentCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-version-app-component";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.id != null && { id: input.id }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      id: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -579,17 +577,17 @@ export const se_DeleteAppVersionResourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-version-resource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.awsAccountId != null && { awsAccountId: input.awsAccountId }),
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.logicalResourceId != null && {
-      logicalResourceId: se_LogicalResourceId(input.logicalResourceId, context),
-    }),
-    ...(input.physicalResourceId != null && { physicalResourceId: input.physicalResourceId }),
-    ...(input.resourceName != null && { resourceName: input.resourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      awsAccountId: [],
+      awsRegion: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      logicalResourceId: (_) => _json(_),
+      physicalResourceId: [],
+      resourceName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -615,10 +613,12 @@ export const se_DeleteRecommendationTemplateCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-recommendation-template";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.recommendationTemplateArn != null && { recommendationTemplateArn: input.recommendationTemplateArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      recommendationTemplateArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -644,10 +644,12 @@ export const se_DeleteResiliencyPolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-resiliency-policy";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.policyArn != null && { policyArn: input.policyArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      policyArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -672,9 +674,11 @@ export const se_DescribeAppCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -700,9 +704,11 @@ export const se_DescribeAppAssessmentCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-assessment";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentArn != null && { assessmentArn: input.assessmentArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -727,10 +733,12 @@ export const se_DescribeAppVersionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -756,11 +764,13 @@ export const se_DescribeAppVersionAppComponentCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version-app-component";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-    ...(input.id != null && { id: input.id }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+      id: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -786,17 +796,17 @@ export const se_DescribeAppVersionResourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version-resource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-    ...(input.awsAccountId != null && { awsAccountId: input.awsAccountId }),
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    ...(input.logicalResourceId != null && {
-      logicalResourceId: se_LogicalResourceId(input.logicalResourceId, context),
-    }),
-    ...(input.physicalResourceId != null && { physicalResourceId: input.physicalResourceId }),
-    ...(input.resourceName != null && { resourceName: input.resourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+      awsAccountId: [],
+      awsRegion: [],
+      logicalResourceId: (_) => _json(_),
+      physicalResourceId: [],
+      resourceName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -823,11 +833,13 @@ export const se_DescribeAppVersionResourcesResolutionStatusCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/describe-app-version-resources-resolution-status";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-    ...(input.resolutionId != null && { resolutionId: input.resolutionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+      resolutionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -853,10 +865,12 @@ export const se_DescribeAppVersionTemplateCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version-template";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -883,9 +897,11 @@ export const se_DescribeDraftAppVersionResourcesImportStatusCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/describe-draft-app-version-resources-import-status";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -911,9 +927,11 @@ export const se_DescribeResiliencyPolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-resiliency-policy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.policyArn != null && { policyArn: input.policyArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      policyArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -939,15 +957,15 @@ export const se_ImportResourcesToDraftAppVersionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import-resources-to-draft-app-version";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.eksSources != null && { eksSources: se_EksSourceList(input.eksSources, context) }),
-    ...(input.importStrategy != null && { importStrategy: input.importStrategy }),
-    ...(input.sourceArns != null && { sourceArns: se_ArnList(input.sourceArns, context) }),
-    ...(input.terraformSources != null && {
-      terraformSources: se_TerraformSourceList(input.terraformSources, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      eksSources: (_) => _json(_),
+      importStrategy: [],
+      sourceArns: (_) => _json(_),
+      terraformSources: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -973,11 +991,13 @@ export const se_ListAlarmRecommendationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-alarm-recommendations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentArn != null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1039,11 +1059,13 @@ export const se_ListAppComponentCompliancesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-component-compliances";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentArn != null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1069,11 +1091,13 @@ export const se_ListAppComponentRecommendationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-component-recommendations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentArn != null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1099,12 +1123,14 @@ export const se_ListAppInputSourcesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-input-sources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1159,12 +1185,14 @@ export const se_ListAppVersionAppComponentsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-app-components";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1190,12 +1218,14 @@ export const se_ListAppVersionResourceMappingsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-resource-mappings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1221,13 +1251,15 @@ export const se_ListAppVersionResourcesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-resources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resolutionId != null && { resolutionId: input.resolutionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+      maxResults: [],
+      nextToken: [],
+      resolutionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1252,11 +1284,13 @@ export const se_ListAppVersionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-versions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1344,11 +1378,13 @@ export const se_ListSopRecommendationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-sop-recommendations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentArn != null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1425,11 +1461,13 @@ export const se_ListTestRecommendationsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-test-recommendations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentArn != null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1455,13 +1493,15 @@ export const se_ListUnsupportedAppVersionResourcesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-unsupported-app-version-resources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resolutionId != null && { resolutionId: input.resolutionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+      maxResults: [],
+      nextToken: [],
+      resolutionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1486,9 +1526,11 @@ export const se_PublishAppVersionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/publish-app-version";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1514,10 +1556,12 @@ export const se_PutDraftAppVersionTemplateCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/put-draft-app-version-template";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appTemplateBody != null && { appTemplateBody: input.appTemplateBody }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appTemplateBody: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1544,21 +1588,17 @@ export const se_RemoveDraftAppVersionResourceMappingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/remove-draft-app-version-resource-mappings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appRegistryAppNames != null && {
-      appRegistryAppNames: se_EntityNameList(input.appRegistryAppNames, context),
-    }),
-    ...(input.eksSourceNames != null && { eksSourceNames: se_String255List(input.eksSourceNames, context) }),
-    ...(input.logicalStackNames != null && { logicalStackNames: se_String255List(input.logicalStackNames, context) }),
-    ...(input.resourceGroupNames != null && {
-      resourceGroupNames: se_EntityNameList(input.resourceGroupNames, context),
-    }),
-    ...(input.resourceNames != null && { resourceNames: se_EntityNameList(input.resourceNames, context) }),
-    ...(input.terraformSourceNames != null && {
-      terraformSourceNames: se_String255List(input.terraformSourceNames, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appRegistryAppNames: (_) => _json(_),
+      eksSourceNames: (_) => _json(_),
+      logicalStackNames: (_) => _json(_),
+      resourceGroupNames: (_) => _json(_),
+      resourceNames: (_) => _json(_),
+      terraformSourceNames: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1584,10 +1624,12 @@ export const se_ResolveAppVersionResourcesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resolve-app-version-resources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1612,13 +1654,15 @@ export const se_StartAppAssessmentCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-app-assessment";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appVersion != null && { appVersion: input.appVersion }),
-    ...(input.assessmentName != null && { assessmentName: input.assessmentName }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      appVersion: [],
+      assessmentName: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1644,9 +1688,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1701,13 +1747,15 @@ export const se_UpdateAppCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.assessmentSchedule != null && { assessmentSchedule: input.assessmentSchedule }),
-    ...(input.clearResiliencyPolicyArn != null && { clearResiliencyPolicyArn: input.clearResiliencyPolicyArn }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.policyArn != null && { policyArn: input.policyArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      assessmentSchedule: [],
+      clearResiliencyPolicyArn: [],
+      description: [],
+      policyArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1732,10 +1780,12 @@ export const se_UpdateAppVersionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app-version";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalInfo != null && { additionalInfo: se_AdditionalInfoMap(input.additionalInfo, context) }),
-    ...(input.appArn != null && { appArn: input.appArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalInfo: (_) => _json(_),
+      appArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1761,13 +1811,15 @@ export const se_UpdateAppVersionAppComponentCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app-version-app-component";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalInfo != null && { additionalInfo: se_AdditionalInfoMap(input.additionalInfo, context) }),
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalInfo: (_) => _json(_),
+      appArn: [],
+      id: [],
+      name: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1793,20 +1845,20 @@ export const se_UpdateAppVersionResourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app-version-resource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalInfo != null && { additionalInfo: se_AdditionalInfoMap(input.additionalInfo, context) }),
-    ...(input.appArn != null && { appArn: input.appArn }),
-    ...(input.appComponents != null && { appComponents: se_AppComponentNameList(input.appComponents, context) }),
-    ...(input.awsAccountId != null && { awsAccountId: input.awsAccountId }),
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    ...(input.excluded != null && { excluded: input.excluded }),
-    ...(input.logicalResourceId != null && {
-      logicalResourceId: se_LogicalResourceId(input.logicalResourceId, context),
-    }),
-    ...(input.physicalResourceId != null && { physicalResourceId: input.physicalResourceId }),
-    ...(input.resourceName != null && { resourceName: input.resourceName }),
-    ...(input.resourceType != null && { resourceType: input.resourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalInfo: (_) => _json(_),
+      appArn: [],
+      appComponents: (_) => _json(_),
+      awsAccountId: [],
+      awsRegion: [],
+      excluded: [],
+      logicalResourceId: (_) => _json(_),
+      physicalResourceId: [],
+      resourceName: [],
+      resourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1832,14 +1884,16 @@ export const se_UpdateResiliencyPolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-resiliency-policy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.dataLocationConstraint != null && { dataLocationConstraint: input.dataLocationConstraint }),
-    ...(input.policy != null && { policy: se_DisruptionPolicy(input.policy, context) }),
-    ...(input.policyArn != null && { policyArn: input.policyArn }),
-    ...(input.policyDescription != null && { policyDescription: input.policyDescription }),
-    ...(input.policyName != null && { policyName: input.policyName }),
-    ...(input.tier != null && { tier: input.tier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      dataLocationConstraint: [],
+      policy: (_) => _json(_),
+      policyArn: [],
+      policyDescription: [],
+      policyName: [],
+      tier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1865,15 +1919,12 @@ export const de_AddDraftAppVersionResourceMappingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.resourceMappings != null) {
-    contents.resourceMappings = de_ResourceMappingList(data.resourceMappings, context);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    resourceMappings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1910,10 +1961,9 @@ const de_AddDraftAppVersionResourceMappingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1933,9 +1983,10 @@ export const de_CreateAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.app != null) {
-    contents.app = de_App(data.app, context);
-  }
+  const doc = take(data, {
+    app: (_) => de_App(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1975,10 +2026,9 @@ const de_CreateAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1998,15 +2048,12 @@ export const de_CreateAppVersionAppComponentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appComponent != null) {
-    contents.appComponent = de_AppComponent(data.appComponent, context);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appComponent: _json,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2046,10 +2093,9 @@ const de_CreateAppVersionAppComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2069,15 +2115,12 @@ export const de_CreateAppVersionResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.physicalResource != null) {
-    contents.physicalResource = de_PhysicalResource(data.physicalResource, context);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    physicalResource: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2117,10 +2160,9 @@ const de_CreateAppVersionResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2140,9 +2182,10 @@ export const de_CreateRecommendationTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.recommendationTemplate != null) {
-    contents.recommendationTemplate = de_RecommendationTemplate(data.recommendationTemplate, context);
-  }
+  const doc = take(data, {
+    recommendationTemplate: (_) => de_RecommendationTemplate(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2182,10 +2225,9 @@ const de_CreateRecommendationTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2205,9 +2247,10 @@ export const de_CreateResiliencyPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = de_ResiliencyPolicy(data.policy, context);
-  }
+  const doc = take(data, {
+    policy: (_) => de_ResiliencyPolicy(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2244,10 +2287,9 @@ const de_CreateResiliencyPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2267,9 +2309,10 @@ export const de_DeleteAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2303,10 +2346,9 @@ const de_DeleteAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2326,12 +2368,11 @@ export const de_DeleteAppAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessmentArn != null) {
-    contents.assessmentArn = __expectString(data.assessmentArn);
-  }
-  if (data.assessmentStatus != null) {
-    contents.assessmentStatus = __expectString(data.assessmentStatus);
-  }
+  const doc = take(data, {
+    assessmentArn: __expectString,
+    assessmentStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2368,10 +2409,9 @@ const de_DeleteAppAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2391,12 +2431,11 @@ export const de_DeleteAppInputSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appInputSource != null) {
-    contents.appInputSource = de_AppInputSource(data.appInputSource, context);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appInputSource: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2433,10 +2472,9 @@ const de_DeleteAppInputSourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2456,15 +2494,12 @@ export const de_DeleteAppVersionAppComponentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appComponent != null) {
-    contents.appComponent = de_AppComponent(data.appComponent, context);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appComponent: _json,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2501,10 +2536,9 @@ const de_DeleteAppVersionAppComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2524,15 +2558,12 @@ export const de_DeleteAppVersionResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.physicalResource != null) {
-    contents.physicalResource = de_PhysicalResource(data.physicalResource, context);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    physicalResource: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2569,10 +2600,9 @@ const de_DeleteAppVersionResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2592,12 +2622,11 @@ export const de_DeleteRecommendationTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.recommendationTemplateArn != null) {
-    contents.recommendationTemplateArn = __expectString(data.recommendationTemplateArn);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    recommendationTemplateArn: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2631,10 +2660,9 @@ const de_DeleteRecommendationTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2654,9 +2682,10 @@ export const de_DeleteResiliencyPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policyArn != null) {
-    contents.policyArn = __expectString(data.policyArn);
-  }
+  const doc = take(data, {
+    policyArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2693,10 +2722,9 @@ const de_DeleteResiliencyPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2716,9 +2744,10 @@ export const de_DescribeAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.app != null) {
-    contents.app = de_App(data.app, context);
-  }
+  const doc = take(data, {
+    app: (_) => de_App(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2752,10 +2781,9 @@ const de_DescribeAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2775,9 +2803,10 @@ export const de_DescribeAppAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessment != null) {
-    contents.assessment = de_AppAssessment(data.assessment, context);
-  }
+  const doc = take(data, {
+    assessment: (_) => de_AppAssessment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2811,10 +2840,9 @@ const de_DescribeAppAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2834,15 +2862,12 @@ export const de_DescribeAppVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.additionalInfo != null) {
-    contents.additionalInfo = de_AdditionalInfoMap(data.additionalInfo, context);
-  }
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    additionalInfo: _json,
+    appArn: __expectString,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2876,10 +2901,9 @@ const de_DescribeAppVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2899,15 +2923,12 @@ export const de_DescribeAppVersionAppComponentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appComponent != null) {
-    contents.appComponent = de_AppComponent(data.appComponent, context);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appComponent: _json,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2944,10 +2965,9 @@ const de_DescribeAppVersionAppComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2967,15 +2987,12 @@ export const de_DescribeAppVersionResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.physicalResource != null) {
-    contents.physicalResource = de_PhysicalResource(data.physicalResource, context);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    physicalResource: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3012,10 +3029,9 @@ const de_DescribeAppVersionResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3035,21 +3051,14 @@ export const de_DescribeAppVersionResourcesResolutionStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.errorMessage != null) {
-    contents.errorMessage = __expectString(data.errorMessage);
-  }
-  if (data.resolutionId != null) {
-    contents.resolutionId = __expectString(data.resolutionId);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    errorMessage: __expectString,
+    resolutionId: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3083,10 +3092,9 @@ const de_DescribeAppVersionResourcesResolutionStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3106,15 +3114,12 @@ export const de_DescribeAppVersionTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appTemplateBody != null) {
-    contents.appTemplateBody = __expectString(data.appTemplateBody);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appTemplateBody: __expectString,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3148,10 +3153,9 @@ const de_DescribeAppVersionTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3171,21 +3175,14 @@ export const de_DescribeDraftAppVersionResourcesImportStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.errorMessage != null) {
-    contents.errorMessage = __expectString(data.errorMessage);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusChangeTime != null) {
-    contents.statusChangeTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.statusChangeTime)));
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    errorMessage: __expectString,
+    status: __expectString,
+    statusChangeTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3219,10 +3216,9 @@ const de_DescribeDraftAppVersionResourcesImportStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3242,9 +3238,10 @@ export const de_DescribeResiliencyPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = de_ResiliencyPolicy(data.policy, context);
-  }
+  const doc = take(data, {
+    policy: (_) => de_ResiliencyPolicy(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3278,10 +3275,9 @@ const de_DescribeResiliencyPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3301,24 +3297,15 @@ export const de_ImportResourcesToDraftAppVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.eksSources != null) {
-    contents.eksSources = de_EksSourceList(data.eksSources, context);
-  }
-  if (data.sourceArns != null) {
-    contents.sourceArns = de_ArnList(data.sourceArns, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.terraformSources != null) {
-    contents.terraformSources = de_TerraformSourceList(data.terraformSources, context);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    eksSources: _json,
+    sourceArns: _json,
+    status: __expectString,
+    terraformSources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3355,10 +3342,9 @@ const de_ImportResourcesToDraftAppVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3378,12 +3364,11 @@ export const de_ListAlarmRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.alarmRecommendations != null) {
-    contents.alarmRecommendations = de_AlarmRecommendationList(data.alarmRecommendations, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    alarmRecommendations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3417,10 +3402,9 @@ const de_ListAlarmRecommendationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3440,12 +3424,11 @@ export const de_ListAppAssessmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessmentSummaries != null) {
-    contents.assessmentSummaries = de_AppAssessmentSummaryList(data.assessmentSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assessmentSummaries: (_) => de_AppAssessmentSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3479,10 +3462,9 @@ const de_ListAppAssessmentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3502,12 +3484,11 @@ export const de_ListAppComponentCompliancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.componentCompliances != null) {
-    contents.componentCompliances = de_ComponentCompliancesList(data.componentCompliances, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    componentCompliances: (_) => de_ComponentCompliancesList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3541,10 +3522,9 @@ const de_ListAppComponentCompliancesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3564,12 +3544,11 @@ export const de_ListAppComponentRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.componentRecommendations != null) {
-    contents.componentRecommendations = de_ComponentRecommendationList(data.componentRecommendations, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    componentRecommendations: (_) => de_ComponentRecommendationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3603,10 +3582,9 @@ const de_ListAppComponentRecommendationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3626,12 +3604,11 @@ export const de_ListAppInputSourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appInputSources != null) {
-    contents.appInputSources = de_AppInputSourceList(data.appInputSources, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    appInputSources: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3665,10 +3642,9 @@ const de_ListAppInputSourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3688,12 +3664,11 @@ export const de_ListAppsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appSummaries != null) {
-    contents.appSummaries = de_AppSummaryList(data.appSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    appSummaries: (_) => de_AppSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3724,10 +3699,9 @@ const de_ListAppsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3747,18 +3721,13 @@ export const de_ListAppVersionAppComponentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appComponents != null) {
-    contents.appComponents = de_AppComponentList(data.appComponents, context);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appComponents: _json,
+    appVersion: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3795,10 +3764,9 @@ const de_ListAppVersionAppComponentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3818,12 +3786,11 @@ export const de_ListAppVersionResourceMappingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resourceMappings != null) {
-    contents.resourceMappings = de_ResourceMappingList(data.resourceMappings, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resourceMappings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3857,10 +3824,9 @@ const de_ListAppVersionResourceMappingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3880,15 +3846,12 @@ export const de_ListAppVersionResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.physicalResources != null) {
-    contents.physicalResources = de_PhysicalResourceList(data.physicalResources, context);
-  }
-  if (data.resolutionId != null) {
-    contents.resolutionId = __expectString(data.resolutionId);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    physicalResources: _json,
+    resolutionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3925,10 +3888,9 @@ const de_ListAppVersionResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3948,12 +3910,11 @@ export const de_ListAppVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appVersions != null) {
-    contents.appVersions = de_AppVersionList(data.appVersions, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    appVersions: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3984,10 +3945,9 @@ const de_ListAppVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4007,12 +3967,11 @@ export const de_ListRecommendationTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.recommendationTemplates != null) {
-    contents.recommendationTemplates = de_RecommendationTemplateList(data.recommendationTemplates, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    recommendationTemplates: (_) => de_RecommendationTemplateList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4043,10 +4002,9 @@ const de_ListRecommendationTemplatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4066,12 +4024,11 @@ export const de_ListResiliencyPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resiliencyPolicies != null) {
-    contents.resiliencyPolicies = de_ResiliencyPolicies(data.resiliencyPolicies, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resiliencyPolicies: (_) => de_ResiliencyPolicies(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4105,10 +4062,9 @@ const de_ListResiliencyPoliciesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4128,12 +4084,11 @@ export const de_ListSopRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.sopRecommendations != null) {
-    contents.sopRecommendations = de_SopRecommendationList(data.sopRecommendations, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    sopRecommendations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4170,10 +4125,9 @@ const de_ListSopRecommendationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4193,12 +4147,11 @@ export const de_ListSuggestedResiliencyPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resiliencyPolicies != null) {
-    contents.resiliencyPolicies = de_ResiliencyPolicies(data.resiliencyPolicies, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resiliencyPolicies: (_) => de_ResiliencyPolicies(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4232,10 +4185,9 @@ const de_ListSuggestedResiliencyPoliciesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4255,9 +4207,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4291,10 +4244,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4314,12 +4266,11 @@ export const de_ListTestRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.testRecommendations != null) {
-    contents.testRecommendations = de_TestRecommendationList(data.testRecommendations, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    testRecommendations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4356,10 +4307,9 @@ const de_ListTestRecommendationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4379,15 +4329,12 @@ export const de_ListUnsupportedAppVersionResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resolutionId != null) {
-    contents.resolutionId = __expectString(data.resolutionId);
-  }
-  if (data.unsupportedResources != null) {
-    contents.unsupportedResources = de_UnsupportedResourceList(data.unsupportedResources, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resolutionId: __expectString,
+    unsupportedResources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4424,10 +4371,9 @@ const de_ListUnsupportedAppVersionResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4447,12 +4393,11 @@ export const de_PublishAppVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4489,10 +4434,9 @@ const de_PublishAppVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4512,12 +4456,11 @@ export const de_PutDraftAppVersionTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4554,10 +4497,9 @@ const de_PutDraftAppVersionTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4577,12 +4519,11 @@ export const de_RemoveDraftAppVersionResourceMappingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4619,10 +4560,9 @@ const de_RemoveDraftAppVersionResourceMappingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4642,18 +4582,13 @@ export const de_ResolveAppVersionResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.resolutionId != null) {
-    contents.resolutionId = __expectString(data.resolutionId);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    resolutionId: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4690,10 +4625,9 @@ const de_ResolveAppVersionResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4713,9 +4647,10 @@ export const de_StartAppAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessment != null) {
-    contents.assessment = de_AppAssessment(data.assessment, context);
-  }
+  const doc = take(data, {
+    assessment: (_) => de_AppAssessment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4755,10 +4690,9 @@ const de_StartAppAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4811,10 +4745,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4867,10 +4800,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4890,9 +4822,10 @@ export const de_UpdateAppCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.app != null) {
-    contents.app = de_App(data.app, context);
-  }
+  const doc = take(data, {
+    app: (_) => de_App(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4929,10 +4862,9 @@ const de_UpdateAppCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4952,15 +4884,12 @@ export const de_UpdateAppVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.additionalInfo != null) {
-    contents.additionalInfo = de_AdditionalInfoMap(data.additionalInfo, context);
-  }
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    additionalInfo: _json,
+    appArn: __expectString,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4997,10 +4926,9 @@ const de_UpdateAppVersionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5020,15 +4948,12 @@ export const de_UpdateAppVersionAppComponentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appComponent != null) {
-    contents.appComponent = de_AppComponent(data.appComponent, context);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appComponent: _json,
+    appVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5065,10 +4990,9 @@ const de_UpdateAppVersionAppComponentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5088,15 +5012,12 @@ export const de_UpdateAppVersionResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appArn != null) {
-    contents.appArn = __expectString(data.appArn);
-  }
-  if (data.appVersion != null) {
-    contents.appVersion = __expectString(data.appVersion);
-  }
-  if (data.physicalResource != null) {
-    contents.physicalResource = de_PhysicalResource(data.physicalResource, context);
-  }
+  const doc = take(data, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    physicalResource: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5136,10 +5057,9 @@ const de_UpdateAppVersionResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5159,9 +5079,10 @@ export const de_UpdateResiliencyPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = de_ResiliencyPolicy(data.policy, context);
-  }
+  const doc = take(data, {
+    policy: (_) => de_ResiliencyPolicy(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5198,16 +5119,15 @@ const de_UpdateResiliencyPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -5217,9 +5137,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5233,15 +5154,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5258,9 +5176,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5277,15 +5196,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5302,9 +5218,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5318,12 +5235,11 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.retryAfterSeconds != null) {
-    contents.retryAfterSeconds = __expectInt32(data.retryAfterSeconds);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    retryAfterSeconds: __expectInt32,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5337,9 +5253,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5347,403 +5264,120 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AdditionalInfoMap
- */
-const se_AdditionalInfoMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_AdditionalInfoValueList(value, context);
-    return acc;
-  }, {});
-};
+// se_AdditionalInfoMap omitted.
 
-/**
- * serializeAws_restJson1AdditionalInfoValueList
- */
-const se_AdditionalInfoValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AdditionalInfoValueList omitted.
 
-/**
- * serializeAws_restJson1AppComponentNameList
- */
-const se_AppComponentNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AppComponentNameList omitted.
 
-/**
- * serializeAws_restJson1ArnList
- */
-const se_ArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ArnList omitted.
 
-/**
- * serializeAws_restJson1DisruptionPolicy
- */
-const se_DisruptionPolicy = (input: Record<string, FailurePolicy>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [DisruptionType | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_FailurePolicy(value, context);
-    return acc;
-  }, {});
-};
+// se_DisruptionPolicy omitted.
 
-/**
- * serializeAws_restJson1EksNamespaceList
- */
-const se_EksNamespaceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EksNamespaceList omitted.
 
-/**
- * serializeAws_restJson1EksSource
- */
-const se_EksSource = (input: EksSource, context: __SerdeContext): any => {
-  return {
-    ...(input.eksClusterArn != null && { eksClusterArn: input.eksClusterArn }),
-    ...(input.namespaces != null && { namespaces: se_EksNamespaceList(input.namespaces, context) }),
-  };
-};
+// se_EksSource omitted.
 
-/**
- * serializeAws_restJson1EksSourceClusterNamespace
- */
-const se_EksSourceClusterNamespace = (input: EksSourceClusterNamespace, context: __SerdeContext): any => {
-  return {
-    ...(input.eksClusterArn != null && { eksClusterArn: input.eksClusterArn }),
-    ...(input.namespace != null && { namespace: input.namespace }),
-  };
-};
+// se_EksSourceClusterNamespace omitted.
 
-/**
- * serializeAws_restJson1EksSourceList
- */
-const se_EksSourceList = (input: EksSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EksSource(entry, context);
-    });
-};
+// se_EksSourceList omitted.
 
-/**
- * serializeAws_restJson1EntityNameList
- */
-const se_EntityNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EntityNameList omitted.
 
-/**
- * serializeAws_restJson1FailurePolicy
- */
-const se_FailurePolicy = (input: FailurePolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.rpoInSecs != null && { rpoInSecs: input.rpoInSecs }),
-    ...(input.rtoInSecs != null && { rtoInSecs: input.rtoInSecs }),
-  };
-};
+// se_FailurePolicy omitted.
 
-/**
- * serializeAws_restJson1LogicalResourceId
- */
-const se_LogicalResourceId = (input: LogicalResourceId, context: __SerdeContext): any => {
-  return {
-    ...(input.eksSourceName != null && { eksSourceName: input.eksSourceName }),
-    ...(input.identifier != null && { identifier: input.identifier }),
-    ...(input.logicalStackName != null && { logicalStackName: input.logicalStackName }),
-    ...(input.resourceGroupName != null && { resourceGroupName: input.resourceGroupName }),
-    ...(input.terraformSourceName != null && { terraformSourceName: input.terraformSourceName }),
-  };
-};
+// se_LogicalResourceId omitted.
 
-/**
- * serializeAws_restJson1PhysicalResourceId
- */
-const se_PhysicalResourceId = (input: PhysicalResourceId, context: __SerdeContext): any => {
-  return {
-    ...(input.awsAccountId != null && { awsAccountId: input.awsAccountId }),
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    ...(input.identifier != null && { identifier: input.identifier }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_PhysicalResourceId omitted.
 
-/**
- * serializeAws_restJson1RecommendationIdList
- */
-const se_RecommendationIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RecommendationIdList omitted.
 
-/**
- * serializeAws_restJson1RenderRecommendationTypeList
- */
-const se_RenderRecommendationTypeList = (
-  input: (RenderRecommendationType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RenderRecommendationTypeList omitted.
 
-/**
- * serializeAws_restJson1ResourceMapping
- */
-const se_ResourceMapping = (input: ResourceMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.appRegistryAppName != null && { appRegistryAppName: input.appRegistryAppName }),
-    ...(input.eksSourceName != null && { eksSourceName: input.eksSourceName }),
-    ...(input.logicalStackName != null && { logicalStackName: input.logicalStackName }),
-    ...(input.mappingType != null && { mappingType: input.mappingType }),
-    ...(input.physicalResourceId != null && {
-      physicalResourceId: se_PhysicalResourceId(input.physicalResourceId, context),
-    }),
-    ...(input.resourceGroupName != null && { resourceGroupName: input.resourceGroupName }),
-    ...(input.resourceName != null && { resourceName: input.resourceName }),
-    ...(input.terraformSourceName != null && { terraformSourceName: input.terraformSourceName }),
-  };
-};
+// se_ResourceMapping omitted.
 
-/**
- * serializeAws_restJson1ResourceMappingList
- */
-const se_ResourceMappingList = (input: ResourceMapping[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ResourceMapping(entry, context);
-    });
-};
+// se_ResourceMappingList omitted.
 
-/**
- * serializeAws_restJson1String255List
- */
-const se_String255List = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_String255List omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1TerraformSource
- */
-const se_TerraformSource = (input: TerraformSource, context: __SerdeContext): any => {
-  return {
-    ...(input.s3StateFileUrl != null && { s3StateFileUrl: input.s3StateFileUrl }),
-  };
-};
+// se_TerraformSource omitted.
 
-/**
- * serializeAws_restJson1TerraformSourceList
- */
-const se_TerraformSourceList = (input: TerraformSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TerraformSource(entry, context);
-    });
-};
+// se_TerraformSourceList omitted.
 
-/**
- * deserializeAws_restJson1AdditionalInfoMap
- */
-const de_AdditionalInfoMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_AdditionalInfoValueList(value, context);
-    return acc;
-  }, {});
-};
+// de_AdditionalInfoMap omitted.
 
-/**
- * deserializeAws_restJson1AdditionalInfoValueList
- */
-const de_AdditionalInfoValueList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AdditionalInfoValueList omitted.
 
-/**
- * deserializeAws_restJson1AlarmRecommendation
- */
-const de_AlarmRecommendation = (output: any, context: __SerdeContext): AlarmRecommendation => {
-  return {
-    appComponentName: __expectString(output.appComponentName),
-    description: __expectString(output.description),
-    items: output.items != null ? de_RecommendationItemList(output.items, context) : undefined,
-    name: __expectString(output.name),
-    prerequisite: __expectString(output.prerequisite),
-    recommendationId: __expectString(output.recommendationId),
-    referenceId: __expectString(output.referenceId),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_AlarmRecommendation omitted.
 
-/**
- * deserializeAws_restJson1AlarmRecommendationList
- */
-const de_AlarmRecommendationList = (output: any, context: __SerdeContext): AlarmRecommendation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AlarmRecommendation(entry, context);
-    });
-  return retVal;
-};
+// de_AlarmRecommendationList omitted.
 
-/**
- * deserializeAws_restJson1AlarmReferenceIdList
- */
-const de_AlarmReferenceIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AlarmReferenceIdList omitted.
 
 /**
  * deserializeAws_restJson1App
  */
 const de_App = (output: any, context: __SerdeContext): App => {
-  return {
-    appArn: __expectString(output.appArn),
-    assessmentSchedule: __expectString(output.assessmentSchedule),
-    complianceStatus: __expectString(output.complianceStatus),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    lastAppComplianceEvaluationTime:
-      output.lastAppComplianceEvaluationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAppComplianceEvaluationTime)))
-        : undefined,
-    lastResiliencyScoreEvaluationTime:
-      output.lastResiliencyScoreEvaluationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastResiliencyScoreEvaluationTime)))
-        : undefined,
-    name: __expectString(output.name),
-    policyArn: __expectString(output.policyArn),
-    resiliencyScore: __limitedParseDouble(output.resiliencyScore),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    appArn: __expectString,
+    assessmentSchedule: __expectString,
+    complianceStatus: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastAppComplianceEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastResiliencyScoreEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    policyArn: __expectString,
+    resiliencyScore: __limitedParseDouble,
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AppAssessment
  */
 const de_AppAssessment = (output: any, context: __SerdeContext): AppAssessment => {
-  return {
-    appArn: __expectString(output.appArn),
-    appVersion: __expectString(output.appVersion),
-    assessmentArn: __expectString(output.assessmentArn),
-    assessmentName: __expectString(output.assessmentName),
-    assessmentStatus: __expectString(output.assessmentStatus),
-    compliance: output.compliance != null ? de_AssessmentCompliance(output.compliance, context) : undefined,
-    complianceStatus: __expectString(output.complianceStatus),
-    cost: output.cost != null ? de_Cost(output.cost, context) : undefined,
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    invoker: __expectString(output.invoker),
-    message: __expectString(output.message),
-    policy: output.policy != null ? de_ResiliencyPolicy(output.policy, context) : undefined,
-    resiliencyScore: output.resiliencyScore != null ? de_ResiliencyScore(output.resiliencyScore, context) : undefined,
-    resourceErrorsDetails:
-      output.resourceErrorsDetails != null
-        ? de_ResourceErrorsDetails(output.resourceErrorsDetails, context)
-        : undefined,
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    assessmentArn: __expectString,
+    assessmentName: __expectString,
+    assessmentStatus: __expectString,
+    compliance: _json,
+    complianceStatus: __expectString,
+    cost: (_: any) => de_Cost(_, context),
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    invoker: __expectString,
+    message: __expectString,
+    policy: (_: any) => de_ResiliencyPolicy(_, context),
+    resiliencyScore: (_: any) => de_ResiliencyScore(_, context),
+    resourceErrorsDetails: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    tags: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AppAssessmentSummary
  */
 const de_AppAssessmentSummary = (output: any, context: __SerdeContext): AppAssessmentSummary => {
-  return {
-    appArn: __expectString(output.appArn),
-    appVersion: __expectString(output.appVersion),
-    assessmentArn: __expectString(output.assessmentArn),
-    assessmentName: __expectString(output.assessmentName),
-    assessmentStatus: __expectString(output.assessmentStatus),
-    complianceStatus: __expectString(output.complianceStatus),
-    cost: output.cost != null ? de_Cost(output.cost, context) : undefined,
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    invoker: __expectString(output.invoker),
-    message: __expectString(output.message),
-    resiliencyScore: __limitedParseDouble(output.resiliencyScore),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-  } as any;
+  return take(output, {
+    appArn: __expectString,
+    appVersion: __expectString,
+    assessmentArn: __expectString,
+    assessmentName: __expectString,
+    assessmentStatus: __expectString,
+    complianceStatus: __expectString,
+    cost: (_: any) => de_Cost(_, context),
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    invoker: __expectString,
+    message: __expectString,
+    resiliencyScore: __limitedParseDouble,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -5753,104 +5387,47 @@ const de_AppAssessmentSummaryList = (output: any, context: __SerdeContext): AppA
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AppAssessmentSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1AppComponent
- */
-const de_AppComponent = (output: any, context: __SerdeContext): AppComponent => {
-  return {
-    additionalInfo: output.additionalInfo != null ? de_AdditionalInfoMap(output.additionalInfo, context) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_AppComponent omitted.
 
 /**
  * deserializeAws_restJson1AppComponentCompliance
  */
 const de_AppComponentCompliance = (output: any, context: __SerdeContext): AppComponentCompliance => {
-  return {
-    appComponentName: __expectString(output.appComponentName),
-    compliance: output.compliance != null ? de_AssessmentCompliance(output.compliance, context) : undefined,
-    cost: output.cost != null ? de_Cost(output.cost, context) : undefined,
-    message: __expectString(output.message),
-    resiliencyScore: output.resiliencyScore != null ? de_ResiliencyScore(output.resiliencyScore, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    appComponentName: __expectString,
+    compliance: _json,
+    cost: (_: any) => de_Cost(_, context),
+    message: __expectString,
+    resiliencyScore: (_: any) => de_ResiliencyScore(_, context),
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AppComponentList
- */
-const de_AppComponentList = (output: any, context: __SerdeContext): AppComponent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppComponent(entry, context);
-    });
-  return retVal;
-};
+// de_AppComponentList omitted.
 
-/**
- * deserializeAws_restJson1AppInputSource
- */
-const de_AppInputSource = (output: any, context: __SerdeContext): AppInputSource => {
-  return {
-    eksSourceClusterNamespace:
-      output.eksSourceClusterNamespace != null
-        ? de_EksSourceClusterNamespace(output.eksSourceClusterNamespace, context)
-        : undefined,
-    importType: __expectString(output.importType),
-    resourceCount: __expectInt32(output.resourceCount),
-    sourceArn: __expectString(output.sourceArn),
-    sourceName: __expectString(output.sourceName),
-    terraformSource: output.terraformSource != null ? de_TerraformSource(output.terraformSource, context) : undefined,
-  } as any;
-};
+// de_AppInputSource omitted.
 
-/**
- * deserializeAws_restJson1AppInputSourceList
- */
-const de_AppInputSourceList = (output: any, context: __SerdeContext): AppInputSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInputSource(entry, context);
-    });
-  return retVal;
-};
+// de_AppInputSourceList omitted.
 
 /**
  * deserializeAws_restJson1AppSummary
  */
 const de_AppSummary = (output: any, context: __SerdeContext): AppSummary => {
-  return {
-    appArn: __expectString(output.appArn),
-    assessmentSchedule: __expectString(output.assessmentSchedule),
-    complianceStatus: __expectString(output.complianceStatus),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    resiliencyScore: __limitedParseDouble(output.resiliencyScore),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    appArn: __expectString,
+    assessmentSchedule: __expectString,
+    complianceStatus: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    name: __expectString,
+    resiliencyScore: __limitedParseDouble,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -5860,68 +5437,18 @@ const de_AppSummaryList = (output: any, context: __SerdeContext): AppSummary[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AppSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1AppVersionList
- */
-const de_AppVersionList = (output: any, context: __SerdeContext): AppVersionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppVersionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AppVersionList omitted.
 
-/**
- * deserializeAws_restJson1AppVersionSummary
- */
-const de_AppVersionSummary = (output: any, context: __SerdeContext): AppVersionSummary => {
-  return {
-    appVersion: __expectString(output.appVersion),
-  } as any;
-};
+// de_AppVersionSummary omitted.
 
-/**
- * deserializeAws_restJson1ArnList
- */
-const de_ArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ArnList omitted.
 
-/**
- * deserializeAws_restJson1AssessmentCompliance
- */
-const de_AssessmentCompliance = (output: any, context: __SerdeContext): Record<string, DisruptionCompliance> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, DisruptionCompliance>, [key, value]: [DisruptionType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_DisruptionCompliance(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_AssessmentCompliance omitted.
 
 /**
  * deserializeAws_restJson1ComponentCompliancesList
@@ -5930,9 +5457,6 @@ const de_ComponentCompliancesList = (output: any, context: __SerdeContext): AppC
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AppComponentCompliance(entry, context);
     });
   return retVal;
@@ -5942,14 +5466,11 @@ const de_ComponentCompliancesList = (output: any, context: __SerdeContext): AppC
  * deserializeAws_restJson1ComponentRecommendation
  */
 const de_ComponentRecommendation = (output: any, context: __SerdeContext): ComponentRecommendation => {
-  return {
-    appComponentName: __expectString(output.appComponentName),
-    configRecommendations:
-      output.configRecommendations != null
-        ? de_ConfigRecommendationList(output.configRecommendations, context)
-        : undefined,
-    recommendationStatus: __expectString(output.recommendationStatus),
-  } as any;
+  return take(output, {
+    appComponentName: __expectString,
+    configRecommendations: (_: any) => de_ConfigRecommendationList(_, context),
+    recommendationStatus: __expectString,
+  }) as any;
 };
 
 /**
@@ -5959,9 +5480,6 @@ const de_ComponentRecommendationList = (output: any, context: __SerdeContext): C
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ComponentRecommendation(entry, context);
     });
   return retVal;
@@ -5971,22 +5489,18 @@ const de_ComponentRecommendationList = (output: any, context: __SerdeContext): C
  * deserializeAws_restJson1ConfigRecommendation
  */
 const de_ConfigRecommendation = (output: any, context: __SerdeContext): ConfigRecommendation => {
-  return {
-    appComponentName: __expectString(output.appComponentName),
-    compliance: output.compliance != null ? de_AssessmentCompliance(output.compliance, context) : undefined,
-    cost: output.cost != null ? de_Cost(output.cost, context) : undefined,
-    description: __expectString(output.description),
-    haArchitecture: __expectString(output.haArchitecture),
-    name: __expectString(output.name),
-    optimizationType: __expectString(output.optimizationType),
-    recommendationCompliance:
-      output.recommendationCompliance != null
-        ? de_RecommendationCompliance(output.recommendationCompliance, context)
-        : undefined,
-    referenceId: __expectString(output.referenceId),
-    suggestedChanges:
-      output.suggestedChanges != null ? de_SuggestedChangesList(output.suggestedChanges, context) : undefined,
-  } as any;
+  return take(output, {
+    appComponentName: __expectString,
+    compliance: _json,
+    cost: (_: any) => de_Cost(_, context),
+    description: __expectString,
+    haArchitecture: __expectString,
+    name: __expectString,
+    optimizationType: __expectString,
+    recommendationCompliance: _json,
+    referenceId: __expectString,
+    suggestedChanges: _json,
+  }) as any;
 };
 
 /**
@@ -5996,9 +5510,6 @@ const de_ConfigRecommendationList = (output: any, context: __SerdeContext): Conf
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ConfigRecommendation(entry, context);
     });
   return retVal;
@@ -6008,46 +5519,16 @@ const de_ConfigRecommendationList = (output: any, context: __SerdeContext): Conf
  * deserializeAws_restJson1Cost
  */
 const de_Cost = (output: any, context: __SerdeContext): Cost => {
-  return {
-    amount: __limitedParseDouble(output.amount),
-    currency: __expectString(output.currency),
-    frequency: __expectString(output.frequency),
-  } as any;
+  return take(output, {
+    amount: __limitedParseDouble,
+    currency: __expectString,
+    frequency: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DisruptionCompliance
- */
-const de_DisruptionCompliance = (output: any, context: __SerdeContext): DisruptionCompliance => {
-  return {
-    achievableRpoInSecs: __expectInt32(output.achievableRpoInSecs),
-    achievableRtoInSecs: __expectInt32(output.achievableRtoInSecs),
-    complianceStatus: __expectString(output.complianceStatus),
-    currentRpoInSecs: __expectInt32(output.currentRpoInSecs),
-    currentRtoInSecs: __expectInt32(output.currentRtoInSecs),
-    message: __expectString(output.message),
-    rpoDescription: __expectString(output.rpoDescription),
-    rpoReferenceId: __expectString(output.rpoReferenceId),
-    rtoDescription: __expectString(output.rtoDescription),
-    rtoReferenceId: __expectString(output.rtoReferenceId),
-  } as any;
-};
+// de_DisruptionCompliance omitted.
 
-/**
- * deserializeAws_restJson1DisruptionPolicy
- */
-const de_DisruptionPolicy = (output: any, context: __SerdeContext): Record<string, FailurePolicy> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, FailurePolicy>, [key, value]: [DisruptionType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_FailurePolicy(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_DisruptionPolicy omitted.
 
 /**
  * deserializeAws_restJson1DisruptionResiliencyScore
@@ -6062,226 +5543,54 @@ const de_DisruptionResiliencyScore = (output: any, context: __SerdeContext): Rec
   }, {});
 };
 
-/**
- * deserializeAws_restJson1EksNamespaceList
- */
-const de_EksNamespaceList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EksNamespaceList omitted.
 
-/**
- * deserializeAws_restJson1EksSource
- */
-const de_EksSource = (output: any, context: __SerdeContext): EksSource => {
-  return {
-    eksClusterArn: __expectString(output.eksClusterArn),
-    namespaces: output.namespaces != null ? de_EksNamespaceList(output.namespaces, context) : undefined,
-  } as any;
-};
+// de_EksSource omitted.
 
-/**
- * deserializeAws_restJson1EksSourceClusterNamespace
- */
-const de_EksSourceClusterNamespace = (output: any, context: __SerdeContext): EksSourceClusterNamespace => {
-  return {
-    eksClusterArn: __expectString(output.eksClusterArn),
-    namespace: __expectString(output.namespace),
-  } as any;
-};
+// de_EksSourceClusterNamespace omitted.
 
-/**
- * deserializeAws_restJson1EksSourceList
- */
-const de_EksSourceList = (output: any, context: __SerdeContext): EksSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EksSource(entry, context);
-    });
-  return retVal;
-};
+// de_EksSourceList omitted.
 
-/**
- * deserializeAws_restJson1FailurePolicy
- */
-const de_FailurePolicy = (output: any, context: __SerdeContext): FailurePolicy => {
-  return {
-    rpoInSecs: __expectInt32(output.rpoInSecs),
-    rtoInSecs: __expectInt32(output.rtoInSecs),
-  } as any;
-};
+// de_FailurePolicy omitted.
 
-/**
- * deserializeAws_restJson1LogicalResourceId
- */
-const de_LogicalResourceId = (output: any, context: __SerdeContext): LogicalResourceId => {
-  return {
-    eksSourceName: __expectString(output.eksSourceName),
-    identifier: __expectString(output.identifier),
-    logicalStackName: __expectString(output.logicalStackName),
-    resourceGroupName: __expectString(output.resourceGroupName),
-    terraformSourceName: __expectString(output.terraformSourceName),
-  } as any;
-};
+// de_LogicalResourceId omitted.
 
-/**
- * deserializeAws_restJson1PhysicalResource
- */
-const de_PhysicalResource = (output: any, context: __SerdeContext): PhysicalResource => {
-  return {
-    additionalInfo: output.additionalInfo != null ? de_AdditionalInfoMap(output.additionalInfo, context) : undefined,
-    appComponents: output.appComponents != null ? de_AppComponentList(output.appComponents, context) : undefined,
-    excluded: __expectBoolean(output.excluded),
-    logicalResourceId:
-      output.logicalResourceId != null ? de_LogicalResourceId(output.logicalResourceId, context) : undefined,
-    physicalResourceId:
-      output.physicalResourceId != null ? de_PhysicalResourceId(output.physicalResourceId, context) : undefined,
-    resourceName: __expectString(output.resourceName),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_PhysicalResource omitted.
 
-/**
- * deserializeAws_restJson1PhysicalResourceId
- */
-const de_PhysicalResourceId = (output: any, context: __SerdeContext): PhysicalResourceId => {
-  return {
-    awsAccountId: __expectString(output.awsAccountId),
-    awsRegion: __expectString(output.awsRegion),
-    identifier: __expectString(output.identifier),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_PhysicalResourceId omitted.
 
-/**
- * deserializeAws_restJson1PhysicalResourceList
- */
-const de_PhysicalResourceList = (output: any, context: __SerdeContext): PhysicalResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PhysicalResource(entry, context);
-    });
-  return retVal;
-};
+// de_PhysicalResourceList omitted.
 
-/**
- * deserializeAws_restJson1RecommendationCompliance
- */
-const de_RecommendationCompliance = (
-  output: any,
-  context: __SerdeContext
-): Record<string, RecommendationDisruptionCompliance> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, RecommendationDisruptionCompliance>, [key, value]: [DisruptionType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_RecommendationDisruptionCompliance(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_RecommendationCompliance omitted.
 
-/**
- * deserializeAws_restJson1RecommendationDisruptionCompliance
- */
-const de_RecommendationDisruptionCompliance = (
-  output: any,
-  context: __SerdeContext
-): RecommendationDisruptionCompliance => {
-  return {
-    expectedComplianceStatus: __expectString(output.expectedComplianceStatus),
-    expectedRpoDescription: __expectString(output.expectedRpoDescription),
-    expectedRpoInSecs: __expectInt32(output.expectedRpoInSecs),
-    expectedRtoDescription: __expectString(output.expectedRtoDescription),
-    expectedRtoInSecs: __expectInt32(output.expectedRtoInSecs),
-  } as any;
-};
+// de_RecommendationDisruptionCompliance omitted.
 
-/**
- * deserializeAws_restJson1RecommendationIdList
- */
-const de_RecommendationIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RecommendationIdList omitted.
 
-/**
- * deserializeAws_restJson1RecommendationItem
- */
-const de_RecommendationItem = (output: any, context: __SerdeContext): RecommendationItem => {
-  return {
-    alreadyImplemented: __expectBoolean(output.alreadyImplemented),
-    resourceId: __expectString(output.resourceId),
-    targetAccountId: __expectString(output.targetAccountId),
-    targetRegion: __expectString(output.targetRegion),
-  } as any;
-};
+// de_RecommendationItem omitted.
 
-/**
- * deserializeAws_restJson1RecommendationItemList
- */
-const de_RecommendationItemList = (output: any, context: __SerdeContext): RecommendationItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationItem(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationItemList omitted.
 
 /**
  * deserializeAws_restJson1RecommendationTemplate
  */
 const de_RecommendationTemplate = (output: any, context: __SerdeContext): RecommendationTemplate => {
-  return {
-    appArn: __expectString(output.appArn),
-    assessmentArn: __expectString(output.assessmentArn),
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    format: __expectString(output.format),
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-    needsReplacements: __expectBoolean(output.needsReplacements),
-    recommendationIds:
-      output.recommendationIds != null ? de_RecommendationIdList(output.recommendationIds, context) : undefined,
-    recommendationTemplateArn: __expectString(output.recommendationTemplateArn),
-    recommendationTypes:
-      output.recommendationTypes != null
-        ? de_RenderRecommendationTypeList(output.recommendationTypes, context)
-        : undefined,
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    templatesLocation: output.templatesLocation != null ? de_S3Location(output.templatesLocation, context) : undefined,
-  } as any;
+  return take(output, {
+    appArn: __expectString,
+    assessmentArn: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    format: __expectString,
+    message: __expectString,
+    name: __expectString,
+    needsReplacements: __expectBoolean,
+    recommendationIds: _json,
+    recommendationTemplateArn: __expectString,
+    recommendationTypes: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    tags: _json,
+    templatesLocation: _json,
+  }) as any;
 };
 
 /**
@@ -6291,31 +5600,12 @@ const de_RecommendationTemplateList = (output: any, context: __SerdeContext): Re
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RecommendationTemplate(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1RenderRecommendationTypeList
- */
-const de_RenderRecommendationTypeList = (
-  output: any,
-  context: __SerdeContext
-): (RenderRecommendationType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RenderRecommendationTypeList omitted.
 
 /**
  * deserializeAws_restJson1ResiliencyPolicies
@@ -6324,9 +5614,6 @@ const de_ResiliencyPolicies = (output: any, context: __SerdeContext): Resiliency
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResiliencyPolicy(entry, context);
     });
   return retVal;
@@ -6336,257 +5623,60 @@ const de_ResiliencyPolicies = (output: any, context: __SerdeContext): Resiliency
  * deserializeAws_restJson1ResiliencyPolicy
  */
 const de_ResiliencyPolicy = (output: any, context: __SerdeContext): ResiliencyPolicy => {
-  return {
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    dataLocationConstraint: __expectString(output.dataLocationConstraint),
-    estimatedCostTier: __expectString(output.estimatedCostTier),
-    policy: output.policy != null ? de_DisruptionPolicy(output.policy, context) : undefined,
-    policyArn: __expectString(output.policyArn),
-    policyDescription: __expectString(output.policyDescription),
-    policyName: __expectString(output.policyName),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    tier: __expectString(output.tier),
-  } as any;
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataLocationConstraint: __expectString,
+    estimatedCostTier: __expectString,
+    policy: _json,
+    policyArn: __expectString,
+    policyDescription: __expectString,
+    policyName: __expectString,
+    tags: _json,
+    tier: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ResiliencyScore
  */
 const de_ResiliencyScore = (output: any, context: __SerdeContext): ResiliencyScore => {
-  return {
-    disruptionScore:
-      output.disruptionScore != null ? de_DisruptionResiliencyScore(output.disruptionScore, context) : undefined,
-    score: __limitedParseDouble(output.score),
-  } as any;
+  return take(output, {
+    disruptionScore: (_: any) => de_DisruptionResiliencyScore(_, context),
+    score: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ResourceError
- */
-const de_ResourceError = (output: any, context: __SerdeContext): ResourceError => {
-  return {
-    logicalResourceId: __expectString(output.logicalResourceId),
-    physicalResourceId: __expectString(output.physicalResourceId),
-    reason: __expectString(output.reason),
-  } as any;
-};
+// de_ResourceError omitted.
 
-/**
- * deserializeAws_restJson1ResourceErrorList
- */
-const de_ResourceErrorList = (output: any, context: __SerdeContext): ResourceError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceError(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceErrorList omitted.
 
-/**
- * deserializeAws_restJson1ResourceErrorsDetails
- */
-const de_ResourceErrorsDetails = (output: any, context: __SerdeContext): ResourceErrorsDetails => {
-  return {
-    hasMoreErrors: __expectBoolean(output.hasMoreErrors),
-    resourceErrors: output.resourceErrors != null ? de_ResourceErrorList(output.resourceErrors, context) : undefined,
-  } as any;
-};
+// de_ResourceErrorsDetails omitted.
 
-/**
- * deserializeAws_restJson1ResourceMapping
- */
-const de_ResourceMapping = (output: any, context: __SerdeContext): ResourceMapping => {
-  return {
-    appRegistryAppName: __expectString(output.appRegistryAppName),
-    eksSourceName: __expectString(output.eksSourceName),
-    logicalStackName: __expectString(output.logicalStackName),
-    mappingType: __expectString(output.mappingType),
-    physicalResourceId:
-      output.physicalResourceId != null ? de_PhysicalResourceId(output.physicalResourceId, context) : undefined,
-    resourceGroupName: __expectString(output.resourceGroupName),
-    resourceName: __expectString(output.resourceName),
-    terraformSourceName: __expectString(output.terraformSourceName),
-  } as any;
-};
+// de_ResourceMapping omitted.
 
-/**
- * deserializeAws_restJson1ResourceMappingList
- */
-const de_ResourceMappingList = (output: any, context: __SerdeContext): ResourceMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceMapping(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceMappingList omitted.
 
-/**
- * deserializeAws_restJson1S3Location
- */
-const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
-  return {
-    bucket: __expectString(output.bucket),
-    prefix: __expectString(output.prefix),
-  } as any;
-};
+// de_S3Location omitted.
 
-/**
- * deserializeAws_restJson1SopRecommendation
- */
-const de_SopRecommendation = (output: any, context: __SerdeContext): SopRecommendation => {
-  return {
-    appComponentName: __expectString(output.appComponentName),
-    description: __expectString(output.description),
-    items: output.items != null ? de_RecommendationItemList(output.items, context) : undefined,
-    name: __expectString(output.name),
-    prerequisite: __expectString(output.prerequisite),
-    recommendationId: __expectString(output.recommendationId),
-    referenceId: __expectString(output.referenceId),
-    serviceType: __expectString(output.serviceType),
-  } as any;
-};
+// de_SopRecommendation omitted.
 
-/**
- * deserializeAws_restJson1SopRecommendationList
- */
-const de_SopRecommendationList = (output: any, context: __SerdeContext): SopRecommendation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SopRecommendation(entry, context);
-    });
-  return retVal;
-};
+// de_SopRecommendationList omitted.
 
-/**
- * deserializeAws_restJson1SuggestedChangesList
- */
-const de_SuggestedChangesList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SuggestedChangesList omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1TerraformSource
- */
-const de_TerraformSource = (output: any, context: __SerdeContext): TerraformSource => {
-  return {
-    s3StateFileUrl: __expectString(output.s3StateFileUrl),
-  } as any;
-};
+// de_TerraformSource omitted.
 
-/**
- * deserializeAws_restJson1TerraformSourceList
- */
-const de_TerraformSourceList = (output: any, context: __SerdeContext): TerraformSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TerraformSource(entry, context);
-    });
-  return retVal;
-};
+// de_TerraformSourceList omitted.
 
-/**
- * deserializeAws_restJson1TestRecommendation
- */
-const de_TestRecommendation = (output: any, context: __SerdeContext): TestRecommendation => {
-  return {
-    appComponentName: __expectString(output.appComponentName),
-    dependsOnAlarms:
-      output.dependsOnAlarms != null ? de_AlarmReferenceIdList(output.dependsOnAlarms, context) : undefined,
-    description: __expectString(output.description),
-    intent: __expectString(output.intent),
-    items: output.items != null ? de_RecommendationItemList(output.items, context) : undefined,
-    name: __expectString(output.name),
-    prerequisite: __expectString(output.prerequisite),
-    recommendationId: __expectString(output.recommendationId),
-    referenceId: __expectString(output.referenceId),
-    risk: __expectString(output.risk),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_TestRecommendation omitted.
 
-/**
- * deserializeAws_restJson1TestRecommendationList
- */
-const de_TestRecommendationList = (output: any, context: __SerdeContext): TestRecommendation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TestRecommendation(entry, context);
-    });
-  return retVal;
-};
+// de_TestRecommendationList omitted.
 
-/**
- * deserializeAws_restJson1UnsupportedResource
- */
-const de_UnsupportedResource = (output: any, context: __SerdeContext): UnsupportedResource => {
-  return {
-    logicalResourceId:
-      output.logicalResourceId != null ? de_LogicalResourceId(output.logicalResourceId, context) : undefined,
-    physicalResourceId:
-      output.physicalResourceId != null ? de_PhysicalResourceId(output.physicalResourceId, context) : undefined,
-    resourceType: __expectString(output.resourceType),
-    unsupportedResourceStatus: __expectString(output.unsupportedResourceStatus),
-  } as any;
-};
+// de_UnsupportedResource omitted.
 
-/**
- * deserializeAws_restJson1UnsupportedResourceList
- */
-const de_UnsupportedResourceList = (output: any, context: __SerdeContext): UnsupportedResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UnsupportedResource(entry, context);
-    });
-  return retVal;
-};
+// de_UnsupportedResourceList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -9,10 +10,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -205,14 +207,10 @@ import {
   AssessmentMetadata,
   AssessmentMetadataItem,
   AssessmentReport,
-  AssessmentReportEvidenceError,
   AssessmentReportMetadata,
   AssessmentReportsDestination,
   AWSAccount,
   AWSService,
-  BatchCreateDelegationByAssessmentError,
-  BatchDeleteDelegationByAssessmentError,
-  BatchImportEvidenceToAssessmentControlError,
   ChangeLog,
   Control,
   ControlComment,
@@ -230,28 +228,20 @@ import {
   DelegationMetadata,
   DeregistrationPolicy,
   Evidence,
-  EvidenceFinderEnablement,
-  EvidenceInsights,
   Framework,
-  FrameworkMetadata,
   Insights,
   InsightsByAssessment,
   InternalServerException,
   ManualEvidence,
   Notification,
-  Resource,
   ResourceNotFoundException,
   Role,
   Scope,
-  ServiceMetadata,
   ServiceQuotaExceededException,
-  Settings,
   SourceKeyword,
   ThrottlingException,
   UpdateAssessmentFrameworkControlSet,
-  URL,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 
 /**
@@ -277,9 +267,11 @@ export const se_AssociateAssessmentReportEvidenceFolderCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.evidenceFolderId != null && { evidenceFolderId: input.evidenceFolderId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      evidenceFolderId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -314,10 +306,12 @@ export const se_BatchAssociateAssessmentReportEvidenceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.evidenceFolderId != null && { evidenceFolderId: input.evidenceFolderId }),
-    ...(input.evidenceIds != null && { evidenceIds: se_EvidenceIds(input.evidenceIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      evidenceFolderId: [],
+      evidenceIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -351,11 +345,11 @@ export const se_BatchCreateDelegationByAssessmentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.createDelegationRequests != null && {
-      createDelegationRequests: se_CreateDelegationRequests(input.createDelegationRequests, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      createDelegationRequests: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -389,9 +383,11 @@ export const se_BatchDeleteDelegationByAssessmentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.delegationIds != null && { delegationIds: se_DelegationIds(input.delegationIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      delegationIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -426,10 +422,12 @@ export const se_BatchDisassociateAssessmentReportEvidenceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.evidenceFolderId != null && { evidenceFolderId: input.evidenceFolderId }),
-    ...(input.evidenceIds != null && { evidenceIds: se_EvidenceIds(input.evidenceIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      evidenceFolderId: [],
+      evidenceIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -473,9 +471,11 @@ export const se_BatchImportEvidenceToAssessmentControlCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "controlId", () => input.controlId!, "{controlId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.manualEvidence != null && { manualEvidence: se_ManualEvidenceList(input.manualEvidence, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      manualEvidence: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -500,17 +500,17 @@ export const se_CreateAssessmentCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessments";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentReportsDestination != null && {
-      assessmentReportsDestination: se_AssessmentReportsDestination(input.assessmentReportsDestination, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.frameworkId != null && { frameworkId: input.frameworkId }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.roles != null && { roles: se_Roles(input.roles, context) }),
-    ...(input.scope != null && { scope: se_Scope(input.scope, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentReportsDestination: (_) => _json(_),
+      description: [],
+      frameworkId: [],
+      name: [],
+      roles: (_) => _json(_),
+      scope: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -535,15 +535,15 @@ export const se_CreateAssessmentFrameworkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessmentFrameworks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.complianceType != null && { complianceType: input.complianceType }),
-    ...(input.controlSets != null && {
-      controlSets: se_CreateAssessmentFrameworkControlSets(input.controlSets, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      complianceType: [],
+      controlSets: (_) => _json(_),
+      description: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -577,11 +577,13 @@ export const se_CreateAssessmentReportCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.queryStatement != null && { queryStatement: input.queryStatement }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      queryStatement: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -606,17 +608,17 @@ export const se_CreateControlCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/controls";
   let body: any;
-  body = JSON.stringify({
-    ...(input.actionPlanInstructions != null && { actionPlanInstructions: input.actionPlanInstructions }),
-    ...(input.actionPlanTitle != null && { actionPlanTitle: input.actionPlanTitle }),
-    ...(input.controlMappingSources != null && {
-      controlMappingSources: se_CreateControlMappingSources(input.controlMappingSources, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.testingInformation != null && { testingInformation: input.testingInformation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      actionPlanInstructions: [],
+      actionPlanTitle: [],
+      controlMappingSources: (_) => _json(_),
+      description: [],
+      name: [],
+      tags: (_) => _json(_),
+      testingInformation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -816,9 +818,11 @@ export const se_DeregisterOrganizationAdminAccountCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/account/deregisterOrganizationAdminAccount";
   let body: any;
-  body = JSON.stringify({
-    ...(input.adminAccountId != null && { adminAccountId: input.adminAccountId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      adminAccountId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -853,9 +857,11 @@ export const se_DisassociateAssessmentReportEvidenceFolderCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.evidenceFolderId != null && { evidenceFolderId: input.evidenceFolderId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      evidenceFolderId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1785,10 +1791,12 @@ export const se_RegisterAccountCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/registerAccount";
   let body: any;
-  body = JSON.stringify({
-    ...(input.delegatedAdminAccount != null && { delegatedAdminAccount: input.delegatedAdminAccount }),
-    ...(input.kmsKey != null && { kmsKey: input.kmsKey }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      delegatedAdminAccount: [],
+      kmsKey: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1814,9 +1822,11 @@ export const se_RegisterOrganizationAdminAccountCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/registerOrganizationAdminAccount";
   let body: any;
-  body = JSON.stringify({
-    ...(input.adminAccountId != null && { adminAccountId: input.adminAccountId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      adminAccountId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1844,11 +1854,13 @@ export const se_StartAssessmentFrameworkShareCommand = async (
     "/assessmentFrameworks/{frameworkId}/shareRequests";
   resolvedPath = __resolvedPath(resolvedPath, input, "frameworkId", () => input.frameworkId!, "{frameworkId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.comment != null && { comment: input.comment }),
-    ...(input.destinationAccount != null && { destinationAccount: input.destinationAccount }),
-    ...(input.destinationRegion != null && { destinationRegion: input.destinationRegion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      comment: [],
+      destinationAccount: [],
+      destinationRegion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1874,9 +1886,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1940,15 +1954,15 @@ export const se_UpdateAssessmentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.assessmentDescription != null && { assessmentDescription: input.assessmentDescription }),
-    ...(input.assessmentName != null && { assessmentName: input.assessmentName }),
-    ...(input.assessmentReportsDestination != null && {
-      assessmentReportsDestination: se_AssessmentReportsDestination(input.assessmentReportsDestination, context),
-    }),
-    ...(input.roles != null && { roles: se_Roles(input.roles, context) }),
-    ...(input.scope != null && { scope: se_Scope(input.scope, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assessmentDescription: [],
+      assessmentName: [],
+      assessmentReportsDestination: (_) => _json(_),
+      roles: (_) => _json(_),
+      scope: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1992,10 +2006,12 @@ export const se_UpdateAssessmentControlCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "controlId", () => input.controlId!, "{controlId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.commentBody != null && { commentBody: input.commentBody }),
-    ...(input.controlStatus != null && { controlStatus: input.controlStatus }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      commentBody: [],
+      controlStatus: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2038,10 +2054,12 @@ export const se_UpdateAssessmentControlSetStatusCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.comment != null && { comment: input.comment }),
-    ...(input.status != null && { status: input.status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      comment: [],
+      status: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2068,14 +2086,14 @@ export const se_UpdateAssessmentFrameworkCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessmentFrameworks/{frameworkId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "frameworkId", () => input.frameworkId!, "{frameworkId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.complianceType != null && { complianceType: input.complianceType }),
-    ...(input.controlSets != null && {
-      controlSets: se_UpdateAssessmentFrameworkControlSets(input.controlSets, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      complianceType: [],
+      controlSets: (_) => _json(_),
+      description: [],
+      name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2103,10 +2121,12 @@ export const se_UpdateAssessmentFrameworkShareCommand = async (
     "/assessmentFrameworkShareRequests/{requestId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "requestId", () => input.requestId!, "{requestId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.action != null && { action: input.action }),
-    ...(input.requestType != null && { requestType: input.requestType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      action: [],
+      requestType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2140,9 +2160,11 @@ export const se_UpdateAssessmentStatusCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.status != null && { status: input.status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      status: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2168,16 +2190,16 @@ export const se_UpdateControlCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/controls/{controlId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "controlId", () => input.controlId!, "{controlId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.actionPlanInstructions != null && { actionPlanInstructions: input.actionPlanInstructions }),
-    ...(input.actionPlanTitle != null && { actionPlanTitle: input.actionPlanTitle }),
-    ...(input.controlMappingSources != null && {
-      controlMappingSources: se_ControlMappingSources(input.controlMappingSources, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.testingInformation != null && { testingInformation: input.testingInformation }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      actionPlanInstructions: [],
+      actionPlanTitle: [],
+      controlMappingSources: (_) => _json(_),
+      description: [],
+      name: [],
+      testingInformation: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2202,21 +2224,16 @@ export const se_UpdateSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/settings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.defaultAssessmentReportsDestination != null && {
-      defaultAssessmentReportsDestination: se_AssessmentReportsDestination(
-        input.defaultAssessmentReportsDestination,
-        context
-      ),
-    }),
-    ...(input.defaultProcessOwners != null && { defaultProcessOwners: se_Roles(input.defaultProcessOwners, context) }),
-    ...(input.deregistrationPolicy != null && {
-      deregistrationPolicy: se_DeregistrationPolicy(input.deregistrationPolicy, context),
-    }),
-    ...(input.evidenceFinderEnabled != null && { evidenceFinderEnabled: input.evidenceFinderEnabled }),
-    ...(input.kmsKey != null && { kmsKey: input.kmsKey }),
-    ...(input.snsTopic != null && { snsTopic: input.snsTopic }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      defaultAssessmentReportsDestination: (_) => _json(_),
+      defaultProcessOwners: (_) => _json(_),
+      deregistrationPolicy: (_) => _json(_),
+      evidenceFinderEnabled: [],
+      kmsKey: [],
+      snsTopic: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2242,9 +2259,11 @@ export const se_ValidateAssessmentReportIntegrityCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessmentReports/integrity";
   let body: any;
-  body = JSON.stringify({
-    ...(input.s3RelativePath != null && { s3RelativePath: input.s3RelativePath }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      s3RelativePath: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2300,10 +2319,9 @@ const de_AssociateAssessmentReportEvidenceFolderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2323,12 +2341,11 @@ export const de_BatchAssociateAssessmentReportEvidenceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_AssessmentReportEvidenceErrors(data.errors, context);
-  }
-  if (data.evidenceIds != null) {
-    contents.evidenceIds = de_EvidenceIds(data.evidenceIds, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+    evidenceIds: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2359,10 +2376,9 @@ const de_BatchAssociateAssessmentReportEvidenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2382,12 +2398,11 @@ export const de_BatchCreateDelegationByAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.delegations != null) {
-    contents.delegations = de_Delegations(data.delegations, context);
-  }
-  if (data.errors != null) {
-    contents.errors = de_BatchCreateDelegationByAssessmentErrors(data.errors, context);
-  }
+  const doc = take(data, {
+    delegations: (_) => de_Delegations(_, context),
+    errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2418,10 +2433,9 @@ const de_BatchCreateDelegationByAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2441,9 +2455,10 @@ export const de_BatchDeleteDelegationByAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_BatchDeleteDelegationByAssessmentErrors(data.errors, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2474,10 +2489,9 @@ const de_BatchDeleteDelegationByAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2497,12 +2511,11 @@ export const de_BatchDisassociateAssessmentReportEvidenceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_AssessmentReportEvidenceErrors(data.errors, context);
-  }
-  if (data.evidenceIds != null) {
-    contents.evidenceIds = de_EvidenceIds(data.evidenceIds, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+    evidenceIds: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2533,10 +2546,9 @@ const de_BatchDisassociateAssessmentReportEvidenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2556,9 +2568,10 @@ export const de_BatchImportEvidenceToAssessmentControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_BatchImportEvidenceToAssessmentControlErrors(data.errors, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2589,10 +2602,9 @@ const de_BatchImportEvidenceToAssessmentControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2612,9 +2624,10 @@ export const de_CreateAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessment != null) {
-    contents.assessment = de_Assessment(data.assessment, context);
-  }
+  const doc = take(data, {
+    assessment: (_) => de_Assessment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2648,10 +2661,9 @@ const de_CreateAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2671,9 +2683,10 @@ export const de_CreateAssessmentFrameworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.framework != null) {
-    contents.framework = de_Framework(data.framework, context);
-  }
+  const doc = take(data, {
+    framework: (_) => de_Framework(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2707,10 +2720,9 @@ const de_CreateAssessmentFrameworkCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2730,9 +2742,10 @@ export const de_CreateAssessmentReportCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessmentReport != null) {
-    contents.assessmentReport = de_AssessmentReport(data.assessmentReport, context);
-  }
+  const doc = take(data, {
+    assessmentReport: (_) => de_AssessmentReport(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2763,10 +2776,9 @@ const de_CreateAssessmentReportCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2786,9 +2798,10 @@ export const de_CreateControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.control != null) {
-    contents.control = de_Control(data.control, context);
-  }
+  const doc = take(data, {
+    control: (_) => de_Control(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2822,10 +2835,9 @@ const de_CreateControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2875,10 +2887,9 @@ const de_DeleteAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2928,10 +2939,9 @@ const de_DeleteAssessmentFrameworkCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2981,10 +2991,9 @@ const de_DeleteAssessmentFrameworkShareCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3034,10 +3043,9 @@ const de_DeleteAssessmentReportCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3087,10 +3095,9 @@ const de_DeleteControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3110,9 +3117,10 @@ export const de_DeregisterAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3143,10 +3151,9 @@ const de_DeregisterAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3196,10 +3203,9 @@ const de_DeregisterOrganizationAdminAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3249,10 +3255,9 @@ const de_DisassociateAssessmentReportEvidenceFolderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3272,9 +3277,10 @@ export const de_GetAccountStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3296,10 +3302,9 @@ const de_GetAccountStatusCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3319,12 +3324,11 @@ export const de_GetAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessment != null) {
-    contents.assessment = de_Assessment(data.assessment, context);
-  }
-  if (data.userRole != null) {
-    contents.userRole = de_Role(data.userRole, context);
-  }
+  const doc = take(data, {
+    assessment: (_) => de_Assessment(_, context),
+    userRole: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3355,10 +3359,9 @@ const de_GetAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3378,9 +3381,10 @@ export const de_GetAssessmentFrameworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.framework != null) {
-    contents.framework = de_Framework(data.framework, context);
-  }
+  const doc = take(data, {
+    framework: (_) => de_Framework(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3411,10 +3415,9 @@ const de_GetAssessmentFrameworkCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3434,9 +3437,10 @@ export const de_GetAssessmentReportUrlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.preSignedUrl != null) {
-    contents.preSignedUrl = de_URL(data.preSignedUrl, context);
-  }
+  const doc = take(data, {
+    preSignedUrl: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3467,10 +3471,9 @@ const de_GetAssessmentReportUrlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3490,12 +3493,11 @@ export const de_GetChangeLogsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.changeLogs != null) {
-    contents.changeLogs = de_ChangeLogs(data.changeLogs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    changeLogs: (_) => de_ChangeLogs(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3526,10 +3528,9 @@ const de_GetChangeLogsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3549,9 +3550,10 @@ export const de_GetControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.control != null) {
-    contents.control = de_Control(data.control, context);
-  }
+  const doc = take(data, {
+    control: (_) => de_Control(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3582,10 +3584,9 @@ const de_GetControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3605,12 +3606,11 @@ export const de_GetDelegationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.delegations != null) {
-    contents.delegations = de_DelegationMetadataList(data.delegations, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    delegations: (_) => de_DelegationMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3638,10 +3638,9 @@ const de_GetDelegationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3661,9 +3660,10 @@ export const de_GetEvidenceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.evidence != null) {
-    contents.evidence = de_Evidence(data.evidence, context);
-  }
+  const doc = take(data, {
+    evidence: (_) => de_Evidence(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3694,10 +3694,9 @@ const de_GetEvidenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3717,12 +3716,11 @@ export const de_GetEvidenceByEvidenceFolderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.evidence != null) {
-    contents.evidence = de_EvidenceList(data.evidence, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    evidence: (_) => de_EvidenceList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3753,10 +3751,9 @@ const de_GetEvidenceByEvidenceFolderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3776,9 +3773,10 @@ export const de_GetEvidenceFolderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.evidenceFolder != null) {
-    contents.evidenceFolder = de_AssessmentEvidenceFolder(data.evidenceFolder, context);
-  }
+  const doc = take(data, {
+    evidenceFolder: (_) => de_AssessmentEvidenceFolder(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3809,10 +3807,9 @@ const de_GetEvidenceFolderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3832,12 +3829,11 @@ export const de_GetEvidenceFoldersByAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.evidenceFolders != null) {
-    contents.evidenceFolders = de_AssessmentEvidenceFolders(data.evidenceFolders, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    evidenceFolders: (_) => de_AssessmentEvidenceFolders(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3868,10 +3864,9 @@ const de_GetEvidenceFoldersByAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3891,12 +3886,11 @@ export const de_GetEvidenceFoldersByAssessmentControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.evidenceFolders != null) {
-    contents.evidenceFolders = de_AssessmentEvidenceFolders(data.evidenceFolders, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    evidenceFolders: (_) => de_AssessmentEvidenceFolders(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3927,10 +3921,9 @@ const de_GetEvidenceFoldersByAssessmentControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3950,9 +3943,10 @@ export const de_GetInsightsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.insights != null) {
-    contents.insights = de_Insights(data.insights, context);
-  }
+  const doc = take(data, {
+    insights: (_) => de_Insights(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3977,10 +3971,9 @@ const de_GetInsightsCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4000,9 +3993,10 @@ export const de_GetInsightsByAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.insights != null) {
-    contents.insights = de_InsightsByAssessment(data.insights, context);
-  }
+  const doc = take(data, {
+    insights: (_) => de_InsightsByAssessment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4033,10 +4027,9 @@ const de_GetInsightsByAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4056,12 +4049,11 @@ export const de_GetOrganizationAdminAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adminAccountId != null) {
-    contents.adminAccountId = __expectString(data.adminAccountId);
-  }
-  if (data.organizationId != null) {
-    contents.organizationId = __expectString(data.organizationId);
-  }
+  const doc = take(data, {
+    adminAccountId: __expectString,
+    organizationId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4092,10 +4084,9 @@ const de_GetOrganizationAdminAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4115,9 +4106,10 @@ export const de_GetServicesInScopeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.serviceMetadata != null) {
-    contents.serviceMetadata = de_ServiceMetadataList(data.serviceMetadata, context);
-  }
+  const doc = take(data, {
+    serviceMetadata: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4145,10 +4137,9 @@ const de_GetServicesInScopeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4168,9 +4159,10 @@ export const de_GetSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.settings != null) {
-    contents.settings = de_Settings(data.settings, context);
-  }
+  const doc = take(data, {
+    settings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4195,10 +4187,9 @@ const de_GetSettingsCommandError = async (
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4218,15 +4209,11 @@ export const de_ListAssessmentControlInsightsByControlDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.controlInsightsByAssessment != null) {
-    contents.controlInsightsByAssessment = de_ControlInsightsMetadataByAssessment(
-      data.controlInsightsByAssessment,
-      context
-    );
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    controlInsightsByAssessment: (_) => de_ControlInsightsMetadataByAssessment(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4257,10 +4244,9 @@ const de_ListAssessmentControlInsightsByControlDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4280,12 +4266,11 @@ export const de_ListAssessmentFrameworksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.frameworkMetadataList != null) {
-    contents.frameworkMetadataList = de_FrameworkMetadataList(data.frameworkMetadataList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    frameworkMetadataList: (_) => de_FrameworkMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4313,10 +4298,9 @@ const de_ListAssessmentFrameworksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4336,15 +4320,11 @@ export const de_ListAssessmentFrameworkShareRequestsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessmentFrameworkShareRequests != null) {
-    contents.assessmentFrameworkShareRequests = de_AssessmentFrameworkShareRequestList(
-      data.assessmentFrameworkShareRequests,
-      context
-    );
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assessmentFrameworkShareRequests: (_) => de_AssessmentFrameworkShareRequestList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4372,10 +4352,9 @@ const de_ListAssessmentFrameworkShareRequestsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4395,12 +4374,11 @@ export const de_ListAssessmentReportsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessmentReports != null) {
-    contents.assessmentReports = de_AssessmentReportsMetadata(data.assessmentReports, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assessmentReports: (_) => de_AssessmentReportsMetadata(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4428,10 +4406,9 @@ const de_ListAssessmentReportsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4451,12 +4428,11 @@ export const de_ListAssessmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessmentMetadata != null) {
-    contents.assessmentMetadata = de_ListAssessmentMetadata(data.assessmentMetadata, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assessmentMetadata: (_) => de_ListAssessmentMetadata(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4484,10 +4460,9 @@ const de_ListAssessmentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4507,12 +4482,11 @@ export const de_ListControlDomainInsightsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.controlDomainInsights != null) {
-    contents.controlDomainInsights = de_ControlDomainInsightsList(data.controlDomainInsights, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    controlDomainInsights: (_) => de_ControlDomainInsightsList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4543,10 +4517,9 @@ const de_ListControlDomainInsightsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4566,12 +4539,11 @@ export const de_ListControlDomainInsightsByAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.controlDomainInsights != null) {
-    contents.controlDomainInsights = de_ControlDomainInsightsList(data.controlDomainInsights, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    controlDomainInsights: (_) => de_ControlDomainInsightsList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4602,10 +4574,9 @@ const de_ListControlDomainInsightsByAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4625,12 +4596,11 @@ export const de_ListControlInsightsByControlDomainCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.controlInsightsMetadata != null) {
-    contents.controlInsightsMetadata = de_ControlInsightsMetadata(data.controlInsightsMetadata, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    controlInsightsMetadata: (_) => de_ControlInsightsMetadata(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4661,10 +4631,9 @@ const de_ListControlInsightsByControlDomainCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4684,12 +4653,11 @@ export const de_ListControlsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.controlMetadataList != null) {
-    contents.controlMetadataList = de_ControlMetadataList(data.controlMetadataList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    controlMetadataList: (_) => de_ControlMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4717,10 +4685,9 @@ const de_ListControlsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4740,12 +4707,11 @@ export const de_ListKeywordsForDataSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.keywords != null) {
-    contents.keywords = de_Keywords(data.keywords, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    keywords: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4773,10 +4739,9 @@ const de_ListKeywordsForDataSourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4796,12 +4761,11 @@ export const de_ListNotificationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.notifications != null) {
-    contents.notifications = de_Notifications(data.notifications, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    notifications: (_) => de_Notifications(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4829,10 +4793,9 @@ const de_ListNotificationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4852,9 +4815,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4882,10 +4846,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4905,9 +4868,10 @@ export const de_RegisterAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4941,10 +4905,9 @@ const de_RegisterAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4964,12 +4927,11 @@ export const de_RegisterOrganizationAdminAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adminAccountId != null) {
-    contents.adminAccountId = __expectString(data.adminAccountId);
-  }
-  if (data.organizationId != null) {
-    contents.organizationId = __expectString(data.organizationId);
-  }
+  const doc = take(data, {
+    adminAccountId: __expectString,
+    organizationId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5000,10 +4962,9 @@ const de_RegisterOrganizationAdminAccountCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5023,12 +4984,10 @@ export const de_StartAssessmentFrameworkShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessmentFrameworkShareRequest != null) {
-    contents.assessmentFrameworkShareRequest = de_AssessmentFrameworkShareRequest(
-      data.assessmentFrameworkShareRequest,
-      context
-    );
-  }
+  const doc = take(data, {
+    assessmentFrameworkShareRequest: (_) => de_AssessmentFrameworkShareRequest(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5059,10 +5018,9 @@ const de_StartAssessmentFrameworkShareCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5109,10 +5067,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5159,10 +5116,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5182,9 +5138,10 @@ export const de_UpdateAssessmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessment != null) {
-    contents.assessment = de_Assessment(data.assessment, context);
-  }
+  const doc = take(data, {
+    assessment: (_) => de_Assessment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5215,10 +5172,9 @@ const de_UpdateAssessmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5238,9 +5194,10 @@ export const de_UpdateAssessmentControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.control != null) {
-    contents.control = de_AssessmentControl(data.control, context);
-  }
+  const doc = take(data, {
+    control: (_) => de_AssessmentControl(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5271,10 +5228,9 @@ const de_UpdateAssessmentControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5294,9 +5250,10 @@ export const de_UpdateAssessmentControlSetStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.controlSet != null) {
-    contents.controlSet = de_AssessmentControlSet(data.controlSet, context);
-  }
+  const doc = take(data, {
+    controlSet: (_) => de_AssessmentControlSet(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5327,10 +5284,9 @@ const de_UpdateAssessmentControlSetStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5350,9 +5306,10 @@ export const de_UpdateAssessmentFrameworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.framework != null) {
-    contents.framework = de_Framework(data.framework, context);
-  }
+  const doc = take(data, {
+    framework: (_) => de_Framework(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5383,10 +5340,9 @@ const de_UpdateAssessmentFrameworkCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5406,12 +5362,10 @@ export const de_UpdateAssessmentFrameworkShareCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessmentFrameworkShareRequest != null) {
-    contents.assessmentFrameworkShareRequest = de_AssessmentFrameworkShareRequest(
-      data.assessmentFrameworkShareRequest,
-      context
-    );
-  }
+  const doc = take(data, {
+    assessmentFrameworkShareRequest: (_) => de_AssessmentFrameworkShareRequest(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5445,10 +5399,9 @@ const de_UpdateAssessmentFrameworkShareCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5468,9 +5421,10 @@ export const de_UpdateAssessmentStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assessment != null) {
-    contents.assessment = de_Assessment(data.assessment, context);
-  }
+  const doc = take(data, {
+    assessment: (_) => de_Assessment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5504,10 +5458,9 @@ const de_UpdateAssessmentStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5527,9 +5480,10 @@ export const de_UpdateControlCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.control != null) {
-    contents.control = de_Control(data.control, context);
-  }
+  const doc = take(data, {
+    control: (_) => de_Control(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5560,10 +5514,9 @@ const de_UpdateControlCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5583,9 +5536,10 @@ export const de_UpdateSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.settings != null) {
-    contents.settings = de_Settings(data.settings, context);
-  }
+  const doc = take(data, {
+    settings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5613,10 +5567,9 @@ const de_UpdateSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5636,21 +5589,14 @@ export const de_ValidateAssessmentReportIntegrityCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.signatureAlgorithm != null) {
-    contents.signatureAlgorithm = __expectString(data.signatureAlgorithm);
-  }
-  if (data.signatureDateTime != null) {
-    contents.signatureDateTime = __expectString(data.signatureDateTime);
-  }
-  if (data.signatureKeyId != null) {
-    contents.signatureKeyId = __expectString(data.signatureKeyId);
-  }
-  if (data.signatureValid != null) {
-    contents.signatureValid = __expectBoolean(data.signatureValid);
-  }
-  if (data.validationErrors != null) {
-    contents.validationErrors = de_ValidationErrors(data.validationErrors, context);
-  }
+  const doc = take(data, {
+    signatureAlgorithm: __expectString,
+    signatureDateTime: __expectString,
+    signatureKeyId: __expectString,
+    signatureValid: __expectBoolean,
+    validationErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5681,16 +5627,15 @@ const de_ValidateAssessmentReportIntegrityCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -5700,9 +5645,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5719,9 +5665,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5738,15 +5685,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5763,9 +5707,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5779,9 +5724,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5795,15 +5741,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fields != null) {
-    contents.fields = de_ValidationExceptionFieldList(data.fields, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fields: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5811,345 +5754,88 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AssessmentReportsDestination
- */
-const se_AssessmentReportsDestination = (input: AssessmentReportsDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.destination != null && { destination: input.destination }),
-    ...(input.destinationType != null && { destinationType: input.destinationType }),
-  };
-};
+// se_AssessmentReportsDestination omitted.
 
-/**
- * serializeAws_restJson1AWSAccount
- */
-const se_AWSAccount = (input: AWSAccount, context: __SerdeContext): any => {
-  return {
-    ...(input.emailAddress != null && { emailAddress: input.emailAddress }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_AWSAccount omitted.
 
-/**
- * serializeAws_restJson1AWSAccounts
- */
-const se_AWSAccounts = (input: AWSAccount[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AWSAccount(entry, context);
-    });
-};
+// se_AWSAccounts omitted.
 
-/**
- * serializeAws_restJson1AWSService
- */
-const se_AWSService = (input: AWSService, context: __SerdeContext): any => {
-  return {
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
+// se_AWSService omitted.
 
-/**
- * serializeAws_restJson1AWSServices
- */
-const se_AWSServices = (input: AWSService[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AWSService(entry, context);
-    });
-};
+// se_AWSServices omitted.
 
-/**
- * serializeAws_restJson1ControlMappingSource
- */
-const se_ControlMappingSource = (input: ControlMappingSource, context: __SerdeContext): any => {
-  return {
-    ...(input.sourceDescription != null && { sourceDescription: input.sourceDescription }),
-    ...(input.sourceFrequency != null && { sourceFrequency: input.sourceFrequency }),
-    ...(input.sourceId != null && { sourceId: input.sourceId }),
-    ...(input.sourceKeyword != null && { sourceKeyword: se_SourceKeyword(input.sourceKeyword, context) }),
-    ...(input.sourceName != null && { sourceName: input.sourceName }),
-    ...(input.sourceSetUpOption != null && { sourceSetUpOption: input.sourceSetUpOption }),
-    ...(input.sourceType != null && { sourceType: input.sourceType }),
-    ...(input.troubleshootingText != null && { troubleshootingText: input.troubleshootingText }),
-  };
-};
+// se_ControlMappingSource omitted.
 
-/**
- * serializeAws_restJson1ControlMappingSources
- */
-const se_ControlMappingSources = (input: ControlMappingSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ControlMappingSource(entry, context);
-    });
-};
+// se_ControlMappingSources omitted.
 
-/**
- * serializeAws_restJson1CreateAssessmentFrameworkControl
- */
-const se_CreateAssessmentFrameworkControl = (input: CreateAssessmentFrameworkControl, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_CreateAssessmentFrameworkControl omitted.
 
-/**
- * serializeAws_restJson1CreateAssessmentFrameworkControls
- */
-const se_CreateAssessmentFrameworkControls = (
-  input: CreateAssessmentFrameworkControl[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateAssessmentFrameworkControl(entry, context);
-    });
-};
+// se_CreateAssessmentFrameworkControls omitted.
 
-/**
- * serializeAws_restJson1CreateAssessmentFrameworkControlSet
- */
-const se_CreateAssessmentFrameworkControlSet = (
-  input: CreateAssessmentFrameworkControlSet,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.controls != null && { controls: se_CreateAssessmentFrameworkControls(input.controls, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_CreateAssessmentFrameworkControlSet omitted.
 
-/**
- * serializeAws_restJson1CreateAssessmentFrameworkControlSets
- */
-const se_CreateAssessmentFrameworkControlSets = (
-  input: CreateAssessmentFrameworkControlSet[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateAssessmentFrameworkControlSet(entry, context);
-    });
-};
+// se_CreateAssessmentFrameworkControlSets omitted.
 
-/**
- * serializeAws_restJson1CreateControlMappingSource
- */
-const se_CreateControlMappingSource = (input: CreateControlMappingSource, context: __SerdeContext): any => {
-  return {
-    ...(input.sourceDescription != null && { sourceDescription: input.sourceDescription }),
-    ...(input.sourceFrequency != null && { sourceFrequency: input.sourceFrequency }),
-    ...(input.sourceKeyword != null && { sourceKeyword: se_SourceKeyword(input.sourceKeyword, context) }),
-    ...(input.sourceName != null && { sourceName: input.sourceName }),
-    ...(input.sourceSetUpOption != null && { sourceSetUpOption: input.sourceSetUpOption }),
-    ...(input.sourceType != null && { sourceType: input.sourceType }),
-    ...(input.troubleshootingText != null && { troubleshootingText: input.troubleshootingText }),
-  };
-};
+// se_CreateControlMappingSource omitted.
 
-/**
- * serializeAws_restJson1CreateControlMappingSources
- */
-const se_CreateControlMappingSources = (input: CreateControlMappingSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateControlMappingSource(entry, context);
-    });
-};
+// se_CreateControlMappingSources omitted.
 
-/**
- * serializeAws_restJson1CreateDelegationRequest
- */
-const se_CreateDelegationRequest = (input: CreateDelegationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.comment != null && { comment: input.comment }),
-    ...(input.controlSetId != null && { controlSetId: input.controlSetId }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.roleType != null && { roleType: input.roleType }),
-  };
-};
+// se_CreateDelegationRequest omitted.
 
-/**
- * serializeAws_restJson1CreateDelegationRequests
- */
-const se_CreateDelegationRequests = (input: CreateDelegationRequest[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateDelegationRequest(entry, context);
-    });
-};
+// se_CreateDelegationRequests omitted.
 
-/**
- * serializeAws_restJson1DelegationIds
- */
-const se_DelegationIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DelegationIds omitted.
 
-/**
- * serializeAws_restJson1DeregistrationPolicy
- */
-const se_DeregistrationPolicy = (input: DeregistrationPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.deleteResources != null && { deleteResources: input.deleteResources }),
-  };
-};
+// se_DeregistrationPolicy omitted.
 
-/**
- * serializeAws_restJson1EvidenceIds
- */
-const se_EvidenceIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EvidenceIds omitted.
 
-/**
- * serializeAws_restJson1ManualEvidence
- */
-const se_ManualEvidence = (input: ManualEvidence, context: __SerdeContext): any => {
-  return {
-    ...(input.s3ResourcePath != null && { s3ResourcePath: input.s3ResourcePath }),
-  };
-};
+// se_ManualEvidence omitted.
 
-/**
- * serializeAws_restJson1ManualEvidenceList
- */
-const se_ManualEvidenceList = (input: ManualEvidence[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ManualEvidence(entry, context);
-    });
-};
+// se_ManualEvidenceList omitted.
 
-/**
- * serializeAws_restJson1Role
- */
-const se_Role = (input: Role, context: __SerdeContext): any => {
-  return {
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.roleType != null && { roleType: input.roleType }),
-  };
-};
+// se_Role omitted.
 
-/**
- * serializeAws_restJson1Roles
- */
-const se_Roles = (input: Role[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Role(entry, context);
-    });
-};
+// se_Roles omitted.
 
-/**
- * serializeAws_restJson1Scope
- */
-const se_Scope = (input: Scope, context: __SerdeContext): any => {
-  return {
-    ...(input.awsAccounts != null && { awsAccounts: se_AWSAccounts(input.awsAccounts, context) }),
-    ...(input.awsServices != null && { awsServices: se_AWSServices(input.awsServices, context) }),
-  };
-};
+// se_Scope omitted.
 
-/**
- * serializeAws_restJson1SourceKeyword
- */
-const se_SourceKeyword = (input: SourceKeyword, context: __SerdeContext): any => {
-  return {
-    ...(input.keywordInputType != null && { keywordInputType: input.keywordInputType }),
-    ...(input.keywordValue != null && { keywordValue: input.keywordValue }),
-  };
-};
+// se_SourceKeyword omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1UpdateAssessmentFrameworkControlSet
- */
-const se_UpdateAssessmentFrameworkControlSet = (
-  input: UpdateAssessmentFrameworkControlSet,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.controls != null && { controls: se_CreateAssessmentFrameworkControls(input.controls, context) }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_UpdateAssessmentFrameworkControlSet omitted.
 
-/**
- * serializeAws_restJson1UpdateAssessmentFrameworkControlSets
- */
-const se_UpdateAssessmentFrameworkControlSets = (
-  input: UpdateAssessmentFrameworkControlSet[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpdateAssessmentFrameworkControlSet(entry, context);
-    });
-};
+// se_UpdateAssessmentFrameworkControlSets omitted.
 
 /**
  * deserializeAws_restJson1Assessment
  */
 const de_Assessment = (output: any, context: __SerdeContext): Assessment => {
-  return {
-    arn: __expectString(output.arn),
-    awsAccount: output.awsAccount != null ? de_AWSAccount(output.awsAccount, context) : undefined,
-    framework: output.framework != null ? de_AssessmentFramework(output.framework, context) : undefined,
-    metadata: output.metadata != null ? de_AssessmentMetadata(output.metadata, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    awsAccount: _json,
+    framework: (_: any) => de_AssessmentFramework(_, context),
+    metadata: (_: any) => de_AssessmentMetadata(_, context),
+    tags: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AssessmentControl
  */
 const de_AssessmentControl = (output: any, context: __SerdeContext): AssessmentControl => {
-  return {
-    assessmentReportEvidenceCount: __expectInt32(output.assessmentReportEvidenceCount),
-    comments: output.comments != null ? de_ControlComments(output.comments, context) : undefined,
-    description: __expectString(output.description),
-    evidenceCount: __expectInt32(output.evidenceCount),
-    evidenceSources: output.evidenceSources != null ? de_EvidenceSources(output.evidenceSources, context) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    response: __expectString(output.response),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    assessmentReportEvidenceCount: __expectInt32,
+    comments: (_: any) => de_ControlComments(_, context),
+    description: __expectString,
+    evidenceCount: __expectInt32,
+    evidenceSources: _json,
+    id: __expectString,
+    name: __expectString,
+    response: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6159,9 +5845,6 @@ const de_AssessmentControls = (output: any, context: __SerdeContext): Assessment
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentControl(entry, context);
     });
   return retVal;
@@ -6171,16 +5854,16 @@ const de_AssessmentControls = (output: any, context: __SerdeContext): Assessment
  * deserializeAws_restJson1AssessmentControlSet
  */
 const de_AssessmentControlSet = (output: any, context: __SerdeContext): AssessmentControlSet => {
-  return {
-    controls: output.controls != null ? de_AssessmentControls(output.controls, context) : undefined,
-    delegations: output.delegations != null ? de_Delegations(output.delegations, context) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    manualEvidenceCount: __expectInt32(output.manualEvidenceCount),
-    roles: output.roles != null ? de_Roles(output.roles, context) : undefined,
-    status: __expectString(output.status),
-    systemEvidenceCount: __expectInt32(output.systemEvidenceCount),
-  } as any;
+  return take(output, {
+    controls: (_: any) => de_AssessmentControls(_, context),
+    delegations: (_: any) => de_Delegations(_, context),
+    description: __expectString,
+    id: __expectString,
+    manualEvidenceCount: __expectInt32,
+    roles: _json,
+    status: __expectString,
+    systemEvidenceCount: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -6190,9 +5873,6 @@ const de_AssessmentControlSets = (output: any, context: __SerdeContext): Assessm
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentControlSet(entry, context);
     });
   return retVal;
@@ -6202,26 +5882,26 @@ const de_AssessmentControlSets = (output: any, context: __SerdeContext): Assessm
  * deserializeAws_restJson1AssessmentEvidenceFolder
  */
 const de_AssessmentEvidenceFolder = (output: any, context: __SerdeContext): AssessmentEvidenceFolder => {
-  return {
-    assessmentId: __expectString(output.assessmentId),
-    assessmentReportSelectionCount: __expectInt32(output.assessmentReportSelectionCount),
-    author: __expectString(output.author),
-    controlId: __expectString(output.controlId),
-    controlName: __expectString(output.controlName),
-    controlSetId: __expectString(output.controlSetId),
-    dataSource: __expectString(output.dataSource),
-    date: output.date != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.date))) : undefined,
-    evidenceAwsServiceSourceCount: __expectInt32(output.evidenceAwsServiceSourceCount),
-    evidenceByTypeComplianceCheckCount: __expectInt32(output.evidenceByTypeComplianceCheckCount),
-    evidenceByTypeComplianceCheckIssuesCount: __expectInt32(output.evidenceByTypeComplianceCheckIssuesCount),
-    evidenceByTypeConfigurationDataCount: __expectInt32(output.evidenceByTypeConfigurationDataCount),
-    evidenceByTypeManualCount: __expectInt32(output.evidenceByTypeManualCount),
-    evidenceByTypeUserActivityCount: __expectInt32(output.evidenceByTypeUserActivityCount),
-    evidenceResourcesIncludedCount: __expectInt32(output.evidenceResourcesIncludedCount),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    totalEvidence: __expectInt32(output.totalEvidence),
-  } as any;
+  return take(output, {
+    assessmentId: __expectString,
+    assessmentReportSelectionCount: __expectInt32,
+    author: __expectString,
+    controlId: __expectString,
+    controlName: __expectString,
+    controlSetId: __expectString,
+    dataSource: __expectString,
+    date: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    evidenceAwsServiceSourceCount: __expectInt32,
+    evidenceByTypeComplianceCheckCount: __expectInt32,
+    evidenceByTypeComplianceCheckIssuesCount: __expectInt32,
+    evidenceByTypeConfigurationDataCount: __expectInt32,
+    evidenceByTypeManualCount: __expectInt32,
+    evidenceByTypeUserActivityCount: __expectInt32,
+    evidenceResourcesIncludedCount: __expectInt32,
+    id: __expectString,
+    name: __expectString,
+    totalEvidence: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -6231,9 +5911,6 @@ const de_AssessmentEvidenceFolders = (output: any, context: __SerdeContext): Ass
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentEvidenceFolder(entry, context);
     });
   return retVal;
@@ -6243,67 +5920,54 @@ const de_AssessmentEvidenceFolders = (output: any, context: __SerdeContext): Ass
  * deserializeAws_restJson1AssessmentFramework
  */
 const de_AssessmentFramework = (output: any, context: __SerdeContext): AssessmentFramework => {
-  return {
-    arn: __expectString(output.arn),
-    controlSets: output.controlSets != null ? de_AssessmentControlSets(output.controlSets, context) : undefined,
-    id: __expectString(output.id),
-    metadata: output.metadata != null ? de_FrameworkMetadata(output.metadata, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    controlSets: (_: any) => de_AssessmentControlSets(_, context),
+    id: __expectString,
+    metadata: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AssessmentFrameworkMetadata
  */
 const de_AssessmentFrameworkMetadata = (output: any, context: __SerdeContext): AssessmentFrameworkMetadata => {
-  return {
-    arn: __expectString(output.arn),
-    complianceType: __expectString(output.complianceType),
-    controlSetsCount: __expectInt32(output.controlSetsCount),
-    controlsCount: __expectInt32(output.controlsCount),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    logo: __expectString(output.logo),
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    complianceType: __expectString,
+    controlSetsCount: __expectInt32,
+    controlsCount: __expectInt32,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    logo: __expectString,
+    name: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AssessmentFrameworkShareRequest
  */
 const de_AssessmentFrameworkShareRequest = (output: any, context: __SerdeContext): AssessmentFrameworkShareRequest => {
-  return {
-    comment: __expectString(output.comment),
-    complianceType: __expectString(output.complianceType),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    customControlsCount: __expectInt32(output.customControlsCount),
-    destinationAccount: __expectString(output.destinationAccount),
-    destinationRegion: __expectString(output.destinationRegion),
-    expirationTime:
-      output.expirationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expirationTime)))
-        : undefined,
-    frameworkDescription: __expectString(output.frameworkDescription),
-    frameworkId: __expectString(output.frameworkId),
-    frameworkName: __expectString(output.frameworkName),
-    id: __expectString(output.id),
-    lastUpdated:
-      output.lastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
-        : undefined,
-    sourceAccount: __expectString(output.sourceAccount),
-    standardControlsCount: __expectInt32(output.standardControlsCount),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    comment: __expectString,
+    complianceType: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customControlsCount: __expectInt32,
+    destinationAccount: __expectString,
+    destinationRegion: __expectString,
+    expirationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    frameworkDescription: __expectString,
+    frameworkId: __expectString,
+    frameworkName: __expectString,
+    id: __expectString,
+    lastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sourceAccount: __expectString,
+    standardControlsCount: __expectInt32,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6316,9 +5980,6 @@ const de_AssessmentFrameworkShareRequestList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentFrameworkShareRequest(entry, context);
     });
   return retVal;
@@ -6328,126 +5989,75 @@ const de_AssessmentFrameworkShareRequestList = (
  * deserializeAws_restJson1AssessmentMetadata
  */
 const de_AssessmentMetadata = (output: any, context: __SerdeContext): AssessmentMetadata => {
-  return {
-    assessmentReportsDestination:
-      output.assessmentReportsDestination != null
-        ? de_AssessmentReportsDestination(output.assessmentReportsDestination, context)
-        : undefined,
-    complianceType: __expectString(output.complianceType),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    delegations: output.delegations != null ? de_Delegations(output.delegations, context) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastUpdated:
-      output.lastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
-        : undefined,
-    name: __expectString(output.name),
-    roles: output.roles != null ? de_Roles(output.roles, context) : undefined,
-    scope: output.scope != null ? de_Scope(output.scope, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    assessmentReportsDestination: _json,
+    complianceType: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    delegations: (_: any) => de_Delegations(_, context),
+    description: __expectString,
+    id: __expectString,
+    lastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    roles: _json,
+    scope: _json,
+    status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AssessmentMetadataItem
  */
 const de_AssessmentMetadataItem = (output: any, context: __SerdeContext): AssessmentMetadataItem => {
-  return {
-    complianceType: __expectString(output.complianceType),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    delegations: output.delegations != null ? de_Delegations(output.delegations, context) : undefined,
-    id: __expectString(output.id),
-    lastUpdated:
-      output.lastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
-        : undefined,
-    name: __expectString(output.name),
-    roles: output.roles != null ? de_Roles(output.roles, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    complianceType: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    delegations: (_: any) => de_Delegations(_, context),
+    id: __expectString,
+    lastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    roles: _json,
+    status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AssessmentReport
  */
 const de_AssessmentReport = (output: any, context: __SerdeContext): AssessmentReport => {
-  return {
-    assessmentId: __expectString(output.assessmentId),
-    assessmentName: __expectString(output.assessmentName),
-    author: __expectString(output.author),
-    awsAccountId: __expectString(output.awsAccountId),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    assessmentId: __expectString,
+    assessmentName: __expectString,
+    author: __expectString,
+    awsAccountId: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AssessmentReportEvidenceError
- */
-const de_AssessmentReportEvidenceError = (output: any, context: __SerdeContext): AssessmentReportEvidenceError => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    evidenceId: __expectString(output.evidenceId),
-  } as any;
-};
+// de_AssessmentReportEvidenceError omitted.
 
-/**
- * deserializeAws_restJson1AssessmentReportEvidenceErrors
- */
-const de_AssessmentReportEvidenceErrors = (output: any, context: __SerdeContext): AssessmentReportEvidenceError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssessmentReportEvidenceError(entry, context);
-    });
-  return retVal;
-};
+// de_AssessmentReportEvidenceErrors omitted.
 
 /**
  * deserializeAws_restJson1AssessmentReportMetadata
  */
 const de_AssessmentReportMetadata = (output: any, context: __SerdeContext): AssessmentReportMetadata => {
-  return {
-    assessmentId: __expectString(output.assessmentId),
-    assessmentName: __expectString(output.assessmentName),
-    author: __expectString(output.author),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    assessmentId: __expectString,
+    assessmentName: __expectString,
+    author: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AssessmentReportsDestination
- */
-const de_AssessmentReportsDestination = (output: any, context: __SerdeContext): AssessmentReportsDestination => {
-  return {
-    destination: __expectString(output.destination),
-    destinationType: __expectString(output.destinationType),
-  } as any;
-};
+// de_AssessmentReportsDestination omitted.
 
 /**
  * deserializeAws_restJson1AssessmentReportsMetadata
@@ -6456,175 +6066,42 @@ const de_AssessmentReportsMetadata = (output: any, context: __SerdeContext): Ass
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentReportMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1AWSAccount
- */
-const de_AWSAccount = (output: any, context: __SerdeContext): AWSAccount => {
-  return {
-    emailAddress: __expectString(output.emailAddress),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_AWSAccount omitted.
 
-/**
- * deserializeAws_restJson1AWSAccounts
- */
-const de_AWSAccounts = (output: any, context: __SerdeContext): AWSAccount[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AWSAccount(entry, context);
-    });
-  return retVal;
-};
+// de_AWSAccounts omitted.
 
-/**
- * deserializeAws_restJson1AWSService
- */
-const de_AWSService = (output: any, context: __SerdeContext): AWSService => {
-  return {
-    serviceName: __expectString(output.serviceName),
-  } as any;
-};
+// de_AWSService omitted.
 
-/**
- * deserializeAws_restJson1AWSServices
- */
-const de_AWSServices = (output: any, context: __SerdeContext): AWSService[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AWSService(entry, context);
-    });
-  return retVal;
-};
+// de_AWSServices omitted.
 
-/**
- * deserializeAws_restJson1BatchCreateDelegationByAssessmentError
- */
-const de_BatchCreateDelegationByAssessmentError = (
-  output: any,
-  context: __SerdeContext
-): BatchCreateDelegationByAssessmentError => {
-  return {
-    createDelegationRequest:
-      output.createDelegationRequest != null
-        ? de_CreateDelegationRequest(output.createDelegationRequest, context)
-        : undefined,
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-  } as any;
-};
+// de_BatchCreateDelegationByAssessmentError omitted.
 
-/**
- * deserializeAws_restJson1BatchCreateDelegationByAssessmentErrors
- */
-const de_BatchCreateDelegationByAssessmentErrors = (
-  output: any,
-  context: __SerdeContext
-): BatchCreateDelegationByAssessmentError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchCreateDelegationByAssessmentError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchCreateDelegationByAssessmentErrors omitted.
 
-/**
- * deserializeAws_restJson1BatchDeleteDelegationByAssessmentError
- */
-const de_BatchDeleteDelegationByAssessmentError = (
-  output: any,
-  context: __SerdeContext
-): BatchDeleteDelegationByAssessmentError => {
-  return {
-    delegationId: __expectString(output.delegationId),
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-  } as any;
-};
+// de_BatchDeleteDelegationByAssessmentError omitted.
 
-/**
- * deserializeAws_restJson1BatchDeleteDelegationByAssessmentErrors
- */
-const de_BatchDeleteDelegationByAssessmentErrors = (
-  output: any,
-  context: __SerdeContext
-): BatchDeleteDelegationByAssessmentError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchDeleteDelegationByAssessmentError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchDeleteDelegationByAssessmentErrors omitted.
 
-/**
- * deserializeAws_restJson1BatchImportEvidenceToAssessmentControlError
- */
-const de_BatchImportEvidenceToAssessmentControlError = (
-  output: any,
-  context: __SerdeContext
-): BatchImportEvidenceToAssessmentControlError => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    manualEvidence: output.manualEvidence != null ? de_ManualEvidence(output.manualEvidence, context) : undefined,
-  } as any;
-};
+// de_BatchImportEvidenceToAssessmentControlError omitted.
 
-/**
- * deserializeAws_restJson1BatchImportEvidenceToAssessmentControlErrors
- */
-const de_BatchImportEvidenceToAssessmentControlErrors = (
-  output: any,
-  context: __SerdeContext
-): BatchImportEvidenceToAssessmentControlError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchImportEvidenceToAssessmentControlError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchImportEvidenceToAssessmentControlErrors omitted.
 
 /**
  * deserializeAws_restJson1ChangeLog
  */
 const de_ChangeLog = (output: any, context: __SerdeContext): ChangeLog => {
-  return {
-    action: __expectString(output.action),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    createdBy: __expectString(output.createdBy),
-    objectName: __expectString(output.objectName),
-    objectType: __expectString(output.objectType),
-  } as any;
+  return take(output, {
+    action: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    objectName: __expectString,
+    objectType: __expectString,
+  }) as any;
 };
 
 /**
@@ -6634,9 +6111,6 @@ const de_ChangeLogs = (output: any, context: __SerdeContext): ChangeLog[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChangeLog(entry, context);
     });
   return retVal;
@@ -6646,42 +6120,34 @@ const de_ChangeLogs = (output: any, context: __SerdeContext): ChangeLog[] => {
  * deserializeAws_restJson1Control
  */
 const de_Control = (output: any, context: __SerdeContext): Control => {
-  return {
-    actionPlanInstructions: __expectString(output.actionPlanInstructions),
-    actionPlanTitle: __expectString(output.actionPlanTitle),
-    arn: __expectString(output.arn),
-    controlMappingSources:
-      output.controlMappingSources != null
-        ? de_ControlMappingSources(output.controlMappingSources, context)
-        : undefined,
-    controlSources: __expectString(output.controlSources),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    createdBy: __expectString(output.createdBy),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    lastUpdatedBy: __expectString(output.lastUpdatedBy),
-    name: __expectString(output.name),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    testingInformation: __expectString(output.testingInformation),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    actionPlanInstructions: __expectString,
+    actionPlanTitle: __expectString,
+    arn: __expectString,
+    controlMappingSources: _json,
+    controlSources: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedBy: __expectString,
+    name: __expectString,
+    tags: _json,
+    testingInformation: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ControlComment
  */
 const de_ControlComment = (output: any, context: __SerdeContext): ControlComment => {
-  return {
-    authorName: __expectString(output.authorName),
-    commentBody: __expectString(output.commentBody),
-    postedDate:
-      output.postedDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.postedDate))) : undefined,
-  } as any;
+  return take(output, {
+    authorName: __expectString,
+    commentBody: __expectString,
+    postedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -6691,9 +6157,6 @@ const de_ControlComments = (output: any, context: __SerdeContext): ControlCommen
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ControlComment(entry, context);
     });
   return retVal;
@@ -6703,18 +6166,14 @@ const de_ControlComments = (output: any, context: __SerdeContext): ControlCommen
  * deserializeAws_restJson1ControlDomainInsights
  */
 const de_ControlDomainInsights = (output: any, context: __SerdeContext): ControlDomainInsights => {
-  return {
-    controlsCountByNoncompliantEvidence: __expectInt32(output.controlsCountByNoncompliantEvidence),
-    evidenceInsights:
-      output.evidenceInsights != null ? de_EvidenceInsights(output.evidenceInsights, context) : undefined,
-    id: __expectString(output.id),
-    lastUpdated:
-      output.lastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
-        : undefined,
-    name: __expectString(output.name),
-    totalControlsCount: __expectInt32(output.totalControlsCount),
-  } as any;
+  return take(output, {
+    controlsCountByNoncompliantEvidence: __expectInt32,
+    evidenceInsights: _json,
+    id: __expectString,
+    lastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    totalControlsCount: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -6724,9 +6183,6 @@ const de_ControlDomainInsightsList = (output: any, context: __SerdeContext): Con
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ControlDomainInsights(entry, context);
     });
   return retVal;
@@ -6739,9 +6195,6 @@ const de_ControlInsightsMetadata = (output: any, context: __SerdeContext): Contr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ControlInsightsMetadataItem(entry, context);
     });
   return retVal;
@@ -6757,9 +6210,6 @@ const de_ControlInsightsMetadataByAssessment = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ControlInsightsMetadataByAssessmentItem(entry, context);
     });
   return retVal;
@@ -6772,82 +6222,43 @@ const de_ControlInsightsMetadataByAssessmentItem = (
   output: any,
   context: __SerdeContext
 ): ControlInsightsMetadataByAssessmentItem => {
-  return {
-    controlSetName: __expectString(output.controlSetName),
-    evidenceInsights:
-      output.evidenceInsights != null ? de_EvidenceInsights(output.evidenceInsights, context) : undefined,
-    id: __expectString(output.id),
-    lastUpdated:
-      output.lastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    controlSetName: __expectString,
+    evidenceInsights: _json,
+    id: __expectString,
+    lastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ControlInsightsMetadataItem
  */
 const de_ControlInsightsMetadataItem = (output: any, context: __SerdeContext): ControlInsightsMetadataItem => {
-  return {
-    evidenceInsights:
-      output.evidenceInsights != null ? de_EvidenceInsights(output.evidenceInsights, context) : undefined,
-    id: __expectString(output.id),
-    lastUpdated:
-      output.lastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    evidenceInsights: _json,
+    id: __expectString,
+    lastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ControlMappingSource
- */
-const de_ControlMappingSource = (output: any, context: __SerdeContext): ControlMappingSource => {
-  return {
-    sourceDescription: __expectString(output.sourceDescription),
-    sourceFrequency: __expectString(output.sourceFrequency),
-    sourceId: __expectString(output.sourceId),
-    sourceKeyword: output.sourceKeyword != null ? de_SourceKeyword(output.sourceKeyword, context) : undefined,
-    sourceName: __expectString(output.sourceName),
-    sourceSetUpOption: __expectString(output.sourceSetUpOption),
-    sourceType: __expectString(output.sourceType),
-    troubleshootingText: __expectString(output.troubleshootingText),
-  } as any;
-};
+// de_ControlMappingSource omitted.
 
-/**
- * deserializeAws_restJson1ControlMappingSources
- */
-const de_ControlMappingSources = (output: any, context: __SerdeContext): ControlMappingSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ControlMappingSource(entry, context);
-    });
-  return retVal;
-};
+// de_ControlMappingSources omitted.
 
 /**
  * deserializeAws_restJson1ControlMetadata
  */
 const de_ControlMetadata = (output: any, context: __SerdeContext): ControlMetadata => {
-  return {
-    arn: __expectString(output.arn),
-    controlSources: __expectString(output.controlSources),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    id: __expectString(output.id),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    controlSources: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
 /**
@@ -6857,9 +6268,6 @@ const de_ControlMetadataList = (output: any, context: __SerdeContext): ControlMe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ControlMetadata(entry, context);
     });
   return retVal;
@@ -6872,9 +6280,6 @@ const de_Controls = (output: any, context: __SerdeContext): Control[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Control(entry, context);
     });
   return retVal;
@@ -6884,11 +6289,11 @@ const de_Controls = (output: any, context: __SerdeContext): Control[] => {
  * deserializeAws_restJson1ControlSet
  */
 const de_ControlSet = (output: any, context: __SerdeContext): ControlSet => {
-  return {
-    controls: output.controls != null ? de_Controls(output.controls, context) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    controls: (_: any) => de_Controls(_, context),
+    id: __expectString,
+    name: __expectString,
+  }) as any;
 };
 
 /**
@@ -6898,67 +6303,45 @@ const de_ControlSets = (output: any, context: __SerdeContext): ControlSet[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ControlSet(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1CreateDelegationRequest
- */
-const de_CreateDelegationRequest = (output: any, context: __SerdeContext): CreateDelegationRequest => {
-  return {
-    comment: __expectString(output.comment),
-    controlSetId: __expectString(output.controlSetId),
-    roleArn: __expectString(output.roleArn),
-    roleType: __expectString(output.roleType),
-  } as any;
-};
+// de_CreateDelegationRequest omitted.
 
 /**
  * deserializeAws_restJson1Delegation
  */
 const de_Delegation = (output: any, context: __SerdeContext): Delegation => {
-  return {
-    assessmentId: __expectString(output.assessmentId),
-    assessmentName: __expectString(output.assessmentName),
-    comment: __expectString(output.comment),
-    controlSetId: __expectString(output.controlSetId),
-    createdBy: __expectString(output.createdBy),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    id: __expectString(output.id),
-    lastUpdated:
-      output.lastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
-        : undefined,
-    roleArn: __expectString(output.roleArn),
-    roleType: __expectString(output.roleType),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    assessmentId: __expectString,
+    assessmentName: __expectString,
+    comment: __expectString,
+    controlSetId: __expectString,
+    createdBy: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    lastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+    roleType: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1DelegationMetadata
  */
 const de_DelegationMetadata = (output: any, context: __SerdeContext): DelegationMetadata => {
-  return {
-    assessmentId: __expectString(output.assessmentId),
-    assessmentName: __expectString(output.assessmentName),
-    controlSetName: __expectString(output.controlSetName),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    id: __expectString(output.id),
-    roleArn: __expectString(output.roleArn),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    assessmentId: __expectString,
+    assessmentName: __expectString,
+    controlSetName: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    roleArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -6968,9 +6351,6 @@ const de_DelegationMetadataList = (output: any, context: __SerdeContext): Delega
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DelegationMetadata(entry, context);
     });
   return retVal;
@@ -6983,96 +6363,43 @@ const de_Delegations = (output: any, context: __SerdeContext): Delegation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Delegation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DeregistrationPolicy
- */
-const de_DeregistrationPolicy = (output: any, context: __SerdeContext): DeregistrationPolicy => {
-  return {
-    deleteResources: __expectString(output.deleteResources),
-  } as any;
-};
+// de_DeregistrationPolicy omitted.
 
 /**
  * deserializeAws_restJson1Evidence
  */
 const de_Evidence = (output: any, context: __SerdeContext): Evidence => {
-  return {
-    assessmentReportSelection: __expectString(output.assessmentReportSelection),
-    attributes: output.attributes != null ? de_EvidenceAttributes(output.attributes, context) : undefined,
-    awsAccountId: __expectString(output.awsAccountId),
-    awsOrganization: __expectString(output.awsOrganization),
-    complianceCheck: __expectString(output.complianceCheck),
-    dataSource: __expectString(output.dataSource),
-    eventName: __expectString(output.eventName),
-    eventSource: __expectString(output.eventSource),
-    evidenceAwsAccountId: __expectString(output.evidenceAwsAccountId),
-    evidenceByType: __expectString(output.evidenceByType),
-    evidenceFolderId: __expectString(output.evidenceFolderId),
-    iamId: __expectString(output.iamId),
-    id: __expectString(output.id),
-    resourcesIncluded: output.resourcesIncluded != null ? de_Resources(output.resourcesIncluded, context) : undefined,
-    time: output.time != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time))) : undefined,
-  } as any;
+  return take(output, {
+    assessmentReportSelection: __expectString,
+    attributes: _json,
+    awsAccountId: __expectString,
+    awsOrganization: __expectString,
+    complianceCheck: __expectString,
+    dataSource: __expectString,
+    eventName: __expectString,
+    eventSource: __expectString,
+    evidenceAwsAccountId: __expectString,
+    evidenceByType: __expectString,
+    evidenceFolderId: __expectString,
+    iamId: __expectString,
+    id: __expectString,
+    resourcesIncluded: _json,
+    time: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EvidenceAttributes
- */
-const de_EvidenceAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_EvidenceAttributes omitted.
 
-/**
- * deserializeAws_restJson1EvidenceFinderEnablement
- */
-const de_EvidenceFinderEnablement = (output: any, context: __SerdeContext): EvidenceFinderEnablement => {
-  return {
-    backfillStatus: __expectString(output.backfillStatus),
-    enablementStatus: __expectString(output.enablementStatus),
-    error: __expectString(output.error),
-    eventDataStoreArn: __expectString(output.eventDataStoreArn),
-  } as any;
-};
+// de_EvidenceFinderEnablement omitted.
 
-/**
- * deserializeAws_restJson1EvidenceIds
- */
-const de_EvidenceIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EvidenceIds omitted.
 
-/**
- * deserializeAws_restJson1EvidenceInsights
- */
-const de_EvidenceInsights = (output: any, context: __SerdeContext): EvidenceInsights => {
-  return {
-    compliantEvidenceCount: __expectInt32(output.compliantEvidenceCount),
-    inconclusiveEvidenceCount: __expectInt32(output.inconclusiveEvidenceCount),
-    noncompliantEvidenceCount: __expectInt32(output.noncompliantEvidenceCount),
-  } as any;
-};
+// de_EvidenceInsights omitted.
 
 /**
  * deserializeAws_restJson1EvidenceList
@@ -7081,66 +6408,36 @@ const de_EvidenceList = (output: any, context: __SerdeContext): Evidence[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Evidence(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1EvidenceSources
- */
-const de_EvidenceSources = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EvidenceSources omitted.
 
 /**
  * deserializeAws_restJson1Framework
  */
 const de_Framework = (output: any, context: __SerdeContext): Framework => {
-  return {
-    arn: __expectString(output.arn),
-    complianceType: __expectString(output.complianceType),
-    controlSets: output.controlSets != null ? de_ControlSets(output.controlSets, context) : undefined,
-    controlSources: __expectString(output.controlSources),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    createdBy: __expectString(output.createdBy),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    lastUpdatedBy: __expectString(output.lastUpdatedBy),
-    logo: __expectString(output.logo),
-    name: __expectString(output.name),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    complianceType: __expectString,
+    controlSets: (_: any) => de_ControlSets(_, context),
+    controlSources: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedBy: __expectString,
+    logo: __expectString,
+    name: __expectString,
+    tags: _json,
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1FrameworkMetadata
- */
-const de_FrameworkMetadata = (output: any, context: __SerdeContext): FrameworkMetadata => {
-  return {
-    complianceType: __expectString(output.complianceType),
-    description: __expectString(output.description),
-    logo: __expectString(output.logo),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_FrameworkMetadata omitted.
 
 /**
  * deserializeAws_restJson1FrameworkMetadataList
@@ -7149,9 +6446,6 @@ const de_FrameworkMetadataList = (output: any, context: __SerdeContext): Assessm
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentFrameworkMetadata(entry, context);
     });
   return retVal;
@@ -7161,51 +6455,32 @@ const de_FrameworkMetadataList = (output: any, context: __SerdeContext): Assessm
  * deserializeAws_restJson1Insights
  */
 const de_Insights = (output: any, context: __SerdeContext): Insights => {
-  return {
-    activeAssessmentsCount: __expectInt32(output.activeAssessmentsCount),
-    assessmentControlsCountByNoncompliantEvidence: __expectInt32(output.assessmentControlsCountByNoncompliantEvidence),
-    compliantEvidenceCount: __expectInt32(output.compliantEvidenceCount),
-    inconclusiveEvidenceCount: __expectInt32(output.inconclusiveEvidenceCount),
-    lastUpdated:
-      output.lastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
-        : undefined,
-    noncompliantEvidenceCount: __expectInt32(output.noncompliantEvidenceCount),
-    totalAssessmentControlsCount: __expectInt32(output.totalAssessmentControlsCount),
-  } as any;
+  return take(output, {
+    activeAssessmentsCount: __expectInt32,
+    assessmentControlsCountByNoncompliantEvidence: __expectInt32,
+    compliantEvidenceCount: __expectInt32,
+    inconclusiveEvidenceCount: __expectInt32,
+    lastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    noncompliantEvidenceCount: __expectInt32,
+    totalAssessmentControlsCount: __expectInt32,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1InsightsByAssessment
  */
 const de_InsightsByAssessment = (output: any, context: __SerdeContext): InsightsByAssessment => {
-  return {
-    assessmentControlsCountByNoncompliantEvidence: __expectInt32(output.assessmentControlsCountByNoncompliantEvidence),
-    compliantEvidenceCount: __expectInt32(output.compliantEvidenceCount),
-    inconclusiveEvidenceCount: __expectInt32(output.inconclusiveEvidenceCount),
-    lastUpdated:
-      output.lastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
-        : undefined,
-    noncompliantEvidenceCount: __expectInt32(output.noncompliantEvidenceCount),
-    totalAssessmentControlsCount: __expectInt32(output.totalAssessmentControlsCount),
-  } as any;
+  return take(output, {
+    assessmentControlsCountByNoncompliantEvidence: __expectInt32,
+    compliantEvidenceCount: __expectInt32,
+    inconclusiveEvidenceCount: __expectInt32,
+    lastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    noncompliantEvidenceCount: __expectInt32,
+    totalAssessmentControlsCount: __expectInt32,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Keywords
- */
-const de_Keywords = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Keywords omitted.
 
 /**
  * deserializeAws_restJson1ListAssessmentMetadata
@@ -7214,38 +6489,27 @@ const de_ListAssessmentMetadata = (output: any, context: __SerdeContext): Assess
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentMetadataItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ManualEvidence
- */
-const de_ManualEvidence = (output: any, context: __SerdeContext): ManualEvidence => {
-  return {
-    s3ResourcePath: __expectString(output.s3ResourcePath),
-  } as any;
-};
+// de_ManualEvidence omitted.
 
 /**
  * deserializeAws_restJson1Notification
  */
 const de_Notification = (output: any, context: __SerdeContext): Notification => {
-  return {
-    assessmentId: __expectString(output.assessmentId),
-    assessmentName: __expectString(output.assessmentName),
-    controlSetId: __expectString(output.controlSetId),
-    controlSetName: __expectString(output.controlSetName),
-    description: __expectString(output.description),
-    eventTime:
-      output.eventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTime))) : undefined,
-    id: __expectString(output.id),
-    source: __expectString(output.source),
-  } as any;
+  return take(output, {
+    assessmentId: __expectString,
+    assessmentName: __expectString,
+    controlSetId: __expectString,
+    controlSetName: __expectString,
+    description: __expectString,
+    eventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    source: __expectString,
+  }) as any;
 };
 
 /**
@@ -7255,197 +6519,38 @@ const de_Notifications = (output: any, context: __SerdeContext): Notification[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Notification(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Resource
- */
-const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    arn: __expectString(output.arn),
-    complianceCheck: __expectString(output.complianceCheck),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Resource omitted.
 
-/**
- * deserializeAws_restJson1Resources
- */
-const de_Resources = (output: any, context: __SerdeContext): Resource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Resource(entry, context);
-    });
-  return retVal;
-};
+// de_Resources omitted.
 
-/**
- * deserializeAws_restJson1Role
- */
-const de_Role = (output: any, context: __SerdeContext): Role => {
-  return {
-    roleArn: __expectString(output.roleArn),
-    roleType: __expectString(output.roleType),
-  } as any;
-};
+// de_Role omitted.
 
-/**
- * deserializeAws_restJson1Roles
- */
-const de_Roles = (output: any, context: __SerdeContext): Role[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Role(entry, context);
-    });
-  return retVal;
-};
+// de_Roles omitted.
 
-/**
- * deserializeAws_restJson1Scope
- */
-const de_Scope = (output: any, context: __SerdeContext): Scope => {
-  return {
-    awsAccounts: output.awsAccounts != null ? de_AWSAccounts(output.awsAccounts, context) : undefined,
-    awsServices: output.awsServices != null ? de_AWSServices(output.awsServices, context) : undefined,
-  } as any;
-};
+// de_Scope omitted.
 
-/**
- * deserializeAws_restJson1ServiceMetadata
- */
-const de_ServiceMetadata = (output: any, context: __SerdeContext): ServiceMetadata => {
-  return {
-    category: __expectString(output.category),
-    description: __expectString(output.description),
-    displayName: __expectString(output.displayName),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ServiceMetadata omitted.
 
-/**
- * deserializeAws_restJson1ServiceMetadataList
- */
-const de_ServiceMetadataList = (output: any, context: __SerdeContext): ServiceMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServiceMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceMetadataList omitted.
 
-/**
- * deserializeAws_restJson1Settings
- */
-const de_Settings = (output: any, context: __SerdeContext): Settings => {
-  return {
-    defaultAssessmentReportsDestination:
-      output.defaultAssessmentReportsDestination != null
-        ? de_AssessmentReportsDestination(output.defaultAssessmentReportsDestination, context)
-        : undefined,
-    defaultProcessOwners:
-      output.defaultProcessOwners != null ? de_Roles(output.defaultProcessOwners, context) : undefined,
-    deregistrationPolicy:
-      output.deregistrationPolicy != null ? de_DeregistrationPolicy(output.deregistrationPolicy, context) : undefined,
-    evidenceFinderEnablement:
-      output.evidenceFinderEnablement != null
-        ? de_EvidenceFinderEnablement(output.evidenceFinderEnablement, context)
-        : undefined,
-    isAwsOrgEnabled: __expectBoolean(output.isAwsOrgEnabled),
-    kmsKey: __expectString(output.kmsKey),
-    snsTopic: __expectString(output.snsTopic),
-  } as any;
-};
+// de_Settings omitted.
 
-/**
- * deserializeAws_restJson1SourceKeyword
- */
-const de_SourceKeyword = (output: any, context: __SerdeContext): SourceKeyword => {
-  return {
-    keywordInputType: __expectString(output.keywordInputType),
-    keywordValue: __expectString(output.keywordValue),
-  } as any;
-};
+// de_SourceKeyword omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1URL
- */
-const de_URL = (output: any, context: __SerdeContext): URL => {
-  return {
-    hyperlinkName: __expectString(output.hyperlinkName),
-    link: __expectString(output.link),
-  } as any;
-};
+// de_URL omitted.
 
-/**
- * deserializeAws_restJson1ValidationErrors
- */
-const de_ValidationErrors = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ValidationErrors omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

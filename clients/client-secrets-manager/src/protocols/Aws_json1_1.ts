@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -63,12 +64,10 @@ import {
 } from "../commands/ValidateResourcePolicyCommand";
 import {
   CancelRotateSecretRequest,
-  CancelRotateSecretResponse,
   CreateSecretRequest,
   CreateSecretResponse,
   DecryptionFailure,
   DeleteResourcePolicyRequest,
-  DeleteResourcePolicyResponse,
   DeleteSecretRequest,
   DeleteSecretResponse,
   DescribeSecretRequest,
@@ -76,9 +75,7 @@ import {
   EncryptionFailure,
   Filter,
   GetRandomPasswordRequest,
-  GetRandomPasswordResponse,
   GetResourcePolicyRequest,
-  GetResourcePolicyResponse,
   GetSecretValueRequest,
   GetSecretValueResponse,
   InternalServiceError,
@@ -94,9 +91,7 @@ import {
   PreconditionNotMetException,
   PublicPolicyException,
   PutResourcePolicyRequest,
-  PutResourcePolicyResponse,
   PutSecretValueRequest,
-  PutSecretValueResponse,
   RemoveRegionsFromReplicationRequest,
   RemoveRegionsFromReplicationResponse,
   ReplicaRegionType,
@@ -106,24 +101,17 @@ import {
   ResourceExistsException,
   ResourceNotFoundException,
   RestoreSecretRequest,
-  RestoreSecretResponse,
   RotateSecretRequest,
-  RotateSecretResponse,
   RotationRulesType,
   SecretListEntry,
   SecretVersionsListEntry,
   StopReplicationToReplicaRequest,
-  StopReplicationToReplicaResponse,
   Tag,
   TagResourceRequest,
   UntagResourceRequest,
   UpdateSecretRequest,
-  UpdateSecretResponse,
   UpdateSecretVersionStageRequest,
-  UpdateSecretVersionStageResponse,
   ValidateResourcePolicyRequest,
-  ValidateResourcePolicyResponse,
-  ValidationErrorsEntry,
 } from "../models/models_0";
 import { SecretsManagerServiceException as __BaseException } from "../models/SecretsManagerServiceException";
 
@@ -136,7 +124,7 @@ export const se_CancelRotateSecretCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelRotateSecret");
   let body: any;
-  body = JSON.stringify(se_CancelRotateSecretRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -162,7 +150,7 @@ export const se_DeleteResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
-  body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -175,7 +163,7 @@ export const se_DeleteSecretCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteSecret");
   let body: any;
-  body = JSON.stringify(se_DeleteSecretRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -188,7 +176,7 @@ export const se_DescribeSecretCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSecret");
   let body: any;
-  body = JSON.stringify(se_DescribeSecretRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -201,7 +189,7 @@ export const se_GetRandomPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRandomPassword");
   let body: any;
-  body = JSON.stringify(se_GetRandomPasswordRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -214,7 +202,7 @@ export const se_GetResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
   let body: any;
-  body = JSON.stringify(se_GetResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -227,7 +215,7 @@ export const se_GetSecretValueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSecretValue");
   let body: any;
-  body = JSON.stringify(se_GetSecretValueRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -240,7 +228,7 @@ export const se_ListSecretsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSecrets");
   let body: any;
-  body = JSON.stringify(se_ListSecretsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -253,7 +241,7 @@ export const se_ListSecretVersionIdsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSecretVersionIds");
   let body: any;
-  body = JSON.stringify(se_ListSecretVersionIdsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -266,7 +254,7 @@ export const se_PutResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
-  body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -292,7 +280,7 @@ export const se_RemoveRegionsFromReplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveRegionsFromReplication");
   let body: any;
-  body = JSON.stringify(se_RemoveRegionsFromReplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -305,7 +293,7 @@ export const se_ReplicateSecretToRegionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ReplicateSecretToRegions");
   let body: any;
-  body = JSON.stringify(se_ReplicateSecretToRegionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -318,7 +306,7 @@ export const se_RestoreSecretCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RestoreSecret");
   let body: any;
-  body = JSON.stringify(se_RestoreSecretRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -344,7 +332,7 @@ export const se_StopReplicationToReplicaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopReplicationToReplica");
   let body: any;
-  body = JSON.stringify(se_StopReplicationToReplicaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -357,7 +345,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -370,7 +358,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -396,7 +384,7 @@ export const se_UpdateSecretVersionStageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateSecretVersionStage");
   let body: any;
-  body = JSON.stringify(se_UpdateSecretVersionStageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -409,7 +397,7 @@ export const se_ValidateResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ValidateResourcePolicy");
   let body: any;
-  body = JSON.stringify(se_ValidateResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -425,12 +413,12 @@ export const de_CancelRotateSecretCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CancelRotateSecretResponse(data, context);
+  contents = _json(data);
   const response: CancelRotateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -460,10 +448,9 @@ const de_CancelRotateSecretCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -486,7 +473,7 @@ export const de_CreateSecretCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -534,10 +521,9 @@ const de_CreateSecretCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -555,12 +541,12 @@ export const de_DeleteResourcePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -590,10 +576,9 @@ const de_DeleteResourcePolicyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -616,7 +601,7 @@ export const de_DeleteSecretCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -646,10 +631,9 @@ const de_DeleteSecretCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -672,7 +656,7 @@ export const de_DescribeSecretCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -699,10 +683,9 @@ const de_DescribeSecretCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -720,12 +703,12 @@ export const de_GetRandomPasswordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRandomPasswordResponse(data, context);
+  contents = _json(data);
   const response: GetRandomPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -752,10 +735,9 @@ const de_GetRandomPasswordCommandError = async (
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -773,12 +755,12 @@ export const de_GetResourcePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: GetResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -808,10 +790,9 @@ const de_GetResourcePolicyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -834,7 +815,7 @@ export const de_GetSecretValueCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -867,10 +848,9 @@ const de_GetSecretValueCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -893,7 +873,7 @@ export const de_ListSecretsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -920,10 +900,9 @@ const de_ListSecretsCommandError = async (
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -946,7 +925,7 @@ export const de_ListSecretVersionIdsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -976,10 +955,9 @@ const de_ListSecretVersionIdsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -997,12 +975,12 @@ export const de_PutResourcePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1038,10 +1016,9 @@ const de_PutResourcePolicyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1059,12 +1036,12 @@ export const de_PutSecretValueCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutSecretValueResponse(data, context);
+  contents = _json(data);
   const response: PutSecretValueCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1106,10 +1083,9 @@ const de_PutSecretValueCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1132,7 +1108,7 @@ export const de_RemoveRegionsFromReplicationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1162,10 +1138,9 @@ const de_RemoveRegionsFromReplicationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1188,7 +1163,7 @@ export const de_ReplicateSecretToRegionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1218,10 +1193,9 @@ const de_ReplicateSecretToRegionsCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1239,12 +1213,12 @@ export const de_RestoreSecretCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RestoreSecretResponse(data, context);
+  contents = _json(data);
   const response: RestoreSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1274,10 +1248,9 @@ const de_RestoreSecretCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1295,12 +1268,12 @@ export const de_RotateSecretCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RotateSecretResponse(data, context);
+  contents = _json(data);
   const response: RotateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1330,10 +1303,9 @@ const de_RotateSecretCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1351,12 +1323,12 @@ export const de_StopReplicationToReplicaCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopReplicationToReplicaResponse(data, context);
+  contents = _json(data);
   const response: StopReplicationToReplicaCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1386,10 +1358,9 @@ const de_StopReplicationToReplicaCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1409,7 +1380,7 @@ export const de_TagResourceCommand = async (
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1439,10 +1410,9 @@ const de_TagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1462,7 +1432,7 @@ export const de_UntagResourceCommand = async (
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1492,10 +1462,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1513,12 +1482,12 @@ export const de_UpdateSecretCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateSecretResponse(data, context);
+  contents = _json(data);
   const response: UpdateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1566,10 +1535,9 @@ const de_UpdateSecretCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1587,12 +1555,12 @@ export const de_UpdateSecretVersionStageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateSecretVersionStageResponse(data, context);
+  contents = _json(data);
   const response: UpdateSecretVersionStageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1625,10 +1593,9 @@ const de_UpdateSecretVersionStageCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1646,12 +1613,12 @@ export const de_ValidateResourcePolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ValidateResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: ValidateResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1684,10 +1651,9 @@ const de_ValidateResourcePolicyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1698,7 +1664,7 @@ const de_ValidateResourcePolicyCommandError = async (
  */
 const de_DecryptionFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<DecryptionFailure> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DecryptionFailure(body, context);
+  const deserialized: any = _json(body);
   const exception = new DecryptionFailure({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1711,7 +1677,7 @@ const de_DecryptionFailureRes = async (parsedOutput: any, context: __SerdeContex
  */
 const de_EncryptionFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<EncryptionFailure> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EncryptionFailure(body, context);
+  const deserialized: any = _json(body);
   const exception = new EncryptionFailure({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1727,7 +1693,7 @@ const de_InternalServiceErrorRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServiceError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServiceError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1743,7 +1709,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1759,7 +1725,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1775,7 +1741,7 @@ const de_InvalidRequestExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1791,7 +1757,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1807,7 +1773,7 @@ const de_MalformedPolicyDocumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_MalformedPolicyDocumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1823,7 +1789,7 @@ const de_PreconditionNotMetExceptionRes = async (
   context: __SerdeContext
 ): Promise<PreconditionNotMetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PreconditionNotMetException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PreconditionNotMetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1839,7 +1805,7 @@ const de_PublicPolicyExceptionRes = async (
   context: __SerdeContext
 ): Promise<PublicPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PublicPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PublicPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1855,7 +1821,7 @@ const de_ResourceExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1871,7 +1837,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1879,670 +1845,240 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AddReplicaRegionListType
- */
-const se_AddReplicaRegionListType = (input: ReplicaRegionType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ReplicaRegionType(entry, context);
-    });
-};
+// se_AddReplicaRegionListType omitted.
 
-/**
- * serializeAws_json1_1CancelRotateSecretRequest
- */
-const se_CancelRotateSecretRequest = (input: CancelRotateSecretRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_CancelRotateSecretRequest omitted.
 
 /**
  * serializeAws_json1_1CreateSecretRequest
  */
 const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AddReplicaRegions != null && {
-      AddReplicaRegions: se_AddReplicaRegionListType(input.AddReplicaRegions, context),
-    }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.ForceOverwriteReplicaSecret != null && {
-      ForceOverwriteReplicaSecret: input.ForceOverwriteReplicaSecret,
-    }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SecretBinary != null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
-    ...(input.SecretString != null && { SecretString: input.SecretString }),
-    ...(input.Tags != null && { Tags: se_TagListType(input.Tags, context) }),
-  };
+  return take(input, {
+    AddReplicaRegions: _json,
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    ForceOverwriteReplicaSecret: [],
+    KmsKeyId: [],
+    Name: [],
+    SecretBinary: context.base64Encoder,
+    SecretString: [],
+    Tags: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1DeleteResourcePolicyRequest
- */
-const se_DeleteResourcePolicyRequest = (input: DeleteResourcePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_DeleteResourcePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteSecretRequest
- */
-const se_DeleteSecretRequest = (input: DeleteSecretRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForceDeleteWithoutRecovery != null && { ForceDeleteWithoutRecovery: input.ForceDeleteWithoutRecovery }),
-    ...(input.RecoveryWindowInDays != null && { RecoveryWindowInDays: input.RecoveryWindowInDays }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_DeleteSecretRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeSecretRequest
- */
-const se_DescribeSecretRequest = (input: DescribeSecretRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_DescribeSecretRequest omitted.
 
-/**
- * serializeAws_json1_1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Values != null && { Values: se_FilterValuesStringList(input.Values, context) }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_json1_1FiltersListType
- */
-const se_FiltersListType = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_FiltersListType omitted.
 
-/**
- * serializeAws_json1_1FilterValuesStringList
- */
-const se_FilterValuesStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilterValuesStringList omitted.
 
-/**
- * serializeAws_json1_1GetRandomPasswordRequest
- */
-const se_GetRandomPasswordRequest = (input: GetRandomPasswordRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ExcludeCharacters != null && { ExcludeCharacters: input.ExcludeCharacters }),
-    ...(input.ExcludeLowercase != null && { ExcludeLowercase: input.ExcludeLowercase }),
-    ...(input.ExcludeNumbers != null && { ExcludeNumbers: input.ExcludeNumbers }),
-    ...(input.ExcludePunctuation != null && { ExcludePunctuation: input.ExcludePunctuation }),
-    ...(input.ExcludeUppercase != null && { ExcludeUppercase: input.ExcludeUppercase }),
-    ...(input.IncludeSpace != null && { IncludeSpace: input.IncludeSpace }),
-    ...(input.PasswordLength != null && { PasswordLength: input.PasswordLength }),
-    ...(input.RequireEachIncludedType != null && { RequireEachIncludedType: input.RequireEachIncludedType }),
-  };
-};
+// se_GetRandomPasswordRequest omitted.
 
-/**
- * serializeAws_json1_1GetResourcePolicyRequest
- */
-const se_GetResourcePolicyRequest = (input: GetResourcePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_GetResourcePolicyRequest omitted.
 
-/**
- * serializeAws_json1_1GetSecretValueRequest
- */
-const se_GetSecretValueRequest = (input: GetSecretValueRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-    ...(input.VersionId != null && { VersionId: input.VersionId }),
-    ...(input.VersionStage != null && { VersionStage: input.VersionStage }),
-  };
-};
+// se_GetSecretValueRequest omitted.
 
-/**
- * serializeAws_json1_1ListSecretsRequest
- */
-const se_ListSecretsRequest = (input: ListSecretsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_FiltersListType(input.Filters, context) }),
-    ...(input.IncludePlannedDeletion != null && { IncludePlannedDeletion: input.IncludePlannedDeletion }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_ListSecretsRequest omitted.
 
-/**
- * serializeAws_json1_1ListSecretVersionIdsRequest
- */
-const se_ListSecretVersionIdsRequest = (input: ListSecretVersionIdsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IncludeDeprecated != null && { IncludeDeprecated: input.IncludeDeprecated }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_ListSecretVersionIdsRequest omitted.
 
-/**
- * serializeAws_json1_1PutResourcePolicyRequest
- */
-const se_PutResourcePolicyRequest = (input: PutResourcePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BlockPublicPolicy != null && { BlockPublicPolicy: input.BlockPublicPolicy }),
-    ...(input.ResourcePolicy != null && { ResourcePolicy: input.ResourcePolicy }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_PutResourcePolicyRequest omitted.
 
 /**
  * serializeAws_json1_1PutSecretValueRequest
  */
 const se_PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SecretBinary != null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-    ...(input.SecretString != null && { SecretString: input.SecretString }),
-    ...(input.VersionStages != null && { VersionStages: se_SecretVersionStagesType(input.VersionStages, context) }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    SecretBinary: context.base64Encoder,
+    SecretId: [],
+    SecretString: [],
+    VersionStages: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1RemoveRegionsFromReplicationRequest
- */
-const se_RemoveRegionsFromReplicationRequest = (
-  input: RemoveRegionsFromReplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RemoveReplicaRegions != null && {
-      RemoveReplicaRegions: se_RemoveReplicaRegionListType(input.RemoveReplicaRegions, context),
-    }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_RemoveRegionsFromReplicationRequest omitted.
 
-/**
- * serializeAws_json1_1RemoveReplicaRegionListType
- */
-const se_RemoveReplicaRegionListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RemoveReplicaRegionListType omitted.
 
-/**
- * serializeAws_json1_1ReplicaRegionType
- */
-const se_ReplicaRegionType = (input: ReplicaRegionType, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Region != null && { Region: input.Region }),
-  };
-};
+// se_ReplicaRegionType omitted.
 
-/**
- * serializeAws_json1_1ReplicateSecretToRegionsRequest
- */
-const se_ReplicateSecretToRegionsRequest = (input: ReplicateSecretToRegionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AddReplicaRegions != null && {
-      AddReplicaRegions: se_AddReplicaRegionListType(input.AddReplicaRegions, context),
-    }),
-    ...(input.ForceOverwriteReplicaSecret != null && {
-      ForceOverwriteReplicaSecret: input.ForceOverwriteReplicaSecret,
-    }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_ReplicateSecretToRegionsRequest omitted.
 
-/**
- * serializeAws_json1_1RestoreSecretRequest
- */
-const se_RestoreSecretRequest = (input: RestoreSecretRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_RestoreSecretRequest omitted.
 
 /**
  * serializeAws_json1_1RotateSecretRequest
  */
 const se_RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.RotateImmediately != null && { RotateImmediately: input.RotateImmediately }),
-    ...(input.RotationLambdaARN != null && { RotationLambdaARN: input.RotationLambdaARN }),
-    ...(input.RotationRules != null && { RotationRules: se_RotationRulesType(input.RotationRules, context) }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    RotateImmediately: [],
+    RotationLambdaARN: [],
+    RotationRules: _json,
+    SecretId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1RotationRulesType
- */
-const se_RotationRulesType = (input: RotationRulesType, context: __SerdeContext): any => {
-  return {
-    ...(input.AutomaticallyAfterDays != null && { AutomaticallyAfterDays: input.AutomaticallyAfterDays }),
-    ...(input.Duration != null && { Duration: input.Duration }),
-    ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
-  };
-};
+// se_RotationRulesType omitted.
 
-/**
- * serializeAws_json1_1SecretVersionStagesType
- */
-const se_SecretVersionStagesType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecretVersionStagesType omitted.
 
-/**
- * serializeAws_json1_1StopReplicationToReplicaRequest
- */
-const se_StopReplicationToReplicaRequest = (input: StopReplicationToReplicaRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_StopReplicationToReplicaRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyListType
- */
-const se_TagKeyListType = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyListType omitted.
 
-/**
- * serializeAws_json1_1TagListType
- */
-const se_TagListType = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagListType omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-    ...(input.Tags != null && { Tags: se_TagListType(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyListType(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateSecretRequest
  */
 const se_UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeContext): any => {
-  return {
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.SecretBinary != null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-    ...(input.SecretString != null && { SecretString: input.SecretString }),
-  };
+  return take(input, {
+    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    KmsKeyId: [],
+    SecretBinary: context.base64Encoder,
+    SecretId: [],
+    SecretString: [],
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateSecretVersionStageRequest
- */
-const se_UpdateSecretVersionStageRequest = (input: UpdateSecretVersionStageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MoveToVersionId != null && { MoveToVersionId: input.MoveToVersionId }),
-    ...(input.RemoveFromVersionId != null && { RemoveFromVersionId: input.RemoveFromVersionId }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-    ...(input.VersionStage != null && { VersionStage: input.VersionStage }),
-  };
-};
+// se_UpdateSecretVersionStageRequest omitted.
 
-/**
- * serializeAws_json1_1ValidateResourcePolicyRequest
- */
-const se_ValidateResourcePolicyRequest = (input: ValidateResourcePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourcePolicy != null && { ResourcePolicy: input.ResourcePolicy }),
-    ...(input.SecretId != null && { SecretId: input.SecretId }),
-  };
-};
+// se_ValidateResourcePolicyRequest omitted.
 
-/**
- * deserializeAws_json1_1CancelRotateSecretResponse
- */
-const de_CancelRotateSecretResponse = (output: any, context: __SerdeContext): CancelRotateSecretResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-    VersionId: __expectString(output.VersionId),
-  } as any;
-};
+// de_CancelRotateSecretResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateSecretResponse
  */
 const de_CreateSecretResponse = (output: any, context: __SerdeContext): CreateSecretResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-    ReplicationStatus:
-      output.ReplicationStatus != null ? de_ReplicationStatusListType(output.ReplicationStatus, context) : undefined,
-    VersionId: __expectString(output.VersionId),
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    Name: __expectString,
+    ReplicationStatus: (_: any) => de_ReplicationStatusListType(_, context),
+    VersionId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DecryptionFailure
- */
-const de_DecryptionFailure = (output: any, context: __SerdeContext): DecryptionFailure => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DecryptionFailure omitted.
 
-/**
- * deserializeAws_json1_1DeleteResourcePolicyResponse
- */
-const de_DeleteResourcePolicyResponse = (output: any, context: __SerdeContext): DeleteResourcePolicyResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_DeleteResourcePolicyResponse omitted.
 
 /**
  * deserializeAws_json1_1DeleteSecretResponse
  */
 const de_DeleteSecretResponse = (output: any, context: __SerdeContext): DeleteSecretResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    DeletionDate:
-      output.DeletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
-        : undefined,
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    DeletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeSecretResponse
  */
 const de_DescribeSecretResponse = (output: any, context: __SerdeContext): DescribeSecretResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    CreatedDate:
-      output.CreatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
-        : undefined,
-    DeletedDate:
-      output.DeletedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedDate)))
-        : undefined,
-    Description: __expectString(output.Description),
-    KmsKeyId: __expectString(output.KmsKeyId),
-    LastAccessedDate:
-      output.LastAccessedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
-        : undefined,
-    LastChangedDate:
-      output.LastChangedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastChangedDate)))
-        : undefined,
-    LastRotatedDate:
-      output.LastRotatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
-        : undefined,
-    Name: __expectString(output.Name),
-    NextRotationDate:
-      output.NextRotationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextRotationDate)))
-        : undefined,
-    OwningService: __expectString(output.OwningService),
-    PrimaryRegion: __expectString(output.PrimaryRegion),
-    ReplicationStatus:
-      output.ReplicationStatus != null ? de_ReplicationStatusListType(output.ReplicationStatus, context) : undefined,
-    RotationEnabled: __expectBoolean(output.RotationEnabled),
-    RotationLambdaARN: __expectString(output.RotationLambdaARN),
-    RotationRules: output.RotationRules != null ? de_RotationRulesType(output.RotationRules, context) : undefined,
-    Tags: output.Tags != null ? de_TagListType(output.Tags, context) : undefined,
-    VersionIdsToStages:
-      output.VersionIdsToStages != null
-        ? de_SecretVersionsToStagesMapType(output.VersionIdsToStages, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    KmsKeyId: __expectString,
+    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastChangedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastRotatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    NextRotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OwningService: __expectString,
+    PrimaryRegion: __expectString,
+    ReplicationStatus: (_: any) => de_ReplicationStatusListType(_, context),
+    RotationEnabled: __expectBoolean,
+    RotationLambdaARN: __expectString,
+    RotationRules: _json,
+    Tags: _json,
+    VersionIdsToStages: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1EncryptionFailure
- */
-const de_EncryptionFailure = (output: any, context: __SerdeContext): EncryptionFailure => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EncryptionFailure omitted.
 
-/**
- * deserializeAws_json1_1GetRandomPasswordResponse
- */
-const de_GetRandomPasswordResponse = (output: any, context: __SerdeContext): GetRandomPasswordResponse => {
-  return {
-    RandomPassword: __expectString(output.RandomPassword),
-  } as any;
-};
+// de_GetRandomPasswordResponse omitted.
 
-/**
- * deserializeAws_json1_1GetResourcePolicyResponse
- */
-const de_GetResourcePolicyResponse = (output: any, context: __SerdeContext): GetResourcePolicyResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-    ResourcePolicy: __expectString(output.ResourcePolicy),
-  } as any;
-};
+// de_GetResourcePolicyResponse omitted.
 
 /**
  * deserializeAws_json1_1GetSecretValueResponse
  */
 const de_GetSecretValueResponse = (output: any, context: __SerdeContext): GetSecretValueResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    CreatedDate:
-      output.CreatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
-        : undefined,
-    Name: __expectString(output.Name),
-    SecretBinary: output.SecretBinary != null ? context.base64Decoder(output.SecretBinary) : undefined,
-    SecretString: __expectString(output.SecretString),
-    VersionId: __expectString(output.VersionId),
-    VersionStages: output.VersionStages != null ? de_SecretVersionStagesType(output.VersionStages, context) : undefined,
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    SecretBinary: context.base64Decoder,
+    SecretString: __expectString,
+    VersionId: __expectString,
+    VersionStages: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InternalServiceError
- */
-const de_InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServiceError omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidRequestException
- */
-const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
-/**
- * deserializeAws_json1_1KmsKeyIdListType
- */
-const de_KmsKeyIdListType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_KmsKeyIdListType omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1ListSecretsResponse
  */
 const de_ListSecretsResponse = (output: any, context: __SerdeContext): ListSecretsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SecretList: output.SecretList != null ? de_SecretListType(output.SecretList, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    SecretList: (_: any) => de_SecretListType(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListSecretVersionIdsResponse
  */
 const de_ListSecretVersionIdsResponse = (output: any, context: __SerdeContext): ListSecretVersionIdsResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-    NextToken: __expectString(output.NextToken),
-    Versions: output.Versions != null ? de_SecretVersionsListType(output.Versions, context) : undefined,
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    Name: __expectString,
+    NextToken: __expectString,
+    Versions: (_: any) => de_SecretVersionsListType(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1MalformedPolicyDocumentException
- */
-const de_MalformedPolicyDocumentException = (
-  output: any,
-  context: __SerdeContext
-): MalformedPolicyDocumentException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_MalformedPolicyDocumentException omitted.
 
-/**
- * deserializeAws_json1_1PreconditionNotMetException
- */
-const de_PreconditionNotMetException = (output: any, context: __SerdeContext): PreconditionNotMetException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PreconditionNotMetException omitted.
 
-/**
- * deserializeAws_json1_1PublicPolicyException
- */
-const de_PublicPolicyException = (output: any, context: __SerdeContext): PublicPolicyException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_PublicPolicyException omitted.
 
-/**
- * deserializeAws_json1_1PutResourcePolicyResponse
- */
-const de_PutResourcePolicyResponse = (output: any, context: __SerdeContext): PutResourcePolicyResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_PutResourcePolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1PutSecretValueResponse
- */
-const de_PutSecretValueResponse = (output: any, context: __SerdeContext): PutSecretValueResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-    VersionId: __expectString(output.VersionId),
-    VersionStages: output.VersionStages != null ? de_SecretVersionStagesType(output.VersionStages, context) : undefined,
-  } as any;
-};
+// de_PutSecretValueResponse omitted.
 
 /**
  * deserializeAws_json1_1RemoveRegionsFromReplicationResponse
@@ -2551,11 +2087,10 @@ const de_RemoveRegionsFromReplicationResponse = (
   output: any,
   context: __SerdeContext
 ): RemoveRegionsFromReplicationResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    ReplicationStatus:
-      output.ReplicationStatus != null ? de_ReplicationStatusListType(output.ReplicationStatus, context) : undefined,
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    ReplicationStatus: (_: any) => de_ReplicationStatusListType(_, context),
+  }) as any;
 };
 
 /**
@@ -2565,11 +2100,10 @@ const de_ReplicateSecretToRegionsResponse = (
   output: any,
   context: __SerdeContext
 ): ReplicateSecretToRegionsResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    ReplicationStatus:
-      output.ReplicationStatus != null ? de_ReplicationStatusListType(output.ReplicationStatus, context) : undefined,
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    ReplicationStatus: (_: any) => de_ReplicationStatusListType(_, context),
+  }) as any;
 };
 
 /**
@@ -2579,9 +2113,6 @@ const de_ReplicationStatusListType = (output: any, context: __SerdeContext): Rep
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReplicationStatusType(entry, context);
     });
   return retVal;
@@ -2591,112 +2122,48 @@ const de_ReplicationStatusListType = (output: any, context: __SerdeContext): Rep
  * deserializeAws_json1_1ReplicationStatusType
  */
 const de_ReplicationStatusType = (output: any, context: __SerdeContext): ReplicationStatusType => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-    LastAccessedDate:
-      output.LastAccessedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
-        : undefined,
-    Region: __expectString(output.Region),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+  return take(output, {
+    KmsKeyId: __expectString,
+    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Region: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ResourceExistsException
- */
-const de_ResourceExistsException = (output: any, context: __SerdeContext): ResourceExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceExistsException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1RestoreSecretResponse
- */
-const de_RestoreSecretResponse = (output: any, context: __SerdeContext): RestoreSecretResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_RestoreSecretResponse omitted.
 
-/**
- * deserializeAws_json1_1RotateSecretResponse
- */
-const de_RotateSecretResponse = (output: any, context: __SerdeContext): RotateSecretResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-    VersionId: __expectString(output.VersionId),
-  } as any;
-};
+// de_RotateSecretResponse omitted.
 
-/**
- * deserializeAws_json1_1RotationRulesType
- */
-const de_RotationRulesType = (output: any, context: __SerdeContext): RotationRulesType => {
-  return {
-    AutomaticallyAfterDays: __expectLong(output.AutomaticallyAfterDays),
-    Duration: __expectString(output.Duration),
-    ScheduleExpression: __expectString(output.ScheduleExpression),
-  } as any;
-};
+// de_RotationRulesType omitted.
 
 /**
  * deserializeAws_json1_1SecretListEntry
  */
 const de_SecretListEntry = (output: any, context: __SerdeContext): SecretListEntry => {
-  return {
-    ARN: __expectString(output.ARN),
-    CreatedDate:
-      output.CreatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
-        : undefined,
-    DeletedDate:
-      output.DeletedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedDate)))
-        : undefined,
-    Description: __expectString(output.Description),
-    KmsKeyId: __expectString(output.KmsKeyId),
-    LastAccessedDate:
-      output.LastAccessedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
-        : undefined,
-    LastChangedDate:
-      output.LastChangedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastChangedDate)))
-        : undefined,
-    LastRotatedDate:
-      output.LastRotatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
-        : undefined,
-    Name: __expectString(output.Name),
-    NextRotationDate:
-      output.NextRotationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextRotationDate)))
-        : undefined,
-    OwningService: __expectString(output.OwningService),
-    PrimaryRegion: __expectString(output.PrimaryRegion),
-    RotationEnabled: __expectBoolean(output.RotationEnabled),
-    RotationLambdaARN: __expectString(output.RotationLambdaARN),
-    RotationRules: output.RotationRules != null ? de_RotationRulesType(output.RotationRules, context) : undefined,
-    SecretVersionsToStages:
-      output.SecretVersionsToStages != null
-        ? de_SecretVersionsToStagesMapType(output.SecretVersionsToStages, context)
-        : undefined,
-    Tags: output.Tags != null ? de_TagListType(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ARN: __expectString,
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    KmsKeyId: __expectString,
+    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastChangedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastRotatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    NextRotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OwningService: __expectString,
+    PrimaryRegion: __expectString,
+    RotationEnabled: __expectBoolean,
+    RotationLambdaARN: __expectString,
+    RotationRules: _json,
+    SecretVersionsToStages: _json,
+    Tags: _json,
+  }) as any;
 };
 
 /**
@@ -2706,9 +2173,6 @@ const de_SecretListType = (output: any, context: __SerdeContext): SecretListEntr
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SecretListEntry(entry, context);
     });
   return retVal;
@@ -2718,19 +2182,13 @@ const de_SecretListType = (output: any, context: __SerdeContext): SecretListEntr
  * deserializeAws_json1_1SecretVersionsListEntry
  */
 const de_SecretVersionsListEntry = (output: any, context: __SerdeContext): SecretVersionsListEntry => {
-  return {
-    CreatedDate:
-      output.CreatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
-        : undefined,
-    KmsKeyIds: output.KmsKeyIds != null ? de_KmsKeyIdListType(output.KmsKeyIds, context) : undefined,
-    LastAccessedDate:
-      output.LastAccessedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
-        : undefined,
-    VersionId: __expectString(output.VersionId),
-    VersionStages: output.VersionStages != null ? de_SecretVersionStagesType(output.VersionStages, context) : undefined,
-  } as any;
+  return take(output, {
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KmsKeyIds: _json,
+    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+    VersionStages: _json,
+  }) as any;
 };
 
 /**
@@ -2740,138 +2198,30 @@ const de_SecretVersionsListType = (output: any, context: __SerdeContext): Secret
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SecretVersionsListEntry(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1SecretVersionStagesType
- */
-const de_SecretVersionStagesType = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecretVersionStagesType omitted.
 
-/**
- * deserializeAws_json1_1SecretVersionsToStagesMapType
- */
-const de_SecretVersionsToStagesMapType = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_SecretVersionStagesType(value, context);
-    return acc;
-  }, {});
-};
+// de_SecretVersionsToStagesMapType omitted.
 
-/**
- * deserializeAws_json1_1StopReplicationToReplicaResponse
- */
-const de_StopReplicationToReplicaResponse = (
-  output: any,
-  context: __SerdeContext
-): StopReplicationToReplicaResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-  } as any;
-};
+// de_StopReplicationToReplicaResponse omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagListType
- */
-const de_TagListType = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagListType omitted.
 
-/**
- * deserializeAws_json1_1UpdateSecretResponse
- */
-const de_UpdateSecretResponse = (output: any, context: __SerdeContext): UpdateSecretResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-    VersionId: __expectString(output.VersionId),
-  } as any;
-};
+// de_UpdateSecretResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateSecretVersionStageResponse
- */
-const de_UpdateSecretVersionStageResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateSecretVersionStageResponse => {
-  return {
-    ARN: __expectString(output.ARN),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_UpdateSecretVersionStageResponse omitted.
 
-/**
- * deserializeAws_json1_1ValidateResourcePolicyResponse
- */
-const de_ValidateResourcePolicyResponse = (output: any, context: __SerdeContext): ValidateResourcePolicyResponse => {
-  return {
-    PolicyValidationPassed: __expectBoolean(output.PolicyValidationPassed),
-    ValidationErrors:
-      output.ValidationErrors != null ? de_ValidationErrorsType(output.ValidationErrors, context) : undefined,
-  } as any;
-};
+// de_ValidateResourcePolicyResponse omitted.
 
-/**
- * deserializeAws_json1_1ValidationErrorsEntry
- */
-const de_ValidationErrorsEntry = (output: any, context: __SerdeContext): ValidationErrorsEntry => {
-  return {
-    CheckName: __expectString(output.CheckName),
-    ErrorMessage: __expectString(output.ErrorMessage),
-  } as any;
-};
+// de_ValidationErrorsEntry omitted.
 
-/**
- * deserializeAws_json1_1ValidationErrorsType
- */
-const de_ValidationErrorsType = (output: any, context: __SerdeContext): ValidationErrorsEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationErrorsEntry(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationErrorsType omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2893,6 +2243,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

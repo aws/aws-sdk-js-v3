@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -9,9 +10,10 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -40,7 +42,6 @@ import {
   MethodNotAllowedException,
   RequestEntityTooLargeException,
   ResourceNotFoundException,
-  RetainedMessageSummary,
   ServiceUnavailableException,
   ThrottlingException,
   UnauthorizedException,
@@ -315,10 +316,9 @@ const de_DeleteThingShadowCommandError = async (
       throw await de_UnsupportedDocumentEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -338,21 +338,14 @@ export const de_GetRetainedMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectLong(data.lastModifiedTime);
-  }
-  if (data.payload != null) {
-    contents.payload = context.base64Decoder(data.payload);
-  }
-  if (data.qos != null) {
-    contents.qos = __expectInt32(data.qos);
-  }
-  if (data.topic != null) {
-    contents.topic = __expectString(data.topic);
-  }
-  if (data.userProperties != null) {
-    contents.userProperties = context.base64Decoder(data.userProperties);
-  }
+  const doc = take(data, {
+    lastModifiedTime: __expectLong,
+    payload: context.base64Decoder,
+    qos: __expectInt32,
+    topic: __expectString,
+    userProperties: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -392,10 +385,9 @@ const de_GetRetainedMessageCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -458,10 +450,9 @@ const de_GetThingShadowCommandError = async (
       throw await de_UnsupportedDocumentEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -481,15 +472,12 @@ export const de_ListNamedShadowsForThingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.results != null) {
-    contents.results = de_NamedShadowList(data.results, context);
-  }
-  if (data.timestamp != null) {
-    contents.timestamp = __expectLong(data.timestamp);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    results: _json,
+    timestamp: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -529,10 +517,9 @@ const de_ListNamedShadowsForThingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -552,12 +539,11 @@ export const de_ListRetainedMessagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.retainedTopics != null) {
-    contents.retainedTopics = de_RetainedMessageList(data.retainedTopics, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    retainedTopics: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -594,10 +580,9 @@ const de_ListRetainedMessagesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -650,10 +635,9 @@ const de_PublishCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -719,25 +703,25 @@ const de_UpdateThingShadowCommandError = async (
       throw await de_UnsupportedDocumentEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -754,9 +738,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -773,9 +758,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -792,9 +778,10 @@ const de_MethodNotAllowedExceptionRes = async (
 ): Promise<MethodNotAllowedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MethodNotAllowedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -811,9 +798,10 @@ const de_RequestEntityTooLargeExceptionRes = async (
 ): Promise<RequestEntityTooLargeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestEntityTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -830,9 +818,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -849,9 +838,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -865,9 +855,10 @@ const de_ServiceUnavailableExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -884,9 +875,10 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -903,9 +895,10 @@ const de_UnsupportedDocumentEncodingExceptionRes = async (
 ): Promise<UnsupportedDocumentEncodingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedDocumentEncodingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -913,47 +906,11 @@ const de_UnsupportedDocumentEncodingExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * deserializeAws_restJson1NamedShadowList
- */
-const de_NamedShadowList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NamedShadowList omitted.
 
-/**
- * deserializeAws_restJson1RetainedMessageList
- */
-const de_RetainedMessageList = (output: any, context: __SerdeContext): RetainedMessageSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RetainedMessageSummary(entry, context);
-    });
-  return retVal;
-};
+// de_RetainedMessageList omitted.
 
-/**
- * deserializeAws_restJson1RetainedMessageSummary
- */
-const de_RetainedMessageSummary = (output: any, context: __SerdeContext): RetainedMessageSummary => {
-  return {
-    lastModifiedTime: __expectLong(output.lastModifiedTime),
-    payloadSize: __expectLong(output.payloadSize),
-    qos: __expectInt32(output.qos),
-    topic: __expectString(output.topic),
-  } as any;
-};
+// de_RetainedMessageSummary omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

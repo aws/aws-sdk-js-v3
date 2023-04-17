@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
@@ -8,11 +9,12 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -57,30 +59,23 @@ import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "../commands/U
 import { MigrationHubRefactorSpacesServiceException as __BaseException } from "../models/MigrationHubRefactorSpacesServiceException";
 import {
   AccessDeniedException,
-  ApiGatewayProxyConfig,
   ApiGatewayProxyInput,
-  ApiGatewayProxySummary,
   ApplicationSummary,
   ConflictException,
   DefaultRouteInput,
   EnvironmentSummary,
   EnvironmentVpc,
-  ErrorResponse,
   HttpMethod,
   InternalServerException,
   InvalidResourcePolicyException,
-  LambdaEndpointConfig,
   LambdaEndpointInput,
-  LambdaEndpointSummary,
   ResourceNotFoundException,
   RouteSummary,
   ServiceQuotaExceededException,
   ServiceSummary,
   ThrottlingException,
   UriPathRouteInput,
-  UrlEndpointConfig,
   UrlEndpointInput,
-  UrlEndpointSummary,
   ValidationException,
 } from "../models/models_0";
 
@@ -107,14 +102,16 @@ export const se_CreateApplicationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ApiGatewayProxy != null && { ApiGatewayProxy: se_ApiGatewayProxyInput(input.ApiGatewayProxy, context) }),
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ProxyType != null && { ProxyType: input.ProxyType }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ApiGatewayProxy: (_) => _json(_),
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Name: [],
+      ProxyType: [],
+      Tags: (_) => _json(_),
+      VpcId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -139,13 +136,15 @@ export const se_CreateEnvironmentCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NetworkFabricType != null && { NetworkFabricType: input.NetworkFabricType }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      Name: [],
+      NetworkFabricType: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -188,14 +187,16 @@ export const se_CreateRouteCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DefaultRoute != null && { DefaultRoute: se_DefaultRouteInput(input.DefaultRoute, context) }),
-    ...(input.RouteType != null && { RouteType: input.RouteType }),
-    ...(input.ServiceIdentifier != null && { ServiceIdentifier: input.ServiceIdentifier }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.UriPathRoute != null && { UriPathRoute: se_UriPathRouteInput(input.UriPathRoute, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      DefaultRoute: (_) => _json(_),
+      RouteType: [],
+      ServiceIdentifier: [],
+      Tags: (_) => _json(_),
+      UriPathRoute: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -238,16 +239,18 @@ export const se_CreateServiceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EndpointType != null && { EndpointType: input.EndpointType }),
-    ...(input.LambdaEndpoint != null && { LambdaEndpoint: se_LambdaEndpointInput(input.LambdaEndpoint, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.UrlEndpoint != null && { UrlEndpoint: se_UrlEndpointInput(input.UrlEndpoint, context) }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      EndpointType: [],
+      LambdaEndpoint: (_) => _json(_),
+      Name: [],
+      Tags: (_) => _json(_),
+      UrlEndpoint: (_) => _json(_),
+      VpcId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -868,10 +871,12 @@ export const se_PutResourcePolicyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resourcepolicy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+      ResourceArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -897,9 +902,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -980,9 +987,11 @@ export const se_UpdateRouteCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ActivationState != null && { ActivationState: input.ActivationState }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ActivationState: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1008,45 +1017,22 @@ export const de_CreateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApiGatewayProxy != null) {
-    contents.ApiGatewayProxy = de_ApiGatewayProxyInput(data.ApiGatewayProxy, context);
-  }
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedByAccountId != null) {
-    contents.CreatedByAccountId = __expectString(data.CreatedByAccountId);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.OwnerAccountId != null) {
-    contents.OwnerAccountId = __expectString(data.OwnerAccountId);
-  }
-  if (data.ProxyType != null) {
-    contents.ProxyType = __expectString(data.ProxyType);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.VpcId != null) {
-    contents.VpcId = __expectString(data.VpcId);
-  }
+  const doc = take(data, {
+    ApiGatewayProxy: _json,
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreatedByAccountId: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EnvironmentId: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    ProxyType: __expectString,
+    State: __expectString,
+    Tags: _json,
+    VpcId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1086,10 +1072,9 @@ const de_CreateApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1109,36 +1094,19 @@ export const de_CreateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.NetworkFabricType != null) {
-    contents.NetworkFabricType = __expectString(data.NetworkFabricType);
-  }
-  if (data.OwnerAccountId != null) {
-    contents.OwnerAccountId = __expectString(data.OwnerAccountId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EnvironmentId: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    NetworkFabricType: __expectString,
+    OwnerAccountId: __expectString,
+    State: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1178,10 +1146,9 @@ const de_CreateEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1201,42 +1168,21 @@ export const de_CreateRouteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedByAccountId != null) {
-    contents.CreatedByAccountId = __expectString(data.CreatedByAccountId);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.OwnerAccountId != null) {
-    contents.OwnerAccountId = __expectString(data.OwnerAccountId);
-  }
-  if (data.RouteId != null) {
-    contents.RouteId = __expectString(data.RouteId);
-  }
-  if (data.RouteType != null) {
-    contents.RouteType = __expectString(data.RouteType);
-  }
-  if (data.ServiceId != null) {
-    contents.ServiceId = __expectString(data.ServiceId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.UriPathRoute != null) {
-    contents.UriPathRoute = de_UriPathRouteInput(data.UriPathRoute, context);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreatedByAccountId: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OwnerAccountId: __expectString,
+    RouteId: __expectString,
+    RouteType: __expectString,
+    ServiceId: __expectString,
+    State: __expectString,
+    Tags: _json,
+    UriPathRoute: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1276,10 +1222,9 @@ const de_CreateRouteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1299,54 +1244,25 @@ export const de_CreateServiceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedByAccountId != null) {
-    contents.CreatedByAccountId = __expectString(data.CreatedByAccountId);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EndpointType != null) {
-    contents.EndpointType = __expectString(data.EndpointType);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.LambdaEndpoint != null) {
-    contents.LambdaEndpoint = de_LambdaEndpointInput(data.LambdaEndpoint, context);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.OwnerAccountId != null) {
-    contents.OwnerAccountId = __expectString(data.OwnerAccountId);
-  }
-  if (data.ServiceId != null) {
-    contents.ServiceId = __expectString(data.ServiceId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.UrlEndpoint != null) {
-    contents.UrlEndpoint = de_UrlEndpointInput(data.UrlEndpoint, context);
-  }
-  if (data.VpcId != null) {
-    contents.VpcId = __expectString(data.VpcId);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreatedByAccountId: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EndpointType: __expectString,
+    EnvironmentId: __expectString,
+    LambdaEndpoint: _json,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    ServiceId: __expectString,
+    State: __expectString,
+    Tags: _json,
+    UrlEndpoint: _json,
+    VpcId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1386,10 +1302,9 @@ const de_CreateServiceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1409,24 +1324,15 @@ export const de_DeleteApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    EnvironmentId: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1463,10 +1369,9 @@ const de_DeleteApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1486,21 +1391,14 @@ export const de_DeleteEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    EnvironmentId: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1537,10 +1435,9 @@ const de_DeleteEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1593,10 +1490,9 @@ const de_DeleteResourcePolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1616,24 +1512,15 @@ export const de_DeleteRouteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.RouteId != null) {
-    contents.RouteId = __expectString(data.RouteId);
-  }
-  if (data.ServiceId != null) {
-    contents.ServiceId = __expectString(data.ServiceId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RouteId: __expectString,
+    ServiceId: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1670,10 +1557,9 @@ const de_DeleteRouteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1693,27 +1579,16 @@ export const de_DeleteServiceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ServiceId != null) {
-    contents.ServiceId = __expectString(data.ServiceId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    EnvironmentId: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    ServiceId: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1750,10 +1625,9 @@ const de_DeleteServiceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1773,48 +1647,23 @@ export const de_GetApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApiGatewayProxy != null) {
-    contents.ApiGatewayProxy = de_ApiGatewayProxyConfig(data.ApiGatewayProxy, context);
-  }
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedByAccountId != null) {
-    contents.CreatedByAccountId = __expectString(data.CreatedByAccountId);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.Error != null) {
-    contents.Error = de_ErrorResponse(data.Error, context);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.OwnerAccountId != null) {
-    contents.OwnerAccountId = __expectString(data.OwnerAccountId);
-  }
-  if (data.ProxyType != null) {
-    contents.ProxyType = __expectString(data.ProxyType);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.VpcId != null) {
-    contents.VpcId = __expectString(data.VpcId);
-  }
+  const doc = take(data, {
+    ApiGatewayProxy: _json,
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreatedByAccountId: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EnvironmentId: __expectString,
+    Error: _json,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    ProxyType: __expectString,
+    State: __expectString,
+    Tags: _json,
+    VpcId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1848,10 +1697,9 @@ const de_GetApplicationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1871,42 +1719,21 @@ export const de_GetEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.Error != null) {
-    contents.Error = de_ErrorResponse(data.Error, context);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.NetworkFabricType != null) {
-    contents.NetworkFabricType = __expectString(data.NetworkFabricType);
-  }
-  if (data.OwnerAccountId != null) {
-    contents.OwnerAccountId = __expectString(data.OwnerAccountId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.TransitGatewayId != null) {
-    contents.TransitGatewayId = __expectString(data.TransitGatewayId);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EnvironmentId: __expectString,
+    Error: _json,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    NetworkFabricType: __expectString,
+    OwnerAccountId: __expectString,
+    State: __expectString,
+    Tags: _json,
+    TransitGatewayId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1940,10 +1767,9 @@ const de_GetEnvironmentCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1963,9 +1789,10 @@ export const de_GetResourcePolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
+  const doc = take(data, {
+    Policy: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1999,10 +1826,9 @@ const de_GetResourcePolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2022,57 +1848,26 @@ export const de_GetRouteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedByAccountId != null) {
-    contents.CreatedByAccountId = __expectString(data.CreatedByAccountId);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.Error != null) {
-    contents.Error = de_ErrorResponse(data.Error, context);
-  }
-  if (data.IncludeChildPaths != null) {
-    contents.IncludeChildPaths = __expectBoolean(data.IncludeChildPaths);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Methods != null) {
-    contents.Methods = de_HttpMethods(data.Methods, context);
-  }
-  if (data.OwnerAccountId != null) {
-    contents.OwnerAccountId = __expectString(data.OwnerAccountId);
-  }
-  if (data.PathResourceToId != null) {
-    contents.PathResourceToId = de_PathResourceToId(data.PathResourceToId, context);
-  }
-  if (data.RouteId != null) {
-    contents.RouteId = __expectString(data.RouteId);
-  }
-  if (data.RouteType != null) {
-    contents.RouteType = __expectString(data.RouteType);
-  }
-  if (data.ServiceId != null) {
-    contents.ServiceId = __expectString(data.ServiceId);
-  }
-  if (data.SourcePath != null) {
-    contents.SourcePath = __expectString(data.SourcePath);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreatedByAccountId: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EnvironmentId: __expectString,
+    Error: _json,
+    IncludeChildPaths: __expectBoolean,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Methods: _json,
+    OwnerAccountId: __expectString,
+    PathResourceToId: _json,
+    RouteId: __expectString,
+    RouteType: __expectString,
+    ServiceId: __expectString,
+    SourcePath: __expectString,
+    State: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2106,10 +1901,9 @@ const de_GetRouteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2129,57 +1923,26 @@ export const de_GetServiceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreatedByAccountId != null) {
-    contents.CreatedByAccountId = __expectString(data.CreatedByAccountId);
-  }
-  if (data.CreatedTime != null) {
-    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EndpointType != null) {
-    contents.EndpointType = __expectString(data.EndpointType);
-  }
-  if (data.EnvironmentId != null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.Error != null) {
-    contents.Error = de_ErrorResponse(data.Error, context);
-  }
-  if (data.LambdaEndpoint != null) {
-    contents.LambdaEndpoint = de_LambdaEndpointConfig(data.LambdaEndpoint, context);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.OwnerAccountId != null) {
-    contents.OwnerAccountId = __expectString(data.OwnerAccountId);
-  }
-  if (data.ServiceId != null) {
-    contents.ServiceId = __expectString(data.ServiceId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
-  if (data.UrlEndpoint != null) {
-    contents.UrlEndpoint = de_UrlEndpointConfig(data.UrlEndpoint, context);
-  }
-  if (data.VpcId != null) {
-    contents.VpcId = __expectString(data.VpcId);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreatedByAccountId: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EndpointType: __expectString,
+    EnvironmentId: __expectString,
+    Error: _json,
+    LambdaEndpoint: _json,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    ServiceId: __expectString,
+    State: __expectString,
+    Tags: _json,
+    UrlEndpoint: _json,
+    VpcId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2213,10 +1976,9 @@ const de_GetServiceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2236,12 +1998,11 @@ export const de_ListApplicationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationSummaryList != null) {
-    contents.ApplicationSummaryList = de_ApplicationSummaries(data.ApplicationSummaryList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ApplicationSummaryList: (_) => de_ApplicationSummaries(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2281,10 +2042,9 @@ const de_ListApplicationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2304,12 +2064,11 @@ export const de_ListEnvironmentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EnvironmentSummaryList != null) {
-    contents.EnvironmentSummaryList = de_EnvironmentSummaries(data.EnvironmentSummaryList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EnvironmentSummaryList: (_) => de_EnvironmentSummaries(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2343,10 +2102,9 @@ const de_ListEnvironmentsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2366,12 +2124,11 @@ export const de_ListEnvironmentVpcsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EnvironmentVpcList != null) {
-    contents.EnvironmentVpcList = de_EnvironmentVpcs(data.EnvironmentVpcList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EnvironmentVpcList: (_) => de_EnvironmentVpcs(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2405,10 +2162,9 @@ const de_ListEnvironmentVpcsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2428,12 +2184,11 @@ export const de_ListRoutesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RouteSummaryList != null) {
-    contents.RouteSummaryList = de_RouteSummaries(data.RouteSummaryList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RouteSummaryList: (_) => de_RouteSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2473,10 +2228,9 @@ const de_ListRoutesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2496,12 +2250,11 @@ export const de_ListServicesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ServiceSummaryList != null) {
-    contents.ServiceSummaryList = de_ServiceSummaries(data.ServiceSummaryList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ServiceSummaryList: (_) => de_ServiceSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2541,10 +2294,9 @@ const de_ListServicesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2564,9 +2316,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2594,10 +2347,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2653,10 +2405,9 @@ const de_PutResourcePolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2703,10 +2454,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2753,10 +2503,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2776,24 +2525,15 @@ export const de_UpdateRouteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId != null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.LastUpdatedTime != null) {
-    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
-  }
-  if (data.RouteId != null) {
-    contents.RouteId = __expectString(data.RouteId);
-  }
-  if (data.ServiceId != null) {
-    contents.ServiceId = __expectString(data.ServiceId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RouteId: __expectString,
+    ServiceId: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2827,16 +2567,15 @@ const de_UpdateRouteCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2846,9 +2585,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2862,15 +2602,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2887,9 +2624,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2906,9 +2644,10 @@ const de_InvalidResourcePolicyExceptionRes = async (
 ): Promise<InvalidResourcePolicyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidResourcePolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2925,15 +2664,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2950,21 +2686,14 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.QuotaCode != null) {
-    contents.QuotaCode = __expectString(data.QuotaCode);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.ServiceCode != null) {
-    contents.ServiceCode = __expectString(data.ServiceCode);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    QuotaCode: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+    ServiceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2983,15 +2712,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.QuotaCode != null) {
-    contents.QuotaCode = __expectString(data.QuotaCode);
-  }
-  if (data.ServiceCode != null) {
-    contents.ServiceCode = __expectString(data.ServiceCode);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    QuotaCode: __expectString,
+    ServiceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3005,9 +2731,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3015,132 +2742,27 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ApiGatewayProxyInput
- */
-const se_ApiGatewayProxyInput = (input: ApiGatewayProxyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointType != null && { EndpointType: input.EndpointType }),
-    ...(input.StageName != null && { StageName: input.StageName }),
-  };
-};
+// se_ApiGatewayProxyInput omitted.
 
-/**
- * serializeAws_restJson1DefaultRouteInput
- */
-const se_DefaultRouteInput = (input: DefaultRouteInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ActivationState != null && { ActivationState: input.ActivationState }),
-  };
-};
+// se_DefaultRouteInput omitted.
 
-/**
- * serializeAws_restJson1HttpMethods
- */
-const se_HttpMethods = (input: (HttpMethod | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_HttpMethods omitted.
 
-/**
- * serializeAws_restJson1LambdaEndpointInput
- */
-const se_LambdaEndpointInput = (input: LambdaEndpointInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-  };
-};
+// se_LambdaEndpointInput omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1UriPathRouteInput
- */
-const se_UriPathRouteInput = (input: UriPathRouteInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ActivationState != null && { ActivationState: input.ActivationState }),
-    ...(input.IncludeChildPaths != null && { IncludeChildPaths: input.IncludeChildPaths }),
-    ...(input.Methods != null && { Methods: se_HttpMethods(input.Methods, context) }),
-    ...(input.SourcePath != null && { SourcePath: input.SourcePath }),
-  };
-};
+// se_UriPathRouteInput omitted.
 
-/**
- * serializeAws_restJson1UrlEndpointInput
- */
-const se_UrlEndpointInput = (input: UrlEndpointInput, context: __SerdeContext): any => {
-  return {
-    ...(input.HealthUrl != null && { HealthUrl: input.HealthUrl }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
+// se_UrlEndpointInput omitted.
 
-/**
- * deserializeAws_restJson1AdditionalDetails
- */
-const de_AdditionalDetails = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_AdditionalDetails omitted.
 
-/**
- * deserializeAws_restJson1ApiGatewayProxyConfig
- */
-const de_ApiGatewayProxyConfig = (output: any, context: __SerdeContext): ApiGatewayProxyConfig => {
-  return {
-    ApiGatewayId: __expectString(output.ApiGatewayId),
-    EndpointType: __expectString(output.EndpointType),
-    NlbArn: __expectString(output.NlbArn),
-    NlbName: __expectString(output.NlbName),
-    ProxyUrl: __expectString(output.ProxyUrl),
-    StageName: __expectString(output.StageName),
-    VpcLinkId: __expectString(output.VpcLinkId),
-  } as any;
-};
+// de_ApiGatewayProxyConfig omitted.
 
-/**
- * deserializeAws_restJson1ApiGatewayProxyInput
- */
-const de_ApiGatewayProxyInput = (output: any, context: __SerdeContext): ApiGatewayProxyInput => {
-  return {
-    EndpointType: __expectString(output.EndpointType),
-    StageName: __expectString(output.StageName),
-  } as any;
-};
+// de_ApiGatewayProxyInput omitted.
 
-/**
- * deserializeAws_restJson1ApiGatewayProxySummary
- */
-const de_ApiGatewayProxySummary = (output: any, context: __SerdeContext): ApiGatewayProxySummary => {
-  return {
-    ApiGatewayId: __expectString(output.ApiGatewayId),
-    EndpointType: __expectString(output.EndpointType),
-    NlbArn: __expectString(output.NlbArn),
-    NlbName: __expectString(output.NlbName),
-    ProxyUrl: __expectString(output.ProxyUrl),
-    StageName: __expectString(output.StageName),
-    VpcLinkId: __expectString(output.VpcLinkId),
-  } as any;
-};
+// de_ApiGatewayProxySummary omitted.
 
 /**
  * deserializeAws_restJson1ApplicationSummaries
@@ -3149,9 +2771,6 @@ const de_ApplicationSummaries = (output: any, context: __SerdeContext): Applicat
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ApplicationSummary(entry, context);
     });
   return retVal;
@@ -3161,45 +2780,25 @@ const de_ApplicationSummaries = (output: any, context: __SerdeContext): Applicat
  * deserializeAws_restJson1ApplicationSummary
  */
 const de_ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
-  return {
-    ApiGatewayProxy:
-      output.ApiGatewayProxy != null ? de_ApiGatewayProxySummary(output.ApiGatewayProxy, context) : undefined,
-    ApplicationId: __expectString(output.ApplicationId),
-    Arn: __expectString(output.Arn),
-    CreatedByAccountId: __expectString(output.CreatedByAccountId),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    EnvironmentId: __expectString(output.EnvironmentId),
-    Error: output.Error != null ? de_ErrorResponse(output.Error, context) : undefined,
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    OwnerAccountId: __expectString(output.OwnerAccountId),
-    ProxyType: __expectString(output.ProxyType),
-    State: __expectString(output.State),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
+  return take(output, {
+    ApiGatewayProxy: _json,
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreatedByAccountId: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EnvironmentId: __expectString,
+    Error: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    ProxyType: __expectString,
+    State: __expectString,
+    Tags: _json,
+    VpcId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CidrBlocks
- */
-const de_CidrBlocks = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CidrBlocks omitted.
 
 /**
  * deserializeAws_restJson1EnvironmentSummaries
@@ -3208,9 +2807,6 @@ const de_EnvironmentSummaries = (output: any, context: __SerdeContext): Environm
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EnvironmentSummary(entry, context);
     });
   return retVal;
@@ -3220,47 +2816,35 @@ const de_EnvironmentSummaries = (output: any, context: __SerdeContext): Environm
  * deserializeAws_restJson1EnvironmentSummary
  */
 const de_EnvironmentSummary = (output: any, context: __SerdeContext): EnvironmentSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    EnvironmentId: __expectString(output.EnvironmentId),
-    Error: output.Error != null ? de_ErrorResponse(output.Error, context) : undefined,
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    NetworkFabricType: __expectString(output.NetworkFabricType),
-    OwnerAccountId: __expectString(output.OwnerAccountId),
-    State: __expectString(output.State),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-    TransitGatewayId: __expectString(output.TransitGatewayId),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EnvironmentId: __expectString,
+    Error: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    NetworkFabricType: __expectString,
+    OwnerAccountId: __expectString,
+    State: __expectString,
+    Tags: _json,
+    TransitGatewayId: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1EnvironmentVpc
  */
 const de_EnvironmentVpc = (output: any, context: __SerdeContext): EnvironmentVpc => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    CidrBlocks: output.CidrBlocks != null ? de_CidrBlocks(output.CidrBlocks, context) : undefined,
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    EnvironmentId: __expectString(output.EnvironmentId),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    VpcId: __expectString(output.VpcId),
-    VpcName: __expectString(output.VpcName),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    CidrBlocks: _json,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EnvironmentId: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VpcId: __expectString,
+    VpcName: __expectString,
+  }) as any;
 };
 
 /**
@@ -3270,83 +2854,22 @@ const de_EnvironmentVpcs = (output: any, context: __SerdeContext): EnvironmentVp
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EnvironmentVpc(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ErrorResponse
- */
-const de_ErrorResponse = (output: any, context: __SerdeContext): ErrorResponse => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    AdditionalDetails:
-      output.AdditionalDetails != null ? de_AdditionalDetails(output.AdditionalDetails, context) : undefined,
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-    ResourceIdentifier: __expectString(output.ResourceIdentifier),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ErrorResponse omitted.
 
-/**
- * deserializeAws_restJson1HttpMethods
- */
-const de_HttpMethods = (output: any, context: __SerdeContext): (HttpMethod | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HttpMethods omitted.
 
-/**
- * deserializeAws_restJson1LambdaEndpointConfig
- */
-const de_LambdaEndpointConfig = (output: any, context: __SerdeContext): LambdaEndpointConfig => {
-  return {
-    Arn: __expectString(output.Arn),
-  } as any;
-};
+// de_LambdaEndpointConfig omitted.
 
-/**
- * deserializeAws_restJson1LambdaEndpointInput
- */
-const de_LambdaEndpointInput = (output: any, context: __SerdeContext): LambdaEndpointInput => {
-  return {
-    Arn: __expectString(output.Arn),
-  } as any;
-};
+// de_LambdaEndpointInput omitted.
 
-/**
- * deserializeAws_restJson1LambdaEndpointSummary
- */
-const de_LambdaEndpointSummary = (output: any, context: __SerdeContext): LambdaEndpointSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-  } as any;
-};
+// de_LambdaEndpointSummary omitted.
 
-/**
- * deserializeAws_restJson1PathResourceToId
- */
-const de_PathResourceToId = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_PathResourceToId omitted.
 
 /**
  * deserializeAws_restJson1RouteSummaries
@@ -3355,9 +2878,6 @@ const de_RouteSummaries = (output: any, context: __SerdeContext): RouteSummary[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RouteSummary(entry, context);
     });
   return retVal;
@@ -3367,32 +2887,25 @@ const de_RouteSummaries = (output: any, context: __SerdeContext): RouteSummary[]
  * deserializeAws_restJson1RouteSummary
  */
 const de_RouteSummary = (output: any, context: __SerdeContext): RouteSummary => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    Arn: __expectString(output.Arn),
-    CreatedByAccountId: __expectString(output.CreatedByAccountId),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    EnvironmentId: __expectString(output.EnvironmentId),
-    Error: output.Error != null ? de_ErrorResponse(output.Error, context) : undefined,
-    IncludeChildPaths: __expectBoolean(output.IncludeChildPaths),
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    Methods: output.Methods != null ? de_HttpMethods(output.Methods, context) : undefined,
-    OwnerAccountId: __expectString(output.OwnerAccountId),
-    PathResourceToId:
-      output.PathResourceToId != null ? de_PathResourceToId(output.PathResourceToId, context) : undefined,
-    RouteId: __expectString(output.RouteId),
-    RouteType: __expectString(output.RouteType),
-    ServiceId: __expectString(output.ServiceId),
-    SourcePath: __expectString(output.SourcePath),
-    State: __expectString(output.State),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreatedByAccountId: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EnvironmentId: __expectString,
+    Error: _json,
+    IncludeChildPaths: __expectBoolean,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Methods: _json,
+    OwnerAccountId: __expectString,
+    PathResourceToId: _json,
+    RouteId: __expectString,
+    RouteType: __expectString,
+    ServiceId: __expectString,
+    SourcePath: __expectString,
+    State: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
 /**
@@ -3402,9 +2915,6 @@ const de_ServiceSummaries = (output: any, context: __SerdeContext): ServiceSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServiceSummary(entry, context);
     });
   return retVal;
@@ -3414,88 +2924,36 @@ const de_ServiceSummaries = (output: any, context: __SerdeContext): ServiceSumma
  * deserializeAws_restJson1ServiceSummary
  */
 const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    Arn: __expectString(output.Arn),
-    CreatedByAccountId: __expectString(output.CreatedByAccountId),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    EndpointType: __expectString(output.EndpointType),
-    EnvironmentId: __expectString(output.EnvironmentId),
-    Error: output.Error != null ? de_ErrorResponse(output.Error, context) : undefined,
-    LambdaEndpoint:
-      output.LambdaEndpoint != null ? de_LambdaEndpointSummary(output.LambdaEndpoint, context) : undefined,
-    LastUpdatedTime:
-      output.LastUpdatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    OwnerAccountId: __expectString(output.OwnerAccountId),
-    ServiceId: __expectString(output.ServiceId),
-    State: __expectString(output.State),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-    UrlEndpoint: output.UrlEndpoint != null ? de_UrlEndpointSummary(output.UrlEndpoint, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
+  return take(output, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreatedByAccountId: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EndpointType: __expectString,
+    EnvironmentId: __expectString,
+    Error: _json,
+    LambdaEndpoint: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    ServiceId: __expectString,
+    State: __expectString,
+    Tags: _json,
+    UrlEndpoint: _json,
+    VpcId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1UriPathRouteInput
- */
-const de_UriPathRouteInput = (output: any, context: __SerdeContext): UriPathRouteInput => {
-  return {
-    ActivationState: __expectString(output.ActivationState),
-    IncludeChildPaths: __expectBoolean(output.IncludeChildPaths),
-    Methods: output.Methods != null ? de_HttpMethods(output.Methods, context) : undefined,
-    SourcePath: __expectString(output.SourcePath),
-  } as any;
-};
+// de_UriPathRouteInput omitted.
 
-/**
- * deserializeAws_restJson1UrlEndpointConfig
- */
-const de_UrlEndpointConfig = (output: any, context: __SerdeContext): UrlEndpointConfig => {
-  return {
-    HealthUrl: __expectString(output.HealthUrl),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_UrlEndpointConfig omitted.
 
-/**
- * deserializeAws_restJson1UrlEndpointInput
- */
-const de_UrlEndpointInput = (output: any, context: __SerdeContext): UrlEndpointInput => {
-  return {
-    HealthUrl: __expectString(output.HealthUrl),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_UrlEndpointInput omitted.
 
-/**
- * deserializeAws_restJson1UrlEndpointSummary
- */
-const de_UrlEndpointSummary = (output: any, context: __SerdeContext): UrlEndpointSummary => {
-  return {
-    HealthUrl: __expectString(output.HealthUrl),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_UrlEndpointSummary omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

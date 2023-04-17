@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -92,32 +91,20 @@ import { AppSyncServiceException as __BaseException } from "../models/AppSyncSer
 import {
   AccessDeniedException,
   AdditionalAuthenticationProvider,
-  ApiAssociation,
-  ApiCache,
-  ApiKey,
   ApiKeyLimitExceededException,
   ApiKeyValidityOutOfBoundsException,
   ApiLimitExceededException,
   AppSyncRuntime,
   AuthorizationConfig,
   AwsIamConfig,
-  BadRequestDetail,
   BadRequestException,
   CachingConfig,
-  CodeError,
-  CodeErrorLocation,
   CognitoUserPoolConfig,
   ConcurrentModificationException,
-  DataSource,
   DeltaSyncConfig,
-  DomainNameConfig,
   DynamodbDataSourceConfig,
   ElasticsearchDataSourceConfig,
-  ErrorDetail,
-  EvaluateCodeErrorDetail,
   EventBridgeDataSourceConfig,
-  FunctionConfiguration,
-  GraphqlApi,
   GraphQLSchemaException,
   HttpDataSourceConfig,
   InternalFailureException,
@@ -132,9 +119,7 @@ import {
   PipelineConfig,
   RdsHttpEndpointConfig,
   RelationalDatabaseDataSourceConfig,
-  Resolver,
   SyncConfig,
-  Type,
   UnauthorizedException,
   UserPoolConfig,
 } from "../models/models_0";
@@ -155,9 +140,11 @@ export const se_AssociateApiCommand = async (
     "/v1/domainnames/{domainName}/apiassociation";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainName", () => input.domainName!, "{domainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.apiId != null && { apiId: input.apiId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      apiId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -184,13 +171,15 @@ export const se_CreateApiCacheCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/ApiCaches";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.apiCachingBehavior != null && { apiCachingBehavior: input.apiCachingBehavior }),
-    ...(input.atRestEncryptionEnabled != null && { atRestEncryptionEnabled: input.atRestEncryptionEnabled }),
-    ...(input.transitEncryptionEnabled != null && { transitEncryptionEnabled: input.transitEncryptionEnabled }),
-    ...(input.ttl != null && { ttl: input.ttl }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      apiCachingBehavior: [],
+      atRestEncryptionEnabled: [],
+      transitEncryptionEnabled: [],
+      ttl: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -216,10 +205,12 @@ export const se_CreateApiKeyCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/apikeys";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.expires != null && { expires: input.expires }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      expires: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -246,27 +237,21 @@ export const se_CreateDataSourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/datasources";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.dynamodbConfig != null && { dynamodbConfig: se_DynamodbDataSourceConfig(input.dynamodbConfig, context) }),
-    ...(input.elasticsearchConfig != null && {
-      elasticsearchConfig: se_ElasticsearchDataSourceConfig(input.elasticsearchConfig, context),
-    }),
-    ...(input.eventBridgeConfig != null && {
-      eventBridgeConfig: se_EventBridgeDataSourceConfig(input.eventBridgeConfig, context),
-    }),
-    ...(input.httpConfig != null && { httpConfig: se_HttpDataSourceConfig(input.httpConfig, context) }),
-    ...(input.lambdaConfig != null && { lambdaConfig: se_LambdaDataSourceConfig(input.lambdaConfig, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.openSearchServiceConfig != null && {
-      openSearchServiceConfig: se_OpenSearchServiceDataSourceConfig(input.openSearchServiceConfig, context),
-    }),
-    ...(input.relationalDatabaseConfig != null && {
-      relationalDatabaseConfig: se_RelationalDatabaseDataSourceConfig(input.relationalDatabaseConfig, context),
-    }),
-    ...(input.serviceRoleArn != null && { serviceRoleArn: input.serviceRoleArn }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      dynamodbConfig: (_) => _json(_),
+      elasticsearchConfig: (_) => _json(_),
+      eventBridgeConfig: (_) => _json(_),
+      httpConfig: (_) => _json(_),
+      lambdaConfig: (_) => _json(_),
+      name: [],
+      openSearchServiceConfig: (_) => _json(_),
+      relationalDatabaseConfig: (_) => _json(_),
+      serviceRoleArn: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -291,11 +276,13 @@ export const se_CreateDomainNameCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domainnames";
   let body: any;
-  body = JSON.stringify({
-    ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.domainName != null && { domainName: input.domainName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      certificateArn: [],
+      description: [],
+      domainName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -322,18 +309,20 @@ export const se_CreateFunctionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/functions";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.code != null && { code: input.code }),
-    ...(input.dataSourceName != null && { dataSourceName: input.dataSourceName }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.functionVersion != null && { functionVersion: input.functionVersion }),
-    ...(input.maxBatchSize != null && { maxBatchSize: input.maxBatchSize }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.requestMappingTemplate != null && { requestMappingTemplate: input.requestMappingTemplate }),
-    ...(input.responseMappingTemplate != null && { responseMappingTemplate: input.responseMappingTemplate }),
-    ...(input.runtime != null && { runtime: se_AppSyncRuntime(input.runtime, context) }),
-    ...(input.syncConfig != null && { syncConfig: se_SyncConfig(input.syncConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      code: [],
+      dataSourceName: [],
+      description: [],
+      functionVersion: [],
+      maxBatchSize: [],
+      name: [],
+      requestMappingTemplate: [],
+      responseMappingTemplate: [],
+      runtime: (_) => _json(_),
+      syncConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -358,26 +347,19 @@ export const se_CreateGraphqlApiCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalAuthenticationProviders != null && {
-      additionalAuthenticationProviders: se_AdditionalAuthenticationProviders(
-        input.additionalAuthenticationProviders,
-        context
-      ),
-    }),
-    ...(input.authenticationType != null && { authenticationType: input.authenticationType }),
-    ...(input.lambdaAuthorizerConfig != null && {
-      lambdaAuthorizerConfig: se_LambdaAuthorizerConfig(input.lambdaAuthorizerConfig, context),
-    }),
-    ...(input.logConfig != null && { logConfig: se_LogConfig(input.logConfig, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.openIDConnectConfig != null && {
-      openIDConnectConfig: se_OpenIDConnectConfig(input.openIDConnectConfig, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.userPoolConfig != null && { userPoolConfig: se_UserPoolConfig(input.userPoolConfig, context) }),
-    ...(input.xrayEnabled != null && { xrayEnabled: input.xrayEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalAuthenticationProviders: (_) => _json(_),
+      authenticationType: [],
+      lambdaAuthorizerConfig: (_) => _json(_),
+      logConfig: (_) => _json(_),
+      name: [],
+      openIDConnectConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+      userPoolConfig: (_) => _json(_),
+      xrayEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -406,19 +388,21 @@ export const se_CreateResolverCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "typeName", () => input.typeName!, "{typeName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.cachingConfig != null && { cachingConfig: se_CachingConfig(input.cachingConfig, context) }),
-    ...(input.code != null && { code: input.code }),
-    ...(input.dataSourceName != null && { dataSourceName: input.dataSourceName }),
-    ...(input.fieldName != null && { fieldName: input.fieldName }),
-    ...(input.kind != null && { kind: input.kind }),
-    ...(input.maxBatchSize != null && { maxBatchSize: input.maxBatchSize }),
-    ...(input.pipelineConfig != null && { pipelineConfig: se_PipelineConfig(input.pipelineConfig, context) }),
-    ...(input.requestMappingTemplate != null && { requestMappingTemplate: input.requestMappingTemplate }),
-    ...(input.responseMappingTemplate != null && { responseMappingTemplate: input.responseMappingTemplate }),
-    ...(input.runtime != null && { runtime: se_AppSyncRuntime(input.runtime, context) }),
-    ...(input.syncConfig != null && { syncConfig: se_SyncConfig(input.syncConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cachingConfig: (_) => _json(_),
+      code: [],
+      dataSourceName: [],
+      fieldName: [],
+      kind: [],
+      maxBatchSize: [],
+      pipelineConfig: (_) => _json(_),
+      requestMappingTemplate: [],
+      responseMappingTemplate: [],
+      runtime: (_) => _json(_),
+      syncConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -444,10 +428,12 @@ export const se_CreateTypeCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/types";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.definition != null && { definition: input.definition }),
-    ...(input.format != null && { format: input.format }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      definition: [],
+      format: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -696,12 +682,14 @@ export const se_EvaluateCodeCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/dataplane-evaluatecode";
   let body: any;
-  body = JSON.stringify({
-    ...(input.code != null && { code: input.code }),
-    ...(input.context != null && { context: input.context }),
-    ...(input.function != null && { function: input.function }),
-    ...(input.runtime != null && { runtime: se_AppSyncRuntime(input.runtime, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      code: [],
+      context: [],
+      function: [],
+      runtime: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -727,10 +715,12 @@ export const se_EvaluateMappingTemplateCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/dataplane-evaluatetemplate";
   let body: any;
-  body = JSON.stringify({
-    ...(input.context != null && { context: input.context }),
-    ...(input.template != null && { template: input.template }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      context: [],
+      template: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1289,9 +1279,11 @@ export const se_StartSchemaCreationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/schemacreation";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.definition != null && { definition: context.base64Encoder(input.definition) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      definition: (_) => context.base64Encoder(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1317,9 +1309,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1376,11 +1370,13 @@ export const se_UpdateApiCacheCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/ApiCaches/update";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.apiCachingBehavior != null && { apiCachingBehavior: input.apiCachingBehavior }),
-    ...(input.ttl != null && { ttl: input.ttl }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      apiCachingBehavior: [],
+      ttl: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1408,10 +1404,12 @@ export const se_UpdateApiKeyCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.expires != null && { expires: input.expires }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      expires: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1439,26 +1437,20 @@ export const se_UpdateDataSourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.dynamodbConfig != null && { dynamodbConfig: se_DynamodbDataSourceConfig(input.dynamodbConfig, context) }),
-    ...(input.elasticsearchConfig != null && {
-      elasticsearchConfig: se_ElasticsearchDataSourceConfig(input.elasticsearchConfig, context),
-    }),
-    ...(input.eventBridgeConfig != null && {
-      eventBridgeConfig: se_EventBridgeDataSourceConfig(input.eventBridgeConfig, context),
-    }),
-    ...(input.httpConfig != null && { httpConfig: se_HttpDataSourceConfig(input.httpConfig, context) }),
-    ...(input.lambdaConfig != null && { lambdaConfig: se_LambdaDataSourceConfig(input.lambdaConfig, context) }),
-    ...(input.openSearchServiceConfig != null && {
-      openSearchServiceConfig: se_OpenSearchServiceDataSourceConfig(input.openSearchServiceConfig, context),
-    }),
-    ...(input.relationalDatabaseConfig != null && {
-      relationalDatabaseConfig: se_RelationalDatabaseDataSourceConfig(input.relationalDatabaseConfig, context),
-    }),
-    ...(input.serviceRoleArn != null && { serviceRoleArn: input.serviceRoleArn }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      dynamodbConfig: (_) => _json(_),
+      elasticsearchConfig: (_) => _json(_),
+      eventBridgeConfig: (_) => _json(_),
+      httpConfig: (_) => _json(_),
+      lambdaConfig: (_) => _json(_),
+      openSearchServiceConfig: (_) => _json(_),
+      relationalDatabaseConfig: (_) => _json(_),
+      serviceRoleArn: [],
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1485,9 +1477,11 @@ export const se_UpdateDomainNameCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domainnames/{domainName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainName", () => input.domainName!, "{domainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1515,18 +1509,20 @@ export const se_UpdateFunctionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "functionId", () => input.functionId!, "{functionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.code != null && { code: input.code }),
-    ...(input.dataSourceName != null && { dataSourceName: input.dataSourceName }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.functionVersion != null && { functionVersion: input.functionVersion }),
-    ...(input.maxBatchSize != null && { maxBatchSize: input.maxBatchSize }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.requestMappingTemplate != null && { requestMappingTemplate: input.requestMappingTemplate }),
-    ...(input.responseMappingTemplate != null && { responseMappingTemplate: input.responseMappingTemplate }),
-    ...(input.runtime != null && { runtime: se_AppSyncRuntime(input.runtime, context) }),
-    ...(input.syncConfig != null && { syncConfig: se_SyncConfig(input.syncConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      code: [],
+      dataSourceName: [],
+      description: [],
+      functionVersion: [],
+      maxBatchSize: [],
+      name: [],
+      requestMappingTemplate: [],
+      responseMappingTemplate: [],
+      runtime: (_) => _json(_),
+      syncConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1552,25 +1548,18 @@ export const se_UpdateGraphqlApiCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalAuthenticationProviders != null && {
-      additionalAuthenticationProviders: se_AdditionalAuthenticationProviders(
-        input.additionalAuthenticationProviders,
-        context
-      ),
-    }),
-    ...(input.authenticationType != null && { authenticationType: input.authenticationType }),
-    ...(input.lambdaAuthorizerConfig != null && {
-      lambdaAuthorizerConfig: se_LambdaAuthorizerConfig(input.lambdaAuthorizerConfig, context),
-    }),
-    ...(input.logConfig != null && { logConfig: se_LogConfig(input.logConfig, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.openIDConnectConfig != null && {
-      openIDConnectConfig: se_OpenIDConnectConfig(input.openIDConnectConfig, context),
-    }),
-    ...(input.userPoolConfig != null && { userPoolConfig: se_UserPoolConfig(input.userPoolConfig, context) }),
-    ...(input.xrayEnabled != null && { xrayEnabled: input.xrayEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalAuthenticationProviders: (_) => _json(_),
+      authenticationType: [],
+      lambdaAuthorizerConfig: (_) => _json(_),
+      logConfig: (_) => _json(_),
+      name: [],
+      openIDConnectConfig: (_) => _json(_),
+      userPoolConfig: (_) => _json(_),
+      xrayEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1600,18 +1589,20 @@ export const se_UpdateResolverCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "typeName", () => input.typeName!, "{typeName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "fieldName", () => input.fieldName!, "{fieldName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.cachingConfig != null && { cachingConfig: se_CachingConfig(input.cachingConfig, context) }),
-    ...(input.code != null && { code: input.code }),
-    ...(input.dataSourceName != null && { dataSourceName: input.dataSourceName }),
-    ...(input.kind != null && { kind: input.kind }),
-    ...(input.maxBatchSize != null && { maxBatchSize: input.maxBatchSize }),
-    ...(input.pipelineConfig != null && { pipelineConfig: se_PipelineConfig(input.pipelineConfig, context) }),
-    ...(input.requestMappingTemplate != null && { requestMappingTemplate: input.requestMappingTemplate }),
-    ...(input.responseMappingTemplate != null && { responseMappingTemplate: input.responseMappingTemplate }),
-    ...(input.runtime != null && { runtime: se_AppSyncRuntime(input.runtime, context) }),
-    ...(input.syncConfig != null && { syncConfig: se_SyncConfig(input.syncConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cachingConfig: (_) => _json(_),
+      code: [],
+      dataSourceName: [],
+      kind: [],
+      maxBatchSize: [],
+      pipelineConfig: (_) => _json(_),
+      requestMappingTemplate: [],
+      responseMappingTemplate: [],
+      runtime: (_) => _json(_),
+      syncConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1639,10 +1630,12 @@ export const se_UpdateTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "typeName", () => input.typeName!, "{typeName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.definition != null && { definition: input.definition }),
-    ...(input.format != null && { format: input.format }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      definition: [],
+      format: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1668,9 +1661,10 @@ export const de_AssociateApiCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiAssociation != null) {
-    contents.apiAssociation = de_ApiAssociation(data.apiAssociation, context);
-  }
+  const doc = take(data, {
+    apiAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1701,10 +1695,9 @@ const de_AssociateApiCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1724,9 +1717,10 @@ export const de_CreateApiCacheCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiCache != null) {
-    contents.apiCache = de_ApiCache(data.apiCache, context);
-  }
+  const doc = take(data, {
+    apiCache: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1760,10 +1754,9 @@ const de_CreateApiCacheCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1783,9 +1776,10 @@ export const de_CreateApiKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKey != null) {
-    contents.apiKey = de_ApiKey(data.apiKey, context);
-  }
+  const doc = take(data, {
+    apiKey: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1825,10 +1819,9 @@ const de_CreateApiKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1848,9 +1841,10 @@ export const de_CreateDataSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dataSource != null) {
-    contents.dataSource = de_DataSource(data.dataSource, context);
-  }
+  const doc = take(data, {
+    dataSource: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1884,10 +1878,9 @@ const de_CreateDataSourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1907,9 +1900,10 @@ export const de_CreateDomainNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainNameConfig != null) {
-    contents.domainNameConfig = de_DomainNameConfig(data.domainNameConfig, context);
-  }
+  const doc = take(data, {
+    domainNameConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1937,10 +1931,9 @@ const de_CreateDomainNameCommandError = async (
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1960,9 +1953,10 @@ export const de_CreateFunctionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.functionConfiguration != null) {
-    contents.functionConfiguration = de_FunctionConfiguration(data.functionConfiguration, context);
-  }
+  const doc = take(data, {
+    functionConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1993,10 +1987,9 @@ const de_CreateFunctionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2016,9 +2009,10 @@ export const de_CreateGraphqlApiCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.graphqlApi != null) {
-    contents.graphqlApi = de_GraphqlApi(data.graphqlApi, context);
-  }
+  const doc = take(data, {
+    graphqlApi: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2055,10 +2049,9 @@ const de_CreateGraphqlApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2078,9 +2071,10 @@ export const de_CreateResolverCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resolver != null) {
-    contents.resolver = de_Resolver(data.resolver, context);
-  }
+  const doc = take(data, {
+    resolver: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2114,10 +2108,9 @@ const de_CreateResolverCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2137,9 +2130,10 @@ export const de_CreateTypeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.type != null) {
-    contents.type = de_Type(data.type, context);
-  }
+  const doc = take(data, {
+    type: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2173,10 +2167,9 @@ const de_CreateTypeCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2229,10 +2222,9 @@ const de_DeleteApiCacheCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2282,10 +2274,9 @@ const de_DeleteApiKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2338,10 +2329,9 @@ const de_DeleteDataSourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2394,10 +2384,9 @@ const de_DeleteDomainNameCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2447,10 +2436,9 @@ const de_DeleteFunctionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2506,10 +2494,9 @@ const de_DeleteGraphqlApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2562,10 +2549,9 @@ const de_DeleteResolverCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2618,10 +2604,9 @@ const de_DeleteTypeCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2674,10 +2659,9 @@ const de_DisassociateApiCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2697,15 +2681,12 @@ export const de_EvaluateCodeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.error != null) {
-    contents.error = de_EvaluateCodeErrorDetail(data.error, context);
-  }
-  if (data.evaluationResult != null) {
-    contents.evaluationResult = __expectString(data.evaluationResult);
-  }
-  if (data.logs != null) {
-    contents.logs = de_Logs(data.logs, context);
-  }
+  const doc = take(data, {
+    error: _json,
+    evaluationResult: __expectString,
+    logs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2733,10 +2714,9 @@ const de_EvaluateCodeCommandError = async (
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2756,15 +2736,12 @@ export const de_EvaluateMappingTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.error != null) {
-    contents.error = de_ErrorDetail(data.error, context);
-  }
-  if (data.evaluationResult != null) {
-    contents.evaluationResult = __expectString(data.evaluationResult);
-  }
-  if (data.logs != null) {
-    contents.logs = de_Logs(data.logs, context);
-  }
+  const doc = take(data, {
+    error: _json,
+    evaluationResult: __expectString,
+    logs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2792,10 +2769,9 @@ const de_EvaluateMappingTemplateCommandError = async (
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2848,10 +2824,9 @@ const de_FlushApiCacheCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2871,9 +2846,10 @@ export const de_GetApiAssociationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiAssociation != null) {
-    contents.apiAssociation = de_ApiAssociation(data.apiAssociation, context);
-  }
+  const doc = take(data, {
+    apiAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2904,10 +2880,9 @@ const de_GetApiAssociationCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2927,9 +2902,10 @@ export const de_GetApiCacheCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiCache != null) {
-    contents.apiCache = de_ApiCache(data.apiCache, context);
-  }
+  const doc = take(data, {
+    apiCache: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2963,10 +2939,9 @@ const de_GetApiCacheCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2986,9 +2961,10 @@ export const de_GetDataSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dataSource != null) {
-    contents.dataSource = de_DataSource(data.dataSource, context);
-  }
+  const doc = take(data, {
+    dataSource: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3022,10 +2998,9 @@ const de_GetDataSourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3045,9 +3020,10 @@ export const de_GetDomainNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainNameConfig != null) {
-    contents.domainNameConfig = de_DomainNameConfig(data.domainNameConfig, context);
-  }
+  const doc = take(data, {
+    domainNameConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3078,10 +3054,9 @@ const de_GetDomainNameCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3101,9 +3076,10 @@ export const de_GetFunctionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.functionConfiguration != null) {
-    contents.functionConfiguration = de_FunctionConfiguration(data.functionConfiguration, context);
-  }
+  const doc = take(data, {
+    functionConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3131,10 +3107,9 @@ const de_GetFunctionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3154,9 +3129,10 @@ export const de_GetGraphqlApiCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.graphqlApi != null) {
-    contents.graphqlApi = de_GraphqlApi(data.graphqlApi, context);
-  }
+  const doc = take(data, {
+    graphqlApi: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3190,10 +3166,9 @@ const de_GetGraphqlApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3244,10 +3219,9 @@ const de_GetIntrospectionSchemaCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3267,9 +3241,10 @@ export const de_GetResolverCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resolver != null) {
-    contents.resolver = de_Resolver(data.resolver, context);
-  }
+  const doc = take(data, {
+    resolver: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3297,10 +3272,9 @@ const de_GetResolverCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3320,12 +3294,11 @@ export const de_GetSchemaCreationStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.details != null) {
-    contents.details = __expectString(data.details);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    details: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3356,10 +3329,9 @@ const de_GetSchemaCreationStatusCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3379,9 +3351,10 @@ export const de_GetTypeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.type != null) {
-    contents.type = de_Type(data.type, context);
-  }
+  const doc = take(data, {
+    type: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3415,10 +3388,9 @@ const de_GetTypeCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3438,12 +3410,11 @@ export const de_ListApiKeysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKeys != null) {
-    contents.apiKeys = de_ApiKeys(data.apiKeys, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    apiKeys: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3474,10 +3445,9 @@ const de_ListApiKeysCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3497,12 +3467,11 @@ export const de_ListDataSourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dataSources != null) {
-    contents.dataSources = de_DataSources(data.dataSources, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    dataSources: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3533,10 +3502,9 @@ const de_ListDataSourcesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3556,12 +3524,11 @@ export const de_ListDomainNamesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainNameConfigs != null) {
-    contents.domainNameConfigs = de_DomainNameConfigs(data.domainNameConfigs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    domainNameConfigs: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3589,10 +3556,9 @@ const de_ListDomainNamesCommandError = async (
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3612,12 +3578,11 @@ export const de_ListFunctionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.functions != null) {
-    contents.functions = de_Functions(data.functions, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    functions: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3648,10 +3613,9 @@ const de_ListFunctionsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3671,12 +3635,11 @@ export const de_ListGraphqlApisCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.graphqlApis != null) {
-    contents.graphqlApis = de_GraphqlApis(data.graphqlApis, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    graphqlApis: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3704,10 +3667,9 @@ const de_ListGraphqlApisCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3727,12 +3689,11 @@ export const de_ListResolversCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resolvers != null) {
-    contents.resolvers = de_Resolvers(data.resolvers, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resolvers: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3763,10 +3724,9 @@ const de_ListResolversCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3786,12 +3746,11 @@ export const de_ListResolversByFunctionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.resolvers != null) {
-    contents.resolvers = de_Resolvers(data.resolvers, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    resolvers: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3822,10 +3781,9 @@ const de_ListResolversByFunctionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3845,9 +3803,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3884,10 +3843,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3907,12 +3865,11 @@ export const de_ListTypesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.types != null) {
-    contents.types = de_TypeList(data.types, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    types: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3946,10 +3903,9 @@ const de_ListTypesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3969,9 +3925,10 @@ export const de_StartSchemaCreationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4005,10 +3962,9 @@ const de_StartSchemaCreationCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4064,10 +4020,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4123,10 +4078,9 @@ const de_UntagResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4146,9 +4100,10 @@ export const de_UpdateApiCacheCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiCache != null) {
-    contents.apiCache = de_ApiCache(data.apiCache, context);
-  }
+  const doc = take(data, {
+    apiCache: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4182,10 +4137,9 @@ const de_UpdateApiCacheCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4205,9 +4159,10 @@ export const de_UpdateApiKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.apiKey != null) {
-    contents.apiKey = de_ApiKey(data.apiKey, context);
-  }
+  const doc = take(data, {
+    apiKey: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4244,10 +4199,9 @@ const de_UpdateApiKeyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4267,9 +4221,10 @@ export const de_UpdateDataSourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dataSource != null) {
-    contents.dataSource = de_DataSource(data.dataSource, context);
-  }
+  const doc = take(data, {
+    dataSource: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4303,10 +4258,9 @@ const de_UpdateDataSourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4326,9 +4280,10 @@ export const de_UpdateDomainNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.domainNameConfig != null) {
-    contents.domainNameConfig = de_DomainNameConfig(data.domainNameConfig, context);
-  }
+  const doc = take(data, {
+    domainNameConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4362,10 +4317,9 @@ const de_UpdateDomainNameCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4385,9 +4339,10 @@ export const de_UpdateFunctionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.functionConfiguration != null) {
-    contents.functionConfiguration = de_FunctionConfiguration(data.functionConfiguration, context);
-  }
+  const doc = take(data, {
+    functionConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4418,10 +4373,9 @@ const de_UpdateFunctionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4441,9 +4395,10 @@ export const de_UpdateGraphqlApiCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.graphqlApi != null) {
-    contents.graphqlApi = de_GraphqlApi(data.graphqlApi, context);
-  }
+  const doc = take(data, {
+    graphqlApi: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4480,10 +4435,9 @@ const de_UpdateGraphqlApiCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4503,9 +4457,10 @@ export const de_UpdateResolverCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resolver != null) {
-    contents.resolver = de_Resolver(data.resolver, context);
-  }
+  const doc = take(data, {
+    resolver: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4539,10 +4494,9 @@ const de_UpdateResolverCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4562,9 +4516,10 @@ export const de_UpdateTypeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.type != null) {
-    contents.type = de_Type(data.type, context);
-  }
+  const doc = take(data, {
+    type: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4598,16 +4553,15 @@ const de_UpdateTypeCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -4617,9 +4571,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4636,9 +4591,10 @@ const de_ApiKeyLimitExceededExceptionRes = async (
 ): Promise<ApiKeyLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ApiKeyLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4655,9 +4611,10 @@ const de_ApiKeyValidityOutOfBoundsExceptionRes = async (
 ): Promise<ApiKeyValidityOutOfBoundsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ApiKeyValidityOutOfBoundsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4674,9 +4631,10 @@ const de_ApiLimitExceededExceptionRes = async (
 ): Promise<ApiLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ApiLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4690,15 +4648,12 @@ const de_ApiLimitExceededExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.detail != null) {
-    contents.detail = de_BadRequestDetail(data.detail, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    detail: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4715,9 +4670,10 @@ const de_ConcurrentModificationExceptionRes = async (
 ): Promise<ConcurrentModificationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4734,9 +4690,10 @@ const de_GraphQLSchemaExceptionRes = async (
 ): Promise<GraphQLSchemaException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new GraphQLSchemaException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4753,9 +4710,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4772,9 +4730,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4788,9 +4747,10 @@ const de_LimitExceededExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4807,9 +4767,10 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4817,986 +4778,157 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AdditionalAuthenticationProvider
- */
-const se_AdditionalAuthenticationProvider = (input: AdditionalAuthenticationProvider, context: __SerdeContext): any => {
-  return {
-    ...(input.authenticationType != null && { authenticationType: input.authenticationType }),
-    ...(input.lambdaAuthorizerConfig != null && {
-      lambdaAuthorizerConfig: se_LambdaAuthorizerConfig(input.lambdaAuthorizerConfig, context),
-    }),
-    ...(input.openIDConnectConfig != null && {
-      openIDConnectConfig: se_OpenIDConnectConfig(input.openIDConnectConfig, context),
-    }),
-    ...(input.userPoolConfig != null && { userPoolConfig: se_CognitoUserPoolConfig(input.userPoolConfig, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1AdditionalAuthenticationProviders
- */
-const se_AdditionalAuthenticationProviders = (
-  input: AdditionalAuthenticationProvider[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AdditionalAuthenticationProvider(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1AppSyncRuntime
- */
-const se_AppSyncRuntime = (input: AppSyncRuntime, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.runtimeVersion != null && { runtimeVersion: input.runtimeVersion }),
-  };
-};
-
-/**
- * serializeAws_restJson1AuthorizationConfig
- */
-const se_AuthorizationConfig = (input: AuthorizationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.authorizationType != null && { authorizationType: input.authorizationType }),
-    ...(input.awsIamConfig != null && { awsIamConfig: se_AwsIamConfig(input.awsIamConfig, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1AwsIamConfig
- */
-const se_AwsIamConfig = (input: AwsIamConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.signingRegion != null && { signingRegion: input.signingRegion }),
-    ...(input.signingServiceName != null && { signingServiceName: input.signingServiceName }),
-  };
-};
-
-/**
- * serializeAws_restJson1CachingConfig
- */
-const se_CachingConfig = (input: CachingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.cachingKeys != null && { cachingKeys: se_CachingKeys(input.cachingKeys, context) }),
-    ...(input.ttl != null && { ttl: input.ttl }),
-  };
-};
-
-/**
- * serializeAws_restJson1CachingKeys
- */
-const se_CachingKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1CognitoUserPoolConfig
- */
-const se_CognitoUserPoolConfig = (input: CognitoUserPoolConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.appIdClientRegex != null && { appIdClientRegex: input.appIdClientRegex }),
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    ...(input.userPoolId != null && { userPoolId: input.userPoolId }),
-  };
-};
-
-/**
- * serializeAws_restJson1DeltaSyncConfig
- */
-const se_DeltaSyncConfig = (input: DeltaSyncConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.baseTableTTL != null && { baseTableTTL: input.baseTableTTL }),
-    ...(input.deltaSyncTableName != null && { deltaSyncTableName: input.deltaSyncTableName }),
-    ...(input.deltaSyncTableTTL != null && { deltaSyncTableTTL: input.deltaSyncTableTTL }),
-  };
-};
-
-/**
- * serializeAws_restJson1DynamodbDataSourceConfig
- */
-const se_DynamodbDataSourceConfig = (input: DynamodbDataSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    ...(input.deltaSyncConfig != null && { deltaSyncConfig: se_DeltaSyncConfig(input.deltaSyncConfig, context) }),
-    ...(input.tableName != null && { tableName: input.tableName }),
-    ...(input.useCallerCredentials != null && { useCallerCredentials: input.useCallerCredentials }),
-    ...(input.versioned != null && { versioned: input.versioned }),
-  };
-};
-
-/**
- * serializeAws_restJson1ElasticsearchDataSourceConfig
- */
-const se_ElasticsearchDataSourceConfig = (input: ElasticsearchDataSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    ...(input.endpoint != null && { endpoint: input.endpoint }),
-  };
-};
-
-/**
- * serializeAws_restJson1EventBridgeDataSourceConfig
- */
-const se_EventBridgeDataSourceConfig = (input: EventBridgeDataSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.eventBusArn != null && { eventBusArn: input.eventBusArn }),
-  };
-};
-
-/**
- * serializeAws_restJson1FunctionsIds
- */
-const se_FunctionsIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1HttpDataSourceConfig
- */
-const se_HttpDataSourceConfig = (input: HttpDataSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.authorizationConfig != null && {
-      authorizationConfig: se_AuthorizationConfig(input.authorizationConfig, context),
-    }),
-    ...(input.endpoint != null && { endpoint: input.endpoint }),
-  };
-};
-
-/**
- * serializeAws_restJson1LambdaAuthorizerConfig
- */
-const se_LambdaAuthorizerConfig = (input: LambdaAuthorizerConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.authorizerResultTtlInSeconds != null && {
-      authorizerResultTtlInSeconds: input.authorizerResultTtlInSeconds,
-    }),
-    ...(input.authorizerUri != null && { authorizerUri: input.authorizerUri }),
-    ...(input.identityValidationExpression != null && {
-      identityValidationExpression: input.identityValidationExpression,
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1LambdaConflictHandlerConfig
- */
-const se_LambdaConflictHandlerConfig = (input: LambdaConflictHandlerConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.lambdaConflictHandlerArn != null && { lambdaConflictHandlerArn: input.lambdaConflictHandlerArn }),
-  };
-};
-
-/**
- * serializeAws_restJson1LambdaDataSourceConfig
- */
-const se_LambdaDataSourceConfig = (input: LambdaDataSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.lambdaFunctionArn != null && { lambdaFunctionArn: input.lambdaFunctionArn }),
-  };
-};
-
-/**
- * serializeAws_restJson1LogConfig
- */
-const se_LogConfig = (input: LogConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.cloudWatchLogsRoleArn != null && { cloudWatchLogsRoleArn: input.cloudWatchLogsRoleArn }),
-    ...(input.excludeVerboseContent != null && { excludeVerboseContent: input.excludeVerboseContent }),
-    ...(input.fieldLogLevel != null && { fieldLogLevel: input.fieldLogLevel }),
-  };
-};
-
-/**
- * serializeAws_restJson1OpenIDConnectConfig
- */
-const se_OpenIDConnectConfig = (input: OpenIDConnectConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.authTTL != null && { authTTL: input.authTTL }),
-    ...(input.clientId != null && { clientId: input.clientId }),
-    ...(input.iatTTL != null && { iatTTL: input.iatTTL }),
-    ...(input.issuer != null && { issuer: input.issuer }),
-  };
-};
-
-/**
- * serializeAws_restJson1OpenSearchServiceDataSourceConfig
- */
-const se_OpenSearchServiceDataSourceConfig = (
-  input: OpenSearchServiceDataSourceConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    ...(input.endpoint != null && { endpoint: input.endpoint }),
-  };
-};
-
-/**
- * serializeAws_restJson1PipelineConfig
- */
-const se_PipelineConfig = (input: PipelineConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.functions != null && { functions: se_FunctionsIds(input.functions, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1RdsHttpEndpointConfig
- */
-const se_RdsHttpEndpointConfig = (input: RdsHttpEndpointConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    ...(input.awsSecretStoreArn != null && { awsSecretStoreArn: input.awsSecretStoreArn }),
-    ...(input.databaseName != null && { databaseName: input.databaseName }),
-    ...(input.dbClusterIdentifier != null && { dbClusterIdentifier: input.dbClusterIdentifier }),
-    ...(input.schema != null && { schema: input.schema }),
-  };
-};
-
-/**
- * serializeAws_restJson1RelationalDatabaseDataSourceConfig
- */
-const se_RelationalDatabaseDataSourceConfig = (
-  input: RelationalDatabaseDataSourceConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.rdsHttpEndpointConfig != null && {
-      rdsHttpEndpointConfig: se_RdsHttpEndpointConfig(input.rdsHttpEndpointConfig, context),
-    }),
-    ...(input.relationalDatabaseSourceType != null && {
-      relationalDatabaseSourceType: input.relationalDatabaseSourceType,
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1SyncConfig
- */
-const se_SyncConfig = (input: SyncConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.conflictDetection != null && { conflictDetection: input.conflictDetection }),
-    ...(input.conflictHandler != null && { conflictHandler: input.conflictHandler }),
-    ...(input.lambdaConflictHandlerConfig != null && {
-      lambdaConflictHandlerConfig: se_LambdaConflictHandlerConfig(input.lambdaConflictHandlerConfig, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_restJson1UserPoolConfig
- */
-const se_UserPoolConfig = (input: UserPoolConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.appIdClientRegex != null && { appIdClientRegex: input.appIdClientRegex }),
-    ...(input.awsRegion != null && { awsRegion: input.awsRegion }),
-    ...(input.defaultAction != null && { defaultAction: input.defaultAction }),
-    ...(input.userPoolId != null && { userPoolId: input.userPoolId }),
-  };
-};
-
-/**
- * deserializeAws_restJson1AdditionalAuthenticationProvider
- */
-const de_AdditionalAuthenticationProvider = (
-  output: any,
-  context: __SerdeContext
-): AdditionalAuthenticationProvider => {
-  return {
-    authenticationType: __expectString(output.authenticationType),
-    lambdaAuthorizerConfig:
-      output.lambdaAuthorizerConfig != null
-        ? de_LambdaAuthorizerConfig(output.lambdaAuthorizerConfig, context)
-        : undefined,
-    openIDConnectConfig:
-      output.openIDConnectConfig != null ? de_OpenIDConnectConfig(output.openIDConnectConfig, context) : undefined,
-    userPoolConfig:
-      output.userPoolConfig != null ? de_CognitoUserPoolConfig(output.userPoolConfig, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1AdditionalAuthenticationProviders
- */
-const de_AdditionalAuthenticationProviders = (
-  output: any,
-  context: __SerdeContext
-): AdditionalAuthenticationProvider[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AdditionalAuthenticationProvider(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1ApiAssociation
- */
-const de_ApiAssociation = (output: any, context: __SerdeContext): ApiAssociation => {
-  return {
-    apiId: __expectString(output.apiId),
-    associationStatus: __expectString(output.associationStatus),
-    deploymentDetail: __expectString(output.deploymentDetail),
-    domainName: __expectString(output.domainName),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1ApiCache
- */
-const de_ApiCache = (output: any, context: __SerdeContext): ApiCache => {
-  return {
-    apiCachingBehavior: __expectString(output.apiCachingBehavior),
-    atRestEncryptionEnabled: __expectBoolean(output.atRestEncryptionEnabled),
-    status: __expectString(output.status),
-    transitEncryptionEnabled: __expectBoolean(output.transitEncryptionEnabled),
-    ttl: __expectLong(output.ttl),
-    type: __expectString(output.type),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1ApiKey
- */
-const de_ApiKey = (output: any, context: __SerdeContext): ApiKey => {
-  return {
-    deletes: __expectLong(output.deletes),
-    description: __expectString(output.description),
-    expires: __expectLong(output.expires),
-    id: __expectString(output.id),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1ApiKeys
- */
-const de_ApiKeys = (output: any, context: __SerdeContext): ApiKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ApiKey(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1AppSyncRuntime
- */
-const de_AppSyncRuntime = (output: any, context: __SerdeContext): AppSyncRuntime => {
-  return {
-    name: __expectString(output.name),
-    runtimeVersion: __expectString(output.runtimeVersion),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1AuthorizationConfig
- */
-const de_AuthorizationConfig = (output: any, context: __SerdeContext): AuthorizationConfig => {
-  return {
-    authorizationType: __expectString(output.authorizationType),
-    awsIamConfig: output.awsIamConfig != null ? de_AwsIamConfig(output.awsIamConfig, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1AwsIamConfig
- */
-const de_AwsIamConfig = (output: any, context: __SerdeContext): AwsIamConfig => {
-  return {
-    signingRegion: __expectString(output.signingRegion),
-    signingServiceName: __expectString(output.signingServiceName),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1BadRequestDetail
- */
-const de_BadRequestDetail = (output: any, context: __SerdeContext): BadRequestDetail => {
-  return {
-    codeErrors: output.codeErrors != null ? de_CodeErrors(output.codeErrors, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1CachingConfig
- */
-const de_CachingConfig = (output: any, context: __SerdeContext): CachingConfig => {
-  return {
-    cachingKeys: output.cachingKeys != null ? de_CachingKeys(output.cachingKeys, context) : undefined,
-    ttl: __expectLong(output.ttl),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1CachingKeys
- */
-const de_CachingKeys = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1CodeError
- */
-const de_CodeError = (output: any, context: __SerdeContext): CodeError => {
-  return {
-    errorType: __expectString(output.errorType),
-    location: output.location != null ? de_CodeErrorLocation(output.location, context) : undefined,
-    value: __expectString(output.value),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1CodeErrorLocation
- */
-const de_CodeErrorLocation = (output: any, context: __SerdeContext): CodeErrorLocation => {
-  return {
-    column: __expectInt32(output.column),
-    line: __expectInt32(output.line),
-    span: __expectInt32(output.span),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1CodeErrors
- */
-const de_CodeErrors = (output: any, context: __SerdeContext): CodeError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CodeError(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1CognitoUserPoolConfig
- */
-const de_CognitoUserPoolConfig = (output: any, context: __SerdeContext): CognitoUserPoolConfig => {
-  return {
-    appIdClientRegex: __expectString(output.appIdClientRegex),
-    awsRegion: __expectString(output.awsRegion),
-    userPoolId: __expectString(output.userPoolId),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1DataSource
- */
-const de_DataSource = (output: any, context: __SerdeContext): DataSource => {
-  return {
-    dataSourceArn: __expectString(output.dataSourceArn),
-    description: __expectString(output.description),
-    dynamodbConfig:
-      output.dynamodbConfig != null ? de_DynamodbDataSourceConfig(output.dynamodbConfig, context) : undefined,
-    elasticsearchConfig:
-      output.elasticsearchConfig != null
-        ? de_ElasticsearchDataSourceConfig(output.elasticsearchConfig, context)
-        : undefined,
-    eventBridgeConfig:
-      output.eventBridgeConfig != null ? de_EventBridgeDataSourceConfig(output.eventBridgeConfig, context) : undefined,
-    httpConfig: output.httpConfig != null ? de_HttpDataSourceConfig(output.httpConfig, context) : undefined,
-    lambdaConfig: output.lambdaConfig != null ? de_LambdaDataSourceConfig(output.lambdaConfig, context) : undefined,
-    name: __expectString(output.name),
-    openSearchServiceConfig:
-      output.openSearchServiceConfig != null
-        ? de_OpenSearchServiceDataSourceConfig(output.openSearchServiceConfig, context)
-        : undefined,
-    relationalDatabaseConfig:
-      output.relationalDatabaseConfig != null
-        ? de_RelationalDatabaseDataSourceConfig(output.relationalDatabaseConfig, context)
-        : undefined,
-    serviceRoleArn: __expectString(output.serviceRoleArn),
-    type: __expectString(output.type),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1DataSources
- */
-const de_DataSources = (output: any, context: __SerdeContext): DataSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataSource(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1DeltaSyncConfig
- */
-const de_DeltaSyncConfig = (output: any, context: __SerdeContext): DeltaSyncConfig => {
-  return {
-    baseTableTTL: __expectLong(output.baseTableTTL),
-    deltaSyncTableName: __expectString(output.deltaSyncTableName),
-    deltaSyncTableTTL: __expectLong(output.deltaSyncTableTTL),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1DomainNameConfig
- */
-const de_DomainNameConfig = (output: any, context: __SerdeContext): DomainNameConfig => {
-  return {
-    appsyncDomainName: __expectString(output.appsyncDomainName),
-    certificateArn: __expectString(output.certificateArn),
-    description: __expectString(output.description),
-    domainName: __expectString(output.domainName),
-    hostedZoneId: __expectString(output.hostedZoneId),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1DomainNameConfigs
- */
-const de_DomainNameConfigs = (output: any, context: __SerdeContext): DomainNameConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DomainNameConfig(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1DynamodbDataSourceConfig
- */
-const de_DynamodbDataSourceConfig = (output: any, context: __SerdeContext): DynamodbDataSourceConfig => {
-  return {
-    awsRegion: __expectString(output.awsRegion),
-    deltaSyncConfig: output.deltaSyncConfig != null ? de_DeltaSyncConfig(output.deltaSyncConfig, context) : undefined,
-    tableName: __expectString(output.tableName),
-    useCallerCredentials: __expectBoolean(output.useCallerCredentials),
-    versioned: __expectBoolean(output.versioned),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1ElasticsearchDataSourceConfig
- */
-const de_ElasticsearchDataSourceConfig = (output: any, context: __SerdeContext): ElasticsearchDataSourceConfig => {
-  return {
-    awsRegion: __expectString(output.awsRegion),
-    endpoint: __expectString(output.endpoint),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1ErrorDetail
- */
-const de_ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1EvaluateCodeErrorDetail
- */
-const de_EvaluateCodeErrorDetail = (output: any, context: __SerdeContext): EvaluateCodeErrorDetail => {
-  return {
-    codeErrors: output.codeErrors != null ? de_CodeErrors(output.codeErrors, context) : undefined,
-    message: __expectString(output.message),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1EventBridgeDataSourceConfig
- */
-const de_EventBridgeDataSourceConfig = (output: any, context: __SerdeContext): EventBridgeDataSourceConfig => {
-  return {
-    eventBusArn: __expectString(output.eventBusArn),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1FunctionConfiguration
- */
-const de_FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
-  return {
-    code: __expectString(output.code),
-    dataSourceName: __expectString(output.dataSourceName),
-    description: __expectString(output.description),
-    functionArn: __expectString(output.functionArn),
-    functionId: __expectString(output.functionId),
-    functionVersion: __expectString(output.functionVersion),
-    maxBatchSize: __expectInt32(output.maxBatchSize),
-    name: __expectString(output.name),
-    requestMappingTemplate: __expectString(output.requestMappingTemplate),
-    responseMappingTemplate: __expectString(output.responseMappingTemplate),
-    runtime: output.runtime != null ? de_AppSyncRuntime(output.runtime, context) : undefined,
-    syncConfig: output.syncConfig != null ? de_SyncConfig(output.syncConfig, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1Functions
- */
-const de_Functions = (output: any, context: __SerdeContext): FunctionConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FunctionConfiguration(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1FunctionsIds
- */
-const de_FunctionsIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1GraphqlApi
- */
-const de_GraphqlApi = (output: any, context: __SerdeContext): GraphqlApi => {
-  return {
-    additionalAuthenticationProviders:
-      output.additionalAuthenticationProviders != null
-        ? de_AdditionalAuthenticationProviders(output.additionalAuthenticationProviders, context)
-        : undefined,
-    apiId: __expectString(output.apiId),
-    arn: __expectString(output.arn),
-    authenticationType: __expectString(output.authenticationType),
-    lambdaAuthorizerConfig:
-      output.lambdaAuthorizerConfig != null
-        ? de_LambdaAuthorizerConfig(output.lambdaAuthorizerConfig, context)
-        : undefined,
-    logConfig: output.logConfig != null ? de_LogConfig(output.logConfig, context) : undefined,
-    name: __expectString(output.name),
-    openIDConnectConfig:
-      output.openIDConnectConfig != null ? de_OpenIDConnectConfig(output.openIDConnectConfig, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    uris: output.uris != null ? de_MapOfStringToString(output.uris, context) : undefined,
-    userPoolConfig: output.userPoolConfig != null ? de_UserPoolConfig(output.userPoolConfig, context) : undefined,
-    wafWebAclArn: __expectString(output.wafWebAclArn),
-    xrayEnabled: __expectBoolean(output.xrayEnabled),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1GraphqlApis
- */
-const de_GraphqlApis = (output: any, context: __SerdeContext): GraphqlApi[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GraphqlApi(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1HttpDataSourceConfig
- */
-const de_HttpDataSourceConfig = (output: any, context: __SerdeContext): HttpDataSourceConfig => {
-  return {
-    authorizationConfig:
-      output.authorizationConfig != null ? de_AuthorizationConfig(output.authorizationConfig, context) : undefined,
-    endpoint: __expectString(output.endpoint),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1LambdaAuthorizerConfig
- */
-const de_LambdaAuthorizerConfig = (output: any, context: __SerdeContext): LambdaAuthorizerConfig => {
-  return {
-    authorizerResultTtlInSeconds: __expectInt32(output.authorizerResultTtlInSeconds),
-    authorizerUri: __expectString(output.authorizerUri),
-    identityValidationExpression: __expectString(output.identityValidationExpression),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1LambdaConflictHandlerConfig
- */
-const de_LambdaConflictHandlerConfig = (output: any, context: __SerdeContext): LambdaConflictHandlerConfig => {
-  return {
-    lambdaConflictHandlerArn: __expectString(output.lambdaConflictHandlerArn),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1LambdaDataSourceConfig
- */
-const de_LambdaDataSourceConfig = (output: any, context: __SerdeContext): LambdaDataSourceConfig => {
-  return {
-    lambdaFunctionArn: __expectString(output.lambdaFunctionArn),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1LogConfig
- */
-const de_LogConfig = (output: any, context: __SerdeContext): LogConfig => {
-  return {
-    cloudWatchLogsRoleArn: __expectString(output.cloudWatchLogsRoleArn),
-    excludeVerboseContent: __expectBoolean(output.excludeVerboseContent),
-    fieldLogLevel: __expectString(output.fieldLogLevel),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1Logs
- */
-const de_Logs = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1MapOfStringToString
- */
-const de_MapOfStringToString = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-/**
- * deserializeAws_restJson1OpenIDConnectConfig
- */
-const de_OpenIDConnectConfig = (output: any, context: __SerdeContext): OpenIDConnectConfig => {
-  return {
-    authTTL: __expectLong(output.authTTL),
-    clientId: __expectString(output.clientId),
-    iatTTL: __expectLong(output.iatTTL),
-    issuer: __expectString(output.issuer),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1OpenSearchServiceDataSourceConfig
- */
-const de_OpenSearchServiceDataSourceConfig = (
-  output: any,
-  context: __SerdeContext
-): OpenSearchServiceDataSourceConfig => {
-  return {
-    awsRegion: __expectString(output.awsRegion),
-    endpoint: __expectString(output.endpoint),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1PipelineConfig
- */
-const de_PipelineConfig = (output: any, context: __SerdeContext): PipelineConfig => {
-  return {
-    functions: output.functions != null ? de_FunctionsIds(output.functions, context) : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1RdsHttpEndpointConfig
- */
-const de_RdsHttpEndpointConfig = (output: any, context: __SerdeContext): RdsHttpEndpointConfig => {
-  return {
-    awsRegion: __expectString(output.awsRegion),
-    awsSecretStoreArn: __expectString(output.awsSecretStoreArn),
-    databaseName: __expectString(output.databaseName),
-    dbClusterIdentifier: __expectString(output.dbClusterIdentifier),
-    schema: __expectString(output.schema),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1RelationalDatabaseDataSourceConfig
- */
-const de_RelationalDatabaseDataSourceConfig = (
-  output: any,
-  context: __SerdeContext
-): RelationalDatabaseDataSourceConfig => {
-  return {
-    rdsHttpEndpointConfig:
-      output.rdsHttpEndpointConfig != null
-        ? de_RdsHttpEndpointConfig(output.rdsHttpEndpointConfig, context)
-        : undefined,
-    relationalDatabaseSourceType: __expectString(output.relationalDatabaseSourceType),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1Resolver
- */
-const de_Resolver = (output: any, context: __SerdeContext): Resolver => {
-  return {
-    cachingConfig: output.cachingConfig != null ? de_CachingConfig(output.cachingConfig, context) : undefined,
-    code: __expectString(output.code),
-    dataSourceName: __expectString(output.dataSourceName),
-    fieldName: __expectString(output.fieldName),
-    kind: __expectString(output.kind),
-    maxBatchSize: __expectInt32(output.maxBatchSize),
-    pipelineConfig: output.pipelineConfig != null ? de_PipelineConfig(output.pipelineConfig, context) : undefined,
-    requestMappingTemplate: __expectString(output.requestMappingTemplate),
-    resolverArn: __expectString(output.resolverArn),
-    responseMappingTemplate: __expectString(output.responseMappingTemplate),
-    runtime: output.runtime != null ? de_AppSyncRuntime(output.runtime, context) : undefined,
-    syncConfig: output.syncConfig != null ? de_SyncConfig(output.syncConfig, context) : undefined,
-    typeName: __expectString(output.typeName),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1Resolvers
- */
-const de_Resolvers = (output: any, context: __SerdeContext): Resolver[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Resolver(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1SyncConfig
- */
-const de_SyncConfig = (output: any, context: __SerdeContext): SyncConfig => {
-  return {
-    conflictDetection: __expectString(output.conflictDetection),
-    conflictHandler: __expectString(output.conflictHandler),
-    lambdaConflictHandlerConfig:
-      output.lambdaConflictHandlerConfig != null
-        ? de_LambdaConflictHandlerConfig(output.lambdaConflictHandlerConfig, context)
-        : undefined,
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-/**
- * deserializeAws_restJson1Type
- */
-const de_Type = (output: any, context: __SerdeContext): Type => {
-  return {
-    arn: __expectString(output.arn),
-    definition: __expectString(output.definition),
-    description: __expectString(output.description),
-    format: __expectString(output.format),
-    name: __expectString(output.name),
-  } as any;
-};
-
-/**
- * deserializeAws_restJson1TypeList
- */
-const de_TypeList = (output: any, context: __SerdeContext): Type[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Type(entry, context);
-    });
-  return retVal;
-};
-
-/**
- * deserializeAws_restJson1UserPoolConfig
- */
-const de_UserPoolConfig = (output: any, context: __SerdeContext): UserPoolConfig => {
-  return {
-    appIdClientRegex: __expectString(output.appIdClientRegex),
-    awsRegion: __expectString(output.awsRegion),
-    defaultAction: __expectString(output.defaultAction),
-    userPoolId: __expectString(output.userPoolId),
-  } as any;
-};
+// se_AdditionalAuthenticationProvider omitted.
+
+// se_AdditionalAuthenticationProviders omitted.
+
+// se_AppSyncRuntime omitted.
+
+// se_AuthorizationConfig omitted.
+
+// se_AwsIamConfig omitted.
+
+// se_CachingConfig omitted.
+
+// se_CachingKeys omitted.
+
+// se_CognitoUserPoolConfig omitted.
+
+// se_DeltaSyncConfig omitted.
+
+// se_DynamodbDataSourceConfig omitted.
+
+// se_ElasticsearchDataSourceConfig omitted.
+
+// se_EventBridgeDataSourceConfig omitted.
+
+// se_FunctionsIds omitted.
+
+// se_HttpDataSourceConfig omitted.
+
+// se_LambdaAuthorizerConfig omitted.
+
+// se_LambdaConflictHandlerConfig omitted.
+
+// se_LambdaDataSourceConfig omitted.
+
+// se_LogConfig omitted.
+
+// se_OpenIDConnectConfig omitted.
+
+// se_OpenSearchServiceDataSourceConfig omitted.
+
+// se_PipelineConfig omitted.
+
+// se_RdsHttpEndpointConfig omitted.
+
+// se_RelationalDatabaseDataSourceConfig omitted.
+
+// se_SyncConfig omitted.
+
+// se_TagMap omitted.
+
+// se_UserPoolConfig omitted.
+
+// de_AdditionalAuthenticationProvider omitted.
+
+// de_AdditionalAuthenticationProviders omitted.
+
+// de_ApiAssociation omitted.
+
+// de_ApiCache omitted.
+
+// de_ApiKey omitted.
+
+// de_ApiKeys omitted.
+
+// de_AppSyncRuntime omitted.
+
+// de_AuthorizationConfig omitted.
+
+// de_AwsIamConfig omitted.
+
+// de_BadRequestDetail omitted.
+
+// de_CachingConfig omitted.
+
+// de_CachingKeys omitted.
+
+// de_CodeError omitted.
+
+// de_CodeErrorLocation omitted.
+
+// de_CodeErrors omitted.
+
+// de_CognitoUserPoolConfig omitted.
+
+// de_DataSource omitted.
+
+// de_DataSources omitted.
+
+// de_DeltaSyncConfig omitted.
+
+// de_DomainNameConfig omitted.
+
+// de_DomainNameConfigs omitted.
+
+// de_DynamodbDataSourceConfig omitted.
+
+// de_ElasticsearchDataSourceConfig omitted.
+
+// de_ErrorDetail omitted.
+
+// de_EvaluateCodeErrorDetail omitted.
+
+// de_EventBridgeDataSourceConfig omitted.
+
+// de_FunctionConfiguration omitted.
+
+// de_Functions omitted.
+
+// de_FunctionsIds omitted.
+
+// de_GraphqlApi omitted.
+
+// de_GraphqlApis omitted.
+
+// de_HttpDataSourceConfig omitted.
+
+// de_LambdaAuthorizerConfig omitted.
+
+// de_LambdaConflictHandlerConfig omitted.
+
+// de_LambdaDataSourceConfig omitted.
+
+// de_LogConfig omitted.
+
+// de_Logs omitted.
+
+// de_MapOfStringToString omitted.
+
+// de_OpenIDConnectConfig omitted.
+
+// de_OpenSearchServiceDataSourceConfig omitted.
+
+// de_PipelineConfig omitted.
+
+// de_RdsHttpEndpointConfig omitted.
+
+// de_RelationalDatabaseDataSourceConfig omitted.
+
+// de_Resolver omitted.
+
+// de_Resolvers omitted.
+
+// de_SyncConfig omitted.
+
+// de_TagMap omitted.
+
+// de_Type omitted.
+
+// de_TypeList omitted.
+
+// de_UserPoolConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

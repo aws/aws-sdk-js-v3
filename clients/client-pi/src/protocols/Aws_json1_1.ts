@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -41,31 +43,19 @@ import {
   DataPoint,
   DescribeDimensionKeysRequest,
   DescribeDimensionKeysResponse,
-  DimensionDetail,
   DimensionGroup,
-  DimensionGroupDetail,
   DimensionKeyDescription,
-  DimensionKeyDetail,
-  FeatureMetadata,
   GetDimensionKeyDetailsRequest,
-  GetDimensionKeyDetailsResponse,
   GetResourceMetadataRequest,
-  GetResourceMetadataResponse,
   GetResourceMetricsRequest,
   GetResourceMetricsResponse,
   InternalServiceError,
   InvalidArgumentException,
   ListAvailableResourceDimensionsRequest,
-  ListAvailableResourceDimensionsResponse,
   ListAvailableResourceMetricsRequest,
-  ListAvailableResourceMetricsResponse,
-  MetricDimensionGroups,
   MetricKeyDataPoints,
   MetricQuery,
   NotAuthorizedException,
-  ResponsePartitionKey,
-  ResponseResourceMetric,
-  ResponseResourceMetricKey,
 } from "../models/models_0";
 import { PIServiceException as __BaseException } from "../models/PIServiceException";
 
@@ -91,7 +81,7 @@ export const se_GetDimensionKeyDetailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDimensionKeyDetails");
   let body: any;
-  body = JSON.stringify(se_GetDimensionKeyDetailsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -104,7 +94,7 @@ export const se_GetResourceMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetResourceMetadata");
   let body: any;
-  body = JSON.stringify(se_GetResourceMetadataRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -130,7 +120,7 @@ export const se_ListAvailableResourceDimensionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAvailableResourceDimensions");
   let body: any;
-  body = JSON.stringify(se_ListAvailableResourceDimensionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -143,7 +133,7 @@ export const se_ListAvailableResourceMetricsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAvailableResourceMetrics");
   let body: any;
-  body = JSON.stringify(se_ListAvailableResourceMetricsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -164,7 +154,7 @@ export const de_DescribeDimensionKeysCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -191,10 +181,9 @@ const de_DescribeDimensionKeysCommandError = async (
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -212,12 +201,12 @@ export const de_GetDimensionKeyDetailsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDimensionKeyDetailsResponse(data, context);
+  contents = _json(data);
   const response: GetDimensionKeyDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -244,10 +233,9 @@ const de_GetDimensionKeyDetailsCommandError = async (
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -265,12 +253,12 @@ export const de_GetResourceMetadataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetResourceMetadataResponse(data, context);
+  contents = _json(data);
   const response: GetResourceMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -297,10 +285,9 @@ const de_GetResourceMetadataCommandError = async (
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -323,7 +310,7 @@ export const de_GetResourceMetricsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -350,10 +337,9 @@ const de_GetResourceMetricsCommandError = async (
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -371,12 +357,12 @@ export const de_ListAvailableResourceDimensionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAvailableResourceDimensionsResponse(data, context);
+  contents = _json(data);
   const response: ListAvailableResourceDimensionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -403,10 +389,9 @@ const de_ListAvailableResourceDimensionsCommandError = async (
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -424,12 +409,12 @@ export const de_ListAvailableResourceMetricsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAvailableResourceMetricsResponse(data, context);
+  contents = _json(data);
   const response: ListAvailableResourceMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -456,10 +441,9 @@ const de_ListAvailableResourceMetricsCommandError = async (
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -473,7 +457,7 @@ const de_InternalServiceErrorRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServiceError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServiceError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -489,7 +473,7 @@ const de_InvalidArgumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidArgumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -505,7 +489,7 @@ const de_NotAuthorizedExceptionRes = async (
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotAuthorizedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -513,202 +497,68 @@ const de_NotAuthorizedExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AdditionalMetricsList
- */
-const se_AdditionalMetricsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AdditionalMetricsList omitted.
 
 /**
  * serializeAws_json1_1DescribeDimensionKeysRequest
  */
 const se_DescribeDimensionKeysRequest = (input: DescribeDimensionKeysRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalMetrics != null && {
-      AdditionalMetrics: se_AdditionalMetricsList(input.AdditionalMetrics, context),
-    }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.Filter != null && { Filter: se_MetricQueryFilterMap(input.Filter, context) }),
-    ...(input.GroupBy != null && { GroupBy: se_DimensionGroup(input.GroupBy, context) }),
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Metric != null && { Metric: input.Metric }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PartitionBy != null && { PartitionBy: se_DimensionGroup(input.PartitionBy, context) }),
-    ...(input.PeriodInSeconds != null && { PeriodInSeconds: input.PeriodInSeconds }),
-    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    AdditionalMetrics: _json,
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    Filter: _json,
+    GroupBy: _json,
+    Identifier: [],
+    MaxResults: [],
+    Metric: [],
+    NextToken: [],
+    PartitionBy: _json,
+    PeriodInSeconds: [],
+    ServiceType: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1DimensionGroup
- */
-const se_DimensionGroup = (input: DimensionGroup, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && { Dimensions: se_RequestStringList(input.Dimensions, context) }),
-    ...(input.Group != null && { Group: input.Group }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-  };
-};
+// se_DimensionGroup omitted.
 
-/**
- * serializeAws_json1_1DimensionsMetricList
- */
-const se_DimensionsMetricList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DimensionsMetricList omitted.
 
-/**
- * serializeAws_json1_1GetDimensionKeyDetailsRequest
- */
-const se_GetDimensionKeyDetailsRequest = (input: GetDimensionKeyDetailsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Group != null && { Group: input.Group }),
-    ...(input.GroupIdentifier != null && { GroupIdentifier: input.GroupIdentifier }),
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.RequestedDimensions != null && {
-      RequestedDimensions: se_RequestedDimensionList(input.RequestedDimensions, context),
-    }),
-    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-  };
-};
+// se_GetDimensionKeyDetailsRequest omitted.
 
-/**
- * serializeAws_json1_1GetResourceMetadataRequest
- */
-const se_GetResourceMetadataRequest = (input: GetResourceMetadataRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-  };
-};
+// se_GetResourceMetadataRequest omitted.
 
 /**
  * serializeAws_json1_1GetResourceMetricsRequest
  */
 const se_GetResourceMetricsRequest = (input: GetResourceMetricsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MetricQueries != null && { MetricQueries: se_MetricQueryList(input.MetricQueries, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PeriodAlignment != null && { PeriodAlignment: input.PeriodAlignment }),
-    ...(input.PeriodInSeconds != null && { PeriodInSeconds: input.PeriodInSeconds }),
-    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    Identifier: [],
+    MaxResults: [],
+    MetricQueries: _json,
+    NextToken: [],
+    PeriodAlignment: [],
+    PeriodInSeconds: [],
+    ServiceType: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1ListAvailableResourceDimensionsRequest
- */
-const se_ListAvailableResourceDimensionsRequest = (
-  input: ListAvailableResourceDimensionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Metrics != null && { Metrics: se_DimensionsMetricList(input.Metrics, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-  };
-};
+// se_ListAvailableResourceDimensionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListAvailableResourceMetricsRequest
- */
-const se_ListAvailableResourceMetricsRequest = (
-  input: ListAvailableResourceMetricsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MetricTypes != null && { MetricTypes: se_MetricTypeList(input.MetricTypes, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
-  };
-};
+// se_ListAvailableResourceMetricsRequest omitted.
 
-/**
- * serializeAws_json1_1MetricQuery
- */
-const se_MetricQuery = (input: MetricQuery, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_MetricQueryFilterMap(input.Filter, context) }),
-    ...(input.GroupBy != null && { GroupBy: se_DimensionGroup(input.GroupBy, context) }),
-    ...(input.Metric != null && { Metric: input.Metric }),
-  };
-};
+// se_MetricQuery omitted.
 
-/**
- * serializeAws_json1_1MetricQueryFilterMap
- */
-const se_MetricQueryFilterMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_MetricQueryFilterMap omitted.
 
-/**
- * serializeAws_json1_1MetricQueryList
- */
-const se_MetricQueryList = (input: MetricQuery[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MetricQuery(entry, context);
-    });
-};
+// se_MetricQueryList omitted.
 
-/**
- * serializeAws_json1_1MetricTypeList
- */
-const se_MetricTypeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MetricTypeList omitted.
 
-/**
- * serializeAws_json1_1RequestedDimensionList
- */
-const se_RequestedDimensionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RequestedDimensionList omitted.
 
-/**
- * serializeAws_json1_1RequestStringList
- */
-const se_RequestStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RequestStringList omitted.
 
 /**
  * deserializeAws_json1_1AdditionalMetricsMap
@@ -727,11 +577,10 @@ const de_AdditionalMetricsMap = (output: any, context: __SerdeContext): Record<s
  * deserializeAws_json1_1DataPoint
  */
 const de_DataPoint = (output: any, context: __SerdeContext): DataPoint => {
-  return {
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-    Value: __limitedParseDouble(output.Value),
-  } as any;
+  return take(output, {
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -741,9 +590,6 @@ const de_DataPointsList = (output: any, context: __SerdeContext): DataPoint[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DataPoint(entry, context);
     });
   return retVal;
@@ -753,82 +599,33 @@ const de_DataPointsList = (output: any, context: __SerdeContext): DataPoint[] =>
  * deserializeAws_json1_1DescribeDimensionKeysResponse
  */
 const de_DescribeDimensionKeysResponse = (output: any, context: __SerdeContext): DescribeDimensionKeysResponse => {
-  return {
-    AlignedEndTime:
-      output.AlignedEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedEndTime)))
-        : undefined,
-    AlignedStartTime:
-      output.AlignedStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedStartTime)))
-        : undefined,
-    Keys: output.Keys != null ? de_DimensionKeyDescriptionList(output.Keys, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    PartitionKeys:
-      output.PartitionKeys != null ? de_ResponsePartitionKeyList(output.PartitionKeys, context) : undefined,
-  } as any;
+  return take(output, {
+    AlignedEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AlignedStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Keys: (_: any) => de_DimensionKeyDescriptionList(_, context),
+    NextToken: __expectString,
+    PartitionKeys: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DimensionDetail
- */
-const de_DimensionDetail = (output: any, context: __SerdeContext): DimensionDetail => {
-  return {
-    Identifier: __expectString(output.Identifier),
-  } as any;
-};
+// de_DimensionDetail omitted.
 
-/**
- * deserializeAws_json1_1DimensionDetailList
- */
-const de_DimensionDetailList = (output: any, context: __SerdeContext): DimensionDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DimensionDetail(entry, context);
-    });
-  return retVal;
-};
+// de_DimensionDetailList omitted.
 
-/**
- * deserializeAws_json1_1DimensionGroupDetail
- */
-const de_DimensionGroupDetail = (output: any, context: __SerdeContext): DimensionGroupDetail => {
-  return {
-    Dimensions: output.Dimensions != null ? de_DimensionDetailList(output.Dimensions, context) : undefined,
-    Group: __expectString(output.Group),
-  } as any;
-};
+// de_DimensionGroupDetail omitted.
 
-/**
- * deserializeAws_json1_1DimensionGroupDetailList
- */
-const de_DimensionGroupDetailList = (output: any, context: __SerdeContext): DimensionGroupDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DimensionGroupDetail(entry, context);
-    });
-  return retVal;
-};
+// de_DimensionGroupDetailList omitted.
 
 /**
  * deserializeAws_json1_1DimensionKeyDescription
  */
 const de_DimensionKeyDescription = (output: any, context: __SerdeContext): DimensionKeyDescription => {
-  return {
-    AdditionalMetrics:
-      output.AdditionalMetrics != null ? de_AdditionalMetricsMap(output.AdditionalMetrics, context) : undefined,
-    Dimensions: output.Dimensions != null ? de_DimensionMap(output.Dimensions, context) : undefined,
-    Partitions: output.Partitions != null ? de_MetricValuesList(output.Partitions, context) : undefined,
-    Total: __limitedParseDouble(output.Total),
-  } as any;
+  return take(output, {
+    AdditionalMetrics: (_: any) => de_AdditionalMetricsMap(_, context),
+    Dimensions: _json,
+    Partitions: (_: any) => de_MetricValuesList(_, context),
+    Total: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -838,191 +635,58 @@ const de_DimensionKeyDescriptionList = (output: any, context: __SerdeContext): D
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DimensionKeyDescription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DimensionKeyDetail
- */
-const de_DimensionKeyDetail = (output: any, context: __SerdeContext): DimensionKeyDetail => {
-  return {
-    Dimension: __expectString(output.Dimension),
-    Status: __expectString(output.Status),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_DimensionKeyDetail omitted.
 
-/**
- * deserializeAws_json1_1DimensionKeyDetailList
- */
-const de_DimensionKeyDetailList = (output: any, context: __SerdeContext): DimensionKeyDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DimensionKeyDetail(entry, context);
-    });
-  return retVal;
-};
+// de_DimensionKeyDetailList omitted.
 
-/**
- * deserializeAws_json1_1DimensionMap
- */
-const de_DimensionMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_DimensionMap omitted.
 
-/**
- * deserializeAws_json1_1FeatureMetadata
- */
-const de_FeatureMetadata = (output: any, context: __SerdeContext): FeatureMetadata => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_FeatureMetadata omitted.
 
-/**
- * deserializeAws_json1_1FeatureMetadataMap
- */
-const de_FeatureMetadataMap = (output: any, context: __SerdeContext): Record<string, FeatureMetadata> => {
-  return Object.entries(output).reduce((acc: Record<string, FeatureMetadata>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_FeatureMetadata(value, context);
-    return acc;
-  }, {});
-};
+// de_FeatureMetadataMap omitted.
 
-/**
- * deserializeAws_json1_1GetDimensionKeyDetailsResponse
- */
-const de_GetDimensionKeyDetailsResponse = (output: any, context: __SerdeContext): GetDimensionKeyDetailsResponse => {
-  return {
-    Dimensions: output.Dimensions != null ? de_DimensionKeyDetailList(output.Dimensions, context) : undefined,
-  } as any;
-};
+// de_GetDimensionKeyDetailsResponse omitted.
 
-/**
- * deserializeAws_json1_1GetResourceMetadataResponse
- */
-const de_GetResourceMetadataResponse = (output: any, context: __SerdeContext): GetResourceMetadataResponse => {
-  return {
-    Features: output.Features != null ? de_FeatureMetadataMap(output.Features, context) : undefined,
-    Identifier: __expectString(output.Identifier),
-  } as any;
-};
+// de_GetResourceMetadataResponse omitted.
 
 /**
  * deserializeAws_json1_1GetResourceMetricsResponse
  */
 const de_GetResourceMetricsResponse = (output: any, context: __SerdeContext): GetResourceMetricsResponse => {
-  return {
-    AlignedEndTime:
-      output.AlignedEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedEndTime)))
-        : undefined,
-    AlignedStartTime:
-      output.AlignedStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedStartTime)))
-        : undefined,
-    Identifier: __expectString(output.Identifier),
-    MetricList: output.MetricList != null ? de_MetricKeyDataPointsList(output.MetricList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AlignedEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AlignedStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Identifier: __expectString,
+    MetricList: (_: any) => de_MetricKeyDataPointsList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InternalServiceError
- */
-const de_InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServiceError omitted.
 
-/**
- * deserializeAws_json1_1InvalidArgumentException
- */
-const de_InvalidArgumentException = (output: any, context: __SerdeContext): InvalidArgumentException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidArgumentException omitted.
 
-/**
- * deserializeAws_json1_1ListAvailableResourceDimensionsResponse
- */
-const de_ListAvailableResourceDimensionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAvailableResourceDimensionsResponse => {
-  return {
-    MetricDimensions:
-      output.MetricDimensions != null ? de_MetricDimensionsList(output.MetricDimensions, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListAvailableResourceDimensionsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListAvailableResourceMetricsResponse
- */
-const de_ListAvailableResourceMetricsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAvailableResourceMetricsResponse => {
-  return {
-    Metrics: output.Metrics != null ? de_ResponseResourceMetricList(output.Metrics, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListAvailableResourceMetricsResponse omitted.
 
-/**
- * deserializeAws_json1_1MetricDimensionGroups
- */
-const de_MetricDimensionGroups = (output: any, context: __SerdeContext): MetricDimensionGroups => {
-  return {
-    Groups: output.Groups != null ? de_DimensionGroupDetailList(output.Groups, context) : undefined,
-    Metric: __expectString(output.Metric),
-  } as any;
-};
+// de_MetricDimensionGroups omitted.
 
-/**
- * deserializeAws_json1_1MetricDimensionsList
- */
-const de_MetricDimensionsList = (output: any, context: __SerdeContext): MetricDimensionGroups[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MetricDimensionGroups(entry, context);
-    });
-  return retVal;
-};
+// de_MetricDimensionsList omitted.
 
 /**
  * deserializeAws_json1_1MetricKeyDataPoints
  */
 const de_MetricKeyDataPoints = (output: any, context: __SerdeContext): MetricKeyDataPoints => {
-  return {
-    DataPoints: output.DataPoints != null ? de_DataPointsList(output.DataPoints, context) : undefined,
-    Key: output.Key != null ? de_ResponseResourceMetricKey(output.Key, context) : undefined,
-  } as any;
+  return take(output, {
+    DataPoints: (_: any) => de_DataPointsList(_, context),
+    Key: _json,
+  }) as any;
 };
 
 /**
@@ -1032,9 +696,6 @@ const de_MetricKeyDataPointsList = (output: any, context: __SerdeContext): Metri
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MetricKeyDataPoints(entry, context);
     });
   return retVal;
@@ -1047,82 +708,22 @@ const de_MetricValuesList = (output: any, context: __SerdeContext): number[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseDouble(entry) as any;
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1NotAuthorizedException
- */
-const de_NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NotAuthorizedException omitted.
 
-/**
- * deserializeAws_json1_1ResponsePartitionKey
- */
-const de_ResponsePartitionKey = (output: any, context: __SerdeContext): ResponsePartitionKey => {
-  return {
-    Dimensions: output.Dimensions != null ? de_DimensionMap(output.Dimensions, context) : undefined,
-  } as any;
-};
+// de_ResponsePartitionKey omitted.
 
-/**
- * deserializeAws_json1_1ResponsePartitionKeyList
- */
-const de_ResponsePartitionKeyList = (output: any, context: __SerdeContext): ResponsePartitionKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResponsePartitionKey(entry, context);
-    });
-  return retVal;
-};
+// de_ResponsePartitionKeyList omitted.
 
-/**
- * deserializeAws_json1_1ResponseResourceMetric
- */
-const de_ResponseResourceMetric = (output: any, context: __SerdeContext): ResponseResourceMetric => {
-  return {
-    Description: __expectString(output.Description),
-    Metric: __expectString(output.Metric),
-    Unit: __expectString(output.Unit),
-  } as any;
-};
+// de_ResponseResourceMetric omitted.
 
-/**
- * deserializeAws_json1_1ResponseResourceMetricKey
- */
-const de_ResponseResourceMetricKey = (output: any, context: __SerdeContext): ResponseResourceMetricKey => {
-  return {
-    Dimensions: output.Dimensions != null ? de_DimensionMap(output.Dimensions, context) : undefined,
-    Metric: __expectString(output.Metric),
-  } as any;
-};
+// de_ResponseResourceMetricKey omitted.
 
-/**
- * deserializeAws_json1_1ResponseResourceMetricList
- */
-const de_ResponseResourceMetricList = (output: any, context: __SerdeContext): ResponseResourceMetric[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResponseResourceMetric(entry, context);
-    });
-  return retVal;
-};
+// de_ResponseResourceMetricList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1144,6 +745,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

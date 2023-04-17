@@ -182,4 +182,9 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     public void generateProtocolTests(GenerationContext context) {
         AwsProtocolUtils.generateProtocolTests(this, context);
     }
+
+    @Override
+    protected boolean enableSerdeElision() {
+        return true;
+    }
 }

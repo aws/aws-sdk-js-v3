@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -38,9 +40,6 @@ import {
   ConflictException,
   InternalServiceFault,
   InvalidParameterException,
-  ListAttachedLinksItem,
-  ListLinksItem,
-  ListSinksItem,
   MissingRequiredParameterException,
   ResourceNotFoundException,
   ResourceType,
@@ -63,12 +62,14 @@ export const se_CreateLinkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLink";
   let body: any;
-  body = JSON.stringify({
-    ...(input.LabelTemplate != null && { LabelTemplate: input.LabelTemplate }),
-    ...(input.ResourceTypes != null && { ResourceTypes: se_ResourceTypesInput(input.ResourceTypes, context) }),
-    ...(input.SinkIdentifier != null && { SinkIdentifier: input.SinkIdentifier }),
-    ...(input.Tags != null && { Tags: se_TagMapInput(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LabelTemplate: [],
+      ResourceTypes: (_) => _json(_),
+      SinkIdentifier: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -93,10 +94,12 @@ export const se_CreateSinkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateSink";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagMapInput(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -121,9 +124,11 @@ export const se_DeleteLinkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLink";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Identifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -148,9 +153,11 @@ export const se_DeleteSinkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteSink";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Identifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -175,9 +182,11 @@ export const se_GetLinkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetLink";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Identifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -202,9 +211,11 @@ export const se_GetSinkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetSink";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Identifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -229,9 +240,11 @@ export const se_GetSinkPolicyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetSinkPolicy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.SinkIdentifier != null && { SinkIdentifier: input.SinkIdentifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SinkIdentifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -256,11 +269,13 @@ export const se_ListAttachedLinksCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListAttachedLinks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SinkIdentifier != null && { SinkIdentifier: input.SinkIdentifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      SinkIdentifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -285,10 +300,12 @@ export const se_ListLinksCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLinks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -313,10 +330,12 @@ export const se_ListSinksCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListSinks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -364,10 +383,12 @@ export const se_PutSinkPolicyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutSinkPolicy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.SinkIdentifier != null && { SinkIdentifier: input.SinkIdentifier }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+      SinkIdentifier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -393,9 +414,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMapInput(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -450,10 +473,12 @@ export const se_UpdateLinkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLink";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.ResourceTypes != null && { ResourceTypes: se_ResourceTypesInput(input.ResourceTypes, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Identifier: [],
+      ResourceTypes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -479,27 +504,16 @@ export const de_CreateLinkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Label != null) {
-    contents.Label = __expectString(data.Label);
-  }
-  if (data.LabelTemplate != null) {
-    contents.LabelTemplate = __expectString(data.LabelTemplate);
-  }
-  if (data.ResourceTypes != null) {
-    contents.ResourceTypes = de_ResourceTypesOutput(data.ResourceTypes, context);
-  }
-  if (data.SinkArn != null) {
-    contents.SinkArn = __expectString(data.SinkArn);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMapOutput(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+    Label: __expectString,
+    LabelTemplate: __expectString,
+    ResourceTypes: _json,
+    SinkArn: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -533,10 +547,9 @@ const de_CreateLinkCommandError = async (
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -556,18 +569,13 @@ export const de_CreateSinkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMapOutput(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -601,10 +609,9 @@ const de_CreateSinkCommandError = async (
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -654,10 +661,9 @@ const de_DeleteLinkCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -710,10 +716,9 @@ const de_DeleteSinkCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -733,27 +738,16 @@ export const de_GetLinkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Label != null) {
-    contents.Label = __expectString(data.Label);
-  }
-  if (data.LabelTemplate != null) {
-    contents.LabelTemplate = __expectString(data.LabelTemplate);
-  }
-  if (data.ResourceTypes != null) {
-    contents.ResourceTypes = de_ResourceTypesOutput(data.ResourceTypes, context);
-  }
-  if (data.SinkArn != null) {
-    contents.SinkArn = __expectString(data.SinkArn);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMapOutput(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+    Label: __expectString,
+    LabelTemplate: __expectString,
+    ResourceTypes: _json,
+    SinkArn: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -784,10 +778,9 @@ const de_GetLinkCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -807,18 +800,13 @@ export const de_GetSinkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMapOutput(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -849,10 +837,9 @@ const de_GetSinkCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -872,15 +859,12 @@ export const de_GetSinkPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
-  if (data.SinkArn != null) {
-    contents.SinkArn = __expectString(data.SinkArn);
-  }
-  if (data.SinkId != null) {
-    contents.SinkId = __expectString(data.SinkId);
-  }
+  const doc = take(data, {
+    Policy: __expectString,
+    SinkArn: __expectString,
+    SinkId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -911,10 +895,9 @@ const de_GetSinkPolicyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -934,12 +917,11 @@ export const de_ListAttachedLinksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_ListAttachedLinksItems(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -970,10 +952,9 @@ const de_ListAttachedLinksCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -993,12 +974,11 @@ export const de_ListLinksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_ListLinksItems(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1026,10 +1006,9 @@ const de_ListLinksCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1049,12 +1028,11 @@ export const de_ListSinksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_ListSinksItems(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1082,10 +1060,9 @@ const de_ListSinksCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1105,9 +1082,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMapOutput(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1132,10 +1110,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1155,15 +1132,12 @@ export const de_PutSinkPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
-  if (data.SinkArn != null) {
-    contents.SinkArn = __expectString(data.SinkArn);
-  }
-  if (data.SinkId != null) {
-    contents.SinkId = __expectString(data.SinkId);
-  }
+  const doc = take(data, {
+    Policy: __expectString,
+    SinkArn: __expectString,
+    SinkId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1194,10 +1168,9 @@ const de_PutSinkPolicyCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1244,10 +1217,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1291,10 +1263,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1314,27 +1285,16 @@ export const de_UpdateLinkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Label != null) {
-    contents.Label = __expectString(data.Label);
-  }
-  if (data.LabelTemplate != null) {
-    contents.LabelTemplate = __expectString(data.LabelTemplate);
-  }
-  if (data.ResourceTypes != null) {
-    contents.ResourceTypes = de_ResourceTypesOutput(data.ResourceTypes, context);
-  }
-  if (data.SinkArn != null) {
-    contents.SinkArn = __expectString(data.SinkArn);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagMapOutput(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+    Label: __expectString,
+    LabelTemplate: __expectString,
+    ResourceTypes: _json,
+    SinkArn: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1365,16 +1325,15 @@ const de_UpdateLinkCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictExceptionRes
  */
@@ -1383,9 +1342,10 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
     amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1404,9 +1364,10 @@ const de_InternalServiceFaultRes = async (
     amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1425,9 +1386,10 @@ const de_InvalidParameterExceptionRes = async (
     amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1446,9 +1408,10 @@ const de_MissingRequiredParameterExceptionRes = async (
     amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MissingRequiredParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1467,9 +1430,10 @@ const de_ResourceNotFoundExceptionRes = async (
     amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1488,9 +1452,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
     amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1507,9 +1472,10 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1523,9 +1489,10 @@ const de_TooManyTagsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1533,137 +1500,25 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ResourceTypesInput
- */
-const se_ResourceTypesInput = (input: (ResourceType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceTypesInput omitted.
 
-/**
- * serializeAws_restJson1TagMapInput
- */
-const se_TagMapInput = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMapInput omitted.
 
-/**
- * deserializeAws_restJson1ListAttachedLinksItem
- */
-const de_ListAttachedLinksItem = (output: any, context: __SerdeContext): ListAttachedLinksItem => {
-  return {
-    Label: __expectString(output.Label),
-    LinkArn: __expectString(output.LinkArn),
-    ResourceTypes: output.ResourceTypes != null ? de_ResourceTypesOutput(output.ResourceTypes, context) : undefined,
-  } as any;
-};
+// de_ListAttachedLinksItem omitted.
 
-/**
- * deserializeAws_restJson1ListAttachedLinksItems
- */
-const de_ListAttachedLinksItems = (output: any, context: __SerdeContext): ListAttachedLinksItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListAttachedLinksItem(entry, context);
-    });
-  return retVal;
-};
+// de_ListAttachedLinksItems omitted.
 
-/**
- * deserializeAws_restJson1ListLinksItem
- */
-const de_ListLinksItem = (output: any, context: __SerdeContext): ListLinksItem => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    Label: __expectString(output.Label),
-    ResourceTypes: output.ResourceTypes != null ? de_ResourceTypesOutput(output.ResourceTypes, context) : undefined,
-    SinkArn: __expectString(output.SinkArn),
-  } as any;
-};
+// de_ListLinksItem omitted.
 
-/**
- * deserializeAws_restJson1ListLinksItems
- */
-const de_ListLinksItems = (output: any, context: __SerdeContext): ListLinksItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListLinksItem(entry, context);
-    });
-  return retVal;
-};
+// de_ListLinksItems omitted.
 
-/**
- * deserializeAws_restJson1ListSinksItem
- */
-const de_ListSinksItem = (output: any, context: __SerdeContext): ListSinksItem => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ListSinksItem omitted.
 
-/**
- * deserializeAws_restJson1ListSinksItems
- */
-const de_ListSinksItems = (output: any, context: __SerdeContext): ListSinksItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ListSinksItem(entry, context);
-    });
-  return retVal;
-};
+// de_ListSinksItems omitted.
 
-/**
- * deserializeAws_restJson1ResourceTypesOutput
- */
-const de_ResourceTypesOutput = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceTypesOutput omitted.
 
-/**
- * deserializeAws_restJson1TagMapOutput
- */
-const de_TagMapOutput = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMapOutput omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

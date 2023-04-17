@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -59,41 +60,29 @@ import {
   ConcurrentAccessException,
   ConflictException,
   CreateEnvironmentEC2Request,
-  CreateEnvironmentEC2Result,
   CreateEnvironmentMembershipRequest,
   CreateEnvironmentMembershipResult,
   DeleteEnvironmentMembershipRequest,
-  DeleteEnvironmentMembershipResult,
   DeleteEnvironmentRequest,
-  DeleteEnvironmentResult,
   DescribeEnvironmentMembershipsRequest,
   DescribeEnvironmentMembershipsResult,
   DescribeEnvironmentsRequest,
-  DescribeEnvironmentsResult,
   DescribeEnvironmentStatusRequest,
-  DescribeEnvironmentStatusResult,
-  Environment,
-  EnvironmentLifecycle,
   EnvironmentMember,
   ForbiddenException,
   InternalServerErrorException,
   LimitExceededException,
   ListEnvironmentsRequest,
-  ListEnvironmentsResult,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   NotFoundException,
   Permissions,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TooManyRequestsException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateEnvironmentMembershipRequest,
   UpdateEnvironmentMembershipResult,
   UpdateEnvironmentRequest,
-  UpdateEnvironmentResult,
 } from "../models/models_0";
 
 /**
@@ -105,7 +94,7 @@ export const se_CreateEnvironmentEC2Command = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateEnvironmentEC2");
   let body: any;
-  body = JSON.stringify(se_CreateEnvironmentEC2Request(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -118,7 +107,7 @@ export const se_CreateEnvironmentMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateEnvironmentMembership");
   let body: any;
-  body = JSON.stringify(se_CreateEnvironmentMembershipRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -131,7 +120,7 @@ export const se_DeleteEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEnvironment");
   let body: any;
-  body = JSON.stringify(se_DeleteEnvironmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -144,7 +133,7 @@ export const se_DeleteEnvironmentMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteEnvironmentMembership");
   let body: any;
-  body = JSON.stringify(se_DeleteEnvironmentMembershipRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -157,7 +146,7 @@ export const se_DescribeEnvironmentMembershipsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEnvironmentMemberships");
   let body: any;
-  body = JSON.stringify(se_DescribeEnvironmentMembershipsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -170,7 +159,7 @@ export const se_DescribeEnvironmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEnvironments");
   let body: any;
-  body = JSON.stringify(se_DescribeEnvironmentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -183,7 +172,7 @@ export const se_DescribeEnvironmentStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEnvironmentStatus");
   let body: any;
-  body = JSON.stringify(se_DescribeEnvironmentStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -196,7 +185,7 @@ export const se_ListEnvironmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEnvironments");
   let body: any;
-  body = JSON.stringify(se_ListEnvironmentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -209,7 +198,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -222,7 +211,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -235,7 +224,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -248,7 +237,7 @@ export const se_UpdateEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateEnvironment");
   let body: any;
-  body = JSON.stringify(se_UpdateEnvironmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -261,7 +250,7 @@ export const se_UpdateEnvironmentMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateEnvironmentMembership");
   let body: any;
-  body = JSON.stringify(se_UpdateEnvironmentMembershipRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -277,12 +266,12 @@ export const de_CreateEnvironmentEC2Command = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateEnvironmentEC2Result(data, context);
+  contents = _json(data);
   const response: CreateEnvironmentEC2CommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -321,10 +310,9 @@ const de_CreateEnvironmentEC2CommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -347,7 +335,7 @@ export const de_CreateEnvironmentMembershipCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -386,10 +374,9 @@ const de_CreateEnvironmentMembershipCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -407,12 +394,12 @@ export const de_DeleteEnvironmentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteEnvironmentResult(data, context);
+  contents = _json(data);
   const response: DeleteEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -451,10 +438,9 @@ const de_DeleteEnvironmentCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -472,12 +458,12 @@ export const de_DeleteEnvironmentMembershipCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteEnvironmentMembershipResult(data, context);
+  contents = _json(data);
   const response: DeleteEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -516,10 +502,9 @@ const de_DeleteEnvironmentMembershipCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -542,7 +527,7 @@ export const de_DescribeEnvironmentMembershipsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -581,10 +566,9 @@ const de_DescribeEnvironmentMembershipsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -602,12 +586,12 @@ export const de_DescribeEnvironmentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeEnvironmentsResult(data, context);
+  contents = _json(data);
   const response: DescribeEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -646,10 +630,9 @@ const de_DescribeEnvironmentsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -667,12 +650,12 @@ export const de_DescribeEnvironmentStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeEnvironmentStatusResult(data, context);
+  contents = _json(data);
   const response: DescribeEnvironmentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -711,10 +694,9 @@ const de_DescribeEnvironmentStatusCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -732,12 +714,12 @@ export const de_ListEnvironmentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListEnvironmentsResult(data, context);
+  contents = _json(data);
   const response: ListEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -776,10 +758,9 @@ const de_ListEnvironmentsCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -797,12 +778,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -829,10 +810,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -850,12 +830,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -885,10 +865,9 @@ const de_TagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -906,12 +885,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -941,10 +920,9 @@ const de_UntagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -962,12 +940,12 @@ export const de_UpdateEnvironmentCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateEnvironmentResult(data, context);
+  contents = _json(data);
   const response: UpdateEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1006,10 +984,9 @@ const de_UpdateEnvironmentCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1032,7 +1009,7 @@ export const de_UpdateEnvironmentMembershipCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1071,10 +1048,9 @@ const de_UpdateEnvironmentMembershipCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1085,7 +1061,7 @@ const de_UpdateEnvironmentMembershipCommandError = async (
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BadRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1101,7 +1077,7 @@ const de_ConcurrentAccessExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentAccessException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentAccessException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentAccessException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1114,7 +1090,7 @@ const de_ConcurrentAccessExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1127,7 +1103,7 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
  */
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ForbiddenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1143,7 +1119,7 @@ const de_InternalServerErrorExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerErrorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1159,7 +1135,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1172,7 +1148,7 @@ const de_LimitExceededExceptionRes = async (
  */
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1188,7 +1164,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyRequestsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1196,255 +1172,49 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1BoundedEnvironmentIdList
- */
-const se_BoundedEnvironmentIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BoundedEnvironmentIdList omitted.
 
-/**
- * serializeAws_json1_1CreateEnvironmentEC2Request
- */
-const se_CreateEnvironmentEC2Request = (input: CreateEnvironmentEC2Request, context: __SerdeContext): any => {
-  return {
-    ...(input.automaticStopTimeMinutes != null && { automaticStopTimeMinutes: input.automaticStopTimeMinutes }),
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.connectionType != null && { connectionType: input.connectionType }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.dryRun != null && { dryRun: input.dryRun }),
-    ...(input.imageId != null && { imageId: input.imageId }),
-    ...(input.instanceType != null && { instanceType: input.instanceType }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.ownerArn != null && { ownerArn: input.ownerArn }),
-    ...(input.subnetId != null && { subnetId: input.subnetId }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_CreateEnvironmentEC2Request omitted.
 
-/**
- * serializeAws_json1_1CreateEnvironmentMembershipRequest
- */
-const se_CreateEnvironmentMembershipRequest = (
-  input: CreateEnvironmentMembershipRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.environmentId != null && { environmentId: input.environmentId }),
-    ...(input.permissions != null && { permissions: input.permissions }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_CreateEnvironmentMembershipRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteEnvironmentMembershipRequest
- */
-const se_DeleteEnvironmentMembershipRequest = (
-  input: DeleteEnvironmentMembershipRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.environmentId != null && { environmentId: input.environmentId }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_DeleteEnvironmentMembershipRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteEnvironmentRequest
- */
-const se_DeleteEnvironmentRequest = (input: DeleteEnvironmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.environmentId != null && { environmentId: input.environmentId }),
-  };
-};
+// se_DeleteEnvironmentRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEnvironmentMembershipsRequest
- */
-const se_DescribeEnvironmentMembershipsRequest = (
-  input: DescribeEnvironmentMembershipsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.environmentId != null && { environmentId: input.environmentId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.permissions != null && { permissions: se_PermissionsList(input.permissions, context) }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_DescribeEnvironmentMembershipsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEnvironmentsRequest
- */
-const se_DescribeEnvironmentsRequest = (input: DescribeEnvironmentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.environmentIds != null && { environmentIds: se_BoundedEnvironmentIdList(input.environmentIds, context) }),
-  };
-};
+// se_DescribeEnvironmentsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEnvironmentStatusRequest
- */
-const se_DescribeEnvironmentStatusRequest = (input: DescribeEnvironmentStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.environmentId != null && { environmentId: input.environmentId }),
-  };
-};
+// se_DescribeEnvironmentStatusRequest omitted.
 
-/**
- * serializeAws_json1_1ListEnvironmentsRequest
- */
-const se_ListEnvironmentsRequest = (input: ListEnvironmentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListEnvironmentsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1PermissionsList
- */
-const se_PermissionsList = (input: (Permissions | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PermissionsList omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateEnvironmentMembershipRequest
- */
-const se_UpdateEnvironmentMembershipRequest = (
-  input: UpdateEnvironmentMembershipRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.environmentId != null && { environmentId: input.environmentId }),
-    ...(input.permissions != null && { permissions: input.permissions }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_UpdateEnvironmentMembershipRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateEnvironmentRequest
- */
-const se_UpdateEnvironmentRequest = (input: UpdateEnvironmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.environmentId != null && { environmentId: input.environmentId }),
-    ...(input.managedCredentialsAction != null && { managedCredentialsAction: input.managedCredentialsAction }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_UpdateEnvironmentRequest omitted.
 
-/**
- * deserializeAws_json1_1BadRequestException
- */
-const de_BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
-  return {
-    className: __expectString(output.className),
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_BadRequestException omitted.
 
-/**
- * deserializeAws_json1_1ConcurrentAccessException
- */
-const de_ConcurrentAccessException = (output: any, context: __SerdeContext): ConcurrentAccessException => {
-  return {
-    className: __expectString(output.className),
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConcurrentAccessException omitted.
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    className: __expectString(output.className),
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_1CreateEnvironmentEC2Result
- */
-const de_CreateEnvironmentEC2Result = (output: any, context: __SerdeContext): CreateEnvironmentEC2Result => {
-  return {
-    environmentId: __expectString(output.environmentId),
-  } as any;
-};
+// de_CreateEnvironmentEC2Result omitted.
 
 /**
  * deserializeAws_json1_1CreateEnvironmentMembershipResult
@@ -1453,27 +1223,14 @@ const de_CreateEnvironmentMembershipResult = (
   output: any,
   context: __SerdeContext
 ): CreateEnvironmentMembershipResult => {
-  return {
-    membership: output.membership != null ? de_EnvironmentMember(output.membership, context) : undefined,
-  } as any;
+  return take(output, {
+    membership: (_: any) => de_EnvironmentMember(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteEnvironmentMembershipResult
- */
-const de_DeleteEnvironmentMembershipResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteEnvironmentMembershipResult => {
-  return {} as any;
-};
+// de_DeleteEnvironmentMembershipResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteEnvironmentResult
- */
-const de_DeleteEnvironmentResult = (output: any, context: __SerdeContext): DeleteEnvironmentResult => {
-  return {} as any;
-};
+// de_DeleteEnvironmentResult omitted.
 
 /**
  * deserializeAws_json1_1DescribeEnvironmentMembershipsResult
@@ -1482,101 +1239,35 @@ const de_DescribeEnvironmentMembershipsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentMembershipsResult => {
-  return {
-    memberships: output.memberships != null ? de_EnvironmentMembersList(output.memberships, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+  return take(output, {
+    memberships: (_: any) => de_EnvironmentMembersList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeEnvironmentsResult
- */
-const de_DescribeEnvironmentsResult = (output: any, context: __SerdeContext): DescribeEnvironmentsResult => {
-  return {
-    environments: output.environments != null ? de_EnvironmentList(output.environments, context) : undefined,
-  } as any;
-};
+// de_DescribeEnvironmentsResult omitted.
 
-/**
- * deserializeAws_json1_1DescribeEnvironmentStatusResult
- */
-const de_DescribeEnvironmentStatusResult = (output: any, context: __SerdeContext): DescribeEnvironmentStatusResult => {
-  return {
-    message: __expectString(output.message),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_DescribeEnvironmentStatusResult omitted.
 
-/**
- * deserializeAws_json1_1Environment
- */
-const de_Environment = (output: any, context: __SerdeContext): Environment => {
-  return {
-    arn: __expectString(output.arn),
-    connectionType: __expectString(output.connectionType),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lifecycle: output.lifecycle != null ? de_EnvironmentLifecycle(output.lifecycle, context) : undefined,
-    managedCredentialsStatus: __expectString(output.managedCredentialsStatus),
-    name: __expectString(output.name),
-    ownerArn: __expectString(output.ownerArn),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_Environment omitted.
 
-/**
- * deserializeAws_json1_1EnvironmentIdList
- */
-const de_EnvironmentIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EnvironmentIdList omitted.
 
-/**
- * deserializeAws_json1_1EnvironmentLifecycle
- */
-const de_EnvironmentLifecycle = (output: any, context: __SerdeContext): EnvironmentLifecycle => {
-  return {
-    failureResource: __expectString(output.failureResource),
-    reason: __expectString(output.reason),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_EnvironmentLifecycle omitted.
 
-/**
- * deserializeAws_json1_1EnvironmentList
- */
-const de_EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Environment(entry, context);
-    });
-  return retVal;
-};
+// de_EnvironmentList omitted.
 
 /**
  * deserializeAws_json1_1EnvironmentMember
  */
 const de_EnvironmentMember = (output: any, context: __SerdeContext): EnvironmentMember => {
-  return {
-    environmentId: __expectString(output.environmentId),
-    lastAccess:
-      output.lastAccess != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAccess))) : undefined,
-    permissions: __expectString(output.permissions),
-    userArn: __expectString(output.userArn),
-    userId: __expectString(output.userId),
-  } as any;
+  return take(output, {
+    environmentId: __expectString,
+    lastAccess: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    permissions: __expectString,
+    userArn: __expectString,
+    userId: __expectString,
+  }) as any;
 };
 
 /**
@@ -1586,126 +1277,32 @@ const de_EnvironmentMembersList = (output: any, context: __SerdeContext): Enviro
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EnvironmentMember(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ForbiddenException
- */
-const de_ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
-  return {
-    className: __expectString(output.className),
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ForbiddenException omitted.
 
-/**
- * deserializeAws_json1_1InternalServerErrorException
- */
-const de_InternalServerErrorException = (output: any, context: __SerdeContext): InternalServerErrorException => {
-  return {
-    className: __expectString(output.className),
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServerErrorException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    className: __expectString(output.className),
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListEnvironmentsResult
- */
-const de_ListEnvironmentsResult = (output: any, context: __SerdeContext): ListEnvironmentsResult => {
-  return {
-    environmentIds: output.environmentIds != null ? de_EnvironmentIdList(output.environmentIds, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListEnvironmentsResult omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1NotFoundException
- */
-const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  return {
-    className: __expectString(output.className),
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NotFoundException omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TooManyRequestsException
- */
-const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
-  return {
-    className: __expectString(output.className),
-    code: __expectInt32(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyRequestsException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateEnvironmentMembershipResult
@@ -1714,17 +1311,12 @@ const de_UpdateEnvironmentMembershipResult = (
   output: any,
   context: __SerdeContext
 ): UpdateEnvironmentMembershipResult => {
-  return {
-    membership: output.membership != null ? de_EnvironmentMember(output.membership, context) : undefined,
-  } as any;
+  return take(output, {
+    membership: (_: any) => de_EnvironmentMember(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UpdateEnvironmentResult
- */
-const de_UpdateEnvironmentResult = (output: any, context: __SerdeContext): UpdateEnvironmentResult => {
-  return {} as any;
-};
+// de_UpdateEnvironmentResult omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1746,6 +1338,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

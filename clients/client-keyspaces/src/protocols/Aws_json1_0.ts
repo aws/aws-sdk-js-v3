@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -8,7 +9,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -44,44 +46,30 @@ import {
   Comment,
   ConflictException,
   CreateKeyspaceRequest,
-  CreateKeyspaceResponse,
   CreateTableRequest,
-  CreateTableResponse,
   DeleteKeyspaceRequest,
-  DeleteKeyspaceResponse,
   DeleteTableRequest,
-  DeleteTableResponse,
   EncryptionSpecification,
   GetKeyspaceRequest,
-  GetKeyspaceResponse,
   GetTableRequest,
   GetTableResponse,
   InternalServerException,
-  KeyspaceSummary,
   ListKeyspacesRequest,
-  ListKeyspacesResponse,
   ListTablesRequest,
-  ListTablesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   PartitionKey,
   PointInTimeRecovery,
   PointInTimeRecoverySummary,
   ResourceNotFoundException,
   RestoreTableRequest,
-  RestoreTableResponse,
   SchemaDefinition,
   ServiceQuotaExceededException,
   StaticColumn,
-  TableSummary,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TimeToLive,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateTableRequest,
-  UpdateTableResponse,
   ValidationException,
 } from "../models/models_0";
 
@@ -94,7 +82,7 @@ export const se_CreateKeyspaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateKeyspace");
   let body: any;
-  body = JSON.stringify(se_CreateKeyspaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -107,7 +95,7 @@ export const se_CreateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTable");
   let body: any;
-  body = JSON.stringify(se_CreateTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -120,7 +108,7 @@ export const se_DeleteKeyspaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteKeyspace");
   let body: any;
-  body = JSON.stringify(se_DeleteKeyspaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -133,7 +121,7 @@ export const se_DeleteTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTable");
   let body: any;
-  body = JSON.stringify(se_DeleteTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -146,7 +134,7 @@ export const se_GetKeyspaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetKeyspace");
   let body: any;
-  body = JSON.stringify(se_GetKeyspaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -159,7 +147,7 @@ export const se_GetTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTable");
   let body: any;
-  body = JSON.stringify(se_GetTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -172,7 +160,7 @@ export const se_ListKeyspacesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListKeyspaces");
   let body: any;
-  body = JSON.stringify(se_ListKeyspacesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -185,7 +173,7 @@ export const se_ListTablesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTables");
   let body: any;
-  body = JSON.stringify(se_ListTablesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -198,7 +186,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -224,7 +212,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -237,7 +225,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -250,7 +238,7 @@ export const se_UpdateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTable");
   let body: any;
-  body = JSON.stringify(se_UpdateTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -266,12 +254,12 @@ export const de_CreateKeyspaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateKeyspaceResponse(data, context);
+  contents = _json(data);
   const response: CreateKeyspaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -304,10 +292,9 @@ const de_CreateKeyspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -325,12 +312,12 @@ export const de_CreateTableCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateTableResponse(data, context);
+  contents = _json(data);
   const response: CreateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -366,10 +353,9 @@ const de_CreateTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -387,12 +373,12 @@ export const de_DeleteKeyspaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteKeyspaceResponse(data, context);
+  contents = _json(data);
   const response: DeleteKeyspaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -428,10 +414,9 @@ const de_DeleteKeyspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -449,12 +434,12 @@ export const de_DeleteTableCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteTableResponse(data, context);
+  contents = _json(data);
   const response: DeleteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -490,10 +475,9 @@ const de_DeleteTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -511,12 +495,12 @@ export const de_GetKeyspaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetKeyspaceResponse(data, context);
+  contents = _json(data);
   const response: GetKeyspaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -549,10 +533,9 @@ const de_GetKeyspaceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -575,7 +558,7 @@ export const de_GetTableCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -608,10 +591,9 @@ const de_GetTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -629,12 +611,12 @@ export const de_ListKeyspacesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListKeyspacesResponse(data, context);
+  contents = _json(data);
   const response: ListKeyspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -667,10 +649,9 @@ const de_ListKeyspacesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -688,12 +669,12 @@ export const de_ListTablesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTablesResponse(data, context);
+  contents = _json(data);
   const response: ListTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -726,10 +707,9 @@ const de_ListTablesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -747,12 +727,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -785,10 +765,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -806,12 +785,12 @@ export const de_RestoreTableCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RestoreTableResponse(data, context);
+  contents = _json(data);
   const response: RestoreTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -847,10 +826,9 @@ const de_RestoreTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -868,12 +846,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -906,10 +884,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -927,12 +904,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -968,10 +945,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -989,12 +965,12 @@ export const de_UpdateTableCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateTableResponse(data, context);
+  contents = _json(data);
   const response: UpdateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1030,10 +1006,9 @@ const de_UpdateTableCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1047,7 +1022,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1060,7 +1035,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1076,7 +1051,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1092,7 +1067,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1108,7 +1083,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1121,7 +1096,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1129,797 +1104,197 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0CapacitySpecification
- */
-const se_CapacitySpecification = (input: CapacitySpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.readCapacityUnits != null && { readCapacityUnits: input.readCapacityUnits }),
-    ...(input.throughputMode != null && { throughputMode: input.throughputMode }),
-    ...(input.writeCapacityUnits != null && { writeCapacityUnits: input.writeCapacityUnits }),
-  };
-};
+// se_CapacitySpecification omitted.
 
-/**
- * serializeAws_json1_0ClientSideTimestamps
- */
-const se_ClientSideTimestamps = (input: ClientSideTimestamps, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_ClientSideTimestamps omitted.
 
-/**
- * serializeAws_json1_0ClusteringKey
- */
-const se_ClusteringKey = (input: ClusteringKey, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.orderBy != null && { orderBy: input.orderBy }),
-  };
-};
+// se_ClusteringKey omitted.
 
-/**
- * serializeAws_json1_0ClusteringKeyList
- */
-const se_ClusteringKeyList = (input: ClusteringKey[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ClusteringKey(entry, context);
-    });
-};
+// se_ClusteringKeyList omitted.
 
-/**
- * serializeAws_json1_0ColumnDefinition
- */
-const se_ColumnDefinition = (input: ColumnDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ColumnDefinition omitted.
 
-/**
- * serializeAws_json1_0ColumnDefinitionList
- */
-const se_ColumnDefinitionList = (input: ColumnDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ColumnDefinition(entry, context);
-    });
-};
+// se_ColumnDefinitionList omitted.
 
-/**
- * serializeAws_json1_0Comment
- */
-const se_Comment = (input: Comment, context: __SerdeContext): any => {
-  return {
-    ...(input.message != null && { message: input.message }),
-  };
-};
+// se_Comment omitted.
 
-/**
- * serializeAws_json1_0CreateKeyspaceRequest
- */
-const se_CreateKeyspaceRequest = (input: CreateKeyspaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName != null && { keyspaceName: input.keyspaceName }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_CreateKeyspaceRequest omitted.
 
-/**
- * serializeAws_json1_0CreateTableRequest
- */
-const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.capacitySpecification != null && {
-      capacitySpecification: se_CapacitySpecification(input.capacitySpecification, context),
-    }),
-    ...(input.clientSideTimestamps != null && {
-      clientSideTimestamps: se_ClientSideTimestamps(input.clientSideTimestamps, context),
-    }),
-    ...(input.comment != null && { comment: se_Comment(input.comment, context) }),
-    ...(input.defaultTimeToLive != null && { defaultTimeToLive: input.defaultTimeToLive }),
-    ...(input.encryptionSpecification != null && {
-      encryptionSpecification: se_EncryptionSpecification(input.encryptionSpecification, context),
-    }),
-    ...(input.keyspaceName != null && { keyspaceName: input.keyspaceName }),
-    ...(input.pointInTimeRecovery != null && {
-      pointInTimeRecovery: se_PointInTimeRecovery(input.pointInTimeRecovery, context),
-    }),
-    ...(input.schemaDefinition != null && { schemaDefinition: se_SchemaDefinition(input.schemaDefinition, context) }),
-    ...(input.tableName != null && { tableName: input.tableName }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.ttl != null && { ttl: se_TimeToLive(input.ttl, context) }),
-  };
-};
+// se_CreateTableRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteKeyspaceRequest
- */
-const se_DeleteKeyspaceRequest = (input: DeleteKeyspaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName != null && { keyspaceName: input.keyspaceName }),
-  };
-};
+// se_DeleteKeyspaceRequest omitted.
 
-/**
- * serializeAws_json1_0DeleteTableRequest
- */
-const se_DeleteTableRequest = (input: DeleteTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName != null && { keyspaceName: input.keyspaceName }),
-    ...(input.tableName != null && { tableName: input.tableName }),
-  };
-};
+// se_DeleteTableRequest omitted.
 
-/**
- * serializeAws_json1_0EncryptionSpecification
- */
-const se_EncryptionSpecification = (input: EncryptionSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.kmsKeyIdentifier != null && { kmsKeyIdentifier: input.kmsKeyIdentifier }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_EncryptionSpecification omitted.
 
-/**
- * serializeAws_json1_0GetKeyspaceRequest
- */
-const se_GetKeyspaceRequest = (input: GetKeyspaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName != null && { keyspaceName: input.keyspaceName }),
-  };
-};
+// se_GetKeyspaceRequest omitted.
 
-/**
- * serializeAws_json1_0GetTableRequest
- */
-const se_GetTableRequest = (input: GetTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName != null && { keyspaceName: input.keyspaceName }),
-    ...(input.tableName != null && { tableName: input.tableName }),
-  };
-};
+// se_GetTableRequest omitted.
 
-/**
- * serializeAws_json1_0ListKeyspacesRequest
- */
-const se_ListKeyspacesRequest = (input: ListKeyspacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListKeyspacesRequest omitted.
 
-/**
- * serializeAws_json1_0ListTablesRequest
- */
-const se_ListTablesRequest = (input: ListTablesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName != null && { keyspaceName: input.keyspaceName }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListTablesRequest omitted.
 
-/**
- * serializeAws_json1_0ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_0PartitionKey
- */
-const se_PartitionKey = (input: PartitionKey, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_PartitionKey omitted.
 
-/**
- * serializeAws_json1_0PartitionKeyList
- */
-const se_PartitionKeyList = (input: PartitionKey[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_PartitionKey(entry, context);
-    });
-};
+// se_PartitionKeyList omitted.
 
-/**
- * serializeAws_json1_0PointInTimeRecovery
- */
-const se_PointInTimeRecovery = (input: PointInTimeRecovery, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_PointInTimeRecovery omitted.
 
 /**
  * serializeAws_json1_0RestoreTableRequest
  */
 const se_RestoreTableRequest = (input: RestoreTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.capacitySpecificationOverride != null && {
-      capacitySpecificationOverride: se_CapacitySpecification(input.capacitySpecificationOverride, context),
-    }),
-    ...(input.encryptionSpecificationOverride != null && {
-      encryptionSpecificationOverride: se_EncryptionSpecification(input.encryptionSpecificationOverride, context),
-    }),
-    ...(input.pointInTimeRecoveryOverride != null && {
-      pointInTimeRecoveryOverride: se_PointInTimeRecovery(input.pointInTimeRecoveryOverride, context),
-    }),
-    ...(input.restoreTimestamp != null && { restoreTimestamp: Math.round(input.restoreTimestamp.getTime() / 1000) }),
-    ...(input.sourceKeyspaceName != null && { sourceKeyspaceName: input.sourceKeyspaceName }),
-    ...(input.sourceTableName != null && { sourceTableName: input.sourceTableName }),
-    ...(input.tagsOverride != null && { tagsOverride: se_TagList(input.tagsOverride, context) }),
-    ...(input.targetKeyspaceName != null && { targetKeyspaceName: input.targetKeyspaceName }),
-    ...(input.targetTableName != null && { targetTableName: input.targetTableName }),
-  };
+  return take(input, {
+    capacitySpecificationOverride: _json,
+    encryptionSpecificationOverride: _json,
+    pointInTimeRecoveryOverride: _json,
+    restoreTimestamp: (_) => Math.round(_.getTime() / 1000),
+    sourceKeyspaceName: [],
+    sourceTableName: [],
+    tagsOverride: _json,
+    targetKeyspaceName: [],
+    targetTableName: [],
+  });
 };
 
-/**
- * serializeAws_json1_0SchemaDefinition
- */
-const se_SchemaDefinition = (input: SchemaDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.allColumns != null && { allColumns: se_ColumnDefinitionList(input.allColumns, context) }),
-    ...(input.clusteringKeys != null && { clusteringKeys: se_ClusteringKeyList(input.clusteringKeys, context) }),
-    ...(input.partitionKeys != null && { partitionKeys: se_PartitionKeyList(input.partitionKeys, context) }),
-    ...(input.staticColumns != null && { staticColumns: se_StaticColumnList(input.staticColumns, context) }),
-  };
-};
+// se_SchemaDefinition omitted.
 
-/**
- * serializeAws_json1_0StaticColumn
- */
-const se_StaticColumn = (input: StaticColumn, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_StaticColumn omitted.
 
-/**
- * serializeAws_json1_0StaticColumnList
- */
-const se_StaticColumnList = (input: StaticColumn[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_StaticColumn(entry, context);
-    });
-};
+// se_StaticColumnList omitted.
 
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_0TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_0TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0TimeToLive
- */
-const se_TimeToLive = (input: TimeToLive, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_TimeToLive omitted.
 
-/**
- * serializeAws_json1_0UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateTableRequest
- */
-const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.addColumns != null && { addColumns: se_ColumnDefinitionList(input.addColumns, context) }),
-    ...(input.capacitySpecification != null && {
-      capacitySpecification: se_CapacitySpecification(input.capacitySpecification, context),
-    }),
-    ...(input.clientSideTimestamps != null && {
-      clientSideTimestamps: se_ClientSideTimestamps(input.clientSideTimestamps, context),
-    }),
-    ...(input.defaultTimeToLive != null && { defaultTimeToLive: input.defaultTimeToLive }),
-    ...(input.encryptionSpecification != null && {
-      encryptionSpecification: se_EncryptionSpecification(input.encryptionSpecification, context),
-    }),
-    ...(input.keyspaceName != null && { keyspaceName: input.keyspaceName }),
-    ...(input.pointInTimeRecovery != null && {
-      pointInTimeRecovery: se_PointInTimeRecovery(input.pointInTimeRecovery, context),
-    }),
-    ...(input.tableName != null && { tableName: input.tableName }),
-    ...(input.ttl != null && { ttl: se_TimeToLive(input.ttl, context) }),
-  };
-};
+// se_UpdateTableRequest omitted.
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
 /**
  * deserializeAws_json1_0CapacitySpecificationSummary
  */
 const de_CapacitySpecificationSummary = (output: any, context: __SerdeContext): CapacitySpecificationSummary => {
-  return {
-    lastUpdateToPayPerRequestTimestamp:
-      output.lastUpdateToPayPerRequestTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateToPayPerRequestTimestamp)))
-        : undefined,
-    readCapacityUnits: __expectLong(output.readCapacityUnits),
-    throughputMode: __expectString(output.throughputMode),
-    writeCapacityUnits: __expectLong(output.writeCapacityUnits),
-  } as any;
+  return take(output, {
+    lastUpdateToPayPerRequestTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    readCapacityUnits: __expectLong,
+    throughputMode: __expectString,
+    writeCapacityUnits: __expectLong,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ClientSideTimestamps
- */
-const de_ClientSideTimestamps = (output: any, context: __SerdeContext): ClientSideTimestamps => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_ClientSideTimestamps omitted.
 
-/**
- * deserializeAws_json1_0ClusteringKey
- */
-const de_ClusteringKey = (output: any, context: __SerdeContext): ClusteringKey => {
-  return {
-    name: __expectString(output.name),
-    orderBy: __expectString(output.orderBy),
-  } as any;
-};
+// de_ClusteringKey omitted.
 
-/**
- * deserializeAws_json1_0ClusteringKeyList
- */
-const de_ClusteringKeyList = (output: any, context: __SerdeContext): ClusteringKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ClusteringKey(entry, context);
-    });
-  return retVal;
-};
+// de_ClusteringKeyList omitted.
 
-/**
- * deserializeAws_json1_0ColumnDefinition
- */
-const de_ColumnDefinition = (output: any, context: __SerdeContext): ColumnDefinition => {
-  return {
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_ColumnDefinition omitted.
 
-/**
- * deserializeAws_json1_0ColumnDefinitionList
- */
-const de_ColumnDefinitionList = (output: any, context: __SerdeContext): ColumnDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ColumnDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_ColumnDefinitionList omitted.
 
-/**
- * deserializeAws_json1_0Comment
- */
-const de_Comment = (output: any, context: __SerdeContext): Comment => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_Comment omitted.
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_0CreateKeyspaceResponse
- */
-const de_CreateKeyspaceResponse = (output: any, context: __SerdeContext): CreateKeyspaceResponse => {
-  return {
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_CreateKeyspaceResponse omitted.
 
-/**
- * deserializeAws_json1_0CreateTableResponse
- */
-const de_CreateTableResponse = (output: any, context: __SerdeContext): CreateTableResponse => {
-  return {
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_CreateTableResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteKeyspaceResponse
- */
-const de_DeleteKeyspaceResponse = (output: any, context: __SerdeContext): DeleteKeyspaceResponse => {
-  return {} as any;
-};
+// de_DeleteKeyspaceResponse omitted.
 
-/**
- * deserializeAws_json1_0DeleteTableResponse
- */
-const de_DeleteTableResponse = (output: any, context: __SerdeContext): DeleteTableResponse => {
-  return {} as any;
-};
+// de_DeleteTableResponse omitted.
 
-/**
- * deserializeAws_json1_0EncryptionSpecification
- */
-const de_EncryptionSpecification = (output: any, context: __SerdeContext): EncryptionSpecification => {
-  return {
-    kmsKeyIdentifier: __expectString(output.kmsKeyIdentifier),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_EncryptionSpecification omitted.
 
-/**
- * deserializeAws_json1_0GetKeyspaceResponse
- */
-const de_GetKeyspaceResponse = (output: any, context: __SerdeContext): GetKeyspaceResponse => {
-  return {
-    keyspaceName: __expectString(output.keyspaceName),
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_GetKeyspaceResponse omitted.
 
 /**
  * deserializeAws_json1_0GetTableResponse
  */
 const de_GetTableResponse = (output: any, context: __SerdeContext): GetTableResponse => {
-  return {
-    capacitySpecification:
-      output.capacitySpecification != null
-        ? de_CapacitySpecificationSummary(output.capacitySpecification, context)
-        : undefined,
-    clientSideTimestamps:
-      output.clientSideTimestamps != null ? de_ClientSideTimestamps(output.clientSideTimestamps, context) : undefined,
-    comment: output.comment != null ? de_Comment(output.comment, context) : undefined,
-    creationTimestamp:
-      output.creationTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTimestamp)))
-        : undefined,
-    defaultTimeToLive: __expectInt32(output.defaultTimeToLive),
-    encryptionSpecification:
-      output.encryptionSpecification != null
-        ? de_EncryptionSpecification(output.encryptionSpecification, context)
-        : undefined,
-    keyspaceName: __expectString(output.keyspaceName),
-    pointInTimeRecovery:
-      output.pointInTimeRecovery != null
-        ? de_PointInTimeRecoverySummary(output.pointInTimeRecovery, context)
-        : undefined,
-    resourceArn: __expectString(output.resourceArn),
-    schemaDefinition:
-      output.schemaDefinition != null ? de_SchemaDefinition(output.schemaDefinition, context) : undefined,
-    status: __expectString(output.status),
-    tableName: __expectString(output.tableName),
-    ttl: output.ttl != null ? de_TimeToLive(output.ttl, context) : undefined,
-  } as any;
+  return take(output, {
+    capacitySpecification: (_: any) => de_CapacitySpecificationSummary(_, context),
+    clientSideTimestamps: _json,
+    comment: _json,
+    creationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultTimeToLive: __expectInt32,
+    encryptionSpecification: _json,
+    keyspaceName: __expectString,
+    pointInTimeRecovery: (_: any) => de_PointInTimeRecoverySummary(_, context),
+    resourceArn: __expectString,
+    schemaDefinition: _json,
+    status: __expectString,
+    tableName: __expectString,
+    ttl: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_0KeyspaceSummary
- */
-const de_KeyspaceSummary = (output: any, context: __SerdeContext): KeyspaceSummary => {
-  return {
-    keyspaceName: __expectString(output.keyspaceName),
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_KeyspaceSummary omitted.
 
-/**
- * deserializeAws_json1_0KeyspaceSummaryList
- */
-const de_KeyspaceSummaryList = (output: any, context: __SerdeContext): KeyspaceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_KeyspaceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_KeyspaceSummaryList omitted.
 
-/**
- * deserializeAws_json1_0ListKeyspacesResponse
- */
-const de_ListKeyspacesResponse = (output: any, context: __SerdeContext): ListKeyspacesResponse => {
-  return {
-    keyspaces: output.keyspaces != null ? de_KeyspaceSummaryList(output.keyspaces, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListKeyspacesResponse omitted.
 
-/**
- * deserializeAws_json1_0ListTablesResponse
- */
-const de_ListTablesResponse = (output: any, context: __SerdeContext): ListTablesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tables: output.tables != null ? de_TableSummaryList(output.tables, context) : undefined,
-  } as any;
-};
+// de_ListTablesResponse omitted.
 
-/**
- * deserializeAws_json1_0ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0PartitionKey
- */
-const de_PartitionKey = (output: any, context: __SerdeContext): PartitionKey => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
+// de_PartitionKey omitted.
 
-/**
- * deserializeAws_json1_0PartitionKeyList
- */
-const de_PartitionKeyList = (output: any, context: __SerdeContext): PartitionKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PartitionKey(entry, context);
-    });
-  return retVal;
-};
+// de_PartitionKeyList omitted.
 
 /**
  * deserializeAws_json1_0PointInTimeRecoverySummary
  */
 const de_PointInTimeRecoverySummary = (output: any, context: __SerdeContext): PointInTimeRecoverySummary => {
-  return {
-    earliestRestorableTimestamp:
-      output.earliestRestorableTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.earliestRestorableTimestamp)))
-        : undefined,
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    earliestRestorableTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0RestoreTableResponse
- */
-const de_RestoreTableResponse = (output: any, context: __SerdeContext): RestoreTableResponse => {
-  return {
-    restoredTableARN: __expectString(output.restoredTableARN),
-  } as any;
-};
+// de_RestoreTableResponse omitted.
 
-/**
- * deserializeAws_json1_0SchemaDefinition
- */
-const de_SchemaDefinition = (output: any, context: __SerdeContext): SchemaDefinition => {
-  return {
-    allColumns: output.allColumns != null ? de_ColumnDefinitionList(output.allColumns, context) : undefined,
-    clusteringKeys: output.clusteringKeys != null ? de_ClusteringKeyList(output.clusteringKeys, context) : undefined,
-    partitionKeys: output.partitionKeys != null ? de_PartitionKeyList(output.partitionKeys, context) : undefined,
-    staticColumns: output.staticColumns != null ? de_StaticColumnList(output.staticColumns, context) : undefined,
-  } as any;
-};
+// de_SchemaDefinition omitted.
 
-/**
- * deserializeAws_json1_0ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_0StaticColumn
- */
-const de_StaticColumn = (output: any, context: __SerdeContext): StaticColumn => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
+// de_StaticColumn omitted.
 
-/**
- * deserializeAws_json1_0StaticColumnList
- */
-const de_StaticColumnList = (output: any, context: __SerdeContext): StaticColumn[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StaticColumn(entry, context);
-    });
-  return retVal;
-};
+// de_StaticColumnList omitted.
 
-/**
- * deserializeAws_json1_0TableSummary
- */
-const de_TableSummary = (output: any, context: __SerdeContext): TableSummary => {
-  return {
-    keyspaceName: __expectString(output.keyspaceName),
-    resourceArn: __expectString(output.resourceArn),
-    tableName: __expectString(output.tableName),
-  } as any;
-};
+// de_TableSummary omitted.
 
-/**
- * deserializeAws_json1_0TableSummaryList
- */
-const de_TableSummaryList = (output: any, context: __SerdeContext): TableSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TableSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TableSummaryList omitted.
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_0TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0TimeToLive
- */
-const de_TimeToLive = (output: any, context: __SerdeContext): TimeToLive => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_TimeToLive omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateTableResponse
- */
-const de_UpdateTableResponse = (output: any, context: __SerdeContext): UpdateTableResponse => {
-  return {
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_UpdateTableResponse omitted.
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1941,6 +1316,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

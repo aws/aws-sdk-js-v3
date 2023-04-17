@@ -1,18 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -170,16 +171,10 @@ import {
 import { UpdateUserSettingsCommandInput, UpdateUserSettingsCommandOutput } from "../commands/UpdateUserSettingsCommand";
 import {
   AccessDeniedException,
-  BrowserSettings,
-  BrowserSettingsSummary,
   Certificate,
   CertificateSummary,
   ConflictException,
-  IdentityProvider,
-  IdentityProviderSummary,
   InternalServerException,
-  NetworkSettings,
-  NetworkSettingsSummary,
   Portal,
   PortalSummary,
   ResourceNotFoundException,
@@ -187,14 +182,7 @@ import {
   Tag,
   ThrottlingException,
   TooManyTagsException,
-  TrustStore,
-  TrustStoreSummary,
-  UserAccessLoggingSettings,
-  UserAccessLoggingSettingsSummary,
-  UserSettings,
-  UserSettingsSummary,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 import { WorkSpacesWebServiceException as __BaseException } from "../models/WorkSpacesWebServiceException";
 
@@ -355,15 +343,15 @@ export const se_CreateBrowserSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/browserSettings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalEncryptionContext != null && {
-      additionalEncryptionContext: se_EncryptionContextMap(input.additionalEncryptionContext, context),
-    }),
-    ...(input.browserPolicy != null && { browserPolicy: input.browserPolicy }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.customerManagedKey != null && { customerManagedKey: input.customerManagedKey }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalEncryptionContext: (_) => _json(_),
+      browserPolicy: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      customerManagedKey: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -388,15 +376,15 @@ export const se_CreateIdentityProviderCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identityProviders";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.identityProviderDetails != null && {
-      identityProviderDetails: se_IdentityProviderDetails(input.identityProviderDetails, context),
-    }),
-    ...(input.identityProviderName != null && { identityProviderName: input.identityProviderName }),
-    ...(input.identityProviderType != null && { identityProviderType: input.identityProviderType }),
-    ...(input.portalArn != null && { portalArn: input.portalArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      identityProviderDetails: (_) => _json(_),
+      identityProviderName: [],
+      identityProviderType: [],
+      portalArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -421,15 +409,15 @@ export const se_CreateNetworkSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networkSettings";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.securityGroupIds != null && {
-      securityGroupIds: se_SecurityGroupIdList(input.securityGroupIds, context),
-    }),
-    ...(input.subnetIds != null && { subnetIds: se_SubnetIdList(input.subnetIds, context) }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.vpcId != null && { vpcId: input.vpcId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      securityGroupIds: (_) => _json(_),
+      subnetIds: (_) => _json(_),
+      tags: (_) => _json(_),
+      vpcId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -454,16 +442,16 @@ export const se_CreatePortalCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals";
   let body: any;
-  body = JSON.stringify({
-    ...(input.additionalEncryptionContext != null && {
-      additionalEncryptionContext: se_EncryptionContextMap(input.additionalEncryptionContext, context),
-    }),
-    ...(input.authenticationType != null && { authenticationType: input.authenticationType }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.customerManagedKey != null && { customerManagedKey: input.customerManagedKey }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      additionalEncryptionContext: (_) => _json(_),
+      authenticationType: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      customerManagedKey: [],
+      displayName: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -488,11 +476,13 @@ export const se_CreateTrustStoreCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustStores";
   let body: any;
-  body = JSON.stringify({
-    ...(input.certificateList != null && { certificateList: se_CertificateList(input.certificateList, context) }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      certificateList: (_) => se_CertificateList(_, context),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -518,11 +508,13 @@ export const se_CreateUserAccessLoggingSettingsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userAccessLoggingSettings";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.kinesisStreamArn != null && { kinesisStreamArn: input.kinesisStreamArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      kinesisStreamArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -547,19 +539,19 @@ export const se_CreateUserSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userSettings";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.copyAllowed != null && { copyAllowed: input.copyAllowed }),
-    ...(input.disconnectTimeoutInMinutes != null && { disconnectTimeoutInMinutes: input.disconnectTimeoutInMinutes }),
-    ...(input.downloadAllowed != null && { downloadAllowed: input.downloadAllowed }),
-    ...(input.idleDisconnectTimeoutInMinutes != null && {
-      idleDisconnectTimeoutInMinutes: input.idleDisconnectTimeoutInMinutes,
-    }),
-    ...(input.pasteAllowed != null && { pasteAllowed: input.pasteAllowed }),
-    ...(input.printAllowed != null && { printAllowed: input.printAllowed }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-    ...(input.uploadAllowed != null && { uploadAllowed: input.uploadAllowed }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      copyAllowed: [],
+      disconnectTimeoutInMinutes: [],
+      downloadAllowed: [],
+      idleDisconnectTimeoutInMinutes: [],
+      pasteAllowed: [],
+      printAllowed: [],
+      tags: (_) => _json(_),
+      uploadAllowed: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1436,10 +1428,12 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn+}", true);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1503,10 +1497,12 @@ export const se_UpdateBrowserSettingsCommand = async (
     true
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.browserPolicy != null && { browserPolicy: input.browserPolicy }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      browserPolicy: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1540,14 +1536,14 @@ export const se_UpdateIdentityProviderCommand = async (
     true
   );
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.identityProviderDetails != null && {
-      identityProviderDetails: se_IdentityProviderDetails(input.identityProviderDetails, context),
-    }),
-    ...(input.identityProviderName != null && { identityProviderName: input.identityProviderName }),
-    ...(input.identityProviderType != null && { identityProviderType: input.identityProviderType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      identityProviderDetails: (_) => _json(_),
+      identityProviderName: [],
+      identityProviderType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1581,14 +1577,14 @@ export const se_UpdateNetworkSettingsCommand = async (
     true
   );
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.securityGroupIds != null && {
-      securityGroupIds: se_SecurityGroupIdList(input.securityGroupIds, context),
-    }),
-    ...(input.subnetIds != null && { subnetIds: se_SubnetIdList(input.subnetIds, context) }),
-    ...(input.vpcId != null && { vpcId: input.vpcId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      securityGroupIds: (_) => _json(_),
+      subnetIds: (_) => _json(_),
+      vpcId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1614,10 +1610,12 @@ export const se_UpdatePortalCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  body = JSON.stringify({
-    ...(input.authenticationType != null && { authenticationType: input.authenticationType }),
-    ...(input.displayName != null && { displayName: input.displayName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      authenticationType: [],
+      displayName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1651,13 +1649,13 @@ export const se_UpdateTrustStoreCommand = async (
     true
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.certificatesToAdd != null && { certificatesToAdd: se_CertificateList(input.certificatesToAdd, context) }),
-    ...(input.certificatesToDelete != null && {
-      certificatesToDelete: se_CertificateThumbprintList(input.certificatesToDelete, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      certificatesToAdd: (_) => se_CertificateList(_, context),
+      certificatesToDelete: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1692,10 +1690,12 @@ export const se_UpdateUserAccessLoggingSettingsCommand = async (
     true
   );
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.kinesisStreamArn != null && { kinesisStreamArn: input.kinesisStreamArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      kinesisStreamArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1729,18 +1729,18 @@ export const se_UpdateUserSettingsCommand = async (
     true
   );
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.copyAllowed != null && { copyAllowed: input.copyAllowed }),
-    ...(input.disconnectTimeoutInMinutes != null && { disconnectTimeoutInMinutes: input.disconnectTimeoutInMinutes }),
-    ...(input.downloadAllowed != null && { downloadAllowed: input.downloadAllowed }),
-    ...(input.idleDisconnectTimeoutInMinutes != null && {
-      idleDisconnectTimeoutInMinutes: input.idleDisconnectTimeoutInMinutes,
-    }),
-    ...(input.pasteAllowed != null && { pasteAllowed: input.pasteAllowed }),
-    ...(input.printAllowed != null && { printAllowed: input.printAllowed }),
-    ...(input.uploadAllowed != null && { uploadAllowed: input.uploadAllowed }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      copyAllowed: [],
+      disconnectTimeoutInMinutes: [],
+      downloadAllowed: [],
+      idleDisconnectTimeoutInMinutes: [],
+      pasteAllowed: [],
+      printAllowed: [],
+      uploadAllowed: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1766,12 +1766,11 @@ export const de_AssociateBrowserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.browserSettingsArn != null) {
-    contents.browserSettingsArn = __expectString(data.browserSettingsArn);
-  }
-  if (data.portalArn != null) {
-    contents.portalArn = __expectString(data.portalArn);
-  }
+  const doc = take(data, {
+    browserSettingsArn: __expectString,
+    portalArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1808,10 +1807,9 @@ const de_AssociateBrowserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1831,12 +1829,11 @@ export const de_AssociateNetworkSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSettingsArn != null) {
-    contents.networkSettingsArn = __expectString(data.networkSettingsArn);
-  }
-  if (data.portalArn != null) {
-    contents.portalArn = __expectString(data.portalArn);
-  }
+  const doc = take(data, {
+    networkSettingsArn: __expectString,
+    portalArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1873,10 +1870,9 @@ const de_AssociateNetworkSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1896,12 +1892,11 @@ export const de_AssociateTrustStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portalArn != null) {
-    contents.portalArn = __expectString(data.portalArn);
-  }
-  if (data.trustStoreArn != null) {
-    contents.trustStoreArn = __expectString(data.trustStoreArn);
-  }
+  const doc = take(data, {
+    portalArn: __expectString,
+    trustStoreArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1935,10 +1930,9 @@ const de_AssociateTrustStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1958,12 +1952,11 @@ export const de_AssociateUserAccessLoggingSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portalArn != null) {
-    contents.portalArn = __expectString(data.portalArn);
-  }
-  if (data.userAccessLoggingSettingsArn != null) {
-    contents.userAccessLoggingSettingsArn = __expectString(data.userAccessLoggingSettingsArn);
-  }
+  const doc = take(data, {
+    portalArn: __expectString,
+    userAccessLoggingSettingsArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2000,10 +1993,9 @@ const de_AssociateUserAccessLoggingSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2023,12 +2015,11 @@ export const de_AssociateUserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portalArn != null) {
-    contents.portalArn = __expectString(data.portalArn);
-  }
-  if (data.userSettingsArn != null) {
-    contents.userSettingsArn = __expectString(data.userSettingsArn);
-  }
+  const doc = take(data, {
+    portalArn: __expectString,
+    userSettingsArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2065,10 +2056,9 @@ const de_AssociateUserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2088,9 +2078,10 @@ export const de_CreateBrowserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.browserSettingsArn != null) {
-    contents.browserSettingsArn = __expectString(data.browserSettingsArn);
-  }
+  const doc = take(data, {
+    browserSettingsArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2130,10 +2121,9 @@ const de_CreateBrowserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2153,9 +2143,10 @@ export const de_CreateIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.identityProviderArn != null) {
-    contents.identityProviderArn = __expectString(data.identityProviderArn);
-  }
+  const doc = take(data, {
+    identityProviderArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2195,10 +2186,9 @@ const de_CreateIdentityProviderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2218,9 +2208,10 @@ export const de_CreateNetworkSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSettingsArn != null) {
-    contents.networkSettingsArn = __expectString(data.networkSettingsArn);
-  }
+  const doc = take(data, {
+    networkSettingsArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2257,10 +2248,9 @@ const de_CreateNetworkSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2280,12 +2270,11 @@ export const de_CreatePortalCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portalArn != null) {
-    contents.portalArn = __expectString(data.portalArn);
-  }
-  if (data.portalEndpoint != null) {
-    contents.portalEndpoint = __expectString(data.portalEndpoint);
-  }
+  const doc = take(data, {
+    portalArn: __expectString,
+    portalEndpoint: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2325,10 +2314,9 @@ const de_CreatePortalCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2348,9 +2336,10 @@ export const de_CreateTrustStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.trustStoreArn != null) {
-    contents.trustStoreArn = __expectString(data.trustStoreArn);
-  }
+  const doc = take(data, {
+    trustStoreArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2387,10 +2376,9 @@ const de_CreateTrustStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2410,9 +2398,10 @@ export const de_CreateUserAccessLoggingSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userAccessLoggingSettingsArn != null) {
-    contents.userAccessLoggingSettingsArn = __expectString(data.userAccessLoggingSettingsArn);
-  }
+  const doc = take(data, {
+    userAccessLoggingSettingsArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2449,10 +2438,9 @@ const de_CreateUserAccessLoggingSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2472,9 +2460,10 @@ export const de_CreateUserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userSettingsArn != null) {
-    contents.userSettingsArn = __expectString(data.userSettingsArn);
-  }
+  const doc = take(data, {
+    userSettingsArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2511,10 +2500,9 @@ const de_CreateUserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2567,10 +2555,9 @@ const de_DeleteBrowserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2623,10 +2610,9 @@ const de_DeleteIdentityProviderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2679,10 +2665,9 @@ const de_DeleteNetworkSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2735,10 +2720,9 @@ const de_DeletePortalCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2791,10 +2775,9 @@ const de_DeleteTrustStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2847,10 +2830,9 @@ const de_DeleteUserAccessLoggingSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2903,10 +2885,9 @@ const de_DeleteUserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2959,10 +2940,9 @@ const de_DisassociateBrowserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3015,10 +2995,9 @@ const de_DisassociateNetworkSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3071,10 +3050,9 @@ const de_DisassociateTrustStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3127,10 +3105,9 @@ const de_DisassociateUserAccessLoggingSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3183,10 +3160,9 @@ const de_DisassociateUserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3206,9 +3182,10 @@ export const de_GetBrowserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.browserSettings != null) {
-    contents.browserSettings = de_BrowserSettings(data.browserSettings, context);
-  }
+  const doc = take(data, {
+    browserSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3242,10 +3219,9 @@ const de_GetBrowserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3265,9 +3241,10 @@ export const de_GetIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.identityProvider != null) {
-    contents.identityProvider = de_IdentityProvider(data.identityProvider, context);
-  }
+  const doc = take(data, {
+    identityProvider: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3301,10 +3278,9 @@ const de_GetIdentityProviderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3324,9 +3300,10 @@ export const de_GetNetworkSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSettings != null) {
-    contents.networkSettings = de_NetworkSettings(data.networkSettings, context);
-  }
+  const doc = take(data, {
+    networkSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3360,10 +3337,9 @@ const de_GetNetworkSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3383,9 +3359,10 @@ export const de_GetPortalCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portal != null) {
-    contents.portal = de_Portal(data.portal, context);
-  }
+  const doc = take(data, {
+    portal: (_) => de_Portal(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3419,10 +3396,9 @@ const de_GetPortalCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3442,12 +3418,11 @@ export const de_GetPortalServiceProviderMetadataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portalArn != null) {
-    contents.portalArn = __expectString(data.portalArn);
-  }
-  if (data.serviceProviderSamlMetadata != null) {
-    contents.serviceProviderSamlMetadata = __expectString(data.serviceProviderSamlMetadata);
-  }
+  const doc = take(data, {
+    portalArn: __expectString,
+    serviceProviderSamlMetadata: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3481,10 +3456,9 @@ const de_GetPortalServiceProviderMetadataCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3504,9 +3478,10 @@ export const de_GetTrustStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.trustStore != null) {
-    contents.trustStore = de_TrustStore(data.trustStore, context);
-  }
+  const doc = take(data, {
+    trustStore: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3540,10 +3515,9 @@ const de_GetTrustStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3563,12 +3537,11 @@ export const de_GetTrustStoreCertificateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.certificate != null) {
-    contents.certificate = de_Certificate(data.certificate, context);
-  }
-  if (data.trustStoreArn != null) {
-    contents.trustStoreArn = __expectString(data.trustStoreArn);
-  }
+  const doc = take(data, {
+    certificate: (_) => de_Certificate(_, context),
+    trustStoreArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3602,10 +3575,9 @@ const de_GetTrustStoreCertificateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3625,9 +3597,10 @@ export const de_GetUserAccessLoggingSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userAccessLoggingSettings != null) {
-    contents.userAccessLoggingSettings = de_UserAccessLoggingSettings(data.userAccessLoggingSettings, context);
-  }
+  const doc = take(data, {
+    userAccessLoggingSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3661,10 +3634,9 @@ const de_GetUserAccessLoggingSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3684,9 +3656,10 @@ export const de_GetUserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userSettings != null) {
-    contents.userSettings = de_UserSettings(data.userSettings, context);
-  }
+  const doc = take(data, {
+    userSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3720,10 +3693,9 @@ const de_GetUserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3743,12 +3715,11 @@ export const de_ListBrowserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.browserSettings != null) {
-    contents.browserSettings = de_BrowserSettingsList(data.browserSettings, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    browserSettings: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3779,10 +3750,9 @@ const de_ListBrowserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3802,12 +3772,11 @@ export const de_ListIdentityProvidersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.identityProviders != null) {
-    contents.identityProviders = de_IdentityProviderList(data.identityProviders, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    identityProviders: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3838,10 +3807,9 @@ const de_ListIdentityProvidersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3861,12 +3829,11 @@ export const de_ListNetworkSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSettings != null) {
-    contents.networkSettings = de_NetworkSettingsList(data.networkSettings, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    networkSettings: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3897,10 +3864,9 @@ const de_ListNetworkSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3920,12 +3886,11 @@ export const de_ListPortalsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.portals != null) {
-    contents.portals = de_PortalList(data.portals, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    portals: (_) => de_PortalList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3956,10 +3921,9 @@ const de_ListPortalsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3979,9 +3943,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagList(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4015,10 +3980,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4038,15 +4002,12 @@ export const de_ListTrustStoreCertificatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.certificateList != null) {
-    contents.certificateList = de_CertificateSummaryList(data.certificateList, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.trustStoreArn != null) {
-    contents.trustStoreArn = __expectString(data.trustStoreArn);
-  }
+  const doc = take(data, {
+    certificateList: (_) => de_CertificateSummaryList(_, context),
+    nextToken: __expectString,
+    trustStoreArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4080,10 +4041,9 @@ const de_ListTrustStoreCertificatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4103,12 +4063,11 @@ export const de_ListTrustStoresCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.trustStores != null) {
-    contents.trustStores = de_TrustStoreSummaryList(data.trustStores, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    trustStores: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4139,10 +4098,9 @@ const de_ListTrustStoresCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4162,12 +4120,11 @@ export const de_ListUserAccessLoggingSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.userAccessLoggingSettings != null) {
-    contents.userAccessLoggingSettings = de_UserAccessLoggingSettingsList(data.userAccessLoggingSettings, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    userAccessLoggingSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4198,10 +4155,9 @@ const de_ListUserAccessLoggingSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4221,12 +4177,11 @@ export const de_ListUserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.userSettings != null) {
-    contents.userSettings = de_UserSettingsList(data.userSettings, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    userSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4257,10 +4212,9 @@ const de_ListUserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4316,10 +4270,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4372,10 +4325,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4395,9 +4347,10 @@ export const de_UpdateBrowserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.browserSettings != null) {
-    contents.browserSettings = de_BrowserSettings(data.browserSettings, context);
-  }
+  const doc = take(data, {
+    browserSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4431,10 +4384,9 @@ const de_UpdateBrowserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4454,9 +4406,10 @@ export const de_UpdateIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.identityProvider != null) {
-    contents.identityProvider = de_IdentityProvider(data.identityProvider, context);
-  }
+  const doc = take(data, {
+    identityProvider: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4490,10 +4443,9 @@ const de_UpdateIdentityProviderCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4513,9 +4465,10 @@ export const de_UpdateNetworkSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.networkSettings != null) {
-    contents.networkSettings = de_NetworkSettings(data.networkSettings, context);
-  }
+  const doc = take(data, {
+    networkSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4549,10 +4502,9 @@ const de_UpdateNetworkSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4572,9 +4524,10 @@ export const de_UpdatePortalCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portal != null) {
-    contents.portal = de_Portal(data.portal, context);
-  }
+  const doc = take(data, {
+    portal: (_) => de_Portal(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4608,10 +4561,9 @@ const de_UpdatePortalCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4631,9 +4583,10 @@ export const de_UpdateTrustStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.trustStoreArn != null) {
-    contents.trustStoreArn = __expectString(data.trustStoreArn);
-  }
+  const doc = take(data, {
+    trustStoreArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4670,10 +4623,9 @@ const de_UpdateTrustStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4693,9 +4645,10 @@ export const de_UpdateUserAccessLoggingSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userAccessLoggingSettings != null) {
-    contents.userAccessLoggingSettings = de_UserAccessLoggingSettings(data.userAccessLoggingSettings, context);
-  }
+  const doc = take(data, {
+    userAccessLoggingSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4729,10 +4682,9 @@ const de_UpdateUserAccessLoggingSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4752,9 +4704,10 @@ export const de_UpdateUserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.userSettings != null) {
-    contents.userSettings = de_UserSettings(data.userSettings, context);
-  }
+  const doc = take(data, {
+    userSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4788,16 +4741,15 @@ const de_UpdateUserSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -4807,9 +4759,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4823,15 +4776,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4853,9 +4803,10 @@ const de_InternalServerExceptionRes = async (
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4872,15 +4823,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4897,21 +4845,14 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode != null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType != null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  if (data.serviceCode != null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4930,15 +4871,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode != null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.serviceCode != null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4955,12 +4893,11 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceName != null) {
-    contents.resourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4974,15 +4911,12 @@ const de_TooManyTagsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList != null) {
-    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fieldList: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -5001,174 +4935,53 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
     });
 };
 
-/**
- * serializeAws_restJson1CertificateThumbprintList
- */
-const se_CertificateThumbprintList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CertificateThumbprintList omitted.
 
-/**
- * serializeAws_restJson1EncryptionContextMap
- */
-const se_EncryptionContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_EncryptionContextMap omitted.
 
-/**
- * serializeAws_restJson1IdentityProviderDetails
- */
-const se_IdentityProviderDetails = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_IdentityProviderDetails omitted.
 
-/**
- * serializeAws_restJson1SecurityGroupIdList
- */
-const se_SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIdList omitted.
 
-/**
- * serializeAws_restJson1SubnetIdList
- */
-const se_SubnetIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIdList omitted.
 
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * deserializeAws_restJson1ArnList
- */
-const de_ArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ArnList omitted.
 
-/**
- * deserializeAws_restJson1BrowserSettings
- */
-const de_BrowserSettings = (output: any, context: __SerdeContext): BrowserSettings => {
-  return {
-    associatedPortalArns:
-      output.associatedPortalArns != null ? de_ArnList(output.associatedPortalArns, context) : undefined,
-    browserPolicy: __expectString(output.browserPolicy),
-    browserSettingsArn: __expectString(output.browserSettingsArn),
-  } as any;
-};
+// de_BrowserSettings omitted.
 
-/**
- * deserializeAws_restJson1BrowserSettingsList
- */
-const de_BrowserSettingsList = (output: any, context: __SerdeContext): BrowserSettingsSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BrowserSettingsSummary(entry, context);
-    });
-  return retVal;
-};
+// de_BrowserSettingsList omitted.
 
-/**
- * deserializeAws_restJson1BrowserSettingsSummary
- */
-const de_BrowserSettingsSummary = (output: any, context: __SerdeContext): BrowserSettingsSummary => {
-  return {
-    browserSettingsArn: __expectString(output.browserSettingsArn),
-  } as any;
-};
+// de_BrowserSettingsSummary omitted.
 
 /**
  * deserializeAws_restJson1Certificate
  */
 const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
-  return {
-    body: output.body != null ? context.base64Decoder(output.body) : undefined,
-    issuer: __expectString(output.issuer),
-    notValidAfter:
-      output.notValidAfter != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notValidAfter)))
-        : undefined,
-    notValidBefore:
-      output.notValidBefore != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notValidBefore)))
-        : undefined,
-    subject: __expectString(output.subject),
-    thumbprint: __expectString(output.thumbprint),
-  } as any;
+  return take(output, {
+    body: context.base64Decoder,
+    issuer: __expectString,
+    notValidAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    notValidBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    subject: __expectString,
+    thumbprint: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CertificateSummary
  */
 const de_CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
-  return {
-    issuer: __expectString(output.issuer),
-    notValidAfter:
-      output.notValidAfter != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notValidAfter)))
-        : undefined,
-    notValidBefore:
-      output.notValidBefore != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notValidBefore)))
-        : undefined,
-    subject: __expectString(output.subject),
-    thumbprint: __expectString(output.thumbprint),
-  } as any;
+  return take(output, {
+    issuer: __expectString,
+    notValidAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    notValidBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    subject: __expectString,
+    thumbprint: __expectString,
+  }) as any;
 };
 
 /**
@@ -5178,131 +4991,45 @@ const de_CertificateSummaryList = (output: any, context: __SerdeContext): Certif
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CertificateSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1IdentityProvider
- */
-const de_IdentityProvider = (output: any, context: __SerdeContext): IdentityProvider => {
-  return {
-    identityProviderArn: __expectString(output.identityProviderArn),
-    identityProviderDetails:
-      output.identityProviderDetails != null
-        ? de_IdentityProviderDetails(output.identityProviderDetails, context)
-        : undefined,
-    identityProviderName: __expectString(output.identityProviderName),
-    identityProviderType: __expectString(output.identityProviderType),
-  } as any;
-};
+// de_IdentityProvider omitted.
 
-/**
- * deserializeAws_restJson1IdentityProviderDetails
- */
-const de_IdentityProviderDetails = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_IdentityProviderDetails omitted.
 
-/**
- * deserializeAws_restJson1IdentityProviderList
- */
-const de_IdentityProviderList = (output: any, context: __SerdeContext): IdentityProviderSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IdentityProviderSummary(entry, context);
-    });
-  return retVal;
-};
+// de_IdentityProviderList omitted.
 
-/**
- * deserializeAws_restJson1IdentityProviderSummary
- */
-const de_IdentityProviderSummary = (output: any, context: __SerdeContext): IdentityProviderSummary => {
-  return {
-    identityProviderArn: __expectString(output.identityProviderArn),
-    identityProviderName: __expectString(output.identityProviderName),
-    identityProviderType: __expectString(output.identityProviderType),
-  } as any;
-};
+// de_IdentityProviderSummary omitted.
 
-/**
- * deserializeAws_restJson1NetworkSettings
- */
-const de_NetworkSettings = (output: any, context: __SerdeContext): NetworkSettings => {
-  return {
-    associatedPortalArns:
-      output.associatedPortalArns != null ? de_ArnList(output.associatedPortalArns, context) : undefined,
-    networkSettingsArn: __expectString(output.networkSettingsArn),
-    securityGroupIds:
-      output.securityGroupIds != null ? de_SecurityGroupIdList(output.securityGroupIds, context) : undefined,
-    subnetIds: output.subnetIds != null ? de_SubnetIdList(output.subnetIds, context) : undefined,
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
+// de_NetworkSettings omitted.
 
-/**
- * deserializeAws_restJson1NetworkSettingsList
- */
-const de_NetworkSettingsList = (output: any, context: __SerdeContext): NetworkSettingsSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NetworkSettingsSummary(entry, context);
-    });
-  return retVal;
-};
+// de_NetworkSettingsList omitted.
 
-/**
- * deserializeAws_restJson1NetworkSettingsSummary
- */
-const de_NetworkSettingsSummary = (output: any, context: __SerdeContext): NetworkSettingsSummary => {
-  return {
-    networkSettingsArn: __expectString(output.networkSettingsArn),
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
+// de_NetworkSettingsSummary omitted.
 
 /**
  * deserializeAws_restJson1Portal
  */
 const de_Portal = (output: any, context: __SerdeContext): Portal => {
-  return {
-    authenticationType: __expectString(output.authenticationType),
-    browserSettingsArn: __expectString(output.browserSettingsArn),
-    browserType: __expectString(output.browserType),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    displayName: __expectString(output.displayName),
-    networkSettingsArn: __expectString(output.networkSettingsArn),
-    portalArn: __expectString(output.portalArn),
-    portalEndpoint: __expectString(output.portalEndpoint),
-    portalStatus: __expectString(output.portalStatus),
-    rendererType: __expectString(output.rendererType),
-    statusReason: __expectString(output.statusReason),
-    trustStoreArn: __expectString(output.trustStoreArn),
-    userAccessLoggingSettingsArn: __expectString(output.userAccessLoggingSettingsArn),
-    userSettingsArn: __expectString(output.userSettingsArn),
-  } as any;
+  return take(output, {
+    authenticationType: __expectString,
+    browserSettingsArn: __expectString,
+    browserType: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    networkSettingsArn: __expectString,
+    portalArn: __expectString,
+    portalEndpoint: __expectString,
+    portalStatus: __expectString,
+    rendererType: __expectString,
+    statusReason: __expectString,
+    trustStoreArn: __expectString,
+    userAccessLoggingSettingsArn: __expectString,
+    userSettingsArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -5312,9 +5039,6 @@ const de_PortalList = (output: any, context: __SerdeContext): PortalSummary[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PortalSummary(entry, context);
     });
   return retVal;
@@ -5324,229 +5048,52 @@ const de_PortalList = (output: any, context: __SerdeContext): PortalSummary[] =>
  * deserializeAws_restJson1PortalSummary
  */
 const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary => {
-  return {
-    authenticationType: __expectString(output.authenticationType),
-    browserSettingsArn: __expectString(output.browserSettingsArn),
-    browserType: __expectString(output.browserType),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    displayName: __expectString(output.displayName),
-    networkSettingsArn: __expectString(output.networkSettingsArn),
-    portalArn: __expectString(output.portalArn),
-    portalEndpoint: __expectString(output.portalEndpoint),
-    portalStatus: __expectString(output.portalStatus),
-    rendererType: __expectString(output.rendererType),
-    trustStoreArn: __expectString(output.trustStoreArn),
-    userAccessLoggingSettingsArn: __expectString(output.userAccessLoggingSettingsArn),
-    userSettingsArn: __expectString(output.userSettingsArn),
-  } as any;
+  return take(output, {
+    authenticationType: __expectString,
+    browserSettingsArn: __expectString,
+    browserType: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    networkSettingsArn: __expectString,
+    portalArn: __expectString,
+    portalEndpoint: __expectString,
+    portalStatus: __expectString,
+    rendererType: __expectString,
+    trustStoreArn: __expectString,
+    userAccessLoggingSettingsArn: __expectString,
+    userSettingsArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SecurityGroupIdList
- */
-const de_SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIdList omitted.
 
-/**
- * deserializeAws_restJson1SubnetIdList
- */
-const de_SubnetIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIdList omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_restJson1TrustStore
- */
-const de_TrustStore = (output: any, context: __SerdeContext): TrustStore => {
-  return {
-    associatedPortalArns:
-      output.associatedPortalArns != null ? de_ArnList(output.associatedPortalArns, context) : undefined,
-    trustStoreArn: __expectString(output.trustStoreArn),
-  } as any;
-};
+// de_TrustStore omitted.
 
-/**
- * deserializeAws_restJson1TrustStoreSummary
- */
-const de_TrustStoreSummary = (output: any, context: __SerdeContext): TrustStoreSummary => {
-  return {
-    trustStoreArn: __expectString(output.trustStoreArn),
-  } as any;
-};
+// de_TrustStoreSummary omitted.
 
-/**
- * deserializeAws_restJson1TrustStoreSummaryList
- */
-const de_TrustStoreSummaryList = (output: any, context: __SerdeContext): TrustStoreSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TrustStoreSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TrustStoreSummaryList omitted.
 
-/**
- * deserializeAws_restJson1UserAccessLoggingSettings
- */
-const de_UserAccessLoggingSettings = (output: any, context: __SerdeContext): UserAccessLoggingSettings => {
-  return {
-    associatedPortalArns:
-      output.associatedPortalArns != null ? de_ArnList(output.associatedPortalArns, context) : undefined,
-    kinesisStreamArn: __expectString(output.kinesisStreamArn),
-    userAccessLoggingSettingsArn: __expectString(output.userAccessLoggingSettingsArn),
-  } as any;
-};
+// de_UserAccessLoggingSettings omitted.
 
-/**
- * deserializeAws_restJson1UserAccessLoggingSettingsList
- */
-const de_UserAccessLoggingSettingsList = (output: any, context: __SerdeContext): UserAccessLoggingSettingsSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UserAccessLoggingSettingsSummary(entry, context);
-    });
-  return retVal;
-};
+// de_UserAccessLoggingSettingsList omitted.
 
-/**
- * deserializeAws_restJson1UserAccessLoggingSettingsSummary
- */
-const de_UserAccessLoggingSettingsSummary = (
-  output: any,
-  context: __SerdeContext
-): UserAccessLoggingSettingsSummary => {
-  return {
-    kinesisStreamArn: __expectString(output.kinesisStreamArn),
-    userAccessLoggingSettingsArn: __expectString(output.userAccessLoggingSettingsArn),
-  } as any;
-};
+// de_UserAccessLoggingSettingsSummary omitted.
 
-/**
- * deserializeAws_restJson1UserSettings
- */
-const de_UserSettings = (output: any, context: __SerdeContext): UserSettings => {
-  return {
-    associatedPortalArns:
-      output.associatedPortalArns != null ? de_ArnList(output.associatedPortalArns, context) : undefined,
-    copyAllowed: __expectString(output.copyAllowed),
-    disconnectTimeoutInMinutes: __expectInt32(output.disconnectTimeoutInMinutes),
-    downloadAllowed: __expectString(output.downloadAllowed),
-    idleDisconnectTimeoutInMinutes: __expectInt32(output.idleDisconnectTimeoutInMinutes),
-    pasteAllowed: __expectString(output.pasteAllowed),
-    printAllowed: __expectString(output.printAllowed),
-    uploadAllowed: __expectString(output.uploadAllowed),
-    userSettingsArn: __expectString(output.userSettingsArn),
-  } as any;
-};
+// de_UserSettings omitted.
 
-/**
- * deserializeAws_restJson1UserSettingsList
- */
-const de_UserSettingsList = (output: any, context: __SerdeContext): UserSettingsSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UserSettingsSummary(entry, context);
-    });
-  return retVal;
-};
+// de_UserSettingsList omitted.
 
-/**
- * deserializeAws_restJson1UserSettingsSummary
- */
-const de_UserSettingsSummary = (output: any, context: __SerdeContext): UserSettingsSummary => {
-  return {
-    copyAllowed: __expectString(output.copyAllowed),
-    disconnectTimeoutInMinutes: __expectInt32(output.disconnectTimeoutInMinutes),
-    downloadAllowed: __expectString(output.downloadAllowed),
-    idleDisconnectTimeoutInMinutes: __expectInt32(output.idleDisconnectTimeoutInMinutes),
-    pasteAllowed: __expectString(output.pasteAllowed),
-    printAllowed: __expectString(output.printAllowed),
-    uploadAllowed: __expectString(output.uploadAllowed),
-    userSettingsArn: __expectString(output.userSettingsArn),
-  } as any;
-};
+// de_UserSettingsSummary omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

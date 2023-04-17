@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -80,23 +80,13 @@ import {
   MigrationWorkflowSummary,
   PlatformCommand,
   PlatformScriptKey,
-  PluginSummary,
   ResourceNotFoundException,
-  StepAutomationConfiguration,
   StepInput,
-  StepOutput,
-  TemplateInput,
-  TemplateStepGroupSummary,
-  TemplateStepSummary,
-  TemplateSummary,
   ThrottlingException,
-  Tool,
   ValidationException,
   WorkflowStepAutomationConfiguration,
-  WorkflowStepGroupSummary,
   WorkflowStepOutput,
   WorkflowStepOutputUnion,
-  WorkflowStepSummary,
 } from "../models/models_0";
 
 /**
@@ -112,15 +102,17 @@ export const se_CreateWorkflowCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrationworkflow";
   let body: any;
-  body = JSON.stringify({
-    ...(input.applicationConfigurationId != null && { applicationConfigurationId: input.applicationConfigurationId }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.inputParameters != null && { inputParameters: se_StepInputParameters(input.inputParameters, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.stepTargets != null && { stepTargets: se_StringList(input.stepTargets, context) }),
-    ...(input.tags != null && { tags: se_StringMap(input.tags, context) }),
-    ...(input.templateId != null && { templateId: input.templateId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      applicationConfigurationId: [],
+      description: [],
+      inputParameters: (_) => _json(_),
+      name: [],
+      stepTargets: (_) => _json(_),
+      tags: (_) => _json(_),
+      templateId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -145,23 +137,20 @@ export const se_CreateWorkflowStepCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstep";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.next != null && { next: se_StringList(input.next, context) }),
-    ...(input.outputs != null && { outputs: se_WorkflowStepOutputList(input.outputs, context) }),
-    ...(input.previous != null && { previous: se_StringList(input.previous, context) }),
-    ...(input.stepActionType != null && { stepActionType: input.stepActionType }),
-    ...(input.stepGroupId != null && { stepGroupId: input.stepGroupId }),
-    ...(input.stepTarget != null && { stepTarget: se_StringList(input.stepTarget, context) }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-    ...(input.workflowStepAutomationConfiguration != null && {
-      workflowStepAutomationConfiguration: se_WorkflowStepAutomationConfiguration(
-        input.workflowStepAutomationConfiguration,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      next: (_) => _json(_),
+      outputs: (_) => _json(_),
+      previous: (_) => _json(_),
+      stepActionType: [],
+      stepGroupId: [],
+      stepTarget: (_) => _json(_),
+      workflowId: [],
+      workflowStepAutomationConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -186,13 +175,15 @@ export const se_CreateWorkflowStepGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstepgroups";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.next != null && { next: se_StringList(input.next, context) }),
-    ...(input.previous != null && { previous: se_StringList(input.previous, context) }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      next: (_) => _json(_),
+      previous: (_) => _json(_),
+      workflowId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -754,9 +745,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -812,12 +805,14 @@ export const se_UpdateWorkflowCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrationworkflow/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.inputParameters != null && { inputParameters: se_StepInputParameters(input.inputParameters, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.stepTargets != null && { stepTargets: se_StringList(input.stepTargets, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      inputParameters: (_) => _json(_),
+      name: [],
+      stepTargets: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -843,24 +838,21 @@ export const se_UpdateWorkflowStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.next != null && { next: se_StringList(input.next, context) }),
-    ...(input.outputs != null && { outputs: se_WorkflowStepOutputList(input.outputs, context) }),
-    ...(input.previous != null && { previous: se_StringList(input.previous, context) }),
-    ...(input.status != null && { status: input.status }),
-    ...(input.stepActionType != null && { stepActionType: input.stepActionType }),
-    ...(input.stepGroupId != null && { stepGroupId: input.stepGroupId }),
-    ...(input.stepTarget != null && { stepTarget: se_StringList(input.stepTarget, context) }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-    ...(input.workflowStepAutomationConfiguration != null && {
-      workflowStepAutomationConfiguration: se_WorkflowStepAutomationConfiguration(
-        input.workflowStepAutomationConfiguration,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      next: (_) => _json(_),
+      outputs: (_) => _json(_),
+      previous: (_) => _json(_),
+      status: [],
+      stepActionType: [],
+      stepGroupId: [],
+      stepTarget: (_) => _json(_),
+      workflowId: [],
+      workflowStepAutomationConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -889,12 +881,14 @@ export const se_UpdateWorkflowStepGroupCommand = async (
     workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.next != null && { next: se_StringList(input.next, context) }),
-    ...(input.previous != null && { previous: se_StringList(input.previous, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      next: (_) => _json(_),
+      previous: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -921,39 +915,20 @@ export const de_CreateWorkflowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adsApplicationConfigurationId != null) {
-    contents.adsApplicationConfigurationId = __expectString(data.adsApplicationConfigurationId);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.stepTargets != null) {
-    contents.stepTargets = de_StringList(data.stepTargets, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_StringMap(data.tags, context);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
-  if (data.workflowInputs != null) {
-    contents.workflowInputs = de_StepInputParameters(data.workflowInputs, context);
-  }
+  const doc = take(data, {
+    adsApplicationConfigurationId: __expectString,
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    stepTargets: _json,
+    tags: _json,
+    templateId: __expectString,
+    workflowInputs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -984,10 +959,9 @@ const de_CreateWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1007,18 +981,13 @@ export const de_CreateWorkflowStepCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    name: __expectString,
+    stepGroupId: __expectString,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1049,10 +1018,9 @@ const de_CreateWorkflowStepCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1072,30 +1040,17 @@ export const de_CreateWorkflowStepGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = de_StringList(data.next, context);
-  }
-  if (data.previous != null) {
-    contents.previous = de_StringList(data.previous, context);
-  }
-  if (data.tools != null) {
-    contents.tools = de_ToolsList(data.tools, context);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    next: _json,
+    previous: _json,
+    tools: _json,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1126,10 +1081,9 @@ const de_CreateWorkflowStepGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1149,15 +1103,12 @@ export const de_DeleteWorkflowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1191,10 +1142,9 @@ const de_DeleteWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1247,10 +1197,9 @@ const de_DeleteWorkflowStepCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1303,10 +1252,9 @@ const de_DeleteWorkflowStepGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1326,27 +1274,16 @@ export const de_GetTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.inputs != null) {
-    contents.inputs = de_TemplateInputList(data.inputs, context);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tools != null) {
-    contents.tools = de_ToolsList(data.tools, context);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    inputs: _json,
+    name: __expectString,
+    status: __expectString,
+    tools: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1377,10 +1314,9 @@ const de_GetTemplateCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1400,39 +1336,20 @@ export const de_GetTemplateStepCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectString(data.creationTime);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = de_StringList(data.next, context);
-  }
-  if (data.outputs != null) {
-    contents.outputs = de_StepOutputList(data.outputs, context);
-  }
-  if (data.previous != null) {
-    contents.previous = de_StringList(data.previous, context);
-  }
-  if (data.stepActionType != null) {
-    contents.stepActionType = __expectString(data.stepActionType);
-  }
-  if (data.stepAutomationConfiguration != null) {
-    contents.stepAutomationConfiguration = de_StepAutomationConfiguration(data.stepAutomationConfiguration, context);
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
+  const doc = take(data, {
+    creationTime: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    next: _json,
+    outputs: _json,
+    previous: _json,
+    stepActionType: __expectString,
+    stepAutomationConfiguration: _json,
+    stepGroupId: __expectString,
+    templateId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1466,10 +1383,9 @@ const de_GetTemplateStepCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1489,36 +1405,19 @@ export const de_GetTemplateStepGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = de_StringList(data.next, context);
-  }
-  if (data.previous != null) {
-    contents.previous = de_StringList(data.previous, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
-  if (data.tools != null) {
-    contents.tools = de_ToolsList(data.tools, context);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    next: _json,
+    previous: _json,
+    status: __expectString,
+    templateId: __expectString,
+    tools: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1552,10 +1451,9 @@ const de_GetTemplateStepGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1575,66 +1473,29 @@ export const de_GetWorkflowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adsApplicationConfigurationId != null) {
-    contents.adsApplicationConfigurationId = __expectString(data.adsApplicationConfigurationId);
-  }
-  if (data.adsApplicationName != null) {
-    contents.adsApplicationName = __expectString(data.adsApplicationName);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.completedSteps != null) {
-    contents.completedSteps = __expectInt32(data.completedSteps);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.lastStartTime != null) {
-    contents.lastStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartTime)));
-  }
-  if (data.lastStopTime != null) {
-    contents.lastStopTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStopTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.tags != null) {
-    contents.tags = de_StringMap(data.tags, context);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
-  if (data.tools != null) {
-    contents.tools = de_ToolsList(data.tools, context);
-  }
-  if (data.totalSteps != null) {
-    contents.totalSteps = __expectInt32(data.totalSteps);
-  }
-  if (data.workflowBucket != null) {
-    contents.workflowBucket = __expectString(data.workflowBucket);
-  }
-  if (data.workflowInputs != null) {
-    contents.workflowInputs = de_StepInputParameters(data.workflowInputs, context);
-  }
+  const doc = take(data, {
+    adsApplicationConfigurationId: __expectString,
+    adsApplicationName: __expectString,
+    arn: __expectString,
+    completedSteps: __expectInt32,
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastStopTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    tags: _json,
+    templateId: __expectString,
+    tools: _json,
+    totalSteps: __expectInt32,
+    workflowBucket: __expectString,
+    workflowInputs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1668,10 +1529,9 @@ const de_GetWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1691,72 +1551,30 @@ export const de_GetWorkflowStepCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
-  }
-  if (data.lastStartTime != null) {
-    contents.lastStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = de_StringList(data.next, context);
-  }
-  if (data.noOfSrvCompleted != null) {
-    contents.noOfSrvCompleted = __expectInt32(data.noOfSrvCompleted);
-  }
-  if (data.noOfSrvFailed != null) {
-    contents.noOfSrvFailed = __expectInt32(data.noOfSrvFailed);
-  }
-  if (data.outputs != null) {
-    contents.outputs = de_WorkflowStepOutputList(data.outputs, context);
-  }
-  if (data.owner != null) {
-    contents.owner = __expectString(data.owner);
-  }
-  if (data.previous != null) {
-    contents.previous = de_StringList(data.previous, context);
-  }
-  if (data.scriptOutputLocation != null) {
-    contents.scriptOutputLocation = __expectString(data.scriptOutputLocation);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.stepActionType != null) {
-    contents.stepActionType = __expectString(data.stepActionType);
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.stepId != null) {
-    contents.stepId = __expectString(data.stepId);
-  }
-  if (data.stepTarget != null) {
-    contents.stepTarget = de_StringList(data.stepTarget, context);
-  }
-  if (data.totalNoOfSrv != null) {
-    contents.totalNoOfSrv = __expectInt32(data.totalNoOfSrv);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
-  if (data.workflowStepAutomationConfiguration != null) {
-    contents.workflowStepAutomationConfiguration = de_WorkflowStepAutomationConfiguration(
-      data.workflowStepAutomationConfiguration,
-      context
-    );
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    next: _json,
+    noOfSrvCompleted: __expectInt32,
+    noOfSrvFailed: __expectInt32,
+    outputs: _json,
+    owner: __expectString,
+    previous: _json,
+    scriptOutputLocation: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    stepActionType: __expectString,
+    stepGroupId: __expectString,
+    stepId: __expectString,
+    stepTarget: _json,
+    totalNoOfSrv: __expectInt32,
+    workflowId: __expectString,
+    workflowStepAutomationConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1787,10 +1605,9 @@ const de_GetWorkflowStepCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1810,42 +1627,21 @@ export const de_GetWorkflowStepGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = de_StringList(data.next, context);
-  }
-  if (data.owner != null) {
-    contents.owner = __expectString(data.owner);
-  }
-  if (data.previous != null) {
-    contents.previous = de_StringList(data.previous, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tools != null) {
-    contents.tools = de_ToolsList(data.tools, context);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    next: _json,
+    owner: __expectString,
+    previous: _json,
+    status: __expectString,
+    tools: _json,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1879,10 +1675,9 @@ const de_GetWorkflowStepGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1902,12 +1697,11 @@ export const de_ListPluginsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.plugins != null) {
-    contents.plugins = de_PluginSummaries(data.plugins, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    plugins: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1935,10 +1729,9 @@ const de_ListPluginsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1958,9 +1751,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1985,10 +1779,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2008,12 +1801,11 @@ export const de_ListTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.templateSummary != null) {
-    contents.templateSummary = de_TemplateSummaryList(data.templateSummary, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    templateSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2041,10 +1833,9 @@ const de_ListTemplatesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2064,12 +1855,11 @@ export const de_ListTemplateStepGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.templateStepGroupSummary != null) {
-    contents.templateStepGroupSummary = de_TemplateStepGroupSummaryList(data.templateStepGroupSummary, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    templateStepGroupSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2100,10 +1890,9 @@ const de_ListTemplateStepGroupsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2123,12 +1912,11 @@ export const de_ListTemplateStepsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.templateStepSummaryList != null) {
-    contents.templateStepSummaryList = de_TemplateStepSummaryList(data.templateStepSummaryList, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    templateStepSummaryList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2162,10 +1950,9 @@ const de_ListTemplateStepsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2185,12 +1972,11 @@ export const de_ListWorkflowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.migrationWorkflowSummary != null) {
-    contents.migrationWorkflowSummary = de_MigrationWorkflowSummaryList(data.migrationWorkflowSummary, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    migrationWorkflowSummary: (_) => de_MigrationWorkflowSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2224,10 +2010,9 @@ const de_ListWorkflowsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2247,12 +2032,11 @@ export const de_ListWorkflowStepGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.workflowStepGroupsSummary != null) {
-    contents.workflowStepGroupsSummary = de_WorkflowStepGroupsSummaryList(data.workflowStepGroupsSummary, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    workflowStepGroupsSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2286,10 +2070,9 @@ const de_ListWorkflowStepGroupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2309,12 +2092,11 @@ export const de_ListWorkflowStepsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.workflowStepsSummary != null) {
-    contents.workflowStepsSummary = de_WorkflowStepsSummaryList(data.workflowStepsSummary, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    workflowStepsSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2345,10 +2127,9 @@ const de_ListWorkflowStepsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2368,18 +2149,13 @@ export const de_RetryWorkflowStepCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    status: __expectString,
+    stepGroupId: __expectString,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2410,10 +2186,9 @@ const de_RetryWorkflowStepCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2433,21 +2208,14 @@ export const de_StartWorkflowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastStartTime != null) {
-    contents.lastStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartTime)));
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    lastStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2481,10 +2249,9 @@ const de_StartWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2504,21 +2271,14 @@ export const de_StopWorkflowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastStopTime != null) {
-    contents.lastStopTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStopTime)));
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    lastStopTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2552,10 +2312,9 @@ const de_StopWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2599,10 +2358,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2646,10 +2404,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2669,42 +2426,21 @@ export const de_UpdateWorkflowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adsApplicationConfigurationId != null) {
-    contents.adsApplicationConfigurationId = __expectString(data.adsApplicationConfigurationId);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.stepTargets != null) {
-    contents.stepTargets = de_StringList(data.stepTargets, context);
-  }
-  if (data.tags != null) {
-    contents.tags = de_StringMap(data.tags, context);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
-  if (data.workflowInputs != null) {
-    contents.workflowInputs = de_StepInputParameters(data.workflowInputs, context);
-  }
+  const doc = take(data, {
+    adsApplicationConfigurationId: __expectString,
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    stepTargets: _json,
+    tags: _json,
+    templateId: __expectString,
+    workflowInputs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2738,10 +2474,9 @@ const de_UpdateWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2761,18 +2496,13 @@ export const de_UpdateWorkflowStepCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    name: __expectString,
+    stepGroupId: __expectString,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2803,10 +2533,9 @@ const de_UpdateWorkflowStepCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2826,30 +2555,17 @@ export const de_UpdateWorkflowStepGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = de_StringList(data.next, context);
-  }
-  if (data.previous != null) {
-    contents.previous = de_StringList(data.previous, context);
-  }
-  if (data.tools != null) {
-    contents.tools = de_ToolsList(data.tools, context);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    description: __expectString,
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    next: _json,
+    previous: _json,
+    tools: _json,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2883,16 +2599,15 @@ const de_UpdateWorkflowStepGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -2902,9 +2617,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2921,9 +2637,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2940,9 +2657,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2956,9 +2674,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2972,9 +2691,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2982,162 +2702,44 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1PlatformCommand
- */
-const se_PlatformCommand = (input: PlatformCommand, context: __SerdeContext): any => {
-  return {
-    ...(input.linux != null && { linux: input.linux }),
-    ...(input.windows != null && { windows: input.windows }),
-  };
-};
+// se_PlatformCommand omitted.
 
-/**
- * serializeAws_restJson1PlatformScriptKey
- */
-const se_PlatformScriptKey = (input: PlatformScriptKey, context: __SerdeContext): any => {
-  return {
-    ...(input.linux != null && { linux: input.linux }),
-    ...(input.windows != null && { windows: input.windows }),
-  };
-};
+// se_PlatformScriptKey omitted.
 
-/**
- * serializeAws_restJson1StepInput
- */
-const se_StepInput = (input: StepInput, context: __SerdeContext): any => {
-  return StepInput.visit(input, {
-    integerValue: (value) => ({ integerValue: value }),
-    listOfStringsValue: (value) => ({ listOfStringsValue: se_StringList(value, context) }),
-    mapOfStringValue: (value) => ({ mapOfStringValue: se_StringMap(value, context) }),
-    stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_StepInput omitted.
 
-/**
- * serializeAws_restJson1StepInputParameters
- */
-const se_StepInputParameters = (input: Record<string, StepInput>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_StepInput(value, context);
-    return acc;
-  }, {});
-};
+// se_StepInputParameters omitted.
 
-/**
- * serializeAws_restJson1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
-/**
- * serializeAws_restJson1StringMap
- */
-const se_StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_StringMap omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1WorkflowStepAutomationConfiguration
- */
-const se_WorkflowStepAutomationConfiguration = (
-  input: WorkflowStepAutomationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.command != null && { command: se_PlatformCommand(input.command, context) }),
-    ...(input.runEnvironment != null && { runEnvironment: input.runEnvironment }),
-    ...(input.scriptLocationS3Bucket != null && { scriptLocationS3Bucket: input.scriptLocationS3Bucket }),
-    ...(input.scriptLocationS3Key != null && {
-      scriptLocationS3Key: se_PlatformScriptKey(input.scriptLocationS3Key, context),
-    }),
-    ...(input.targetType != null && { targetType: input.targetType }),
-  };
-};
+// se_WorkflowStepAutomationConfiguration omitted.
 
-/**
- * serializeAws_restJson1WorkflowStepOutput
- */
-const se_WorkflowStepOutput = (input: WorkflowStepOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.dataType != null && { dataType: input.dataType }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.required != null && { required: input.required }),
-    ...(input.value != null && { value: se_WorkflowStepOutputUnion(input.value, context) }),
-  };
-};
+// se_WorkflowStepOutput omitted.
 
-/**
- * serializeAws_restJson1WorkflowStepOutputList
- */
-const se_WorkflowStepOutputList = (input: WorkflowStepOutput[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WorkflowStepOutput(entry, context);
-    });
-};
+// se_WorkflowStepOutputList omitted.
 
-/**
- * serializeAws_restJson1WorkflowStepOutputUnion
- */
-const se_WorkflowStepOutputUnion = (input: WorkflowStepOutputUnion, context: __SerdeContext): any => {
-  return WorkflowStepOutputUnion.visit(input, {
-    integerValue: (value) => ({ integerValue: value }),
-    listOfStringValue: (value) => ({ listOfStringValue: se_StringList(value, context) }),
-    stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_WorkflowStepOutputUnion omitted.
 
 /**
  * deserializeAws_restJson1MigrationWorkflowSummary
  */
 const de_MigrationWorkflowSummary = (output: any, context: __SerdeContext): MigrationWorkflowSummary => {
-  return {
-    adsApplicationConfigurationName: __expectString(output.adsApplicationConfigurationName),
-    completedSteps: __expectInt32(output.completedSteps),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    templateId: __expectString(output.templateId),
-    totalSteps: __expectInt32(output.totalSteps),
-  } as any;
+  return take(output, {
+    adsApplicationConfigurationName: __expectString,
+    completedSteps: __expectInt32,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    templateId: __expectString,
+    totalSteps: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -3147,443 +2749,70 @@ const de_MigrationWorkflowSummaryList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MigrationWorkflowSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1PlatformCommand
- */
-const de_PlatformCommand = (output: any, context: __SerdeContext): PlatformCommand => {
-  return {
-    linux: __expectString(output.linux),
-    windows: __expectString(output.windows),
-  } as any;
-};
+// de_PlatformCommand omitted.
 
-/**
- * deserializeAws_restJson1PlatformScriptKey
- */
-const de_PlatformScriptKey = (output: any, context: __SerdeContext): PlatformScriptKey => {
-  return {
-    linux: __expectString(output.linux),
-    windows: __expectString(output.windows),
-  } as any;
-};
+// de_PlatformScriptKey omitted.
 
-/**
- * deserializeAws_restJson1PluginSummaries
- */
-const de_PluginSummaries = (output: any, context: __SerdeContext): PluginSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PluginSummary(entry, context);
-    });
-  return retVal;
-};
+// de_PluginSummaries omitted.
 
-/**
- * deserializeAws_restJson1PluginSummary
- */
-const de_PluginSummary = (output: any, context: __SerdeContext): PluginSummary => {
-  return {
-    hostname: __expectString(output.hostname),
-    ipAddress: __expectString(output.ipAddress),
-    pluginId: __expectString(output.pluginId),
-    registeredTime: __expectString(output.registeredTime),
-    status: __expectString(output.status),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_PluginSummary omitted.
 
-/**
- * deserializeAws_restJson1StepAutomationConfiguration
- */
-const de_StepAutomationConfiguration = (output: any, context: __SerdeContext): StepAutomationConfiguration => {
-  return {
-    command: output.command != null ? de_PlatformCommand(output.command, context) : undefined,
-    runEnvironment: __expectString(output.runEnvironment),
-    scriptLocationS3Bucket: __expectString(output.scriptLocationS3Bucket),
-    scriptLocationS3Key:
-      output.scriptLocationS3Key != null ? de_PlatformScriptKey(output.scriptLocationS3Key, context) : undefined,
-    targetType: __expectString(output.targetType),
-  } as any;
-};
+// de_StepAutomationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StepInput
- */
-const de_StepInput = (output: any, context: __SerdeContext): StepInput => {
-  if (__expectInt32(output.integerValue) !== undefined) {
-    return { integerValue: __expectInt32(output.integerValue) as any };
-  }
-  if (output.listOfStringsValue != null) {
-    return {
-      listOfStringsValue: de_StringList(output.listOfStringsValue, context),
-    };
-  }
-  if (output.mapOfStringValue != null) {
-    return {
-      mapOfStringValue: de_StringMap(output.mapOfStringValue, context),
-    };
-  }
-  if (__expectString(output.stringValue) !== undefined) {
-    return { stringValue: __expectString(output.stringValue) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_StepInput omitted.
 
-/**
- * deserializeAws_restJson1StepInputParameters
- */
-const de_StepInputParameters = (output: any, context: __SerdeContext): Record<string, StepInput> => {
-  return Object.entries(output).reduce((acc: Record<string, StepInput>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_StepInput(__expectUnion(value), context);
-    return acc;
-  }, {});
-};
+// de_StepInputParameters omitted.
 
-/**
- * deserializeAws_restJson1StepOutput
- */
-const de_StepOutput = (output: any, context: __SerdeContext): StepOutput => {
-  return {
-    dataType: __expectString(output.dataType),
-    name: __expectString(output.name),
-    required: __expectBoolean(output.required),
-  } as any;
-};
+// de_StepOutput omitted.
 
-/**
- * deserializeAws_restJson1StepOutputList
- */
-const de_StepOutputList = (output: any, context: __SerdeContext): StepOutput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StepOutput(entry, context);
-    });
-  return retVal;
-};
+// de_StepOutputList omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1StringMap
- */
-const de_StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_StringMap omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1TemplateInput
- */
-const de_TemplateInput = (output: any, context: __SerdeContext): TemplateInput => {
-  return {
-    dataType: __expectString(output.dataType),
-    inputName: __expectString(output.inputName),
-    required: __expectBoolean(output.required),
-  } as any;
-};
+// de_TemplateInput omitted.
 
-/**
- * deserializeAws_restJson1TemplateInputList
- */
-const de_TemplateInputList = (output: any, context: __SerdeContext): TemplateInput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TemplateInput(entry, context);
-    });
-  return retVal;
-};
+// de_TemplateInputList omitted.
 
-/**
- * deserializeAws_restJson1TemplateStepGroupSummary
- */
-const de_TemplateStepGroupSummary = (output: any, context: __SerdeContext): TemplateStepGroupSummary => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    next: output.next != null ? de_StringList(output.next, context) : undefined,
-    previous: output.previous != null ? de_StringList(output.previous, context) : undefined,
-  } as any;
-};
+// de_TemplateStepGroupSummary omitted.
 
-/**
- * deserializeAws_restJson1TemplateStepGroupSummaryList
- */
-const de_TemplateStepGroupSummaryList = (output: any, context: __SerdeContext): TemplateStepGroupSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TemplateStepGroupSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TemplateStepGroupSummaryList omitted.
 
-/**
- * deserializeAws_restJson1TemplateStepSummary
- */
-const de_TemplateStepSummary = (output: any, context: __SerdeContext): TemplateStepSummary => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    next: output.next != null ? de_StringList(output.next, context) : undefined,
-    owner: __expectString(output.owner),
-    previous: output.previous != null ? de_StringList(output.previous, context) : undefined,
-    stepActionType: __expectString(output.stepActionType),
-    stepGroupId: __expectString(output.stepGroupId),
-    targetType: __expectString(output.targetType),
-    templateId: __expectString(output.templateId),
-  } as any;
-};
+// de_TemplateStepSummary omitted.
 
-/**
- * deserializeAws_restJson1TemplateStepSummaryList
- */
-const de_TemplateStepSummaryList = (output: any, context: __SerdeContext): TemplateStepSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TemplateStepSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TemplateStepSummaryList omitted.
 
-/**
- * deserializeAws_restJson1TemplateSummary
- */
-const de_TemplateSummary = (output: any, context: __SerdeContext): TemplateSummary => {
-  return {
-    arn: __expectString(output.arn),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_TemplateSummary omitted.
 
-/**
- * deserializeAws_restJson1TemplateSummaryList
- */
-const de_TemplateSummaryList = (output: any, context: __SerdeContext): TemplateSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TemplateSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TemplateSummaryList omitted.
 
-/**
- * deserializeAws_restJson1Tool
- */
-const de_Tool = (output: any, context: __SerdeContext): Tool => {
-  return {
-    name: __expectString(output.name),
-    url: __expectString(output.url),
-  } as any;
-};
+// de_Tool omitted.
 
-/**
- * deserializeAws_restJson1ToolsList
- */
-const de_ToolsList = (output: any, context: __SerdeContext): Tool[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tool(entry, context);
-    });
-  return retVal;
-};
+// de_ToolsList omitted.
 
-/**
- * deserializeAws_restJson1WorkflowStepAutomationConfiguration
- */
-const de_WorkflowStepAutomationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): WorkflowStepAutomationConfiguration => {
-  return {
-    command: output.command != null ? de_PlatformCommand(output.command, context) : undefined,
-    runEnvironment: __expectString(output.runEnvironment),
-    scriptLocationS3Bucket: __expectString(output.scriptLocationS3Bucket),
-    scriptLocationS3Key:
-      output.scriptLocationS3Key != null ? de_PlatformScriptKey(output.scriptLocationS3Key, context) : undefined,
-    targetType: __expectString(output.targetType),
-  } as any;
-};
+// de_WorkflowStepAutomationConfiguration omitted.
 
-/**
- * deserializeAws_restJson1WorkflowStepGroupsSummaryList
- */
-const de_WorkflowStepGroupsSummaryList = (output: any, context: __SerdeContext): WorkflowStepGroupSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorkflowStepGroupSummary(entry, context);
-    });
-  return retVal;
-};
+// de_WorkflowStepGroupsSummaryList omitted.
 
-/**
- * deserializeAws_restJson1WorkflowStepGroupSummary
- */
-const de_WorkflowStepGroupSummary = (output: any, context: __SerdeContext): WorkflowStepGroupSummary => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    next: output.next != null ? de_StringList(output.next, context) : undefined,
-    owner: __expectString(output.owner),
-    previous: output.previous != null ? de_StringList(output.previous, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
-};
+// de_WorkflowStepGroupSummary omitted.
 
-/**
- * deserializeAws_restJson1WorkflowStepOutput
- */
-const de_WorkflowStepOutput = (output: any, context: __SerdeContext): WorkflowStepOutput => {
-  return {
-    dataType: __expectString(output.dataType),
-    name: __expectString(output.name),
-    required: __expectBoolean(output.required),
-    value: output.value != null ? de_WorkflowStepOutputUnion(__expectUnion(output.value), context) : undefined,
-  } as any;
-};
+// de_WorkflowStepOutput omitted.
 
-/**
- * deserializeAws_restJson1WorkflowStepOutputList
- */
-const de_WorkflowStepOutputList = (output: any, context: __SerdeContext): WorkflowStepOutput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorkflowStepOutput(entry, context);
-    });
-  return retVal;
-};
+// de_WorkflowStepOutputList omitted.
 
-/**
- * deserializeAws_restJson1WorkflowStepOutputUnion
- */
-const de_WorkflowStepOutputUnion = (output: any, context: __SerdeContext): WorkflowStepOutputUnion => {
-  if (__expectInt32(output.integerValue) !== undefined) {
-    return { integerValue: __expectInt32(output.integerValue) as any };
-  }
-  if (output.listOfStringValue != null) {
-    return {
-      listOfStringValue: de_StringList(output.listOfStringValue, context),
-    };
-  }
-  if (__expectString(output.stringValue) !== undefined) {
-    return { stringValue: __expectString(output.stringValue) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_WorkflowStepOutputUnion omitted.
 
-/**
- * deserializeAws_restJson1WorkflowStepsSummaryList
- */
-const de_WorkflowStepsSummaryList = (output: any, context: __SerdeContext): WorkflowStepSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WorkflowStepSummary(entry, context);
-    });
-  return retVal;
-};
+// de_WorkflowStepsSummaryList omitted.
 
-/**
- * deserializeAws_restJson1WorkflowStepSummary
- */
-const de_WorkflowStepSummary = (output: any, context: __SerdeContext): WorkflowStepSummary => {
-  return {
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    next: output.next != null ? de_StringList(output.next, context) : undefined,
-    noOfSrvCompleted: __expectInt32(output.noOfSrvCompleted),
-    noOfSrvFailed: __expectInt32(output.noOfSrvFailed),
-    owner: __expectString(output.owner),
-    previous: output.previous != null ? de_StringList(output.previous, context) : undefined,
-    scriptLocation: __expectString(output.scriptLocation),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    stepActionType: __expectString(output.stepActionType),
-    stepId: __expectString(output.stepId),
-    totalNoOfSrv: __expectInt32(output.totalNoOfSrv),
-  } as any;
-};
+// de_WorkflowStepSummary omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

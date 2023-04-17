@@ -1,16 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -138,15 +139,11 @@ import { InspectorServiceException as __BaseException } from "../models/Inspecto
 import {
   AccessDeniedException,
   AddAttributesToFindingsRequest,
-  AddAttributesToFindingsResponse,
-  AgentAlreadyRunningAssessment,
   AgentFilter,
   AgentHealth,
   AgentHealthCode,
-  AgentPreview,
   AgentsAlreadyRunningAssessmentException,
   AssessmentRun,
-  AssessmentRunAgent,
   AssessmentRunFilter,
   AssessmentRunInProgressException,
   AssessmentRunNotification,
@@ -156,16 +153,11 @@ import {
   AssessmentTargetFilter,
   AssessmentTemplate,
   AssessmentTemplateFilter,
-  AssetAttributes,
   Attribute,
   CreateAssessmentTargetRequest,
-  CreateAssessmentTargetResponse,
   CreateAssessmentTemplateRequest,
-  CreateAssessmentTemplateResponse,
   CreateExclusionsPreviewRequest,
-  CreateExclusionsPreviewResponse,
   CreateResourceGroupRequest,
-  CreateResourceGroupResponse,
   DeleteAssessmentRunRequest,
   DeleteAssessmentTargetRequest,
   DeleteAssessmentTemplateRequest,
@@ -177,73 +169,47 @@ import {
   DescribeAssessmentTemplatesResponse,
   DescribeCrossAccountAccessRoleResponse,
   DescribeExclusionsRequest,
-  DescribeExclusionsResponse,
   DescribeFindingsRequest,
   DescribeFindingsResponse,
   DescribeResourceGroupsRequest,
   DescribeResourceGroupsResponse,
   DescribeRulesPackagesRequest,
-  DescribeRulesPackagesResponse,
   DurationRange,
   EventSubscription,
-  Exclusion,
-  ExclusionPreview,
-  FailedItemDetails,
   Finding,
   FindingFilter,
   GetAssessmentReportRequest,
-  GetAssessmentReportResponse,
   GetExclusionsPreviewRequest,
-  GetExclusionsPreviewResponse,
   GetTelemetryMetadataRequest,
-  GetTelemetryMetadataResponse,
-  InspectorServiceAttributes,
   InternalException,
   InvalidCrossAccountRoleException,
   InvalidInputException,
   LimitExceededException,
   ListAssessmentRunAgentsRequest,
-  ListAssessmentRunAgentsResponse,
   ListAssessmentRunsRequest,
-  ListAssessmentRunsResponse,
   ListAssessmentTargetsRequest,
-  ListAssessmentTargetsResponse,
   ListAssessmentTemplatesRequest,
-  ListAssessmentTemplatesResponse,
   ListEventSubscriptionsRequest,
   ListEventSubscriptionsResponse,
   ListExclusionsRequest,
-  ListExclusionsResponse,
   ListFindingsRequest,
-  ListFindingsResponse,
   ListRulesPackagesRequest,
-  ListRulesPackagesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  NetworkInterface,
   NoSuchEntityException,
   PreviewAgentsRequest,
-  PreviewAgentsResponse,
   PreviewGenerationInProgressException,
-  PrivateIp,
   RegisterCrossAccountAccessRoleRequest,
   RemoveAttributesFromFindingsRequest,
-  RemoveAttributesFromFindingsResponse,
   ResourceGroup,
   ResourceGroupTag,
-  RulesPackage,
-  Scope,
-  SecurityGroup,
   ServiceTemporarilyUnavailableException,
   SetTagsForResourceRequest,
   Severity,
   StartAssessmentRunRequest,
-  StartAssessmentRunResponse,
   StopAssessmentRunRequest,
   SubscribeToEventRequest,
   Subscription,
   Tag,
-  TelemetryMetadata,
   TimestampRange,
   UnsubscribeFromEventRequest,
   UnsupportedFeatureException,
@@ -259,7 +225,7 @@ export const se_AddAttributesToFindingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddAttributesToFindings");
   let body: any;
-  body = JSON.stringify(se_AddAttributesToFindingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -272,7 +238,7 @@ export const se_CreateAssessmentTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAssessmentTarget");
   let body: any;
-  body = JSON.stringify(se_CreateAssessmentTargetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -285,7 +251,7 @@ export const se_CreateAssessmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAssessmentTemplate");
   let body: any;
-  body = JSON.stringify(se_CreateAssessmentTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -298,7 +264,7 @@ export const se_CreateExclusionsPreviewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateExclusionsPreview");
   let body: any;
-  body = JSON.stringify(se_CreateExclusionsPreviewRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -311,7 +277,7 @@ export const se_CreateResourceGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateResourceGroup");
   let body: any;
-  body = JSON.stringify(se_CreateResourceGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -324,7 +290,7 @@ export const se_DeleteAssessmentRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAssessmentRun");
   let body: any;
-  body = JSON.stringify(se_DeleteAssessmentRunRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -337,7 +303,7 @@ export const se_DeleteAssessmentTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAssessmentTarget");
   let body: any;
-  body = JSON.stringify(se_DeleteAssessmentTargetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -350,7 +316,7 @@ export const se_DeleteAssessmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAssessmentTemplate");
   let body: any;
-  body = JSON.stringify(se_DeleteAssessmentTemplateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -363,7 +329,7 @@ export const se_DescribeAssessmentRunsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAssessmentRuns");
   let body: any;
-  body = JSON.stringify(se_DescribeAssessmentRunsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -376,7 +342,7 @@ export const se_DescribeAssessmentTargetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAssessmentTargets");
   let body: any;
-  body = JSON.stringify(se_DescribeAssessmentTargetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -389,7 +355,7 @@ export const se_DescribeAssessmentTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAssessmentTemplates");
   let body: any;
-  body = JSON.stringify(se_DescribeAssessmentTemplatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -414,7 +380,7 @@ export const se_DescribeExclusionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeExclusions");
   let body: any;
-  body = JSON.stringify(se_DescribeExclusionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -427,7 +393,7 @@ export const se_DescribeFindingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFindings");
   let body: any;
-  body = JSON.stringify(se_DescribeFindingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -440,7 +406,7 @@ export const se_DescribeResourceGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeResourceGroups");
   let body: any;
-  body = JSON.stringify(se_DescribeResourceGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -453,7 +419,7 @@ export const se_DescribeRulesPackagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRulesPackages");
   let body: any;
-  body = JSON.stringify(se_DescribeRulesPackagesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -466,7 +432,7 @@ export const se_GetAssessmentReportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAssessmentReport");
   let body: any;
-  body = JSON.stringify(se_GetAssessmentReportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -479,7 +445,7 @@ export const se_GetExclusionsPreviewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetExclusionsPreview");
   let body: any;
-  body = JSON.stringify(se_GetExclusionsPreviewRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -492,7 +458,7 @@ export const se_GetTelemetryMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTelemetryMetadata");
   let body: any;
-  body = JSON.stringify(se_GetTelemetryMetadataRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -505,7 +471,7 @@ export const se_ListAssessmentRunAgentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAssessmentRunAgents");
   let body: any;
-  body = JSON.stringify(se_ListAssessmentRunAgentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -531,7 +497,7 @@ export const se_ListAssessmentTargetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAssessmentTargets");
   let body: any;
-  body = JSON.stringify(se_ListAssessmentTargetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -544,7 +510,7 @@ export const se_ListAssessmentTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAssessmentTemplates");
   let body: any;
-  body = JSON.stringify(se_ListAssessmentTemplatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -557,7 +523,7 @@ export const se_ListEventSubscriptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEventSubscriptions");
   let body: any;
-  body = JSON.stringify(se_ListEventSubscriptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -570,7 +536,7 @@ export const se_ListExclusionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListExclusions");
   let body: any;
-  body = JSON.stringify(se_ListExclusionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -596,7 +562,7 @@ export const se_ListRulesPackagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRulesPackages");
   let body: any;
-  body = JSON.stringify(se_ListRulesPackagesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -609,7 +575,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -622,7 +588,7 @@ export const se_PreviewAgentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PreviewAgents");
   let body: any;
-  body = JSON.stringify(se_PreviewAgentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -635,7 +601,7 @@ export const se_RegisterCrossAccountAccessRoleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterCrossAccountAccessRole");
   let body: any;
-  body = JSON.stringify(se_RegisterCrossAccountAccessRoleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -648,7 +614,7 @@ export const se_RemoveAttributesFromFindingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemoveAttributesFromFindings");
   let body: any;
-  body = JSON.stringify(se_RemoveAttributesFromFindingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -661,7 +627,7 @@ export const se_SetTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetTagsForResource");
   let body: any;
-  body = JSON.stringify(se_SetTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -674,7 +640,7 @@ export const se_StartAssessmentRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartAssessmentRun");
   let body: any;
-  body = JSON.stringify(se_StartAssessmentRunRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -687,7 +653,7 @@ export const se_StopAssessmentRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopAssessmentRun");
   let body: any;
-  body = JSON.stringify(se_StopAssessmentRunRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -700,7 +666,7 @@ export const se_SubscribeToEventCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SubscribeToEvent");
   let body: any;
-  body = JSON.stringify(se_SubscribeToEventRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -713,7 +679,7 @@ export const se_UnsubscribeFromEventCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UnsubscribeFromEvent");
   let body: any;
-  body = JSON.stringify(se_UnsubscribeFromEventRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -726,7 +692,7 @@ export const se_UpdateAssessmentTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAssessmentTarget");
   let body: any;
-  body = JSON.stringify(se_UpdateAssessmentTargetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -742,12 +708,12 @@ export const de_AddAttributesToFindingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AddAttributesToFindingsResponse(data, context);
+  contents = _json(data);
   const response: AddAttributesToFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -780,10 +746,9 @@ const de_AddAttributesToFindingsCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -801,12 +766,12 @@ export const de_CreateAssessmentTargetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAssessmentTargetResponse(data, context);
+  contents = _json(data);
   const response: CreateAssessmentTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -845,10 +810,9 @@ const de_CreateAssessmentTargetCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -866,12 +830,12 @@ export const de_CreateAssessmentTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAssessmentTemplateResponse(data, context);
+  contents = _json(data);
   const response: CreateAssessmentTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -907,10 +871,9 @@ const de_CreateAssessmentTemplateCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -928,12 +891,12 @@ export const de_CreateExclusionsPreviewCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateExclusionsPreviewResponse(data, context);
+  contents = _json(data);
   const response: CreateExclusionsPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -969,10 +932,9 @@ const de_CreateExclusionsPreviewCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -990,12 +952,12 @@ export const de_CreateResourceGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateResourceGroupResponse(data, context);
+  contents = _json(data);
   const response: CreateResourceGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1028,10 +990,9 @@ const de_CreateResourceGroupCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1051,7 +1012,7 @@ export const de_DeleteAssessmentRunCommand = async (
   const response: DeleteAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1087,10 +1048,9 @@ const de_DeleteAssessmentRunCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1110,7 +1070,7 @@ export const de_DeleteAssessmentTargetCommand = async (
   const response: DeleteAssessmentTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1146,10 +1106,9 @@ const de_DeleteAssessmentTargetCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1169,7 +1128,7 @@ export const de_DeleteAssessmentTemplateCommand = async (
   const response: DeleteAssessmentTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1205,10 +1164,9 @@ const de_DeleteAssessmentTemplateCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1231,7 +1189,7 @@ export const de_DescribeAssessmentRunsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1255,10 +1213,9 @@ const de_DescribeAssessmentRunsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1281,7 +1238,7 @@ export const de_DescribeAssessmentTargetsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1305,10 +1262,9 @@ const de_DescribeAssessmentTargetsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1331,7 +1287,7 @@ export const de_DescribeAssessmentTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1355,10 +1311,9 @@ const de_DescribeAssessmentTemplatesCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1381,7 +1336,7 @@ export const de_DescribeCrossAccountAccessRoleCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1402,10 +1357,9 @@ const de_DescribeCrossAccountAccessRoleCommandError = async (
       throw await de_InternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1423,12 +1377,12 @@ export const de_DescribeExclusionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeExclusionsResponse(data, context);
+  contents = _json(data);
   const response: DescribeExclusionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1452,10 +1406,9 @@ const de_DescribeExclusionsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1478,7 +1431,7 @@ export const de_DescribeFindingsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1502,10 +1455,9 @@ const de_DescribeFindingsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1528,7 +1480,7 @@ export const de_DescribeResourceGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1552,10 +1504,9 @@ const de_DescribeResourceGroupsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1573,12 +1524,12 @@ export const de_DescribeRulesPackagesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DescribeRulesPackagesResponse(data, context);
+  contents = _json(data);
   const response: DescribeRulesPackagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1602,10 +1553,9 @@ const de_DescribeRulesPackagesCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1623,12 +1573,12 @@ export const de_GetAssessmentReportCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetAssessmentReportResponse(data, context);
+  contents = _json(data);
   const response: GetAssessmentReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1667,10 +1617,9 @@ const de_GetAssessmentReportCommandError = async (
       throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1688,12 +1637,12 @@ export const de_GetExclusionsPreviewCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetExclusionsPreviewResponse(data, context);
+  contents = _json(data);
   const response: GetExclusionsPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1723,10 +1672,9 @@ const de_GetExclusionsPreviewCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1744,12 +1692,12 @@ export const de_GetTelemetryMetadataCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetTelemetryMetadataResponse(data, context);
+  contents = _json(data);
   const response: GetTelemetryMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1779,10 +1727,9 @@ const de_GetTelemetryMetadataCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1800,12 +1747,12 @@ export const de_ListAssessmentRunAgentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAssessmentRunAgentsResponse(data, context);
+  contents = _json(data);
   const response: ListAssessmentRunAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1835,10 +1782,9 @@ const de_ListAssessmentRunAgentsCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1856,12 +1802,12 @@ export const de_ListAssessmentRunsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAssessmentRunsResponse(data, context);
+  contents = _json(data);
   const response: ListAssessmentRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1891,10 +1837,9 @@ const de_ListAssessmentRunsCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1912,12 +1857,12 @@ export const de_ListAssessmentTargetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAssessmentTargetsResponse(data, context);
+  contents = _json(data);
   const response: ListAssessmentTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1944,10 +1889,9 @@ const de_ListAssessmentTargetsCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1965,12 +1909,12 @@ export const de_ListAssessmentTemplatesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListAssessmentTemplatesResponse(data, context);
+  contents = _json(data);
   const response: ListAssessmentTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2000,10 +1944,9 @@ const de_ListAssessmentTemplatesCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2026,7 +1969,7 @@ export const de_ListEventSubscriptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2056,10 +1999,9 @@ const de_ListEventSubscriptionsCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2077,12 +2019,12 @@ export const de_ListExclusionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListExclusionsResponse(data, context);
+  contents = _json(data);
   const response: ListExclusionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2112,10 +2054,9 @@ const de_ListExclusionsCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2133,12 +2074,12 @@ export const de_ListFindingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListFindingsResponse(data, context);
+  contents = _json(data);
   const response: ListFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2168,10 +2109,9 @@ const de_ListFindingsCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2189,12 +2129,12 @@ export const de_ListRulesPackagesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRulesPackagesResponse(data, context);
+  contents = _json(data);
   const response: ListRulesPackagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2221,10 +2161,9 @@ const de_ListRulesPackagesCommandError = async (
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2242,12 +2181,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2277,10 +2216,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2298,12 +2236,12 @@ export const de_PreviewAgentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PreviewAgentsResponse(data, context);
+  contents = _json(data);
   const response: PreviewAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2336,10 +2274,9 @@ const de_PreviewAgentsCommandError = async (
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2359,7 +2296,7 @@ export const de_RegisterCrossAccountAccessRoleCommand = async (
   const response: RegisterCrossAccountAccessRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2392,10 +2329,9 @@ const de_RegisterCrossAccountAccessRoleCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2413,12 +2349,12 @@ export const de_RemoveAttributesFromFindingsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RemoveAttributesFromFindingsResponse(data, context);
+  contents = _json(data);
   const response: RemoveAttributesFromFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2451,10 +2387,9 @@ const de_RemoveAttributesFromFindingsCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2474,7 +2409,7 @@ export const de_SetTagsForResourceCommand = async (
   const response: SetTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2507,10 +2442,9 @@ const de_SetTagsForResourceCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2528,12 +2462,12 @@ export const de_StartAssessmentRunCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartAssessmentRunResponse(data, context);
+  contents = _json(data);
   const response: StartAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2575,10 +2509,9 @@ const de_StartAssessmentRunCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2598,7 +2531,7 @@ export const de_StopAssessmentRunCommand = async (
   const response: StopAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2631,10 +2564,9 @@ const de_StopAssessmentRunCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2654,7 +2586,7 @@ export const de_SubscribeToEventCommand = async (
   const response: SubscribeToEventCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2690,10 +2622,9 @@ const de_SubscribeToEventCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2713,7 +2644,7 @@ export const de_UnsubscribeFromEventCommand = async (
   const response: UnsubscribeFromEventCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2746,10 +2677,9 @@ const de_UnsubscribeFromEventCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2769,7 +2699,7 @@ export const de_UpdateAssessmentTargetCommand = async (
   const response: UpdateAssessmentTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2802,10 +2732,9 @@ const de_UpdateAssessmentTargetCommandError = async (
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2819,7 +2748,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2835,7 +2764,7 @@ const de_AgentsAlreadyRunningAssessmentExceptionRes = async (
   context: __SerdeContext
 ): Promise<AgentsAlreadyRunningAssessmentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AgentsAlreadyRunningAssessmentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AgentsAlreadyRunningAssessmentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2851,7 +2780,7 @@ const de_AssessmentRunInProgressExceptionRes = async (
   context: __SerdeContext
 ): Promise<AssessmentRunInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AssessmentRunInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AssessmentRunInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2864,7 +2793,7 @@ const de_AssessmentRunInProgressExceptionRes = async (
  */
 const de_InternalExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2880,7 +2809,7 @@ const de_InvalidCrossAccountRoleExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidCrossAccountRoleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidCrossAccountRoleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidCrossAccountRoleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2896,7 +2825,7 @@ const de_InvalidInputExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidInputException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2912,7 +2841,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2928,7 +2857,7 @@ const de_NoSuchEntityExceptionRes = async (
   context: __SerdeContext
 ): Promise<NoSuchEntityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NoSuchEntityException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NoSuchEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2944,7 +2873,7 @@ const de_PreviewGenerationInProgressExceptionRes = async (
   context: __SerdeContext
 ): Promise<PreviewGenerationInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_PreviewGenerationInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PreviewGenerationInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2960,7 +2889,7 @@ const de_ServiceTemporarilyUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceTemporarilyUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceTemporarilyUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceTemporarilyUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2976,7 +2905,7 @@ const de_UnsupportedFeatureExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedFeatureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedFeatureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedFeatureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2984,957 +2913,237 @@ const de_UnsupportedFeatureExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AddAttributesToFindingsRequest
- */
-const se_AddAttributesToFindingsRequest = (input: AddAttributesToFindingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.attributes != null && { attributes: se_UserAttributeList(input.attributes, context) }),
-    ...(input.findingArns != null && { findingArns: se_AddRemoveAttributesFindingArnList(input.findingArns, context) }),
-  };
-};
+// se_AddAttributesToFindingsRequest omitted.
 
-/**
- * serializeAws_json1_1AddRemoveAttributesFindingArnList
- */
-const se_AddRemoveAttributesFindingArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AddRemoveAttributesFindingArnList omitted.
 
-/**
- * serializeAws_json1_1AgentFilter
- */
-const se_AgentFilter = (input: AgentFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.agentHealthCodes != null && {
-      agentHealthCodes: se_AgentHealthCodeList(input.agentHealthCodes, context),
-    }),
-    ...(input.agentHealths != null && { agentHealths: se_AgentHealthList(input.agentHealths, context) }),
-  };
-};
+// se_AgentFilter omitted.
 
-/**
- * serializeAws_json1_1AgentHealthCodeList
- */
-const se_AgentHealthCodeList = (input: (AgentHealthCode | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AgentHealthCodeList omitted.
 
-/**
- * serializeAws_json1_1AgentHealthList
- */
-const se_AgentHealthList = (input: (AgentHealth | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AgentHealthList omitted.
 
-/**
- * serializeAws_json1_1AgentIdList
- */
-const se_AgentIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AgentIdList omitted.
 
 /**
  * serializeAws_json1_1AssessmentRunFilter
  */
 const se_AssessmentRunFilter = (input: AssessmentRunFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.completionTimeRange != null && {
-      completionTimeRange: se_TimestampRange(input.completionTimeRange, context),
-    }),
-    ...(input.durationRange != null && { durationRange: se_DurationRange(input.durationRange, context) }),
-    ...(input.namePattern != null && { namePattern: input.namePattern }),
-    ...(input.rulesPackageArns != null && {
-      rulesPackageArns: se_FilterRulesPackageArnList(input.rulesPackageArns, context),
-    }),
-    ...(input.startTimeRange != null && { startTimeRange: se_TimestampRange(input.startTimeRange, context) }),
-    ...(input.stateChangeTimeRange != null && {
-      stateChangeTimeRange: se_TimestampRange(input.stateChangeTimeRange, context),
-    }),
-    ...(input.states != null && { states: se_AssessmentRunStateList(input.states, context) }),
-  };
+  return take(input, {
+    completionTimeRange: (_) => se_TimestampRange(_, context),
+    durationRange: _json,
+    namePattern: [],
+    rulesPackageArns: _json,
+    startTimeRange: (_) => se_TimestampRange(_, context),
+    stateChangeTimeRange: (_) => se_TimestampRange(_, context),
+    states: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1AssessmentRunStateList
- */
-const se_AssessmentRunStateList = (input: (AssessmentRunState | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AssessmentRunStateList omitted.
 
-/**
- * serializeAws_json1_1AssessmentTargetFilter
- */
-const se_AssessmentTargetFilter = (input: AssessmentTargetFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTargetNamePattern != null && {
-      assessmentTargetNamePattern: input.assessmentTargetNamePattern,
-    }),
-  };
-};
+// se_AssessmentTargetFilter omitted.
 
-/**
- * serializeAws_json1_1AssessmentTemplateFilter
- */
-const se_AssessmentTemplateFilter = (input: AssessmentTemplateFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.durationRange != null && { durationRange: se_DurationRange(input.durationRange, context) }),
-    ...(input.namePattern != null && { namePattern: input.namePattern }),
-    ...(input.rulesPackageArns != null && {
-      rulesPackageArns: se_FilterRulesPackageArnList(input.rulesPackageArns, context),
-    }),
-  };
-};
+// se_AssessmentTemplateFilter omitted.
 
-/**
- * serializeAws_json1_1AssessmentTemplateRulesPackageArnList
- */
-const se_AssessmentTemplateRulesPackageArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AssessmentTemplateRulesPackageArnList omitted.
 
-/**
- * serializeAws_json1_1Attribute
- */
-const se_Attribute = (input: Attribute, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Attribute omitted.
 
-/**
- * serializeAws_json1_1AttributeList
- */
-const se_AttributeList = (input: Attribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Attribute(entry, context);
-    });
-};
+// se_AttributeList omitted.
 
-/**
- * serializeAws_json1_1AutoScalingGroupList
- */
-const se_AutoScalingGroupList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AutoScalingGroupList omitted.
 
-/**
- * serializeAws_json1_1BatchDescribeArnList
- */
-const se_BatchDescribeArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BatchDescribeArnList omitted.
 
-/**
- * serializeAws_json1_1BatchDescribeExclusionsArnList
- */
-const se_BatchDescribeExclusionsArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BatchDescribeExclusionsArnList omitted.
 
-/**
- * serializeAws_json1_1CreateAssessmentTargetRequest
- */
-const se_CreateAssessmentTargetRequest = (input: CreateAssessmentTargetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTargetName != null && { assessmentTargetName: input.assessmentTargetName }),
-    ...(input.resourceGroupArn != null && { resourceGroupArn: input.resourceGroupArn }),
-  };
-};
+// se_CreateAssessmentTargetRequest omitted.
 
-/**
- * serializeAws_json1_1CreateAssessmentTemplateRequest
- */
-const se_CreateAssessmentTemplateRequest = (input: CreateAssessmentTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTargetArn != null && { assessmentTargetArn: input.assessmentTargetArn }),
-    ...(input.assessmentTemplateName != null && { assessmentTemplateName: input.assessmentTemplateName }),
-    ...(input.durationInSeconds != null && { durationInSeconds: input.durationInSeconds }),
-    ...(input.rulesPackageArns != null && {
-      rulesPackageArns: se_AssessmentTemplateRulesPackageArnList(input.rulesPackageArns, context),
-    }),
-    ...(input.userAttributesForFindings != null && {
-      userAttributesForFindings: se_UserAttributeList(input.userAttributesForFindings, context),
-    }),
-  };
-};
+// se_CreateAssessmentTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1CreateExclusionsPreviewRequest
- */
-const se_CreateExclusionsPreviewRequest = (input: CreateExclusionsPreviewRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTemplateArn != null && { assessmentTemplateArn: input.assessmentTemplateArn }),
-  };
-};
+// se_CreateExclusionsPreviewRequest omitted.
 
-/**
- * serializeAws_json1_1CreateResourceGroupRequest
- */
-const se_CreateResourceGroupRequest = (input: CreateResourceGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceGroupTags != null && {
-      resourceGroupTags: se_ResourceGroupTags(input.resourceGroupTags, context),
-    }),
-  };
-};
+// se_CreateResourceGroupRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteAssessmentRunRequest
- */
-const se_DeleteAssessmentRunRequest = (input: DeleteAssessmentRunRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
-  };
-};
+// se_DeleteAssessmentRunRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteAssessmentTargetRequest
- */
-const se_DeleteAssessmentTargetRequest = (input: DeleteAssessmentTargetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTargetArn != null && { assessmentTargetArn: input.assessmentTargetArn }),
-  };
-};
+// se_DeleteAssessmentTargetRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteAssessmentTemplateRequest
- */
-const se_DeleteAssessmentTemplateRequest = (input: DeleteAssessmentTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTemplateArn != null && { assessmentTemplateArn: input.assessmentTemplateArn }),
-  };
-};
+// se_DeleteAssessmentTemplateRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAssessmentRunsRequest
- */
-const se_DescribeAssessmentRunsRequest = (input: DescribeAssessmentRunsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentRunArns != null && {
-      assessmentRunArns: se_BatchDescribeArnList(input.assessmentRunArns, context),
-    }),
-  };
-};
+// se_DescribeAssessmentRunsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAssessmentTargetsRequest
- */
-const se_DescribeAssessmentTargetsRequest = (input: DescribeAssessmentTargetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTargetArns != null && {
-      assessmentTargetArns: se_BatchDescribeArnList(input.assessmentTargetArns, context),
-    }),
-  };
-};
+// se_DescribeAssessmentTargetsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeAssessmentTemplatesRequest
- */
-const se_DescribeAssessmentTemplatesRequest = (
-  input: DescribeAssessmentTemplatesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.assessmentTemplateArns != null && {
-      assessmentTemplateArns: se_BatchDescribeArnList(input.assessmentTemplateArns, context),
-    }),
-  };
-};
+// se_DescribeAssessmentTemplatesRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeExclusionsRequest
- */
-const se_DescribeExclusionsRequest = (input: DescribeExclusionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.exclusionArns != null && {
-      exclusionArns: se_BatchDescribeExclusionsArnList(input.exclusionArns, context),
-    }),
-    ...(input.locale != null && { locale: input.locale }),
-  };
-};
+// se_DescribeExclusionsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeFindingsRequest
- */
-const se_DescribeFindingsRequest = (input: DescribeFindingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.findingArns != null && { findingArns: se_BatchDescribeArnList(input.findingArns, context) }),
-    ...(input.locale != null && { locale: input.locale }),
-  };
-};
+// se_DescribeFindingsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeResourceGroupsRequest
- */
-const se_DescribeResourceGroupsRequest = (input: DescribeResourceGroupsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceGroupArns != null && {
-      resourceGroupArns: se_BatchDescribeArnList(input.resourceGroupArns, context),
-    }),
-  };
-};
+// se_DescribeResourceGroupsRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeRulesPackagesRequest
- */
-const se_DescribeRulesPackagesRequest = (input: DescribeRulesPackagesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.rulesPackageArns != null && {
-      rulesPackageArns: se_BatchDescribeArnList(input.rulesPackageArns, context),
-    }),
-  };
-};
+// se_DescribeRulesPackagesRequest omitted.
 
-/**
- * serializeAws_json1_1DurationRange
- */
-const se_DurationRange = (input: DurationRange, context: __SerdeContext): any => {
-  return {
-    ...(input.maxSeconds != null && { maxSeconds: input.maxSeconds }),
-    ...(input.minSeconds != null && { minSeconds: input.minSeconds }),
-  };
-};
+// se_DurationRange omitted.
 
-/**
- * serializeAws_json1_1FilterRulesPackageArnList
- */
-const se_FilterRulesPackageArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilterRulesPackageArnList omitted.
 
 /**
  * serializeAws_json1_1FindingFilter
  */
 const se_FindingFilter = (input: FindingFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.agentIds != null && { agentIds: se_AgentIdList(input.agentIds, context) }),
-    ...(input.attributes != null && { attributes: se_AttributeList(input.attributes, context) }),
-    ...(input.autoScalingGroups != null && {
-      autoScalingGroups: se_AutoScalingGroupList(input.autoScalingGroups, context),
-    }),
-    ...(input.creationTimeRange != null && { creationTimeRange: se_TimestampRange(input.creationTimeRange, context) }),
-    ...(input.ruleNames != null && { ruleNames: se_RuleNameList(input.ruleNames, context) }),
-    ...(input.rulesPackageArns != null && {
-      rulesPackageArns: se_FilterRulesPackageArnList(input.rulesPackageArns, context),
-    }),
-    ...(input.severities != null && { severities: se_SeverityList(input.severities, context) }),
-    ...(input.userAttributes != null && { userAttributes: se_AttributeList(input.userAttributes, context) }),
-  };
+  return take(input, {
+    agentIds: _json,
+    attributes: _json,
+    autoScalingGroups: _json,
+    creationTimeRange: (_) => se_TimestampRange(_, context),
+    ruleNames: _json,
+    rulesPackageArns: _json,
+    severities: _json,
+    userAttributes: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1GetAssessmentReportRequest
- */
-const se_GetAssessmentReportRequest = (input: GetAssessmentReportRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
-    ...(input.reportFileFormat != null && { reportFileFormat: input.reportFileFormat }),
-    ...(input.reportType != null && { reportType: input.reportType }),
-  };
-};
+// se_GetAssessmentReportRequest omitted.
 
-/**
- * serializeAws_json1_1GetExclusionsPreviewRequest
- */
-const se_GetExclusionsPreviewRequest = (input: GetExclusionsPreviewRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTemplateArn != null && { assessmentTemplateArn: input.assessmentTemplateArn }),
-    ...(input.locale != null && { locale: input.locale }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.previewToken != null && { previewToken: input.previewToken }),
-  };
-};
+// se_GetExclusionsPreviewRequest omitted.
 
-/**
- * serializeAws_json1_1GetTelemetryMetadataRequest
- */
-const se_GetTelemetryMetadataRequest = (input: GetTelemetryMetadataRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
-  };
-};
+// se_GetTelemetryMetadataRequest omitted.
 
-/**
- * serializeAws_json1_1ListAssessmentRunAgentsRequest
- */
-const se_ListAssessmentRunAgentsRequest = (input: ListAssessmentRunAgentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
-    ...(input.filter != null && { filter: se_AgentFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListAssessmentRunAgentsRequest omitted.
 
 /**
  * serializeAws_json1_1ListAssessmentRunsRequest
  */
 const se_ListAssessmentRunsRequest = (input: ListAssessmentRunsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTemplateArns != null && {
-      assessmentTemplateArns: se_ListParentArnList(input.assessmentTemplateArns, context),
-    }),
-    ...(input.filter != null && { filter: se_AssessmentRunFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
+  return take(input, {
+    assessmentTemplateArns: _json,
+    filter: (_) => se_AssessmentRunFilter(_, context),
+    maxResults: [],
+    nextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ListAssessmentTargetsRequest
- */
-const se_ListAssessmentTargetsRequest = (input: ListAssessmentTargetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: se_AssessmentTargetFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListAssessmentTargetsRequest omitted.
 
-/**
- * serializeAws_json1_1ListAssessmentTemplatesRequest
- */
-const se_ListAssessmentTemplatesRequest = (input: ListAssessmentTemplatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTargetArns != null && {
-      assessmentTargetArns: se_ListParentArnList(input.assessmentTargetArns, context),
-    }),
-    ...(input.filter != null && { filter: se_AssessmentTemplateFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListAssessmentTemplatesRequest omitted.
 
-/**
- * serializeAws_json1_1ListEventSubscriptionsRequest
- */
-const se_ListEventSubscriptionsRequest = (input: ListEventSubscriptionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListEventSubscriptionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListExclusionsRequest
- */
-const se_ListExclusionsRequest = (input: ListExclusionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListExclusionsRequest omitted.
 
 /**
  * serializeAws_json1_1ListFindingsRequest
  */
 const se_ListFindingsRequest = (input: ListFindingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentRunArns != null && {
-      assessmentRunArns: se_ListParentArnList(input.assessmentRunArns, context),
-    }),
-    ...(input.filter != null && { filter: se_FindingFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
+  return take(input, {
+    assessmentRunArns: _json,
+    filter: (_) => se_FindingFilter(_, context),
+    maxResults: [],
+    nextToken: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ListParentArnList
- */
-const se_ListParentArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListParentArnList omitted.
 
-/**
- * serializeAws_json1_1ListRulesPackagesRequest
- */
-const se_ListRulesPackagesRequest = (input: ListRulesPackagesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListRulesPackagesRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1PreviewAgentsRequest
- */
-const se_PreviewAgentsRequest = (input: PreviewAgentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.previewAgentsArn != null && { previewAgentsArn: input.previewAgentsArn }),
-  };
-};
+// se_PreviewAgentsRequest omitted.
 
-/**
- * serializeAws_json1_1RegisterCrossAccountAccessRoleRequest
- */
-const se_RegisterCrossAccountAccessRoleRequest = (
-  input: RegisterCrossAccountAccessRoleRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-  };
-};
+// se_RegisterCrossAccountAccessRoleRequest omitted.
 
-/**
- * serializeAws_json1_1RemoveAttributesFromFindingsRequest
- */
-const se_RemoveAttributesFromFindingsRequest = (
-  input: RemoveAttributesFromFindingsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.attributeKeys != null && { attributeKeys: se_UserAttributeKeyList(input.attributeKeys, context) }),
-    ...(input.findingArns != null && { findingArns: se_AddRemoveAttributesFindingArnList(input.findingArns, context) }),
-  };
-};
+// se_RemoveAttributesFromFindingsRequest omitted.
 
-/**
- * serializeAws_json1_1ResourceGroupTag
- */
-const se_ResourceGroupTag = (input: ResourceGroupTag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_ResourceGroupTag omitted.
 
-/**
- * serializeAws_json1_1ResourceGroupTags
- */
-const se_ResourceGroupTags = (input: ResourceGroupTag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ResourceGroupTag(entry, context);
-    });
-};
+// se_ResourceGroupTags omitted.
 
-/**
- * serializeAws_json1_1RuleNameList
- */
-const se_RuleNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RuleNameList omitted.
 
-/**
- * serializeAws_json1_1SetTagsForResourceRequest
- */
-const se_SetTagsForResourceRequest = (input: SetTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
-  };
-};
+// se_SetTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1SeverityList
- */
-const se_SeverityList = (input: (Severity | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SeverityList omitted.
 
-/**
- * serializeAws_json1_1StartAssessmentRunRequest
- */
-const se_StartAssessmentRunRequest = (input: StartAssessmentRunRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentRunName != null && { assessmentRunName: input.assessmentRunName }),
-    ...(input.assessmentTemplateArn != null && { assessmentTemplateArn: input.assessmentTemplateArn }),
-  };
-};
+// se_StartAssessmentRunRequest omitted.
 
-/**
- * serializeAws_json1_1StopAssessmentRunRequest
- */
-const se_StopAssessmentRunRequest = (input: StopAssessmentRunRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
-    ...(input.stopAction != null && { stopAction: input.stopAction }),
-  };
-};
+// se_StopAssessmentRunRequest omitted.
 
-/**
- * serializeAws_json1_1SubscribeToEventRequest
- */
-const se_SubscribeToEventRequest = (input: SubscribeToEventRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.event != null && { event: input.event }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.topicArn != null && { topicArn: input.topicArn }),
-  };
-};
+// se_SubscribeToEventRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
 /**
  * serializeAws_json1_1TimestampRange
  */
 const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
-  return {
-    ...(input.beginDate != null && { beginDate: Math.round(input.beginDate.getTime() / 1000) }),
-    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
-  };
+  return take(input, {
+    beginDate: (_) => Math.round(_.getTime() / 1000),
+    endDate: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1UnsubscribeFromEventRequest
- */
-const se_UnsubscribeFromEventRequest = (input: UnsubscribeFromEventRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.event != null && { event: input.event }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.topicArn != null && { topicArn: input.topicArn }),
-  };
-};
+// se_UnsubscribeFromEventRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateAssessmentTargetRequest
- */
-const se_UpdateAssessmentTargetRequest = (input: UpdateAssessmentTargetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.assessmentTargetArn != null && { assessmentTargetArn: input.assessmentTargetArn }),
-    ...(input.assessmentTargetName != null && { assessmentTargetName: input.assessmentTargetName }),
-    ...(input.resourceGroupArn != null && { resourceGroupArn: input.resourceGroupArn }),
-  };
-};
+// se_UpdateAssessmentTargetRequest omitted.
 
-/**
- * serializeAws_json1_1UserAttributeKeyList
- */
-const se_UserAttributeKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_UserAttributeKeyList omitted.
 
-/**
- * serializeAws_json1_1UserAttributeList
- */
-const se_UserAttributeList = (input: Attribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Attribute(entry, context);
-    });
-};
+// se_UserAttributeList omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    canRetry: __expectBoolean(output.canRetry),
-    errorCode: __expectString(output.errorCode),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1AddAttributesToFindingsResponse
- */
-const de_AddAttributesToFindingsResponse = (output: any, context: __SerdeContext): AddAttributesToFindingsResponse => {
-  return {
-    failedItems: output.failedItems != null ? de_FailedItems(output.failedItems, context) : undefined,
-  } as any;
-};
+// de_AddAttributesToFindingsResponse omitted.
 
-/**
- * deserializeAws_json1_1AgentAlreadyRunningAssessment
- */
-const de_AgentAlreadyRunningAssessment = (output: any, context: __SerdeContext): AgentAlreadyRunningAssessment => {
-  return {
-    agentId: __expectString(output.agentId),
-    assessmentRunArn: __expectString(output.assessmentRunArn),
-  } as any;
-};
+// de_AgentAlreadyRunningAssessment omitted.
 
-/**
- * deserializeAws_json1_1AgentAlreadyRunningAssessmentList
- */
-const de_AgentAlreadyRunningAssessmentList = (
-  output: any,
-  context: __SerdeContext
-): AgentAlreadyRunningAssessment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AgentAlreadyRunningAssessment(entry, context);
-    });
-  return retVal;
-};
+// de_AgentAlreadyRunningAssessmentList omitted.
 
-/**
- * deserializeAws_json1_1AgentPreview
- */
-const de_AgentPreview = (output: any, context: __SerdeContext): AgentPreview => {
-  return {
-    agentHealth: __expectString(output.agentHealth),
-    agentId: __expectString(output.agentId),
-    agentVersion: __expectString(output.agentVersion),
-    autoScalingGroup: __expectString(output.autoScalingGroup),
-    hostname: __expectString(output.hostname),
-    ipv4Address: __expectString(output.ipv4Address),
-    kernelVersion: __expectString(output.kernelVersion),
-    operatingSystem: __expectString(output.operatingSystem),
-  } as any;
-};
+// de_AgentPreview omitted.
 
-/**
- * deserializeAws_json1_1AgentPreviewList
- */
-const de_AgentPreviewList = (output: any, context: __SerdeContext): AgentPreview[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AgentPreview(entry, context);
-    });
-  return retVal;
-};
+// de_AgentPreviewList omitted.
 
-/**
- * deserializeAws_json1_1AgentsAlreadyRunningAssessmentException
- */
-const de_AgentsAlreadyRunningAssessmentException = (
-  output: any,
-  context: __SerdeContext
-): AgentsAlreadyRunningAssessmentException => {
-  return {
-    agents: output.agents != null ? de_AgentAlreadyRunningAssessmentList(output.agents, context) : undefined,
-    agentsTruncated: __expectBoolean(output.agentsTruncated),
-    canRetry: __expectBoolean(output.canRetry),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AgentsAlreadyRunningAssessmentException omitted.
 
-/**
- * deserializeAws_json1_1AssessmentRulesPackageArnList
- */
-const de_AssessmentRulesPackageArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AssessmentRulesPackageArnList omitted.
 
 /**
  * deserializeAws_json1_1AssessmentRun
  */
 const de_AssessmentRun = (output: any, context: __SerdeContext): AssessmentRun => {
-  return {
-    arn: __expectString(output.arn),
-    assessmentTemplateArn: __expectString(output.assessmentTemplateArn),
-    completedAt:
-      output.completedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completedAt)))
-        : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    dataCollected: __expectBoolean(output.dataCollected),
-    durationInSeconds: __expectInt32(output.durationInSeconds),
-    findingCounts:
-      output.findingCounts != null ? de_AssessmentRunFindingCounts(output.findingCounts, context) : undefined,
-    name: __expectString(output.name),
-    notifications:
-      output.notifications != null ? de_AssessmentRunNotificationList(output.notifications, context) : undefined,
-    rulesPackageArns:
-      output.rulesPackageArns != null ? de_AssessmentRulesPackageArnList(output.rulesPackageArns, context) : undefined,
-    startedAt:
-      output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
-    state: __expectString(output.state),
-    stateChangedAt:
-      output.stateChangedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stateChangedAt)))
-        : undefined,
-    stateChanges:
-      output.stateChanges != null ? de_AssessmentRunStateChangeList(output.stateChanges, context) : undefined,
-    userAttributesForFindings:
-      output.userAttributesForFindings != null
-        ? de_UserAttributeList(output.userAttributesForFindings, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    assessmentTemplateArn: __expectString,
+    completedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataCollected: __expectBoolean,
+    durationInSeconds: __expectInt32,
+    findingCounts: _json,
+    name: __expectString,
+    notifications: (_: any) => de_AssessmentRunNotificationList(_, context),
+    rulesPackageArns: _json,
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    state: __expectString,
+    stateChangedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stateChanges: (_: any) => de_AssessmentRunStateChangeList(_, context),
+    userAttributesForFindings: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1AssessmentRunAgent
- */
-const de_AssessmentRunAgent = (output: any, context: __SerdeContext): AssessmentRunAgent => {
-  return {
-    agentHealth: __expectString(output.agentHealth),
-    agentHealthCode: __expectString(output.agentHealthCode),
-    agentHealthDetails: __expectString(output.agentHealthDetails),
-    agentId: __expectString(output.agentId),
-    assessmentRunArn: __expectString(output.assessmentRunArn),
-    autoScalingGroup: __expectString(output.autoScalingGroup),
-    telemetryMetadata:
-      output.telemetryMetadata != null ? de_TelemetryMetadataList(output.telemetryMetadata, context) : undefined,
-  } as any;
-};
+// de_AssessmentRunAgent omitted.
 
-/**
- * deserializeAws_json1_1AssessmentRunAgentList
- */
-const de_AssessmentRunAgentList = (output: any, context: __SerdeContext): AssessmentRunAgent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssessmentRunAgent(entry, context);
-    });
-  return retVal;
-};
+// de_AssessmentRunAgentList omitted.
 
-/**
- * deserializeAws_json1_1AssessmentRunFindingCounts
- */
-const de_AssessmentRunFindingCounts = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [Severity | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
+// de_AssessmentRunFindingCounts omitted.
 
-/**
- * deserializeAws_json1_1AssessmentRunInProgressArnList
- */
-const de_AssessmentRunInProgressArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AssessmentRunInProgressArnList omitted.
 
-/**
- * deserializeAws_json1_1AssessmentRunInProgressException
- */
-const de_AssessmentRunInProgressException = (
-  output: any,
-  context: __SerdeContext
-): AssessmentRunInProgressException => {
-  return {
-    assessmentRunArns:
-      output.assessmentRunArns != null
-        ? de_AssessmentRunInProgressArnList(output.assessmentRunArns, context)
-        : undefined,
-    assessmentRunArnsTruncated: __expectBoolean(output.assessmentRunArnsTruncated),
-    canRetry: __expectBoolean(output.canRetry),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AssessmentRunInProgressException omitted.
 
 /**
  * deserializeAws_json1_1AssessmentRunList
@@ -3943,9 +3152,6 @@ const de_AssessmentRunList = (output: any, context: __SerdeContext): AssessmentR
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentRun(entry, context);
     });
   return retVal;
@@ -3955,14 +3161,14 @@ const de_AssessmentRunList = (output: any, context: __SerdeContext): AssessmentR
  * deserializeAws_json1_1AssessmentRunNotification
  */
 const de_AssessmentRunNotification = (output: any, context: __SerdeContext): AssessmentRunNotification => {
-  return {
-    date: output.date != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.date))) : undefined,
-    error: __expectBoolean(output.error),
-    event: __expectString(output.event),
-    message: __expectString(output.message),
-    snsPublishStatusCode: __expectString(output.snsPublishStatusCode),
-    snsTopicArn: __expectString(output.snsTopicArn),
-  } as any;
+  return take(output, {
+    date: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    error: __expectBoolean,
+    event: __expectString,
+    message: __expectString,
+    snsPublishStatusCode: __expectString,
+    snsTopicArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -3972,9 +3178,6 @@ const de_AssessmentRunNotificationList = (output: any, context: __SerdeContext):
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentRunNotification(entry, context);
     });
   return retVal;
@@ -3984,13 +3187,10 @@ const de_AssessmentRunNotificationList = (output: any, context: __SerdeContext):
  * deserializeAws_json1_1AssessmentRunStateChange
  */
 const de_AssessmentRunStateChange = (output: any, context: __SerdeContext): AssessmentRunStateChange => {
-  return {
-    state: __expectString(output.state),
-    stateChangedAt:
-      output.stateChangedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stateChangedAt)))
-        : undefined,
-  } as any;
+  return take(output, {
+    state: __expectString,
+    stateChangedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4000,9 +3200,6 @@ const de_AssessmentRunStateChangeList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentRunStateChange(entry, context);
     });
   return retVal;
@@ -4012,15 +3209,13 @@ const de_AssessmentRunStateChangeList = (output: any, context: __SerdeContext): 
  * deserializeAws_json1_1AssessmentTarget
  */
 const de_AssessmentTarget = (output: any, context: __SerdeContext): AssessmentTarget => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    name: __expectString(output.name),
-    resourceGroupArn: __expectString(output.resourceGroupArn),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    resourceGroupArn: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4030,9 +3225,6 @@ const de_AssessmentTargetList = (output: any, context: __SerdeContext): Assessme
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentTarget(entry, context);
     });
   return retVal;
@@ -4042,24 +3234,17 @@ const de_AssessmentTargetList = (output: any, context: __SerdeContext): Assessme
  * deserializeAws_json1_1AssessmentTemplate
  */
 const de_AssessmentTemplate = (output: any, context: __SerdeContext): AssessmentTemplate => {
-  return {
-    arn: __expectString(output.arn),
-    assessmentRunCount: __expectInt32(output.assessmentRunCount),
-    assessmentTargetArn: __expectString(output.assessmentTargetArn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    durationInSeconds: __expectInt32(output.durationInSeconds),
-    lastAssessmentRunArn: __expectString(output.lastAssessmentRunArn),
-    name: __expectString(output.name),
-    rulesPackageArns:
-      output.rulesPackageArns != null
-        ? de_AssessmentTemplateRulesPackageArnList(output.rulesPackageArns, context)
-        : undefined,
-    userAttributesForFindings:
-      output.userAttributesForFindings != null
-        ? de_UserAttributeList(output.userAttributesForFindings, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    assessmentRunCount: __expectInt32,
+    assessmentTargetArn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    durationInSeconds: __expectInt32,
+    lastAssessmentRunArn: __expectString,
+    name: __expectString,
+    rulesPackageArns: _json,
+    userAttributesForFindings: _json,
+  }) as any;
 };
 
 /**
@@ -4069,118 +3254,35 @@ const de_AssessmentTemplateList = (output: any, context: __SerdeContext): Assess
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssessmentTemplate(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1AssessmentTemplateRulesPackageArnList
- */
-const de_AssessmentTemplateRulesPackageArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AssessmentTemplateRulesPackageArnList omitted.
 
-/**
- * deserializeAws_json1_1AssetAttributes
- */
-const de_AssetAttributes = (output: any, context: __SerdeContext): AssetAttributes => {
-  return {
-    agentId: __expectString(output.agentId),
-    amiId: __expectString(output.amiId),
-    autoScalingGroup: __expectString(output.autoScalingGroup),
-    hostname: __expectString(output.hostname),
-    ipv4Addresses: output.ipv4Addresses != null ? de_Ipv4AddressList(output.ipv4Addresses, context) : undefined,
-    networkInterfaces:
-      output.networkInterfaces != null ? de_NetworkInterfaces(output.networkInterfaces, context) : undefined,
-    schemaVersion: __expectInt32(output.schemaVersion),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_AssetAttributes omitted.
 
-/**
- * deserializeAws_json1_1Attribute
- */
-const de_Attribute = (output: any, context: __SerdeContext): Attribute => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Attribute omitted.
 
-/**
- * deserializeAws_json1_1AttributeList
- */
-const de_AttributeList = (output: any, context: __SerdeContext): Attribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Attribute(entry, context);
-    });
-  return retVal;
-};
+// de_AttributeList omitted.
 
-/**
- * deserializeAws_json1_1CreateAssessmentTargetResponse
- */
-const de_CreateAssessmentTargetResponse = (output: any, context: __SerdeContext): CreateAssessmentTargetResponse => {
-  return {
-    assessmentTargetArn: __expectString(output.assessmentTargetArn),
-  } as any;
-};
+// de_CreateAssessmentTargetResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateAssessmentTemplateResponse
- */
-const de_CreateAssessmentTemplateResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateAssessmentTemplateResponse => {
-  return {
-    assessmentTemplateArn: __expectString(output.assessmentTemplateArn),
-  } as any;
-};
+// de_CreateAssessmentTemplateResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateExclusionsPreviewResponse
- */
-const de_CreateExclusionsPreviewResponse = (output: any, context: __SerdeContext): CreateExclusionsPreviewResponse => {
-  return {
-    previewToken: __expectString(output.previewToken),
-  } as any;
-};
+// de_CreateExclusionsPreviewResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateResourceGroupResponse
- */
-const de_CreateResourceGroupResponse = (output: any, context: __SerdeContext): CreateResourceGroupResponse => {
-  return {
-    resourceGroupArn: __expectString(output.resourceGroupArn),
-  } as any;
-};
+// de_CreateResourceGroupResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeAssessmentRunsResponse
  */
 const de_DescribeAssessmentRunsResponse = (output: any, context: __SerdeContext): DescribeAssessmentRunsResponse => {
-  return {
-    assessmentRuns: output.assessmentRuns != null ? de_AssessmentRunList(output.assessmentRuns, context) : undefined,
-    failedItems: output.failedItems != null ? de_FailedItems(output.failedItems, context) : undefined,
-  } as any;
+  return take(output, {
+    assessmentRuns: (_: any) => de_AssessmentRunList(_, context),
+    failedItems: _json,
+  }) as any;
 };
 
 /**
@@ -4190,11 +3292,10 @@ const de_DescribeAssessmentTargetsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAssessmentTargetsResponse => {
-  return {
-    assessmentTargets:
-      output.assessmentTargets != null ? de_AssessmentTargetList(output.assessmentTargets, context) : undefined,
-    failedItems: output.failedItems != null ? de_FailedItems(output.failedItems, context) : undefined,
-  } as any;
+  return take(output, {
+    assessmentTargets: (_: any) => de_AssessmentTargetList(_, context),
+    failedItems: _json,
+  }) as any;
 };
 
 /**
@@ -4204,11 +3305,10 @@ const de_DescribeAssessmentTemplatesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAssessmentTemplatesResponse => {
-  return {
-    assessmentTemplates:
-      output.assessmentTemplates != null ? de_AssessmentTemplateList(output.assessmentTemplates, context) : undefined,
-    failedItems: output.failedItems != null ? de_FailedItems(output.failedItems, context) : undefined,
-  } as any;
+  return take(output, {
+    assessmentTemplates: (_: any) => de_AssessmentTemplateList(_, context),
+    failedItems: _json,
+  }) as any;
 };
 
 /**
@@ -4218,67 +3318,45 @@ const de_DescribeCrossAccountAccessRoleResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCrossAccountAccessRoleResponse => {
-  return {
-    registeredAt:
-      output.registeredAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registeredAt)))
-        : undefined,
-    roleArn: __expectString(output.roleArn),
-    valid: __expectBoolean(output.valid),
-  } as any;
+  return take(output, {
+    registeredAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+    valid: __expectBoolean,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeExclusionsResponse
- */
-const de_DescribeExclusionsResponse = (output: any, context: __SerdeContext): DescribeExclusionsResponse => {
-  return {
-    exclusions: output.exclusions != null ? de_ExclusionMap(output.exclusions, context) : undefined,
-    failedItems: output.failedItems != null ? de_FailedItems(output.failedItems, context) : undefined,
-  } as any;
-};
+// de_DescribeExclusionsResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeFindingsResponse
  */
 const de_DescribeFindingsResponse = (output: any, context: __SerdeContext): DescribeFindingsResponse => {
-  return {
-    failedItems: output.failedItems != null ? de_FailedItems(output.failedItems, context) : undefined,
-    findings: output.findings != null ? de_FindingList(output.findings, context) : undefined,
-  } as any;
+  return take(output, {
+    failedItems: _json,
+    findings: (_: any) => de_FindingList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeResourceGroupsResponse
  */
 const de_DescribeResourceGroupsResponse = (output: any, context: __SerdeContext): DescribeResourceGroupsResponse => {
-  return {
-    failedItems: output.failedItems != null ? de_FailedItems(output.failedItems, context) : undefined,
-    resourceGroups: output.resourceGroups != null ? de_ResourceGroupList(output.resourceGroups, context) : undefined,
-  } as any;
+  return take(output, {
+    failedItems: _json,
+    resourceGroups: (_: any) => de_ResourceGroupList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DescribeRulesPackagesResponse
- */
-const de_DescribeRulesPackagesResponse = (output: any, context: __SerdeContext): DescribeRulesPackagesResponse => {
-  return {
-    failedItems: output.failedItems != null ? de_FailedItems(output.failedItems, context) : undefined,
-    rulesPackages: output.rulesPackages != null ? de_RulesPackageList(output.rulesPackages, context) : undefined,
-  } as any;
-};
+// de_DescribeRulesPackagesResponse omitted.
 
 /**
  * deserializeAws_json1_1EventSubscription
  */
 const de_EventSubscription = (output: any, context: __SerdeContext): EventSubscription => {
-  return {
-    event: __expectString(output.event),
-    subscribedAt:
-      output.subscribedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.subscribedAt)))
-        : undefined,
-  } as any;
+  return take(output, {
+    event: __expectString,
+    subscribedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4288,119 +3366,47 @@ const de_EventSubscriptionList = (output: any, context: __SerdeContext): EventSu
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_EventSubscription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Exclusion
- */
-const de_Exclusion = (output: any, context: __SerdeContext): Exclusion => {
-  return {
-    arn: __expectString(output.arn),
-    attributes: output.attributes != null ? de_AttributeList(output.attributes, context) : undefined,
-    description: __expectString(output.description),
-    recommendation: __expectString(output.recommendation),
-    scopes: output.scopes != null ? de_ScopeList(output.scopes, context) : undefined,
-    title: __expectString(output.title),
-  } as any;
-};
+// de_Exclusion omitted.
 
-/**
- * deserializeAws_json1_1ExclusionMap
- */
-const de_ExclusionMap = (output: any, context: __SerdeContext): Record<string, Exclusion> => {
-  return Object.entries(output).reduce((acc: Record<string, Exclusion>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_Exclusion(value, context);
-    return acc;
-  }, {});
-};
+// de_ExclusionMap omitted.
 
-/**
- * deserializeAws_json1_1ExclusionPreview
- */
-const de_ExclusionPreview = (output: any, context: __SerdeContext): ExclusionPreview => {
-  return {
-    attributes: output.attributes != null ? de_AttributeList(output.attributes, context) : undefined,
-    description: __expectString(output.description),
-    recommendation: __expectString(output.recommendation),
-    scopes: output.scopes != null ? de_ScopeList(output.scopes, context) : undefined,
-    title: __expectString(output.title),
-  } as any;
-};
+// de_ExclusionPreview omitted.
 
-/**
- * deserializeAws_json1_1ExclusionPreviewList
- */
-const de_ExclusionPreviewList = (output: any, context: __SerdeContext): ExclusionPreview[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExclusionPreview(entry, context);
-    });
-  return retVal;
-};
+// de_ExclusionPreviewList omitted.
 
-/**
- * deserializeAws_json1_1FailedItemDetails
- */
-const de_FailedItemDetails = (output: any, context: __SerdeContext): FailedItemDetails => {
-  return {
-    failureCode: __expectString(output.failureCode),
-    retryable: __expectBoolean(output.retryable),
-  } as any;
-};
+// de_FailedItemDetails omitted.
 
-/**
- * deserializeAws_json1_1FailedItems
- */
-const de_FailedItems = (output: any, context: __SerdeContext): Record<string, FailedItemDetails> => {
-  return Object.entries(output).reduce((acc: Record<string, FailedItemDetails>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_FailedItemDetails(value, context);
-    return acc;
-  }, {});
-};
+// de_FailedItems omitted.
 
 /**
  * deserializeAws_json1_1Finding
  */
 const de_Finding = (output: any, context: __SerdeContext): Finding => {
-  return {
-    arn: __expectString(output.arn),
-    assetAttributes: output.assetAttributes != null ? de_AssetAttributes(output.assetAttributes, context) : undefined,
-    assetType: __expectString(output.assetType),
-    attributes: output.attributes != null ? de_AttributeList(output.attributes, context) : undefined,
-    confidence: __expectInt32(output.confidence),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    indicatorOfCompromise: __expectBoolean(output.indicatorOfCompromise),
-    numericSeverity: __limitedParseDouble(output.numericSeverity),
-    recommendation: __expectString(output.recommendation),
-    schemaVersion: __expectInt32(output.schemaVersion),
-    service: __expectString(output.service),
-    serviceAttributes:
-      output.serviceAttributes != null ? de_InspectorServiceAttributes(output.serviceAttributes, context) : undefined,
-    severity: __expectString(output.severity),
-    title: __expectString(output.title),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-    userAttributes: output.userAttributes != null ? de_UserAttributeList(output.userAttributes, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    assetAttributes: _json,
+    assetType: __expectString,
+    attributes: _json,
+    confidence: __expectInt32,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    indicatorOfCompromise: __expectBoolean,
+    numericSeverity: __limitedParseDouble,
+    recommendation: __expectString,
+    schemaVersion: __expectInt32,
+    service: __expectString,
+    serviceAttributes: _json,
+    severity: __expectString,
+    title: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    userAttributes: _json,
+  }) as any;
 };
 
 /**
@@ -4410,358 +3416,84 @@ const de_FindingList = (output: any, context: __SerdeContext): Finding[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Finding(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1GetAssessmentReportResponse
- */
-const de_GetAssessmentReportResponse = (output: any, context: __SerdeContext): GetAssessmentReportResponse => {
-  return {
-    status: __expectString(output.status),
-    url: __expectString(output.url),
-  } as any;
-};
+// de_GetAssessmentReportResponse omitted.
 
-/**
- * deserializeAws_json1_1GetExclusionsPreviewResponse
- */
-const de_GetExclusionsPreviewResponse = (output: any, context: __SerdeContext): GetExclusionsPreviewResponse => {
-  return {
-    exclusionPreviews:
-      output.exclusionPreviews != null ? de_ExclusionPreviewList(output.exclusionPreviews, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-    previewStatus: __expectString(output.previewStatus),
-  } as any;
-};
+// de_GetExclusionsPreviewResponse omitted.
 
-/**
- * deserializeAws_json1_1GetTelemetryMetadataResponse
- */
-const de_GetTelemetryMetadataResponse = (output: any, context: __SerdeContext): GetTelemetryMetadataResponse => {
-  return {
-    telemetryMetadata:
-      output.telemetryMetadata != null ? de_TelemetryMetadataList(output.telemetryMetadata, context) : undefined,
-  } as any;
-};
+// de_GetTelemetryMetadataResponse omitted.
 
-/**
- * deserializeAws_json1_1InspectorServiceAttributes
- */
-const de_InspectorServiceAttributes = (output: any, context: __SerdeContext): InspectorServiceAttributes => {
-  return {
-    assessmentRunArn: __expectString(output.assessmentRunArn),
-    rulesPackageArn: __expectString(output.rulesPackageArn),
-    schemaVersion: __expectInt32(output.schemaVersion),
-  } as any;
-};
+// de_InspectorServiceAttributes omitted.
 
-/**
- * deserializeAws_json1_1InternalException
- */
-const de_InternalException = (output: any, context: __SerdeContext): InternalException => {
-  return {
-    canRetry: __expectBoolean(output.canRetry),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalException omitted.
 
-/**
- * deserializeAws_json1_1InvalidCrossAccountRoleException
- */
-const de_InvalidCrossAccountRoleException = (
-  output: any,
-  context: __SerdeContext
-): InvalidCrossAccountRoleException => {
-  return {
-    canRetry: __expectBoolean(output.canRetry),
-    errorCode: __expectString(output.errorCode),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidCrossAccountRoleException omitted.
 
-/**
- * deserializeAws_json1_1InvalidInputException
- */
-const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    canRetry: __expectBoolean(output.canRetry),
-    errorCode: __expectString(output.errorCode),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidInputException omitted.
 
-/**
- * deserializeAws_json1_1Ipv4AddressList
- */
-const de_Ipv4AddressList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Ipv4AddressList omitted.
 
-/**
- * deserializeAws_json1_1Ipv6Addresses
- */
-const de_Ipv6Addresses = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Ipv6Addresses omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    canRetry: __expectBoolean(output.canRetry),
-    errorCode: __expectString(output.errorCode),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListAssessmentRunAgentsResponse
- */
-const de_ListAssessmentRunAgentsResponse = (output: any, context: __SerdeContext): ListAssessmentRunAgentsResponse => {
-  return {
-    assessmentRunAgents:
-      output.assessmentRunAgents != null ? de_AssessmentRunAgentList(output.assessmentRunAgents, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListAssessmentRunAgentsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListAssessmentRunsResponse
- */
-const de_ListAssessmentRunsResponse = (output: any, context: __SerdeContext): ListAssessmentRunsResponse => {
-  return {
-    assessmentRunArns:
-      output.assessmentRunArns != null ? de_ListReturnedArnList(output.assessmentRunArns, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListAssessmentRunsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListAssessmentTargetsResponse
- */
-const de_ListAssessmentTargetsResponse = (output: any, context: __SerdeContext): ListAssessmentTargetsResponse => {
-  return {
-    assessmentTargetArns:
-      output.assessmentTargetArns != null ? de_ListReturnedArnList(output.assessmentTargetArns, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListAssessmentTargetsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListAssessmentTemplatesResponse
- */
-const de_ListAssessmentTemplatesResponse = (output: any, context: __SerdeContext): ListAssessmentTemplatesResponse => {
-  return {
-    assessmentTemplateArns:
-      output.assessmentTemplateArns != null
-        ? de_ListReturnedArnList(output.assessmentTemplateArns, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListAssessmentTemplatesResponse omitted.
 
 /**
  * deserializeAws_json1_1ListEventSubscriptionsResponse
  */
 const de_ListEventSubscriptionsResponse = (output: any, context: __SerdeContext): ListEventSubscriptionsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    subscriptions: output.subscriptions != null ? de_SubscriptionList(output.subscriptions, context) : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    subscriptions: (_: any) => de_SubscriptionList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListExclusionsResponse
- */
-const de_ListExclusionsResponse = (output: any, context: __SerdeContext): ListExclusionsResponse => {
-  return {
-    exclusionArns: output.exclusionArns != null ? de_ListReturnedArnList(output.exclusionArns, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListExclusionsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListFindingsResponse
- */
-const de_ListFindingsResponse = (output: any, context: __SerdeContext): ListFindingsResponse => {
-  return {
-    findingArns: output.findingArns != null ? de_ListReturnedArnList(output.findingArns, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ListFindingsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListReturnedArnList
- */
-const de_ListReturnedArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListReturnedArnList omitted.
 
-/**
- * deserializeAws_json1_1ListRulesPackagesResponse
- */
-const de_ListRulesPackagesResponse = (output: any, context: __SerdeContext): ListRulesPackagesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    rulesPackageArns:
-      output.rulesPackageArns != null ? de_ListReturnedArnList(output.rulesPackageArns, context) : undefined,
-  } as any;
-};
+// de_ListRulesPackagesResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1NetworkInterface
- */
-const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
-  return {
-    ipv6Addresses: output.ipv6Addresses != null ? de_Ipv6Addresses(output.ipv6Addresses, context) : undefined,
-    networkInterfaceId: __expectString(output.networkInterfaceId),
-    privateDnsName: __expectString(output.privateDnsName),
-    privateIpAddress: __expectString(output.privateIpAddress),
-    privateIpAddresses:
-      output.privateIpAddresses != null ? de_PrivateIpAddresses(output.privateIpAddresses, context) : undefined,
-    publicDnsName: __expectString(output.publicDnsName),
-    publicIp: __expectString(output.publicIp),
-    securityGroups: output.securityGroups != null ? de_SecurityGroups(output.securityGroups, context) : undefined,
-    subnetId: __expectString(output.subnetId),
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
+// de_NetworkInterface omitted.
 
-/**
- * deserializeAws_json1_1NetworkInterfaces
- */
-const de_NetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NetworkInterface(entry, context);
-    });
-  return retVal;
-};
+// de_NetworkInterfaces omitted.
 
-/**
- * deserializeAws_json1_1NoSuchEntityException
- */
-const de_NoSuchEntityException = (output: any, context: __SerdeContext): NoSuchEntityException => {
-  return {
-    canRetry: __expectBoolean(output.canRetry),
-    errorCode: __expectString(output.errorCode),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NoSuchEntityException omitted.
 
-/**
- * deserializeAws_json1_1PreviewAgentsResponse
- */
-const de_PreviewAgentsResponse = (output: any, context: __SerdeContext): PreviewAgentsResponse => {
-  return {
-    agentPreviews: output.agentPreviews != null ? de_AgentPreviewList(output.agentPreviews, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_PreviewAgentsResponse omitted.
 
-/**
- * deserializeAws_json1_1PreviewGenerationInProgressException
- */
-const de_PreviewGenerationInProgressException = (
-  output: any,
-  context: __SerdeContext
-): PreviewGenerationInProgressException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PreviewGenerationInProgressException omitted.
 
-/**
- * deserializeAws_json1_1PrivateIp
- */
-const de_PrivateIp = (output: any, context: __SerdeContext): PrivateIp => {
-  return {
-    privateDnsName: __expectString(output.privateDnsName),
-    privateIpAddress: __expectString(output.privateIpAddress),
-  } as any;
-};
+// de_PrivateIp omitted.
 
-/**
- * deserializeAws_json1_1PrivateIpAddresses
- */
-const de_PrivateIpAddresses = (output: any, context: __SerdeContext): PrivateIp[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PrivateIp(entry, context);
-    });
-  return retVal;
-};
+// de_PrivateIpAddresses omitted.
 
-/**
- * deserializeAws_json1_1RemoveAttributesFromFindingsResponse
- */
-const de_RemoveAttributesFromFindingsResponse = (
-  output: any,
-  context: __SerdeContext
-): RemoveAttributesFromFindingsResponse => {
-  return {
-    failedItems: output.failedItems != null ? de_FailedItems(output.failedItems, context) : undefined,
-  } as any;
-};
+// de_RemoveAttributesFromFindingsResponse omitted.
 
 /**
  * deserializeAws_json1_1ResourceGroup
  */
 const de_ResourceGroup = (output: any, context: __SerdeContext): ResourceGroup => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    tags: output.tags != null ? de_ResourceGroupTags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    tags: _json,
+  }) as any;
 };
 
 /**
@@ -4771,149 +3503,40 @@ const de_ResourceGroupList = (output: any, context: __SerdeContext): ResourceGro
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResourceGroup(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ResourceGroupTag
- */
-const de_ResourceGroupTag = (output: any, context: __SerdeContext): ResourceGroupTag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_ResourceGroupTag omitted.
 
-/**
- * deserializeAws_json1_1ResourceGroupTags
- */
-const de_ResourceGroupTags = (output: any, context: __SerdeContext): ResourceGroupTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceGroupTag(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceGroupTags omitted.
 
-/**
- * deserializeAws_json1_1RulesPackage
- */
-const de_RulesPackage = (output: any, context: __SerdeContext): RulesPackage => {
-  return {
-    arn: __expectString(output.arn),
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    provider: __expectString(output.provider),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_RulesPackage omitted.
 
-/**
- * deserializeAws_json1_1RulesPackageList
- */
-const de_RulesPackageList = (output: any, context: __SerdeContext): RulesPackage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RulesPackage(entry, context);
-    });
-  return retVal;
-};
+// de_RulesPackageList omitted.
 
-/**
- * deserializeAws_json1_1Scope
- */
-const de_Scope = (output: any, context: __SerdeContext): Scope => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Scope omitted.
 
-/**
- * deserializeAws_json1_1ScopeList
- */
-const de_ScopeList = (output: any, context: __SerdeContext): Scope[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Scope(entry, context);
-    });
-  return retVal;
-};
+// de_ScopeList omitted.
 
-/**
- * deserializeAws_json1_1SecurityGroup
- */
-const de_SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup => {
-  return {
-    groupId: __expectString(output.groupId),
-    groupName: __expectString(output.groupName),
-  } as any;
-};
+// de_SecurityGroup omitted.
 
-/**
- * deserializeAws_json1_1SecurityGroups
- */
-const de_SecurityGroups = (output: any, context: __SerdeContext): SecurityGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SecurityGroup(entry, context);
-    });
-  return retVal;
-};
+// de_SecurityGroups omitted.
 
-/**
- * deserializeAws_json1_1ServiceTemporarilyUnavailableException
- */
-const de_ServiceTemporarilyUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): ServiceTemporarilyUnavailableException => {
-  return {
-    canRetry: __expectBoolean(output.canRetry),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ServiceTemporarilyUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1StartAssessmentRunResponse
- */
-const de_StartAssessmentRunResponse = (output: any, context: __SerdeContext): StartAssessmentRunResponse => {
-  return {
-    assessmentRunArn: __expectString(output.assessmentRunArn),
-  } as any;
-};
+// de_StartAssessmentRunResponse omitted.
 
 /**
  * deserializeAws_json1_1Subscription
  */
 const de_Subscription = (output: any, context: __SerdeContext): Subscription => {
-  return {
-    eventSubscriptions:
-      output.eventSubscriptions != null ? de_EventSubscriptionList(output.eventSubscriptions, context) : undefined,
-    resourceArn: __expectString(output.resourceArn),
-    topicArn: __expectString(output.topicArn),
-  } as any;
+  return take(output, {
+    eventSubscriptions: (_: any) => de_EventSubscriptionList(_, context),
+    resourceArn: __expectString,
+    topicArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -4923,104 +3546,24 @@ const de_SubscriptionList = (output: any, context: __SerdeContext): Subscription
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Subscription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_1TelemetryMetadata
- */
-const de_TelemetryMetadata = (output: any, context: __SerdeContext): TelemetryMetadata => {
-  return {
-    count: __expectLong(output.count),
-    dataSize: __expectLong(output.dataSize),
-    messageType: __expectString(output.messageType),
-  } as any;
-};
+// de_TelemetryMetadata omitted.
 
-/**
- * deserializeAws_json1_1TelemetryMetadataList
- */
-const de_TelemetryMetadataList = (output: any, context: __SerdeContext): TelemetryMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TelemetryMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_TelemetryMetadataList omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedFeatureException
- */
-const de_UnsupportedFeatureException = (output: any, context: __SerdeContext): UnsupportedFeatureException => {
-  return {
-    canRetry: __expectBoolean(output.canRetry),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedFeatureException omitted.
 
-/**
- * deserializeAws_json1_1UserAttributeList
- */
-const de_UserAttributeList = (output: any, context: __SerdeContext): Attribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Attribute(entry, context);
-    });
-  return retVal;
-};
+// de_UserAttributeList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -5042,6 +3585,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

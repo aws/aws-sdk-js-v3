@@ -5,21 +5,22 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -195,60 +196,39 @@ import {
   Aggregates,
   AggregateType,
   Alarms,
-  AssetCompositeModel,
-  AssetErrorDetails,
-  AssetHierarchy,
-  AssetHierarchyInfo,
   AssetModelCompositeModel,
   AssetModelCompositeModelDefinition,
   AssetModelHierarchy,
   AssetModelHierarchyDefinition,
   AssetModelProperty,
   AssetModelPropertyDefinition,
-  AssetModelPropertySummary,
-  AssetModelStatus,
   AssetModelSummary,
-  AssetProperty,
-  AssetPropertySummary,
   AssetPropertyValue,
-  AssetRelationshipSummary,
-  AssetStatus,
   AssetSummary,
   AssociatedAssetsSummary,
   Attribute,
   BatchGetAssetPropertyAggregatesEntry,
-  BatchGetAssetPropertyAggregatesErrorEntry,
   BatchGetAssetPropertyAggregatesErrorInfo,
   BatchGetAssetPropertyAggregatesSkippedEntry,
   BatchGetAssetPropertyAggregatesSuccessEntry,
   BatchGetAssetPropertyValueEntry,
-  BatchGetAssetPropertyValueErrorEntry,
   BatchGetAssetPropertyValueErrorInfo,
   BatchGetAssetPropertyValueHistoryEntry,
-  BatchGetAssetPropertyValueHistoryErrorEntry,
   BatchGetAssetPropertyValueHistoryErrorInfo,
   BatchGetAssetPropertyValueHistorySkippedEntry,
   BatchGetAssetPropertyValueHistorySuccessEntry,
   BatchGetAssetPropertyValueSkippedEntry,
   BatchGetAssetPropertyValueSuccessEntry,
-  BatchPutAssetPropertyError,
-  BatchPutAssetPropertyErrorEntry,
   ColumnName,
-  CompositeModelProperty,
-  ConfigurationErrorDetails,
-  ConfigurationStatus,
   ConflictingOperationException,
   Csv,
   CustomerManagedS3Storage,
   DashboardSummary,
-  DetailedError,
-  ErrorDetails,
   ErrorReportLocation,
   ExpressionVariable,
   File,
   FileFormat,
   ForwardingConfig,
-  GatewayCapabilitySummary,
   GatewayPlatform,
   GatewaySummary,
   Greengrass,
@@ -259,12 +239,10 @@ import {
   Identity,
   Image,
   ImageFile,
-  ImageLocation,
   InternalFailureException,
   InterpolatedAssetPropertyValue,
   InvalidRequestException,
   JobConfiguration,
-  JobSummary,
   LimitExceededException,
   LoggingOptions,
   Measurement,
@@ -272,15 +250,11 @@ import {
   Metric,
   MetricProcessingConfig,
   MetricWindow,
-  MonitorErrorDetails,
   MultiLayerStorage,
   PortalResource,
-  PortalStatus,
   PortalSummary,
   ProjectResource,
   ProjectSummary,
-  Property,
-  PropertyNotification,
   PropertyType,
   PutAssetPropertyValueEntry,
   Quality,
@@ -317,11 +291,13 @@ export const se_AssociateAssetsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/associate";
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.childAssetId != null && { childAssetId: input.childAssetId }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.hierarchyId != null && { hierarchyId: input.hierarchyId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      childAssetId: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      hierarchyId: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -358,9 +334,11 @@ export const se_AssociateTimeSeriesToAssetPropertyCommand = async (
     propertyId: [, __expectNonNull(input.propertyId!, `propertyId`)],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -395,10 +373,12 @@ export const se_BatchAssociateProjectAssetsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}/assets/associate";
   resolvedPath = __resolvedPath(resolvedPath, input, "projectId", () => input.projectId!, "{projectId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.assetIds != null && { assetIds: se_IDs(input.assetIds, context) }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assetIds: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -432,10 +412,12 @@ export const se_BatchDisassociateProjectAssetsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}/assets/disassociate";
   resolvedPath = __resolvedPath(resolvedPath, input, "projectId", () => input.projectId!, "{projectId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.assetIds != null && { assetIds: se_IDs(input.assetIds, context) }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assetIds: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -468,11 +450,13 @@ export const se_BatchGetAssetPropertyAggregatesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/batch/aggregates";
   let body: any;
-  body = JSON.stringify({
-    ...(input.entries != null && { entries: se_BatchGetAssetPropertyAggregatesEntries(input.entries, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      entries: (_) => se_BatchGetAssetPropertyAggregatesEntries(_, context),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
@@ -505,10 +489,12 @@ export const se_BatchGetAssetPropertyValueCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/batch/latest";
   let body: any;
-  body = JSON.stringify({
-    ...(input.entries != null && { entries: se_BatchGetAssetPropertyValueEntries(input.entries, context) }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      entries: (_) => _json(_),
+      nextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
@@ -541,11 +527,13 @@ export const se_BatchGetAssetPropertyValueHistoryCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/batch/history";
   let body: any;
-  body = JSON.stringify({
-    ...(input.entries != null && { entries: se_BatchGetAssetPropertyValueHistoryEntries(input.entries, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      entries: (_) => se_BatchGetAssetPropertyValueHistoryEntries(_, context),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
@@ -577,9 +565,11 @@ export const se_BatchPutAssetPropertyValueCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties";
   let body: any;
-  body = JSON.stringify({
-    ...(input.entries != null && { entries: se_PutAssetPropertyValueEntries(input.entries, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      entries: (_) => se_PutAssetPropertyValueEntries(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
@@ -611,17 +601,15 @@ export const se_CreateAccessPolicyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-policies";
   let body: any;
-  body = JSON.stringify({
-    ...(input.accessPolicyIdentity != null && {
-      accessPolicyIdentity: se_Identity(input.accessPolicyIdentity, context),
-    }),
-    ...(input.accessPolicyPermission != null && { accessPolicyPermission: input.accessPolicyPermission }),
-    ...(input.accessPolicyResource != null && {
-      accessPolicyResource: se_Resource(input.accessPolicyResource, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accessPolicyIdentity: (_) => _json(_),
+      accessPolicyPermission: [],
+      accessPolicyResource: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -653,13 +641,15 @@ export const se_CreateAssetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assetDescription != null && { assetDescription: input.assetDescription }),
-    ...(input.assetModelId != null && { assetModelId: input.assetModelId }),
-    ...(input.assetName != null && { assetName: input.assetName }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assetDescription: [],
+      assetModelId: [],
+      assetName: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -691,21 +681,17 @@ export const se_CreateAssetModelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/asset-models";
   let body: any;
-  body = JSON.stringify({
-    ...(input.assetModelCompositeModels != null && {
-      assetModelCompositeModels: se_AssetModelCompositeModelDefinitions(input.assetModelCompositeModels, context),
-    }),
-    ...(input.assetModelDescription != null && { assetModelDescription: input.assetModelDescription }),
-    ...(input.assetModelHierarchies != null && {
-      assetModelHierarchies: se_AssetModelHierarchyDefinitions(input.assetModelHierarchies, context),
-    }),
-    ...(input.assetModelName != null && { assetModelName: input.assetModelName }),
-    ...(input.assetModelProperties != null && {
-      assetModelProperties: se_AssetModelPropertyDefinitions(input.assetModelProperties, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assetModelCompositeModels: (_) => _json(_),
+      assetModelDescription: [],
+      assetModelHierarchies: (_) => _json(_),
+      assetModelName: [],
+      assetModelProperties: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -737,15 +723,15 @@ export const se_CreateBulkImportJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.errorReportLocation != null && {
-      errorReportLocation: se_ErrorReportLocation(input.errorReportLocation, context),
-    }),
-    ...(input.files != null && { files: se_Files(input.files, context) }),
-    ...(input.jobConfiguration != null && { jobConfiguration: se_JobConfiguration(input.jobConfiguration, context) }),
-    ...(input.jobName != null && { jobName: input.jobName }),
-    ...(input.jobRoleArn != null && { jobRoleArn: input.jobRoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      errorReportLocation: (_) => _json(_),
+      files: (_) => _json(_),
+      jobConfiguration: (_) => _json(_),
+      jobName: [],
+      jobRoleArn: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
@@ -777,14 +763,16 @@ export const se_CreateDashboardCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.dashboardDefinition != null && { dashboardDefinition: input.dashboardDefinition }),
-    ...(input.dashboardDescription != null && { dashboardDescription: input.dashboardDescription }),
-    ...(input.dashboardName != null && { dashboardName: input.dashboardName }),
-    ...(input.projectId != null && { projectId: input.projectId }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      dashboardDefinition: [],
+      dashboardDescription: [],
+      dashboardName: [],
+      projectId: [],
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -816,11 +804,13 @@ export const se_CreateGatewayCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/20200301/gateways";
   let body: any;
-  body = JSON.stringify({
-    ...(input.gatewayName != null && { gatewayName: input.gatewayName }),
-    ...(input.gatewayPlatform != null && { gatewayPlatform: se_GatewayPlatform(input.gatewayPlatform, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      gatewayName: [],
+      gatewayPlatform: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -852,18 +842,20 @@ export const se_CreatePortalCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals";
   let body: any;
-  body = JSON.stringify({
-    ...(input.alarms != null && { alarms: se_Alarms(input.alarms, context) }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.notificationSenderEmail != null && { notificationSenderEmail: input.notificationSenderEmail }),
-    ...(input.portalAuthMode != null && { portalAuthMode: input.portalAuthMode }),
-    ...(input.portalContactEmail != null && { portalContactEmail: input.portalContactEmail }),
-    ...(input.portalDescription != null && { portalDescription: input.portalDescription }),
-    ...(input.portalLogoImageFile != null && { portalLogoImageFile: se_ImageFile(input.portalLogoImageFile, context) }),
-    ...(input.portalName != null && { portalName: input.portalName }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      alarms: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      notificationSenderEmail: [],
+      portalAuthMode: [],
+      portalContactEmail: [],
+      portalDescription: [],
+      portalLogoImageFile: (_) => se_ImageFile(_, context),
+      portalName: [],
+      roleArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -895,13 +887,15 @@ export const se_CreateProjectCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.portalId != null && { portalId: input.portalId }),
-    ...(input.projectDescription != null && { projectDescription: input.projectDescription }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      portalId: [],
+      projectDescription: [],
+      projectName: [],
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -1190,9 +1184,11 @@ export const se_DeleteTimeSeriesCommand = async (
     propertyId: [, input.propertyId!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -1698,11 +1694,13 @@ export const se_DisassociateAssetsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/disassociate";
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.childAssetId != null && { childAssetId: input.childAssetId }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.hierarchyId != null && { hierarchyId: input.hierarchyId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      childAssetId: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      hierarchyId: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -1740,9 +1738,11 @@ export const se_DisassociateTimeSeriesFromAssetPropertyCommand = async (
     propertyId: [, __expectNonNull(input.propertyId!, `propertyId`)],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2512,10 +2512,12 @@ export const se_PutDefaultEncryptionConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/account/encryption";
   let body: any;
-  body = JSON.stringify({
-    ...(input.encryptionType != null && { encryptionType: input.encryptionType }),
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      encryptionType: [],
+      kmsKeyId: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2547,9 +2549,11 @@ export const se_PutLoggingOptionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logging";
   let body: any;
-  body = JSON.stringify({
-    ...(input.loggingOptions != null && { loggingOptions: se_LoggingOptions(input.loggingOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      loggingOptions: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2582,14 +2586,14 @@ export const se_PutStorageConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/account/storage";
   let body: any;
-  body = JSON.stringify({
-    ...(input.disassociatedDataStorage != null && { disassociatedDataStorage: input.disassociatedDataStorage }),
-    ...(input.multiLayerStorage != null && {
-      multiLayerStorage: se_MultiLayerStorage(input.multiLayerStorage, context),
-    }),
-    ...(input.retentionPeriod != null && { retentionPeriod: se_RetentionPeriod(input.retentionPeriod, context) }),
-    ...(input.storageType != null && { storageType: input.storageType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      disassociatedDataStorage: [],
+      multiLayerStorage: (_) => _json(_),
+      retentionPeriod: (_) => _json(_),
+      storageType: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2624,9 +2628,11 @@ export const se_TagResourceCommand = async (
     resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2705,16 +2711,14 @@ export const se_UpdateAccessPolicyCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.accessPolicyIdentity != null && {
-      accessPolicyIdentity: se_Identity(input.accessPolicyIdentity, context),
-    }),
-    ...(input.accessPolicyPermission != null && { accessPolicyPermission: input.accessPolicyPermission }),
-    ...(input.accessPolicyResource != null && {
-      accessPolicyResource: se_Resource(input.accessPolicyResource, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      accessPolicyIdentity: (_) => _json(_),
+      accessPolicyPermission: [],
+      accessPolicyResource: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -2747,11 +2751,13 @@ export const se_UpdateAssetCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.assetDescription != null && { assetDescription: input.assetDescription }),
-    ...(input.assetName != null && { assetName: input.assetName }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assetDescription: [],
+      assetName: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2792,20 +2798,16 @@ export const se_UpdateAssetModelCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.assetModelCompositeModels != null && {
-      assetModelCompositeModels: se_AssetModelCompositeModels(input.assetModelCompositeModels, context),
-    }),
-    ...(input.assetModelDescription != null && { assetModelDescription: input.assetModelDescription }),
-    ...(input.assetModelHierarchies != null && {
-      assetModelHierarchies: se_AssetModelHierarchies(input.assetModelHierarchies, context),
-    }),
-    ...(input.assetModelName != null && { assetModelName: input.assetModelName }),
-    ...(input.assetModelProperties != null && {
-      assetModelProperties: se_AssetModelProperties(input.assetModelProperties, context),
-    }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      assetModelCompositeModels: (_) => _json(_),
+      assetModelDescription: [],
+      assetModelHierarchies: (_) => _json(_),
+      assetModelName: [],
+      assetModelProperties: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2840,12 +2842,14 @@ export const se_UpdateAssetPropertyCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "propertyId", () => input.propertyId!, "{propertyId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.propertyAlias != null && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyNotificationState != null && { propertyNotificationState: input.propertyNotificationState }),
-    ...(input.propertyUnit != null && { propertyUnit: input.propertyUnit }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      propertyAlias: [],
+      propertyNotificationState: [],
+      propertyUnit: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2879,12 +2883,14 @@ export const se_UpdateDashboardCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards/{dashboardId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "dashboardId", () => input.dashboardId!, "{dashboardId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.dashboardDefinition != null && { dashboardDefinition: input.dashboardDefinition }),
-    ...(input.dashboardDescription != null && { dashboardDescription: input.dashboardDescription }),
-    ...(input.dashboardName != null && { dashboardName: input.dashboardName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      dashboardDefinition: [],
+      dashboardDescription: [],
+      dashboardName: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -2918,9 +2924,11 @@ export const se_UpdateGatewayCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/20200301/gateways/{gatewayId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "gatewayId", () => input.gatewayId!, "{gatewayId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.gatewayName != null && { gatewayName: input.gatewayName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      gatewayName: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2954,10 +2962,12 @@ export const se_UpdateGatewayCapabilityConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/20200301/gateways/{gatewayId}/capability";
   resolvedPath = __resolvedPath(resolvedPath, input, "gatewayId", () => input.gatewayId!, "{gatewayId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.capabilityConfiguration != null && { capabilityConfiguration: input.capabilityConfiguration }),
-    ...(input.capabilityNamespace != null && { capabilityNamespace: input.capabilityNamespace }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      capabilityConfiguration: [],
+      capabilityNamespace: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
@@ -2990,16 +3000,18 @@ export const se_UpdatePortalCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalId", () => input.portalId!, "{portalId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.alarms != null && { alarms: se_Alarms(input.alarms, context) }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.notificationSenderEmail != null && { notificationSenderEmail: input.notificationSenderEmail }),
-    ...(input.portalContactEmail != null && { portalContactEmail: input.portalContactEmail }),
-    ...(input.portalDescription != null && { portalDescription: input.portalDescription }),
-    ...(input.portalLogoImage != null && { portalLogoImage: se_Image(input.portalLogoImage, context) }),
-    ...(input.portalName != null && { portalName: input.portalName }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      alarms: (_) => _json(_),
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      notificationSenderEmail: [],
+      portalContactEmail: [],
+      portalDescription: [],
+      portalLogoImage: (_) => se_Image(_, context),
+      portalName: [],
+      roleArn: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -3032,11 +3044,13 @@ export const se_UpdateProjectCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "projectId", () => input.projectId!, "{projectId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.projectDescription != null && { projectDescription: input.projectDescription }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      projectDescription: [],
+      projectName: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
@@ -3108,10 +3122,9 @@ const de_AssociateAssetsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3164,10 +3177,9 @@ const de_AssociateTimeSeriesToAssetPropertyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3187,9 +3199,10 @@ export const de_BatchAssociateProjectAssetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_BatchAssociateProjectAssetsErrors(data.errors, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3223,10 +3236,9 @@ const de_BatchAssociateProjectAssetsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3246,9 +3258,10 @@ export const de_BatchDisassociateProjectAssetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_BatchDisassociateProjectAssetsErrors(data.errors, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3279,10 +3292,9 @@ const de_BatchDisassociateProjectAssetsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3302,18 +3314,13 @@ export const de_BatchGetAssetPropertyAggregatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errorEntries != null) {
-    contents.errorEntries = de_BatchGetAssetPropertyAggregatesErrorEntries(data.errorEntries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.skippedEntries != null) {
-    contents.skippedEntries = de_BatchGetAssetPropertyAggregatesSkippedEntries(data.skippedEntries, context);
-  }
-  if (data.successEntries != null) {
-    contents.successEntries = de_BatchGetAssetPropertyAggregatesSuccessEntries(data.successEntries, context);
-  }
+  const doc = take(data, {
+    errorEntries: _json,
+    nextToken: __expectString,
+    skippedEntries: (_) => de_BatchGetAssetPropertyAggregatesSkippedEntries(_, context),
+    successEntries: (_) => de_BatchGetAssetPropertyAggregatesSuccessEntries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3344,10 +3351,9 @@ const de_BatchGetAssetPropertyAggregatesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3367,18 +3373,13 @@ export const de_BatchGetAssetPropertyValueCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errorEntries != null) {
-    contents.errorEntries = de_BatchGetAssetPropertyValueErrorEntries(data.errorEntries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.skippedEntries != null) {
-    contents.skippedEntries = de_BatchGetAssetPropertyValueSkippedEntries(data.skippedEntries, context);
-  }
-  if (data.successEntries != null) {
-    contents.successEntries = de_BatchGetAssetPropertyValueSuccessEntries(data.successEntries, context);
-  }
+  const doc = take(data, {
+    errorEntries: _json,
+    nextToken: __expectString,
+    skippedEntries: (_) => de_BatchGetAssetPropertyValueSkippedEntries(_, context),
+    successEntries: (_) => de_BatchGetAssetPropertyValueSuccessEntries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3409,10 +3410,9 @@ const de_BatchGetAssetPropertyValueCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3432,18 +3432,13 @@ export const de_BatchGetAssetPropertyValueHistoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errorEntries != null) {
-    contents.errorEntries = de_BatchGetAssetPropertyValueHistoryErrorEntries(data.errorEntries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.skippedEntries != null) {
-    contents.skippedEntries = de_BatchGetAssetPropertyValueHistorySkippedEntries(data.skippedEntries, context);
-  }
-  if (data.successEntries != null) {
-    contents.successEntries = de_BatchGetAssetPropertyValueHistorySuccessEntries(data.successEntries, context);
-  }
+  const doc = take(data, {
+    errorEntries: _json,
+    nextToken: __expectString,
+    skippedEntries: (_) => de_BatchGetAssetPropertyValueHistorySkippedEntries(_, context),
+    successEntries: (_) => de_BatchGetAssetPropertyValueHistorySuccessEntries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3474,10 +3469,9 @@ const de_BatchGetAssetPropertyValueHistoryCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3497,9 +3491,10 @@ export const de_BatchPutAssetPropertyValueCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errorEntries != null) {
-    contents.errorEntries = de_BatchPutAssetPropertyErrorEntries(data.errorEntries, context);
-  }
+  const doc = take(data, {
+    errorEntries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3539,10 +3534,9 @@ const de_BatchPutAssetPropertyValueCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3562,12 +3556,11 @@ export const de_CreateAccessPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessPolicyArn != null) {
-    contents.accessPolicyArn = __expectString(data.accessPolicyArn);
-  }
-  if (data.accessPolicyId != null) {
-    contents.accessPolicyId = __expectString(data.accessPolicyId);
-  }
+  const doc = take(data, {
+    accessPolicyArn: __expectString,
+    accessPolicyId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3601,10 +3594,9 @@ const de_CreateAccessPolicyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3624,15 +3616,12 @@ export const de_CreateAssetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetArn != null) {
-    contents.assetArn = __expectString(data.assetArn);
-  }
-  if (data.assetId != null) {
-    contents.assetId = __expectString(data.assetId);
-  }
-  if (data.assetStatus != null) {
-    contents.assetStatus = de_AssetStatus(data.assetStatus, context);
-  }
+  const doc = take(data, {
+    assetArn: __expectString,
+    assetId: __expectString,
+    assetStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3672,10 +3661,9 @@ const de_CreateAssetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3695,15 +3683,12 @@ export const de_CreateAssetModelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetModelArn != null) {
-    contents.assetModelArn = __expectString(data.assetModelArn);
-  }
-  if (data.assetModelId != null) {
-    contents.assetModelId = __expectString(data.assetModelId);
-  }
-  if (data.assetModelStatus != null) {
-    contents.assetModelStatus = de_AssetModelStatus(data.assetModelStatus, context);
-  }
+  const doc = take(data, {
+    assetModelArn: __expectString,
+    assetModelId: __expectString,
+    assetModelStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3743,10 +3728,9 @@ const de_CreateAssetModelCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3766,15 +3750,12 @@ export const de_CreateBulkImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobId != null) {
-    contents.jobId = __expectString(data.jobId);
-  }
-  if (data.jobName != null) {
-    contents.jobName = __expectString(data.jobName);
-  }
-  if (data.jobStatus != null) {
-    contents.jobStatus = __expectString(data.jobStatus);
-  }
+  const doc = take(data, {
+    jobId: __expectString,
+    jobName: __expectString,
+    jobStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3814,10 +3795,9 @@ const de_CreateBulkImportJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3837,12 +3817,11 @@ export const de_CreateDashboardCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dashboardArn != null) {
-    contents.dashboardArn = __expectString(data.dashboardArn);
-  }
-  if (data.dashboardId != null) {
-    contents.dashboardId = __expectString(data.dashboardId);
-  }
+  const doc = take(data, {
+    dashboardArn: __expectString,
+    dashboardId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3876,10 +3855,9 @@ const de_CreateDashboardCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3899,12 +3877,11 @@ export const de_CreateGatewayCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gatewayArn != null) {
-    contents.gatewayArn = __expectString(data.gatewayArn);
-  }
-  if (data.gatewayId != null) {
-    contents.gatewayId = __expectString(data.gatewayId);
-  }
+  const doc = take(data, {
+    gatewayArn: __expectString,
+    gatewayId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3938,10 +3915,9 @@ const de_CreateGatewayCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3961,21 +3937,14 @@ export const de_CreatePortalCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portalArn != null) {
-    contents.portalArn = __expectString(data.portalArn);
-  }
-  if (data.portalId != null) {
-    contents.portalId = __expectString(data.portalId);
-  }
-  if (data.portalStartUrl != null) {
-    contents.portalStartUrl = __expectString(data.portalStartUrl);
-  }
-  if (data.portalStatus != null) {
-    contents.portalStatus = de_PortalStatus(data.portalStatus, context);
-  }
-  if (data.ssoApplicationId != null) {
-    contents.ssoApplicationId = __expectString(data.ssoApplicationId);
-  }
+  const doc = take(data, {
+    portalArn: __expectString,
+    portalId: __expectString,
+    portalStartUrl: __expectString,
+    portalStatus: _json,
+    ssoApplicationId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4009,10 +3978,9 @@ const de_CreatePortalCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4032,12 +4000,11 @@ export const de_CreateProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.projectArn != null) {
-    contents.projectArn = __expectString(data.projectArn);
-  }
-  if (data.projectId != null) {
-    contents.projectId = __expectString(data.projectId);
-  }
+  const doc = take(data, {
+    projectArn: __expectString,
+    projectId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4071,10 +4038,9 @@ const de_CreateProjectCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4124,10 +4090,9 @@ const de_DeleteAccessPolicyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4147,9 +4112,10 @@ export const de_DeleteAssetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetStatus != null) {
-    contents.assetStatus = de_AssetStatus(data.assetStatus, context);
-  }
+  const doc = take(data, {
+    assetStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4183,10 +4149,9 @@ const de_DeleteAssetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4206,9 +4171,10 @@ export const de_DeleteAssetModelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetModelStatus != null) {
-    contents.assetModelStatus = de_AssetModelStatus(data.assetModelStatus, context);
-  }
+  const doc = take(data, {
+    assetModelStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4242,10 +4208,9 @@ const de_DeleteAssetModelCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4295,10 +4260,9 @@ const de_DeleteDashboardCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4348,10 +4312,9 @@ const de_DeleteGatewayCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4371,9 +4334,10 @@ export const de_DeletePortalCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portalStatus != null) {
-    contents.portalStatus = de_PortalStatus(data.portalStatus, context);
-  }
+  const doc = take(data, {
+    portalStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4407,10 +4371,9 @@ const de_DeletePortalCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4460,10 +4423,9 @@ const de_DeleteProjectCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4516,10 +4478,9 @@ const de_DeleteTimeSeriesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4539,31 +4500,16 @@ export const de_DescribeAccessPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessPolicyArn != null) {
-    contents.accessPolicyArn = __expectString(data.accessPolicyArn);
-  }
-  if (data.accessPolicyCreationDate != null) {
-    contents.accessPolicyCreationDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.accessPolicyCreationDate))
-    );
-  }
-  if (data.accessPolicyId != null) {
-    contents.accessPolicyId = __expectString(data.accessPolicyId);
-  }
-  if (data.accessPolicyIdentity != null) {
-    contents.accessPolicyIdentity = de_Identity(data.accessPolicyIdentity, context);
-  }
-  if (data.accessPolicyLastUpdateDate != null) {
-    contents.accessPolicyLastUpdateDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.accessPolicyLastUpdateDate))
-    );
-  }
-  if (data.accessPolicyPermission != null) {
-    contents.accessPolicyPermission = __expectString(data.accessPolicyPermission);
-  }
-  if (data.accessPolicyResource != null) {
-    contents.accessPolicyResource = de_Resource(data.accessPolicyResource, context);
-  }
+  const doc = take(data, {
+    accessPolicyArn: __expectString,
+    accessPolicyCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    accessPolicyId: __expectString,
+    accessPolicyIdentity: _json,
+    accessPolicyLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    accessPolicyPermission: __expectString,
+    accessPolicyResource: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4594,10 +4540,9 @@ const de_DescribeAccessPolicyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4617,39 +4562,20 @@ export const de_DescribeAssetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetArn != null) {
-    contents.assetArn = __expectString(data.assetArn);
-  }
-  if (data.assetCompositeModels != null) {
-    contents.assetCompositeModels = de_AssetCompositeModels(data.assetCompositeModels, context);
-  }
-  if (data.assetCreationDate != null) {
-    contents.assetCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.assetCreationDate)));
-  }
-  if (data.assetDescription != null) {
-    contents.assetDescription = __expectString(data.assetDescription);
-  }
-  if (data.assetHierarchies != null) {
-    contents.assetHierarchies = de_AssetHierarchies(data.assetHierarchies, context);
-  }
-  if (data.assetId != null) {
-    contents.assetId = __expectString(data.assetId);
-  }
-  if (data.assetLastUpdateDate != null) {
-    contents.assetLastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.assetLastUpdateDate)));
-  }
-  if (data.assetModelId != null) {
-    contents.assetModelId = __expectString(data.assetModelId);
-  }
-  if (data.assetName != null) {
-    contents.assetName = __expectString(data.assetName);
-  }
-  if (data.assetProperties != null) {
-    contents.assetProperties = de_AssetProperties(data.assetProperties, context);
-  }
-  if (data.assetStatus != null) {
-    contents.assetStatus = de_AssetStatus(data.assetStatus, context);
-  }
+  const doc = take(data, {
+    assetArn: __expectString,
+    assetCompositeModels: _json,
+    assetCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    assetDescription: __expectString,
+    assetHierarchies: _json,
+    assetId: __expectString,
+    assetLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    assetModelId: __expectString,
+    assetName: __expectString,
+    assetProperties: _json,
+    assetStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4680,10 +4606,9 @@ const de_DescribeAssetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4703,40 +4628,19 @@ export const de_DescribeAssetModelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetModelArn != null) {
-    contents.assetModelArn = __expectString(data.assetModelArn);
-  }
-  if (data.assetModelCompositeModels != null) {
-    contents.assetModelCompositeModels = de_AssetModelCompositeModels(data.assetModelCompositeModels, context);
-  }
-  if (data.assetModelCreationDate != null) {
-    contents.assetModelCreationDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.assetModelCreationDate))
-    );
-  }
-  if (data.assetModelDescription != null) {
-    contents.assetModelDescription = __expectString(data.assetModelDescription);
-  }
-  if (data.assetModelHierarchies != null) {
-    contents.assetModelHierarchies = de_AssetModelHierarchies(data.assetModelHierarchies, context);
-  }
-  if (data.assetModelId != null) {
-    contents.assetModelId = __expectString(data.assetModelId);
-  }
-  if (data.assetModelLastUpdateDate != null) {
-    contents.assetModelLastUpdateDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.assetModelLastUpdateDate))
-    );
-  }
-  if (data.assetModelName != null) {
-    contents.assetModelName = __expectString(data.assetModelName);
-  }
-  if (data.assetModelProperties != null) {
-    contents.assetModelProperties = de_AssetModelProperties(data.assetModelProperties, context);
-  }
-  if (data.assetModelStatus != null) {
-    contents.assetModelStatus = de_AssetModelStatus(data.assetModelStatus, context);
-  }
+  const doc = take(data, {
+    assetModelArn: __expectString,
+    assetModelCompositeModels: _json,
+    assetModelCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    assetModelDescription: __expectString,
+    assetModelHierarchies: _json,
+    assetModelId: __expectString,
+    assetModelLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    assetModelName: __expectString,
+    assetModelProperties: _json,
+    assetModelStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4767,10 +4671,9 @@ const de_DescribeAssetModelCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4790,21 +4693,14 @@ export const de_DescribeAssetPropertyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetId != null) {
-    contents.assetId = __expectString(data.assetId);
-  }
-  if (data.assetModelId != null) {
-    contents.assetModelId = __expectString(data.assetModelId);
-  }
-  if (data.assetName != null) {
-    contents.assetName = __expectString(data.assetName);
-  }
-  if (data.assetProperty != null) {
-    contents.assetProperty = de_Property(data.assetProperty, context);
-  }
-  if (data.compositeModel != null) {
-    contents.compositeModel = de_CompositeModelProperty(data.compositeModel, context);
-  }
+  const doc = take(data, {
+    assetId: __expectString,
+    assetModelId: __expectString,
+    assetName: __expectString,
+    assetProperty: _json,
+    compositeModel: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4835,10 +4731,9 @@ const de_DescribeAssetPropertyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4858,33 +4753,18 @@ export const de_DescribeBulkImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errorReportLocation != null) {
-    contents.errorReportLocation = de_ErrorReportLocation(data.errorReportLocation, context);
-  }
-  if (data.files != null) {
-    contents.files = de_Files(data.files, context);
-  }
-  if (data.jobConfiguration != null) {
-    contents.jobConfiguration = de_JobConfiguration(data.jobConfiguration, context);
-  }
-  if (data.jobCreationDate != null) {
-    contents.jobCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.jobCreationDate)));
-  }
-  if (data.jobId != null) {
-    contents.jobId = __expectString(data.jobId);
-  }
-  if (data.jobLastUpdateDate != null) {
-    contents.jobLastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.jobLastUpdateDate)));
-  }
-  if (data.jobName != null) {
-    contents.jobName = __expectString(data.jobName);
-  }
-  if (data.jobRoleArn != null) {
-    contents.jobRoleArn = __expectString(data.jobRoleArn);
-  }
-  if (data.jobStatus != null) {
-    contents.jobStatus = __expectString(data.jobStatus);
-  }
+  const doc = take(data, {
+    errorReportLocation: _json,
+    files: _json,
+    jobConfiguration: _json,
+    jobCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    jobId: __expectString,
+    jobLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    jobName: __expectString,
+    jobRoleArn: __expectString,
+    jobStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4915,10 +4795,9 @@ const de_DescribeBulkImportJobCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4938,32 +4817,17 @@ export const de_DescribeDashboardCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dashboardArn != null) {
-    contents.dashboardArn = __expectString(data.dashboardArn);
-  }
-  if (data.dashboardCreationDate != null) {
-    contents.dashboardCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.dashboardCreationDate)));
-  }
-  if (data.dashboardDefinition != null) {
-    contents.dashboardDefinition = __expectString(data.dashboardDefinition);
-  }
-  if (data.dashboardDescription != null) {
-    contents.dashboardDescription = __expectString(data.dashboardDescription);
-  }
-  if (data.dashboardId != null) {
-    contents.dashboardId = __expectString(data.dashboardId);
-  }
-  if (data.dashboardLastUpdateDate != null) {
-    contents.dashboardLastUpdateDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.dashboardLastUpdateDate))
-    );
-  }
-  if (data.dashboardName != null) {
-    contents.dashboardName = __expectString(data.dashboardName);
-  }
-  if (data.projectId != null) {
-    contents.projectId = __expectString(data.projectId);
-  }
+  const doc = take(data, {
+    dashboardArn: __expectString,
+    dashboardCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dashboardDefinition: __expectString,
+    dashboardDescription: __expectString,
+    dashboardId: __expectString,
+    dashboardLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dashboardName: __expectString,
+    projectId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4994,10 +4858,9 @@ const de_DescribeDashboardCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5017,15 +4880,12 @@ export const de_DescribeDefaultEncryptionConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configurationStatus != null) {
-    contents.configurationStatus = de_ConfigurationStatus(data.configurationStatus, context);
-  }
-  if (data.encryptionType != null) {
-    contents.encryptionType = __expectString(data.encryptionType);
-  }
-  if (data.kmsKeyArn != null) {
-    contents.kmsKeyArn = __expectString(data.kmsKeyArn);
-  }
+  const doc = take(data, {
+    configurationStatus: _json,
+    encryptionType: __expectString,
+    kmsKeyArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5053,10 +4913,9 @@ const de_DescribeDefaultEncryptionConfigurationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5076,27 +4935,16 @@ export const de_DescribeGatewayCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationDate != null) {
-    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
-  }
-  if (data.gatewayArn != null) {
-    contents.gatewayArn = __expectString(data.gatewayArn);
-  }
-  if (data.gatewayCapabilitySummaries != null) {
-    contents.gatewayCapabilitySummaries = de_GatewayCapabilitySummaries(data.gatewayCapabilitySummaries, context);
-  }
-  if (data.gatewayId != null) {
-    contents.gatewayId = __expectString(data.gatewayId);
-  }
-  if (data.gatewayName != null) {
-    contents.gatewayName = __expectString(data.gatewayName);
-  }
-  if (data.gatewayPlatform != null) {
-    contents.gatewayPlatform = de_GatewayPlatform(data.gatewayPlatform, context);
-  }
-  if (data.lastUpdateDate != null) {
-    contents.lastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdateDate)));
-  }
+  const doc = take(data, {
+    creationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    gatewayArn: __expectString,
+    gatewayCapabilitySummaries: _json,
+    gatewayId: __expectString,
+    gatewayName: __expectString,
+    gatewayPlatform: _json,
+    lastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5127,10 +4975,9 @@ const de_DescribeGatewayCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5150,18 +4997,13 @@ export const de_DescribeGatewayCapabilityConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.capabilityConfiguration != null) {
-    contents.capabilityConfiguration = __expectString(data.capabilityConfiguration);
-  }
-  if (data.capabilityNamespace != null) {
-    contents.capabilityNamespace = __expectString(data.capabilityNamespace);
-  }
-  if (data.capabilitySyncStatus != null) {
-    contents.capabilitySyncStatus = __expectString(data.capabilitySyncStatus);
-  }
-  if (data.gatewayId != null) {
-    contents.gatewayId = __expectString(data.gatewayId);
-  }
+  const doc = take(data, {
+    capabilityConfiguration: __expectString,
+    capabilityNamespace: __expectString,
+    capabilitySyncStatus: __expectString,
+    gatewayId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5192,10 +5034,9 @@ const de_DescribeGatewayCapabilityConfigurationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5215,9 +5056,10 @@ export const de_DescribeLoggingOptionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.loggingOptions != null) {
-    contents.loggingOptions = de_LoggingOptions(data.loggingOptions, context);
-  }
+  const doc = take(data, {
+    loggingOptions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5248,10 +5090,9 @@ const de_DescribeLoggingOptionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5271,51 +5112,24 @@ export const de_DescribePortalCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.alarms != null) {
-    contents.alarms = de_Alarms(data.alarms, context);
-  }
-  if (data.notificationSenderEmail != null) {
-    contents.notificationSenderEmail = __expectString(data.notificationSenderEmail);
-  }
-  if (data.portalArn != null) {
-    contents.portalArn = __expectString(data.portalArn);
-  }
-  if (data.portalAuthMode != null) {
-    contents.portalAuthMode = __expectString(data.portalAuthMode);
-  }
-  if (data.portalClientId != null) {
-    contents.portalClientId = __expectString(data.portalClientId);
-  }
-  if (data.portalContactEmail != null) {
-    contents.portalContactEmail = __expectString(data.portalContactEmail);
-  }
-  if (data.portalCreationDate != null) {
-    contents.portalCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.portalCreationDate)));
-  }
-  if (data.portalDescription != null) {
-    contents.portalDescription = __expectString(data.portalDescription);
-  }
-  if (data.portalId != null) {
-    contents.portalId = __expectString(data.portalId);
-  }
-  if (data.portalLastUpdateDate != null) {
-    contents.portalLastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.portalLastUpdateDate)));
-  }
-  if (data.portalLogoImageLocation != null) {
-    contents.portalLogoImageLocation = de_ImageLocation(data.portalLogoImageLocation, context);
-  }
-  if (data.portalName != null) {
-    contents.portalName = __expectString(data.portalName);
-  }
-  if (data.portalStartUrl != null) {
-    contents.portalStartUrl = __expectString(data.portalStartUrl);
-  }
-  if (data.portalStatus != null) {
-    contents.portalStatus = de_PortalStatus(data.portalStatus, context);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
+  const doc = take(data, {
+    alarms: _json,
+    notificationSenderEmail: __expectString,
+    portalArn: __expectString,
+    portalAuthMode: __expectString,
+    portalClientId: __expectString,
+    portalContactEmail: __expectString,
+    portalCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    portalDescription: __expectString,
+    portalId: __expectString,
+    portalLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    portalLogoImageLocation: _json,
+    portalName: __expectString,
+    portalStartUrl: __expectString,
+    portalStatus: _json,
+    roleArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5346,10 +5160,9 @@ const de_DescribePortalCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5369,27 +5182,16 @@ export const de_DescribeProjectCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portalId != null) {
-    contents.portalId = __expectString(data.portalId);
-  }
-  if (data.projectArn != null) {
-    contents.projectArn = __expectString(data.projectArn);
-  }
-  if (data.projectCreationDate != null) {
-    contents.projectCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.projectCreationDate)));
-  }
-  if (data.projectDescription != null) {
-    contents.projectDescription = __expectString(data.projectDescription);
-  }
-  if (data.projectId != null) {
-    contents.projectId = __expectString(data.projectId);
-  }
-  if (data.projectLastUpdateDate != null) {
-    contents.projectLastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.projectLastUpdateDate)));
-  }
-  if (data.projectName != null) {
-    contents.projectName = __expectString(data.projectName);
-  }
+  const doc = take(data, {
+    portalId: __expectString,
+    projectArn: __expectString,
+    projectCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    projectDescription: __expectString,
+    projectId: __expectString,
+    projectLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    projectName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5420,10 +5222,9 @@ const de_DescribeProjectCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5443,24 +5244,15 @@ export const de_DescribeStorageConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configurationStatus != null) {
-    contents.configurationStatus = de_ConfigurationStatus(data.configurationStatus, context);
-  }
-  if (data.disassociatedDataStorage != null) {
-    contents.disassociatedDataStorage = __expectString(data.disassociatedDataStorage);
-  }
-  if (data.lastUpdateDate != null) {
-    contents.lastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdateDate)));
-  }
-  if (data.multiLayerStorage != null) {
-    contents.multiLayerStorage = de_MultiLayerStorage(data.multiLayerStorage, context);
-  }
-  if (data.retentionPeriod != null) {
-    contents.retentionPeriod = de_RetentionPeriod(data.retentionPeriod, context);
-  }
-  if (data.storageType != null) {
-    contents.storageType = __expectString(data.storageType);
-  }
+  const doc = take(data, {
+    configurationStatus: _json,
+    disassociatedDataStorage: __expectString,
+    lastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    multiLayerStorage: _json,
+    retentionPeriod: _json,
+    storageType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5497,10 +5289,9 @@ const de_DescribeStorageConfigurationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5520,37 +5311,18 @@ export const de_DescribeTimeSeriesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.alias != null) {
-    contents.alias = __expectString(data.alias);
-  }
-  if (data.assetId != null) {
-    contents.assetId = __expectString(data.assetId);
-  }
-  if (data.dataType != null) {
-    contents.dataType = __expectString(data.dataType);
-  }
-  if (data.dataTypeSpec != null) {
-    contents.dataTypeSpec = __expectString(data.dataTypeSpec);
-  }
-  if (data.propertyId != null) {
-    contents.propertyId = __expectString(data.propertyId);
-  }
-  if (data.timeSeriesArn != null) {
-    contents.timeSeriesArn = __expectString(data.timeSeriesArn);
-  }
-  if (data.timeSeriesCreationDate != null) {
-    contents.timeSeriesCreationDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.timeSeriesCreationDate))
-    );
-  }
-  if (data.timeSeriesId != null) {
-    contents.timeSeriesId = __expectString(data.timeSeriesId);
-  }
-  if (data.timeSeriesLastUpdateDate != null) {
-    contents.timeSeriesLastUpdateDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.timeSeriesLastUpdateDate))
-    );
-  }
+  const doc = take(data, {
+    alias: __expectString,
+    assetId: __expectString,
+    dataType: __expectString,
+    dataTypeSpec: __expectString,
+    propertyId: __expectString,
+    timeSeriesArn: __expectString,
+    timeSeriesCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    timeSeriesId: __expectString,
+    timeSeriesLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5581,10 +5353,9 @@ const de_DescribeTimeSeriesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5637,10 +5408,9 @@ const de_DisassociateAssetsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5693,10 +5463,9 @@ const de_DisassociateTimeSeriesFromAssetPropertyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5716,12 +5485,11 @@ export const de_GetAssetPropertyAggregatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.aggregatedValues != null) {
-    contents.aggregatedValues = de_AggregatedValues(data.aggregatedValues, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    aggregatedValues: (_) => de_AggregatedValues(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5755,10 +5523,9 @@ const de_GetAssetPropertyAggregatesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5778,9 +5545,10 @@ export const de_GetAssetPropertyValueCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.propertyValue != null) {
-    contents.propertyValue = de_AssetPropertyValue(data.propertyValue, context);
-  }
+  const doc = take(data, {
+    propertyValue: (_) => de_AssetPropertyValue(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5814,10 +5582,9 @@ const de_GetAssetPropertyValueCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5837,12 +5604,11 @@ export const de_GetAssetPropertyValueHistoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetPropertyValueHistory != null) {
-    contents.assetPropertyValueHistory = de_AssetPropertyValueHistory(data.assetPropertyValueHistory, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assetPropertyValueHistory: (_) => de_AssetPropertyValueHistory(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5876,10 +5642,9 @@ const de_GetAssetPropertyValueHistoryCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5899,15 +5664,11 @@ export const de_GetInterpolatedAssetPropertyValuesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.interpolatedAssetPropertyValues != null) {
-    contents.interpolatedAssetPropertyValues = de_InterpolatedAssetPropertyValues(
-      data.interpolatedAssetPropertyValues,
-      context
-    );
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    interpolatedAssetPropertyValues: (_) => de_InterpolatedAssetPropertyValues(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5941,10 +5702,9 @@ const de_GetInterpolatedAssetPropertyValuesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5964,12 +5724,11 @@ export const de_ListAccessPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessPolicySummaries != null) {
-    contents.accessPolicySummaries = de_AccessPolicySummaries(data.accessPolicySummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    accessPolicySummaries: (_) => de_AccessPolicySummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5997,10 +5756,9 @@ const de_ListAccessPoliciesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6020,12 +5778,11 @@ export const de_ListAssetModelPropertiesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetModelPropertySummaries != null) {
-    contents.assetModelPropertySummaries = de_AssetModelPropertySummaries(data.assetModelPropertySummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assetModelPropertySummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6056,10 +5813,9 @@ const de_ListAssetModelPropertiesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6079,12 +5835,11 @@ export const de_ListAssetModelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetModelSummaries != null) {
-    contents.assetModelSummaries = de_AssetModelSummaries(data.assetModelSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assetModelSummaries: (_) => de_AssetModelSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6112,10 +5867,9 @@ const de_ListAssetModelsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6135,12 +5889,11 @@ export const de_ListAssetPropertiesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetPropertySummaries != null) {
-    contents.assetPropertySummaries = de_AssetPropertySummaries(data.assetPropertySummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assetPropertySummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6171,10 +5924,9 @@ const de_ListAssetPropertiesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6194,12 +5946,11 @@ export const de_ListAssetRelationshipsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetRelationshipSummaries != null) {
-    contents.assetRelationshipSummaries = de_AssetRelationshipSummaries(data.assetRelationshipSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assetRelationshipSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6230,10 +5981,9 @@ const de_ListAssetRelationshipsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6253,12 +6003,11 @@ export const de_ListAssetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetSummaries != null) {
-    contents.assetSummaries = de_AssetSummaries(data.assetSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assetSummaries: (_) => de_AssetSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6289,10 +6038,9 @@ const de_ListAssetsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6312,12 +6060,11 @@ export const de_ListAssociatedAssetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetSummaries != null) {
-    contents.assetSummaries = de_AssociatedAssetsSummaries(data.assetSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assetSummaries: (_) => de_AssociatedAssetsSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6348,10 +6095,9 @@ const de_ListAssociatedAssetsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6371,12 +6117,11 @@ export const de_ListBulkImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobSummaries != null) {
-    contents.jobSummaries = de_JobSummaries(data.jobSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    jobSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6407,10 +6152,9 @@ const de_ListBulkImportJobsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6430,12 +6174,11 @@ export const de_ListDashboardsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dashboardSummaries != null) {
-    contents.dashboardSummaries = de_DashboardSummaries(data.dashboardSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    dashboardSummaries: (_) => de_DashboardSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6463,10 +6206,9 @@ const de_ListDashboardsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6486,12 +6228,11 @@ export const de_ListGatewaysCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gatewaySummaries != null) {
-    contents.gatewaySummaries = de_GatewaySummaries(data.gatewaySummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    gatewaySummaries: (_) => de_GatewaySummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6519,10 +6260,9 @@ const de_ListGatewaysCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6542,12 +6282,11 @@ export const de_ListPortalsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.portalSummaries != null) {
-    contents.portalSummaries = de_PortalSummaries(data.portalSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    portalSummaries: (_) => de_PortalSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6575,10 +6314,9 @@ const de_ListPortalsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6598,12 +6336,11 @@ export const de_ListProjectAssetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetIds != null) {
-    contents.assetIds = de_AssetIDs(data.assetIds, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assetIds: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6631,10 +6368,9 @@ const de_ListProjectAssetsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6654,12 +6390,11 @@ export const de_ListProjectsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.projectSummaries != null) {
-    contents.projectSummaries = de_ProjectSummaries(data.projectSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    projectSummaries: (_) => de_ProjectSummaries(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6687,10 +6422,9 @@ const de_ListProjectsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6710,9 +6444,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6752,10 +6487,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6775,12 +6509,11 @@ export const de_ListTimeSeriesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TimeSeriesSummaries != null) {
-    contents.TimeSeriesSummaries = de_TimeSeriesSummaries(data.TimeSeriesSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    TimeSeriesSummaries: (_) => de_TimeSeriesSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6811,10 +6544,9 @@ const de_ListTimeSeriesCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6834,15 +6566,12 @@ export const de_PutDefaultEncryptionConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configurationStatus != null) {
-    contents.configurationStatus = de_ConfigurationStatus(data.configurationStatus, context);
-  }
-  if (data.encryptionType != null) {
-    contents.encryptionType = __expectString(data.encryptionType);
-  }
-  if (data.kmsKeyArn != null) {
-    contents.kmsKeyArn = __expectString(data.kmsKeyArn);
-  }
+  const doc = take(data, {
+    configurationStatus: _json,
+    encryptionType: __expectString,
+    kmsKeyArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6876,10 +6605,9 @@ const de_PutDefaultEncryptionConfigurationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6932,10 +6660,9 @@ const de_PutLoggingOptionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6955,21 +6682,14 @@ export const de_PutStorageConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.configurationStatus != null) {
-    contents.configurationStatus = de_ConfigurationStatus(data.configurationStatus, context);
-  }
-  if (data.disassociatedDataStorage != null) {
-    contents.disassociatedDataStorage = __expectString(data.disassociatedDataStorage);
-  }
-  if (data.multiLayerStorage != null) {
-    contents.multiLayerStorage = de_MultiLayerStorage(data.multiLayerStorage, context);
-  }
-  if (data.retentionPeriod != null) {
-    contents.retentionPeriod = de_RetentionPeriod(data.retentionPeriod, context);
-  }
-  if (data.storageType != null) {
-    contents.storageType = __expectString(data.storageType);
-  }
+  const doc = take(data, {
+    configurationStatus: _json,
+    disassociatedDataStorage: __expectString,
+    multiLayerStorage: _json,
+    retentionPeriod: _json,
+    storageType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7009,10 +6729,9 @@ const de_PutStorageConfigurationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7074,10 +6793,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7136,10 +6854,9 @@ const de_UntagResourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7189,10 +6906,9 @@ const de_UpdateAccessPolicyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7212,9 +6928,10 @@ export const de_UpdateAssetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetStatus != null) {
-    contents.assetStatus = de_AssetStatus(data.assetStatus, context);
-  }
+  const doc = take(data, {
+    assetStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7251,10 +6968,9 @@ const de_UpdateAssetCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7274,9 +6990,10 @@ export const de_UpdateAssetModelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assetModelStatus != null) {
-    contents.assetModelStatus = de_AssetModelStatus(data.assetModelStatus, context);
-  }
+  const doc = take(data, {
+    assetModelStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7316,10 +7033,9 @@ const de_UpdateAssetModelCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7372,10 +7088,9 @@ const de_UpdateAssetPropertyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7425,10 +7140,9 @@ const de_UpdateDashboardCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7481,10 +7195,9 @@ const de_UpdateGatewayCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7504,12 +7217,11 @@ export const de_UpdateGatewayCapabilityConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.capabilityNamespace != null) {
-    contents.capabilityNamespace = __expectString(data.capabilityNamespace);
-  }
-  if (data.capabilitySyncStatus != null) {
-    contents.capabilitySyncStatus = __expectString(data.capabilitySyncStatus);
-  }
+  const doc = take(data, {
+    capabilityNamespace: __expectString,
+    capabilitySyncStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7546,10 +7258,9 @@ const de_UpdateGatewayCapabilityConfigurationCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7569,9 +7280,10 @@ export const de_UpdatePortalCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.portalStatus != null) {
-    contents.portalStatus = de_PortalStatus(data.portalStatus, context);
-  }
+  const doc = take(data, {
+    portalStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7605,10 +7317,9 @@ const de_UpdatePortalCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7658,16 +7369,15 @@ const de_UpdateProjectCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictingOperationExceptionRes
  */
@@ -7677,15 +7387,12 @@ const de_ConflictingOperationExceptionRes = async (
 ): Promise<ConflictingOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceArn != null) {
-    contents.resourceArn = __expectString(data.resourceArn);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceArn: __expectString,
+    resourceId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictingOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7702,9 +7409,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7721,9 +7429,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7740,9 +7449,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7759,15 +7469,12 @@ const de_ResourceAlreadyExistsExceptionRes = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceArn != null) {
-    contents.resourceArn = __expectString(data.resourceArn);
-  }
-  if (data.resourceId != null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceArn: __expectString,
+    resourceId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7784,9 +7491,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7803,9 +7511,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7819,9 +7528,10 @@ const de_ServiceUnavailableExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7838,12 +7548,11 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceName != null) {
-    contents.resourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7860,9 +7569,10 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7870,181 +7580,43 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AggregateTypes
- */
-const se_AggregateTypes = (input: (AggregateType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AggregateTypes omitted.
 
-/**
- * serializeAws_restJson1Alarms
- */
-const se_Alarms = (input: Alarms, context: __SerdeContext): any => {
-  return {
-    ...(input.alarmRoleArn != null && { alarmRoleArn: input.alarmRoleArn }),
-    ...(input.notificationLambdaArn != null && { notificationLambdaArn: input.notificationLambdaArn }),
-  };
-};
+// se_Alarms omitted.
 
-/**
- * serializeAws_restJson1AssetModelCompositeModel
- */
-const se_AssetModelCompositeModel = (input: AssetModelCompositeModel, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.properties != null && { properties: se_AssetModelProperties(input.properties, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_AssetModelCompositeModel omitted.
 
-/**
- * serializeAws_restJson1AssetModelCompositeModelDefinition
- */
-const se_AssetModelCompositeModelDefinition = (
-  input: AssetModelCompositeModelDefinition,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.properties != null && { properties: se_AssetModelPropertyDefinitions(input.properties, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_AssetModelCompositeModelDefinition omitted.
 
-/**
- * serializeAws_restJson1AssetModelCompositeModelDefinitions
- */
-const se_AssetModelCompositeModelDefinitions = (
-  input: AssetModelCompositeModelDefinition[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AssetModelCompositeModelDefinition(entry, context);
-    });
-};
+// se_AssetModelCompositeModelDefinitions omitted.
 
-/**
- * serializeAws_restJson1AssetModelCompositeModels
- */
-const se_AssetModelCompositeModels = (input: AssetModelCompositeModel[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AssetModelCompositeModel(entry, context);
-    });
-};
+// se_AssetModelCompositeModels omitted.
 
-/**
- * serializeAws_restJson1AssetModelHierarchies
- */
-const se_AssetModelHierarchies = (input: AssetModelHierarchy[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AssetModelHierarchy(entry, context);
-    });
-};
+// se_AssetModelHierarchies omitted.
 
-/**
- * serializeAws_restJson1AssetModelHierarchy
- */
-const se_AssetModelHierarchy = (input: AssetModelHierarchy, context: __SerdeContext): any => {
-  return {
-    ...(input.childAssetModelId != null && { childAssetModelId: input.childAssetModelId }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_AssetModelHierarchy omitted.
 
-/**
- * serializeAws_restJson1AssetModelHierarchyDefinition
- */
-const se_AssetModelHierarchyDefinition = (input: AssetModelHierarchyDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.childAssetModelId != null && { childAssetModelId: input.childAssetModelId }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_AssetModelHierarchyDefinition omitted.
 
-/**
- * serializeAws_restJson1AssetModelHierarchyDefinitions
- */
-const se_AssetModelHierarchyDefinitions = (input: AssetModelHierarchyDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AssetModelHierarchyDefinition(entry, context);
-    });
-};
+// se_AssetModelHierarchyDefinitions omitted.
 
-/**
- * serializeAws_restJson1AssetModelProperties
- */
-const se_AssetModelProperties = (input: AssetModelProperty[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AssetModelProperty(entry, context);
-    });
-};
+// se_AssetModelProperties omitted.
 
-/**
- * serializeAws_restJson1AssetModelProperty
- */
-const se_AssetModelProperty = (input: AssetModelProperty, context: __SerdeContext): any => {
-  return {
-    ...(input.dataType != null && { dataType: input.dataType }),
-    ...(input.dataTypeSpec != null && { dataTypeSpec: input.dataTypeSpec }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: se_PropertyType(input.type, context) }),
-    ...(input.unit != null && { unit: input.unit }),
-  };
-};
+// se_AssetModelProperty omitted.
 
-/**
- * serializeAws_restJson1AssetModelPropertyDefinition
- */
-const se_AssetModelPropertyDefinition = (input: AssetModelPropertyDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.dataType != null && { dataType: input.dataType }),
-    ...(input.dataTypeSpec != null && { dataTypeSpec: input.dataTypeSpec }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: se_PropertyType(input.type, context) }),
-    ...(input.unit != null && { unit: input.unit }),
-  };
-};
+// se_AssetModelPropertyDefinition omitted.
 
-/**
- * serializeAws_restJson1AssetModelPropertyDefinitions
- */
-const se_AssetModelPropertyDefinitions = (input: AssetModelPropertyDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AssetModelPropertyDefinition(entry, context);
-    });
-};
+// se_AssetModelPropertyDefinitions omitted.
 
 /**
  * serializeAws_restJson1AssetPropertyValue
  */
 const se_AssetPropertyValue = (input: AssetPropertyValue, context: __SerdeContext): any => {
-  return {
-    ...(input.quality != null && { quality: input.quality }),
-    ...(input.timestamp != null && { timestamp: se_TimeInNanos(input.timestamp, context) }),
-    ...(input.value != null && { value: se_Variant(input.value, context) }),
-  };
+  return take(input, {
+    quality: [],
+    timestamp: _json,
+    value: (_) => se_Variant(_, context),
+  });
 };
 
 /**
@@ -8058,14 +7630,7 @@ const se_AssetPropertyValues = (input: AssetPropertyValue[], context: __SerdeCon
     });
 };
 
-/**
- * serializeAws_restJson1Attribute
- */
-const se_Attribute = (input: Attribute, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
-  };
-};
+// se_Attribute omitted.
 
 /**
  * serializeAws_restJson1BatchGetAssetPropertyAggregatesEntries
@@ -8088,45 +7653,23 @@ const se_BatchGetAssetPropertyAggregatesEntry = (
   input: BatchGetAssetPropertyAggregatesEntry,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.aggregateTypes != null && { aggregateTypes: se_AggregateTypes(input.aggregateTypes, context) }),
-    ...(input.assetId != null && { assetId: input.assetId }),
-    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
-    ...(input.entryId != null && { entryId: input.entryId }),
-    ...(input.propertyAlias != null && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyId != null && { propertyId: input.propertyId }),
-    ...(input.qualities != null && { qualities: se_Qualities(input.qualities, context) }),
-    ...(input.resolution != null && { resolution: input.resolution }),
-    ...(input.startDate != null && { startDate: Math.round(input.startDate.getTime() / 1000) }),
-    ...(input.timeOrdering != null && { timeOrdering: input.timeOrdering }),
-  };
+  return take(input, {
+    aggregateTypes: _json,
+    assetId: [],
+    endDate: (_) => Math.round(_.getTime() / 1000),
+    entryId: [],
+    propertyAlias: [],
+    propertyId: [],
+    qualities: _json,
+    resolution: [],
+    startDate: (_) => Math.round(_.getTime() / 1000),
+    timeOrdering: [],
+  });
 };
 
-/**
- * serializeAws_restJson1BatchGetAssetPropertyValueEntries
- */
-const se_BatchGetAssetPropertyValueEntries = (
-  input: BatchGetAssetPropertyValueEntry[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_BatchGetAssetPropertyValueEntry(entry, context);
-    });
-};
+// se_BatchGetAssetPropertyValueEntries omitted.
 
-/**
- * serializeAws_restJson1BatchGetAssetPropertyValueEntry
- */
-const se_BatchGetAssetPropertyValueEntry = (input: BatchGetAssetPropertyValueEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.assetId != null && { assetId: input.assetId }),
-    ...(input.entryId != null && { entryId: input.entryId }),
-    ...(input.propertyAlias != null && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyId != null && { propertyId: input.propertyId }),
-  };
-};
+// se_BatchGetAssetPropertyValueEntry omitted.
 
 /**
  * serializeAws_restJson1BatchGetAssetPropertyValueHistoryEntries
@@ -8149,327 +7692,95 @@ const se_BatchGetAssetPropertyValueHistoryEntry = (
   input: BatchGetAssetPropertyValueHistoryEntry,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.assetId != null && { assetId: input.assetId }),
-    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
-    ...(input.entryId != null && { entryId: input.entryId }),
-    ...(input.propertyAlias != null && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyId != null && { propertyId: input.propertyId }),
-    ...(input.qualities != null && { qualities: se_Qualities(input.qualities, context) }),
-    ...(input.startDate != null && { startDate: Math.round(input.startDate.getTime() / 1000) }),
-    ...(input.timeOrdering != null && { timeOrdering: input.timeOrdering }),
-  };
+  return take(input, {
+    assetId: [],
+    endDate: (_) => Math.round(_.getTime() / 1000),
+    entryId: [],
+    propertyAlias: [],
+    propertyId: [],
+    qualities: _json,
+    startDate: (_) => Math.round(_.getTime() / 1000),
+    timeOrdering: [],
+  });
 };
 
-/**
- * serializeAws_restJson1ColumnNames
- */
-const se_ColumnNames = (input: (ColumnName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ColumnNames omitted.
 
-/**
- * serializeAws_restJson1Csv
- */
-const se_Csv = (input: Csv, context: __SerdeContext): any => {
-  return {
-    ...(input.columnNames != null && { columnNames: se_ColumnNames(input.columnNames, context) }),
-  };
-};
+// se_Csv omitted.
 
-/**
- * serializeAws_restJson1CustomerManagedS3Storage
- */
-const se_CustomerManagedS3Storage = (input: CustomerManagedS3Storage, context: __SerdeContext): any => {
-  return {
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.s3ResourceArn != null && { s3ResourceArn: input.s3ResourceArn }),
-  };
-};
+// se_CustomerManagedS3Storage omitted.
 
-/**
- * serializeAws_restJson1ErrorReportLocation
- */
-const se_ErrorReportLocation = (input: ErrorReportLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-  };
-};
+// se_ErrorReportLocation omitted.
 
-/**
- * serializeAws_restJson1ExpressionVariable
- */
-const se_ExpressionVariable = (input: ExpressionVariable, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: se_VariableValue(input.value, context) }),
-  };
-};
+// se_ExpressionVariable omitted.
 
-/**
- * serializeAws_restJson1ExpressionVariables
- */
-const se_ExpressionVariables = (input: ExpressionVariable[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ExpressionVariable(entry, context);
-    });
-};
+// se_ExpressionVariables omitted.
 
-/**
- * serializeAws_restJson1File
- */
-const se_File = (input: File, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.key != null && { key: input.key }),
-    ...(input.versionId != null && { versionId: input.versionId }),
-  };
-};
+// se_File omitted.
 
-/**
- * serializeAws_restJson1FileFormat
- */
-const se_FileFormat = (input: FileFormat, context: __SerdeContext): any => {
-  return {
-    ...(input.csv != null && { csv: se_Csv(input.csv, context) }),
-  };
-};
+// se_FileFormat omitted.
 
-/**
- * serializeAws_restJson1Files
- */
-const se_Files = (input: File[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_File(entry, context);
-    });
-};
+// se_Files omitted.
 
-/**
- * serializeAws_restJson1ForwardingConfig
- */
-const se_ForwardingConfig = (input: ForwardingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.state != null && { state: input.state }),
-  };
-};
+// se_ForwardingConfig omitted.
 
-/**
- * serializeAws_restJson1GatewayPlatform
- */
-const se_GatewayPlatform = (input: GatewayPlatform, context: __SerdeContext): any => {
-  return {
-    ...(input.greengrass != null && { greengrass: se_Greengrass(input.greengrass, context) }),
-    ...(input.greengrassV2 != null && { greengrassV2: se_GreengrassV2(input.greengrassV2, context) }),
-  };
-};
+// se_GatewayPlatform omitted.
 
-/**
- * serializeAws_restJson1Greengrass
- */
-const se_Greengrass = (input: Greengrass, context: __SerdeContext): any => {
-  return {
-    ...(input.groupArn != null && { groupArn: input.groupArn }),
-  };
-};
+// se_Greengrass omitted.
 
-/**
- * serializeAws_restJson1GreengrassV2
- */
-const se_GreengrassV2 = (input: GreengrassV2, context: __SerdeContext): any => {
-  return {
-    ...(input.coreDeviceThingName != null && { coreDeviceThingName: input.coreDeviceThingName }),
-  };
-};
+// se_GreengrassV2 omitted.
 
-/**
- * serializeAws_restJson1GroupIdentity
- */
-const se_GroupIdentity = (input: GroupIdentity, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_GroupIdentity omitted.
 
-/**
- * serializeAws_restJson1IAMRoleIdentity
- */
-const se_IAMRoleIdentity = (input: IAMRoleIdentity, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_IAMRoleIdentity omitted.
 
-/**
- * serializeAws_restJson1IAMUserIdentity
- */
-const se_IAMUserIdentity = (input: IAMUserIdentity, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_IAMUserIdentity omitted.
 
-/**
- * serializeAws_restJson1Identity
- */
-const se_Identity = (input: Identity, context: __SerdeContext): any => {
-  return {
-    ...(input.group != null && { group: se_GroupIdentity(input.group, context) }),
-    ...(input.iamRole != null && { iamRole: se_IAMRoleIdentity(input.iamRole, context) }),
-    ...(input.iamUser != null && { iamUser: se_IAMUserIdentity(input.iamUser, context) }),
-    ...(input.user != null && { user: se_UserIdentity(input.user, context) }),
-  };
-};
+// se_Identity omitted.
 
-/**
- * serializeAws_restJson1IDs
- */
-const se_IDs = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_IDs omitted.
 
 /**
  * serializeAws_restJson1Image
  */
 const se_Image = (input: Image, context: __SerdeContext): any => {
-  return {
-    ...(input.file != null && { file: se_ImageFile(input.file, context) }),
-    ...(input.id != null && { id: input.id }),
-  };
+  return take(input, {
+    file: (_) => se_ImageFile(_, context),
+    id: [],
+  });
 };
 
 /**
  * serializeAws_restJson1ImageFile
  */
 const se_ImageFile = (input: ImageFile, context: __SerdeContext): any => {
-  return {
-    ...(input.data != null && { data: context.base64Encoder(input.data) }),
-    ...(input.type != null && { type: input.type }),
-  };
+  return take(input, {
+    data: context.base64Encoder,
+    type: [],
+  });
 };
 
-/**
- * serializeAws_restJson1JobConfiguration
- */
-const se_JobConfiguration = (input: JobConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.fileFormat != null && { fileFormat: se_FileFormat(input.fileFormat, context) }),
-  };
-};
+// se_JobConfiguration omitted.
 
-/**
- * serializeAws_restJson1LoggingOptions
- */
-const se_LoggingOptions = (input: LoggingOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.level != null && { level: input.level }),
-  };
-};
+// se_LoggingOptions omitted.
 
-/**
- * serializeAws_restJson1Measurement
- */
-const se_Measurement = (input: Measurement, context: __SerdeContext): any => {
-  return {
-    ...(input.processingConfig != null && {
-      processingConfig: se_MeasurementProcessingConfig(input.processingConfig, context),
-    }),
-  };
-};
+// se_Measurement omitted.
 
-/**
- * serializeAws_restJson1MeasurementProcessingConfig
- */
-const se_MeasurementProcessingConfig = (input: MeasurementProcessingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.forwardingConfig != null && { forwardingConfig: se_ForwardingConfig(input.forwardingConfig, context) }),
-  };
-};
+// se_MeasurementProcessingConfig omitted.
 
-/**
- * serializeAws_restJson1Metric
- */
-const se_Metric = (input: Metric, context: __SerdeContext): any => {
-  return {
-    ...(input.expression != null && { expression: input.expression }),
-    ...(input.processingConfig != null && {
-      processingConfig: se_MetricProcessingConfig(input.processingConfig, context),
-    }),
-    ...(input.variables != null && { variables: se_ExpressionVariables(input.variables, context) }),
-    ...(input.window != null && { window: se_MetricWindow(input.window, context) }),
-  };
-};
+// se_Metric omitted.
 
-/**
- * serializeAws_restJson1MetricProcessingConfig
- */
-const se_MetricProcessingConfig = (input: MetricProcessingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.computeLocation != null && { computeLocation: input.computeLocation }),
-  };
-};
+// se_MetricProcessingConfig omitted.
 
-/**
- * serializeAws_restJson1MetricWindow
- */
-const se_MetricWindow = (input: MetricWindow, context: __SerdeContext): any => {
-  return {
-    ...(input.tumbling != null && { tumbling: se_TumblingWindow(input.tumbling, context) }),
-  };
-};
+// se_MetricWindow omitted.
 
-/**
- * serializeAws_restJson1MultiLayerStorage
- */
-const se_MultiLayerStorage = (input: MultiLayerStorage, context: __SerdeContext): any => {
-  return {
-    ...(input.customerManagedS3Storage != null && {
-      customerManagedS3Storage: se_CustomerManagedS3Storage(input.customerManagedS3Storage, context),
-    }),
-  };
-};
+// se_MultiLayerStorage omitted.
 
-/**
- * serializeAws_restJson1PortalResource
- */
-const se_PortalResource = (input: PortalResource, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_PortalResource omitted.
 
-/**
- * serializeAws_restJson1ProjectResource
- */
-const se_ProjectResource = (input: ProjectResource, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_ProjectResource omitted.
 
-/**
- * serializeAws_restJson1PropertyType
- */
-const se_PropertyType = (input: PropertyType, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: se_Attribute(input.attribute, context) }),
-    ...(input.measurement != null && { measurement: se_Measurement(input.measurement, context) }),
-    ...(input.metric != null && { metric: se_Metric(input.metric, context) }),
-    ...(input.transform != null && { transform: se_Transform(input.transform, context) }),
-  };
-};
+// se_PropertyType omitted.
 
 /**
  * serializeAws_restJson1PutAssetPropertyValueEntries
@@ -8486,131 +7797,45 @@ const se_PutAssetPropertyValueEntries = (input: PutAssetPropertyValueEntry[], co
  * serializeAws_restJson1PutAssetPropertyValueEntry
  */
 const se_PutAssetPropertyValueEntry = (input: PutAssetPropertyValueEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.assetId != null && { assetId: input.assetId }),
-    ...(input.entryId != null && { entryId: input.entryId }),
-    ...(input.propertyAlias != null && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyId != null && { propertyId: input.propertyId }),
-    ...(input.propertyValues != null && { propertyValues: se_AssetPropertyValues(input.propertyValues, context) }),
-  };
+  return take(input, {
+    assetId: [],
+    entryId: [],
+    propertyAlias: [],
+    propertyId: [],
+    propertyValues: (_) => se_AssetPropertyValues(_, context),
+  });
 };
 
-/**
- * serializeAws_restJson1Qualities
- */
-const se_Qualities = (input: (Quality | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Qualities omitted.
 
-/**
- * serializeAws_restJson1Resource
- */
-const se_Resource = (input: Resource, context: __SerdeContext): any => {
-  return {
-    ...(input.portal != null && { portal: se_PortalResource(input.portal, context) }),
-    ...(input.project != null && { project: se_ProjectResource(input.project, context) }),
-  };
-};
+// se_Resource omitted.
 
-/**
- * serializeAws_restJson1RetentionPeriod
- */
-const se_RetentionPeriod = (input: RetentionPeriod, context: __SerdeContext): any => {
-  return {
-    ...(input.numberOfDays != null && { numberOfDays: input.numberOfDays }),
-    ...(input.unlimited != null && { unlimited: input.unlimited }),
-  };
-};
+// se_RetentionPeriod omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1TimeInNanos
- */
-const se_TimeInNanos = (input: TimeInNanos, context: __SerdeContext): any => {
-  return {
-    ...(input.offsetInNanos != null && { offsetInNanos: input.offsetInNanos }),
-    ...(input.timeInSeconds != null && { timeInSeconds: input.timeInSeconds }),
-  };
-};
+// se_TimeInNanos omitted.
 
-/**
- * serializeAws_restJson1Transform
- */
-const se_Transform = (input: Transform, context: __SerdeContext): any => {
-  return {
-    ...(input.expression != null && { expression: input.expression }),
-    ...(input.processingConfig != null && {
-      processingConfig: se_TransformProcessingConfig(input.processingConfig, context),
-    }),
-    ...(input.variables != null && { variables: se_ExpressionVariables(input.variables, context) }),
-  };
-};
+// se_Transform omitted.
 
-/**
- * serializeAws_restJson1TransformProcessingConfig
- */
-const se_TransformProcessingConfig = (input: TransformProcessingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.computeLocation != null && { computeLocation: input.computeLocation }),
-    ...(input.forwardingConfig != null && { forwardingConfig: se_ForwardingConfig(input.forwardingConfig, context) }),
-  };
-};
+// se_TransformProcessingConfig omitted.
 
-/**
- * serializeAws_restJson1TumblingWindow
- */
-const se_TumblingWindow = (input: TumblingWindow, context: __SerdeContext): any => {
-  return {
-    ...(input.interval != null && { interval: input.interval }),
-    ...(input.offset != null && { offset: input.offset }),
-  };
-};
+// se_TumblingWindow omitted.
 
-/**
- * serializeAws_restJson1UserIdentity
- */
-const se_UserIdentity = (input: UserIdentity, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_UserIdentity omitted.
 
-/**
- * serializeAws_restJson1VariableValue
- */
-const se_VariableValue = (input: VariableValue, context: __SerdeContext): any => {
-  return {
-    ...(input.hierarchyId != null && { hierarchyId: input.hierarchyId }),
-    ...(input.propertyId != null && { propertyId: input.propertyId }),
-  };
-};
+// se_VariableValue omitted.
 
 /**
  * serializeAws_restJson1Variant
  */
 const se_Variant = (input: Variant, context: __SerdeContext): any => {
-  return {
-    ...(input.booleanValue != null && { booleanValue: input.booleanValue }),
-    ...(input.doubleValue != null && { doubleValue: __serializeFloat(input.doubleValue) }),
-    ...(input.integerValue != null && { integerValue: input.integerValue }),
-    ...(input.stringValue != null && { stringValue: input.stringValue }),
-  };
+  return take(input, {
+    booleanValue: [],
+    doubleValue: __serializeFloat,
+    integerValue: [],
+    stringValue: [],
+  });
 };
 
 /**
@@ -8620,9 +7845,6 @@ const de_AccessPolicySummaries = (output: any, context: __SerdeContext): AccessP
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AccessPolicySummary(entry, context);
     });
   return retVal;
@@ -8632,32 +7854,25 @@ const de_AccessPolicySummaries = (output: any, context: __SerdeContext): AccessP
  * deserializeAws_restJson1AccessPolicySummary
  */
 const de_AccessPolicySummary = (output: any, context: __SerdeContext): AccessPolicySummary => {
-  return {
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    id: __expectString(output.id),
-    identity: output.identity != null ? de_Identity(output.identity, context) : undefined,
-    lastUpdateDate:
-      output.lastUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
-        : undefined,
-    permission: __expectString(output.permission),
-    resource: output.resource != null ? de_Resource(output.resource, context) : undefined,
-  } as any;
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    identity: _json,
+    lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    permission: __expectString,
+    resource: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AggregatedValue
  */
 const de_AggregatedValue = (output: any, context: __SerdeContext): AggregatedValue => {
-  return {
-    quality: __expectString(output.quality),
-    timestamp:
-      output.timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp))) : undefined,
-    value: output.value != null ? de_Aggregates(output.value, context) : undefined,
-  } as any;
+  return take(output, {
+    quality: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    value: (_: any) => de_Aggregates(_, context),
+  }) as any;
 };
 
 /**
@@ -8667,9 +7882,6 @@ const de_AggregatedValues = (output: any, context: __SerdeContext): AggregatedVa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AggregatedValue(entry, context);
     });
   return retVal;
@@ -8679,237 +7891,49 @@ const de_AggregatedValues = (output: any, context: __SerdeContext): AggregatedVa
  * deserializeAws_restJson1Aggregates
  */
 const de_Aggregates = (output: any, context: __SerdeContext): Aggregates => {
-  return {
-    average: __limitedParseDouble(output.average),
-    count: __limitedParseDouble(output.count),
-    maximum: __limitedParseDouble(output.maximum),
-    minimum: __limitedParseDouble(output.minimum),
-    standardDeviation: __limitedParseDouble(output.standardDeviation),
-    sum: __limitedParseDouble(output.sum),
-  } as any;
+  return take(output, {
+    average: __limitedParseDouble,
+    count: __limitedParseDouble,
+    maximum: __limitedParseDouble,
+    minimum: __limitedParseDouble,
+    standardDeviation: __limitedParseDouble,
+    sum: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Alarms
- */
-const de_Alarms = (output: any, context: __SerdeContext): Alarms => {
-  return {
-    alarmRoleArn: __expectString(output.alarmRoleArn),
-    notificationLambdaArn: __expectString(output.notificationLambdaArn),
-  } as any;
-};
+// de_Alarms omitted.
 
-/**
- * deserializeAws_restJson1AssetCompositeModel
- */
-const de_AssetCompositeModel = (output: any, context: __SerdeContext): AssetCompositeModel => {
-  return {
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    properties: output.properties != null ? de_AssetProperties(output.properties, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_AssetCompositeModel omitted.
 
-/**
- * deserializeAws_restJson1AssetCompositeModels
- */
-const de_AssetCompositeModels = (output: any, context: __SerdeContext): AssetCompositeModel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetCompositeModel(entry, context);
-    });
-  return retVal;
-};
+// de_AssetCompositeModels omitted.
 
-/**
- * deserializeAws_restJson1AssetErrorDetails
- */
-const de_AssetErrorDetails = (output: any, context: __SerdeContext): AssetErrorDetails => {
-  return {
-    assetId: __expectString(output.assetId),
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AssetErrorDetails omitted.
 
-/**
- * deserializeAws_restJson1AssetHierarchies
- */
-const de_AssetHierarchies = (output: any, context: __SerdeContext): AssetHierarchy[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetHierarchy(entry, context);
-    });
-  return retVal;
-};
+// de_AssetHierarchies omitted.
 
-/**
- * deserializeAws_restJson1AssetHierarchy
- */
-const de_AssetHierarchy = (output: any, context: __SerdeContext): AssetHierarchy => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_AssetHierarchy omitted.
 
-/**
- * deserializeAws_restJson1AssetHierarchyInfo
- */
-const de_AssetHierarchyInfo = (output: any, context: __SerdeContext): AssetHierarchyInfo => {
-  return {
-    childAssetId: __expectString(output.childAssetId),
-    parentAssetId: __expectString(output.parentAssetId),
-  } as any;
-};
+// de_AssetHierarchyInfo omitted.
 
-/**
- * deserializeAws_restJson1AssetIDs
- */
-const de_AssetIDs = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AssetIDs omitted.
 
-/**
- * deserializeAws_restJson1AssetModelCompositeModel
- */
-const de_AssetModelCompositeModel = (output: any, context: __SerdeContext): AssetModelCompositeModel => {
-  return {
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    properties: output.properties != null ? de_AssetModelProperties(output.properties, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_AssetModelCompositeModel omitted.
 
-/**
- * deserializeAws_restJson1AssetModelCompositeModels
- */
-const de_AssetModelCompositeModels = (output: any, context: __SerdeContext): AssetModelCompositeModel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetModelCompositeModel(entry, context);
-    });
-  return retVal;
-};
+// de_AssetModelCompositeModels omitted.
 
-/**
- * deserializeAws_restJson1AssetModelHierarchies
- */
-const de_AssetModelHierarchies = (output: any, context: __SerdeContext): AssetModelHierarchy[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetModelHierarchy(entry, context);
-    });
-  return retVal;
-};
+// de_AssetModelHierarchies omitted.
 
-/**
- * deserializeAws_restJson1AssetModelHierarchy
- */
-const de_AssetModelHierarchy = (output: any, context: __SerdeContext): AssetModelHierarchy => {
-  return {
-    childAssetModelId: __expectString(output.childAssetModelId),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_AssetModelHierarchy omitted.
 
-/**
- * deserializeAws_restJson1AssetModelProperties
- */
-const de_AssetModelProperties = (output: any, context: __SerdeContext): AssetModelProperty[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetModelProperty(entry, context);
-    });
-  return retVal;
-};
+// de_AssetModelProperties omitted.
 
-/**
- * deserializeAws_restJson1AssetModelProperty
- */
-const de_AssetModelProperty = (output: any, context: __SerdeContext): AssetModelProperty => {
-  return {
-    dataType: __expectString(output.dataType),
-    dataTypeSpec: __expectString(output.dataTypeSpec),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    type: output.type != null ? de_PropertyType(output.type, context) : undefined,
-    unit: __expectString(output.unit),
-  } as any;
-};
+// de_AssetModelProperty omitted.
 
-/**
- * deserializeAws_restJson1AssetModelPropertySummaries
- */
-const de_AssetModelPropertySummaries = (output: any, context: __SerdeContext): AssetModelPropertySummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetModelPropertySummary(entry, context);
-    });
-  return retVal;
-};
+// de_AssetModelPropertySummaries omitted.
 
-/**
- * deserializeAws_restJson1AssetModelPropertySummary
- */
-const de_AssetModelPropertySummary = (output: any, context: __SerdeContext): AssetModelPropertySummary => {
-  return {
-    assetModelCompositeModelId: __expectString(output.assetModelCompositeModelId),
-    dataType: __expectString(output.dataType),
-    dataTypeSpec: __expectString(output.dataTypeSpec),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    type: output.type != null ? de_PropertyType(output.type, context) : undefined,
-    unit: __expectString(output.unit),
-  } as any;
-};
+// de_AssetModelPropertySummary omitted.
 
-/**
- * deserializeAws_restJson1AssetModelStatus
- */
-const de_AssetModelStatus = (output: any, context: __SerdeContext): AssetModelStatus => {
-  return {
-    error: output.error != null ? de_ErrorDetails(output.error, context) : undefined,
-    state: __expectString(output.state),
-  } as any;
-};
+// de_AssetModelStatus omitted.
 
 /**
  * deserializeAws_restJson1AssetModelSummaries
@@ -8918,9 +7942,6 @@ const de_AssetModelSummaries = (output: any, context: __SerdeContext): AssetMode
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssetModelSummary(entry, context);
     });
   return retVal;
@@ -8930,90 +7951,34 @@ const de_AssetModelSummaries = (output: any, context: __SerdeContext): AssetMode
  * deserializeAws_restJson1AssetModelSummary
  */
 const de_AssetModelSummary = (output: any, context: __SerdeContext): AssetModelSummary => {
-  return {
-    arn: __expectString(output.arn),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastUpdateDate:
-      output.lastUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
-        : undefined,
-    name: __expectString(output.name),
-    status: output.status != null ? de_AssetModelStatus(output.status, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AssetProperties
- */
-const de_AssetProperties = (output: any, context: __SerdeContext): AssetProperty[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetProperty(entry, context);
-    });
-  return retVal;
-};
+// de_AssetProperties omitted.
 
-/**
- * deserializeAws_restJson1AssetProperty
- */
-const de_AssetProperty = (output: any, context: __SerdeContext): AssetProperty => {
-  return {
-    alias: __expectString(output.alias),
-    dataType: __expectString(output.dataType),
-    dataTypeSpec: __expectString(output.dataTypeSpec),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    notification: output.notification != null ? de_PropertyNotification(output.notification, context) : undefined,
-    unit: __expectString(output.unit),
-  } as any;
-};
+// de_AssetProperty omitted.
 
-/**
- * deserializeAws_restJson1AssetPropertySummaries
- */
-const de_AssetPropertySummaries = (output: any, context: __SerdeContext): AssetPropertySummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetPropertySummary(entry, context);
-    });
-  return retVal;
-};
+// de_AssetPropertySummaries omitted.
 
-/**
- * deserializeAws_restJson1AssetPropertySummary
- */
-const de_AssetPropertySummary = (output: any, context: __SerdeContext): AssetPropertySummary => {
-  return {
-    alias: __expectString(output.alias),
-    assetCompositeModelId: __expectString(output.assetCompositeModelId),
-    id: __expectString(output.id),
-    notification: output.notification != null ? de_PropertyNotification(output.notification, context) : undefined,
-    unit: __expectString(output.unit),
-  } as any;
-};
+// de_AssetPropertySummary omitted.
 
 /**
  * deserializeAws_restJson1AssetPropertyValue
  */
 const de_AssetPropertyValue = (output: any, context: __SerdeContext): AssetPropertyValue => {
-  return {
-    quality: __expectString(output.quality),
-    timestamp: output.timestamp != null ? de_TimeInNanos(output.timestamp, context) : undefined,
-    value: output.value != null ? de_Variant(output.value, context) : undefined,
-  } as any;
+  return take(output, {
+    quality: __expectString,
+    timestamp: _json,
+    value: (_: any) => de_Variant(_, context),
+  }) as any;
 };
 
 /**
@@ -9023,48 +7988,16 @@ const de_AssetPropertyValueHistory = (output: any, context: __SerdeContext): Ass
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssetPropertyValue(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1AssetRelationshipSummaries
- */
-const de_AssetRelationshipSummaries = (output: any, context: __SerdeContext): AssetRelationshipSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetRelationshipSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AssetRelationshipSummaries omitted.
 
-/**
- * deserializeAws_restJson1AssetRelationshipSummary
- */
-const de_AssetRelationshipSummary = (output: any, context: __SerdeContext): AssetRelationshipSummary => {
-  return {
-    hierarchyInfo: output.hierarchyInfo != null ? de_AssetHierarchyInfo(output.hierarchyInfo, context) : undefined,
-    relationshipType: __expectString(output.relationshipType),
-  } as any;
-};
+// de_AssetRelationshipSummary omitted.
 
-/**
- * deserializeAws_restJson1AssetStatus
- */
-const de_AssetStatus = (output: any, context: __SerdeContext): AssetStatus => {
-  return {
-    error: output.error != null ? de_ErrorDetails(output.error, context) : undefined,
-    state: __expectString(output.state),
-  } as any;
-};
+// de_AssetStatus omitted.
 
 /**
  * deserializeAws_restJson1AssetSummaries
@@ -9073,9 +8006,6 @@ const de_AssetSummaries = (output: any, context: __SerdeContext): AssetSummary[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssetSummary(entry, context);
     });
   return retVal;
@@ -9085,23 +8015,17 @@ const de_AssetSummaries = (output: any, context: __SerdeContext): AssetSummary[]
  * deserializeAws_restJson1AssetSummary
  */
 const de_AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {
-  return {
-    arn: __expectString(output.arn),
-    assetModelId: __expectString(output.assetModelId),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    description: __expectString(output.description),
-    hierarchies: output.hierarchies != null ? de_AssetHierarchies(output.hierarchies, context) : undefined,
-    id: __expectString(output.id),
-    lastUpdateDate:
-      output.lastUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
-        : undefined,
-    name: __expectString(output.name),
-    status: output.status != null ? de_AssetStatus(output.status, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    assetModelId: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    hierarchies: _json,
+    id: __expectString,
+    lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: _json,
+  }) as any;
 };
 
 /**
@@ -9111,9 +8035,6 @@ const de_AssociatedAssetsSummaries = (output: any, context: __SerdeContext): Ass
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AssociatedAssetsSummary(entry, context);
     });
   return retVal;
@@ -9123,95 +8044,28 @@ const de_AssociatedAssetsSummaries = (output: any, context: __SerdeContext): Ass
  * deserializeAws_restJson1AssociatedAssetsSummary
  */
 const de_AssociatedAssetsSummary = (output: any, context: __SerdeContext): AssociatedAssetsSummary => {
-  return {
-    arn: __expectString(output.arn),
-    assetModelId: __expectString(output.assetModelId),
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    description: __expectString(output.description),
-    hierarchies: output.hierarchies != null ? de_AssetHierarchies(output.hierarchies, context) : undefined,
-    id: __expectString(output.id),
-    lastUpdateDate:
-      output.lastUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
-        : undefined,
-    name: __expectString(output.name),
-    status: output.status != null ? de_AssetStatus(output.status, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    assetModelId: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    hierarchies: _json,
+    id: __expectString,
+    lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Attribute
- */
-const de_Attribute = (output: any, context: __SerdeContext): Attribute => {
-  return {
-    defaultValue: __expectString(output.defaultValue),
-  } as any;
-};
+// de_Attribute omitted.
 
-/**
- * deserializeAws_restJson1BatchAssociateProjectAssetsErrors
- */
-const de_BatchAssociateProjectAssetsErrors = (output: any, context: __SerdeContext): AssetErrorDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetErrorDetails(entry, context);
-    });
-  return retVal;
-};
+// de_BatchAssociateProjectAssetsErrors omitted.
 
-/**
- * deserializeAws_restJson1BatchDisassociateProjectAssetsErrors
- */
-const de_BatchDisassociateProjectAssetsErrors = (output: any, context: __SerdeContext): AssetErrorDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AssetErrorDetails(entry, context);
-    });
-  return retVal;
-};
+// de_BatchDisassociateProjectAssetsErrors omitted.
 
-/**
- * deserializeAws_restJson1BatchGetAssetPropertyAggregatesErrorEntries
- */
-const de_BatchGetAssetPropertyAggregatesErrorEntries = (
-  output: any,
-  context: __SerdeContext
-): BatchGetAssetPropertyAggregatesErrorEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetAssetPropertyAggregatesErrorEntry(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetAssetPropertyAggregatesErrorEntries omitted.
 
-/**
- * deserializeAws_restJson1BatchGetAssetPropertyAggregatesErrorEntry
- */
-const de_BatchGetAssetPropertyAggregatesErrorEntry = (
-  output: any,
-  context: __SerdeContext
-): BatchGetAssetPropertyAggregatesErrorEntry => {
-  return {
-    entryId: __expectString(output.entryId),
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-  } as any;
-};
+// de_BatchGetAssetPropertyAggregatesErrorEntry omitted.
 
 /**
  * deserializeAws_restJson1BatchGetAssetPropertyAggregatesErrorInfo
@@ -9220,13 +8074,10 @@ const de_BatchGetAssetPropertyAggregatesErrorInfo = (
   output: any,
   context: __SerdeContext
 ): BatchGetAssetPropertyAggregatesErrorInfo => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorTimestamp:
-      output.errorTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.errorTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    errorCode: __expectString,
+    errorTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -9239,9 +8090,6 @@ const de_BatchGetAssetPropertyAggregatesSkippedEntries = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchGetAssetPropertyAggregatesSkippedEntry(entry, context);
     });
   return retVal;
@@ -9254,12 +8102,11 @@ const de_BatchGetAssetPropertyAggregatesSkippedEntry = (
   output: any,
   context: __SerdeContext
 ): BatchGetAssetPropertyAggregatesSkippedEntry => {
-  return {
-    completionStatus: __expectString(output.completionStatus),
-    entryId: __expectString(output.entryId),
-    errorInfo:
-      output.errorInfo != null ? de_BatchGetAssetPropertyAggregatesErrorInfo(output.errorInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    completionStatus: __expectString,
+    entryId: __expectString,
+    errorInfo: (_: any) => de_BatchGetAssetPropertyAggregatesErrorInfo(_, context),
+  }) as any;
 };
 
 /**
@@ -9272,9 +8119,6 @@ const de_BatchGetAssetPropertyAggregatesSuccessEntries = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchGetAssetPropertyAggregatesSuccessEntry(entry, context);
     });
   return retVal;
@@ -9287,44 +8131,15 @@ const de_BatchGetAssetPropertyAggregatesSuccessEntry = (
   output: any,
   context: __SerdeContext
 ): BatchGetAssetPropertyAggregatesSuccessEntry => {
-  return {
-    aggregatedValues:
-      output.aggregatedValues != null ? de_AggregatedValues(output.aggregatedValues, context) : undefined,
-    entryId: __expectString(output.entryId),
-  } as any;
+  return take(output, {
+    aggregatedValues: (_: any) => de_AggregatedValues(_, context),
+    entryId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BatchGetAssetPropertyValueErrorEntries
- */
-const de_BatchGetAssetPropertyValueErrorEntries = (
-  output: any,
-  context: __SerdeContext
-): BatchGetAssetPropertyValueErrorEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetAssetPropertyValueErrorEntry(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetAssetPropertyValueErrorEntries omitted.
 
-/**
- * deserializeAws_restJson1BatchGetAssetPropertyValueErrorEntry
- */
-const de_BatchGetAssetPropertyValueErrorEntry = (
-  output: any,
-  context: __SerdeContext
-): BatchGetAssetPropertyValueErrorEntry => {
-  return {
-    entryId: __expectString(output.entryId),
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-  } as any;
-};
+// de_BatchGetAssetPropertyValueErrorEntry omitted.
 
 /**
  * deserializeAws_restJson1BatchGetAssetPropertyValueErrorInfo
@@ -9333,46 +8148,15 @@ const de_BatchGetAssetPropertyValueErrorInfo = (
   output: any,
   context: __SerdeContext
 ): BatchGetAssetPropertyValueErrorInfo => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorTimestamp:
-      output.errorTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.errorTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    errorCode: __expectString,
+    errorTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BatchGetAssetPropertyValueHistoryErrorEntries
- */
-const de_BatchGetAssetPropertyValueHistoryErrorEntries = (
-  output: any,
-  context: __SerdeContext
-): BatchGetAssetPropertyValueHistoryErrorEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchGetAssetPropertyValueHistoryErrorEntry(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetAssetPropertyValueHistoryErrorEntries omitted.
 
-/**
- * deserializeAws_restJson1BatchGetAssetPropertyValueHistoryErrorEntry
- */
-const de_BatchGetAssetPropertyValueHistoryErrorEntry = (
-  output: any,
-  context: __SerdeContext
-): BatchGetAssetPropertyValueHistoryErrorEntry => {
-  return {
-    entryId: __expectString(output.entryId),
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-  } as any;
-};
+// de_BatchGetAssetPropertyValueHistoryErrorEntry omitted.
 
 /**
  * deserializeAws_restJson1BatchGetAssetPropertyValueHistoryErrorInfo
@@ -9381,13 +8165,10 @@ const de_BatchGetAssetPropertyValueHistoryErrorInfo = (
   output: any,
   context: __SerdeContext
 ): BatchGetAssetPropertyValueHistoryErrorInfo => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorTimestamp:
-      output.errorTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.errorTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    errorCode: __expectString,
+    errorTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -9400,9 +8181,6 @@ const de_BatchGetAssetPropertyValueHistorySkippedEntries = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchGetAssetPropertyValueHistorySkippedEntry(entry, context);
     });
   return retVal;
@@ -9415,12 +8193,11 @@ const de_BatchGetAssetPropertyValueHistorySkippedEntry = (
   output: any,
   context: __SerdeContext
 ): BatchGetAssetPropertyValueHistorySkippedEntry => {
-  return {
-    completionStatus: __expectString(output.completionStatus),
-    entryId: __expectString(output.entryId),
-    errorInfo:
-      output.errorInfo != null ? de_BatchGetAssetPropertyValueHistoryErrorInfo(output.errorInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    completionStatus: __expectString,
+    entryId: __expectString,
+    errorInfo: (_: any) => de_BatchGetAssetPropertyValueHistoryErrorInfo(_, context),
+  }) as any;
 };
 
 /**
@@ -9433,9 +8210,6 @@ const de_BatchGetAssetPropertyValueHistorySuccessEntries = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchGetAssetPropertyValueHistorySuccessEntry(entry, context);
     });
   return retVal;
@@ -9448,13 +8222,10 @@ const de_BatchGetAssetPropertyValueHistorySuccessEntry = (
   output: any,
   context: __SerdeContext
 ): BatchGetAssetPropertyValueHistorySuccessEntry => {
-  return {
-    assetPropertyValueHistory:
-      output.assetPropertyValueHistory != null
-        ? de_AssetPropertyValueHistory(output.assetPropertyValueHistory, context)
-        : undefined,
-    entryId: __expectString(output.entryId),
-  } as any;
+  return take(output, {
+    assetPropertyValueHistory: (_: any) => de_AssetPropertyValueHistory(_, context),
+    entryId: __expectString,
+  }) as any;
 };
 
 /**
@@ -9467,9 +8238,6 @@ const de_BatchGetAssetPropertyValueSkippedEntries = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchGetAssetPropertyValueSkippedEntry(entry, context);
     });
   return retVal;
@@ -9482,11 +8250,11 @@ const de_BatchGetAssetPropertyValueSkippedEntry = (
   output: any,
   context: __SerdeContext
 ): BatchGetAssetPropertyValueSkippedEntry => {
-  return {
-    completionStatus: __expectString(output.completionStatus),
-    entryId: __expectString(output.entryId),
-    errorInfo: output.errorInfo != null ? de_BatchGetAssetPropertyValueErrorInfo(output.errorInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    completionStatus: __expectString,
+    entryId: __expectString,
+    errorInfo: (_: any) => de_BatchGetAssetPropertyValueErrorInfo(_, context),
+  }) as any;
 };
 
 /**
@@ -9499,9 +8267,6 @@ const de_BatchGetAssetPropertyValueSuccessEntries = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_BatchGetAssetPropertyValueSuccessEntry(entry, context);
     });
   return retVal;
@@ -9514,132 +8279,31 @@ const de_BatchGetAssetPropertyValueSuccessEntry = (
   output: any,
   context: __SerdeContext
 ): BatchGetAssetPropertyValueSuccessEntry => {
-  return {
-    assetPropertyValue:
-      output.assetPropertyValue != null ? de_AssetPropertyValue(output.assetPropertyValue, context) : undefined,
-    entryId: __expectString(output.entryId),
-  } as any;
+  return take(output, {
+    assetPropertyValue: (_: any) => de_AssetPropertyValue(_, context),
+    entryId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1BatchPutAssetPropertyError
- */
-const de_BatchPutAssetPropertyError = (output: any, context: __SerdeContext): BatchPutAssetPropertyError => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    timestamps: output.timestamps != null ? de_Timestamps(output.timestamps, context) : undefined,
-  } as any;
-};
+// de_BatchPutAssetPropertyError omitted.
 
-/**
- * deserializeAws_restJson1BatchPutAssetPropertyErrorEntries
- */
-const de_BatchPutAssetPropertyErrorEntries = (
-  output: any,
-  context: __SerdeContext
-): BatchPutAssetPropertyErrorEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchPutAssetPropertyErrorEntry(entry, context);
-    });
-  return retVal;
-};
+// de_BatchPutAssetPropertyErrorEntries omitted.
 
-/**
- * deserializeAws_restJson1BatchPutAssetPropertyErrorEntry
- */
-const de_BatchPutAssetPropertyErrorEntry = (output: any, context: __SerdeContext): BatchPutAssetPropertyErrorEntry => {
-  return {
-    entryId: __expectString(output.entryId),
-    errors: output.errors != null ? de_BatchPutAssetPropertyErrors(output.errors, context) : undefined,
-  } as any;
-};
+// de_BatchPutAssetPropertyErrorEntry omitted.
 
-/**
- * deserializeAws_restJson1BatchPutAssetPropertyErrors
- */
-const de_BatchPutAssetPropertyErrors = (output: any, context: __SerdeContext): BatchPutAssetPropertyError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchPutAssetPropertyError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchPutAssetPropertyErrors omitted.
 
-/**
- * deserializeAws_restJson1ColumnNames
- */
-const de_ColumnNames = (output: any, context: __SerdeContext): (ColumnName | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ColumnNames omitted.
 
-/**
- * deserializeAws_restJson1CompositeModelProperty
- */
-const de_CompositeModelProperty = (output: any, context: __SerdeContext): CompositeModelProperty => {
-  return {
-    assetProperty: output.assetProperty != null ? de_Property(output.assetProperty, context) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_CompositeModelProperty omitted.
 
-/**
- * deserializeAws_restJson1ConfigurationErrorDetails
- */
-const de_ConfigurationErrorDetails = (output: any, context: __SerdeContext): ConfigurationErrorDetails => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConfigurationErrorDetails omitted.
 
-/**
- * deserializeAws_restJson1ConfigurationStatus
- */
-const de_ConfigurationStatus = (output: any, context: __SerdeContext): ConfigurationStatus => {
-  return {
-    error: output.error != null ? de_ConfigurationErrorDetails(output.error, context) : undefined,
-    state: __expectString(output.state),
-  } as any;
-};
+// de_ConfigurationStatus omitted.
 
-/**
- * deserializeAws_restJson1Csv
- */
-const de_Csv = (output: any, context: __SerdeContext): Csv => {
-  return {
-    columnNames: output.columnNames != null ? de_ColumnNames(output.columnNames, context) : undefined,
-  } as any;
-};
+// de_Csv omitted.
 
-/**
- * deserializeAws_restJson1CustomerManagedS3Storage
- */
-const de_CustomerManagedS3Storage = (output: any, context: __SerdeContext): CustomerManagedS3Storage => {
-  return {
-    roleArn: __expectString(output.roleArn),
-    s3ResourceArn: __expectString(output.s3ResourceArn),
-  } as any;
-};
+// de_CustomerManagedS3Storage omitted.
 
 /**
  * deserializeAws_restJson1DashboardSummaries
@@ -9648,9 +8312,6 @@ const de_DashboardSummaries = (output: any, context: __SerdeContext): DashboardS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DashboardSummary(entry, context);
     });
   return retVal;
@@ -9660,170 +8321,40 @@ const de_DashboardSummaries = (output: any, context: __SerdeContext): DashboardS
  * deserializeAws_restJson1DashboardSummary
  */
 const de_DashboardSummary = (output: any, context: __SerdeContext): DashboardSummary => {
-  return {
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastUpdateDate:
-      output.lastUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1DetailedError
- */
-const de_DetailedError = (output: any, context: __SerdeContext): DetailedError => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DetailedError omitted.
 
-/**
- * deserializeAws_restJson1DetailedErrors
- */
-const de_DetailedErrors = (output: any, context: __SerdeContext): DetailedError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DetailedError(entry, context);
-    });
-  return retVal;
-};
+// de_DetailedErrors omitted.
 
-/**
- * deserializeAws_restJson1ErrorDetails
- */
-const de_ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
-  return {
-    code: __expectString(output.code),
-    details: output.details != null ? de_DetailedErrors(output.details, context) : undefined,
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ErrorDetails omitted.
 
-/**
- * deserializeAws_restJson1ErrorReportLocation
- */
-const de_ErrorReportLocation = (output: any, context: __SerdeContext): ErrorReportLocation => {
-  return {
-    bucket: __expectString(output.bucket),
-    prefix: __expectString(output.prefix),
-  } as any;
-};
+// de_ErrorReportLocation omitted.
 
-/**
- * deserializeAws_restJson1ExpressionVariable
- */
-const de_ExpressionVariable = (output: any, context: __SerdeContext): ExpressionVariable => {
-  return {
-    name: __expectString(output.name),
-    value: output.value != null ? de_VariableValue(output.value, context) : undefined,
-  } as any;
-};
+// de_ExpressionVariable omitted.
 
-/**
- * deserializeAws_restJson1ExpressionVariables
- */
-const de_ExpressionVariables = (output: any, context: __SerdeContext): ExpressionVariable[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExpressionVariable(entry, context);
-    });
-  return retVal;
-};
+// de_ExpressionVariables omitted.
 
-/**
- * deserializeAws_restJson1File
- */
-const de_File = (output: any, context: __SerdeContext): File => {
-  return {
-    bucket: __expectString(output.bucket),
-    key: __expectString(output.key),
-    versionId: __expectString(output.versionId),
-  } as any;
-};
+// de_File omitted.
 
-/**
- * deserializeAws_restJson1FileFormat
- */
-const de_FileFormat = (output: any, context: __SerdeContext): FileFormat => {
-  return {
-    csv: output.csv != null ? de_Csv(output.csv, context) : undefined,
-  } as any;
-};
+// de_FileFormat omitted.
 
-/**
- * deserializeAws_restJson1Files
- */
-const de_Files = (output: any, context: __SerdeContext): File[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_File(entry, context);
-    });
-  return retVal;
-};
+// de_Files omitted.
 
-/**
- * deserializeAws_restJson1ForwardingConfig
- */
-const de_ForwardingConfig = (output: any, context: __SerdeContext): ForwardingConfig => {
-  return {
-    state: __expectString(output.state),
-  } as any;
-};
+// de_ForwardingConfig omitted.
 
-/**
- * deserializeAws_restJson1GatewayCapabilitySummaries
- */
-const de_GatewayCapabilitySummaries = (output: any, context: __SerdeContext): GatewayCapabilitySummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GatewayCapabilitySummary(entry, context);
-    });
-  return retVal;
-};
+// de_GatewayCapabilitySummaries omitted.
 
-/**
- * deserializeAws_restJson1GatewayCapabilitySummary
- */
-const de_GatewayCapabilitySummary = (output: any, context: __SerdeContext): GatewayCapabilitySummary => {
-  return {
-    capabilityNamespace: __expectString(output.capabilityNamespace),
-    capabilitySyncStatus: __expectString(output.capabilitySyncStatus),
-  } as any;
-};
+// de_GatewayCapabilitySummary omitted.
 
-/**
- * deserializeAws_restJson1GatewayPlatform
- */
-const de_GatewayPlatform = (output: any, context: __SerdeContext): GatewayPlatform => {
-  return {
-    greengrass: output.greengrass != null ? de_Greengrass(output.greengrass, context) : undefined,
-    greengrassV2: output.greengrassV2 != null ? de_GreengrassV2(output.greengrassV2, context) : undefined,
-  } as any;
-};
+// de_GatewayPlatform omitted.
 
 /**
  * deserializeAws_restJson1GatewaySummaries
@@ -9832,9 +8363,6 @@ const de_GatewaySummaries = (output: any, context: __SerdeContext): GatewaySumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_GatewaySummary(entry, context);
     });
   return retVal;
@@ -9844,100 +8372,38 @@ const de_GatewaySummaries = (output: any, context: __SerdeContext): GatewaySumma
  * deserializeAws_restJson1GatewaySummary
  */
 const de_GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary => {
-  return {
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    gatewayCapabilitySummaries:
-      output.gatewayCapabilitySummaries != null
-        ? de_GatewayCapabilitySummaries(output.gatewayCapabilitySummaries, context)
-        : undefined,
-    gatewayId: __expectString(output.gatewayId),
-    gatewayName: __expectString(output.gatewayName),
-    gatewayPlatform: output.gatewayPlatform != null ? de_GatewayPlatform(output.gatewayPlatform, context) : undefined,
-    lastUpdateDate:
-      output.lastUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    gatewayCapabilitySummaries: _json,
+    gatewayId: __expectString,
+    gatewayName: __expectString,
+    gatewayPlatform: _json,
+    lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Greengrass
- */
-const de_Greengrass = (output: any, context: __SerdeContext): Greengrass => {
-  return {
-    groupArn: __expectString(output.groupArn),
-  } as any;
-};
+// de_Greengrass omitted.
 
-/**
- * deserializeAws_restJson1GreengrassV2
- */
-const de_GreengrassV2 = (output: any, context: __SerdeContext): GreengrassV2 => {
-  return {
-    coreDeviceThingName: __expectString(output.coreDeviceThingName),
-  } as any;
-};
+// de_GreengrassV2 omitted.
 
-/**
- * deserializeAws_restJson1GroupIdentity
- */
-const de_GroupIdentity = (output: any, context: __SerdeContext): GroupIdentity => {
-  return {
-    id: __expectString(output.id),
-  } as any;
-};
+// de_GroupIdentity omitted.
 
-/**
- * deserializeAws_restJson1IAMRoleIdentity
- */
-const de_IAMRoleIdentity = (output: any, context: __SerdeContext): IAMRoleIdentity => {
-  return {
-    arn: __expectString(output.arn),
-  } as any;
-};
+// de_IAMRoleIdentity omitted.
 
-/**
- * deserializeAws_restJson1IAMUserIdentity
- */
-const de_IAMUserIdentity = (output: any, context: __SerdeContext): IAMUserIdentity => {
-  return {
-    arn: __expectString(output.arn),
-  } as any;
-};
+// de_IAMUserIdentity omitted.
 
-/**
- * deserializeAws_restJson1Identity
- */
-const de_Identity = (output: any, context: __SerdeContext): Identity => {
-  return {
-    group: output.group != null ? de_GroupIdentity(output.group, context) : undefined,
-    iamRole: output.iamRole != null ? de_IAMRoleIdentity(output.iamRole, context) : undefined,
-    iamUser: output.iamUser != null ? de_IAMUserIdentity(output.iamUser, context) : undefined,
-    user: output.user != null ? de_UserIdentity(output.user, context) : undefined,
-  } as any;
-};
+// de_Identity omitted.
 
-/**
- * deserializeAws_restJson1ImageLocation
- */
-const de_ImageLocation = (output: any, context: __SerdeContext): ImageLocation => {
-  return {
-    id: __expectString(output.id),
-    url: __expectString(output.url),
-  } as any;
-};
+// de_ImageLocation omitted.
 
 /**
  * deserializeAws_restJson1InterpolatedAssetPropertyValue
  */
 const de_InterpolatedAssetPropertyValue = (output: any, context: __SerdeContext): InterpolatedAssetPropertyValue => {
-  return {
-    timestamp: output.timestamp != null ? de_TimeInNanos(output.timestamp, context) : undefined,
-    value: output.value != null ? de_Variant(output.value, context) : undefined,
-  } as any;
+  return take(output, {
+    timestamp: _json,
+    value: (_: any) => de_Variant(_, context),
+  }) as any;
 };
 
 /**
@@ -9947,149 +8413,36 @@ const de_InterpolatedAssetPropertyValues = (output: any, context: __SerdeContext
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_InterpolatedAssetPropertyValue(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1JobConfiguration
- */
-const de_JobConfiguration = (output: any, context: __SerdeContext): JobConfiguration => {
-  return {
-    fileFormat: output.fileFormat != null ? de_FileFormat(output.fileFormat, context) : undefined,
-  } as any;
-};
+// de_JobConfiguration omitted.
 
-/**
- * deserializeAws_restJson1JobSummaries
- */
-const de_JobSummaries = (output: any, context: __SerdeContext): JobSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_JobSummary(entry, context);
-    });
-  return retVal;
-};
+// de_JobSummaries omitted.
 
-/**
- * deserializeAws_restJson1JobSummary
- */
-const de_JobSummary = (output: any, context: __SerdeContext): JobSummary => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_JobSummary omitted.
 
-/**
- * deserializeAws_restJson1LoggingOptions
- */
-const de_LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {
-  return {
-    level: __expectString(output.level),
-  } as any;
-};
+// de_LoggingOptions omitted.
 
-/**
- * deserializeAws_restJson1Measurement
- */
-const de_Measurement = (output: any, context: __SerdeContext): Measurement => {
-  return {
-    processingConfig:
-      output.processingConfig != null ? de_MeasurementProcessingConfig(output.processingConfig, context) : undefined,
-  } as any;
-};
+// de_Measurement omitted.
 
-/**
- * deserializeAws_restJson1MeasurementProcessingConfig
- */
-const de_MeasurementProcessingConfig = (output: any, context: __SerdeContext): MeasurementProcessingConfig => {
-  return {
-    forwardingConfig:
-      output.forwardingConfig != null ? de_ForwardingConfig(output.forwardingConfig, context) : undefined,
-  } as any;
-};
+// de_MeasurementProcessingConfig omitted.
 
-/**
- * deserializeAws_restJson1Metric
- */
-const de_Metric = (output: any, context: __SerdeContext): Metric => {
-  return {
-    expression: __expectString(output.expression),
-    processingConfig:
-      output.processingConfig != null ? de_MetricProcessingConfig(output.processingConfig, context) : undefined,
-    variables: output.variables != null ? de_ExpressionVariables(output.variables, context) : undefined,
-    window: output.window != null ? de_MetricWindow(output.window, context) : undefined,
-  } as any;
-};
+// de_Metric omitted.
 
-/**
- * deserializeAws_restJson1MetricProcessingConfig
- */
-const de_MetricProcessingConfig = (output: any, context: __SerdeContext): MetricProcessingConfig => {
-  return {
-    computeLocation: __expectString(output.computeLocation),
-  } as any;
-};
+// de_MetricProcessingConfig omitted.
 
-/**
- * deserializeAws_restJson1MetricWindow
- */
-const de_MetricWindow = (output: any, context: __SerdeContext): MetricWindow => {
-  return {
-    tumbling: output.tumbling != null ? de_TumblingWindow(output.tumbling, context) : undefined,
-  } as any;
-};
+// de_MetricWindow omitted.
 
-/**
- * deserializeAws_restJson1MonitorErrorDetails
- */
-const de_MonitorErrorDetails = (output: any, context: __SerdeContext): MonitorErrorDetails => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_MonitorErrorDetails omitted.
 
-/**
- * deserializeAws_restJson1MultiLayerStorage
- */
-const de_MultiLayerStorage = (output: any, context: __SerdeContext): MultiLayerStorage => {
-  return {
-    customerManagedS3Storage:
-      output.customerManagedS3Storage != null
-        ? de_CustomerManagedS3Storage(output.customerManagedS3Storage, context)
-        : undefined,
-  } as any;
-};
+// de_MultiLayerStorage omitted.
 
-/**
- * deserializeAws_restJson1PortalResource
- */
-const de_PortalResource = (output: any, context: __SerdeContext): PortalResource => {
-  return {
-    id: __expectString(output.id),
-  } as any;
-};
+// de_PortalResource omitted.
 
-/**
- * deserializeAws_restJson1PortalStatus
- */
-const de_PortalStatus = (output: any, context: __SerdeContext): PortalStatus => {
-  return {
-    error: output.error != null ? de_MonitorErrorDetails(output.error, context) : undefined,
-    state: __expectString(output.state),
-  } as any;
-};
+// de_PortalStatus omitted.
 
 /**
  * deserializeAws_restJson1PortalSummaries
@@ -10098,9 +8451,6 @@ const de_PortalSummaries = (output: any, context: __SerdeContext): PortalSummary
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PortalSummary(entry, context);
     });
   return retVal;
@@ -10110,32 +8460,19 @@ const de_PortalSummaries = (output: any, context: __SerdeContext): PortalSummary
  * deserializeAws_restJson1PortalSummary
  */
 const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary => {
-  return {
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastUpdateDate:
-      output.lastUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
-        : undefined,
-    name: __expectString(output.name),
-    roleArn: __expectString(output.roleArn),
-    startUrl: __expectString(output.startUrl),
-    status: output.status != null ? de_PortalStatus(output.status, context) : undefined,
-  } as any;
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    roleArn: __expectString,
+    startUrl: __expectString,
+    status: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ProjectResource
- */
-const de_ProjectResource = (output: any, context: __SerdeContext): ProjectResource => {
-  return {
-    id: __expectString(output.id),
-  } as any;
-};
+// de_ProjectResource omitted.
 
 /**
  * deserializeAws_restJson1ProjectSummaries
@@ -10144,9 +8481,6 @@ const de_ProjectSummaries = (output: any, context: __SerdeContext): ProjectSumma
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProjectSummary(entry, context);
     });
   return retVal;
@@ -10156,100 +8490,28 @@ const de_ProjectSummaries = (output: any, context: __SerdeContext): ProjectSumma
  * deserializeAws_restJson1ProjectSummary
  */
 const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
-  return {
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    lastUpdateDate:
-      output.lastUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Property
- */
-const de_Property = (output: any, context: __SerdeContext): Property => {
-  return {
-    alias: __expectString(output.alias),
-    dataType: __expectString(output.dataType),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    notification: output.notification != null ? de_PropertyNotification(output.notification, context) : undefined,
-    type: output.type != null ? de_PropertyType(output.type, context) : undefined,
-    unit: __expectString(output.unit),
-  } as any;
-};
+// de_Property omitted.
 
-/**
- * deserializeAws_restJson1PropertyNotification
- */
-const de_PropertyNotification = (output: any, context: __SerdeContext): PropertyNotification => {
-  return {
-    state: __expectString(output.state),
-    topic: __expectString(output.topic),
-  } as any;
-};
+// de_PropertyNotification omitted.
 
-/**
- * deserializeAws_restJson1PropertyType
- */
-const de_PropertyType = (output: any, context: __SerdeContext): PropertyType => {
-  return {
-    attribute: output.attribute != null ? de_Attribute(output.attribute, context) : undefined,
-    measurement: output.measurement != null ? de_Measurement(output.measurement, context) : undefined,
-    metric: output.metric != null ? de_Metric(output.metric, context) : undefined,
-    transform: output.transform != null ? de_Transform(output.transform, context) : undefined,
-  } as any;
-};
+// de_PropertyType omitted.
 
-/**
- * deserializeAws_restJson1Resource
- */
-const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    portal: output.portal != null ? de_PortalResource(output.portal, context) : undefined,
-    project: output.project != null ? de_ProjectResource(output.project, context) : undefined,
-  } as any;
-};
+// de_Resource omitted.
 
-/**
- * deserializeAws_restJson1RetentionPeriod
- */
-const de_RetentionPeriod = (output: any, context: __SerdeContext): RetentionPeriod => {
-  return {
-    numberOfDays: __expectInt32(output.numberOfDays),
-    unlimited: __expectBoolean(output.unlimited),
-  } as any;
-};
+// de_RetentionPeriod omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1TimeInNanos
- */
-const de_TimeInNanos = (output: any, context: __SerdeContext): TimeInNanos => {
-  return {
-    offsetInNanos: __expectInt32(output.offsetInNanos),
-    timeInSeconds: __expectLong(output.timeInSeconds),
-  } as any;
-};
+// de_TimeInNanos omitted.
 
 /**
  * deserializeAws_restJson1TimeSeriesSummaries
@@ -10258,9 +8520,6 @@ const de_TimeSeriesSummaries = (output: any, context: __SerdeContext): TimeSerie
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TimeSeriesSummary(entry, context);
     });
   return retVal;
@@ -10270,102 +8529,41 @@ const de_TimeSeriesSummaries = (output: any, context: __SerdeContext): TimeSerie
  * deserializeAws_restJson1TimeSeriesSummary
  */
 const de_TimeSeriesSummary = (output: any, context: __SerdeContext): TimeSeriesSummary => {
-  return {
-    alias: __expectString(output.alias),
-    assetId: __expectString(output.assetId),
-    dataType: __expectString(output.dataType),
-    dataTypeSpec: __expectString(output.dataTypeSpec),
-    propertyId: __expectString(output.propertyId),
-    timeSeriesArn: __expectString(output.timeSeriesArn),
-    timeSeriesCreationDate:
-      output.timeSeriesCreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timeSeriesCreationDate)))
-        : undefined,
-    timeSeriesId: __expectString(output.timeSeriesId),
-    timeSeriesLastUpdateDate:
-      output.timeSeriesLastUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timeSeriesLastUpdateDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    alias: __expectString,
+    assetId: __expectString,
+    dataType: __expectString,
+    dataTypeSpec: __expectString,
+    propertyId: __expectString,
+    timeSeriesArn: __expectString,
+    timeSeriesCreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    timeSeriesId: __expectString,
+    timeSeriesLastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Timestamps
- */
-const de_Timestamps = (output: any, context: __SerdeContext): TimeInNanos[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TimeInNanos(entry, context);
-    });
-  return retVal;
-};
+// de_Timestamps omitted.
 
-/**
- * deserializeAws_restJson1Transform
- */
-const de_Transform = (output: any, context: __SerdeContext): Transform => {
-  return {
-    expression: __expectString(output.expression),
-    processingConfig:
-      output.processingConfig != null ? de_TransformProcessingConfig(output.processingConfig, context) : undefined,
-    variables: output.variables != null ? de_ExpressionVariables(output.variables, context) : undefined,
-  } as any;
-};
+// de_Transform omitted.
 
-/**
- * deserializeAws_restJson1TransformProcessingConfig
- */
-const de_TransformProcessingConfig = (output: any, context: __SerdeContext): TransformProcessingConfig => {
-  return {
-    computeLocation: __expectString(output.computeLocation),
-    forwardingConfig:
-      output.forwardingConfig != null ? de_ForwardingConfig(output.forwardingConfig, context) : undefined,
-  } as any;
-};
+// de_TransformProcessingConfig omitted.
 
-/**
- * deserializeAws_restJson1TumblingWindow
- */
-const de_TumblingWindow = (output: any, context: __SerdeContext): TumblingWindow => {
-  return {
-    interval: __expectString(output.interval),
-    offset: __expectString(output.offset),
-  } as any;
-};
+// de_TumblingWindow omitted.
 
-/**
- * deserializeAws_restJson1UserIdentity
- */
-const de_UserIdentity = (output: any, context: __SerdeContext): UserIdentity => {
-  return {
-    id: __expectString(output.id),
-  } as any;
-};
+// de_UserIdentity omitted.
 
-/**
- * deserializeAws_restJson1VariableValue
- */
-const de_VariableValue = (output: any, context: __SerdeContext): VariableValue => {
-  return {
-    hierarchyId: __expectString(output.hierarchyId),
-    propertyId: __expectString(output.propertyId),
-  } as any;
-};
+// de_VariableValue omitted.
 
 /**
  * deserializeAws_restJson1Variant
  */
 const de_Variant = (output: any, context: __SerdeContext): Variant => {
-  return {
-    booleanValue: __expectBoolean(output.booleanValue),
-    doubleValue: __limitedParseDouble(output.doubleValue),
-    integerValue: __expectInt32(output.integerValue),
-    stringValue: __expectString(output.stringValue),
-  } as any;
+  return take(output, {
+    booleanValue: __expectBoolean,
+    doubleValue: __limitedParseDouble,
+    integerValue: __expectInt32,
+    stringValue: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

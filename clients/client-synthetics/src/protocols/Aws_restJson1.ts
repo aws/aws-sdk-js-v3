@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -59,25 +59,18 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { UpdateCanaryCommandInput, UpdateCanaryCommandOutput } from "../commands/UpdateCanaryCommand";
 import {
   ArtifactConfigInput,
-  ArtifactConfigOutput,
   BadRequestException,
   BaseScreenshot,
   Canary,
   CanaryCodeInput,
-  CanaryCodeOutput,
   CanaryLastRun,
   CanaryRun,
   CanaryRunConfigInput,
-  CanaryRunConfigOutput,
-  CanaryRunStatus,
   CanaryRunTimeline,
   CanaryScheduleInput,
-  CanaryScheduleOutput,
-  CanaryStatus,
   CanaryTimeline,
   ConflictException,
   Group,
-  GroupSummary,
   InternalFailureException,
   InternalServerException,
   NotFoundException,
@@ -89,9 +82,7 @@ import {
   TooManyRequestsException,
   ValidationException,
   VisualReferenceInput,
-  VisualReferenceOutput,
   VpcConfigInput,
-  VpcConfigOutput,
 } from "../models/models_0";
 import { SyntheticsServiceException as __BaseException } from "../models/SyntheticsServiceException";
 
@@ -117,9 +108,11 @@ export const se_AssociateResourceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -144,24 +137,22 @@ export const se_CreateCanaryCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ArtifactConfig != null && { ArtifactConfig: se_ArtifactConfigInput(input.ArtifactConfig, context) }),
-    ...(input.ArtifactS3Location != null && { ArtifactS3Location: input.ArtifactS3Location }),
-    ...(input.Code != null && { Code: se_CanaryCodeInput(input.Code, context) }),
-    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.FailureRetentionPeriodInDays != null && {
-      FailureRetentionPeriodInDays: input.FailureRetentionPeriodInDays,
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RunConfig != null && { RunConfig: se_CanaryRunConfigInput(input.RunConfig, context) }),
-    ...(input.RuntimeVersion != null && { RuntimeVersion: input.RuntimeVersion }),
-    ...(input.Schedule != null && { Schedule: se_CanaryScheduleInput(input.Schedule, context) }),
-    ...(input.SuccessRetentionPeriodInDays != null && {
-      SuccessRetentionPeriodInDays: input.SuccessRetentionPeriodInDays,
-    }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfigInput(input.VpcConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ArtifactConfig: (_) => _json(_),
+      ArtifactS3Location: [],
+      Code: (_) => se_CanaryCodeInput(_, context),
+      ExecutionRoleArn: [],
+      FailureRetentionPeriodInDays: [],
+      Name: [],
+      RunConfig: (_) => _json(_),
+      RuntimeVersion: [],
+      Schedule: (_) => _json(_),
+      SuccessRetentionPeriodInDays: [],
+      Tags: (_) => _json(_),
+      VpcConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -186,10 +177,12 @@ export const se_CreateGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -271,11 +264,13 @@ export const se_DescribeCanariesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canaries";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Names != null && { Names: se_DescribeCanariesNameFilter(input.Names, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      Names: (_) => _json(_),
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -300,11 +295,13 @@ export const se_DescribeCanariesLastRunCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canaries/last-run";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Names != null && { Names: se_DescribeCanariesLastRunNameFilter(input.Names, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      Names: (_) => _json(_),
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -329,10 +326,12 @@ export const se_DescribeRuntimeVersionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runtime-versions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -366,9 +365,11 @@ export const se_DisassociateResourceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -417,10 +418,12 @@ export const se_GetCanaryRunsCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}/runs";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -477,10 +480,12 @@ export const se_ListAssociatedGroupsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource/{ResourceArn}/groups";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -514,10 +519,12 @@ export const se_ListGroupResourcesCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -542,10 +549,12 @@ export const se_ListGroupsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/groups";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -640,9 +649,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -698,23 +709,21 @@ export const se_UpdateCanaryCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ArtifactConfig != null && { ArtifactConfig: se_ArtifactConfigInput(input.ArtifactConfig, context) }),
-    ...(input.ArtifactS3Location != null && { ArtifactS3Location: input.ArtifactS3Location }),
-    ...(input.Code != null && { Code: se_CanaryCodeInput(input.Code, context) }),
-    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.FailureRetentionPeriodInDays != null && {
-      FailureRetentionPeriodInDays: input.FailureRetentionPeriodInDays,
-    }),
-    ...(input.RunConfig != null && { RunConfig: se_CanaryRunConfigInput(input.RunConfig, context) }),
-    ...(input.RuntimeVersion != null && { RuntimeVersion: input.RuntimeVersion }),
-    ...(input.Schedule != null && { Schedule: se_CanaryScheduleInput(input.Schedule, context) }),
-    ...(input.SuccessRetentionPeriodInDays != null && {
-      SuccessRetentionPeriodInDays: input.SuccessRetentionPeriodInDays,
-    }),
-    ...(input.VisualReference != null && { VisualReference: se_VisualReferenceInput(input.VisualReference, context) }),
-    ...(input.VpcConfig != null && { VpcConfig: se_VpcConfigInput(input.VpcConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ArtifactConfig: (_) => _json(_),
+      ArtifactS3Location: [],
+      Code: (_) => se_CanaryCodeInput(_, context),
+      ExecutionRoleArn: [],
+      FailureRetentionPeriodInDays: [],
+      RunConfig: (_) => _json(_),
+      RuntimeVersion: [],
+      Schedule: (_) => _json(_),
+      SuccessRetentionPeriodInDays: [],
+      VisualReference: (_) => _json(_),
+      VpcConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -773,10 +782,9 @@ const de_AssociateResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -796,9 +804,10 @@ export const de_CreateCanaryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Canary != null) {
-    contents.Canary = de_Canary(data.Canary, context);
-  }
+  const doc = take(data, {
+    Canary: (_) => de_Canary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -826,10 +835,9 @@ const de_CreateCanaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -849,9 +857,10 @@ export const de_CreateGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Group != null) {
-    contents.Group = de_Group(data.Group, context);
-  }
+  const doc = take(data, {
+    Group: (_) => de_Group(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -882,10 +891,9 @@ const de_CreateGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -935,10 +943,9 @@ const de_DeleteCanaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -988,10 +995,9 @@ const de_DeleteGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1011,12 +1017,11 @@ export const de_DescribeCanariesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Canaries != null) {
-    contents.Canaries = de_Canaries(data.Canaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Canaries: (_) => de_Canaries(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1041,10 +1046,9 @@ const de_DescribeCanariesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1064,12 +1068,11 @@ export const de_DescribeCanariesLastRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CanariesLastRun != null) {
-    contents.CanariesLastRun = de_CanariesLastRun(data.CanariesLastRun, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CanariesLastRun: (_) => de_CanariesLastRun(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1094,10 +1097,9 @@ const de_DescribeCanariesLastRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1117,12 +1119,11 @@ export const de_DescribeRuntimeVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RuntimeVersions != null) {
-    contents.RuntimeVersions = de_RuntimeVersionList(data.RuntimeVersions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RuntimeVersions: (_) => de_RuntimeVersionList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1147,10 +1148,9 @@ const de_DescribeRuntimeVersionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1200,10 +1200,9 @@ const de_DisassociateResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1223,9 +1222,10 @@ export const de_GetCanaryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Canary != null) {
-    contents.Canary = de_Canary(data.Canary, context);
-  }
+  const doc = take(data, {
+    Canary: (_) => de_Canary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1250,10 +1250,9 @@ const de_GetCanaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1273,12 +1272,11 @@ export const de_GetCanaryRunsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CanaryRuns != null) {
-    contents.CanaryRuns = de_CanaryRuns(data.CanaryRuns, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    CanaryRuns: (_) => de_CanaryRuns(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1306,10 +1304,9 @@ const de_GetCanaryRunsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1329,9 +1326,10 @@ export const de_GetGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Group != null) {
-    contents.Group = de_Group(data.Group, context);
-  }
+  const doc = take(data, {
+    Group: (_) => de_Group(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1362,10 +1360,9 @@ const de_GetGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1385,12 +1382,11 @@ export const de_ListAssociatedGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Groups != null) {
-    contents.Groups = de_GroupSummaryList(data.Groups, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Groups: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1418,10 +1414,9 @@ const de_ListAssociatedGroupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1441,12 +1436,11 @@ export const de_ListGroupResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Resources != null) {
-    contents.Resources = de_StringList(data.Resources, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Resources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1477,10 +1471,9 @@ const de_ListGroupResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1500,12 +1493,11 @@ export const de_ListGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Groups != null) {
-    contents.Groups = de_GroupSummaryList(data.Groups, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Groups: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1530,10 +1522,9 @@ const de_ListGroupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1553,9 +1544,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1589,10 +1581,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1642,10 +1633,9 @@ const de_StartCanaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1695,10 +1685,9 @@ const de_StopCanaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1751,10 +1740,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1807,10 +1795,9 @@ const de_UntagResourceCommandError = async (
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1863,25 +1850,25 @@ const de_UpdateCanaryCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1895,9 +1882,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1914,9 +1902,10 @@ const de_InternalFailureExceptionRes = async (
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1933,9 +1922,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1949,9 +1939,10 @@ const de_InternalServerExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1968,9 +1959,10 @@ const de_RequestEntityTooLargeExceptionRes = async (
 ): Promise<RequestEntityTooLargeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestEntityTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1987,9 +1979,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2006,9 +1999,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2025,9 +2019,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2041,9 +2036,10 @@ const de_TooManyRequestsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2051,237 +2047,56 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ArtifactConfigInput
- */
-const se_ArtifactConfigInput = (input: ArtifactConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Encryption != null && { S3Encryption: se_S3EncryptionConfig(input.S3Encryption, context) }),
-  };
-};
+// se_ArtifactConfigInput omitted.
 
-/**
- * serializeAws_restJson1BaseScreenshot
- */
-const se_BaseScreenshot = (input: BaseScreenshot, context: __SerdeContext): any => {
-  return {
-    ...(input.IgnoreCoordinates != null && {
-      IgnoreCoordinates: se_BaseScreenshotIgnoreCoordinates(input.IgnoreCoordinates, context),
-    }),
-    ...(input.ScreenshotName != null && { ScreenshotName: input.ScreenshotName }),
-  };
-};
+// se_BaseScreenshot omitted.
 
-/**
- * serializeAws_restJson1BaseScreenshotIgnoreCoordinates
- */
-const se_BaseScreenshotIgnoreCoordinates = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BaseScreenshotIgnoreCoordinates omitted.
 
-/**
- * serializeAws_restJson1BaseScreenshots
- */
-const se_BaseScreenshots = (input: BaseScreenshot[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_BaseScreenshot(entry, context);
-    });
-};
+// se_BaseScreenshots omitted.
 
 /**
  * serializeAws_restJson1CanaryCodeInput
  */
 const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Handler != null && { Handler: input.Handler }),
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Key != null && { S3Key: input.S3Key }),
-    ...(input.S3Version != null && { S3Version: input.S3Version }),
-    ...(input.ZipFile != null && { ZipFile: context.base64Encoder(input.ZipFile) }),
-  };
+  return take(input, {
+    Handler: [],
+    S3Bucket: [],
+    S3Key: [],
+    S3Version: [],
+    ZipFile: context.base64Encoder,
+  });
 };
 
-/**
- * serializeAws_restJson1CanaryRunConfigInput
- */
-const se_CanaryRunConfigInput = (input: CanaryRunConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ActiveTracing != null && { ActiveTracing: input.ActiveTracing }),
-    ...(input.EnvironmentVariables != null && {
-      EnvironmentVariables: se_EnvironmentVariablesMap(input.EnvironmentVariables, context),
-    }),
-    ...(input.MemoryInMB != null && { MemoryInMB: input.MemoryInMB }),
-    ...(input.TimeoutInSeconds != null && { TimeoutInSeconds: input.TimeoutInSeconds }),
-  };
-};
+// se_CanaryRunConfigInput omitted.
 
-/**
- * serializeAws_restJson1CanaryScheduleInput
- */
-const se_CanaryScheduleInput = (input: CanaryScheduleInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
-    ...(input.Expression != null && { Expression: input.Expression }),
-  };
-};
+// se_CanaryScheduleInput omitted.
 
-/**
- * serializeAws_restJson1DescribeCanariesLastRunNameFilter
- */
-const se_DescribeCanariesLastRunNameFilter = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DescribeCanariesLastRunNameFilter omitted.
 
-/**
- * serializeAws_restJson1DescribeCanariesNameFilter
- */
-const se_DescribeCanariesNameFilter = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DescribeCanariesNameFilter omitted.
 
-/**
- * serializeAws_restJson1EnvironmentVariablesMap
- */
-const se_EnvironmentVariablesMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_EnvironmentVariablesMap omitted.
 
-/**
- * serializeAws_restJson1S3EncryptionConfig
- */
-const se_S3EncryptionConfig = (input: S3EncryptionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionMode != null && { EncryptionMode: input.EncryptionMode }),
-    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
-  };
-};
+// se_S3EncryptionConfig omitted.
 
-/**
- * serializeAws_restJson1SecurityGroupIds
- */
-const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
-/**
- * serializeAws_restJson1SubnetIds
- */
-const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIds omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1VisualReferenceInput
- */
-const se_VisualReferenceInput = (input: VisualReferenceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.BaseCanaryRunId != null && { BaseCanaryRunId: input.BaseCanaryRunId }),
-    ...(input.BaseScreenshots != null && { BaseScreenshots: se_BaseScreenshots(input.BaseScreenshots, context) }),
-  };
-};
+// se_VisualReferenceInput omitted.
 
-/**
- * serializeAws_restJson1VpcConfigInput
- */
-const se_VpcConfigInput = (input: VpcConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupIds != null && { SecurityGroupIds: se_SecurityGroupIds(input.SecurityGroupIds, context) }),
-    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIds(input.SubnetIds, context) }),
-  };
-};
+// se_VpcConfigInput omitted.
 
-/**
- * deserializeAws_restJson1ArtifactConfigOutput
- */
-const de_ArtifactConfigOutput = (output: any, context: __SerdeContext): ArtifactConfigOutput => {
-  return {
-    S3Encryption: output.S3Encryption != null ? de_S3EncryptionConfig(output.S3Encryption, context) : undefined,
-  } as any;
-};
+// de_ArtifactConfigOutput omitted.
 
-/**
- * deserializeAws_restJson1BaseScreenshot
- */
-const de_BaseScreenshot = (output: any, context: __SerdeContext): BaseScreenshot => {
-  return {
-    IgnoreCoordinates:
-      output.IgnoreCoordinates != null
-        ? de_BaseScreenshotIgnoreCoordinates(output.IgnoreCoordinates, context)
-        : undefined,
-    ScreenshotName: __expectString(output.ScreenshotName),
-  } as any;
-};
+// de_BaseScreenshot omitted.
 
-/**
- * deserializeAws_restJson1BaseScreenshotIgnoreCoordinates
- */
-const de_BaseScreenshotIgnoreCoordinates = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_BaseScreenshotIgnoreCoordinates omitted.
 
-/**
- * deserializeAws_restJson1BaseScreenshots
- */
-const de_BaseScreenshots = (output: any, context: __SerdeContext): BaseScreenshot[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BaseScreenshot(entry, context);
-    });
-  return retVal;
-};
+// de_BaseScreenshots omitted.
 
 /**
  * deserializeAws_restJson1Canaries
@@ -2290,9 +2105,6 @@ const de_Canaries = (output: any, context: __SerdeContext): Canary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Canary(entry, context);
     });
   return retVal;
@@ -2305,9 +2117,6 @@ const de_CanariesLastRun = (output: any, context: __SerdeContext): CanaryLastRun
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CanaryLastRun(entry, context);
     });
   return retVal;
@@ -2317,71 +2126,53 @@ const de_CanariesLastRun = (output: any, context: __SerdeContext): CanaryLastRun
  * deserializeAws_restJson1Canary
  */
 const de_Canary = (output: any, context: __SerdeContext): Canary => {
-  return {
-    ArtifactConfig: output.ArtifactConfig != null ? de_ArtifactConfigOutput(output.ArtifactConfig, context) : undefined,
-    ArtifactS3Location: __expectString(output.ArtifactS3Location),
-    Code: output.Code != null ? de_CanaryCodeOutput(output.Code, context) : undefined,
-    EngineArn: __expectString(output.EngineArn),
-    ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
-    FailureRetentionPeriodInDays: __expectInt32(output.FailureRetentionPeriodInDays),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    RunConfig: output.RunConfig != null ? de_CanaryRunConfigOutput(output.RunConfig, context) : undefined,
-    RuntimeVersion: __expectString(output.RuntimeVersion),
-    Schedule: output.Schedule != null ? de_CanaryScheduleOutput(output.Schedule, context) : undefined,
-    Status: output.Status != null ? de_CanaryStatus(output.Status, context) : undefined,
-    SuccessRetentionPeriodInDays: __expectInt32(output.SuccessRetentionPeriodInDays),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-    Timeline: output.Timeline != null ? de_CanaryTimeline(output.Timeline, context) : undefined,
-    VisualReference:
-      output.VisualReference != null ? de_VisualReferenceOutput(output.VisualReference, context) : undefined,
-    VpcConfig: output.VpcConfig != null ? de_VpcConfigOutput(output.VpcConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    ArtifactConfig: _json,
+    ArtifactS3Location: __expectString,
+    Code: _json,
+    EngineArn: __expectString,
+    ExecutionRoleArn: __expectString,
+    FailureRetentionPeriodInDays: __expectInt32,
+    Id: __expectString,
+    Name: __expectString,
+    RunConfig: _json,
+    RuntimeVersion: __expectString,
+    Schedule: _json,
+    Status: _json,
+    SuccessRetentionPeriodInDays: __expectInt32,
+    Tags: _json,
+    Timeline: (_: any) => de_CanaryTimeline(_, context),
+    VisualReference: _json,
+    VpcConfig: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CanaryCodeOutput
- */
-const de_CanaryCodeOutput = (output: any, context: __SerdeContext): CanaryCodeOutput => {
-  return {
-    Handler: __expectString(output.Handler),
-    SourceLocationArn: __expectString(output.SourceLocationArn),
-  } as any;
-};
+// de_CanaryCodeOutput omitted.
 
 /**
  * deserializeAws_restJson1CanaryLastRun
  */
 const de_CanaryLastRun = (output: any, context: __SerdeContext): CanaryLastRun => {
-  return {
-    CanaryName: __expectString(output.CanaryName),
-    LastRun: output.LastRun != null ? de_CanaryRun(output.LastRun, context) : undefined,
-  } as any;
+  return take(output, {
+    CanaryName: __expectString,
+    LastRun: (_: any) => de_CanaryRun(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CanaryRun
  */
 const de_CanaryRun = (output: any, context: __SerdeContext): CanaryRun => {
-  return {
-    ArtifactS3Location: __expectString(output.ArtifactS3Location),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Status: output.Status != null ? de_CanaryRunStatus(output.Status, context) : undefined,
-    Timeline: output.Timeline != null ? de_CanaryRunTimeline(output.Timeline, context) : undefined,
-  } as any;
+  return take(output, {
+    ArtifactS3Location: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Status: _json,
+    Timeline: (_: any) => de_CanaryRunTimeline(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CanaryRunConfigOutput
- */
-const de_CanaryRunConfigOutput = (output: any, context: __SerdeContext): CanaryRunConfigOutput => {
-  return {
-    ActiveTracing: __expectBoolean(output.ActiveTracing),
-    MemoryInMB: __expectInt32(output.MemoryInMB),
-    TimeoutInSeconds: __expectInt32(output.TimeoutInSeconds),
-  } as any;
-};
+// de_CanaryRunConfigOutput omitted.
 
 /**
  * deserializeAws_restJson1CanaryRuns
@@ -2390,142 +2181,67 @@ const de_CanaryRuns = (output: any, context: __SerdeContext): CanaryRun[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CanaryRun(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1CanaryRunStatus
- */
-const de_CanaryRunStatus = (output: any, context: __SerdeContext): CanaryRunStatus => {
-  return {
-    State: __expectString(output.State),
-    StateReason: __expectString(output.StateReason),
-    StateReasonCode: __expectString(output.StateReasonCode),
-  } as any;
-};
+// de_CanaryRunStatus omitted.
 
 /**
  * deserializeAws_restJson1CanaryRunTimeline
  */
 const de_CanaryRunTimeline = (output: any, context: __SerdeContext): CanaryRunTimeline => {
-  return {
-    Completed:
-      output.Completed != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Completed))) : undefined,
-    Started:
-      output.Started != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Started))) : undefined,
-  } as any;
+  return take(output, {
+    Completed: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Started: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CanaryScheduleOutput
- */
-const de_CanaryScheduleOutput = (output: any, context: __SerdeContext): CanaryScheduleOutput => {
-  return {
-    DurationInSeconds: __expectLong(output.DurationInSeconds),
-    Expression: __expectString(output.Expression),
-  } as any;
-};
+// de_CanaryScheduleOutput omitted.
 
-/**
- * deserializeAws_restJson1CanaryStatus
- */
-const de_CanaryStatus = (output: any, context: __SerdeContext): CanaryStatus => {
-  return {
-    State: __expectString(output.State),
-    StateReason: __expectString(output.StateReason),
-    StateReasonCode: __expectString(output.StateReasonCode),
-  } as any;
-};
+// de_CanaryStatus omitted.
 
 /**
  * deserializeAws_restJson1CanaryTimeline
  */
 const de_CanaryTimeline = (output: any, context: __SerdeContext): CanaryTimeline => {
-  return {
-    Created:
-      output.Created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created))) : undefined,
-    LastModified:
-      output.LastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
-        : undefined,
-    LastStarted:
-      output.LastStarted != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastStarted)))
-        : undefined,
-    LastStopped:
-      output.LastStopped != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastStopped)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastStarted: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastStopped: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Group
  */
 const de_Group = (output: any, context: __SerdeContext): Group => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Id: __expectString(output.Id),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Tags: output.Tags != null ? de_TagMap(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1GroupSummary
- */
-const de_GroupSummary = (output: any, context: __SerdeContext): GroupSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_GroupSummary omitted.
 
-/**
- * deserializeAws_restJson1GroupSummaryList
- */
-const de_GroupSummaryList = (output: any, context: __SerdeContext): GroupSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GroupSummary(entry, context);
-    });
-  return retVal;
-};
+// de_GroupSummaryList omitted.
 
 /**
  * deserializeAws_restJson1RuntimeVersion
  */
 const de_RuntimeVersion = (output: any, context: __SerdeContext): RuntimeVersion => {
-  return {
-    DeprecationDate:
-      output.DeprecationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeprecationDate)))
-        : undefined,
-    Description: __expectString(output.Description),
-    ReleaseDate:
-      output.ReleaseDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReleaseDate)))
-        : undefined,
-    VersionName: __expectString(output.VersionName),
-  } as any;
+  return take(output, {
+    DeprecationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    ReleaseDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionName: __expectString,
+  }) as any;
 };
 
 /**
@@ -2535,103 +2251,24 @@ const de_RuntimeVersionList = (output: any, context: __SerdeContext): RuntimeVer
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RuntimeVersion(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1S3EncryptionConfig
- */
-const de_S3EncryptionConfig = (output: any, context: __SerdeContext): S3EncryptionConfig => {
-  return {
-    EncryptionMode: __expectString(output.EncryptionMode),
-    KmsKeyArn: __expectString(output.KmsKeyArn),
-  } as any;
-};
+// de_S3EncryptionConfig omitted.
 
-/**
- * deserializeAws_restJson1SecurityGroupIds
- */
-const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIds omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1VisualReferenceOutput
- */
-const de_VisualReferenceOutput = (output: any, context: __SerdeContext): VisualReferenceOutput => {
-  return {
-    BaseCanaryRunId: __expectString(output.BaseCanaryRunId),
-    BaseScreenshots: output.BaseScreenshots != null ? de_BaseScreenshots(output.BaseScreenshots, context) : undefined,
-  } as any;
-};
+// de_VisualReferenceOutput omitted.
 
-/**
- * deserializeAws_restJson1VpcConfigOutput
- */
-const de_VpcConfigOutput = (output: any, context: __SerdeContext): VpcConfigOutput => {
-  return {
-    SecurityGroupIds:
-      output.SecurityGroupIds != null ? de_SecurityGroupIds(output.SecurityGroupIds, context) : undefined,
-    SubnetIds: output.SubnetIds != null ? de_SubnetIds(output.SubnetIds, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_VpcConfigOutput omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,15 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -27,7 +29,6 @@ import {
   ContentClassifier,
   HumanLoopDataAttributes,
   HumanLoopInput,
-  HumanLoopOutput,
   HumanLoopSummary,
   InternalServerException,
   ResourceNotFoundException,
@@ -149,12 +150,14 @@ export const se_StartHumanLoopCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DataAttributes != null && { DataAttributes: se_HumanLoopDataAttributes(input.DataAttributes, context) }),
-    ...(input.FlowDefinitionArn != null && { FlowDefinitionArn: input.FlowDefinitionArn }),
-    ...(input.HumanLoopInput != null && { HumanLoopInput: se_HumanLoopInput(input.HumanLoopInput, context) }),
-    ...(input.HumanLoopName != null && { HumanLoopName: input.HumanLoopName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DataAttributes: (_) => _json(_),
+      FlowDefinitionArn: [],
+      HumanLoopInput: (_) => _json(_),
+      HumanLoopName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -179,9 +182,11 @@ export const se_StopHumanLoopCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops/stop";
   let body: any;
-  body = JSON.stringify({
-    ...(input.HumanLoopName != null && { HumanLoopName: input.HumanLoopName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      HumanLoopName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -237,10 +242,9 @@ const de_DeleteHumanLoopCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -260,30 +264,17 @@ export const de_DescribeHumanLoopCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
-  }
-  if (data.FailureCode != null) {
-    contents.FailureCode = __expectString(data.FailureCode);
-  }
-  if (data.FailureReason != null) {
-    contents.FailureReason = __expectString(data.FailureReason);
-  }
-  if (data.FlowDefinitionArn != null) {
-    contents.FlowDefinitionArn = __expectString(data.FlowDefinitionArn);
-  }
-  if (data.HumanLoopArn != null) {
-    contents.HumanLoopArn = __expectString(data.HumanLoopArn);
-  }
-  if (data.HumanLoopName != null) {
-    contents.HumanLoopName = __expectString(data.HumanLoopName);
-  }
-  if (data.HumanLoopOutput != null) {
-    contents.HumanLoopOutput = de_HumanLoopOutput(data.HumanLoopOutput, context);
-  }
-  if (data.HumanLoopStatus != null) {
-    contents.HumanLoopStatus = __expectString(data.HumanLoopStatus);
-  }
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    FailureCode: __expectString,
+    FailureReason: __expectString,
+    FlowDefinitionArn: __expectString,
+    HumanLoopArn: __expectString,
+    HumanLoopName: __expectString,
+    HumanLoopOutput: _json,
+    HumanLoopStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -314,10 +305,9 @@ const de_DescribeHumanLoopCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -337,12 +327,11 @@ export const de_ListHumanLoopsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HumanLoopSummaries != null) {
-    contents.HumanLoopSummaries = de_HumanLoopSummaries(data.HumanLoopSummaries, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    HumanLoopSummaries: (_) => de_HumanLoopSummaries(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -373,10 +362,9 @@ const de_ListHumanLoopsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -396,9 +384,10 @@ export const de_StartHumanLoopCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HumanLoopArn != null) {
-    contents.HumanLoopArn = __expectString(data.HumanLoopArn);
-  }
+  const doc = take(data, {
+    HumanLoopArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -432,10 +421,9 @@ const de_StartHumanLoopCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -485,25 +473,25 @@ const de_StopHumanLoopCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -520,9 +508,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -539,9 +528,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -558,9 +548,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -574,9 +565,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -590,9 +582,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -600,45 +593,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ContentClassifiers
- */
-const se_ContentClassifiers = (input: (ContentClassifier | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ContentClassifiers omitted.
 
-/**
- * serializeAws_restJson1HumanLoopDataAttributes
- */
-const se_HumanLoopDataAttributes = (input: HumanLoopDataAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentClassifiers != null && {
-      ContentClassifiers: se_ContentClassifiers(input.ContentClassifiers, context),
-    }),
-  };
-};
+// se_HumanLoopDataAttributes omitted.
 
-/**
- * serializeAws_restJson1HumanLoopInput
- */
-const se_HumanLoopInput = (input: HumanLoopInput, context: __SerdeContext): any => {
-  return {
-    ...(input.InputContent != null && { InputContent: input.InputContent }),
-  };
-};
+// se_HumanLoopInput omitted.
 
-/**
- * deserializeAws_restJson1HumanLoopOutput
- */
-const de_HumanLoopOutput = (output: any, context: __SerdeContext): HumanLoopOutput => {
-  return {
-    OutputS3Uri: __expectString(output.OutputS3Uri),
-  } as any;
-};
+// de_HumanLoopOutput omitted.
 
 /**
  * deserializeAws_restJson1HumanLoopSummaries
@@ -647,9 +608,6 @@ const de_HumanLoopSummaries = (output: any, context: __SerdeContext): HumanLoopS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_HumanLoopSummary(entry, context);
     });
   return retVal;
@@ -659,14 +617,13 @@ const de_HumanLoopSummaries = (output: any, context: __SerdeContext): HumanLoopS
  * deserializeAws_restJson1HumanLoopSummary
  */
 const de_HumanLoopSummary = (output: any, context: __SerdeContext): HumanLoopSummary => {
-  return {
-    CreationTime:
-      output.CreationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationTime)) : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    FlowDefinitionArn: __expectString(output.FlowDefinitionArn),
-    HumanLoopName: __expectString(output.HumanLoopName),
-    HumanLoopStatus: __expectString(output.HumanLoopStatus),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    FailureReason: __expectString,
+    FlowDefinitionArn: __expectString,
+    HumanLoopName: __expectString,
+    HumanLoopStatus: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

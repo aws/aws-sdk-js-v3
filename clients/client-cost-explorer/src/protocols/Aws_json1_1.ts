@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -142,53 +143,27 @@ import {
   AnomalyScore,
   AnomalySubscription,
   BillExpirationException,
-  CostAllocationTag,
   CostAllocationTagStatusEntry,
   CostCategory,
   CostCategoryInheritedValueDimension,
-  CostCategoryProcessingStatus,
-  CostCategoryReference,
   CostCategoryRule,
   CostCategorySplitChargeRule,
   CostCategorySplitChargeRuleParameter,
   CostCategoryValues,
-  Coverage,
-  CoverageByTime,
-  CoverageCost,
-  CoverageHours,
-  CoverageNormalizedUnits,
   CreateAnomalyMonitorRequest,
-  CreateAnomalyMonitorResponse,
   CreateAnomalySubscriptionRequest,
-  CreateAnomalySubscriptionResponse,
   CreateCostCategoryDefinitionRequest,
-  CreateCostCategoryDefinitionResponse,
-  CurrentInstance,
   DataUnavailableException,
   DateInterval,
   DeleteAnomalyMonitorRequest,
-  DeleteAnomalyMonitorResponse,
   DeleteAnomalySubscriptionRequest,
-  DeleteAnomalySubscriptionResponse,
   DeleteCostCategoryDefinitionRequest,
-  DeleteCostCategoryDefinitionResponse,
   DescribeCostCategoryDefinitionRequest,
   DescribeCostCategoryDefinitionResponse,
   DimensionValues,
-  DimensionValuesWithAttributes,
-  DiskResourceUtilization,
-  EBSResourceUtilization,
-  EC2InstanceDetails,
-  EC2ResourceDetails,
-  EC2ResourceUtilization,
   EC2Specification,
-  ElastiCacheInstanceDetails,
-  ESInstanceDetails,
   Expression,
-  FindingReasonCode,
-  ForecastResult,
   GenerationExistsException,
-  GenerationSummary,
   GetAnomaliesRequest,
   GetAnomaliesResponse,
   GetAnomalyMonitorsRequest,
@@ -196,118 +171,52 @@ import {
   GetAnomalySubscriptionsRequest,
   GetAnomalySubscriptionsResponse,
   GetCostAndUsageRequest,
-  GetCostAndUsageResponse,
   GetCostAndUsageWithResourcesRequest,
-  GetCostAndUsageWithResourcesResponse,
   GetCostCategoriesRequest,
-  GetCostCategoriesResponse,
   GetCostForecastRequest,
-  GetCostForecastResponse,
   GetDimensionValuesRequest,
-  GetDimensionValuesResponse,
   GetReservationCoverageRequest,
-  GetReservationCoverageResponse,
   GetReservationPurchaseRecommendationRequest,
-  GetReservationPurchaseRecommendationResponse,
   GetReservationUtilizationRequest,
-  GetReservationUtilizationResponse,
   GetRightsizingRecommendationRequest,
-  GetRightsizingRecommendationResponse,
   GetSavingsPlansCoverageRequest,
-  GetSavingsPlansCoverageResponse,
   GetSavingsPlansPurchaseRecommendationRequest,
-  GetSavingsPlansPurchaseRecommendationResponse,
   GetSavingsPlansUtilizationDetailsRequest,
-  GetSavingsPlansUtilizationDetailsResponse,
   GetSavingsPlansUtilizationRequest,
-  GetSavingsPlansUtilizationResponse,
   GetTagsRequest,
-  GetTagsResponse,
   GetUsageForecastRequest,
-  GetUsageForecastResponse,
-  Group,
   GroupDefinition,
   Impact,
-  InstanceDetails,
   InvalidNextTokenException,
   LimitExceededException,
   ListCostAllocationTagsRequest,
-  ListCostAllocationTagsResponse,
   ListCostCategoryDefinitionsRequest,
-  ListCostCategoryDefinitionsResponse,
   ListSavingsPlansPurchaseRecommendationGenerationRequest,
-  ListSavingsPlansPurchaseRecommendationGenerationResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   MatchOption,
-  MetricValue,
-  ModifyRecommendationDetail,
-  NetworkResourceUtilization,
-  PlatformDifference,
   ProvideAnomalyFeedbackRequest,
-  ProvideAnomalyFeedbackResponse,
-  RDSInstanceDetails,
-  RedshiftInstanceDetails,
   RequestChangedException,
-  ReservationAggregates,
-  ReservationCoverageGroup,
-  ReservationPurchaseRecommendation,
-  ReservationPurchaseRecommendationDetail,
-  ReservationPurchaseRecommendationMetadata,
-  ReservationPurchaseRecommendationSummary,
-  ReservationUtilizationGroup,
-  ResourceDetails,
   ResourceNotFoundException,
   ResourceTag,
-  ResourceUtilization,
-  ResultByTime,
-  RightsizingRecommendation,
   RightsizingRecommendationConfiguration,
-  RightsizingRecommendationMetadata,
-  RightsizingRecommendationSummary,
-  RootCause,
-  SavingsPlansAmortizedCommitment,
-  SavingsPlansCoverage,
-  SavingsPlansCoverageData,
   SavingsPlansDataType,
-  SavingsPlansDetails,
-  SavingsPlansPurchaseRecommendation,
-  SavingsPlansPurchaseRecommendationDetail,
-  SavingsPlansPurchaseRecommendationMetadata,
-  SavingsPlansPurchaseRecommendationSummary,
-  SavingsPlansSavings,
-  SavingsPlansUtilization,
-  SavingsPlansUtilizationAggregates,
-  SavingsPlansUtilizationByTime,
-  SavingsPlansUtilizationDetail,
   ServiceQuotaExceededException,
   ServiceSpecification,
   SortDefinition,
   StartSavingsPlansPurchaseRecommendationGenerationRequest,
-  StartSavingsPlansPurchaseRecommendationGenerationResponse,
   Subscriber,
   TagResourceRequest,
-  TagResourceResponse,
   TagValues,
-  TargetInstance,
-  TerminateRecommendationDetail,
   TooManyTagsException,
   TotalImpactFilter,
   UnknownMonitorException,
   UnknownSubscriptionException,
   UnresolvableUsageUnitException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateAnomalyMonitorRequest,
-  UpdateAnomalyMonitorResponse,
   UpdateAnomalySubscriptionRequest,
-  UpdateAnomalySubscriptionResponse,
-  UpdateCostAllocationTagsStatusError,
   UpdateCostAllocationTagsStatusRequest,
-  UpdateCostAllocationTagsStatusResponse,
   UpdateCostCategoryDefinitionRequest,
-  UpdateCostCategoryDefinitionResponse,
-  UtilizationByTime,
 } from "../models/models_0";
 
 /**
@@ -358,7 +267,7 @@ export const se_DeleteAnomalyMonitorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAnomalyMonitor");
   let body: any;
-  body = JSON.stringify(se_DeleteAnomalyMonitorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -371,7 +280,7 @@ export const se_DeleteAnomalySubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAnomalySubscription");
   let body: any;
-  body = JSON.stringify(se_DeleteAnomalySubscriptionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -384,7 +293,7 @@ export const se_DeleteCostCategoryDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCostCategoryDefinition");
   let body: any;
-  body = JSON.stringify(se_DeleteCostCategoryDefinitionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -397,7 +306,7 @@ export const se_DescribeCostCategoryDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCostCategoryDefinition");
   let body: any;
-  body = JSON.stringify(se_DescribeCostCategoryDefinitionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -423,7 +332,7 @@ export const se_GetAnomalyMonitorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAnomalyMonitors");
   let body: any;
-  body = JSON.stringify(se_GetAnomalyMonitorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -436,7 +345,7 @@ export const se_GetAnomalySubscriptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAnomalySubscriptions");
   let body: any;
-  body = JSON.stringify(se_GetAnomalySubscriptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -644,7 +553,7 @@ export const se_ListCostAllocationTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCostAllocationTags");
   let body: any;
-  body = JSON.stringify(se_ListCostAllocationTagsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -657,7 +566,7 @@ export const se_ListCostCategoryDefinitionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCostCategoryDefinitions");
   let body: any;
-  body = JSON.stringify(se_ListCostCategoryDefinitionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -670,7 +579,7 @@ export const se_ListSavingsPlansPurchaseRecommendationGenerationCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListSavingsPlansPurchaseRecommendationGeneration");
   let body: any;
-  body = JSON.stringify(se_ListSavingsPlansPurchaseRecommendationGenerationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -683,7 +592,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -696,7 +605,7 @@ export const se_ProvideAnomalyFeedbackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ProvideAnomalyFeedback");
   let body: any;
-  body = JSON.stringify(se_ProvideAnomalyFeedbackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -709,7 +618,7 @@ export const se_StartSavingsPlansPurchaseRecommendationGenerationCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartSavingsPlansPurchaseRecommendationGeneration");
   let body: any;
-  body = JSON.stringify(se_StartSavingsPlansPurchaseRecommendationGenerationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -722,7 +631,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -735,7 +644,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -748,7 +657,7 @@ export const se_UpdateAnomalyMonitorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAnomalyMonitor");
   let body: any;
-  body = JSON.stringify(se_UpdateAnomalyMonitorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -774,7 +683,7 @@ export const se_UpdateCostAllocationTagsStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCostAllocationTagsStatus");
   let body: any;
-  body = JSON.stringify(se_UpdateCostAllocationTagsStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -803,12 +712,12 @@ export const de_CreateAnomalyMonitorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAnomalyMonitorResponse(data, context);
+  contents = _json(data);
   const response: CreateAnomalyMonitorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -829,10 +738,9 @@ const de_CreateAnomalyMonitorCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -850,12 +758,12 @@ export const de_CreateAnomalySubscriptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateAnomalySubscriptionResponse(data, context);
+  contents = _json(data);
   const response: CreateAnomalySubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -879,10 +787,9 @@ const de_CreateAnomalySubscriptionCommandError = async (
       throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -900,12 +807,12 @@ export const de_CreateCostCategoryDefinitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateCostCategoryDefinitionResponse(data, context);
+  contents = _json(data);
   const response: CreateCostCategoryDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -929,10 +836,9 @@ const de_CreateCostCategoryDefinitionCommandError = async (
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -950,12 +856,12 @@ export const de_DeleteAnomalyMonitorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteAnomalyMonitorResponse(data, context);
+  contents = _json(data);
   const response: DeleteAnomalyMonitorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -979,10 +885,9 @@ const de_DeleteAnomalyMonitorCommandError = async (
       throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1000,12 +905,12 @@ export const de_DeleteAnomalySubscriptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteAnomalySubscriptionResponse(data, context);
+  contents = _json(data);
   const response: DeleteAnomalySubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1029,10 +934,9 @@ const de_DeleteAnomalySubscriptionCommandError = async (
       throw await de_UnknownSubscriptionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1050,12 +954,12 @@ export const de_DeleteCostCategoryDefinitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteCostCategoryDefinitionResponse(data, context);
+  contents = _json(data);
   const response: DeleteCostCategoryDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1079,10 +983,9 @@ const de_DeleteCostCategoryDefinitionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1105,7 +1008,7 @@ export const de_DescribeCostCategoryDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1129,10 +1032,9 @@ const de_DescribeCostCategoryDefinitionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1155,7 +1057,7 @@ export const de_GetAnomaliesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1179,10 +1081,9 @@ const de_GetAnomaliesCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1205,7 +1106,7 @@ export const de_GetAnomalyMonitorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1232,10 +1133,9 @@ const de_GetAnomalyMonitorsCommandError = async (
       throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1258,7 +1158,7 @@ export const de_GetAnomalySubscriptionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1285,10 +1185,9 @@ const de_GetAnomalySubscriptionsCommandError = async (
       throw await de_UnknownSubscriptionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1306,12 +1205,12 @@ export const de_GetCostAndUsageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCostAndUsageResponse(data, context);
+  contents = _json(data);
   const response: GetCostAndUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1344,10 +1243,9 @@ const de_GetCostAndUsageCommandError = async (
       throw await de_RequestChangedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1365,12 +1263,12 @@ export const de_GetCostAndUsageWithResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCostAndUsageWithResourcesResponse(data, context);
+  contents = _json(data);
   const response: GetCostAndUsageWithResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1403,10 +1301,9 @@ const de_GetCostAndUsageWithResourcesCommandError = async (
       throw await de_RequestChangedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1424,12 +1321,12 @@ export const de_GetCostCategoriesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCostCategoriesResponse(data, context);
+  contents = _json(data);
   const response: GetCostCategoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1462,10 +1359,9 @@ const de_GetCostCategoriesCommandError = async (
       throw await de_RequestChangedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1483,12 +1379,12 @@ export const de_GetCostForecastCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetCostForecastResponse(data, context);
+  contents = _json(data);
   const response: GetCostForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1512,10 +1408,9 @@ const de_GetCostForecastCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1533,12 +1428,12 @@ export const de_GetDimensionValuesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetDimensionValuesResponse(data, context);
+  contents = _json(data);
   const response: GetDimensionValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1571,10 +1466,9 @@ const de_GetDimensionValuesCommandError = async (
       throw await de_RequestChangedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1592,12 +1486,12 @@ export const de_GetReservationCoverageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetReservationCoverageResponse(data, context);
+  contents = _json(data);
   const response: GetReservationCoverageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1624,10 +1518,9 @@ const de_GetReservationCoverageCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1645,12 +1538,12 @@ export const de_GetReservationPurchaseRecommendationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetReservationPurchaseRecommendationResponse(data, context);
+  contents = _json(data);
   const response: GetReservationPurchaseRecommendationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1677,10 +1570,9 @@ const de_GetReservationPurchaseRecommendationCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1698,12 +1590,12 @@ export const de_GetReservationUtilizationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetReservationUtilizationResponse(data, context);
+  contents = _json(data);
   const response: GetReservationUtilizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1730,10 +1622,9 @@ const de_GetReservationUtilizationCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1751,12 +1642,12 @@ export const de_GetRightsizingRecommendationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRightsizingRecommendationResponse(data, context);
+  contents = _json(data);
   const response: GetRightsizingRecommendationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1780,10 +1671,9 @@ const de_GetRightsizingRecommendationCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1801,12 +1691,12 @@ export const de_GetSavingsPlansCoverageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetSavingsPlansCoverageResponse(data, context);
+  contents = _json(data);
   const response: GetSavingsPlansCoverageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1833,10 +1723,9 @@ const de_GetSavingsPlansCoverageCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1854,12 +1743,12 @@ export const de_GetSavingsPlansPurchaseRecommendationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetSavingsPlansPurchaseRecommendationResponse(data, context);
+  contents = _json(data);
   const response: GetSavingsPlansPurchaseRecommendationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1883,10 +1772,9 @@ const de_GetSavingsPlansPurchaseRecommendationCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1904,12 +1792,12 @@ export const de_GetSavingsPlansUtilizationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetSavingsPlansUtilizationResponse(data, context);
+  contents = _json(data);
   const response: GetSavingsPlansUtilizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1933,10 +1821,9 @@ const de_GetSavingsPlansUtilizationCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1954,12 +1841,12 @@ export const de_GetSavingsPlansUtilizationDetailsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetSavingsPlansUtilizationDetailsResponse(data, context);
+  contents = _json(data);
   const response: GetSavingsPlansUtilizationDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1986,10 +1873,9 @@ const de_GetSavingsPlansUtilizationDetailsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2007,12 +1893,12 @@ export const de_GetTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetTagsResponse(data, context);
+  contents = _json(data);
   const response: GetTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2045,10 +1931,9 @@ const de_GetTagsCommandError = async (
       throw await de_RequestChangedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2066,12 +1951,12 @@ export const de_GetUsageForecastCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetUsageForecastResponse(data, context);
+  contents = _json(data);
   const response: GetUsageForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2098,10 +1983,9 @@ const de_GetUsageForecastCommandError = async (
       throw await de_UnresolvableUsageUnitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2119,12 +2003,12 @@ export const de_ListCostAllocationTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCostAllocationTagsResponse(data, context);
+  contents = _json(data);
   const response: ListCostAllocationTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2148,10 +2032,9 @@ const de_ListCostAllocationTagsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2169,12 +2052,12 @@ export const de_ListCostCategoryDefinitionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListCostCategoryDefinitionsResponse(data, context);
+  contents = _json(data);
   const response: ListCostCategoryDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2195,10 +2078,9 @@ const de_ListCostCategoryDefinitionsCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2216,12 +2098,12 @@ export const de_ListSavingsPlansPurchaseRecommendationGenerationCommand = async 
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListSavingsPlansPurchaseRecommendationGenerationResponse(data, context);
+  contents = _json(data);
   const response: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2245,10 +2127,9 @@ const de_ListSavingsPlansPurchaseRecommendationGenerationCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2266,12 +2147,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2295,10 +2176,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2316,12 +2196,12 @@ export const de_ProvideAnomalyFeedbackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ProvideAnomalyFeedbackResponse(data, context);
+  contents = _json(data);
   const response: ProvideAnomalyFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2342,10 +2222,9 @@ const de_ProvideAnomalyFeedbackCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2363,12 +2242,12 @@ export const de_StartSavingsPlansPurchaseRecommendationGenerationCommand = async
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartSavingsPlansPurchaseRecommendationGenerationResponse(data, context);
+  contents = _json(data);
   const response: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2395,10 +2274,9 @@ const de_StartSavingsPlansPurchaseRecommendationGenerationCommandError = async (
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2416,12 +2294,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2448,10 +2326,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2469,12 +2346,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2498,10 +2375,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2519,12 +2395,12 @@ export const de_UpdateAnomalyMonitorCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateAnomalyMonitorResponse(data, context);
+  contents = _json(data);
   const response: UpdateAnomalyMonitorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2548,10 +2424,9 @@ const de_UpdateAnomalyMonitorCommandError = async (
       throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2569,12 +2444,12 @@ export const de_UpdateAnomalySubscriptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateAnomalySubscriptionResponse(data, context);
+  contents = _json(data);
   const response: UpdateAnomalySubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2601,10 +2476,9 @@ const de_UpdateAnomalySubscriptionCommandError = async (
       throw await de_UnknownSubscriptionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2622,12 +2496,12 @@ export const de_UpdateCostAllocationTagsStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateCostAllocationTagsStatusResponse(data, context);
+  contents = _json(data);
   const response: UpdateCostAllocationTagsStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2648,10 +2522,9 @@ const de_UpdateCostAllocationTagsStatusCommandError = async (
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2669,12 +2542,12 @@ export const de_UpdateCostCategoryDefinitionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateCostCategoryDefinitionResponse(data, context);
+  contents = _json(data);
   const response: UpdateCostCategoryDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2701,10 +2574,9 @@ const de_UpdateCostCategoryDefinitionCommandError = async (
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2718,7 +2590,7 @@ const de_BillExpirationExceptionRes = async (
   context: __SerdeContext
 ): Promise<BillExpirationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BillExpirationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BillExpirationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2734,7 +2606,7 @@ const de_DataUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<DataUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DataUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DataUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2750,7 +2622,7 @@ const de_GenerationExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<GenerationExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_GenerationExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new GenerationExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2766,7 +2638,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2782,7 +2654,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2798,7 +2670,7 @@ const de_RequestChangedExceptionRes = async (
   context: __SerdeContext
 ): Promise<RequestChangedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RequestChangedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestChangedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2814,7 +2686,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2830,7 +2702,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2846,7 +2718,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2862,7 +2734,7 @@ const de_UnknownMonitorExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnknownMonitorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnknownMonitorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnknownMonitorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2878,7 +2750,7 @@ const de_UnknownSubscriptionExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnknownSubscriptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnknownSubscriptionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnknownSubscriptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2894,7 +2766,7 @@ const de_UnresolvableUsageUnitExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnresolvableUsageUnitException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnresolvableUsageUnitException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnresolvableUsageUnitException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2902,110 +2774,59 @@ const de_UnresolvableUsageUnitExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AnomalyDateInterval
- */
-const se_AnomalyDateInterval = (input: AnomalyDateInterval, context: __SerdeContext): any => {
-  return {
-    ...(input.EndDate != null && { EndDate: input.EndDate }),
-    ...(input.StartDate != null && { StartDate: input.StartDate }),
-  };
-};
+// se_AnomalyDateInterval omitted.
 
 /**
  * serializeAws_json1_1AnomalyMonitor
  */
 const se_AnomalyMonitor = (input: AnomalyMonitor, context: __SerdeContext): any => {
-  return {
-    ...(input.CreationDate != null && { CreationDate: input.CreationDate }),
-    ...(input.DimensionalValueCount != null && { DimensionalValueCount: input.DimensionalValueCount }),
-    ...(input.LastEvaluatedDate != null && { LastEvaluatedDate: input.LastEvaluatedDate }),
-    ...(input.LastUpdatedDate != null && { LastUpdatedDate: input.LastUpdatedDate }),
-    ...(input.MonitorArn != null && { MonitorArn: input.MonitorArn }),
-    ...(input.MonitorDimension != null && { MonitorDimension: input.MonitorDimension }),
-    ...(input.MonitorName != null && { MonitorName: input.MonitorName }),
-    ...(input.MonitorSpecification != null && {
-      MonitorSpecification: se_Expression(input.MonitorSpecification, context),
-    }),
-    ...(input.MonitorType != null && { MonitorType: input.MonitorType }),
-  };
+  return take(input, {
+    CreationDate: [],
+    DimensionalValueCount: [],
+    LastEvaluatedDate: [],
+    LastUpdatedDate: [],
+    MonitorArn: [],
+    MonitorDimension: [],
+    MonitorName: [],
+    MonitorSpecification: (_) => se_Expression(_, context),
+    MonitorType: [],
+  });
 };
 
 /**
  * serializeAws_json1_1AnomalySubscription
  */
 const se_AnomalySubscription = (input: AnomalySubscription, context: __SerdeContext): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.Frequency != null && { Frequency: input.Frequency }),
-    ...(input.MonitorArnList != null && { MonitorArnList: se_MonitorArnList(input.MonitorArnList, context) }),
-    ...(input.Subscribers != null && { Subscribers: se_Subscribers(input.Subscribers, context) }),
-    ...(input.SubscriptionArn != null && { SubscriptionArn: input.SubscriptionArn }),
-    ...(input.SubscriptionName != null && { SubscriptionName: input.SubscriptionName }),
-    ...(input.Threshold != null && { Threshold: __serializeFloat(input.Threshold) }),
-    ...(input.ThresholdExpression != null && {
-      ThresholdExpression: se_Expression(input.ThresholdExpression, context),
-    }),
-  };
+  return take(input, {
+    AccountId: [],
+    Frequency: [],
+    MonitorArnList: _json,
+    Subscribers: _json,
+    SubscriptionArn: [],
+    SubscriptionName: [],
+    Threshold: __serializeFloat,
+    ThresholdExpression: (_) => se_Expression(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1CostAllocationTagKeyList
- */
-const se_CostAllocationTagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CostAllocationTagKeyList omitted.
 
-/**
- * serializeAws_json1_1CostAllocationTagStatusEntry
- */
-const se_CostAllocationTagStatusEntry = (input: CostAllocationTagStatusEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-  };
-};
+// se_CostAllocationTagStatusEntry omitted.
 
-/**
- * serializeAws_json1_1CostAllocationTagStatusList
- */
-const se_CostAllocationTagStatusList = (input: CostAllocationTagStatusEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CostAllocationTagStatusEntry(entry, context);
-    });
-};
+// se_CostAllocationTagStatusList omitted.
 
-/**
- * serializeAws_json1_1CostCategoryInheritedValueDimension
- */
-const se_CostCategoryInheritedValueDimension = (
-  input: CostCategoryInheritedValueDimension,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DimensionKey != null && { DimensionKey: input.DimensionKey }),
-    ...(input.DimensionName != null && { DimensionName: input.DimensionName }),
-  };
-};
+// se_CostCategoryInheritedValueDimension omitted.
 
 /**
  * serializeAws_json1_1CostCategoryRule
  */
 const se_CostCategoryRule = (input: CostCategoryRule, context: __SerdeContext): any => {
-  return {
-    ...(input.InheritedValue != null && {
-      InheritedValue: se_CostCategoryInheritedValueDimension(input.InheritedValue, context),
-    }),
-    ...(input.Rule != null && { Rule: se_Expression(input.Rule, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
+  return take(input, {
+    InheritedValue: _json,
+    Rule: (_) => se_Expression(_, context),
+    Type: [],
+    Value: [],
+  });
 };
 
 /**
@@ -3019,111 +2840,38 @@ const se_CostCategoryRulesList = (input: CostCategoryRule[], context: __SerdeCon
     });
 };
 
-/**
- * serializeAws_json1_1CostCategorySplitChargeRule
- */
-const se_CostCategorySplitChargeRule = (input: CostCategorySplitChargeRule, context: __SerdeContext): any => {
-  return {
-    ...(input.Method != null && { Method: input.Method }),
-    ...(input.Parameters != null && {
-      Parameters: se_CostCategorySplitChargeRuleParametersList(input.Parameters, context),
-    }),
-    ...(input.Source != null && { Source: input.Source }),
-    ...(input.Targets != null && { Targets: se_CostCategorySplitChargeRuleTargetsList(input.Targets, context) }),
-  };
-};
+// se_CostCategorySplitChargeRule omitted.
 
-/**
- * serializeAws_json1_1CostCategorySplitChargeRuleParameter
- */
-const se_CostCategorySplitChargeRuleParameter = (
-  input: CostCategorySplitChargeRuleParameter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.Values != null && { Values: se_CostCategorySplitChargeRuleParameterValuesList(input.Values, context) }),
-  };
-};
+// se_CostCategorySplitChargeRuleParameter omitted.
 
-/**
- * serializeAws_json1_1CostCategorySplitChargeRuleParametersList
- */
-const se_CostCategorySplitChargeRuleParametersList = (
-  input: CostCategorySplitChargeRuleParameter[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CostCategorySplitChargeRuleParameter(entry, context);
-    });
-};
+// se_CostCategorySplitChargeRuleParametersList omitted.
 
-/**
- * serializeAws_json1_1CostCategorySplitChargeRuleParameterValuesList
- */
-const se_CostCategorySplitChargeRuleParameterValuesList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CostCategorySplitChargeRuleParameterValuesList omitted.
 
-/**
- * serializeAws_json1_1CostCategorySplitChargeRulesList
- */
-const se_CostCategorySplitChargeRulesList = (input: CostCategorySplitChargeRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CostCategorySplitChargeRule(entry, context);
-    });
-};
+// se_CostCategorySplitChargeRulesList omitted.
 
-/**
- * serializeAws_json1_1CostCategorySplitChargeRuleTargetsList
- */
-const se_CostCategorySplitChargeRuleTargetsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CostCategorySplitChargeRuleTargetsList omitted.
 
-/**
- * serializeAws_json1_1CostCategoryValues
- */
-const se_CostCategoryValues = (input: CostCategoryValues, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.MatchOptions != null && { MatchOptions: se_MatchOptions(input.MatchOptions, context) }),
-    ...(input.Values != null && { Values: se_Values(input.Values, context) }),
-  };
-};
+// se_CostCategoryValues omitted.
 
 /**
  * serializeAws_json1_1CreateAnomalyMonitorRequest
  */
 const se_CreateAnomalyMonitorRequest = (input: CreateAnomalyMonitorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnomalyMonitor != null && { AnomalyMonitor: se_AnomalyMonitor(input.AnomalyMonitor, context) }),
-    ...(input.ResourceTags != null && { ResourceTags: se_ResourceTagList(input.ResourceTags, context) }),
-  };
+  return take(input, {
+    AnomalyMonitor: (_) => se_AnomalyMonitor(_, context),
+    ResourceTags: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1CreateAnomalySubscriptionRequest
  */
 const se_CreateAnomalySubscriptionRequest = (input: CreateAnomalySubscriptionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnomalySubscription != null && {
-      AnomalySubscription: se_AnomalySubscription(input.AnomalySubscription, context),
-    }),
-    ...(input.ResourceTags != null && { ResourceTags: se_ResourceTagList(input.ResourceTags, context) }),
-  };
+  return take(input, {
+    AnomalySubscription: (_) => se_AnomalySubscription(_, context),
+    ResourceTags: _json,
+  });
 };
 
 /**
@@ -3133,104 +2881,43 @@ const se_CreateCostCategoryDefinitionRequest = (
   input: CreateCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DefaultValue != null && { DefaultValue: input.DefaultValue }),
-    ...(input.EffectiveStart != null && { EffectiveStart: input.EffectiveStart }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ResourceTags != null && { ResourceTags: se_ResourceTagList(input.ResourceTags, context) }),
-    ...(input.RuleVersion != null && { RuleVersion: input.RuleVersion }),
-    ...(input.Rules != null && { Rules: se_CostCategoryRulesList(input.Rules, context) }),
-    ...(input.SplitChargeRules != null && {
-      SplitChargeRules: se_CostCategorySplitChargeRulesList(input.SplitChargeRules, context),
-    }),
-  };
+  return take(input, {
+    DefaultValue: [],
+    EffectiveStart: [],
+    Name: [],
+    ResourceTags: _json,
+    RuleVersion: [],
+    Rules: (_) => se_CostCategoryRulesList(_, context),
+    SplitChargeRules: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1DateInterval
- */
-const se_DateInterval = (input: DateInterval, context: __SerdeContext): any => {
-  return {
-    ...(input.End != null && { End: input.End }),
-    ...(input.Start != null && { Start: input.Start }),
-  };
-};
+// se_DateInterval omitted.
 
-/**
- * serializeAws_json1_1DeleteAnomalyMonitorRequest
- */
-const se_DeleteAnomalyMonitorRequest = (input: DeleteAnomalyMonitorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MonitorArn != null && { MonitorArn: input.MonitorArn }),
-  };
-};
+// se_DeleteAnomalyMonitorRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteAnomalySubscriptionRequest
- */
-const se_DeleteAnomalySubscriptionRequest = (input: DeleteAnomalySubscriptionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SubscriptionArn != null && { SubscriptionArn: input.SubscriptionArn }),
-  };
-};
+// se_DeleteAnomalySubscriptionRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteCostCategoryDefinitionRequest
- */
-const se_DeleteCostCategoryDefinitionRequest = (
-  input: DeleteCostCategoryDefinitionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CostCategoryArn != null && { CostCategoryArn: input.CostCategoryArn }),
-  };
-};
+// se_DeleteCostCategoryDefinitionRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeCostCategoryDefinitionRequest
- */
-const se_DescribeCostCategoryDefinitionRequest = (
-  input: DescribeCostCategoryDefinitionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CostCategoryArn != null && { CostCategoryArn: input.CostCategoryArn }),
-    ...(input.EffectiveOn != null && { EffectiveOn: input.EffectiveOn }),
-  };
-};
+// se_DescribeCostCategoryDefinitionRequest omitted.
 
-/**
- * serializeAws_json1_1DimensionValues
- */
-const se_DimensionValues = (input: DimensionValues, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.MatchOptions != null && { MatchOptions: se_MatchOptions(input.MatchOptions, context) }),
-    ...(input.Values != null && { Values: se_Values(input.Values, context) }),
-  };
-};
+// se_DimensionValues omitted.
 
-/**
- * serializeAws_json1_1EC2Specification
- */
-const se_EC2Specification = (input: EC2Specification, context: __SerdeContext): any => {
-  return {
-    ...(input.OfferingClass != null && { OfferingClass: input.OfferingClass }),
-  };
-};
+// se_EC2Specification omitted.
 
 /**
  * serializeAws_json1_1Expression
  */
 const se_Expression = (input: Expression, context: __SerdeContext): any => {
-  return {
-    ...(input.And != null && { And: se_Expressions(input.And, context) }),
-    ...(input.CostCategories != null && { CostCategories: se_CostCategoryValues(input.CostCategories, context) }),
-    ...(input.Dimensions != null && { Dimensions: se_DimensionValues(input.Dimensions, context) }),
-    ...(input.Not != null && { Not: se_Expression(input.Not, context) }),
-    ...(input.Or != null && { Or: se_Expressions(input.Or, context) }),
-    ...(input.Tags != null && { Tags: se_TagValues(input.Tags, context) }),
-  };
+  return take(input, {
+    And: (_) => se_Expressions(_, context),
+    CostCategories: _json,
+    Dimensions: _json,
+    Not: (_) => se_Expression(_, context),
+    Or: (_) => se_Expressions(_, context),
+    Tags: _json,
+  });
 };
 
 /**
@@ -3248,51 +2935,32 @@ const se_Expressions = (input: Expression[], context: __SerdeContext): any => {
  * serializeAws_json1_1GetAnomaliesRequest
  */
 const se_GetAnomaliesRequest = (input: GetAnomaliesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DateInterval != null && { DateInterval: se_AnomalyDateInterval(input.DateInterval, context) }),
-    ...(input.Feedback != null && { Feedback: input.Feedback }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MonitorArn != null && { MonitorArn: input.MonitorArn }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.TotalImpact != null && { TotalImpact: se_TotalImpactFilter(input.TotalImpact, context) }),
-  };
+  return take(input, {
+    DateInterval: _json,
+    Feedback: [],
+    MaxResults: [],
+    MonitorArn: [],
+    NextPageToken: [],
+    TotalImpact: (_) => se_TotalImpactFilter(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1GetAnomalyMonitorsRequest
- */
-const se_GetAnomalyMonitorsRequest = (input: GetAnomalyMonitorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MonitorArnList != null && { MonitorArnList: se_Values(input.MonitorArnList, context) }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-  };
-};
+// se_GetAnomalyMonitorsRequest omitted.
 
-/**
- * serializeAws_json1_1GetAnomalySubscriptionsRequest
- */
-const se_GetAnomalySubscriptionsRequest = (input: GetAnomalySubscriptionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MonitorArn != null && { MonitorArn: input.MonitorArn }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.SubscriptionArnList != null && { SubscriptionArnList: se_Values(input.SubscriptionArnList, context) }),
-  };
-};
+// se_GetAnomalySubscriptionsRequest omitted.
 
 /**
  * serializeAws_json1_1GetCostAndUsageRequest
  */
 const se_GetCostAndUsageRequest = (input: GetCostAndUsageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.Granularity != null && { Granularity: input.Granularity }),
-    ...(input.GroupBy != null && { GroupBy: se_GroupDefinitions(input.GroupBy, context) }),
-    ...(input.Metrics != null && { Metrics: se_MetricNames(input.Metrics, context) }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Filter: (_) => se_Expression(_, context),
+    Granularity: [],
+    GroupBy: _json,
+    Metrics: _json,
+    NextPageToken: [],
+    TimePeriod: _json,
+  });
 };
 
 /**
@@ -3302,74 +2970,74 @@ const se_GetCostAndUsageWithResourcesRequest = (
   input: GetCostAndUsageWithResourcesRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.Granularity != null && { Granularity: input.Granularity }),
-    ...(input.GroupBy != null && { GroupBy: se_GroupDefinitions(input.GroupBy, context) }),
-    ...(input.Metrics != null && { Metrics: se_MetricNames(input.Metrics, context) }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Filter: (_) => se_Expression(_, context),
+    Granularity: [],
+    GroupBy: _json,
+    Metrics: _json,
+    NextPageToken: [],
+    TimePeriod: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1GetCostCategoriesRequest
  */
 const se_GetCostCategoriesRequest = (input: GetCostCategoriesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CostCategoryName != null && { CostCategoryName: input.CostCategoryName }),
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.SearchString != null && { SearchString: input.SearchString }),
-    ...(input.SortBy != null && { SortBy: se_SortDefinitions(input.SortBy, context) }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    CostCategoryName: [],
+    Filter: (_) => se_Expression(_, context),
+    MaxResults: [],
+    NextPageToken: [],
+    SearchString: [],
+    SortBy: _json,
+    TimePeriod: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1GetCostForecastRequest
  */
 const se_GetCostForecastRequest = (input: GetCostForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.Granularity != null && { Granularity: input.Granularity }),
-    ...(input.Metric != null && { Metric: input.Metric }),
-    ...(input.PredictionIntervalLevel != null && { PredictionIntervalLevel: input.PredictionIntervalLevel }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Filter: (_) => se_Expression(_, context),
+    Granularity: [],
+    Metric: [],
+    PredictionIntervalLevel: [],
+    TimePeriod: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1GetDimensionValuesRequest
  */
 const se_GetDimensionValuesRequest = (input: GetDimensionValuesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Context != null && { Context: input.Context }),
-    ...(input.Dimension != null && { Dimension: input.Dimension }),
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.SearchString != null && { SearchString: input.SearchString }),
-    ...(input.SortBy != null && { SortBy: se_SortDefinitions(input.SortBy, context) }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Context: [],
+    Dimension: [],
+    Filter: (_) => se_Expression(_, context),
+    MaxResults: [],
+    NextPageToken: [],
+    SearchString: [],
+    SortBy: _json,
+    TimePeriod: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1GetReservationCoverageRequest
  */
 const se_GetReservationCoverageRequest = (input: GetReservationCoverageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.Granularity != null && { Granularity: input.Granularity }),
-    ...(input.GroupBy != null && { GroupBy: se_GroupDefinitions(input.GroupBy, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Metrics != null && { Metrics: se_MetricNames(input.Metrics, context) }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.SortBy != null && { SortBy: se_SortDefinition(input.SortBy, context) }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Filter: (_) => se_Expression(_, context),
+    Granularity: [],
+    GroupBy: _json,
+    MaxResults: [],
+    Metrics: _json,
+    NextPageToken: [],
+    SortBy: _json,
+    TimePeriod: _json,
+  });
 };
 
 /**
@@ -3379,35 +3047,33 @@ const se_GetReservationPurchaseRecommendationRequest = (
   input: GetReservationPurchaseRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AccountScope != null && { AccountScope: input.AccountScope }),
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.LookbackPeriodInDays != null && { LookbackPeriodInDays: input.LookbackPeriodInDays }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PaymentOption != null && { PaymentOption: input.PaymentOption }),
-    ...(input.Service != null && { Service: input.Service }),
-    ...(input.ServiceSpecification != null && {
-      ServiceSpecification: se_ServiceSpecification(input.ServiceSpecification, context),
-    }),
-    ...(input.TermInYears != null && { TermInYears: input.TermInYears }),
-  };
+  return take(input, {
+    AccountId: [],
+    AccountScope: [],
+    Filter: (_) => se_Expression(_, context),
+    LookbackPeriodInDays: [],
+    NextPageToken: [],
+    PageSize: [],
+    PaymentOption: [],
+    Service: [],
+    ServiceSpecification: _json,
+    TermInYears: [],
+  });
 };
 
 /**
  * serializeAws_json1_1GetReservationUtilizationRequest
  */
 const se_GetReservationUtilizationRequest = (input: GetReservationUtilizationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.Granularity != null && { Granularity: input.Granularity }),
-    ...(input.GroupBy != null && { GroupBy: se_GroupDefinitions(input.GroupBy, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.SortBy != null && { SortBy: se_SortDefinition(input.SortBy, context) }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Filter: (_) => se_Expression(_, context),
+    Granularity: [],
+    GroupBy: _json,
+    MaxResults: [],
+    NextPageToken: [],
+    SortBy: _json,
+    TimePeriod: _json,
+  });
 };
 
 /**
@@ -3417,31 +3083,29 @@ const se_GetRightsizingRecommendationRequest = (
   input: GetRightsizingRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Configuration != null && {
-      Configuration: se_RightsizingRecommendationConfiguration(input.Configuration, context),
-    }),
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.Service != null && { Service: input.Service }),
-  };
+  return take(input, {
+    Configuration: _json,
+    Filter: (_) => se_Expression(_, context),
+    NextPageToken: [],
+    PageSize: [],
+    Service: [],
+  });
 };
 
 /**
  * serializeAws_json1_1GetSavingsPlansCoverageRequest
  */
 const se_GetSavingsPlansCoverageRequest = (input: GetSavingsPlansCoverageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.Granularity != null && { Granularity: input.Granularity }),
-    ...(input.GroupBy != null && { GroupBy: se_GroupDefinitions(input.GroupBy, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Metrics != null && { Metrics: se_MetricNames(input.Metrics, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: se_SortDefinition(input.SortBy, context) }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Filter: (_) => se_Expression(_, context),
+    Granularity: [],
+    GroupBy: _json,
+    MaxResults: [],
+    Metrics: _json,
+    NextToken: [],
+    SortBy: _json,
+    TimePeriod: _json,
+  });
 };
 
 /**
@@ -3451,16 +3115,16 @@ const se_GetSavingsPlansPurchaseRecommendationRequest = (
   input: GetSavingsPlansPurchaseRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AccountScope != null && { AccountScope: input.AccountScope }),
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.LookbackPeriodInDays != null && { LookbackPeriodInDays: input.LookbackPeriodInDays }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.PaymentOption != null && { PaymentOption: input.PaymentOption }),
-    ...(input.SavingsPlansType != null && { SavingsPlansType: input.SavingsPlansType }),
-    ...(input.TermInYears != null && { TermInYears: input.TermInYears }),
-  };
+  return take(input, {
+    AccountScope: [],
+    Filter: (_) => se_Expression(_, context),
+    LookbackPeriodInDays: [],
+    NextPageToken: [],
+    PageSize: [],
+    PaymentOption: [],
+    SavingsPlansType: [],
+    TermInYears: [],
+  });
 };
 
 /**
@@ -3470,14 +3134,14 @@ const se_GetSavingsPlansUtilizationDetailsRequest = (
   input: GetSavingsPlansUtilizationDetailsRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DataType != null && { DataType: se_SavingsPlansDataTypes(input.DataType, context) }),
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: se_SortDefinition(input.SortBy, context) }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    DataType: _json,
+    Filter: (_) => se_Expression(_, context),
+    MaxResults: [],
+    NextToken: [],
+    SortBy: _json,
+    TimePeriod: _json,
+  });
 };
 
 /**
@@ -3487,370 +3151,121 @@ const se_GetSavingsPlansUtilizationRequest = (
   input: GetSavingsPlansUtilizationRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.Granularity != null && { Granularity: input.Granularity }),
-    ...(input.SortBy != null && { SortBy: se_SortDefinition(input.SortBy, context) }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Filter: (_) => se_Expression(_, context),
+    Granularity: [],
+    SortBy: _json,
+    TimePeriod: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1GetTagsRequest
  */
 const se_GetTagsRequest = (input: GetTagsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.SearchString != null && { SearchString: input.SearchString }),
-    ...(input.SortBy != null && { SortBy: se_SortDefinitions(input.SortBy, context) }),
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Filter: (_) => se_Expression(_, context),
+    MaxResults: [],
+    NextPageToken: [],
+    SearchString: [],
+    SortBy: _json,
+    TagKey: [],
+    TimePeriod: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1GetUsageForecastRequest
  */
 const se_GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_Expression(input.Filter, context) }),
-    ...(input.Granularity != null && { Granularity: input.Granularity }),
-    ...(input.Metric != null && { Metric: input.Metric }),
-    ...(input.PredictionIntervalLevel != null && { PredictionIntervalLevel: input.PredictionIntervalLevel }),
-    ...(input.TimePeriod != null && { TimePeriod: se_DateInterval(input.TimePeriod, context) }),
-  };
+  return take(input, {
+    Filter: (_) => se_Expression(_, context),
+    Granularity: [],
+    Metric: [],
+    PredictionIntervalLevel: [],
+    TimePeriod: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1GroupDefinition
- */
-const se_GroupDefinition = (input: GroupDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_GroupDefinition omitted.
 
-/**
- * serializeAws_json1_1GroupDefinitions
- */
-const se_GroupDefinitions = (input: GroupDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_GroupDefinition(entry, context);
-    });
-};
+// se_GroupDefinitions omitted.
 
-/**
- * serializeAws_json1_1ListCostAllocationTagsRequest
- */
-const se_ListCostAllocationTagsRequest = (input: ListCostAllocationTagsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.TagKeys != null && { TagKeys: se_CostAllocationTagKeyList(input.TagKeys, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_ListCostAllocationTagsRequest omitted.
 
-/**
- * serializeAws_json1_1ListCostCategoryDefinitionsRequest
- */
-const se_ListCostCategoryDefinitionsRequest = (
-  input: ListCostCategoryDefinitionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EffectiveOn != null && { EffectiveOn: input.EffectiveOn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListCostCategoryDefinitionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationRequest
- */
-const se_ListSavingsPlansPurchaseRecommendationGenerationRequest = (
-  input: ListSavingsPlansPurchaseRecommendationGenerationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GenerationStatus != null && { GenerationStatus: input.GenerationStatus }),
-    ...(input.NextPageToken != null && { NextPageToken: input.NextPageToken }),
-    ...(input.PageSize != null && { PageSize: input.PageSize }),
-    ...(input.RecommendationIds != null && {
-      RecommendationIds: se_RecommendationIdList(input.RecommendationIds, context),
-    }),
-  };
-};
+// se_ListSavingsPlansPurchaseRecommendationGenerationRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1MatchOptions
- */
-const se_MatchOptions = (input: (MatchOption | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MatchOptions omitted.
 
-/**
- * serializeAws_json1_1MetricNames
- */
-const se_MetricNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MetricNames omitted.
 
-/**
- * serializeAws_json1_1MonitorArnList
- */
-const se_MonitorArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MonitorArnList omitted.
 
-/**
- * serializeAws_json1_1ProvideAnomalyFeedbackRequest
- */
-const se_ProvideAnomalyFeedbackRequest = (input: ProvideAnomalyFeedbackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AnomalyId != null && { AnomalyId: input.AnomalyId }),
-    ...(input.Feedback != null && { Feedback: input.Feedback }),
-  };
-};
+// se_ProvideAnomalyFeedbackRequest omitted.
 
-/**
- * serializeAws_json1_1RecommendationIdList
- */
-const se_RecommendationIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RecommendationIdList omitted.
 
-/**
- * serializeAws_json1_1ResourceTag
- */
-const se_ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_ResourceTag omitted.
 
-/**
- * serializeAws_json1_1ResourceTagKeyList
- */
-const se_ResourceTagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceTagKeyList omitted.
 
-/**
- * serializeAws_json1_1ResourceTagList
- */
-const se_ResourceTagList = (input: ResourceTag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ResourceTag(entry, context);
-    });
-};
+// se_ResourceTagList omitted.
 
-/**
- * serializeAws_json1_1RightsizingRecommendationConfiguration
- */
-const se_RightsizingRecommendationConfiguration = (
-  input: RightsizingRecommendationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BenefitsConsidered != null && { BenefitsConsidered: input.BenefitsConsidered }),
-    ...(input.RecommendationTarget != null && { RecommendationTarget: input.RecommendationTarget }),
-  };
-};
+// se_RightsizingRecommendationConfiguration omitted.
 
-/**
- * serializeAws_json1_1SavingsPlansDataTypes
- */
-const se_SavingsPlansDataTypes = (input: (SavingsPlansDataType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SavingsPlansDataTypes omitted.
 
-/**
- * serializeAws_json1_1ServiceSpecification
- */
-const se_ServiceSpecification = (input: ServiceSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.EC2Specification != null && { EC2Specification: se_EC2Specification(input.EC2Specification, context) }),
-  };
-};
+// se_ServiceSpecification omitted.
 
-/**
- * serializeAws_json1_1SortDefinition
- */
-const se_SortDefinition = (input: SortDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_SortDefinition omitted.
 
-/**
- * serializeAws_json1_1SortDefinitions
- */
-const se_SortDefinitions = (input: SortDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SortDefinition(entry, context);
-    });
-};
+// se_SortDefinitions omitted.
 
-/**
- * serializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationRequest
- */
-const se_StartSavingsPlansPurchaseRecommendationGenerationRequest = (
-  input: StartSavingsPlansPurchaseRecommendationGenerationRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_StartSavingsPlansPurchaseRecommendationGenerationRequest omitted.
 
-/**
- * serializeAws_json1_1Subscriber
- */
-const se_Subscriber = (input: Subscriber, context: __SerdeContext): any => {
-  return {
-    ...(input.Address != null && { Address: input.Address }),
-    ...(input.Status != null && { Status: input.Status }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_Subscriber omitted.
 
-/**
- * serializeAws_json1_1Subscribers
- */
-const se_Subscribers = (input: Subscriber[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Subscriber(entry, context);
-    });
-};
+// se_Subscribers omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.ResourceTags != null && { ResourceTags: se_ResourceTagList(input.ResourceTags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1TagValues
- */
-const se_TagValues = (input: TagValues, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.MatchOptions != null && { MatchOptions: se_MatchOptions(input.MatchOptions, context) }),
-    ...(input.Values != null && { Values: se_Values(input.Values, context) }),
-  };
-};
+// se_TagValues omitted.
 
 /**
  * serializeAws_json1_1TotalImpactFilter
  */
 const se_TotalImpactFilter = (input: TotalImpactFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.EndValue != null && { EndValue: __serializeFloat(input.EndValue) }),
-    ...(input.NumericOperator != null && { NumericOperator: input.NumericOperator }),
-    ...(input.StartValue != null && { StartValue: __serializeFloat(input.StartValue) }),
-  };
+  return take(input, {
+    EndValue: __serializeFloat,
+    NumericOperator: [],
+    StartValue: __serializeFloat,
+  });
 };
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.ResourceTagKeys != null && { ResourceTagKeys: se_ResourceTagKeyList(input.ResourceTagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateAnomalyMonitorRequest
- */
-const se_UpdateAnomalyMonitorRequest = (input: UpdateAnomalyMonitorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MonitorArn != null && { MonitorArn: input.MonitorArn }),
-    ...(input.MonitorName != null && { MonitorName: input.MonitorName }),
-  };
-};
+// se_UpdateAnomalyMonitorRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateAnomalySubscriptionRequest
  */
 const se_UpdateAnomalySubscriptionRequest = (input: UpdateAnomalySubscriptionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Frequency != null && { Frequency: input.Frequency }),
-    ...(input.MonitorArnList != null && { MonitorArnList: se_MonitorArnList(input.MonitorArnList, context) }),
-    ...(input.Subscribers != null && { Subscribers: se_Subscribers(input.Subscribers, context) }),
-    ...(input.SubscriptionArn != null && { SubscriptionArn: input.SubscriptionArn }),
-    ...(input.SubscriptionName != null && { SubscriptionName: input.SubscriptionName }),
-    ...(input.Threshold != null && { Threshold: __serializeFloat(input.Threshold) }),
-    ...(input.ThresholdExpression != null && {
-      ThresholdExpression: se_Expression(input.ThresholdExpression, context),
-    }),
-  };
+  return take(input, {
+    Frequency: [],
+    MonitorArnList: _json,
+    Subscribers: _json,
+    SubscriptionArn: [],
+    SubscriptionName: [],
+    Threshold: __serializeFloat,
+    ThresholdExpression: (_) => se_Expression(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateCostAllocationTagsStatusRequest
- */
-const se_UpdateCostAllocationTagsStatusRequest = (
-  input: UpdateCostAllocationTagsStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CostAllocationTagsStatus != null && {
-      CostAllocationTagsStatus: se_CostAllocationTagStatusList(input.CostAllocationTagsStatus, context),
-    }),
-  };
-};
+// se_UpdateCostAllocationTagsStatusRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateCostCategoryDefinitionRequest
@@ -3859,28 +3274,17 @@ const se_UpdateCostCategoryDefinitionRequest = (
   input: UpdateCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.CostCategoryArn != null && { CostCategoryArn: input.CostCategoryArn }),
-    ...(input.DefaultValue != null && { DefaultValue: input.DefaultValue }),
-    ...(input.EffectiveStart != null && { EffectiveStart: input.EffectiveStart }),
-    ...(input.RuleVersion != null && { RuleVersion: input.RuleVersion }),
-    ...(input.Rules != null && { Rules: se_CostCategoryRulesList(input.Rules, context) }),
-    ...(input.SplitChargeRules != null && {
-      SplitChargeRules: se_CostCategorySplitChargeRulesList(input.SplitChargeRules, context),
-    }),
-  };
+  return take(input, {
+    CostCategoryArn: [],
+    DefaultValue: [],
+    EffectiveStart: [],
+    RuleVersion: [],
+    Rules: (_) => se_CostCategoryRulesList(_, context),
+    SplitChargeRules: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1Values
- */
-const se_Values = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Values omitted.
 
 /**
  * deserializeAws_json1_1Anomalies
@@ -3889,9 +3293,6 @@ const de_Anomalies = (output: any, context: __SerdeContext): Anomaly[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Anomaly(entry, context);
     });
   return retVal;
@@ -3901,35 +3302,34 @@ const de_Anomalies = (output: any, context: __SerdeContext): Anomaly[] => {
  * deserializeAws_json1_1Anomaly
  */
 const de_Anomaly = (output: any, context: __SerdeContext): Anomaly => {
-  return {
-    AnomalyEndDate: __expectString(output.AnomalyEndDate),
-    AnomalyId: __expectString(output.AnomalyId),
-    AnomalyScore: output.AnomalyScore != null ? de_AnomalyScore(output.AnomalyScore, context) : undefined,
-    AnomalyStartDate: __expectString(output.AnomalyStartDate),
-    DimensionValue: __expectString(output.DimensionValue),
-    Feedback: __expectString(output.Feedback),
-    Impact: output.Impact != null ? de_Impact(output.Impact, context) : undefined,
-    MonitorArn: __expectString(output.MonitorArn),
-    RootCauses: output.RootCauses != null ? de_RootCauses(output.RootCauses, context) : undefined,
-  } as any;
+  return take(output, {
+    AnomalyEndDate: __expectString,
+    AnomalyId: __expectString,
+    AnomalyScore: (_: any) => de_AnomalyScore(_, context),
+    AnomalyStartDate: __expectString,
+    DimensionValue: __expectString,
+    Feedback: __expectString,
+    Impact: (_: any) => de_Impact(_, context),
+    MonitorArn: __expectString,
+    RootCauses: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1AnomalyMonitor
  */
 const de_AnomalyMonitor = (output: any, context: __SerdeContext): AnomalyMonitor => {
-  return {
-    CreationDate: __expectString(output.CreationDate),
-    DimensionalValueCount: __expectInt32(output.DimensionalValueCount),
-    LastEvaluatedDate: __expectString(output.LastEvaluatedDate),
-    LastUpdatedDate: __expectString(output.LastUpdatedDate),
-    MonitorArn: __expectString(output.MonitorArn),
-    MonitorDimension: __expectString(output.MonitorDimension),
-    MonitorName: __expectString(output.MonitorName),
-    MonitorSpecification:
-      output.MonitorSpecification != null ? de_Expression(output.MonitorSpecification, context) : undefined,
-    MonitorType: __expectString(output.MonitorType),
-  } as any;
+  return take(output, {
+    CreationDate: __expectString,
+    DimensionalValueCount: __expectInt32,
+    LastEvaluatedDate: __expectString,
+    LastUpdatedDate: __expectString,
+    MonitorArn: __expectString,
+    MonitorDimension: __expectString,
+    MonitorName: __expectString,
+    MonitorSpecification: (_: any) => de_Expression(_, context),
+    MonitorType: __expectString,
+  }) as any;
 };
 
 /**
@@ -3939,9 +3339,6 @@ const de_AnomalyMonitors = (output: any, context: __SerdeContext): AnomalyMonito
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AnomalyMonitor(entry, context);
     });
   return retVal;
@@ -3951,27 +3348,26 @@ const de_AnomalyMonitors = (output: any, context: __SerdeContext): AnomalyMonito
  * deserializeAws_json1_1AnomalyScore
  */
 const de_AnomalyScore = (output: any, context: __SerdeContext): AnomalyScore => {
-  return {
-    CurrentScore: __limitedParseDouble(output.CurrentScore),
-    MaxScore: __limitedParseDouble(output.MaxScore),
-  } as any;
+  return take(output, {
+    CurrentScore: __limitedParseDouble,
+    MaxScore: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1AnomalySubscription
  */
 const de_AnomalySubscription = (output: any, context: __SerdeContext): AnomalySubscription => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Frequency: __expectString(output.Frequency),
-    MonitorArnList: output.MonitorArnList != null ? de_MonitorArnList(output.MonitorArnList, context) : undefined,
-    Subscribers: output.Subscribers != null ? de_Subscribers(output.Subscribers, context) : undefined,
-    SubscriptionArn: __expectString(output.SubscriptionArn),
-    SubscriptionName: __expectString(output.SubscriptionName),
-    Threshold: __limitedParseDouble(output.Threshold),
-    ThresholdExpression:
-      output.ThresholdExpression != null ? de_Expression(output.ThresholdExpression, context) : undefined,
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    Frequency: __expectString,
+    MonitorArnList: _json,
+    Subscribers: _json,
+    SubscriptionArn: __expectString,
+    SubscriptionName: __expectString,
+    Threshold: __limitedParseDouble,
+    ThresholdExpression: (_: any) => de_Expression(_, context),
+  }) as any;
 };
 
 /**
@@ -3981,185 +3377,58 @@ const de_AnomalySubscriptions = (output: any, context: __SerdeContext): AnomalyS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AnomalySubscription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Attributes
- */
-const de_Attributes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Attributes omitted.
 
-/**
- * deserializeAws_json1_1BillExpirationException
- */
-const de_BillExpirationException = (output: any, context: __SerdeContext): BillExpirationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_BillExpirationException omitted.
 
-/**
- * deserializeAws_json1_1CostAllocationTag
- */
-const de_CostAllocationTag = (output: any, context: __SerdeContext): CostAllocationTag => {
-  return {
-    Status: __expectString(output.Status),
-    TagKey: __expectString(output.TagKey),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_CostAllocationTag omitted.
 
-/**
- * deserializeAws_json1_1CostAllocationTagList
- */
-const de_CostAllocationTagList = (output: any, context: __SerdeContext): CostAllocationTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CostAllocationTag(entry, context);
-    });
-  return retVal;
-};
+// de_CostAllocationTagList omitted.
 
 /**
  * deserializeAws_json1_1CostCategory
  */
 const de_CostCategory = (output: any, context: __SerdeContext): CostCategory => {
-  return {
-    CostCategoryArn: __expectString(output.CostCategoryArn),
-    DefaultValue: __expectString(output.DefaultValue),
-    EffectiveEnd: __expectString(output.EffectiveEnd),
-    EffectiveStart: __expectString(output.EffectiveStart),
-    Name: __expectString(output.Name),
-    ProcessingStatus:
-      output.ProcessingStatus != null
-        ? de_CostCategoryProcessingStatusList(output.ProcessingStatus, context)
-        : undefined,
-    RuleVersion: __expectString(output.RuleVersion),
-    Rules: output.Rules != null ? de_CostCategoryRulesList(output.Rules, context) : undefined,
-    SplitChargeRules:
-      output.SplitChargeRules != null
-        ? de_CostCategorySplitChargeRulesList(output.SplitChargeRules, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CostCategoryArn: __expectString,
+    DefaultValue: __expectString,
+    EffectiveEnd: __expectString,
+    EffectiveStart: __expectString,
+    Name: __expectString,
+    ProcessingStatus: _json,
+    RuleVersion: __expectString,
+    Rules: (_: any) => de_CostCategoryRulesList(_, context),
+    SplitChargeRules: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CostCategoryInheritedValueDimension
- */
-const de_CostCategoryInheritedValueDimension = (
-  output: any,
-  context: __SerdeContext
-): CostCategoryInheritedValueDimension => {
-  return {
-    DimensionKey: __expectString(output.DimensionKey),
-    DimensionName: __expectString(output.DimensionName),
-  } as any;
-};
+// de_CostCategoryInheritedValueDimension omitted.
 
-/**
- * deserializeAws_json1_1CostCategoryNamesList
- */
-const de_CostCategoryNamesList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CostCategoryNamesList omitted.
 
-/**
- * deserializeAws_json1_1CostCategoryProcessingStatus
- */
-const de_CostCategoryProcessingStatus = (output: any, context: __SerdeContext): CostCategoryProcessingStatus => {
-  return {
-    Component: __expectString(output.Component),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_CostCategoryProcessingStatus omitted.
 
-/**
- * deserializeAws_json1_1CostCategoryProcessingStatusList
- */
-const de_CostCategoryProcessingStatusList = (output: any, context: __SerdeContext): CostCategoryProcessingStatus[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CostCategoryProcessingStatus(entry, context);
-    });
-  return retVal;
-};
+// de_CostCategoryProcessingStatusList omitted.
 
-/**
- * deserializeAws_json1_1CostCategoryReference
- */
-const de_CostCategoryReference = (output: any, context: __SerdeContext): CostCategoryReference => {
-  return {
-    CostCategoryArn: __expectString(output.CostCategoryArn),
-    DefaultValue: __expectString(output.DefaultValue),
-    EffectiveEnd: __expectString(output.EffectiveEnd),
-    EffectiveStart: __expectString(output.EffectiveStart),
-    Name: __expectString(output.Name),
-    NumberOfRules: __expectInt32(output.NumberOfRules),
-    ProcessingStatus:
-      output.ProcessingStatus != null
-        ? de_CostCategoryProcessingStatusList(output.ProcessingStatus, context)
-        : undefined,
-    Values: output.Values != null ? de_CostCategoryValuesList(output.Values, context) : undefined,
-  } as any;
-};
+// de_CostCategoryReference omitted.
 
-/**
- * deserializeAws_json1_1CostCategoryReferencesList
- */
-const de_CostCategoryReferencesList = (output: any, context: __SerdeContext): CostCategoryReference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CostCategoryReference(entry, context);
-    });
-  return retVal;
-};
+// de_CostCategoryReferencesList omitted.
 
 /**
  * deserializeAws_json1_1CostCategoryRule
  */
 const de_CostCategoryRule = (output: any, context: __SerdeContext): CostCategoryRule => {
-  return {
-    InheritedValue:
-      output.InheritedValue != null
-        ? de_CostCategoryInheritedValueDimension(output.InheritedValue, context)
-        : undefined,
-    Rule: output.Rule != null ? de_Expression(output.Rule, context) : undefined,
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
+  return take(output, {
+    InheritedValue: _json,
+    Rule: (_: any) => de_Expression(_, context),
+    Type: __expectString,
+    Value: __expectString,
+  }) as any;
 };
 
 /**
@@ -4169,305 +3438,56 @@ const de_CostCategoryRulesList = (output: any, context: __SerdeContext): CostCat
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CostCategoryRule(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1CostCategorySplitChargeRule
- */
-const de_CostCategorySplitChargeRule = (output: any, context: __SerdeContext): CostCategorySplitChargeRule => {
-  return {
-    Method: __expectString(output.Method),
-    Parameters:
-      output.Parameters != null ? de_CostCategorySplitChargeRuleParametersList(output.Parameters, context) : undefined,
-    Source: __expectString(output.Source),
-    Targets: output.Targets != null ? de_CostCategorySplitChargeRuleTargetsList(output.Targets, context) : undefined,
-  } as any;
-};
+// de_CostCategorySplitChargeRule omitted.
 
-/**
- * deserializeAws_json1_1CostCategorySplitChargeRuleParameter
- */
-const de_CostCategorySplitChargeRuleParameter = (
-  output: any,
-  context: __SerdeContext
-): CostCategorySplitChargeRuleParameter => {
-  return {
-    Type: __expectString(output.Type),
-    Values:
-      output.Values != null ? de_CostCategorySplitChargeRuleParameterValuesList(output.Values, context) : undefined,
-  } as any;
-};
+// de_CostCategorySplitChargeRuleParameter omitted.
 
-/**
- * deserializeAws_json1_1CostCategorySplitChargeRuleParametersList
- */
-const de_CostCategorySplitChargeRuleParametersList = (
-  output: any,
-  context: __SerdeContext
-): CostCategorySplitChargeRuleParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CostCategorySplitChargeRuleParameter(entry, context);
-    });
-  return retVal;
-};
+// de_CostCategorySplitChargeRuleParametersList omitted.
 
-/**
- * deserializeAws_json1_1CostCategorySplitChargeRuleParameterValuesList
- */
-const de_CostCategorySplitChargeRuleParameterValuesList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CostCategorySplitChargeRuleParameterValuesList omitted.
 
-/**
- * deserializeAws_json1_1CostCategorySplitChargeRulesList
- */
-const de_CostCategorySplitChargeRulesList = (output: any, context: __SerdeContext): CostCategorySplitChargeRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CostCategorySplitChargeRule(entry, context);
-    });
-  return retVal;
-};
+// de_CostCategorySplitChargeRulesList omitted.
 
-/**
- * deserializeAws_json1_1CostCategorySplitChargeRuleTargetsList
- */
-const de_CostCategorySplitChargeRuleTargetsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CostCategorySplitChargeRuleTargetsList omitted.
 
-/**
- * deserializeAws_json1_1CostCategoryValues
- */
-const de_CostCategoryValues = (output: any, context: __SerdeContext): CostCategoryValues => {
-  return {
-    Key: __expectString(output.Key),
-    MatchOptions: output.MatchOptions != null ? de_MatchOptions(output.MatchOptions, context) : undefined,
-    Values: output.Values != null ? de_Values(output.Values, context) : undefined,
-  } as any;
-};
+// de_CostCategoryValues omitted.
 
-/**
- * deserializeAws_json1_1CostCategoryValuesList
- */
-const de_CostCategoryValuesList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CostCategoryValuesList omitted.
 
-/**
- * deserializeAws_json1_1Coverage
- */
-const de_Coverage = (output: any, context: __SerdeContext): Coverage => {
-  return {
-    CoverageCost: output.CoverageCost != null ? de_CoverageCost(output.CoverageCost, context) : undefined,
-    CoverageHours: output.CoverageHours != null ? de_CoverageHours(output.CoverageHours, context) : undefined,
-    CoverageNormalizedUnits:
-      output.CoverageNormalizedUnits != null
-        ? de_CoverageNormalizedUnits(output.CoverageNormalizedUnits, context)
-        : undefined,
-  } as any;
-};
+// de_Coverage omitted.
 
-/**
- * deserializeAws_json1_1CoverageByTime
- */
-const de_CoverageByTime = (output: any, context: __SerdeContext): CoverageByTime => {
-  return {
-    Groups: output.Groups != null ? de_ReservationCoverageGroups(output.Groups, context) : undefined,
-    TimePeriod: output.TimePeriod != null ? de_DateInterval(output.TimePeriod, context) : undefined,
-    Total: output.Total != null ? de_Coverage(output.Total, context) : undefined,
-  } as any;
-};
+// de_CoverageByTime omitted.
 
-/**
- * deserializeAws_json1_1CoverageCost
- */
-const de_CoverageCost = (output: any, context: __SerdeContext): CoverageCost => {
-  return {
-    OnDemandCost: __expectString(output.OnDemandCost),
-  } as any;
-};
+// de_CoverageCost omitted.
 
-/**
- * deserializeAws_json1_1CoverageHours
- */
-const de_CoverageHours = (output: any, context: __SerdeContext): CoverageHours => {
-  return {
-    CoverageHoursPercentage: __expectString(output.CoverageHoursPercentage),
-    OnDemandHours: __expectString(output.OnDemandHours),
-    ReservedHours: __expectString(output.ReservedHours),
-    TotalRunningHours: __expectString(output.TotalRunningHours),
-  } as any;
-};
+// de_CoverageHours omitted.
 
-/**
- * deserializeAws_json1_1CoverageNormalizedUnits
- */
-const de_CoverageNormalizedUnits = (output: any, context: __SerdeContext): CoverageNormalizedUnits => {
-  return {
-    CoverageNormalizedUnitsPercentage: __expectString(output.CoverageNormalizedUnitsPercentage),
-    OnDemandNormalizedUnits: __expectString(output.OnDemandNormalizedUnits),
-    ReservedNormalizedUnits: __expectString(output.ReservedNormalizedUnits),
-    TotalRunningNormalizedUnits: __expectString(output.TotalRunningNormalizedUnits),
-  } as any;
-};
+// de_CoverageNormalizedUnits omitted.
 
-/**
- * deserializeAws_json1_1CoveragesByTime
- */
-const de_CoveragesByTime = (output: any, context: __SerdeContext): CoverageByTime[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CoverageByTime(entry, context);
-    });
-  return retVal;
-};
+// de_CoveragesByTime omitted.
 
-/**
- * deserializeAws_json1_1CreateAnomalyMonitorResponse
- */
-const de_CreateAnomalyMonitorResponse = (output: any, context: __SerdeContext): CreateAnomalyMonitorResponse => {
-  return {
-    MonitorArn: __expectString(output.MonitorArn),
-  } as any;
-};
+// de_CreateAnomalyMonitorResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateAnomalySubscriptionResponse
- */
-const de_CreateAnomalySubscriptionResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateAnomalySubscriptionResponse => {
-  return {
-    SubscriptionArn: __expectString(output.SubscriptionArn),
-  } as any;
-};
+// de_CreateAnomalySubscriptionResponse omitted.
 
-/**
- * deserializeAws_json1_1CreateCostCategoryDefinitionResponse
- */
-const de_CreateCostCategoryDefinitionResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateCostCategoryDefinitionResponse => {
-  return {
-    CostCategoryArn: __expectString(output.CostCategoryArn),
-    EffectiveStart: __expectString(output.EffectiveStart),
-  } as any;
-};
+// de_CreateCostCategoryDefinitionResponse omitted.
 
-/**
- * deserializeAws_json1_1CurrentInstance
- */
-const de_CurrentInstance = (output: any, context: __SerdeContext): CurrentInstance => {
-  return {
-    CurrencyCode: __expectString(output.CurrencyCode),
-    InstanceName: __expectString(output.InstanceName),
-    MonthlyCost: __expectString(output.MonthlyCost),
-    OnDemandHoursInLookbackPeriod: __expectString(output.OnDemandHoursInLookbackPeriod),
-    ReservationCoveredHoursInLookbackPeriod: __expectString(output.ReservationCoveredHoursInLookbackPeriod),
-    ResourceDetails: output.ResourceDetails != null ? de_ResourceDetails(output.ResourceDetails, context) : undefined,
-    ResourceId: __expectString(output.ResourceId),
-    ResourceUtilization:
-      output.ResourceUtilization != null ? de_ResourceUtilization(output.ResourceUtilization, context) : undefined,
-    SavingsPlansCoveredHoursInLookbackPeriod: __expectString(output.SavingsPlansCoveredHoursInLookbackPeriod),
-    Tags: output.Tags != null ? de_TagValuesList(output.Tags, context) : undefined,
-    TotalRunningHoursInLookbackPeriod: __expectString(output.TotalRunningHoursInLookbackPeriod),
-  } as any;
-};
+// de_CurrentInstance omitted.
 
-/**
- * deserializeAws_json1_1DataUnavailableException
- */
-const de_DataUnavailableException = (output: any, context: __SerdeContext): DataUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DataUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1DateInterval
- */
-const de_DateInterval = (output: any, context: __SerdeContext): DateInterval => {
-  return {
-    End: __expectString(output.End),
-    Start: __expectString(output.Start),
-  } as any;
-};
+// de_DateInterval omitted.
 
-/**
- * deserializeAws_json1_1DeleteAnomalyMonitorResponse
- */
-const de_DeleteAnomalyMonitorResponse = (output: any, context: __SerdeContext): DeleteAnomalyMonitorResponse => {
-  return {} as any;
-};
+// de_DeleteAnomalyMonitorResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteAnomalySubscriptionResponse
- */
-const de_DeleteAnomalySubscriptionResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteAnomalySubscriptionResponse => {
-  return {} as any;
-};
+// de_DeleteAnomalySubscriptionResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteCostCategoryDefinitionResponse
- */
-const de_DeleteCostCategoryDefinitionResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteCostCategoryDefinitionResponse => {
-  return {
-    CostCategoryArn: __expectString(output.CostCategoryArn),
-    EffectiveEnd: __expectString(output.EffectiveEnd),
-  } as any;
-};
+// de_DeleteCostCategoryDefinitionResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeCostCategoryDefinitionResponse
@@ -4476,178 +3496,45 @@ const de_DescribeCostCategoryDefinitionResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCostCategoryDefinitionResponse => {
-  return {
-    CostCategory: output.CostCategory != null ? de_CostCategory(output.CostCategory, context) : undefined,
-  } as any;
+  return take(output, {
+    CostCategory: (_: any) => de_CostCategory(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DimensionValues
- */
-const de_DimensionValues = (output: any, context: __SerdeContext): DimensionValues => {
-  return {
-    Key: __expectString(output.Key),
-    MatchOptions: output.MatchOptions != null ? de_MatchOptions(output.MatchOptions, context) : undefined,
-    Values: output.Values != null ? de_Values(output.Values, context) : undefined,
-  } as any;
-};
+// de_DimensionValues omitted.
 
-/**
- * deserializeAws_json1_1DimensionValuesWithAttributes
- */
-const de_DimensionValuesWithAttributes = (output: any, context: __SerdeContext): DimensionValuesWithAttributes => {
-  return {
-    Attributes: output.Attributes != null ? de_Attributes(output.Attributes, context) : undefined,
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_DimensionValuesWithAttributes omitted.
 
-/**
- * deserializeAws_json1_1DimensionValuesWithAttributesList
- */
-const de_DimensionValuesWithAttributesList = (
-  output: any,
-  context: __SerdeContext
-): DimensionValuesWithAttributes[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DimensionValuesWithAttributes(entry, context);
-    });
-  return retVal;
-};
+// de_DimensionValuesWithAttributesList omitted.
 
-/**
- * deserializeAws_json1_1DiskResourceUtilization
- */
-const de_DiskResourceUtilization = (output: any, context: __SerdeContext): DiskResourceUtilization => {
-  return {
-    DiskReadBytesPerSecond: __expectString(output.DiskReadBytesPerSecond),
-    DiskReadOpsPerSecond: __expectString(output.DiskReadOpsPerSecond),
-    DiskWriteBytesPerSecond: __expectString(output.DiskWriteBytesPerSecond),
-    DiskWriteOpsPerSecond: __expectString(output.DiskWriteOpsPerSecond),
-  } as any;
-};
+// de_DiskResourceUtilization omitted.
 
-/**
- * deserializeAws_json1_1EBSResourceUtilization
- */
-const de_EBSResourceUtilization = (output: any, context: __SerdeContext): EBSResourceUtilization => {
-  return {
-    EbsReadBytesPerSecond: __expectString(output.EbsReadBytesPerSecond),
-    EbsReadOpsPerSecond: __expectString(output.EbsReadOpsPerSecond),
-    EbsWriteBytesPerSecond: __expectString(output.EbsWriteBytesPerSecond),
-    EbsWriteOpsPerSecond: __expectString(output.EbsWriteOpsPerSecond),
-  } as any;
-};
+// de_EBSResourceUtilization omitted.
 
-/**
- * deserializeAws_json1_1EC2InstanceDetails
- */
-const de_EC2InstanceDetails = (output: any, context: __SerdeContext): EC2InstanceDetails => {
-  return {
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
-    Family: __expectString(output.Family),
-    InstanceType: __expectString(output.InstanceType),
-    Platform: __expectString(output.Platform),
-    Region: __expectString(output.Region),
-    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
-    Tenancy: __expectString(output.Tenancy),
-  } as any;
-};
+// de_EC2InstanceDetails omitted.
 
-/**
- * deserializeAws_json1_1EC2ResourceDetails
- */
-const de_EC2ResourceDetails = (output: any, context: __SerdeContext): EC2ResourceDetails => {
-  return {
-    HourlyOnDemandRate: __expectString(output.HourlyOnDemandRate),
-    InstanceType: __expectString(output.InstanceType),
-    Memory: __expectString(output.Memory),
-    NetworkPerformance: __expectString(output.NetworkPerformance),
-    Platform: __expectString(output.Platform),
-    Region: __expectString(output.Region),
-    Sku: __expectString(output.Sku),
-    Storage: __expectString(output.Storage),
-    Vcpu: __expectString(output.Vcpu),
-  } as any;
-};
+// de_EC2ResourceDetails omitted.
 
-/**
- * deserializeAws_json1_1EC2ResourceUtilization
- */
-const de_EC2ResourceUtilization = (output: any, context: __SerdeContext): EC2ResourceUtilization => {
-  return {
-    DiskResourceUtilization:
-      output.DiskResourceUtilization != null
-        ? de_DiskResourceUtilization(output.DiskResourceUtilization, context)
-        : undefined,
-    EBSResourceUtilization:
-      output.EBSResourceUtilization != null
-        ? de_EBSResourceUtilization(output.EBSResourceUtilization, context)
-        : undefined,
-    MaxCpuUtilizationPercentage: __expectString(output.MaxCpuUtilizationPercentage),
-    MaxMemoryUtilizationPercentage: __expectString(output.MaxMemoryUtilizationPercentage),
-    MaxStorageUtilizationPercentage: __expectString(output.MaxStorageUtilizationPercentage),
-    NetworkResourceUtilization:
-      output.NetworkResourceUtilization != null
-        ? de_NetworkResourceUtilization(output.NetworkResourceUtilization, context)
-        : undefined,
-  } as any;
-};
+// de_EC2ResourceUtilization omitted.
 
-/**
- * deserializeAws_json1_1EC2Specification
- */
-const de_EC2Specification = (output: any, context: __SerdeContext): EC2Specification => {
-  return {
-    OfferingClass: __expectString(output.OfferingClass),
-  } as any;
-};
+// de_EC2Specification omitted.
 
-/**
- * deserializeAws_json1_1ElastiCacheInstanceDetails
- */
-const de_ElastiCacheInstanceDetails = (output: any, context: __SerdeContext): ElastiCacheInstanceDetails => {
-  return {
-    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
-    Family: __expectString(output.Family),
-    NodeType: __expectString(output.NodeType),
-    ProductDescription: __expectString(output.ProductDescription),
-    Region: __expectString(output.Region),
-    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
-  } as any;
-};
+// de_ElastiCacheInstanceDetails omitted.
 
-/**
- * deserializeAws_json1_1ESInstanceDetails
- */
-const de_ESInstanceDetails = (output: any, context: __SerdeContext): ESInstanceDetails => {
-  return {
-    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
-    InstanceClass: __expectString(output.InstanceClass),
-    InstanceSize: __expectString(output.InstanceSize),
-    Region: __expectString(output.Region),
-    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
-  } as any;
-};
+// de_ESInstanceDetails omitted.
 
 /**
  * deserializeAws_json1_1Expression
  */
 const de_Expression = (output: any, context: __SerdeContext): Expression => {
-  return {
-    And: output.And != null ? de_Expressions(output.And, context) : undefined,
-    CostCategories: output.CostCategories != null ? de_CostCategoryValues(output.CostCategories, context) : undefined,
-    Dimensions: output.Dimensions != null ? de_DimensionValues(output.Dimensions, context) : undefined,
-    Not: output.Not != null ? de_Expression(output.Not, context) : undefined,
-    Or: output.Or != null ? de_Expressions(output.Or, context) : undefined,
-    Tags: output.Tags != null ? de_TagValues(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    And: (_: any) => de_Expressions(_, context),
+    CostCategories: _json,
+    Dimensions: _json,
+    Not: (_: any) => de_Expression(_, context),
+    Or: (_: any) => de_Expressions(_, context),
+    Tags: _json,
+  }) as any;
 };
 
 /**
@@ -4657,1631 +3544,277 @@ const de_Expressions = (output: any, context: __SerdeContext): Expression[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Expression(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1FindingReasonCodes
- */
-const de_FindingReasonCodes = (output: any, context: __SerdeContext): (FindingReasonCode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FindingReasonCodes omitted.
 
-/**
- * deserializeAws_json1_1ForecastResult
- */
-const de_ForecastResult = (output: any, context: __SerdeContext): ForecastResult => {
-  return {
-    MeanValue: __expectString(output.MeanValue),
-    PredictionIntervalLowerBound: __expectString(output.PredictionIntervalLowerBound),
-    PredictionIntervalUpperBound: __expectString(output.PredictionIntervalUpperBound),
-    TimePeriod: output.TimePeriod != null ? de_DateInterval(output.TimePeriod, context) : undefined,
-  } as any;
-};
+// de_ForecastResult omitted.
 
-/**
- * deserializeAws_json1_1ForecastResultsByTime
- */
-const de_ForecastResultsByTime = (output: any, context: __SerdeContext): ForecastResult[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ForecastResult(entry, context);
-    });
-  return retVal;
-};
+// de_ForecastResultsByTime omitted.
 
-/**
- * deserializeAws_json1_1GenerationExistsException
- */
-const de_GenerationExistsException = (output: any, context: __SerdeContext): GenerationExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_GenerationExistsException omitted.
 
-/**
- * deserializeAws_json1_1GenerationSummary
- */
-const de_GenerationSummary = (output: any, context: __SerdeContext): GenerationSummary => {
-  return {
-    EstimatedCompletionTime: __expectString(output.EstimatedCompletionTime),
-    GenerationCompletionTime: __expectString(output.GenerationCompletionTime),
-    GenerationStartedTime: __expectString(output.GenerationStartedTime),
-    GenerationStatus: __expectString(output.GenerationStatus),
-    RecommendationId: __expectString(output.RecommendationId),
-  } as any;
-};
+// de_GenerationSummary omitted.
 
-/**
- * deserializeAws_json1_1GenerationSummaryList
- */
-const de_GenerationSummaryList = (output: any, context: __SerdeContext): GenerationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GenerationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_GenerationSummaryList omitted.
 
 /**
  * deserializeAws_json1_1GetAnomaliesResponse
  */
 const de_GetAnomaliesResponse = (output: any, context: __SerdeContext): GetAnomaliesResponse => {
-  return {
-    Anomalies: output.Anomalies != null ? de_Anomalies(output.Anomalies, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-  } as any;
+  return take(output, {
+    Anomalies: (_: any) => de_Anomalies(_, context),
+    NextPageToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetAnomalyMonitorsResponse
  */
 const de_GetAnomalyMonitorsResponse = (output: any, context: __SerdeContext): GetAnomalyMonitorsResponse => {
-  return {
-    AnomalyMonitors: output.AnomalyMonitors != null ? de_AnomalyMonitors(output.AnomalyMonitors, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-  } as any;
+  return take(output, {
+    AnomalyMonitors: (_: any) => de_AnomalyMonitors(_, context),
+    NextPageToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetAnomalySubscriptionsResponse
  */
 const de_GetAnomalySubscriptionsResponse = (output: any, context: __SerdeContext): GetAnomalySubscriptionsResponse => {
-  return {
-    AnomalySubscriptions:
-      output.AnomalySubscriptions != null ? de_AnomalySubscriptions(output.AnomalySubscriptions, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-  } as any;
+  return take(output, {
+    AnomalySubscriptions: (_: any) => de_AnomalySubscriptions(_, context),
+    NextPageToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetCostAndUsageResponse
- */
-const de_GetCostAndUsageResponse = (output: any, context: __SerdeContext): GetCostAndUsageResponse => {
-  return {
-    DimensionValueAttributes:
-      output.DimensionValueAttributes != null
-        ? de_DimensionValuesWithAttributesList(output.DimensionValueAttributes, context)
-        : undefined,
-    GroupDefinitions:
-      output.GroupDefinitions != null ? de_GroupDefinitions(output.GroupDefinitions, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-    ResultsByTime: output.ResultsByTime != null ? de_ResultsByTime(output.ResultsByTime, context) : undefined,
-  } as any;
-};
+// de_GetCostAndUsageResponse omitted.
 
-/**
- * deserializeAws_json1_1GetCostAndUsageWithResourcesResponse
- */
-const de_GetCostAndUsageWithResourcesResponse = (
-  output: any,
-  context: __SerdeContext
-): GetCostAndUsageWithResourcesResponse => {
-  return {
-    DimensionValueAttributes:
-      output.DimensionValueAttributes != null
-        ? de_DimensionValuesWithAttributesList(output.DimensionValueAttributes, context)
-        : undefined,
-    GroupDefinitions:
-      output.GroupDefinitions != null ? de_GroupDefinitions(output.GroupDefinitions, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-    ResultsByTime: output.ResultsByTime != null ? de_ResultsByTime(output.ResultsByTime, context) : undefined,
-  } as any;
-};
+// de_GetCostAndUsageWithResourcesResponse omitted.
 
-/**
- * deserializeAws_json1_1GetCostCategoriesResponse
- */
-const de_GetCostCategoriesResponse = (output: any, context: __SerdeContext): GetCostCategoriesResponse => {
-  return {
-    CostCategoryNames:
-      output.CostCategoryNames != null ? de_CostCategoryNamesList(output.CostCategoryNames, context) : undefined,
-    CostCategoryValues:
-      output.CostCategoryValues != null ? de_CostCategoryValuesList(output.CostCategoryValues, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-    ReturnSize: __expectInt32(output.ReturnSize),
-    TotalSize: __expectInt32(output.TotalSize),
-  } as any;
-};
+// de_GetCostCategoriesResponse omitted.
 
-/**
- * deserializeAws_json1_1GetCostForecastResponse
- */
-const de_GetCostForecastResponse = (output: any, context: __SerdeContext): GetCostForecastResponse => {
-  return {
-    ForecastResultsByTime:
-      output.ForecastResultsByTime != null
-        ? de_ForecastResultsByTime(output.ForecastResultsByTime, context)
-        : undefined,
-    Total: output.Total != null ? de_MetricValue(output.Total, context) : undefined,
-  } as any;
-};
+// de_GetCostForecastResponse omitted.
 
-/**
- * deserializeAws_json1_1GetDimensionValuesResponse
- */
-const de_GetDimensionValuesResponse = (output: any, context: __SerdeContext): GetDimensionValuesResponse => {
-  return {
-    DimensionValues:
-      output.DimensionValues != null
-        ? de_DimensionValuesWithAttributesList(output.DimensionValues, context)
-        : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-    ReturnSize: __expectInt32(output.ReturnSize),
-    TotalSize: __expectInt32(output.TotalSize),
-  } as any;
-};
+// de_GetDimensionValuesResponse omitted.
 
-/**
- * deserializeAws_json1_1GetReservationCoverageResponse
- */
-const de_GetReservationCoverageResponse = (output: any, context: __SerdeContext): GetReservationCoverageResponse => {
-  return {
-    CoveragesByTime: output.CoveragesByTime != null ? de_CoveragesByTime(output.CoveragesByTime, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-    Total: output.Total != null ? de_Coverage(output.Total, context) : undefined,
-  } as any;
-};
+// de_GetReservationCoverageResponse omitted.
 
-/**
- * deserializeAws_json1_1GetReservationPurchaseRecommendationResponse
- */
-const de_GetReservationPurchaseRecommendationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetReservationPurchaseRecommendationResponse => {
-  return {
-    Metadata:
-      output.Metadata != null ? de_ReservationPurchaseRecommendationMetadata(output.Metadata, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-    Recommendations:
-      output.Recommendations != null
-        ? de_ReservationPurchaseRecommendations(output.Recommendations, context)
-        : undefined,
-  } as any;
-};
+// de_GetReservationPurchaseRecommendationResponse omitted.
 
-/**
- * deserializeAws_json1_1GetReservationUtilizationResponse
- */
-const de_GetReservationUtilizationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetReservationUtilizationResponse => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    Total: output.Total != null ? de_ReservationAggregates(output.Total, context) : undefined,
-    UtilizationsByTime:
-      output.UtilizationsByTime != null ? de_UtilizationsByTime(output.UtilizationsByTime, context) : undefined,
-  } as any;
-};
+// de_GetReservationUtilizationResponse omitted.
 
-/**
- * deserializeAws_json1_1GetRightsizingRecommendationResponse
- */
-const de_GetRightsizingRecommendationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetRightsizingRecommendationResponse => {
-  return {
-    Configuration:
-      output.Configuration != null
-        ? de_RightsizingRecommendationConfiguration(output.Configuration, context)
-        : undefined,
-    Metadata: output.Metadata != null ? de_RightsizingRecommendationMetadata(output.Metadata, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-    RightsizingRecommendations:
-      output.RightsizingRecommendations != null
-        ? de_RightsizingRecommendationList(output.RightsizingRecommendations, context)
-        : undefined,
-    Summary: output.Summary != null ? de_RightsizingRecommendationSummary(output.Summary, context) : undefined,
-  } as any;
-};
+// de_GetRightsizingRecommendationResponse omitted.
 
-/**
- * deserializeAws_json1_1GetSavingsPlansCoverageResponse
- */
-const de_GetSavingsPlansCoverageResponse = (output: any, context: __SerdeContext): GetSavingsPlansCoverageResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SavingsPlansCoverages:
-      output.SavingsPlansCoverages != null
-        ? de_SavingsPlansCoverages(output.SavingsPlansCoverages, context)
-        : undefined,
-  } as any;
-};
+// de_GetSavingsPlansCoverageResponse omitted.
 
-/**
- * deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationResponse
- */
-const de_GetSavingsPlansPurchaseRecommendationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSavingsPlansPurchaseRecommendationResponse => {
-  return {
-    Metadata:
-      output.Metadata != null ? de_SavingsPlansPurchaseRecommendationMetadata(output.Metadata, context) : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-    SavingsPlansPurchaseRecommendation:
-      output.SavingsPlansPurchaseRecommendation != null
-        ? de_SavingsPlansPurchaseRecommendation(output.SavingsPlansPurchaseRecommendation, context)
-        : undefined,
-  } as any;
-};
+// de_GetSavingsPlansPurchaseRecommendationResponse omitted.
 
-/**
- * deserializeAws_json1_1GetSavingsPlansUtilizationDetailsResponse
- */
-const de_GetSavingsPlansUtilizationDetailsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSavingsPlansUtilizationDetailsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SavingsPlansUtilizationDetails:
-      output.SavingsPlansUtilizationDetails != null
-        ? de_SavingsPlansUtilizationDetails(output.SavingsPlansUtilizationDetails, context)
-        : undefined,
-    TimePeriod: output.TimePeriod != null ? de_DateInterval(output.TimePeriod, context) : undefined,
-    Total: output.Total != null ? de_SavingsPlansUtilizationAggregates(output.Total, context) : undefined,
-  } as any;
-};
+// de_GetSavingsPlansUtilizationDetailsResponse omitted.
 
-/**
- * deserializeAws_json1_1GetSavingsPlansUtilizationResponse
- */
-const de_GetSavingsPlansUtilizationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSavingsPlansUtilizationResponse => {
-  return {
-    SavingsPlansUtilizationsByTime:
-      output.SavingsPlansUtilizationsByTime != null
-        ? de_SavingsPlansUtilizationsByTime(output.SavingsPlansUtilizationsByTime, context)
-        : undefined,
-    Total: output.Total != null ? de_SavingsPlansUtilizationAggregates(output.Total, context) : undefined,
-  } as any;
-};
+// de_GetSavingsPlansUtilizationResponse omitted.
 
-/**
- * deserializeAws_json1_1GetTagsResponse
- */
-const de_GetTagsResponse = (output: any, context: __SerdeContext): GetTagsResponse => {
-  return {
-    NextPageToken: __expectString(output.NextPageToken),
-    ReturnSize: __expectInt32(output.ReturnSize),
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-    TotalSize: __expectInt32(output.TotalSize),
-  } as any;
-};
+// de_GetTagsResponse omitted.
 
-/**
- * deserializeAws_json1_1GetUsageForecastResponse
- */
-const de_GetUsageForecastResponse = (output: any, context: __SerdeContext): GetUsageForecastResponse => {
-  return {
-    ForecastResultsByTime:
-      output.ForecastResultsByTime != null
-        ? de_ForecastResultsByTime(output.ForecastResultsByTime, context)
-        : undefined,
-    Total: output.Total != null ? de_MetricValue(output.Total, context) : undefined,
-  } as any;
-};
+// de_GetUsageForecastResponse omitted.
 
-/**
- * deserializeAws_json1_1Group
- */
-const de_Group = (output: any, context: __SerdeContext): Group => {
-  return {
-    Keys: output.Keys != null ? de_Keys(output.Keys, context) : undefined,
-    Metrics: output.Metrics != null ? de_Metrics(output.Metrics, context) : undefined,
-  } as any;
-};
+// de_Group omitted.
 
-/**
- * deserializeAws_json1_1GroupDefinition
- */
-const de_GroupDefinition = (output: any, context: __SerdeContext): GroupDefinition => {
-  return {
-    Key: __expectString(output.Key),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_GroupDefinition omitted.
 
-/**
- * deserializeAws_json1_1GroupDefinitions
- */
-const de_GroupDefinitions = (output: any, context: __SerdeContext): GroupDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GroupDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_GroupDefinitions omitted.
 
-/**
- * deserializeAws_json1_1Groups
- */
-const de_Groups = (output: any, context: __SerdeContext): Group[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Group(entry, context);
-    });
-  return retVal;
-};
+// de_Groups omitted.
 
 /**
  * deserializeAws_json1_1Impact
  */
 const de_Impact = (output: any, context: __SerdeContext): Impact => {
-  return {
-    MaxImpact: __limitedParseDouble(output.MaxImpact),
-    TotalActualSpend: __limitedParseDouble(output.TotalActualSpend),
-    TotalExpectedSpend: __limitedParseDouble(output.TotalExpectedSpend),
-    TotalImpact: __limitedParseDouble(output.TotalImpact),
-    TotalImpactPercentage: __limitedParseDouble(output.TotalImpactPercentage),
-  } as any;
+  return take(output, {
+    MaxImpact: __limitedParseDouble,
+    TotalActualSpend: __limitedParseDouble,
+    TotalExpectedSpend: __limitedParseDouble,
+    TotalImpact: __limitedParseDouble,
+    TotalImpactPercentage: __limitedParseDouble,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1InstanceDetails
- */
-const de_InstanceDetails = (output: any, context: __SerdeContext): InstanceDetails => {
-  return {
-    EC2InstanceDetails:
-      output.EC2InstanceDetails != null ? de_EC2InstanceDetails(output.EC2InstanceDetails, context) : undefined,
-    ESInstanceDetails:
-      output.ESInstanceDetails != null ? de_ESInstanceDetails(output.ESInstanceDetails, context) : undefined,
-    ElastiCacheInstanceDetails:
-      output.ElastiCacheInstanceDetails != null
-        ? de_ElastiCacheInstanceDetails(output.ElastiCacheInstanceDetails, context)
-        : undefined,
-    RDSInstanceDetails:
-      output.RDSInstanceDetails != null ? de_RDSInstanceDetails(output.RDSInstanceDetails, context) : undefined,
-    RedshiftInstanceDetails:
-      output.RedshiftInstanceDetails != null
-        ? de_RedshiftInstanceDetails(output.RedshiftInstanceDetails, context)
-        : undefined,
-  } as any;
-};
+// de_InstanceDetails omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1Keys
- */
-const de_Keys = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Keys omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListCostAllocationTagsResponse
- */
-const de_ListCostAllocationTagsResponse = (output: any, context: __SerdeContext): ListCostAllocationTagsResponse => {
-  return {
-    CostAllocationTags:
-      output.CostAllocationTags != null ? de_CostAllocationTagList(output.CostAllocationTags, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListCostAllocationTagsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListCostCategoryDefinitionsResponse
- */
-const de_ListCostCategoryDefinitionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCostCategoryDefinitionsResponse => {
-  return {
-    CostCategoryReferences:
-      output.CostCategoryReferences != null
-        ? de_CostCategoryReferencesList(output.CostCategoryReferences, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListCostCategoryDefinitionsResponse omitted.
 
-/**
- * deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationResponse
- */
-const de_ListSavingsPlansPurchaseRecommendationGenerationResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSavingsPlansPurchaseRecommendationGenerationResponse => {
-  return {
-    GenerationSummaryList:
-      output.GenerationSummaryList != null
-        ? de_GenerationSummaryList(output.GenerationSummaryList, context)
-        : undefined,
-    NextPageToken: __expectString(output.NextPageToken),
-  } as any;
-};
+// de_ListSavingsPlansPurchaseRecommendationGenerationResponse omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    ResourceTags: output.ResourceTags != null ? de_ResourceTagList(output.ResourceTags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1MatchOptions
- */
-const de_MatchOptions = (output: any, context: __SerdeContext): (MatchOption | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MatchOptions omitted.
 
-/**
- * deserializeAws_json1_1Metrics
- */
-const de_Metrics = (output: any, context: __SerdeContext): Record<string, MetricValue> => {
-  return Object.entries(output).reduce((acc: Record<string, MetricValue>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_MetricValue(value, context);
-    return acc;
-  }, {});
-};
+// de_Metrics omitted.
 
-/**
- * deserializeAws_json1_1MetricValue
- */
-const de_MetricValue = (output: any, context: __SerdeContext): MetricValue => {
-  return {
-    Amount: __expectString(output.Amount),
-    Unit: __expectString(output.Unit),
-  } as any;
-};
+// de_MetricValue omitted.
 
-/**
- * deserializeAws_json1_1ModifyRecommendationDetail
- */
-const de_ModifyRecommendationDetail = (output: any, context: __SerdeContext): ModifyRecommendationDetail => {
-  return {
-    TargetInstances:
-      output.TargetInstances != null ? de_TargetInstancesList(output.TargetInstances, context) : undefined,
-  } as any;
-};
+// de_ModifyRecommendationDetail omitted.
 
-/**
- * deserializeAws_json1_1MonitorArnList
- */
-const de_MonitorArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MonitorArnList omitted.
 
-/**
- * deserializeAws_json1_1NetworkResourceUtilization
- */
-const de_NetworkResourceUtilization = (output: any, context: __SerdeContext): NetworkResourceUtilization => {
-  return {
-    NetworkInBytesPerSecond: __expectString(output.NetworkInBytesPerSecond),
-    NetworkOutBytesPerSecond: __expectString(output.NetworkOutBytesPerSecond),
-    NetworkPacketsInPerSecond: __expectString(output.NetworkPacketsInPerSecond),
-    NetworkPacketsOutPerSecond: __expectString(output.NetworkPacketsOutPerSecond),
-  } as any;
-};
+// de_NetworkResourceUtilization omitted.
 
-/**
- * deserializeAws_json1_1PlatformDifferences
- */
-const de_PlatformDifferences = (output: any, context: __SerdeContext): (PlatformDifference | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PlatformDifferences omitted.
 
-/**
- * deserializeAws_json1_1ProvideAnomalyFeedbackResponse
- */
-const de_ProvideAnomalyFeedbackResponse = (output: any, context: __SerdeContext): ProvideAnomalyFeedbackResponse => {
-  return {
-    AnomalyId: __expectString(output.AnomalyId),
-  } as any;
-};
+// de_ProvideAnomalyFeedbackResponse omitted.
 
-/**
- * deserializeAws_json1_1RDSInstanceDetails
- */
-const de_RDSInstanceDetails = (output: any, context: __SerdeContext): RDSInstanceDetails => {
-  return {
-    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
-    DatabaseEdition: __expectString(output.DatabaseEdition),
-    DatabaseEngine: __expectString(output.DatabaseEngine),
-    DeploymentOption: __expectString(output.DeploymentOption),
-    Family: __expectString(output.Family),
-    InstanceType: __expectString(output.InstanceType),
-    LicenseModel: __expectString(output.LicenseModel),
-    Region: __expectString(output.Region),
-    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
-  } as any;
-};
+// de_RDSInstanceDetails omitted.
 
-/**
- * deserializeAws_json1_1RedshiftInstanceDetails
- */
-const de_RedshiftInstanceDetails = (output: any, context: __SerdeContext): RedshiftInstanceDetails => {
-  return {
-    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
-    Family: __expectString(output.Family),
-    NodeType: __expectString(output.NodeType),
-    Region: __expectString(output.Region),
-    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
-  } as any;
-};
+// de_RedshiftInstanceDetails omitted.
 
-/**
- * deserializeAws_json1_1RequestChangedException
- */
-const de_RequestChangedException = (output: any, context: __SerdeContext): RequestChangedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_RequestChangedException omitted.
 
-/**
- * deserializeAws_json1_1ReservationAggregates
- */
-const de_ReservationAggregates = (output: any, context: __SerdeContext): ReservationAggregates => {
-  return {
-    AmortizedRecurringFee: __expectString(output.AmortizedRecurringFee),
-    AmortizedUpfrontFee: __expectString(output.AmortizedUpfrontFee),
-    NetRISavings: __expectString(output.NetRISavings),
-    OnDemandCostOfRIHoursUsed: __expectString(output.OnDemandCostOfRIHoursUsed),
-    PurchasedHours: __expectString(output.PurchasedHours),
-    PurchasedUnits: __expectString(output.PurchasedUnits),
-    RICostForUnusedHours: __expectString(output.RICostForUnusedHours),
-    RealizedSavings: __expectString(output.RealizedSavings),
-    TotalActualHours: __expectString(output.TotalActualHours),
-    TotalActualUnits: __expectString(output.TotalActualUnits),
-    TotalAmortizedFee: __expectString(output.TotalAmortizedFee),
-    TotalPotentialRISavings: __expectString(output.TotalPotentialRISavings),
-    UnrealizedSavings: __expectString(output.UnrealizedSavings),
-    UnusedHours: __expectString(output.UnusedHours),
-    UnusedUnits: __expectString(output.UnusedUnits),
-    UtilizationPercentage: __expectString(output.UtilizationPercentage),
-    UtilizationPercentageInUnits: __expectString(output.UtilizationPercentageInUnits),
-  } as any;
-};
+// de_ReservationAggregates omitted.
 
-/**
- * deserializeAws_json1_1ReservationCoverageGroup
- */
-const de_ReservationCoverageGroup = (output: any, context: __SerdeContext): ReservationCoverageGroup => {
-  return {
-    Attributes: output.Attributes != null ? de_Attributes(output.Attributes, context) : undefined,
-    Coverage: output.Coverage != null ? de_Coverage(output.Coverage, context) : undefined,
-  } as any;
-};
+// de_ReservationCoverageGroup omitted.
 
-/**
- * deserializeAws_json1_1ReservationCoverageGroups
- */
-const de_ReservationCoverageGroups = (output: any, context: __SerdeContext): ReservationCoverageGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ReservationCoverageGroup(entry, context);
-    });
-  return retVal;
-};
+// de_ReservationCoverageGroups omitted.
 
-/**
- * deserializeAws_json1_1ReservationPurchaseRecommendation
- */
-const de_ReservationPurchaseRecommendation = (
-  output: any,
-  context: __SerdeContext
-): ReservationPurchaseRecommendation => {
-  return {
-    AccountScope: __expectString(output.AccountScope),
-    LookbackPeriodInDays: __expectString(output.LookbackPeriodInDays),
-    PaymentOption: __expectString(output.PaymentOption),
-    RecommendationDetails:
-      output.RecommendationDetails != null
-        ? de_ReservationPurchaseRecommendationDetails(output.RecommendationDetails, context)
-        : undefined,
-    RecommendationSummary:
-      output.RecommendationSummary != null
-        ? de_ReservationPurchaseRecommendationSummary(output.RecommendationSummary, context)
-        : undefined,
-    ServiceSpecification:
-      output.ServiceSpecification != null ? de_ServiceSpecification(output.ServiceSpecification, context) : undefined,
-    TermInYears: __expectString(output.TermInYears),
-  } as any;
-};
+// de_ReservationPurchaseRecommendation omitted.
 
-/**
- * deserializeAws_json1_1ReservationPurchaseRecommendationDetail
- */
-const de_ReservationPurchaseRecommendationDetail = (
-  output: any,
-  context: __SerdeContext
-): ReservationPurchaseRecommendationDetail => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    AverageNormalizedUnitsUsedPerHour: __expectString(output.AverageNormalizedUnitsUsedPerHour),
-    AverageNumberOfInstancesUsedPerHour: __expectString(output.AverageNumberOfInstancesUsedPerHour),
-    AverageUtilization: __expectString(output.AverageUtilization),
-    CurrencyCode: __expectString(output.CurrencyCode),
-    EstimatedBreakEvenInMonths: __expectString(output.EstimatedBreakEvenInMonths),
-    EstimatedMonthlyOnDemandCost: __expectString(output.EstimatedMonthlyOnDemandCost),
-    EstimatedMonthlySavingsAmount: __expectString(output.EstimatedMonthlySavingsAmount),
-    EstimatedMonthlySavingsPercentage: __expectString(output.EstimatedMonthlySavingsPercentage),
-    EstimatedReservationCostForLookbackPeriod: __expectString(output.EstimatedReservationCostForLookbackPeriod),
-    InstanceDetails: output.InstanceDetails != null ? de_InstanceDetails(output.InstanceDetails, context) : undefined,
-    MaximumNormalizedUnitsUsedPerHour: __expectString(output.MaximumNormalizedUnitsUsedPerHour),
-    MaximumNumberOfInstancesUsedPerHour: __expectString(output.MaximumNumberOfInstancesUsedPerHour),
-    MinimumNormalizedUnitsUsedPerHour: __expectString(output.MinimumNormalizedUnitsUsedPerHour),
-    MinimumNumberOfInstancesUsedPerHour: __expectString(output.MinimumNumberOfInstancesUsedPerHour),
-    RecommendedNormalizedUnitsToPurchase: __expectString(output.RecommendedNormalizedUnitsToPurchase),
-    RecommendedNumberOfInstancesToPurchase: __expectString(output.RecommendedNumberOfInstancesToPurchase),
-    RecurringStandardMonthlyCost: __expectString(output.RecurringStandardMonthlyCost),
-    UpfrontCost: __expectString(output.UpfrontCost),
-  } as any;
-};
+// de_ReservationPurchaseRecommendationDetail omitted.
 
-/**
- * deserializeAws_json1_1ReservationPurchaseRecommendationDetails
- */
-const de_ReservationPurchaseRecommendationDetails = (
-  output: any,
-  context: __SerdeContext
-): ReservationPurchaseRecommendationDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ReservationPurchaseRecommendationDetail(entry, context);
-    });
-  return retVal;
-};
+// de_ReservationPurchaseRecommendationDetails omitted.
 
-/**
- * deserializeAws_json1_1ReservationPurchaseRecommendationMetadata
- */
-const de_ReservationPurchaseRecommendationMetadata = (
-  output: any,
-  context: __SerdeContext
-): ReservationPurchaseRecommendationMetadata => {
-  return {
-    GenerationTimestamp: __expectString(output.GenerationTimestamp),
-    RecommendationId: __expectString(output.RecommendationId),
-  } as any;
-};
+// de_ReservationPurchaseRecommendationMetadata omitted.
 
-/**
- * deserializeAws_json1_1ReservationPurchaseRecommendations
- */
-const de_ReservationPurchaseRecommendations = (
-  output: any,
-  context: __SerdeContext
-): ReservationPurchaseRecommendation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ReservationPurchaseRecommendation(entry, context);
-    });
-  return retVal;
-};
+// de_ReservationPurchaseRecommendations omitted.
 
-/**
- * deserializeAws_json1_1ReservationPurchaseRecommendationSummary
- */
-const de_ReservationPurchaseRecommendationSummary = (
-  output: any,
-  context: __SerdeContext
-): ReservationPurchaseRecommendationSummary => {
-  return {
-    CurrencyCode: __expectString(output.CurrencyCode),
-    TotalEstimatedMonthlySavingsAmount: __expectString(output.TotalEstimatedMonthlySavingsAmount),
-    TotalEstimatedMonthlySavingsPercentage: __expectString(output.TotalEstimatedMonthlySavingsPercentage),
-  } as any;
-};
+// de_ReservationPurchaseRecommendationSummary omitted.
 
-/**
- * deserializeAws_json1_1ReservationUtilizationGroup
- */
-const de_ReservationUtilizationGroup = (output: any, context: __SerdeContext): ReservationUtilizationGroup => {
-  return {
-    Attributes: output.Attributes != null ? de_Attributes(output.Attributes, context) : undefined,
-    Key: __expectString(output.Key),
-    Utilization: output.Utilization != null ? de_ReservationAggregates(output.Utilization, context) : undefined,
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ReservationUtilizationGroup omitted.
 
-/**
- * deserializeAws_json1_1ReservationUtilizationGroups
- */
-const de_ReservationUtilizationGroups = (output: any, context: __SerdeContext): ReservationUtilizationGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ReservationUtilizationGroup(entry, context);
-    });
-  return retVal;
-};
+// de_ReservationUtilizationGroups omitted.
 
-/**
- * deserializeAws_json1_1ResourceDetails
- */
-const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
-  return {
-    EC2ResourceDetails:
-      output.EC2ResourceDetails != null ? de_EC2ResourceDetails(output.EC2ResourceDetails, context) : undefined,
-  } as any;
-};
+// de_ResourceDetails omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceName: __expectString(output.ResourceName),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ResourceTag
- */
-const de_ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ResourceTag omitted.
 
-/**
- * deserializeAws_json1_1ResourceTagList
- */
-const de_ResourceTagList = (output: any, context: __SerdeContext): ResourceTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceTag(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceTagList omitted.
 
-/**
- * deserializeAws_json1_1ResourceUtilization
- */
-const de_ResourceUtilization = (output: any, context: __SerdeContext): ResourceUtilization => {
-  return {
-    EC2ResourceUtilization:
-      output.EC2ResourceUtilization != null
-        ? de_EC2ResourceUtilization(output.EC2ResourceUtilization, context)
-        : undefined,
-  } as any;
-};
+// de_ResourceUtilization omitted.
 
-/**
- * deserializeAws_json1_1ResultByTime
- */
-const de_ResultByTime = (output: any, context: __SerdeContext): ResultByTime => {
-  return {
-    Estimated: __expectBoolean(output.Estimated),
-    Groups: output.Groups != null ? de_Groups(output.Groups, context) : undefined,
-    TimePeriod: output.TimePeriod != null ? de_DateInterval(output.TimePeriod, context) : undefined,
-    Total: output.Total != null ? de_Metrics(output.Total, context) : undefined,
-  } as any;
-};
+// de_ResultByTime omitted.
 
-/**
- * deserializeAws_json1_1ResultsByTime
- */
-const de_ResultsByTime = (output: any, context: __SerdeContext): ResultByTime[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResultByTime(entry, context);
-    });
-  return retVal;
-};
+// de_ResultsByTime omitted.
 
-/**
- * deserializeAws_json1_1RightsizingRecommendation
- */
-const de_RightsizingRecommendation = (output: any, context: __SerdeContext): RightsizingRecommendation => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    CurrentInstance: output.CurrentInstance != null ? de_CurrentInstance(output.CurrentInstance, context) : undefined,
-    FindingReasonCodes:
-      output.FindingReasonCodes != null ? de_FindingReasonCodes(output.FindingReasonCodes, context) : undefined,
-    ModifyRecommendationDetail:
-      output.ModifyRecommendationDetail != null
-        ? de_ModifyRecommendationDetail(output.ModifyRecommendationDetail, context)
-        : undefined,
-    RightsizingType: __expectString(output.RightsizingType),
-    TerminateRecommendationDetail:
-      output.TerminateRecommendationDetail != null
-        ? de_TerminateRecommendationDetail(output.TerminateRecommendationDetail, context)
-        : undefined,
-  } as any;
-};
+// de_RightsizingRecommendation omitted.
 
-/**
- * deserializeAws_json1_1RightsizingRecommendationConfiguration
- */
-const de_RightsizingRecommendationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): RightsizingRecommendationConfiguration => {
-  return {
-    BenefitsConsidered: __expectBoolean(output.BenefitsConsidered),
-    RecommendationTarget: __expectString(output.RecommendationTarget),
-  } as any;
-};
+// de_RightsizingRecommendationConfiguration omitted.
 
-/**
- * deserializeAws_json1_1RightsizingRecommendationList
- */
-const de_RightsizingRecommendationList = (output: any, context: __SerdeContext): RightsizingRecommendation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RightsizingRecommendation(entry, context);
-    });
-  return retVal;
-};
+// de_RightsizingRecommendationList omitted.
 
-/**
- * deserializeAws_json1_1RightsizingRecommendationMetadata
- */
-const de_RightsizingRecommendationMetadata = (
-  output: any,
-  context: __SerdeContext
-): RightsizingRecommendationMetadata => {
-  return {
-    AdditionalMetadata: __expectString(output.AdditionalMetadata),
-    GenerationTimestamp: __expectString(output.GenerationTimestamp),
-    LookbackPeriodInDays: __expectString(output.LookbackPeriodInDays),
-    RecommendationId: __expectString(output.RecommendationId),
-  } as any;
-};
+// de_RightsizingRecommendationMetadata omitted.
 
-/**
- * deserializeAws_json1_1RightsizingRecommendationSummary
- */
-const de_RightsizingRecommendationSummary = (
-  output: any,
-  context: __SerdeContext
-): RightsizingRecommendationSummary => {
-  return {
-    EstimatedTotalMonthlySavingsAmount: __expectString(output.EstimatedTotalMonthlySavingsAmount),
-    SavingsCurrencyCode: __expectString(output.SavingsCurrencyCode),
-    SavingsPercentage: __expectString(output.SavingsPercentage),
-    TotalRecommendationCount: __expectString(output.TotalRecommendationCount),
-  } as any;
-};
+// de_RightsizingRecommendationSummary omitted.
 
-/**
- * deserializeAws_json1_1RootCause
- */
-const de_RootCause = (output: any, context: __SerdeContext): RootCause => {
-  return {
-    LinkedAccount: __expectString(output.LinkedAccount),
-    LinkedAccountName: __expectString(output.LinkedAccountName),
-    Region: __expectString(output.Region),
-    Service: __expectString(output.Service),
-    UsageType: __expectString(output.UsageType),
-  } as any;
-};
+// de_RootCause omitted.
 
-/**
- * deserializeAws_json1_1RootCauses
- */
-const de_RootCauses = (output: any, context: __SerdeContext): RootCause[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RootCause(entry, context);
-    });
-  return retVal;
-};
+// de_RootCauses omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansAmortizedCommitment
- */
-const de_SavingsPlansAmortizedCommitment = (output: any, context: __SerdeContext): SavingsPlansAmortizedCommitment => {
-  return {
-    AmortizedRecurringCommitment: __expectString(output.AmortizedRecurringCommitment),
-    AmortizedUpfrontCommitment: __expectString(output.AmortizedUpfrontCommitment),
-    TotalAmortizedCommitment: __expectString(output.TotalAmortizedCommitment),
-  } as any;
-};
+// de_SavingsPlansAmortizedCommitment omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansCoverage
- */
-const de_SavingsPlansCoverage = (output: any, context: __SerdeContext): SavingsPlansCoverage => {
-  return {
-    Attributes: output.Attributes != null ? de_Attributes(output.Attributes, context) : undefined,
-    Coverage: output.Coverage != null ? de_SavingsPlansCoverageData(output.Coverage, context) : undefined,
-    TimePeriod: output.TimePeriod != null ? de_DateInterval(output.TimePeriod, context) : undefined,
-  } as any;
-};
+// de_SavingsPlansCoverage omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansCoverageData
- */
-const de_SavingsPlansCoverageData = (output: any, context: __SerdeContext): SavingsPlansCoverageData => {
-  return {
-    CoveragePercentage: __expectString(output.CoveragePercentage),
-    OnDemandCost: __expectString(output.OnDemandCost),
-    SpendCoveredBySavingsPlans: __expectString(output.SpendCoveredBySavingsPlans),
-    TotalCost: __expectString(output.TotalCost),
-  } as any;
-};
+// de_SavingsPlansCoverageData omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansCoverages
- */
-const de_SavingsPlansCoverages = (output: any, context: __SerdeContext): SavingsPlansCoverage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlansCoverage(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlansCoverages omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansDetails
- */
-const de_SavingsPlansDetails = (output: any, context: __SerdeContext): SavingsPlansDetails => {
-  return {
-    InstanceFamily: __expectString(output.InstanceFamily),
-    OfferingId: __expectString(output.OfferingId),
-    Region: __expectString(output.Region),
-  } as any;
-};
+// de_SavingsPlansDetails omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansPurchaseRecommendation
- */
-const de_SavingsPlansPurchaseRecommendation = (
-  output: any,
-  context: __SerdeContext
-): SavingsPlansPurchaseRecommendation => {
-  return {
-    AccountScope: __expectString(output.AccountScope),
-    LookbackPeriodInDays: __expectString(output.LookbackPeriodInDays),
-    PaymentOption: __expectString(output.PaymentOption),
-    SavingsPlansPurchaseRecommendationDetails:
-      output.SavingsPlansPurchaseRecommendationDetails != null
-        ? de_SavingsPlansPurchaseRecommendationDetailList(output.SavingsPlansPurchaseRecommendationDetails, context)
-        : undefined,
-    SavingsPlansPurchaseRecommendationSummary:
-      output.SavingsPlansPurchaseRecommendationSummary != null
-        ? de_SavingsPlansPurchaseRecommendationSummary(output.SavingsPlansPurchaseRecommendationSummary, context)
-        : undefined,
-    SavingsPlansType: __expectString(output.SavingsPlansType),
-    TermInYears: __expectString(output.TermInYears),
-  } as any;
-};
+// de_SavingsPlansPurchaseRecommendation omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansPurchaseRecommendationDetail
- */
-const de_SavingsPlansPurchaseRecommendationDetail = (
-  output: any,
-  context: __SerdeContext
-): SavingsPlansPurchaseRecommendationDetail => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    CurrencyCode: __expectString(output.CurrencyCode),
-    CurrentAverageHourlyOnDemandSpend: __expectString(output.CurrentAverageHourlyOnDemandSpend),
-    CurrentMaximumHourlyOnDemandSpend: __expectString(output.CurrentMaximumHourlyOnDemandSpend),
-    CurrentMinimumHourlyOnDemandSpend: __expectString(output.CurrentMinimumHourlyOnDemandSpend),
-    EstimatedAverageUtilization: __expectString(output.EstimatedAverageUtilization),
-    EstimatedMonthlySavingsAmount: __expectString(output.EstimatedMonthlySavingsAmount),
-    EstimatedOnDemandCost: __expectString(output.EstimatedOnDemandCost),
-    EstimatedOnDemandCostWithCurrentCommitment: __expectString(output.EstimatedOnDemandCostWithCurrentCommitment),
-    EstimatedROI: __expectString(output.EstimatedROI),
-    EstimatedSPCost: __expectString(output.EstimatedSPCost),
-    EstimatedSavingsAmount: __expectString(output.EstimatedSavingsAmount),
-    EstimatedSavingsPercentage: __expectString(output.EstimatedSavingsPercentage),
-    HourlyCommitmentToPurchase: __expectString(output.HourlyCommitmentToPurchase),
-    SavingsPlansDetails:
-      output.SavingsPlansDetails != null ? de_SavingsPlansDetails(output.SavingsPlansDetails, context) : undefined,
-    UpfrontCost: __expectString(output.UpfrontCost),
-  } as any;
-};
+// de_SavingsPlansPurchaseRecommendationDetail omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansPurchaseRecommendationDetailList
- */
-const de_SavingsPlansPurchaseRecommendationDetailList = (
-  output: any,
-  context: __SerdeContext
-): SavingsPlansPurchaseRecommendationDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlansPurchaseRecommendationDetail(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlansPurchaseRecommendationDetailList omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansPurchaseRecommendationMetadata
- */
-const de_SavingsPlansPurchaseRecommendationMetadata = (
-  output: any,
-  context: __SerdeContext
-): SavingsPlansPurchaseRecommendationMetadata => {
-  return {
-    AdditionalMetadata: __expectString(output.AdditionalMetadata),
-    GenerationTimestamp: __expectString(output.GenerationTimestamp),
-    RecommendationId: __expectString(output.RecommendationId),
-  } as any;
-};
+// de_SavingsPlansPurchaseRecommendationMetadata omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansPurchaseRecommendationSummary
- */
-const de_SavingsPlansPurchaseRecommendationSummary = (
-  output: any,
-  context: __SerdeContext
-): SavingsPlansPurchaseRecommendationSummary => {
-  return {
-    CurrencyCode: __expectString(output.CurrencyCode),
-    CurrentOnDemandSpend: __expectString(output.CurrentOnDemandSpend),
-    DailyCommitmentToPurchase: __expectString(output.DailyCommitmentToPurchase),
-    EstimatedMonthlySavingsAmount: __expectString(output.EstimatedMonthlySavingsAmount),
-    EstimatedOnDemandCostWithCurrentCommitment: __expectString(output.EstimatedOnDemandCostWithCurrentCommitment),
-    EstimatedROI: __expectString(output.EstimatedROI),
-    EstimatedSavingsAmount: __expectString(output.EstimatedSavingsAmount),
-    EstimatedSavingsPercentage: __expectString(output.EstimatedSavingsPercentage),
-    EstimatedTotalCost: __expectString(output.EstimatedTotalCost),
-    HourlyCommitmentToPurchase: __expectString(output.HourlyCommitmentToPurchase),
-    TotalRecommendationCount: __expectString(output.TotalRecommendationCount),
-  } as any;
-};
+// de_SavingsPlansPurchaseRecommendationSummary omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansSavings
- */
-const de_SavingsPlansSavings = (output: any, context: __SerdeContext): SavingsPlansSavings => {
-  return {
-    NetSavings: __expectString(output.NetSavings),
-    OnDemandCostEquivalent: __expectString(output.OnDemandCostEquivalent),
-  } as any;
-};
+// de_SavingsPlansSavings omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansUtilization
- */
-const de_SavingsPlansUtilization = (output: any, context: __SerdeContext): SavingsPlansUtilization => {
-  return {
-    TotalCommitment: __expectString(output.TotalCommitment),
-    UnusedCommitment: __expectString(output.UnusedCommitment),
-    UsedCommitment: __expectString(output.UsedCommitment),
-    UtilizationPercentage: __expectString(output.UtilizationPercentage),
-  } as any;
-};
+// de_SavingsPlansUtilization omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansUtilizationAggregates
- */
-const de_SavingsPlansUtilizationAggregates = (
-  output: any,
-  context: __SerdeContext
-): SavingsPlansUtilizationAggregates => {
-  return {
-    AmortizedCommitment:
-      output.AmortizedCommitment != null
-        ? de_SavingsPlansAmortizedCommitment(output.AmortizedCommitment, context)
-        : undefined,
-    Savings: output.Savings != null ? de_SavingsPlansSavings(output.Savings, context) : undefined,
-    Utilization: output.Utilization != null ? de_SavingsPlansUtilization(output.Utilization, context) : undefined,
-  } as any;
-};
+// de_SavingsPlansUtilizationAggregates omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansUtilizationByTime
- */
-const de_SavingsPlansUtilizationByTime = (output: any, context: __SerdeContext): SavingsPlansUtilizationByTime => {
-  return {
-    AmortizedCommitment:
-      output.AmortizedCommitment != null
-        ? de_SavingsPlansAmortizedCommitment(output.AmortizedCommitment, context)
-        : undefined,
-    Savings: output.Savings != null ? de_SavingsPlansSavings(output.Savings, context) : undefined,
-    TimePeriod: output.TimePeriod != null ? de_DateInterval(output.TimePeriod, context) : undefined,
-    Utilization: output.Utilization != null ? de_SavingsPlansUtilization(output.Utilization, context) : undefined,
-  } as any;
-};
+// de_SavingsPlansUtilizationByTime omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansUtilizationDetail
- */
-const de_SavingsPlansUtilizationDetail = (output: any, context: __SerdeContext): SavingsPlansUtilizationDetail => {
-  return {
-    AmortizedCommitment:
-      output.AmortizedCommitment != null
-        ? de_SavingsPlansAmortizedCommitment(output.AmortizedCommitment, context)
-        : undefined,
-    Attributes: output.Attributes != null ? de_Attributes(output.Attributes, context) : undefined,
-    Savings: output.Savings != null ? de_SavingsPlansSavings(output.Savings, context) : undefined,
-    SavingsPlanArn: __expectString(output.SavingsPlanArn),
-    Utilization: output.Utilization != null ? de_SavingsPlansUtilization(output.Utilization, context) : undefined,
-  } as any;
-};
+// de_SavingsPlansUtilizationDetail omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansUtilizationDetails
- */
-const de_SavingsPlansUtilizationDetails = (output: any, context: __SerdeContext): SavingsPlansUtilizationDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlansUtilizationDetail(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlansUtilizationDetails omitted.
 
-/**
- * deserializeAws_json1_1SavingsPlansUtilizationsByTime
- */
-const de_SavingsPlansUtilizationsByTime = (output: any, context: __SerdeContext): SavingsPlansUtilizationByTime[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SavingsPlansUtilizationByTime(entry, context);
-    });
-  return retVal;
-};
+// de_SavingsPlansUtilizationsByTime omitted.
 
-/**
- * deserializeAws_json1_1ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_1ServiceSpecification
- */
-const de_ServiceSpecification = (output: any, context: __SerdeContext): ServiceSpecification => {
-  return {
-    EC2Specification:
-      output.EC2Specification != null ? de_EC2Specification(output.EC2Specification, context) : undefined,
-  } as any;
-};
+// de_ServiceSpecification omitted.
 
-/**
- * deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationResponse
- */
-const de_StartSavingsPlansPurchaseRecommendationGenerationResponse = (
-  output: any,
-  context: __SerdeContext
-): StartSavingsPlansPurchaseRecommendationGenerationResponse => {
-  return {
-    EstimatedCompletionTime: __expectString(output.EstimatedCompletionTime),
-    GenerationStartedTime: __expectString(output.GenerationStartedTime),
-    RecommendationId: __expectString(output.RecommendationId),
-  } as any;
-};
+// de_StartSavingsPlansPurchaseRecommendationGenerationResponse omitted.
 
-/**
- * deserializeAws_json1_1Subscriber
- */
-const de_Subscriber = (output: any, context: __SerdeContext): Subscriber => {
-  return {
-    Address: __expectString(output.Address),
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Subscriber omitted.
 
-/**
- * deserializeAws_json1_1Subscribers
- */
-const de_Subscribers = (output: any, context: __SerdeContext): Subscriber[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Subscriber(entry, context);
-    });
-  return retVal;
-};
+// de_Subscribers omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TagValues
- */
-const de_TagValues = (output: any, context: __SerdeContext): TagValues => {
-  return {
-    Key: __expectString(output.Key),
-    MatchOptions: output.MatchOptions != null ? de_MatchOptions(output.MatchOptions, context) : undefined,
-    Values: output.Values != null ? de_Values(output.Values, context) : undefined,
-  } as any;
-};
+// de_TagValues omitted.
 
-/**
- * deserializeAws_json1_1TagValuesList
- */
-const de_TagValuesList = (output: any, context: __SerdeContext): TagValues[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TagValues(entry, context);
-    });
-  return retVal;
-};
+// de_TagValuesList omitted.
 
-/**
- * deserializeAws_json1_1TargetInstance
- */
-const de_TargetInstance = (output: any, context: __SerdeContext): TargetInstance => {
-  return {
-    CurrencyCode: __expectString(output.CurrencyCode),
-    DefaultTargetInstance: __expectBoolean(output.DefaultTargetInstance),
-    EstimatedMonthlyCost: __expectString(output.EstimatedMonthlyCost),
-    EstimatedMonthlySavings: __expectString(output.EstimatedMonthlySavings),
-    ExpectedResourceUtilization:
-      output.ExpectedResourceUtilization != null
-        ? de_ResourceUtilization(output.ExpectedResourceUtilization, context)
-        : undefined,
-    PlatformDifferences:
-      output.PlatformDifferences != null ? de_PlatformDifferences(output.PlatformDifferences, context) : undefined,
-    ResourceDetails: output.ResourceDetails != null ? de_ResourceDetails(output.ResourceDetails, context) : undefined,
-  } as any;
-};
+// de_TargetInstance omitted.
 
-/**
- * deserializeAws_json1_1TargetInstancesList
- */
-const de_TargetInstancesList = (output: any, context: __SerdeContext): TargetInstance[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TargetInstance(entry, context);
-    });
-  return retVal;
-};
+// de_TargetInstancesList omitted.
 
-/**
- * deserializeAws_json1_1TerminateRecommendationDetail
- */
-const de_TerminateRecommendationDetail = (output: any, context: __SerdeContext): TerminateRecommendationDetail => {
-  return {
-    CurrencyCode: __expectString(output.CurrencyCode),
-    EstimatedMonthlySavings: __expectString(output.EstimatedMonthlySavings),
-  } as any;
-};
+// de_TerminateRecommendationDetail omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceName: __expectString(output.ResourceName),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-/**
- * deserializeAws_json1_1UnknownMonitorException
- */
-const de_UnknownMonitorException = (output: any, context: __SerdeContext): UnknownMonitorException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnknownMonitorException omitted.
 
-/**
- * deserializeAws_json1_1UnknownSubscriptionException
- */
-const de_UnknownSubscriptionException = (output: any, context: __SerdeContext): UnknownSubscriptionException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnknownSubscriptionException omitted.
 
-/**
- * deserializeAws_json1_1UnresolvableUsageUnitException
- */
-const de_UnresolvableUsageUnitException = (output: any, context: __SerdeContext): UnresolvableUsageUnitException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnresolvableUsageUnitException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateAnomalyMonitorResponse
- */
-const de_UpdateAnomalyMonitorResponse = (output: any, context: __SerdeContext): UpdateAnomalyMonitorResponse => {
-  return {
-    MonitorArn: __expectString(output.MonitorArn),
-  } as any;
-};
+// de_UpdateAnomalyMonitorResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateAnomalySubscriptionResponse
- */
-const de_UpdateAnomalySubscriptionResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateAnomalySubscriptionResponse => {
-  return {
-    SubscriptionArn: __expectString(output.SubscriptionArn),
-  } as any;
-};
+// de_UpdateAnomalySubscriptionResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateCostAllocationTagsStatusError
- */
-const de_UpdateCostAllocationTagsStatusError = (
-  output: any,
-  context: __SerdeContext
-): UpdateCostAllocationTagsStatusError => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-    TagKey: __expectString(output.TagKey),
-  } as any;
-};
+// de_UpdateCostAllocationTagsStatusError omitted.
 
-/**
- * deserializeAws_json1_1UpdateCostAllocationTagsStatusErrors
- */
-const de_UpdateCostAllocationTagsStatusErrors = (
-  output: any,
-  context: __SerdeContext
-): UpdateCostAllocationTagsStatusError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UpdateCostAllocationTagsStatusError(entry, context);
-    });
-  return retVal;
-};
+// de_UpdateCostAllocationTagsStatusErrors omitted.
 
-/**
- * deserializeAws_json1_1UpdateCostAllocationTagsStatusResponse
- */
-const de_UpdateCostAllocationTagsStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateCostAllocationTagsStatusResponse => {
-  return {
-    Errors: output.Errors != null ? de_UpdateCostAllocationTagsStatusErrors(output.Errors, context) : undefined,
-  } as any;
-};
+// de_UpdateCostAllocationTagsStatusResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateCostCategoryDefinitionResponse
- */
-const de_UpdateCostCategoryDefinitionResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateCostCategoryDefinitionResponse => {
-  return {
-    CostCategoryArn: __expectString(output.CostCategoryArn),
-    EffectiveStart: __expectString(output.EffectiveStart),
-  } as any;
-};
+// de_UpdateCostCategoryDefinitionResponse omitted.
 
-/**
- * deserializeAws_json1_1UtilizationByTime
- */
-const de_UtilizationByTime = (output: any, context: __SerdeContext): UtilizationByTime => {
-  return {
-    Groups: output.Groups != null ? de_ReservationUtilizationGroups(output.Groups, context) : undefined,
-    TimePeriod: output.TimePeriod != null ? de_DateInterval(output.TimePeriod, context) : undefined,
-    Total: output.Total != null ? de_ReservationAggregates(output.Total, context) : undefined,
-  } as any;
-};
+// de_UtilizationByTime omitted.
 
-/**
- * deserializeAws_json1_1UtilizationsByTime
- */
-const de_UtilizationsByTime = (output: any, context: __SerdeContext): UtilizationByTime[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UtilizationByTime(entry, context);
-    });
-  return retVal;
-};
+// de_UtilizationsByTime omitted.
 
-/**
- * deserializeAws_json1_1Values
- */
-const de_Values = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Values omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -6303,6 +3836,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

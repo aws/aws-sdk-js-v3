@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,7 +11,8 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -60,12 +62,10 @@ import {
   _Record,
   AmazonOpenSearchServerlessBufferingHints,
   AmazonOpenSearchServerlessDestinationConfiguration,
-  AmazonOpenSearchServerlessDestinationDescription,
   AmazonOpenSearchServerlessDestinationUpdate,
   AmazonOpenSearchServerlessRetryOptions,
   AmazonopensearchserviceBufferingHints,
   AmazonopensearchserviceDestinationConfiguration,
-  AmazonopensearchserviceDestinationDescription,
   AmazonopensearchserviceDestinationUpdate,
   AmazonopensearchserviceRetryOptions,
   BufferingHints,
@@ -73,12 +73,9 @@ import {
   ConcurrentModificationException,
   CopyCommand,
   CreateDeliveryStreamInput,
-  CreateDeliveryStreamOutput,
   DataFormatConversionConfiguration,
   DeleteDeliveryStreamInput,
-  DeleteDeliveryStreamOutput,
   DeliveryStreamDescription,
-  DeliveryStreamEncryptionConfiguration,
   DeliveryStreamEncryptionConfigurationInput,
   DescribeDeliveryStreamInput,
   DescribeDeliveryStreamOutput,
@@ -87,21 +84,17 @@ import {
   DynamicPartitioningConfiguration,
   ElasticsearchBufferingHints,
   ElasticsearchDestinationConfiguration,
-  ElasticsearchDestinationDescription,
   ElasticsearchDestinationUpdate,
   ElasticsearchRetryOptions,
   EncryptionConfiguration,
   ExtendedS3DestinationConfiguration,
   ExtendedS3DestinationDescription,
   ExtendedS3DestinationUpdate,
-  FailureDescription,
   HiveJsonSerDe,
   HttpEndpointBufferingHints,
   HttpEndpointCommonAttribute,
   HttpEndpointConfiguration,
-  HttpEndpointDescription,
   HttpEndpointDestinationConfiguration,
-  HttpEndpointDestinationDescription,
   HttpEndpointDestinationUpdate,
   HttpEndpointRequestConfiguration,
   HttpEndpointRetryOptions,
@@ -113,9 +106,7 @@ import {
   KMSEncryptionConfig,
   LimitExceededException,
   ListDeliveryStreamsInput,
-  ListDeliveryStreamsOutput,
   ListTagsForDeliveryStreamInput,
-  ListTagsForDeliveryStreamOutput,
   OpenXJsonSerDe,
   OrcSerDe,
   OutputFormatConfiguration,
@@ -124,41 +115,29 @@ import {
   Processor,
   ProcessorParameter,
   PutRecordBatchInput,
-  PutRecordBatchOutput,
-  PutRecordBatchResponseEntry,
   PutRecordInput,
-  PutRecordOutput,
   RedshiftDestinationConfiguration,
-  RedshiftDestinationDescription,
   RedshiftDestinationUpdate,
   RedshiftRetryOptions,
   ResourceInUseException,
   ResourceNotFoundException,
   RetryOptions,
   S3DestinationConfiguration,
-  S3DestinationDescription,
   S3DestinationUpdate,
   SchemaConfiguration,
   Serializer,
   ServiceUnavailableException,
   SourceDescription,
   SplunkDestinationConfiguration,
-  SplunkDestinationDescription,
   SplunkDestinationUpdate,
   SplunkRetryOptions,
   StartDeliveryStreamEncryptionInput,
-  StartDeliveryStreamEncryptionOutput,
   StopDeliveryStreamEncryptionInput,
-  StopDeliveryStreamEncryptionOutput,
   Tag,
   TagDeliveryStreamInput,
-  TagDeliveryStreamOutput,
   UntagDeliveryStreamInput,
-  UntagDeliveryStreamOutput,
   UpdateDestinationInput,
-  UpdateDestinationOutput,
   VpcConfiguration,
-  VpcConfigurationDescription,
 } from "../models/models_0";
 
 /**
@@ -183,7 +162,7 @@ export const se_DeleteDeliveryStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDeliveryStream");
   let body: any;
-  body = JSON.stringify(se_DeleteDeliveryStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -196,7 +175,7 @@ export const se_DescribeDeliveryStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDeliveryStream");
   let body: any;
-  body = JSON.stringify(se_DescribeDeliveryStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -209,7 +188,7 @@ export const se_ListDeliveryStreamsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDeliveryStreams");
   let body: any;
-  body = JSON.stringify(se_ListDeliveryStreamsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -222,7 +201,7 @@ export const se_ListTagsForDeliveryStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForDeliveryStream");
   let body: any;
-  body = JSON.stringify(se_ListTagsForDeliveryStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -261,7 +240,7 @@ export const se_StartDeliveryStreamEncryptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartDeliveryStreamEncryption");
   let body: any;
-  body = JSON.stringify(se_StartDeliveryStreamEncryptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -274,7 +253,7 @@ export const se_StopDeliveryStreamEncryptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopDeliveryStreamEncryption");
   let body: any;
-  body = JSON.stringify(se_StopDeliveryStreamEncryptionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -287,7 +266,7 @@ export const se_TagDeliveryStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagDeliveryStream");
   let body: any;
-  body = JSON.stringify(se_TagDeliveryStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -300,7 +279,7 @@ export const se_UntagDeliveryStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagDeliveryStream");
   let body: any;
-  body = JSON.stringify(se_UntagDeliveryStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -329,12 +308,12 @@ export const de_CreateDeliveryStreamCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateDeliveryStreamOutput(data, context);
+  contents = _json(data);
   const response: CreateDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -364,10 +343,9 @@ const de_CreateDeliveryStreamCommandError = async (
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -385,12 +363,12 @@ export const de_DeleteDeliveryStreamCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteDeliveryStreamOutput(data, context);
+  contents = _json(data);
   const response: DeleteDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -414,10 +392,9 @@ const de_DeleteDeliveryStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -440,7 +417,7 @@ export const de_DescribeDeliveryStreamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -461,10 +438,9 @@ const de_DescribeDeliveryStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -482,12 +458,12 @@ export const de_ListDeliveryStreamsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListDeliveryStreamsOutput(data, context);
+  contents = _json(data);
   const response: ListDeliveryStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -503,10 +479,9 @@ const de_ListDeliveryStreamsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -523,12 +498,12 @@ export const de_ListTagsForDeliveryStreamCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForDeliveryStreamOutput(data, context);
+  contents = _json(data);
   const response: ListTagsForDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -555,10 +530,9 @@ const de_ListTagsForDeliveryStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -576,12 +550,12 @@ export const de_PutRecordCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRecordOutput(data, context);
+  contents = _json(data);
   const response: PutRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -611,10 +585,9 @@ const de_PutRecordCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -632,12 +605,12 @@ export const de_PutRecordBatchCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutRecordBatchOutput(data, context);
+  contents = _json(data);
   const response: PutRecordBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -667,10 +640,9 @@ const de_PutRecordBatchCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -688,12 +660,12 @@ export const de_StartDeliveryStreamEncryptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartDeliveryStreamEncryptionOutput(data, context);
+  contents = _json(data);
   const response: StartDeliveryStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -726,10 +698,9 @@ const de_StartDeliveryStreamEncryptionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -747,12 +718,12 @@ export const de_StopDeliveryStreamEncryptionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopDeliveryStreamEncryptionOutput(data, context);
+  contents = _json(data);
   const response: StopDeliveryStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -782,10 +753,9 @@ const de_StopDeliveryStreamEncryptionCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -803,12 +773,12 @@ export const de_TagDeliveryStreamCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagDeliveryStreamOutput(data, context);
+  contents = _json(data);
   const response: TagDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -838,10 +808,9 @@ const de_TagDeliveryStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -859,12 +828,12 @@ export const de_UntagDeliveryStreamCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagDeliveryStreamOutput(data, context);
+  contents = _json(data);
   const response: UntagDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -894,10 +863,9 @@ const de_UntagDeliveryStreamCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -915,12 +883,12 @@ export const de_UpdateDestinationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateDestinationOutput(data, context);
+  contents = _json(data);
   const response: UpdateDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -950,10 +918,9 @@ const de_UpdateDestinationCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -967,7 +934,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -983,7 +950,7 @@ const de_InvalidArgumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidArgumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -999,7 +966,7 @@ const de_InvalidKMSResourceExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidKMSResourceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidKMSResourceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidKMSResourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1015,7 +982,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1031,7 +998,7 @@ const de_ResourceInUseExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1047,7 +1014,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1063,7 +1030,7 @@ const de_ServiceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1071,286 +1038,49 @@ const de_ServiceUnavailableExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints
- */
-const se_AmazonOpenSearchServerlessBufferingHints = (
-  input: AmazonOpenSearchServerlessBufferingHints,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
-    ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
-  };
-};
+// se_AmazonOpenSearchServerlessBufferingHints omitted.
 
-/**
- * serializeAws_json1_1AmazonOpenSearchServerlessDestinationConfiguration
- */
-const se_AmazonOpenSearchServerlessDestinationConfiguration = (
-  input: AmazonOpenSearchServerlessDestinationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BufferingHints != null && {
-      BufferingHints: se_AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
-    }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.CollectionEndpoint != null && { CollectionEndpoint: input.CollectionEndpoint }),
-    ...(input.IndexName != null && { IndexName: input.IndexName }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: se_AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
-    }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Configuration != null && {
-      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
-    }),
-    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
-  };
-};
+// se_AmazonOpenSearchServerlessDestinationConfiguration omitted.
 
-/**
- * serializeAws_json1_1AmazonOpenSearchServerlessDestinationUpdate
- */
-const se_AmazonOpenSearchServerlessDestinationUpdate = (
-  input: AmazonOpenSearchServerlessDestinationUpdate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BufferingHints != null && {
-      BufferingHints: se_AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
-    }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.CollectionEndpoint != null && { CollectionEndpoint: input.CollectionEndpoint }),
-    ...(input.IndexName != null && { IndexName: input.IndexName }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: se_AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
-    }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
-  };
-};
+// se_AmazonOpenSearchServerlessDestinationUpdate omitted.
 
-/**
- * serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions
- */
-const se_AmazonOpenSearchServerlessRetryOptions = (
-  input: AmazonOpenSearchServerlessRetryOptions,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
-  };
-};
+// se_AmazonOpenSearchServerlessRetryOptions omitted.
 
-/**
- * serializeAws_json1_1AmazonopensearchserviceBufferingHints
- */
-const se_AmazonopensearchserviceBufferingHints = (
-  input: AmazonopensearchserviceBufferingHints,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
-    ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
-  };
-};
+// se_AmazonopensearchserviceBufferingHints omitted.
 
-/**
- * serializeAws_json1_1AmazonopensearchserviceDestinationConfiguration
- */
-const se_AmazonopensearchserviceDestinationConfiguration = (
-  input: AmazonopensearchserviceDestinationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BufferingHints != null && {
-      BufferingHints: se_AmazonopensearchserviceBufferingHints(input.BufferingHints, context),
-    }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.ClusterEndpoint != null && { ClusterEndpoint: input.ClusterEndpoint }),
-    ...(input.DomainARN != null && { DomainARN: input.DomainARN }),
-    ...(input.IndexName != null && { IndexName: input.IndexName }),
-    ...(input.IndexRotationPeriod != null && { IndexRotationPeriod: input.IndexRotationPeriod }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: se_AmazonopensearchserviceRetryOptions(input.RetryOptions, context),
-    }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Configuration != null && {
-      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
-    }),
-    ...(input.TypeName != null && { TypeName: input.TypeName }),
-    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
-  };
-};
+// se_AmazonopensearchserviceDestinationConfiguration omitted.
 
-/**
- * serializeAws_json1_1AmazonopensearchserviceDestinationUpdate
- */
-const se_AmazonopensearchserviceDestinationUpdate = (
-  input: AmazonopensearchserviceDestinationUpdate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BufferingHints != null && {
-      BufferingHints: se_AmazonopensearchserviceBufferingHints(input.BufferingHints, context),
-    }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.ClusterEndpoint != null && { ClusterEndpoint: input.ClusterEndpoint }),
-    ...(input.DomainARN != null && { DomainARN: input.DomainARN }),
-    ...(input.IndexName != null && { IndexName: input.IndexName }),
-    ...(input.IndexRotationPeriod != null && { IndexRotationPeriod: input.IndexRotationPeriod }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: se_AmazonopensearchserviceRetryOptions(input.RetryOptions, context),
-    }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
-    ...(input.TypeName != null && { TypeName: input.TypeName }),
-  };
-};
+// se_AmazonopensearchserviceDestinationUpdate omitted.
 
-/**
- * serializeAws_json1_1AmazonopensearchserviceRetryOptions
- */
-const se_AmazonopensearchserviceRetryOptions = (
-  input: AmazonopensearchserviceRetryOptions,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
-  };
-};
+// se_AmazonopensearchserviceRetryOptions omitted.
 
-/**
- * serializeAws_json1_1BufferingHints
- */
-const se_BufferingHints = (input: BufferingHints, context: __SerdeContext): any => {
-  return {
-    ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
-    ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
-  };
-};
+// se_BufferingHints omitted.
 
-/**
- * serializeAws_json1_1CloudWatchLoggingOptions
- */
-const se_CloudWatchLoggingOptions = (input: CloudWatchLoggingOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.LogGroupName != null && { LogGroupName: input.LogGroupName }),
-    ...(input.LogStreamName != null && { LogStreamName: input.LogStreamName }),
-  };
-};
+// se_CloudWatchLoggingOptions omitted.
 
-/**
- * serializeAws_json1_1ColumnToJsonKeyMappings
- */
-const se_ColumnToJsonKeyMappings = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ColumnToJsonKeyMappings omitted.
 
-/**
- * serializeAws_json1_1CopyCommand
- */
-const se_CopyCommand = (input: CopyCommand, context: __SerdeContext): any => {
-  return {
-    ...(input.CopyOptions != null && { CopyOptions: input.CopyOptions }),
-    ...(input.DataTableColumns != null && { DataTableColumns: input.DataTableColumns }),
-    ...(input.DataTableName != null && { DataTableName: input.DataTableName }),
-  };
-};
+// se_CopyCommand omitted.
 
 /**
  * serializeAws_json1_1CreateDeliveryStreamInput
  */
 const se_CreateDeliveryStreamInput = (input: CreateDeliveryStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AmazonOpenSearchServerlessDestinationConfiguration != null && {
-      AmazonOpenSearchServerlessDestinationConfiguration: se_AmazonOpenSearchServerlessDestinationConfiguration(
-        input.AmazonOpenSearchServerlessDestinationConfiguration,
-        context
-      ),
-    }),
-    ...(input.AmazonopensearchserviceDestinationConfiguration != null && {
-      AmazonopensearchserviceDestinationConfiguration: se_AmazonopensearchserviceDestinationConfiguration(
-        input.AmazonopensearchserviceDestinationConfiguration,
-        context
-      ),
-    }),
-    ...(input.DeliveryStreamEncryptionConfigurationInput != null && {
-      DeliveryStreamEncryptionConfigurationInput: se_DeliveryStreamEncryptionConfigurationInput(
-        input.DeliveryStreamEncryptionConfigurationInput,
-        context
-      ),
-    }),
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.DeliveryStreamType != null && { DeliveryStreamType: input.DeliveryStreamType }),
-    ...(input.ElasticsearchDestinationConfiguration != null && {
-      ElasticsearchDestinationConfiguration: se_ElasticsearchDestinationConfiguration(
-        input.ElasticsearchDestinationConfiguration,
-        context
-      ),
-    }),
-    ...(input.ExtendedS3DestinationConfiguration != null && {
-      ExtendedS3DestinationConfiguration: se_ExtendedS3DestinationConfiguration(
-        input.ExtendedS3DestinationConfiguration,
-        context
-      ),
-    }),
-    ...(input.HttpEndpointDestinationConfiguration != null && {
-      HttpEndpointDestinationConfiguration: se_HttpEndpointDestinationConfiguration(
-        input.HttpEndpointDestinationConfiguration,
-        context
-      ),
-    }),
-    ...(input.KinesisStreamSourceConfiguration != null && {
-      KinesisStreamSourceConfiguration: se_KinesisStreamSourceConfiguration(
-        input.KinesisStreamSourceConfiguration,
-        context
-      ),
-    }),
-    ...(input.RedshiftDestinationConfiguration != null && {
-      RedshiftDestinationConfiguration: se_RedshiftDestinationConfiguration(
-        input.RedshiftDestinationConfiguration,
-        context
-      ),
-    }),
-    ...(input.S3DestinationConfiguration != null && {
-      S3DestinationConfiguration: se_S3DestinationConfiguration(input.S3DestinationConfiguration, context),
-    }),
-    ...(input.SplunkDestinationConfiguration != null && {
-      SplunkDestinationConfiguration: se_SplunkDestinationConfiguration(input.SplunkDestinationConfiguration, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagDeliveryStreamInputTagList(input.Tags, context) }),
-  };
+  return take(input, {
+    AmazonOpenSearchServerlessDestinationConfiguration: _json,
+    AmazonopensearchserviceDestinationConfiguration: _json,
+    DeliveryStreamEncryptionConfigurationInput: _json,
+    DeliveryStreamName: [],
+    DeliveryStreamType: [],
+    ElasticsearchDestinationConfiguration: _json,
+    ExtendedS3DestinationConfiguration: (_) => se_ExtendedS3DestinationConfiguration(_, context),
+    HttpEndpointDestinationConfiguration: _json,
+    KinesisStreamSourceConfiguration: _json,
+    RedshiftDestinationConfiguration: _json,
+    S3DestinationConfiguration: _json,
+    SplunkDestinationConfiguration: _json,
+    Tags: _json,
+  });
 };
 
 /**
@@ -1360,163 +1090,33 @@ const se_DataFormatConversionConfiguration = (
   input: DataFormatConversionConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.InputFormatConfiguration != null && {
-      InputFormatConfiguration: se_InputFormatConfiguration(input.InputFormatConfiguration, context),
-    }),
-    ...(input.OutputFormatConfiguration != null && {
-      OutputFormatConfiguration: se_OutputFormatConfiguration(input.OutputFormatConfiguration, context),
-    }),
-    ...(input.SchemaConfiguration != null && {
-      SchemaConfiguration: se_SchemaConfiguration(input.SchemaConfiguration, context),
-    }),
-  };
+  return take(input, {
+    Enabled: [],
+    InputFormatConfiguration: _json,
+    OutputFormatConfiguration: (_) => se_OutputFormatConfiguration(_, context),
+    SchemaConfiguration: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1DeleteDeliveryStreamInput
- */
-const se_DeleteDeliveryStreamInput = (input: DeleteDeliveryStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowForceDelete != null && { AllowForceDelete: input.AllowForceDelete }),
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-  };
-};
+// se_DeleteDeliveryStreamInput omitted.
 
-/**
- * serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput
- */
-const se_DeliveryStreamEncryptionConfigurationInput = (
-  input: DeliveryStreamEncryptionConfigurationInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KeyARN != null && { KeyARN: input.KeyARN }),
-    ...(input.KeyType != null && { KeyType: input.KeyType }),
-  };
-};
+// se_DeliveryStreamEncryptionConfigurationInput omitted.
 
-/**
- * serializeAws_json1_1DescribeDeliveryStreamInput
- */
-const se_DescribeDeliveryStreamInput = (input: DescribeDeliveryStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.ExclusiveStartDestinationId != null && {
-      ExclusiveStartDestinationId: input.ExclusiveStartDestinationId,
-    }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-  };
-};
+// se_DescribeDeliveryStreamInput omitted.
 
-/**
- * serializeAws_json1_1Deserializer
- */
-const se_Deserializer = (input: Deserializer, context: __SerdeContext): any => {
-  return {
-    ...(input.HiveJsonSerDe != null && { HiveJsonSerDe: se_HiveJsonSerDe(input.HiveJsonSerDe, context) }),
-    ...(input.OpenXJsonSerDe != null && { OpenXJsonSerDe: se_OpenXJsonSerDe(input.OpenXJsonSerDe, context) }),
-  };
-};
+// se_Deserializer omitted.
 
-/**
- * serializeAws_json1_1DynamicPartitioningConfiguration
- */
-const se_DynamicPartitioningConfiguration = (input: DynamicPartitioningConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.RetryOptions != null && { RetryOptions: se_RetryOptions(input.RetryOptions, context) }),
-  };
-};
+// se_DynamicPartitioningConfiguration omitted.
 
-/**
- * serializeAws_json1_1ElasticsearchBufferingHints
- */
-const se_ElasticsearchBufferingHints = (input: ElasticsearchBufferingHints, context: __SerdeContext): any => {
-  return {
-    ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
-    ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
-  };
-};
+// se_ElasticsearchBufferingHints omitted.
 
-/**
- * serializeAws_json1_1ElasticsearchDestinationConfiguration
- */
-const se_ElasticsearchDestinationConfiguration = (
-  input: ElasticsearchDestinationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BufferingHints != null && {
-      BufferingHints: se_ElasticsearchBufferingHints(input.BufferingHints, context),
-    }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.ClusterEndpoint != null && { ClusterEndpoint: input.ClusterEndpoint }),
-    ...(input.DomainARN != null && { DomainARN: input.DomainARN }),
-    ...(input.IndexName != null && { IndexName: input.IndexName }),
-    ...(input.IndexRotationPeriod != null && { IndexRotationPeriod: input.IndexRotationPeriod }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && { RetryOptions: se_ElasticsearchRetryOptions(input.RetryOptions, context) }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Configuration != null && {
-      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
-    }),
-    ...(input.TypeName != null && { TypeName: input.TypeName }),
-    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
-  };
-};
+// se_ElasticsearchDestinationConfiguration omitted.
 
-/**
- * serializeAws_json1_1ElasticsearchDestinationUpdate
- */
-const se_ElasticsearchDestinationUpdate = (input: ElasticsearchDestinationUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.BufferingHints != null && {
-      BufferingHints: se_ElasticsearchBufferingHints(input.BufferingHints, context),
-    }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.ClusterEndpoint != null && { ClusterEndpoint: input.ClusterEndpoint }),
-    ...(input.DomainARN != null && { DomainARN: input.DomainARN }),
-    ...(input.IndexName != null && { IndexName: input.IndexName }),
-    ...(input.IndexRotationPeriod != null && { IndexRotationPeriod: input.IndexRotationPeriod }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && { RetryOptions: se_ElasticsearchRetryOptions(input.RetryOptions, context) }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
-    ...(input.TypeName != null && { TypeName: input.TypeName }),
-  };
-};
+// se_ElasticsearchDestinationUpdate omitted.
 
-/**
- * serializeAws_json1_1ElasticsearchRetryOptions
- */
-const se_ElasticsearchRetryOptions = (input: ElasticsearchRetryOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
-  };
-};
+// se_ElasticsearchRetryOptions omitted.
 
-/**
- * serializeAws_json1_1EncryptionConfiguration
- */
-const se_EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.KMSEncryptionConfig != null && {
-      KMSEncryptionConfig: se_KMSEncryptionConfig(input.KMSEncryptionConfig, context),
-    }),
-    ...(input.NoEncryptionConfig != null && { NoEncryptionConfig: input.NoEncryptionConfig }),
-  };
-};
+// se_EncryptionConfiguration omitted.
 
 /**
  * serializeAws_json1_1ExtendedS3DestinationConfiguration
@@ -1525,409 +1125,125 @@ const se_ExtendedS3DestinationConfiguration = (
   input: ExtendedS3DestinationConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.BucketARN != null && { BucketARN: input.BucketARN }),
-    ...(input.BufferingHints != null && { BufferingHints: se_BufferingHints(input.BufferingHints, context) }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.CompressionFormat != null && { CompressionFormat: input.CompressionFormat }),
-    ...(input.DataFormatConversionConfiguration != null && {
-      DataFormatConversionConfiguration: se_DataFormatConversionConfiguration(
-        input.DataFormatConversionConfiguration,
-        context
-      ),
-    }),
-    ...(input.DynamicPartitioningConfiguration != null && {
-      DynamicPartitioningConfiguration: se_DynamicPartitioningConfiguration(
-        input.DynamicPartitioningConfiguration,
-        context
-      ),
-    }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.ErrorOutputPrefix != null && { ErrorOutputPrefix: input.ErrorOutputPrefix }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3BackupConfiguration != null && {
-      S3BackupConfiguration: se_S3DestinationConfiguration(input.S3BackupConfiguration, context),
-    }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-  };
+  return take(input, {
+    BucketARN: [],
+    BufferingHints: _json,
+    CloudWatchLoggingOptions: _json,
+    CompressionFormat: [],
+    DataFormatConversionConfiguration: (_) => se_DataFormatConversionConfiguration(_, context),
+    DynamicPartitioningConfiguration: _json,
+    EncryptionConfiguration: _json,
+    ErrorOutputPrefix: [],
+    Prefix: [],
+    ProcessingConfiguration: _json,
+    RoleARN: [],
+    S3BackupConfiguration: _json,
+    S3BackupMode: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ExtendedS3DestinationUpdate
  */
 const se_ExtendedS3DestinationUpdate = (input: ExtendedS3DestinationUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketARN != null && { BucketARN: input.BucketARN }),
-    ...(input.BufferingHints != null && { BufferingHints: se_BufferingHints(input.BufferingHints, context) }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.CompressionFormat != null && { CompressionFormat: input.CompressionFormat }),
-    ...(input.DataFormatConversionConfiguration != null && {
-      DataFormatConversionConfiguration: se_DataFormatConversionConfiguration(
-        input.DataFormatConversionConfiguration,
-        context
-      ),
-    }),
-    ...(input.DynamicPartitioningConfiguration != null && {
-      DynamicPartitioningConfiguration: se_DynamicPartitioningConfiguration(
-        input.DynamicPartitioningConfiguration,
-        context
-      ),
-    }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.ErrorOutputPrefix != null && { ErrorOutputPrefix: input.ErrorOutputPrefix }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3BackupUpdate != null && { S3BackupUpdate: se_S3DestinationUpdate(input.S3BackupUpdate, context) }),
-  };
+  return take(input, {
+    BucketARN: [],
+    BufferingHints: _json,
+    CloudWatchLoggingOptions: _json,
+    CompressionFormat: [],
+    DataFormatConversionConfiguration: (_) => se_DataFormatConversionConfiguration(_, context),
+    DynamicPartitioningConfiguration: _json,
+    EncryptionConfiguration: _json,
+    ErrorOutputPrefix: [],
+    Prefix: [],
+    ProcessingConfiguration: _json,
+    RoleARN: [],
+    S3BackupMode: [],
+    S3BackupUpdate: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1HiveJsonSerDe
- */
-const se_HiveJsonSerDe = (input: HiveJsonSerDe, context: __SerdeContext): any => {
-  return {
-    ...(input.TimestampFormats != null && {
-      TimestampFormats: se_ListOfNonEmptyStrings(input.TimestampFormats, context),
-    }),
-  };
-};
+// se_HiveJsonSerDe omitted.
 
-/**
- * serializeAws_json1_1HttpEndpointBufferingHints
- */
-const se_HttpEndpointBufferingHints = (input: HttpEndpointBufferingHints, context: __SerdeContext): any => {
-  return {
-    ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
-    ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
-  };
-};
+// se_HttpEndpointBufferingHints omitted.
 
-/**
- * serializeAws_json1_1HttpEndpointCommonAttribute
- */
-const se_HttpEndpointCommonAttribute = (input: HttpEndpointCommonAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
-    ...(input.AttributeValue != null && { AttributeValue: input.AttributeValue }),
-  };
-};
+// se_HttpEndpointCommonAttribute omitted.
 
-/**
- * serializeAws_json1_1HttpEndpointCommonAttributesList
- */
-const se_HttpEndpointCommonAttributesList = (input: HttpEndpointCommonAttribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_HttpEndpointCommonAttribute(entry, context);
-    });
-};
+// se_HttpEndpointCommonAttributesList omitted.
 
-/**
- * serializeAws_json1_1HttpEndpointConfiguration
- */
-const se_HttpEndpointConfiguration = (input: HttpEndpointConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessKey != null && { AccessKey: input.AccessKey }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
+// se_HttpEndpointConfiguration omitted.
 
-/**
- * serializeAws_json1_1HttpEndpointDestinationConfiguration
- */
-const se_HttpEndpointDestinationConfiguration = (
-  input: HttpEndpointDestinationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BufferingHints != null && {
-      BufferingHints: se_HttpEndpointBufferingHints(input.BufferingHints, context),
-    }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.EndpointConfiguration != null && {
-      EndpointConfiguration: se_HttpEndpointConfiguration(input.EndpointConfiguration, context),
-    }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RequestConfiguration != null && {
-      RequestConfiguration: se_HttpEndpointRequestConfiguration(input.RequestConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && { RetryOptions: se_HttpEndpointRetryOptions(input.RetryOptions, context) }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Configuration != null && {
-      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
-    }),
-  };
-};
+// se_HttpEndpointDestinationConfiguration omitted.
 
-/**
- * serializeAws_json1_1HttpEndpointDestinationUpdate
- */
-const se_HttpEndpointDestinationUpdate = (input: HttpEndpointDestinationUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.BufferingHints != null && {
-      BufferingHints: se_HttpEndpointBufferingHints(input.BufferingHints, context),
-    }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.EndpointConfiguration != null && {
-      EndpointConfiguration: se_HttpEndpointConfiguration(input.EndpointConfiguration, context),
-    }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RequestConfiguration != null && {
-      RequestConfiguration: se_HttpEndpointRequestConfiguration(input.RequestConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && { RetryOptions: se_HttpEndpointRetryOptions(input.RetryOptions, context) }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
-  };
-};
+// se_HttpEndpointDestinationUpdate omitted.
 
-/**
- * serializeAws_json1_1HttpEndpointRequestConfiguration
- */
-const se_HttpEndpointRequestConfiguration = (input: HttpEndpointRequestConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.CommonAttributes != null && {
-      CommonAttributes: se_HttpEndpointCommonAttributesList(input.CommonAttributes, context),
-    }),
-    ...(input.ContentEncoding != null && { ContentEncoding: input.ContentEncoding }),
-  };
-};
+// se_HttpEndpointRequestConfiguration omitted.
 
-/**
- * serializeAws_json1_1HttpEndpointRetryOptions
- */
-const se_HttpEndpointRetryOptions = (input: HttpEndpointRetryOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
-  };
-};
+// se_HttpEndpointRetryOptions omitted.
 
-/**
- * serializeAws_json1_1InputFormatConfiguration
- */
-const se_InputFormatConfiguration = (input: InputFormatConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Deserializer != null && { Deserializer: se_Deserializer(input.Deserializer, context) }),
-  };
-};
+// se_InputFormatConfiguration omitted.
 
-/**
- * serializeAws_json1_1KinesisStreamSourceConfiguration
- */
-const se_KinesisStreamSourceConfiguration = (input: KinesisStreamSourceConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.KinesisStreamARN != null && { KinesisStreamARN: input.KinesisStreamARN }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-  };
-};
+// se_KinesisStreamSourceConfiguration omitted.
 
-/**
- * serializeAws_json1_1KMSEncryptionConfig
- */
-const se_KMSEncryptionConfig = (input: KMSEncryptionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AWSKMSKeyARN != null && { AWSKMSKeyARN: input.AWSKMSKeyARN }),
-  };
-};
+// se_KMSEncryptionConfig omitted.
 
-/**
- * serializeAws_json1_1ListDeliveryStreamsInput
- */
-const se_ListDeliveryStreamsInput = (input: ListDeliveryStreamsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamType != null && { DeliveryStreamType: input.DeliveryStreamType }),
-    ...(input.ExclusiveStartDeliveryStreamName != null && {
-      ExclusiveStartDeliveryStreamName: input.ExclusiveStartDeliveryStreamName,
-    }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-  };
-};
+// se_ListDeliveryStreamsInput omitted.
 
-/**
- * serializeAws_json1_1ListOfNonEmptyStrings
- */
-const se_ListOfNonEmptyStrings = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfNonEmptyStrings omitted.
 
-/**
- * serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace
- */
-const se_ListOfNonEmptyStringsWithoutWhitespace = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListOfNonEmptyStringsWithoutWhitespace omitted.
 
-/**
- * serializeAws_json1_1ListTagsForDeliveryStreamInput
- */
-const se_ListTagsForDeliveryStreamInput = (input: ListTagsForDeliveryStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.ExclusiveStartTagKey != null && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-  };
-};
+// se_ListTagsForDeliveryStreamInput omitted.
 
-/**
- * serializeAws_json1_1OpenXJsonSerDe
- */
-const se_OpenXJsonSerDe = (input: OpenXJsonSerDe, context: __SerdeContext): any => {
-  return {
-    ...(input.CaseInsensitive != null && { CaseInsensitive: input.CaseInsensitive }),
-    ...(input.ColumnToJsonKeyMappings != null && {
-      ColumnToJsonKeyMappings: se_ColumnToJsonKeyMappings(input.ColumnToJsonKeyMappings, context),
-    }),
-    ...(input.ConvertDotsInJsonKeysToUnderscores != null && {
-      ConvertDotsInJsonKeysToUnderscores: input.ConvertDotsInJsonKeysToUnderscores,
-    }),
-  };
-};
+// se_OpenXJsonSerDe omitted.
 
 /**
  * serializeAws_json1_1OrcSerDe
  */
 const se_OrcSerDe = (input: OrcSerDe, context: __SerdeContext): any => {
-  return {
-    ...(input.BlockSizeBytes != null && { BlockSizeBytes: input.BlockSizeBytes }),
-    ...(input.BloomFilterColumns != null && {
-      BloomFilterColumns: se_ListOfNonEmptyStringsWithoutWhitespace(input.BloomFilterColumns, context),
-    }),
-    ...(input.BloomFilterFalsePositiveProbability != null && {
-      BloomFilterFalsePositiveProbability: __serializeFloat(input.BloomFilterFalsePositiveProbability),
-    }),
-    ...(input.Compression != null && { Compression: input.Compression }),
-    ...(input.DictionaryKeyThreshold != null && {
-      DictionaryKeyThreshold: __serializeFloat(input.DictionaryKeyThreshold),
-    }),
-    ...(input.EnablePadding != null && { EnablePadding: input.EnablePadding }),
-    ...(input.FormatVersion != null && { FormatVersion: input.FormatVersion }),
-    ...(input.PaddingTolerance != null && { PaddingTolerance: __serializeFloat(input.PaddingTolerance) }),
-    ...(input.RowIndexStride != null && { RowIndexStride: input.RowIndexStride }),
-    ...(input.StripeSizeBytes != null && { StripeSizeBytes: input.StripeSizeBytes }),
-  };
+  return take(input, {
+    BlockSizeBytes: [],
+    BloomFilterColumns: _json,
+    BloomFilterFalsePositiveProbability: __serializeFloat,
+    Compression: [],
+    DictionaryKeyThreshold: __serializeFloat,
+    EnablePadding: [],
+    FormatVersion: [],
+    PaddingTolerance: __serializeFloat,
+    RowIndexStride: [],
+    StripeSizeBytes: [],
+  });
 };
 
 /**
  * serializeAws_json1_1OutputFormatConfiguration
  */
 const se_OutputFormatConfiguration = (input: OutputFormatConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Serializer != null && { Serializer: se_Serializer(input.Serializer, context) }),
-  };
+  return take(input, {
+    Serializer: (_) => se_Serializer(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1ParquetSerDe
- */
-const se_ParquetSerDe = (input: ParquetSerDe, context: __SerdeContext): any => {
-  return {
-    ...(input.BlockSizeBytes != null && { BlockSizeBytes: input.BlockSizeBytes }),
-    ...(input.Compression != null && { Compression: input.Compression }),
-    ...(input.EnableDictionaryCompression != null && {
-      EnableDictionaryCompression: input.EnableDictionaryCompression,
-    }),
-    ...(input.MaxPaddingBytes != null && { MaxPaddingBytes: input.MaxPaddingBytes }),
-    ...(input.PageSizeBytes != null && { PageSizeBytes: input.PageSizeBytes }),
-    ...(input.WriterVersion != null && { WriterVersion: input.WriterVersion }),
-  };
-};
+// se_ParquetSerDe omitted.
 
-/**
- * serializeAws_json1_1ProcessingConfiguration
- */
-const se_ProcessingConfiguration = (input: ProcessingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.Processors != null && { Processors: se_ProcessorList(input.Processors, context) }),
-  };
-};
+// se_ProcessingConfiguration omitted.
 
-/**
- * serializeAws_json1_1Processor
- */
-const se_Processor = (input: Processor, context: __SerdeContext): any => {
-  return {
-    ...(input.Parameters != null && { Parameters: se_ProcessorParameterList(input.Parameters, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_Processor omitted.
 
-/**
- * serializeAws_json1_1ProcessorList
- */
-const se_ProcessorList = (input: Processor[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Processor(entry, context);
-    });
-};
+// se_ProcessorList omitted.
 
-/**
- * serializeAws_json1_1ProcessorParameter
- */
-const se_ProcessorParameter = (input: ProcessorParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
-    ...(input.ParameterValue != null && { ParameterValue: input.ParameterValue }),
-  };
-};
+// se_ProcessorParameter omitted.
 
-/**
- * serializeAws_json1_1ProcessorParameterList
- */
-const se_ProcessorParameterList = (input: ProcessorParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ProcessorParameter(entry, context);
-    });
-};
+// se_ProcessorParameterList omitted.
 
 /**
  * serializeAws_json1_1PutRecordBatchInput
  */
 const se_PutRecordBatchInput = (input: PutRecordBatchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.Records != null && { Records: se_PutRecordBatchRequestEntryList(input.Records, context) }),
-  };
+  return take(input, {
+    DeliveryStreamName: [],
+    Records: (_) => se_PutRecordBatchRequestEntryList(_, context),
+  });
 };
 
 /**
@@ -1945,559 +1261,113 @@ const se_PutRecordBatchRequestEntryList = (input: _Record[], context: __SerdeCon
  * serializeAws_json1_1PutRecordInput
  */
 const se_PutRecordInput = (input: PutRecordInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.Record != null && { Record: se__Record(input.Record, context) }),
-  };
+  return take(input, {
+    DeliveryStreamName: [],
+    Record: (_) => se__Record(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1_Record
  */
 const se__Record = (input: _Record, context: __SerdeContext): any => {
-  return {
-    ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
-  };
+  return take(input, {
+    Data: context.base64Encoder,
+  });
 };
 
-/**
- * serializeAws_json1_1RedshiftDestinationConfiguration
- */
-const se_RedshiftDestinationConfiguration = (input: RedshiftDestinationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.ClusterJDBCURL != null && { ClusterJDBCURL: input.ClusterJDBCURL }),
-    ...(input.CopyCommand != null && { CopyCommand: se_CopyCommand(input.CopyCommand, context) }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && { RetryOptions: se_RedshiftRetryOptions(input.RetryOptions, context) }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3BackupConfiguration != null && {
-      S3BackupConfiguration: se_S3DestinationConfiguration(input.S3BackupConfiguration, context),
-    }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Configuration != null && {
-      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
-    }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
+// se_RedshiftDestinationConfiguration omitted.
 
-/**
- * serializeAws_json1_1RedshiftDestinationUpdate
- */
-const se_RedshiftDestinationUpdate = (input: RedshiftDestinationUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.ClusterJDBCURL != null && { ClusterJDBCURL: input.ClusterJDBCURL }),
-    ...(input.CopyCommand != null && { CopyCommand: se_CopyCommand(input.CopyCommand, context) }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && { RetryOptions: se_RedshiftRetryOptions(input.RetryOptions, context) }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3BackupUpdate != null && { S3BackupUpdate: se_S3DestinationUpdate(input.S3BackupUpdate, context) }),
-    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
+// se_RedshiftDestinationUpdate omitted.
 
-/**
- * serializeAws_json1_1RedshiftRetryOptions
- */
-const se_RedshiftRetryOptions = (input: RedshiftRetryOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
-  };
-};
+// se_RedshiftRetryOptions omitted.
 
-/**
- * serializeAws_json1_1RetryOptions
- */
-const se_RetryOptions = (input: RetryOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
-  };
-};
+// se_RetryOptions omitted.
 
-/**
- * serializeAws_json1_1S3DestinationConfiguration
- */
-const se_S3DestinationConfiguration = (input: S3DestinationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketARN != null && { BucketARN: input.BucketARN }),
-    ...(input.BufferingHints != null && { BufferingHints: se_BufferingHints(input.BufferingHints, context) }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.CompressionFormat != null && { CompressionFormat: input.CompressionFormat }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.ErrorOutputPrefix != null && { ErrorOutputPrefix: input.ErrorOutputPrefix }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-  };
-};
+// se_S3DestinationConfiguration omitted.
 
-/**
- * serializeAws_json1_1S3DestinationUpdate
- */
-const se_S3DestinationUpdate = (input: S3DestinationUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.BucketARN != null && { BucketARN: input.BucketARN }),
-    ...(input.BufferingHints != null && { BufferingHints: se_BufferingHints(input.BufferingHints, context) }),
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.CompressionFormat != null && { CompressionFormat: input.CompressionFormat }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.ErrorOutputPrefix != null && { ErrorOutputPrefix: input.ErrorOutputPrefix }),
-    ...(input.Prefix != null && { Prefix: input.Prefix }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-  };
-};
+// se_S3DestinationUpdate omitted.
 
-/**
- * serializeAws_json1_1SchemaConfiguration
- */
-const se_SchemaConfiguration = (input: SchemaConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-    ...(input.VersionId != null && { VersionId: input.VersionId }),
-  };
-};
+// se_SchemaConfiguration omitted.
 
-/**
- * serializeAws_json1_1SecurityGroupIdList
- */
-const se_SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIdList omitted.
 
 /**
  * serializeAws_json1_1Serializer
  */
 const se_Serializer = (input: Serializer, context: __SerdeContext): any => {
-  return {
-    ...(input.OrcSerDe != null && { OrcSerDe: se_OrcSerDe(input.OrcSerDe, context) }),
-    ...(input.ParquetSerDe != null && { ParquetSerDe: se_ParquetSerDe(input.ParquetSerDe, context) }),
-  };
+  return take(input, {
+    OrcSerDe: (_) => se_OrcSerDe(_, context),
+    ParquetSerDe: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1SplunkDestinationConfiguration
- */
-const se_SplunkDestinationConfiguration = (input: SplunkDestinationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.HECAcknowledgmentTimeoutInSeconds != null && {
-      HECAcknowledgmentTimeoutInSeconds: input.HECAcknowledgmentTimeoutInSeconds,
-    }),
-    ...(input.HECEndpoint != null && { HECEndpoint: input.HECEndpoint }),
-    ...(input.HECEndpointType != null && { HECEndpointType: input.HECEndpointType }),
-    ...(input.HECToken != null && { HECToken: input.HECToken }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && { RetryOptions: se_SplunkRetryOptions(input.RetryOptions, context) }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Configuration != null && {
-      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
-    }),
-  };
-};
+// se_SplunkDestinationConfiguration omitted.
 
-/**
- * serializeAws_json1_1SplunkDestinationUpdate
- */
-const se_SplunkDestinationUpdate = (input: SplunkDestinationUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
-    }),
-    ...(input.HECAcknowledgmentTimeoutInSeconds != null && {
-      HECAcknowledgmentTimeoutInSeconds: input.HECAcknowledgmentTimeoutInSeconds,
-    }),
-    ...(input.HECEndpoint != null && { HECEndpoint: input.HECEndpoint }),
-    ...(input.HECEndpointType != null && { HECEndpointType: input.HECEndpointType }),
-    ...(input.HECToken != null && { HECToken: input.HECToken }),
-    ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
-    }),
-    ...(input.RetryOptions != null && { RetryOptions: se_SplunkRetryOptions(input.RetryOptions, context) }),
-    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
-  };
-};
+// se_SplunkDestinationUpdate omitted.
 
-/**
- * serializeAws_json1_1SplunkRetryOptions
- */
-const se_SplunkRetryOptions = (input: SplunkRetryOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
-  };
-};
+// se_SplunkRetryOptions omitted.
 
-/**
- * serializeAws_json1_1StartDeliveryStreamEncryptionInput
- */
-const se_StartDeliveryStreamEncryptionInput = (
-  input: StartDeliveryStreamEncryptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DeliveryStreamEncryptionConfigurationInput != null && {
-      DeliveryStreamEncryptionConfigurationInput: se_DeliveryStreamEncryptionConfigurationInput(
-        input.DeliveryStreamEncryptionConfigurationInput,
-        context
-      ),
-    }),
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-  };
-};
+// se_StartDeliveryStreamEncryptionInput omitted.
 
-/**
- * serializeAws_json1_1StopDeliveryStreamEncryptionInput
- */
-const se_StopDeliveryStreamEncryptionInput = (
-  input: StopDeliveryStreamEncryptionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-  };
-};
+// se_StopDeliveryStreamEncryptionInput omitted.
 
-/**
- * serializeAws_json1_1SubnetIdList
- */
-const se_SubnetIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIdList omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagDeliveryStreamInput
- */
-const se_TagDeliveryStreamInput = (input: TagDeliveryStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.Tags != null && { Tags: se_TagDeliveryStreamInputTagList(input.Tags, context) }),
-  };
-};
+// se_TagDeliveryStreamInput omitted.
 
-/**
- * serializeAws_json1_1TagDeliveryStreamInputTagList
- */
-const se_TagDeliveryStreamInputTagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagDeliveryStreamInputTagList omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1UntagDeliveryStreamInput
- */
-const se_UntagDeliveryStreamInput = (input: UntagDeliveryStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagDeliveryStreamInput omitted.
 
 /**
  * serializeAws_json1_1UpdateDestinationInput
  */
 const se_UpdateDestinationInput = (input: UpdateDestinationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AmazonOpenSearchServerlessDestinationUpdate != null && {
-      AmazonOpenSearchServerlessDestinationUpdate: se_AmazonOpenSearchServerlessDestinationUpdate(
-        input.AmazonOpenSearchServerlessDestinationUpdate,
-        context
-      ),
-    }),
-    ...(input.AmazonopensearchserviceDestinationUpdate != null && {
-      AmazonopensearchserviceDestinationUpdate: se_AmazonopensearchserviceDestinationUpdate(
-        input.AmazonopensearchserviceDestinationUpdate,
-        context
-      ),
-    }),
-    ...(input.CurrentDeliveryStreamVersionId != null && {
-      CurrentDeliveryStreamVersionId: input.CurrentDeliveryStreamVersionId,
-    }),
-    ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.DestinationId != null && { DestinationId: input.DestinationId }),
-    ...(input.ElasticsearchDestinationUpdate != null && {
-      ElasticsearchDestinationUpdate: se_ElasticsearchDestinationUpdate(input.ElasticsearchDestinationUpdate, context),
-    }),
-    ...(input.ExtendedS3DestinationUpdate != null && {
-      ExtendedS3DestinationUpdate: se_ExtendedS3DestinationUpdate(input.ExtendedS3DestinationUpdate, context),
-    }),
-    ...(input.HttpEndpointDestinationUpdate != null && {
-      HttpEndpointDestinationUpdate: se_HttpEndpointDestinationUpdate(input.HttpEndpointDestinationUpdate, context),
-    }),
-    ...(input.RedshiftDestinationUpdate != null && {
-      RedshiftDestinationUpdate: se_RedshiftDestinationUpdate(input.RedshiftDestinationUpdate, context),
-    }),
-    ...(input.S3DestinationUpdate != null && {
-      S3DestinationUpdate: se_S3DestinationUpdate(input.S3DestinationUpdate, context),
-    }),
-    ...(input.SplunkDestinationUpdate != null && {
-      SplunkDestinationUpdate: se_SplunkDestinationUpdate(input.SplunkDestinationUpdate, context),
-    }),
-  };
+  return take(input, {
+    AmazonOpenSearchServerlessDestinationUpdate: _json,
+    AmazonopensearchserviceDestinationUpdate: _json,
+    CurrentDeliveryStreamVersionId: [],
+    DeliveryStreamName: [],
+    DestinationId: [],
+    ElasticsearchDestinationUpdate: _json,
+    ExtendedS3DestinationUpdate: (_) => se_ExtendedS3DestinationUpdate(_, context),
+    HttpEndpointDestinationUpdate: _json,
+    RedshiftDestinationUpdate: _json,
+    S3DestinationUpdate: _json,
+    SplunkDestinationUpdate: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1VpcConfiguration
- */
-const se_VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: se_SecurityGroupIdList(input.SecurityGroupIds, context),
-    }),
-    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIdList(input.SubnetIds, context) }),
-  };
-};
+// se_VpcConfiguration omitted.
 
-/**
- * deserializeAws_json1_1AmazonOpenSearchServerlessBufferingHints
- */
-const de_AmazonOpenSearchServerlessBufferingHints = (
-  output: any,
-  context: __SerdeContext
-): AmazonOpenSearchServerlessBufferingHints => {
-  return {
-    IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
-    SizeInMBs: __expectInt32(output.SizeInMBs),
-  } as any;
-};
+// de_AmazonOpenSearchServerlessBufferingHints omitted.
 
-/**
- * deserializeAws_json1_1AmazonOpenSearchServerlessDestinationDescription
- */
-const de_AmazonOpenSearchServerlessDestinationDescription = (
-  output: any,
-  context: __SerdeContext
-): AmazonOpenSearchServerlessDestinationDescription => {
-  return {
-    BufferingHints:
-      output.BufferingHints != null
-        ? de_AmazonOpenSearchServerlessBufferingHints(output.BufferingHints, context)
-        : undefined,
-    CloudWatchLoggingOptions:
-      output.CloudWatchLoggingOptions != null
-        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
-        : undefined,
-    CollectionEndpoint: __expectString(output.CollectionEndpoint),
-    IndexName: __expectString(output.IndexName),
-    ProcessingConfiguration:
-      output.ProcessingConfiguration != null
-        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
-        : undefined,
-    RetryOptions:
-      output.RetryOptions != null ? de_AmazonOpenSearchServerlessRetryOptions(output.RetryOptions, context) : undefined,
-    RoleARN: __expectString(output.RoleARN),
-    S3BackupMode: __expectString(output.S3BackupMode),
-    S3DestinationDescription:
-      output.S3DestinationDescription != null
-        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
-        : undefined,
-    VpcConfigurationDescription:
-      output.VpcConfigurationDescription != null
-        ? de_VpcConfigurationDescription(output.VpcConfigurationDescription, context)
-        : undefined,
-  } as any;
-};
+// de_AmazonOpenSearchServerlessDestinationDescription omitted.
 
-/**
- * deserializeAws_json1_1AmazonOpenSearchServerlessRetryOptions
- */
-const de_AmazonOpenSearchServerlessRetryOptions = (
-  output: any,
-  context: __SerdeContext
-): AmazonOpenSearchServerlessRetryOptions => {
-  return {
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-  } as any;
-};
+// de_AmazonOpenSearchServerlessRetryOptions omitted.
 
-/**
- * deserializeAws_json1_1AmazonopensearchserviceBufferingHints
- */
-const de_AmazonopensearchserviceBufferingHints = (
-  output: any,
-  context: __SerdeContext
-): AmazonopensearchserviceBufferingHints => {
-  return {
-    IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
-    SizeInMBs: __expectInt32(output.SizeInMBs),
-  } as any;
-};
+// de_AmazonopensearchserviceBufferingHints omitted.
 
-/**
- * deserializeAws_json1_1AmazonopensearchserviceDestinationDescription
- */
-const de_AmazonopensearchserviceDestinationDescription = (
-  output: any,
-  context: __SerdeContext
-): AmazonopensearchserviceDestinationDescription => {
-  return {
-    BufferingHints:
-      output.BufferingHints != null
-        ? de_AmazonopensearchserviceBufferingHints(output.BufferingHints, context)
-        : undefined,
-    CloudWatchLoggingOptions:
-      output.CloudWatchLoggingOptions != null
-        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
-        : undefined,
-    ClusterEndpoint: __expectString(output.ClusterEndpoint),
-    DomainARN: __expectString(output.DomainARN),
-    IndexName: __expectString(output.IndexName),
-    IndexRotationPeriod: __expectString(output.IndexRotationPeriod),
-    ProcessingConfiguration:
-      output.ProcessingConfiguration != null
-        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
-        : undefined,
-    RetryOptions:
-      output.RetryOptions != null ? de_AmazonopensearchserviceRetryOptions(output.RetryOptions, context) : undefined,
-    RoleARN: __expectString(output.RoleARN),
-    S3BackupMode: __expectString(output.S3BackupMode),
-    S3DestinationDescription:
-      output.S3DestinationDescription != null
-        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
-        : undefined,
-    TypeName: __expectString(output.TypeName),
-    VpcConfigurationDescription:
-      output.VpcConfigurationDescription != null
-        ? de_VpcConfigurationDescription(output.VpcConfigurationDescription, context)
-        : undefined,
-  } as any;
-};
+// de_AmazonopensearchserviceDestinationDescription omitted.
 
-/**
- * deserializeAws_json1_1AmazonopensearchserviceRetryOptions
- */
-const de_AmazonopensearchserviceRetryOptions = (
-  output: any,
-  context: __SerdeContext
-): AmazonopensearchserviceRetryOptions => {
-  return {
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-  } as any;
-};
+// de_AmazonopensearchserviceRetryOptions omitted.
 
-/**
- * deserializeAws_json1_1BufferingHints
- */
-const de_BufferingHints = (output: any, context: __SerdeContext): BufferingHints => {
-  return {
-    IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
-    SizeInMBs: __expectInt32(output.SizeInMBs),
-  } as any;
-};
+// de_BufferingHints omitted.
 
-/**
- * deserializeAws_json1_1CloudWatchLoggingOptions
- */
-const de_CloudWatchLoggingOptions = (output: any, context: __SerdeContext): CloudWatchLoggingOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    LogGroupName: __expectString(output.LogGroupName),
-    LogStreamName: __expectString(output.LogStreamName),
-  } as any;
-};
+// de_CloudWatchLoggingOptions omitted.
 
-/**
- * deserializeAws_json1_1ColumnToJsonKeyMappings
- */
-const de_ColumnToJsonKeyMappings = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_ColumnToJsonKeyMappings omitted.
 
-/**
- * deserializeAws_json1_1ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
-/**
- * deserializeAws_json1_1CopyCommand
- */
-const de_CopyCommand = (output: any, context: __SerdeContext): CopyCommand => {
-  return {
-    CopyOptions: __expectString(output.CopyOptions),
-    DataTableColumns: __expectString(output.DataTableColumns),
-    DataTableName: __expectString(output.DataTableName),
-  } as any;
-};
+// de_CopyCommand omitted.
 
-/**
- * deserializeAws_json1_1CreateDeliveryStreamOutput
- */
-const de_CreateDeliveryStreamOutput = (output: any, context: __SerdeContext): CreateDeliveryStreamOutput => {
-  return {
-    DeliveryStreamARN: __expectString(output.DeliveryStreamARN),
-  } as any;
-};
+// de_CreateDeliveryStreamOutput omitted.
 
 /**
  * deserializeAws_json1_1DataFormatConversionConfiguration
@@ -2506,156 +1376,66 @@ const de_DataFormatConversionConfiguration = (
   output: any,
   context: __SerdeContext
 ): DataFormatConversionConfiguration => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    InputFormatConfiguration:
-      output.InputFormatConfiguration != null
-        ? de_InputFormatConfiguration(output.InputFormatConfiguration, context)
-        : undefined,
-    OutputFormatConfiguration:
-      output.OutputFormatConfiguration != null
-        ? de_OutputFormatConfiguration(output.OutputFormatConfiguration, context)
-        : undefined,
-    SchemaConfiguration:
-      output.SchemaConfiguration != null ? de_SchemaConfiguration(output.SchemaConfiguration, context) : undefined,
-  } as any;
+  return take(output, {
+    Enabled: __expectBoolean,
+    InputFormatConfiguration: _json,
+    OutputFormatConfiguration: (_: any) => de_OutputFormatConfiguration(_, context),
+    SchemaConfiguration: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteDeliveryStreamOutput
- */
-const de_DeleteDeliveryStreamOutput = (output: any, context: __SerdeContext): DeleteDeliveryStreamOutput => {
-  return {} as any;
-};
+// de_DeleteDeliveryStreamOutput omitted.
 
 /**
  * deserializeAws_json1_1DeliveryStreamDescription
  */
 const de_DeliveryStreamDescription = (output: any, context: __SerdeContext): DeliveryStreamDescription => {
-  return {
-    CreateTimestamp:
-      output.CreateTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
-        : undefined,
-    DeliveryStreamARN: __expectString(output.DeliveryStreamARN),
-    DeliveryStreamEncryptionConfiguration:
-      output.DeliveryStreamEncryptionConfiguration != null
-        ? de_DeliveryStreamEncryptionConfiguration(output.DeliveryStreamEncryptionConfiguration, context)
-        : undefined,
-    DeliveryStreamName: __expectString(output.DeliveryStreamName),
-    DeliveryStreamStatus: __expectString(output.DeliveryStreamStatus),
-    DeliveryStreamType: __expectString(output.DeliveryStreamType),
-    Destinations: output.Destinations != null ? de_DestinationDescriptionList(output.Destinations, context) : undefined,
-    FailureDescription:
-      output.FailureDescription != null ? de_FailureDescription(output.FailureDescription, context) : undefined,
-    HasMoreDestinations: __expectBoolean(output.HasMoreDestinations),
-    LastUpdateTimestamp:
-      output.LastUpdateTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
-        : undefined,
-    Source: output.Source != null ? de_SourceDescription(output.Source, context) : undefined,
-    VersionId: __expectString(output.VersionId),
-  } as any;
+  return take(output, {
+    CreateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeliveryStreamARN: __expectString,
+    DeliveryStreamEncryptionConfiguration: _json,
+    DeliveryStreamName: __expectString,
+    DeliveryStreamStatus: __expectString,
+    DeliveryStreamType: __expectString,
+    Destinations: (_: any) => de_DestinationDescriptionList(_, context),
+    FailureDescription: _json,
+    HasMoreDestinations: __expectBoolean,
+    LastUpdateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Source: (_: any) => de_SourceDescription(_, context),
+    VersionId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeliveryStreamEncryptionConfiguration
- */
-const de_DeliveryStreamEncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DeliveryStreamEncryptionConfiguration => {
-  return {
-    FailureDescription:
-      output.FailureDescription != null ? de_FailureDescription(output.FailureDescription, context) : undefined,
-    KeyARN: __expectString(output.KeyARN),
-    KeyType: __expectString(output.KeyType),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_DeliveryStreamEncryptionConfiguration omitted.
 
-/**
- * deserializeAws_json1_1DeliveryStreamNameList
- */
-const de_DeliveryStreamNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_DeliveryStreamNameList omitted.
 
 /**
  * deserializeAws_json1_1DescribeDeliveryStreamOutput
  */
 const de_DescribeDeliveryStreamOutput = (output: any, context: __SerdeContext): DescribeDeliveryStreamOutput => {
-  return {
-    DeliveryStreamDescription:
-      output.DeliveryStreamDescription != null
-        ? de_DeliveryStreamDescription(output.DeliveryStreamDescription, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    DeliveryStreamDescription: (_: any) => de_DeliveryStreamDescription(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1Deserializer
- */
-const de_Deserializer = (output: any, context: __SerdeContext): Deserializer => {
-  return {
-    HiveJsonSerDe: output.HiveJsonSerDe != null ? de_HiveJsonSerDe(output.HiveJsonSerDe, context) : undefined,
-    OpenXJsonSerDe: output.OpenXJsonSerDe != null ? de_OpenXJsonSerDe(output.OpenXJsonSerDe, context) : undefined,
-  } as any;
-};
+// de_Deserializer omitted.
 
 /**
  * deserializeAws_json1_1DestinationDescription
  */
 const de_DestinationDescription = (output: any, context: __SerdeContext): DestinationDescription => {
-  return {
-    AmazonOpenSearchServerlessDestinationDescription:
-      output.AmazonOpenSearchServerlessDestinationDescription != null
-        ? de_AmazonOpenSearchServerlessDestinationDescription(
-            output.AmazonOpenSearchServerlessDestinationDescription,
-            context
-          )
-        : undefined,
-    AmazonopensearchserviceDestinationDescription:
-      output.AmazonopensearchserviceDestinationDescription != null
-        ? de_AmazonopensearchserviceDestinationDescription(
-            output.AmazonopensearchserviceDestinationDescription,
-            context
-          )
-        : undefined,
-    DestinationId: __expectString(output.DestinationId),
-    ElasticsearchDestinationDescription:
-      output.ElasticsearchDestinationDescription != null
-        ? de_ElasticsearchDestinationDescription(output.ElasticsearchDestinationDescription, context)
-        : undefined,
-    ExtendedS3DestinationDescription:
-      output.ExtendedS3DestinationDescription != null
-        ? de_ExtendedS3DestinationDescription(output.ExtendedS3DestinationDescription, context)
-        : undefined,
-    HttpEndpointDestinationDescription:
-      output.HttpEndpointDestinationDescription != null
-        ? de_HttpEndpointDestinationDescription(output.HttpEndpointDestinationDescription, context)
-        : undefined,
-    RedshiftDestinationDescription:
-      output.RedshiftDestinationDescription != null
-        ? de_RedshiftDestinationDescription(output.RedshiftDestinationDescription, context)
-        : undefined,
-    S3DestinationDescription:
-      output.S3DestinationDescription != null
-        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
-        : undefined,
-    SplunkDestinationDescription:
-      output.SplunkDestinationDescription != null
-        ? de_SplunkDestinationDescription(output.SplunkDestinationDescription, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AmazonOpenSearchServerlessDestinationDescription: _json,
+    AmazonopensearchserviceDestinationDescription: _json,
+    DestinationId: __expectString,
+    ElasticsearchDestinationDescription: _json,
+    ExtendedS3DestinationDescription: (_: any) => de_ExtendedS3DestinationDescription(_, context),
+    HttpEndpointDestinationDescription: _json,
+    RedshiftDestinationDescription: _json,
+    S3DestinationDescription: _json,
+    SplunkDestinationDescription: _json,
+  }) as any;
 };
 
 /**
@@ -2665,93 +1445,20 @@ const de_DestinationDescriptionList = (output: any, context: __SerdeContext): De
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DestinationDescription(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1DynamicPartitioningConfiguration
- */
-const de_DynamicPartitioningConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DynamicPartitioningConfiguration => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    RetryOptions: output.RetryOptions != null ? de_RetryOptions(output.RetryOptions, context) : undefined,
-  } as any;
-};
+// de_DynamicPartitioningConfiguration omitted.
 
-/**
- * deserializeAws_json1_1ElasticsearchBufferingHints
- */
-const de_ElasticsearchBufferingHints = (output: any, context: __SerdeContext): ElasticsearchBufferingHints => {
-  return {
-    IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
-    SizeInMBs: __expectInt32(output.SizeInMBs),
-  } as any;
-};
+// de_ElasticsearchBufferingHints omitted.
 
-/**
- * deserializeAws_json1_1ElasticsearchDestinationDescription
- */
-const de_ElasticsearchDestinationDescription = (
-  output: any,
-  context: __SerdeContext
-): ElasticsearchDestinationDescription => {
-  return {
-    BufferingHints:
-      output.BufferingHints != null ? de_ElasticsearchBufferingHints(output.BufferingHints, context) : undefined,
-    CloudWatchLoggingOptions:
-      output.CloudWatchLoggingOptions != null
-        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
-        : undefined,
-    ClusterEndpoint: __expectString(output.ClusterEndpoint),
-    DomainARN: __expectString(output.DomainARN),
-    IndexName: __expectString(output.IndexName),
-    IndexRotationPeriod: __expectString(output.IndexRotationPeriod),
-    ProcessingConfiguration:
-      output.ProcessingConfiguration != null
-        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
-        : undefined,
-    RetryOptions: output.RetryOptions != null ? de_ElasticsearchRetryOptions(output.RetryOptions, context) : undefined,
-    RoleARN: __expectString(output.RoleARN),
-    S3BackupMode: __expectString(output.S3BackupMode),
-    S3DestinationDescription:
-      output.S3DestinationDescription != null
-        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
-        : undefined,
-    TypeName: __expectString(output.TypeName),
-    VpcConfigurationDescription:
-      output.VpcConfigurationDescription != null
-        ? de_VpcConfigurationDescription(output.VpcConfigurationDescription, context)
-        : undefined,
-  } as any;
-};
+// de_ElasticsearchDestinationDescription omitted.
 
-/**
- * deserializeAws_json1_1ElasticsearchRetryOptions
- */
-const de_ElasticsearchRetryOptions = (output: any, context: __SerdeContext): ElasticsearchRetryOptions => {
-  return {
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-  } as any;
-};
+// de_ElasticsearchRetryOptions omitted.
 
-/**
- * deserializeAws_json1_1EncryptionConfiguration
- */
-const de_EncryptionConfiguration = (output: any, context: __SerdeContext): EncryptionConfiguration => {
-  return {
-    KMSEncryptionConfig:
-      output.KMSEncryptionConfig != null ? de_KMSEncryptionConfig(output.KMSEncryptionConfig, context) : undefined,
-    NoEncryptionConfig: __expectString(output.NoEncryptionConfig),
-  } as any;
-};
+// de_EncryptionConfiguration omitted.
 
 /**
  * deserializeAws_json1_1ExtendedS3DestinationDescription
@@ -2760,718 +1467,177 @@ const de_ExtendedS3DestinationDescription = (
   output: any,
   context: __SerdeContext
 ): ExtendedS3DestinationDescription => {
-  return {
-    BucketARN: __expectString(output.BucketARN),
-    BufferingHints: output.BufferingHints != null ? de_BufferingHints(output.BufferingHints, context) : undefined,
-    CloudWatchLoggingOptions:
-      output.CloudWatchLoggingOptions != null
-        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
-        : undefined,
-    CompressionFormat: __expectString(output.CompressionFormat),
-    DataFormatConversionConfiguration:
-      output.DataFormatConversionConfiguration != null
-        ? de_DataFormatConversionConfiguration(output.DataFormatConversionConfiguration, context)
-        : undefined,
-    DynamicPartitioningConfiguration:
-      output.DynamicPartitioningConfiguration != null
-        ? de_DynamicPartitioningConfiguration(output.DynamicPartitioningConfiguration, context)
-        : undefined,
-    EncryptionConfiguration:
-      output.EncryptionConfiguration != null
-        ? de_EncryptionConfiguration(output.EncryptionConfiguration, context)
-        : undefined,
-    ErrorOutputPrefix: __expectString(output.ErrorOutputPrefix),
-    Prefix: __expectString(output.Prefix),
-    ProcessingConfiguration:
-      output.ProcessingConfiguration != null
-        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
-        : undefined,
-    RoleARN: __expectString(output.RoleARN),
-    S3BackupDescription:
-      output.S3BackupDescription != null ? de_S3DestinationDescription(output.S3BackupDescription, context) : undefined,
-    S3BackupMode: __expectString(output.S3BackupMode),
-  } as any;
+  return take(output, {
+    BucketARN: __expectString,
+    BufferingHints: _json,
+    CloudWatchLoggingOptions: _json,
+    CompressionFormat: __expectString,
+    DataFormatConversionConfiguration: (_: any) => de_DataFormatConversionConfiguration(_, context),
+    DynamicPartitioningConfiguration: _json,
+    EncryptionConfiguration: _json,
+    ErrorOutputPrefix: __expectString,
+    Prefix: __expectString,
+    ProcessingConfiguration: _json,
+    RoleARN: __expectString,
+    S3BackupDescription: _json,
+    S3BackupMode: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1FailureDescription
- */
-const de_FailureDescription = (output: any, context: __SerdeContext): FailureDescription => {
-  return {
-    Details: __expectString(output.Details),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_FailureDescription omitted.
 
-/**
- * deserializeAws_json1_1HiveJsonSerDe
- */
-const de_HiveJsonSerDe = (output: any, context: __SerdeContext): HiveJsonSerDe => {
-  return {
-    TimestampFormats:
-      output.TimestampFormats != null ? de_ListOfNonEmptyStrings(output.TimestampFormats, context) : undefined,
-  } as any;
-};
+// de_HiveJsonSerDe omitted.
 
-/**
- * deserializeAws_json1_1HttpEndpointBufferingHints
- */
-const de_HttpEndpointBufferingHints = (output: any, context: __SerdeContext): HttpEndpointBufferingHints => {
-  return {
-    IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
-    SizeInMBs: __expectInt32(output.SizeInMBs),
-  } as any;
-};
+// de_HttpEndpointBufferingHints omitted.
 
-/**
- * deserializeAws_json1_1HttpEndpointCommonAttribute
- */
-const de_HttpEndpointCommonAttribute = (output: any, context: __SerdeContext): HttpEndpointCommonAttribute => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    AttributeValue: __expectString(output.AttributeValue),
-  } as any;
-};
+// de_HttpEndpointCommonAttribute omitted.
 
-/**
- * deserializeAws_json1_1HttpEndpointCommonAttributesList
- */
-const de_HttpEndpointCommonAttributesList = (output: any, context: __SerdeContext): HttpEndpointCommonAttribute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HttpEndpointCommonAttribute(entry, context);
-    });
-  return retVal;
-};
+// de_HttpEndpointCommonAttributesList omitted.
 
-/**
- * deserializeAws_json1_1HttpEndpointDescription
- */
-const de_HttpEndpointDescription = (output: any, context: __SerdeContext): HttpEndpointDescription => {
-  return {
-    Name: __expectString(output.Name),
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_HttpEndpointDescription omitted.
 
-/**
- * deserializeAws_json1_1HttpEndpointDestinationDescription
- */
-const de_HttpEndpointDestinationDescription = (
-  output: any,
-  context: __SerdeContext
-): HttpEndpointDestinationDescription => {
-  return {
-    BufferingHints:
-      output.BufferingHints != null ? de_HttpEndpointBufferingHints(output.BufferingHints, context) : undefined,
-    CloudWatchLoggingOptions:
-      output.CloudWatchLoggingOptions != null
-        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
-        : undefined,
-    EndpointConfiguration:
-      output.EndpointConfiguration != null
-        ? de_HttpEndpointDescription(output.EndpointConfiguration, context)
-        : undefined,
-    ProcessingConfiguration:
-      output.ProcessingConfiguration != null
-        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
-        : undefined,
-    RequestConfiguration:
-      output.RequestConfiguration != null
-        ? de_HttpEndpointRequestConfiguration(output.RequestConfiguration, context)
-        : undefined,
-    RetryOptions: output.RetryOptions != null ? de_HttpEndpointRetryOptions(output.RetryOptions, context) : undefined,
-    RoleARN: __expectString(output.RoleARN),
-    S3BackupMode: __expectString(output.S3BackupMode),
-    S3DestinationDescription:
-      output.S3DestinationDescription != null
-        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
-        : undefined,
-  } as any;
-};
+// de_HttpEndpointDestinationDescription omitted.
 
-/**
- * deserializeAws_json1_1HttpEndpointRequestConfiguration
- */
-const de_HttpEndpointRequestConfiguration = (
-  output: any,
-  context: __SerdeContext
-): HttpEndpointRequestConfiguration => {
-  return {
-    CommonAttributes:
-      output.CommonAttributes != null
-        ? de_HttpEndpointCommonAttributesList(output.CommonAttributes, context)
-        : undefined,
-    ContentEncoding: __expectString(output.ContentEncoding),
-  } as any;
-};
+// de_HttpEndpointRequestConfiguration omitted.
 
-/**
- * deserializeAws_json1_1HttpEndpointRetryOptions
- */
-const de_HttpEndpointRetryOptions = (output: any, context: __SerdeContext): HttpEndpointRetryOptions => {
-  return {
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-  } as any;
-};
+// de_HttpEndpointRetryOptions omitted.
 
-/**
- * deserializeAws_json1_1InputFormatConfiguration
- */
-const de_InputFormatConfiguration = (output: any, context: __SerdeContext): InputFormatConfiguration => {
-  return {
-    Deserializer: output.Deserializer != null ? de_Deserializer(output.Deserializer, context) : undefined,
-  } as any;
-};
+// de_InputFormatConfiguration omitted.
 
-/**
- * deserializeAws_json1_1InvalidArgumentException
- */
-const de_InvalidArgumentException = (output: any, context: __SerdeContext): InvalidArgumentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidArgumentException omitted.
 
-/**
- * deserializeAws_json1_1InvalidKMSResourceException
- */
-const de_InvalidKMSResourceException = (output: any, context: __SerdeContext): InvalidKMSResourceException => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidKMSResourceException omitted.
 
 /**
  * deserializeAws_json1_1KinesisStreamSourceDescription
  */
 const de_KinesisStreamSourceDescription = (output: any, context: __SerdeContext): KinesisStreamSourceDescription => {
-  return {
-    DeliveryStartTimestamp:
-      output.DeliveryStartTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryStartTimestamp)))
-        : undefined,
-    KinesisStreamARN: __expectString(output.KinesisStreamARN),
-    RoleARN: __expectString(output.RoleARN),
-  } as any;
+  return take(output, {
+    DeliveryStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KinesisStreamARN: __expectString,
+    RoleARN: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1KMSEncryptionConfig
- */
-const de_KMSEncryptionConfig = (output: any, context: __SerdeContext): KMSEncryptionConfig => {
-  return {
-    AWSKMSKeyARN: __expectString(output.AWSKMSKeyARN),
-  } as any;
-};
+// de_KMSEncryptionConfig omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListDeliveryStreamsOutput
- */
-const de_ListDeliveryStreamsOutput = (output: any, context: __SerdeContext): ListDeliveryStreamsOutput => {
-  return {
-    DeliveryStreamNames:
-      output.DeliveryStreamNames != null ? de_DeliveryStreamNameList(output.DeliveryStreamNames, context) : undefined,
-    HasMoreDeliveryStreams: __expectBoolean(output.HasMoreDeliveryStreams),
-  } as any;
-};
+// de_ListDeliveryStreamsOutput omitted.
 
-/**
- * deserializeAws_json1_1ListOfNonEmptyStrings
- */
-const de_ListOfNonEmptyStrings = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfNonEmptyStrings omitted.
 
-/**
- * deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace
- */
-const de_ListOfNonEmptyStringsWithoutWhitespace = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ListOfNonEmptyStringsWithoutWhitespace omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForDeliveryStreamOutput
- */
-const de_ListTagsForDeliveryStreamOutput = (output: any, context: __SerdeContext): ListTagsForDeliveryStreamOutput => {
-  return {
-    HasMoreTags: __expectBoolean(output.HasMoreTags),
-    Tags: output.Tags != null ? de_ListTagsForDeliveryStreamOutputTagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForDeliveryStreamOutput omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList
- */
-const de_ListTagsForDeliveryStreamOutputTagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_ListTagsForDeliveryStreamOutputTagList omitted.
 
-/**
- * deserializeAws_json1_1OpenXJsonSerDe
- */
-const de_OpenXJsonSerDe = (output: any, context: __SerdeContext): OpenXJsonSerDe => {
-  return {
-    CaseInsensitive: __expectBoolean(output.CaseInsensitive),
-    ColumnToJsonKeyMappings:
-      output.ColumnToJsonKeyMappings != null
-        ? de_ColumnToJsonKeyMappings(output.ColumnToJsonKeyMappings, context)
-        : undefined,
-    ConvertDotsInJsonKeysToUnderscores: __expectBoolean(output.ConvertDotsInJsonKeysToUnderscores),
-  } as any;
-};
+// de_OpenXJsonSerDe omitted.
 
 /**
  * deserializeAws_json1_1OrcSerDe
  */
 const de_OrcSerDe = (output: any, context: __SerdeContext): OrcSerDe => {
-  return {
-    BlockSizeBytes: __expectInt32(output.BlockSizeBytes),
-    BloomFilterColumns:
-      output.BloomFilterColumns != null
-        ? de_ListOfNonEmptyStringsWithoutWhitespace(output.BloomFilterColumns, context)
-        : undefined,
-    BloomFilterFalsePositiveProbability: __limitedParseDouble(output.BloomFilterFalsePositiveProbability),
-    Compression: __expectString(output.Compression),
-    DictionaryKeyThreshold: __limitedParseDouble(output.DictionaryKeyThreshold),
-    EnablePadding: __expectBoolean(output.EnablePadding),
-    FormatVersion: __expectString(output.FormatVersion),
-    PaddingTolerance: __limitedParseDouble(output.PaddingTolerance),
-    RowIndexStride: __expectInt32(output.RowIndexStride),
-    StripeSizeBytes: __expectInt32(output.StripeSizeBytes),
-  } as any;
+  return take(output, {
+    BlockSizeBytes: __expectInt32,
+    BloomFilterColumns: _json,
+    BloomFilterFalsePositiveProbability: __limitedParseDouble,
+    Compression: __expectString,
+    DictionaryKeyThreshold: __limitedParseDouble,
+    EnablePadding: __expectBoolean,
+    FormatVersion: __expectString,
+    PaddingTolerance: __limitedParseDouble,
+    RowIndexStride: __expectInt32,
+    StripeSizeBytes: __expectInt32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1OutputFormatConfiguration
  */
 const de_OutputFormatConfiguration = (output: any, context: __SerdeContext): OutputFormatConfiguration => {
-  return {
-    Serializer: output.Serializer != null ? de_Serializer(output.Serializer, context) : undefined,
-  } as any;
+  return take(output, {
+    Serializer: (_: any) => de_Serializer(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ParquetSerDe
- */
-const de_ParquetSerDe = (output: any, context: __SerdeContext): ParquetSerDe => {
-  return {
-    BlockSizeBytes: __expectInt32(output.BlockSizeBytes),
-    Compression: __expectString(output.Compression),
-    EnableDictionaryCompression: __expectBoolean(output.EnableDictionaryCompression),
-    MaxPaddingBytes: __expectInt32(output.MaxPaddingBytes),
-    PageSizeBytes: __expectInt32(output.PageSizeBytes),
-    WriterVersion: __expectString(output.WriterVersion),
-  } as any;
-};
+// de_ParquetSerDe omitted.
 
-/**
- * deserializeAws_json1_1ProcessingConfiguration
- */
-const de_ProcessingConfiguration = (output: any, context: __SerdeContext): ProcessingConfiguration => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    Processors: output.Processors != null ? de_ProcessorList(output.Processors, context) : undefined,
-  } as any;
-};
+// de_ProcessingConfiguration omitted.
 
-/**
- * deserializeAws_json1_1Processor
- */
-const de_Processor = (output: any, context: __SerdeContext): Processor => {
-  return {
-    Parameters: output.Parameters != null ? de_ProcessorParameterList(output.Parameters, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Processor omitted.
 
-/**
- * deserializeAws_json1_1ProcessorList
- */
-const de_ProcessorList = (output: any, context: __SerdeContext): Processor[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Processor(entry, context);
-    });
-  return retVal;
-};
+// de_ProcessorList omitted.
 
-/**
- * deserializeAws_json1_1ProcessorParameter
- */
-const de_ProcessorParameter = (output: any, context: __SerdeContext): ProcessorParameter => {
-  return {
-    ParameterName: __expectString(output.ParameterName),
-    ParameterValue: __expectString(output.ParameterValue),
-  } as any;
-};
+// de_ProcessorParameter omitted.
 
-/**
- * deserializeAws_json1_1ProcessorParameterList
- */
-const de_ProcessorParameterList = (output: any, context: __SerdeContext): ProcessorParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProcessorParameter(entry, context);
-    });
-  return retVal;
-};
+// de_ProcessorParameterList omitted.
 
-/**
- * deserializeAws_json1_1PutRecordBatchOutput
- */
-const de_PutRecordBatchOutput = (output: any, context: __SerdeContext): PutRecordBatchOutput => {
-  return {
-    Encrypted: __expectBoolean(output.Encrypted),
-    FailedPutCount: __expectInt32(output.FailedPutCount),
-    RequestResponses:
-      output.RequestResponses != null
-        ? de_PutRecordBatchResponseEntryList(output.RequestResponses, context)
-        : undefined,
-  } as any;
-};
+// de_PutRecordBatchOutput omitted.
 
-/**
- * deserializeAws_json1_1PutRecordBatchResponseEntry
- */
-const de_PutRecordBatchResponseEntry = (output: any, context: __SerdeContext): PutRecordBatchResponseEntry => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    RecordId: __expectString(output.RecordId),
-  } as any;
-};
+// de_PutRecordBatchResponseEntry omitted.
 
-/**
- * deserializeAws_json1_1PutRecordBatchResponseEntryList
- */
-const de_PutRecordBatchResponseEntryList = (output: any, context: __SerdeContext): PutRecordBatchResponseEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PutRecordBatchResponseEntry(entry, context);
-    });
-  return retVal;
-};
+// de_PutRecordBatchResponseEntryList omitted.
 
-/**
- * deserializeAws_json1_1PutRecordOutput
- */
-const de_PutRecordOutput = (output: any, context: __SerdeContext): PutRecordOutput => {
-  return {
-    Encrypted: __expectBoolean(output.Encrypted),
-    RecordId: __expectString(output.RecordId),
-  } as any;
-};
+// de_PutRecordOutput omitted.
 
-/**
- * deserializeAws_json1_1RedshiftDestinationDescription
- */
-const de_RedshiftDestinationDescription = (output: any, context: __SerdeContext): RedshiftDestinationDescription => {
-  return {
-    CloudWatchLoggingOptions:
-      output.CloudWatchLoggingOptions != null
-        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
-        : undefined,
-    ClusterJDBCURL: __expectString(output.ClusterJDBCURL),
-    CopyCommand: output.CopyCommand != null ? de_CopyCommand(output.CopyCommand, context) : undefined,
-    ProcessingConfiguration:
-      output.ProcessingConfiguration != null
-        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
-        : undefined,
-    RetryOptions: output.RetryOptions != null ? de_RedshiftRetryOptions(output.RetryOptions, context) : undefined,
-    RoleARN: __expectString(output.RoleARN),
-    S3BackupDescription:
-      output.S3BackupDescription != null ? de_S3DestinationDescription(output.S3BackupDescription, context) : undefined,
-    S3BackupMode: __expectString(output.S3BackupMode),
-    S3DestinationDescription:
-      output.S3DestinationDescription != null
-        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
-        : undefined,
-    Username: __expectString(output.Username),
-  } as any;
-};
+// de_RedshiftDestinationDescription omitted.
 
-/**
- * deserializeAws_json1_1RedshiftRetryOptions
- */
-const de_RedshiftRetryOptions = (output: any, context: __SerdeContext): RedshiftRetryOptions => {
-  return {
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-  } as any;
-};
+// de_RedshiftRetryOptions omitted.
 
-/**
- * deserializeAws_json1_1ResourceInUseException
- */
-const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1RetryOptions
- */
-const de_RetryOptions = (output: any, context: __SerdeContext): RetryOptions => {
-  return {
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-  } as any;
-};
+// de_RetryOptions omitted.
 
-/**
- * deserializeAws_json1_1S3DestinationDescription
- */
-const de_S3DestinationDescription = (output: any, context: __SerdeContext): S3DestinationDescription => {
-  return {
-    BucketARN: __expectString(output.BucketARN),
-    BufferingHints: output.BufferingHints != null ? de_BufferingHints(output.BufferingHints, context) : undefined,
-    CloudWatchLoggingOptions:
-      output.CloudWatchLoggingOptions != null
-        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
-        : undefined,
-    CompressionFormat: __expectString(output.CompressionFormat),
-    EncryptionConfiguration:
-      output.EncryptionConfiguration != null
-        ? de_EncryptionConfiguration(output.EncryptionConfiguration, context)
-        : undefined,
-    ErrorOutputPrefix: __expectString(output.ErrorOutputPrefix),
-    Prefix: __expectString(output.Prefix),
-    RoleARN: __expectString(output.RoleARN),
-  } as any;
-};
+// de_S3DestinationDescription omitted.
 
-/**
- * deserializeAws_json1_1SchemaConfiguration
- */
-const de_SchemaConfiguration = (output: any, context: __SerdeContext): SchemaConfiguration => {
-  return {
-    CatalogId: __expectString(output.CatalogId),
-    DatabaseName: __expectString(output.DatabaseName),
-    Region: __expectString(output.Region),
-    RoleARN: __expectString(output.RoleARN),
-    TableName: __expectString(output.TableName),
-    VersionId: __expectString(output.VersionId),
-  } as any;
-};
+// de_SchemaConfiguration omitted.
 
-/**
- * deserializeAws_json1_1SecurityGroupIdList
- */
-const de_SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroupIdList omitted.
 
 /**
  * deserializeAws_json1_1Serializer
  */
 const de_Serializer = (output: any, context: __SerdeContext): Serializer => {
-  return {
-    OrcSerDe: output.OrcSerDe != null ? de_OrcSerDe(output.OrcSerDe, context) : undefined,
-    ParquetSerDe: output.ParquetSerDe != null ? de_ParquetSerDe(output.ParquetSerDe, context) : undefined,
-  } as any;
+  return take(output, {
+    OrcSerDe: (_: any) => de_OrcSerDe(_, context),
+    ParquetSerDe: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ServiceUnavailableException
- */
-const de_ServiceUnavailableException = (output: any, context: __SerdeContext): ServiceUnavailableException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ServiceUnavailableException omitted.
 
 /**
  * deserializeAws_json1_1SourceDescription
  */
 const de_SourceDescription = (output: any, context: __SerdeContext): SourceDescription => {
-  return {
-    KinesisStreamSourceDescription:
-      output.KinesisStreamSourceDescription != null
-        ? de_KinesisStreamSourceDescription(output.KinesisStreamSourceDescription, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    KinesisStreamSourceDescription: (_: any) => de_KinesisStreamSourceDescription(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SplunkDestinationDescription
- */
-const de_SplunkDestinationDescription = (output: any, context: __SerdeContext): SplunkDestinationDescription => {
-  return {
-    CloudWatchLoggingOptions:
-      output.CloudWatchLoggingOptions != null
-        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
-        : undefined,
-    HECAcknowledgmentTimeoutInSeconds: __expectInt32(output.HECAcknowledgmentTimeoutInSeconds),
-    HECEndpoint: __expectString(output.HECEndpoint),
-    HECEndpointType: __expectString(output.HECEndpointType),
-    HECToken: __expectString(output.HECToken),
-    ProcessingConfiguration:
-      output.ProcessingConfiguration != null
-        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
-        : undefined,
-    RetryOptions: output.RetryOptions != null ? de_SplunkRetryOptions(output.RetryOptions, context) : undefined,
-    S3BackupMode: __expectString(output.S3BackupMode),
-    S3DestinationDescription:
-      output.S3DestinationDescription != null
-        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
-        : undefined,
-  } as any;
-};
+// de_SplunkDestinationDescription omitted.
 
-/**
- * deserializeAws_json1_1SplunkRetryOptions
- */
-const de_SplunkRetryOptions = (output: any, context: __SerdeContext): SplunkRetryOptions => {
-  return {
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-  } as any;
-};
+// de_SplunkRetryOptions omitted.
 
-/**
- * deserializeAws_json1_1StartDeliveryStreamEncryptionOutput
- */
-const de_StartDeliveryStreamEncryptionOutput = (
-  output: any,
-  context: __SerdeContext
-): StartDeliveryStreamEncryptionOutput => {
-  return {} as any;
-};
+// de_StartDeliveryStreamEncryptionOutput omitted.
 
-/**
- * deserializeAws_json1_1StopDeliveryStreamEncryptionOutput
- */
-const de_StopDeliveryStreamEncryptionOutput = (
-  output: any,
-  context: __SerdeContext
-): StopDeliveryStreamEncryptionOutput => {
-  return {} as any;
-};
+// de_StopDeliveryStreamEncryptionOutput omitted.
 
-/**
- * deserializeAws_json1_1SubnetIdList
- */
-const de_SubnetIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIdList omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagDeliveryStreamOutput
- */
-const de_TagDeliveryStreamOutput = (output: any, context: __SerdeContext): TagDeliveryStreamOutput => {
-  return {} as any;
-};
+// de_TagDeliveryStreamOutput omitted.
 
-/**
- * deserializeAws_json1_1UntagDeliveryStreamOutput
- */
-const de_UntagDeliveryStreamOutput = (output: any, context: __SerdeContext): UntagDeliveryStreamOutput => {
-  return {} as any;
-};
+// de_UntagDeliveryStreamOutput omitted.
 
-/**
- * deserializeAws_json1_1UpdateDestinationOutput
- */
-const de_UpdateDestinationOutput = (output: any, context: __SerdeContext): UpdateDestinationOutput => {
-  return {} as any;
-};
+// de_UpdateDestinationOutput omitted.
 
-/**
- * deserializeAws_json1_1VpcConfigurationDescription
- */
-const de_VpcConfigurationDescription = (output: any, context: __SerdeContext): VpcConfigurationDescription => {
-  return {
-    RoleARN: __expectString(output.RoleARN),
-    SecurityGroupIds:
-      output.SecurityGroupIds != null ? de_SecurityGroupIdList(output.SecurityGroupIds, context) : undefined,
-    SubnetIds: output.SubnetIds != null ? de_SubnetIdList(output.SubnetIds, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_VpcConfigurationDescription omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3493,6 +1659,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

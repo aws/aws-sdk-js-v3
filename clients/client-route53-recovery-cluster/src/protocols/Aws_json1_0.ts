@@ -1,10 +1,9 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
-  expectString as __expectString,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -34,21 +33,15 @@ import {
   ConflictException,
   EndpointTemporarilyUnavailableException,
   GetRoutingControlStateRequest,
-  GetRoutingControlStateResponse,
   InternalServerException,
   ListRoutingControlsRequest,
-  ListRoutingControlsResponse,
   ResourceNotFoundException,
-  RoutingControl,
   ServiceLimitExceededException,
   ThrottlingException,
   UpdateRoutingControlStateEntry,
   UpdateRoutingControlStateRequest,
-  UpdateRoutingControlStateResponse,
   UpdateRoutingControlStatesRequest,
-  UpdateRoutingControlStatesResponse,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 import { Route53RecoveryClusterServiceException as __BaseException } from "../models/Route53RecoveryClusterServiceException";
 
@@ -61,7 +54,7 @@ export const se_GetRoutingControlStateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRoutingControlState");
   let body: any;
-  body = JSON.stringify(se_GetRoutingControlStateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -74,7 +67,7 @@ export const se_ListRoutingControlsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRoutingControls");
   let body: any;
-  body = JSON.stringify(se_ListRoutingControlsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -87,7 +80,7 @@ export const se_UpdateRoutingControlStateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRoutingControlState");
   let body: any;
-  body = JSON.stringify(se_UpdateRoutingControlStateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -100,7 +93,7 @@ export const se_UpdateRoutingControlStatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRoutingControlStates");
   let body: any;
-  body = JSON.stringify(se_UpdateRoutingControlStatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -116,12 +109,12 @@ export const de_GetRoutingControlStateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetRoutingControlStateResponse(data, context);
+  contents = _json(data);
   const response: GetRoutingControlStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -157,10 +150,9 @@ const de_GetRoutingControlStateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -178,12 +170,12 @@ export const de_ListRoutingControlsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListRoutingControlsResponse(data, context);
+  contents = _json(data);
   const response: ListRoutingControlsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -219,10 +211,9 @@ const de_ListRoutingControlsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -240,12 +231,12 @@ export const de_UpdateRoutingControlStateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateRoutingControlStateResponse(data, context);
+  contents = _json(data);
   const response: UpdateRoutingControlStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -284,10 +275,9 @@ const de_UpdateRoutingControlStateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -305,12 +295,12 @@ export const de_UpdateRoutingControlStatesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateRoutingControlStatesResponse(data, context);
+  contents = _json(data);
   const response: UpdateRoutingControlStatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -352,10 +342,9 @@ const de_UpdateRoutingControlStatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -369,7 +358,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -382,7 +371,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -398,7 +387,7 @@ const de_EndpointTemporarilyUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<EndpointTemporarilyUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EndpointTemporarilyUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EndpointTemporarilyUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -414,7 +403,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -430,7 +419,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -446,7 +435,7 @@ const de_ServiceLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -459,7 +448,7 @@ const de_ServiceLimitExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -472,7 +461,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -480,271 +469,51 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0Arns
- */
-const se_Arns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Arns omitted.
 
-/**
- * serializeAws_json1_0GetRoutingControlStateRequest
- */
-const se_GetRoutingControlStateRequest = (input: GetRoutingControlStateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RoutingControlArn != null && { RoutingControlArn: input.RoutingControlArn }),
-  };
-};
+// se_GetRoutingControlStateRequest omitted.
 
-/**
- * serializeAws_json1_0ListRoutingControlsRequest
- */
-const se_ListRoutingControlsRequest = (input: ListRoutingControlsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListRoutingControlsRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateRoutingControlStateEntries
- */
-const se_UpdateRoutingControlStateEntries = (input: UpdateRoutingControlStateEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpdateRoutingControlStateEntry(entry, context);
-    });
-};
+// se_UpdateRoutingControlStateEntries omitted.
 
-/**
- * serializeAws_json1_0UpdateRoutingControlStateEntry
- */
-const se_UpdateRoutingControlStateEntry = (input: UpdateRoutingControlStateEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.RoutingControlArn != null && { RoutingControlArn: input.RoutingControlArn }),
-    ...(input.RoutingControlState != null && { RoutingControlState: input.RoutingControlState }),
-  };
-};
+// se_UpdateRoutingControlStateEntry omitted.
 
-/**
- * serializeAws_json1_0UpdateRoutingControlStateRequest
- */
-const se_UpdateRoutingControlStateRequest = (input: UpdateRoutingControlStateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RoutingControlArn != null && { RoutingControlArn: input.RoutingControlArn }),
-    ...(input.RoutingControlState != null && { RoutingControlState: input.RoutingControlState }),
-    ...(input.SafetyRulesToOverride != null && {
-      SafetyRulesToOverride: se_Arns(input.SafetyRulesToOverride, context),
-    }),
-  };
-};
+// se_UpdateRoutingControlStateRequest omitted.
 
-/**
- * serializeAws_json1_0UpdateRoutingControlStatesRequest
- */
-const se_UpdateRoutingControlStatesRequest = (
-  input: UpdateRoutingControlStatesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SafetyRulesToOverride != null && {
-      SafetyRulesToOverride: se_Arns(input.SafetyRulesToOverride, context),
-    }),
-    ...(input.UpdateRoutingControlStateEntries != null && {
-      UpdateRoutingControlStateEntries: se_UpdateRoutingControlStateEntries(
-        input.UpdateRoutingControlStateEntries,
-        context
-      ),
-    }),
-  };
-};
+// se_UpdateRoutingControlStatesRequest omitted.
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-    resourceId: __expectString(output.resourceId),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_0EndpointTemporarilyUnavailableException
- */
-const de_EndpointTemporarilyUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): EndpointTemporarilyUnavailableException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_EndpointTemporarilyUnavailableException omitted.
 
-/**
- * deserializeAws_json1_0GetRoutingControlStateResponse
- */
-const de_GetRoutingControlStateResponse = (output: any, context: __SerdeContext): GetRoutingControlStateResponse => {
-  return {
-    RoutingControlArn: __expectString(output.RoutingControlArn),
-    RoutingControlName: __expectString(output.RoutingControlName),
-    RoutingControlState: __expectString(output.RoutingControlState),
-  } as any;
-};
+// de_GetRoutingControlStateResponse omitted.
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    message: __expectString(output.message),
-    retryAfterSeconds: __expectInt32(output.retryAfterSeconds),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_0ListRoutingControlsResponse
- */
-const de_ListRoutingControlsResponse = (output: any, context: __SerdeContext): ListRoutingControlsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RoutingControls: output.RoutingControls != null ? de_RoutingControls(output.RoutingControls, context) : undefined,
-  } as any;
-};
+// de_ListRoutingControlsResponse omitted.
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-    resourceId: __expectString(output.resourceId),
-    resourceType: __expectString(output.resourceType),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0RoutingControl
- */
-const de_RoutingControl = (output: any, context: __SerdeContext): RoutingControl => {
-  return {
-    ControlPanelArn: __expectString(output.ControlPanelArn),
-    ControlPanelName: __expectString(output.ControlPanelName),
-    RoutingControlArn: __expectString(output.RoutingControlArn),
-    RoutingControlName: __expectString(output.RoutingControlName),
-    RoutingControlState: __expectString(output.RoutingControlState),
-  } as any;
-};
+// de_RoutingControl omitted.
 
-/**
- * deserializeAws_json1_0RoutingControls
- */
-const de_RoutingControls = (output: any, context: __SerdeContext): RoutingControl[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RoutingControl(entry, context);
-    });
-  return retVal;
-};
+// de_RoutingControls omitted.
 
-/**
- * deserializeAws_json1_0ServiceLimitExceededException
- */
-const de_ServiceLimitExceededException = (output: any, context: __SerdeContext): ServiceLimitExceededException => {
-  return {
-    limitCode: __expectString(output.limitCode),
-    message: __expectString(output.message),
-    resourceId: __expectString(output.resourceId),
-    resourceType: __expectString(output.resourceType),
-    serviceCode: __expectString(output.serviceCode),
-  } as any;
-};
+// de_ServiceLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    message: __expectString(output.message),
-    retryAfterSeconds: __expectInt32(output.retryAfterSeconds),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_0UpdateRoutingControlStateResponse
- */
-const de_UpdateRoutingControlStateResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateRoutingControlStateResponse => {
-  return {} as any;
-};
+// de_UpdateRoutingControlStateResponse omitted.
 
-/**
- * deserializeAws_json1_0UpdateRoutingControlStatesResponse
- */
-const de_UpdateRoutingControlStatesResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateRoutingControlStatesResponse => {
-  return {} as any;
-};
+// de_UpdateRoutingControlStatesResponse omitted.
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    fields: output.fields != null ? de_ValidationExceptionFieldList(output.fields, context) : undefined,
-    message: __expectString(output.message),
-    reason: __expectString(output.reason),
-  } as any;
-};
+// de_ValidationException omitted.
 
-/**
- * deserializeAws_json1_0ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_json1_0ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -766,6 +535,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

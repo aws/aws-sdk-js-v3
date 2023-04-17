@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -53,11 +55,9 @@ import {
   AccessDeniedException,
   ConflictException,
   CreateFHIRDatastoreRequest,
-  CreateFHIRDatastoreResponse,
   DatastoreFilter,
   DatastoreProperties,
   DeleteFHIRDatastoreRequest,
-  DeleteFHIRDatastoreResponse,
   DescribeFHIRDatastoreRequest,
   DescribeFHIRDatastoreResponse,
   DescribeFHIRExportJobRequest,
@@ -76,22 +76,17 @@ import {
   ListFHIRImportJobsRequest,
   ListFHIRImportJobsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   OutputDataConfig,
   PreloadDataConfig,
   ResourceNotFoundException,
   S3Configuration,
   SseConfiguration,
   StartFHIRExportJobRequest,
-  StartFHIRExportJobResponse,
   StartFHIRImportJobRequest,
-  StartFHIRImportJobResponse,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   ThrottlingException,
   UntagResourceRequest,
-  UntagResourceResponse,
   ValidationException,
 } from "../models/models_0";
 
@@ -117,7 +112,7 @@ export const se_DeleteFHIRDatastoreCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFHIRDatastore");
   let body: any;
-  body = JSON.stringify(se_DeleteFHIRDatastoreRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -130,7 +125,7 @@ export const se_DescribeFHIRDatastoreCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFHIRDatastore");
   let body: any;
-  body = JSON.stringify(se_DescribeFHIRDatastoreRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -143,7 +138,7 @@ export const se_DescribeFHIRExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFHIRExportJob");
   let body: any;
-  body = JSON.stringify(se_DescribeFHIRExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -156,7 +151,7 @@ export const se_DescribeFHIRImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFHIRImportJob");
   let body: any;
-  body = JSON.stringify(se_DescribeFHIRImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -208,7 +203,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -247,7 +242,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -260,7 +255,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -276,12 +271,12 @@ export const de_CreateFHIRDatastoreCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateFHIRDatastoreResponse(data, context);
+  contents = _json(data);
   const response: CreateFHIRDatastoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -311,10 +306,9 @@ const de_CreateFHIRDatastoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -332,12 +326,12 @@ export const de_DeleteFHIRDatastoreCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteFHIRDatastoreResponse(data, context);
+  contents = _json(data);
   const response: DeleteFHIRDatastoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -373,10 +367,9 @@ const de_DeleteFHIRDatastoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -399,7 +392,7 @@ export const de_DescribeFHIRDatastoreCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -429,10 +422,9 @@ const de_DescribeFHIRDatastoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -455,7 +447,7 @@ export const de_DescribeFHIRExportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -485,10 +477,9 @@ const de_DescribeFHIRExportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -511,7 +502,7 @@ export const de_DescribeFHIRImportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -541,10 +532,9 @@ const de_DescribeFHIRImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -567,7 +557,7 @@ export const de_ListFHIRDatastoresCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -594,10 +584,9 @@ const de_ListFHIRDatastoresCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -620,7 +609,7 @@ export const de_ListFHIRExportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -653,10 +642,9 @@ const de_ListFHIRExportJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -679,7 +667,7 @@ export const de_ListFHIRImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -712,10 +700,9 @@ const de_ListFHIRImportJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -733,12 +720,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -762,10 +749,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -783,12 +769,12 @@ export const de_StartFHIRExportJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartFHIRExportJobResponse(data, context);
+  contents = _json(data);
   const response: StartFHIRExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -821,10 +807,9 @@ const de_StartFHIRExportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -842,12 +827,12 @@ export const de_StartFHIRImportJobCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartFHIRImportJobResponse(data, context);
+  contents = _json(data);
   const response: StartFHIRImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -880,10 +865,9 @@ const de_StartFHIRImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -901,12 +885,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -930,10 +914,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -951,12 +934,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -980,10 +963,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -997,7 +979,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1010,7 +992,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1026,7 +1008,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1042,7 +1024,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1055,7 +1037,7 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1068,7 +1050,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1080,307 +1062,149 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * serializeAws_json1_0CreateFHIRDatastoreRequest
  */
 const se_CreateFHIRDatastoreRequest = (input: CreateFHIRDatastoreRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DatastoreName != null && { DatastoreName: input.DatastoreName }),
-    ...(input.DatastoreTypeVersion != null && { DatastoreTypeVersion: input.DatastoreTypeVersion }),
-    ...(input.PreloadDataConfig != null && {
-      PreloadDataConfig: se_PreloadDataConfig(input.PreloadDataConfig, context),
-    }),
-    ...(input.SseConfiguration != null && { SseConfiguration: se_SseConfiguration(input.SseConfiguration, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DatastoreName: [],
+    DatastoreTypeVersion: [],
+    PreloadDataConfig: _json,
+    SseConfiguration: _json,
+    Tags: _json,
+  });
 };
 
 /**
  * serializeAws_json1_0DatastoreFilter
  */
 const se_DatastoreFilter = (input: DatastoreFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.CreatedAfter != null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
-    ...(input.CreatedBefore != null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
-    ...(input.DatastoreName != null && { DatastoreName: input.DatastoreName }),
-    ...(input.DatastoreStatus != null && { DatastoreStatus: input.DatastoreStatus }),
-  };
-};
-
-/**
- * serializeAws_json1_0DeleteFHIRDatastoreRequest
- */
-const se_DeleteFHIRDatastoreRequest = (input: DeleteFHIRDatastoreRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-  };
-};
-
-/**
- * serializeAws_json1_0DescribeFHIRDatastoreRequest
- */
-const se_DescribeFHIRDatastoreRequest = (input: DescribeFHIRDatastoreRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-  };
-};
-
-/**
- * serializeAws_json1_0DescribeFHIRExportJobRequest
- */
-const se_DescribeFHIRExportJobRequest = (input: DescribeFHIRExportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
-
-/**
- * serializeAws_json1_0DescribeFHIRImportJobRequest
- */
-const se_DescribeFHIRImportJobRequest = (input: DescribeFHIRImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
-
-/**
- * serializeAws_json1_0InputDataConfig
- */
-const se_InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return InputDataConfig.visit(input, {
-    S3Uri: (value) => ({ S3Uri: value }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
+    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    DatastoreName: [],
+    DatastoreStatus: [],
   });
 };
 
-/**
- * serializeAws_json1_0KmsEncryptionConfig
- */
-const se_KmsEncryptionConfig = (input: KmsEncryptionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.CmkType != null && { CmkType: input.CmkType }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-  };
-};
+// se_DeleteFHIRDatastoreRequest omitted.
+
+// se_DescribeFHIRDatastoreRequest omitted.
+
+// se_DescribeFHIRExportJobRequest omitted.
+
+// se_DescribeFHIRImportJobRequest omitted.
+
+// se_InputDataConfig omitted.
+
+// se_KmsEncryptionConfig omitted.
 
 /**
  * serializeAws_json1_0ListFHIRDatastoresRequest
  */
 const se_ListFHIRDatastoresRequest = (input: ListFHIRDatastoresRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filter != null && { Filter: se_DatastoreFilter(input.Filter, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
+  return take(input, {
+    Filter: (_) => se_DatastoreFilter(_, context),
+    MaxResults: [],
+    NextToken: [],
+  });
 };
 
 /**
  * serializeAws_json1_0ListFHIRExportJobsRequest
  */
 const se_ListFHIRExportJobsRequest = (input: ListFHIRExportJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SubmittedAfter != null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
-    ...(input.SubmittedBefore != null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
-  };
+  return take(input, {
+    DatastoreId: [],
+    JobName: [],
+    JobStatus: [],
+    MaxResults: [],
+    NextToken: [],
+    SubmittedAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmittedBefore: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_json1_0ListFHIRImportJobsRequest
  */
 const se_ListFHIRImportJobsRequest = (input: ListFHIRImportJobsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SubmittedAfter != null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
-    ...(input.SubmittedBefore != null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
-  };
-};
-
-/**
- * serializeAws_json1_0ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
-
-/**
- * serializeAws_json1_0OutputDataConfig
- */
-const se_OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
-  return OutputDataConfig.visit(input, {
-    S3Configuration: (value) => ({ S3Configuration: se_S3Configuration(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    DatastoreId: [],
+    JobName: [],
+    JobStatus: [],
+    MaxResults: [],
+    NextToken: [],
+    SubmittedAfter: (_) => Math.round(_.getTime() / 1000),
+    SubmittedBefore: (_) => Math.round(_.getTime() / 1000),
   });
 };
 
-/**
- * serializeAws_json1_0PreloadDataConfig
- */
-const se_PreloadDataConfig = (input: PreloadDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.PreloadDataType != null && { PreloadDataType: input.PreloadDataType }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_0S3Configuration
- */
-const se_S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_OutputDataConfig omitted.
 
-/**
- * serializeAws_json1_0SseConfiguration
- */
-const se_SseConfiguration = (input: SseConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsEncryptionConfig != null && {
-      KmsEncryptionConfig: se_KmsEncryptionConfig(input.KmsEncryptionConfig, context),
-    }),
-  };
-};
+// se_PreloadDataConfig omitted.
+
+// se_S3Configuration omitted.
+
+// se_SseConfiguration omitted.
 
 /**
  * serializeAws_json1_0StartFHIRExportJobRequest
  */
 const se_StartFHIRExportJobRequest = (input: StartFHIRExportJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig != null && { OutputDataConfig: se_OutputDataConfig(input.OutputDataConfig, context) }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    DatastoreId: [],
+    JobName: [],
+    OutputDataConfig: _json,
+  });
 };
 
 /**
  * serializeAws_json1_0StartFHIRImportJobRequest
  */
 const se_StartFHIRImportJobRequest = (input: StartFHIRImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DatastoreId != null && { DatastoreId: input.DatastoreId }),
-    ...(input.InputDataConfig != null && { InputDataConfig: se_InputDataConfig(input.InputDataConfig, context) }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.JobOutputDataConfig != null && {
-      JobOutputDataConfig: se_OutputDataConfig(input.JobOutputDataConfig, context),
-    }),
-  };
+  return take(input, {
+    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    DataAccessRoleArn: [],
+    DatastoreId: [],
+    InputDataConfig: _json,
+    JobName: [],
+    JobOutputDataConfig: _json,
+  });
 };
 
-/**
- * serializeAws_json1_0Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_0TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_0TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_0TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_0UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * deserializeAws_json1_0AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_0ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_0CreateFHIRDatastoreResponse
- */
-const de_CreateFHIRDatastoreResponse = (output: any, context: __SerdeContext): CreateFHIRDatastoreResponse => {
-  return {
-    DatastoreArn: __expectString(output.DatastoreArn),
-    DatastoreEndpoint: __expectString(output.DatastoreEndpoint),
-    DatastoreId: __expectString(output.DatastoreId),
-    DatastoreStatus: __expectString(output.DatastoreStatus),
-  } as any;
-};
+// de_CreateFHIRDatastoreResponse omitted.
 
 /**
  * deserializeAws_json1_0DatastoreProperties
  */
 const de_DatastoreProperties = (output: any, context: __SerdeContext): DatastoreProperties => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DatastoreArn: __expectString(output.DatastoreArn),
-    DatastoreEndpoint: __expectString(output.DatastoreEndpoint),
-    DatastoreId: __expectString(output.DatastoreId),
-    DatastoreName: __expectString(output.DatastoreName),
-    DatastoreStatus: __expectString(output.DatastoreStatus),
-    DatastoreTypeVersion: __expectString(output.DatastoreTypeVersion),
-    PreloadDataConfig:
-      output.PreloadDataConfig != null ? de_PreloadDataConfig(output.PreloadDataConfig, context) : undefined,
-    SseConfiguration:
-      output.SseConfiguration != null ? de_SseConfiguration(output.SseConfiguration, context) : undefined,
-  } as any;
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatastoreArn: __expectString,
+    DatastoreEndpoint: __expectString,
+    DatastoreId: __expectString,
+    DatastoreName: __expectString,
+    DatastoreStatus: __expectString,
+    DatastoreTypeVersion: __expectString,
+    PreloadDataConfig: _json,
+    SseConfiguration: _json,
+  }) as any;
 };
 
 /**
@@ -1390,76 +1214,55 @@ const de_DatastorePropertiesList = (output: any, context: __SerdeContext): Datas
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DatastoreProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0DeleteFHIRDatastoreResponse
- */
-const de_DeleteFHIRDatastoreResponse = (output: any, context: __SerdeContext): DeleteFHIRDatastoreResponse => {
-  return {
-    DatastoreArn: __expectString(output.DatastoreArn),
-    DatastoreEndpoint: __expectString(output.DatastoreEndpoint),
-    DatastoreId: __expectString(output.DatastoreId),
-    DatastoreStatus: __expectString(output.DatastoreStatus),
-  } as any;
-};
+// de_DeleteFHIRDatastoreResponse omitted.
 
 /**
  * deserializeAws_json1_0DescribeFHIRDatastoreResponse
  */
 const de_DescribeFHIRDatastoreResponse = (output: any, context: __SerdeContext): DescribeFHIRDatastoreResponse => {
-  return {
-    DatastoreProperties:
-      output.DatastoreProperties != null ? de_DatastoreProperties(output.DatastoreProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    DatastoreProperties: (_: any) => de_DatastoreProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribeFHIRExportJobResponse
  */
 const de_DescribeFHIRExportJobResponse = (output: any, context: __SerdeContext): DescribeFHIRExportJobResponse => {
-  return {
-    ExportJobProperties:
-      output.ExportJobProperties != null ? de_ExportJobProperties(output.ExportJobProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    ExportJobProperties: (_: any) => de_ExportJobProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0DescribeFHIRImportJobResponse
  */
 const de_DescribeFHIRImportJobResponse = (output: any, context: __SerdeContext): DescribeFHIRImportJobResponse => {
-  return {
-    ImportJobProperties:
-      output.ImportJobProperties != null ? de_ImportJobProperties(output.ImportJobProperties, context) : undefined,
-  } as any;
+  return take(output, {
+    ImportJobProperties: (_: any) => de_ImportJobProperties(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ExportJobProperties
  */
 const de_ExportJobProperties = (output: any, context: __SerdeContext): ExportJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DatastoreId: __expectString(output.DatastoreId),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobStatus: __expectString(output.JobStatus),
-    Message: __expectString(output.Message),
-    OutputDataConfig:
-      output.OutputDataConfig != null
-        ? de_OutputDataConfig(__expectUnion(output.OutputDataConfig), context)
-        : undefined,
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    DatastoreId: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    JobId: __expectString,
+    JobName: __expectString,
+    JobStatus: __expectString,
+    Message: __expectString,
+    OutputDataConfig: (_: any) => _json(__expectUnion(_)),
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -1469,9 +1272,6 @@ const de_ExportJobPropertiesList = (output: any, context: __SerdeContext): Expor
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ExportJobProperties(entry, context);
     });
   return retVal;
@@ -1481,24 +1281,18 @@ const de_ExportJobPropertiesList = (output: any, context: __SerdeContext): Expor
  * deserializeAws_json1_0ImportJobProperties
  */
 const de_ImportJobProperties = (output: any, context: __SerdeContext): ImportJobProperties => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DatastoreId: __expectString(output.DatastoreId),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    InputDataConfig:
-      output.InputDataConfig != null ? de_InputDataConfig(__expectUnion(output.InputDataConfig), context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobOutputDataConfig:
-      output.JobOutputDataConfig != null
-        ? de_OutputDataConfig(__expectUnion(output.JobOutputDataConfig), context)
-        : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    Message: __expectString(output.Message),
-    SubmitTime:
-      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
-  } as any;
+  return take(output, {
+    DataAccessRoleArn: __expectString,
+    DatastoreId: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputDataConfig: (_: any) => _json(__expectUnion(_)),
+    JobId: __expectString,
+    JobName: __expectString,
+    JobOutputDataConfig: (_: any) => _json(__expectUnion(_)),
+    JobStatus: __expectString,
+    Message: __expectString,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -1508,219 +1302,74 @@ const de_ImportJobPropertiesList = (output: any, context: __SerdeContext): Impor
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ImportJobProperties(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0InputDataConfig
- */
-const de_InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  if (__expectString(output.S3Uri) !== undefined) {
-    return { S3Uri: __expectString(output.S3Uri) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_InputDataConfig omitted.
 
-/**
- * deserializeAws_json1_0InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_0KmsEncryptionConfig
- */
-const de_KmsEncryptionConfig = (output: any, context: __SerdeContext): KmsEncryptionConfig => {
-  return {
-    CmkType: __expectString(output.CmkType),
-    KmsKeyId: __expectString(output.KmsKeyId),
-  } as any;
-};
+// de_KmsEncryptionConfig omitted.
 
 /**
  * deserializeAws_json1_0ListFHIRDatastoresResponse
  */
 const de_ListFHIRDatastoresResponse = (output: any, context: __SerdeContext): ListFHIRDatastoresResponse => {
-  return {
-    DatastorePropertiesList:
-      output.DatastorePropertiesList != null
-        ? de_DatastorePropertiesList(output.DatastorePropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    DatastorePropertiesList: (_: any) => de_DatastorePropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListFHIRExportJobsResponse
  */
 const de_ListFHIRExportJobsResponse = (output: any, context: __SerdeContext): ListFHIRExportJobsResponse => {
-  return {
-    ExportJobPropertiesList:
-      output.ExportJobPropertiesList != null
-        ? de_ExportJobPropertiesList(output.ExportJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ExportJobPropertiesList: (_: any) => de_ExportJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ListFHIRImportJobsResponse
  */
 const de_ListFHIRImportJobsResponse = (output: any, context: __SerdeContext): ListFHIRImportJobsResponse => {
-  return {
-    ImportJobPropertiesList:
-      output.ImportJobPropertiesList != null
-        ? de_ImportJobPropertiesList(output.ImportJobPropertiesList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    ImportJobPropertiesList: (_: any) => de_ImportJobPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0OutputDataConfig
- */
-const de_OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
-  if (output.S3Configuration != null) {
-    return {
-      S3Configuration: de_S3Configuration(output.S3Configuration, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_OutputDataConfig omitted.
 
-/**
- * deserializeAws_json1_0PreloadDataConfig
- */
-const de_PreloadDataConfig = (output: any, context: __SerdeContext): PreloadDataConfig => {
-  return {
-    PreloadDataType: __expectString(output.PreloadDataType),
-  } as any;
-};
+// de_PreloadDataConfig omitted.
 
-/**
- * deserializeAws_json1_0ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_0S3Configuration
- */
-const de_S3Configuration = (output: any, context: __SerdeContext): S3Configuration => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
+// de_S3Configuration omitted.
 
-/**
- * deserializeAws_json1_0SseConfiguration
- */
-const de_SseConfiguration = (output: any, context: __SerdeContext): SseConfiguration => {
-  return {
-    KmsEncryptionConfig:
-      output.KmsEncryptionConfig != null ? de_KmsEncryptionConfig(output.KmsEncryptionConfig, context) : undefined,
-  } as any;
-};
+// de_SseConfiguration omitted.
 
-/**
- * deserializeAws_json1_0StartFHIRExportJobResponse
- */
-const de_StartFHIRExportJobResponse = (output: any, context: __SerdeContext): StartFHIRExportJobResponse => {
-  return {
-    DatastoreId: __expectString(output.DatastoreId),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartFHIRExportJobResponse omitted.
 
-/**
- * deserializeAws_json1_0StartFHIRImportJobResponse
- */
-const de_StartFHIRImportJobResponse = (output: any, context: __SerdeContext): StartFHIRImportJobResponse => {
-  return {
-    DatastoreId: __expectString(output.DatastoreId),
-    JobId: __expectString(output.JobId),
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
-};
+// de_StartFHIRImportJobResponse omitted.
 
-/**
- * deserializeAws_json1_0Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_0TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_0TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_0UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_0ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1742,6 +1391,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

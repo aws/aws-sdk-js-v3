@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
@@ -9,10 +10,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -131,8 +133,6 @@ import {
   DeactivatingLastSystemUserException,
   DocumentLockedForCommentsException,
   DocumentMetadata,
-  DocumentSourceType,
-  DocumentThumbnailType,
   DocumentVersionMetadata,
   DraftUploadOutOfSyncException,
   EntityAlreadyExistsException,
@@ -140,7 +140,6 @@ import {
   FailedDependencyException,
   Filters,
   FolderMetadata,
-  GroupMetadata,
   IllegalUserStateException,
   InvalidArgumentException,
   InvalidCommentOperationException,
@@ -150,16 +149,10 @@ import {
   LimitExceededException,
   LongRangeType,
   NotificationOptions,
-  Participants,
-  PermissionInfo,
-  Principal,
   PrincipalRoleType,
   ProhibitedStateException,
   RequestedEntityTooLargeException,
   ResourceAlreadyCheckedOutException,
-  ResourceMetadata,
-  ResourcePath,
-  ResourcePathComponent,
   ResponseItem,
   SearchCollectionType,
   SearchPrincipalType,
@@ -168,19 +161,14 @@ import {
   SearchSortResult,
   ServiceUnavailableException,
   SharePrincipal,
-  ShareResult,
   StorageLimitExceededException,
   StorageLimitWillExceedException,
   StorageRuleType,
-  Subscription,
   TooManyLabelsException,
   TooManySubscriptionsException,
   UnauthorizedOperationException,
   UnauthorizedResourceAccessException,
-  UploadMetadata,
   User,
-  UserMetadata,
-  UserStorageMetadata,
 } from "../models/models_0";
 import { WorkDocsServiceException as __BaseException } from "../models/WorkDocsServiceException";
 
@@ -255,12 +243,12 @@ export const se_AddResourcePermissionsCommand = async (
     "/api/v1/resources/{ResourceId}/permissions";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.NotificationOptions != null && {
-      NotificationOptions: se_NotificationOptions(input.NotificationOptions, context),
-    }),
-    ...(input.Principals != null && { Principals: se_SharePrincipalList(input.Principals, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NotificationOptions: (_) => _json(_),
+      Principals: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -290,13 +278,15 @@ export const se_CreateCommentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.NotifyCollaborators != null && { NotifyCollaborators: input.NotifyCollaborators }),
-    ...(input.ParentId != null && { ParentId: input.ParentId }),
-    ...(input.Text != null && { Text: input.Text }),
-    ...(input.ThreadId != null && { ThreadId: input.ThreadId }),
-    ...(input.Visibility != null && { Visibility: input.Visibility }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NotifyCollaborators: [],
+      ParentId: [],
+      Text: [],
+      ThreadId: [],
+      Visibility: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -328,9 +318,11 @@ export const se_CreateCustomMetadataCommand = async (
     versionid: [, input.VersionId!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.CustomMetadata != null && { CustomMetadata: se_CustomMetadataMap(input.CustomMetadata, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CustomMetadata: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -357,10 +349,12 @@ export const se_CreateFolderCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParentFolderId != null && { ParentFolderId: input.ParentFolderId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      ParentFolderId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -388,9 +382,11 @@ export const se_CreateLabelsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/resources/{ResourceId}/labels";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Labels != null && { Labels: se_SharedLabels(input.Labels, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Labels: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -425,11 +421,13 @@ export const se_CreateNotificationSubscriptionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Endpoint != null && { Endpoint: input.Endpoint }),
-    ...(input.Protocol != null && { Protocol: input.Protocol }),
-    ...(input.SubscriptionType != null && { SubscriptionType: input.SubscriptionType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Endpoint: [],
+      Protocol: [],
+      SubscriptionType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -455,16 +453,18 @@ export const se_CreateUserCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
-    ...(input.GivenName != null && { GivenName: input.GivenName }),
-    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.StorageRule != null && { StorageRule: se_StorageRuleType(input.StorageRule, context) }),
-    ...(input.Surname != null && { Surname: input.Surname }),
-    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
-    ...(input.Username != null && { Username: input.Username }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EmailAddress: [],
+      GivenName: [],
+      OrganizationId: [],
+      Password: [],
+      StorageRule: (_) => _json(_),
+      Surname: [],
+      TimeZoneId: [],
+      Username: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1317,19 +1317,17 @@ export const se_InitiateDocumentVersionUploadCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ContentCreatedTimestamp != null && {
-      ContentCreatedTimestamp: Math.round(input.ContentCreatedTimestamp.getTime() / 1000),
-    }),
-    ...(input.ContentModifiedTimestamp != null && {
-      ContentModifiedTimestamp: Math.round(input.ContentModifiedTimestamp.getTime() / 1000),
-    }),
-    ...(input.ContentType != null && { ContentType: input.ContentType }),
-    ...(input.DocumentSizeInBytes != null && { DocumentSizeInBytes: input.DocumentSizeInBytes }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParentFolderId != null && { ParentFolderId: input.ParentFolderId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ContentCreatedTimestamp: (_) => Math.round(_.getTime() / 1000),
+      ContentModifiedTimestamp: (_) => Math.round(_.getTime() / 1000),
+      ContentType: [],
+      DocumentSizeInBytes: [],
+      Id: [],
+      Name: [],
+      ParentFolderId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1441,18 +1439,18 @@ export const se_SearchResourcesCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/search";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdditionalResponseFields != null && {
-      AdditionalResponseFields: se_AdditionalResponseFieldsList(input.AdditionalResponseFields, context),
-    }),
-    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.OrderBy != null && { OrderBy: se_SearchResultSortList(input.OrderBy, context) }),
-    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
-    ...(input.QueryScopes != null && { QueryScopes: se_SearchQueryScopeTypeList(input.QueryScopes, context) }),
-    ...(input.QueryText != null && { QueryText: input.QueryText }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdditionalResponseFields: (_) => _json(_),
+      Filters: (_) => se_Filters(_, context),
+      Limit: [],
+      Marker: [],
+      OrderBy: (_) => _json(_),
+      OrganizationId: [],
+      QueryScopes: (_) => _json(_),
+      QueryText: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1480,11 +1478,13 @@ export const se_UpdateDocumentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents/{DocumentId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParentFolderId != null && { ParentFolderId: input.ParentFolderId }),
-    ...(input.ResourceState != null && { ResourceState: input.ResourceState }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      ParentFolderId: [],
+      ResourceState: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1514,9 +1514,11 @@ export const se_UpdateDocumentVersionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.VersionStatus != null && { VersionStatus: input.VersionStatus }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      VersionStatus: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1544,11 +1546,13 @@ export const se_UpdateFolderCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders/{FolderId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParentFolderId != null && { ParentFolderId: input.ParentFolderId }),
-    ...(input.ResourceState != null && { ResourceState: input.ResourceState }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      ParentFolderId: [],
+      ResourceState: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1575,15 +1579,17 @@ export const se_UpdateUserCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users/{UserId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.GivenName != null && { GivenName: input.GivenName }),
-    ...(input.GrantPoweruserPrivileges != null && { GrantPoweruserPrivileges: input.GrantPoweruserPrivileges }),
-    ...(input.Locale != null && { Locale: input.Locale }),
-    ...(input.StorageRule != null && { StorageRule: se_StorageRuleType(input.StorageRule, context) }),
-    ...(input.Surname != null && { Surname: input.Surname }),
-    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GivenName: [],
+      GrantPoweruserPrivileges: [],
+      Locale: [],
+      StorageRule: (_) => _json(_),
+      Surname: [],
+      TimeZoneId: [],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1648,10 +1654,9 @@ const de_AbortDocumentVersionUploadCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1671,9 +1676,10 @@ export const de_ActivateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = de_User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1707,10 +1713,9 @@ const de_ActivateUserCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1730,9 +1735,10 @@ export const de_AddResourcePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ShareResults != null) {
-    contents.ShareResults = de_ShareResultsList(data.ShareResults, context);
-  }
+  const doc = take(data, {
+    ShareResults: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1766,10 +1772,9 @@ const de_AddResourcePermissionsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1789,9 +1794,10 @@ export const de_CreateCommentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Comment != null) {
-    contents.Comment = de_Comment(data.Comment, context);
-  }
+  const doc = take(data, {
+    Comment: (_) => de_Comment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1834,10 +1840,9 @@ const de_CreateCommentCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1896,10 +1901,9 @@ const de_CreateCustomMetadataCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1919,9 +1923,10 @@ export const de_CreateFolderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Metadata != null) {
-    contents.Metadata = de_FolderMetadata(data.Metadata, context);
-  }
+  const doc = take(data, {
+    Metadata: (_) => de_FolderMetadata(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1970,10 +1975,9 @@ const de_CreateFolderCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2029,10 +2033,9 @@ const de_CreateLabelsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2052,9 +2055,10 @@ export const de_CreateNotificationSubscriptionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Subscription != null) {
-    contents.Subscription = de_Subscription(data.Subscription, context);
-  }
+  const doc = take(data, {
+    Subscription: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2085,10 +2089,9 @@ const de_CreateNotificationSubscriptionCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2108,9 +2111,10 @@ export const de_CreateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = de_User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2144,10 +2148,9 @@ const de_CreateUserCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2200,10 +2203,9 @@ const de_DeactivateUserCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2262,10 +2264,9 @@ const de_DeleteCommentCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2321,10 +2322,9 @@ const de_DeleteCustomMetadataCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2389,10 +2389,9 @@ const de_DeleteDocumentCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2454,10 +2453,9 @@ const de_DeleteDocumentVersionCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2522,10 +2520,9 @@ const de_DeleteFolderCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2584,10 +2581,9 @@ const de_DeleteFolderContentsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2643,10 +2639,9 @@ const de_DeleteLabelsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2696,10 +2691,9 @@ const de_DeleteNotificationSubscriptionCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2752,10 +2746,9 @@ const de_DeleteUserCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2775,12 +2768,11 @@ export const de_DescribeActivitiesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.UserActivities != null) {
-    contents.UserActivities = de_UserActivities(data.UserActivities, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    UserActivities: (_) => de_UserActivities(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2814,10 +2806,9 @@ const de_DescribeActivitiesCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2837,12 +2828,11 @@ export const de_DescribeCommentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Comments != null) {
-    contents.Comments = de_CommentList(data.Comments, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Comments: (_) => de_CommentList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2879,10 +2869,9 @@ const de_DescribeCommentsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2902,12 +2891,11 @@ export const de_DescribeDocumentVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DocumentVersions != null) {
-    contents.DocumentVersions = de_DocumentVersionMetadataList(data.DocumentVersions, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    DocumentVersions: (_) => de_DocumentVersionMetadataList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2950,10 +2938,9 @@ const de_DescribeDocumentVersionsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2973,15 +2960,12 @@ export const de_DescribeFolderContentsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Documents != null) {
-    contents.Documents = de_DocumentMetadataList(data.Documents, context);
-  }
-  if (data.Folders != null) {
-    contents.Folders = de_FolderMetadataList(data.Folders, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Documents: (_) => de_DocumentMetadataList(_, context),
+    Folders: (_) => de_FolderMetadataList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3018,10 +3002,9 @@ const de_DescribeFolderContentsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3041,12 +3024,11 @@ export const de_DescribeGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Groups != null) {
-    contents.Groups = de_GroupMetadataList(data.Groups, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Groups: _json,
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3077,10 +3059,9 @@ const de_DescribeGroupsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3100,12 +3081,11 @@ export const de_DescribeNotificationSubscriptionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.Subscriptions != null) {
-    contents.Subscriptions = de_SubscriptionList(data.Subscriptions, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    Subscriptions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3133,10 +3113,9 @@ const de_DescribeNotificationSubscriptionsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3156,12 +3135,11 @@ export const de_DescribeResourcePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.Principals != null) {
-    contents.Principals = de_PrincipalList(data.Principals, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    Principals: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3195,10 +3173,9 @@ const de_DescribeResourcePermissionsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3218,12 +3195,11 @@ export const de_DescribeRootFoldersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Folders != null) {
-    contents.Folders = de_FolderMetadataList(data.Folders, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Folders: (_) => de_FolderMetadataList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3257,10 +3233,9 @@ const de_DescribeRootFoldersCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3280,15 +3255,12 @@ export const de_DescribeUsersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.TotalNumberOfUsers != null) {
-    contents.TotalNumberOfUsers = __expectLong(data.TotalNumberOfUsers);
-  }
-  if (data.Users != null) {
-    contents.Users = de_OrganizationUserList(data.Users, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    TotalNumberOfUsers: __expectLong,
+    Users: (_) => de_OrganizationUserList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3328,10 +3300,9 @@ const de_DescribeUsersCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3351,9 +3322,10 @@ export const de_GetCurrentUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = de_User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3387,10 +3359,9 @@ const de_GetCurrentUserCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3410,12 +3381,11 @@ export const de_GetDocumentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CustomMetadata != null) {
-    contents.CustomMetadata = de_CustomMetadataMap(data.CustomMetadata, context);
-  }
-  if (data.Metadata != null) {
-    contents.Metadata = de_DocumentMetadata(data.Metadata, context);
-  }
+  const doc = take(data, {
+    CustomMetadata: _json,
+    Metadata: (_) => de_DocumentMetadata(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3455,10 +3425,9 @@ const de_GetDocumentCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3478,9 +3447,10 @@ export const de_GetDocumentPathCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Path != null) {
-    contents.Path = de_ResourcePath(data.Path, context);
-  }
+  const doc = take(data, {
+    Path: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3514,10 +3484,9 @@ const de_GetDocumentPathCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3537,12 +3506,11 @@ export const de_GetDocumentVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CustomMetadata != null) {
-    contents.CustomMetadata = de_CustomMetadataMap(data.CustomMetadata, context);
-  }
-  if (data.Metadata != null) {
-    contents.Metadata = de_DocumentVersionMetadata(data.Metadata, context);
-  }
+  const doc = take(data, {
+    CustomMetadata: _json,
+    Metadata: (_) => de_DocumentVersionMetadata(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3582,10 +3550,9 @@ const de_GetDocumentVersionCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3605,12 +3572,11 @@ export const de_GetFolderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CustomMetadata != null) {
-    contents.CustomMetadata = de_CustomMetadataMap(data.CustomMetadata, context);
-  }
-  if (data.Metadata != null) {
-    contents.Metadata = de_FolderMetadata(data.Metadata, context);
-  }
+  const doc = take(data, {
+    CustomMetadata: _json,
+    Metadata: (_) => de_FolderMetadata(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3650,10 +3616,9 @@ const de_GetFolderCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3673,9 +3638,10 @@ export const de_GetFolderPathCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Path != null) {
-    contents.Path = de_ResourcePath(data.Path, context);
-  }
+  const doc = take(data, {
+    Path: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3709,10 +3675,9 @@ const de_GetFolderPathCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3732,15 +3697,12 @@ export const de_GetResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Documents != null) {
-    contents.Documents = de_DocumentMetadataList(data.Documents, context);
-  }
-  if (data.Folders != null) {
-    contents.Folders = de_FolderMetadataList(data.Folders, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Documents: (_) => de_DocumentMetadataList(_, context),
+    Folders: (_) => de_FolderMetadataList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3774,10 +3736,9 @@ const de_GetResourcesCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3797,12 +3758,11 @@ export const de_InitiateDocumentVersionUploadCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Metadata != null) {
-    contents.Metadata = de_DocumentMetadata(data.Metadata, context);
-  }
-  if (data.UploadMetadata != null) {
-    contents.UploadMetadata = de_UploadMetadata(data.UploadMetadata, context);
-  }
+  const doc = take(data, {
+    Metadata: (_) => de_DocumentMetadata(_, context),
+    UploadMetadata: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3863,10 +3823,9 @@ const de_InitiateDocumentVersionUploadCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3916,10 +3875,9 @@ const de_RemoveAllResourcePermissionsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3969,10 +3927,9 @@ const de_RemoveResourcePermissionCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4034,10 +3991,9 @@ const de_RestoreDocumentVersionsCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4057,12 +4013,11 @@ export const de_SearchResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = de_ResponseItemsList(data.Items, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Items: (_) => de_ResponseItemsList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4093,10 +4048,9 @@ const de_SearchResourcesCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4164,10 +4118,9 @@ const de_UpdateDocumentCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4229,10 +4182,9 @@ const de_UpdateDocumentVersionCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4300,10 +4252,9 @@ const de_UpdateFolderCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4323,9 +4274,10 @@ export const de_UpdateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = de_User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4371,16 +4323,15 @@ const de_UpdateUserCommandError = async (
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConcurrentModificationExceptionRes
  */
@@ -4390,9 +4341,10 @@ const de_ConcurrentModificationExceptionRes = async (
 ): Promise<ConcurrentModificationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4409,9 +4361,10 @@ const de_ConflictingOperationExceptionRes = async (
 ): Promise<ConflictingOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictingOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4428,9 +4381,10 @@ const de_CustomMetadataLimitExceededExceptionRes = async (
 ): Promise<CustomMetadataLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new CustomMetadataLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4447,12 +4401,11 @@ const de_DeactivatingLastSystemUserExceptionRes = async (
 ): Promise<DeactivatingLastSystemUserException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DeactivatingLastSystemUserException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4469,9 +4422,10 @@ const de_DocumentLockedForCommentsExceptionRes = async (
 ): Promise<DocumentLockedForCommentsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DocumentLockedForCommentsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4488,9 +4442,10 @@ const de_DraftUploadOutOfSyncExceptionRes = async (
 ): Promise<DraftUploadOutOfSyncException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DraftUploadOutOfSyncException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4507,9 +4462,10 @@ const de_EntityAlreadyExistsExceptionRes = async (
 ): Promise<EntityAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EntityAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4526,12 +4482,11 @@ const de_EntityNotExistsExceptionRes = async (
 ): Promise<EntityNotExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.EntityIds != null) {
-    contents.EntityIds = de_EntityIdList(data.EntityIds, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    EntityIds: _json,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EntityNotExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4548,9 +4503,10 @@ const de_FailedDependencyExceptionRes = async (
 ): Promise<FailedDependencyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FailedDependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4567,9 +4523,10 @@ const de_IllegalUserStateExceptionRes = async (
 ): Promise<IllegalUserStateException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IllegalUserStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4586,9 +4543,10 @@ const de_InvalidArgumentExceptionRes = async (
 ): Promise<InvalidArgumentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4605,9 +4563,10 @@ const de_InvalidCommentOperationExceptionRes = async (
 ): Promise<InvalidCommentOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidCommentOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4624,9 +4583,10 @@ const de_InvalidOperationExceptionRes = async (
 ): Promise<InvalidOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4643,9 +4603,10 @@ const de_InvalidPasswordExceptionRes = async (
 ): Promise<InvalidPasswordException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidPasswordException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4662,9 +4623,10 @@ const de_LimitExceededExceptionRes = async (
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4681,9 +4643,10 @@ const de_ProhibitedStateExceptionRes = async (
 ): Promise<ProhibitedStateException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ProhibitedStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4700,9 +4663,10 @@ const de_RequestedEntityTooLargeExceptionRes = async (
 ): Promise<RequestedEntityTooLargeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestedEntityTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4719,9 +4683,10 @@ const de_ResourceAlreadyCheckedOutExceptionRes = async (
 ): Promise<ResourceAlreadyCheckedOutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyCheckedOutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4738,9 +4703,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4757,9 +4723,10 @@ const de_StorageLimitExceededExceptionRes = async (
 ): Promise<StorageLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StorageLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4776,9 +4743,10 @@ const de_StorageLimitWillExceedExceptionRes = async (
 ): Promise<StorageLimitWillExceedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StorageLimitWillExceedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4795,9 +4763,10 @@ const de_TooManyLabelsExceptionRes = async (
 ): Promise<TooManyLabelsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyLabelsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4814,9 +4783,10 @@ const de_TooManySubscriptionsExceptionRes = async (
 ): Promise<TooManySubscriptionsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManySubscriptionsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4833,12 +4803,11 @@ const de_UnauthorizedOperationExceptionRes = async (
 ): Promise<UnauthorizedOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4855,9 +4824,10 @@ const de_UnauthorizedResourceAccessExceptionRes = async (
 ): Promise<UnauthorizedResourceAccessException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedResourceAccessException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4865,295 +4835,106 @@ const de_UnauthorizedResourceAccessExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AdditionalResponseFieldsList
- */
-const se_AdditionalResponseFieldsList = (
-  input: (AdditionalResponseFieldType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AdditionalResponseFieldsList omitted.
 
-/**
- * serializeAws_restJson1CustomMetadataMap
- */
-const se_CustomMetadataMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_CustomMetadataMap omitted.
 
 /**
  * serializeAws_restJson1DateRangeType
  */
 const se_DateRangeType = (input: DateRangeType, context: __SerdeContext): any => {
-  return {
-    ...(input.EndValue != null && { EndValue: Math.round(input.EndValue.getTime() / 1000) }),
-    ...(input.StartValue != null && { StartValue: Math.round(input.StartValue.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndValue: (_) => Math.round(_.getTime() / 1000),
+    StartValue: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_restJson1Filters
  */
 const se_Filters = (input: Filters, context: __SerdeContext): any => {
-  return {
-    ...(input.AncestorIds != null && { AncestorIds: se_SearchAncestorIdList(input.AncestorIds, context) }),
-    ...(input.ContentCategories != null && {
-      ContentCategories: se_SearchContentCategoryTypeList(input.ContentCategories, context),
-    }),
-    ...(input.CreatedRange != null && { CreatedRange: se_DateRangeType(input.CreatedRange, context) }),
-    ...(input.Labels != null && { Labels: se_SearchLabelList(input.Labels, context) }),
-    ...(input.ModifiedRange != null && { ModifiedRange: se_DateRangeType(input.ModifiedRange, context) }),
-    ...(input.Principals != null && { Principals: se_SearchPrincipalTypeList(input.Principals, context) }),
-    ...(input.ResourceTypes != null && { ResourceTypes: se_SearchResourceTypeList(input.ResourceTypes, context) }),
-    ...(input.SearchCollectionTypes != null && {
-      SearchCollectionTypes: se_SearchCollectionTypeList(input.SearchCollectionTypes, context),
-    }),
-    ...(input.SizeRange != null && { SizeRange: se_LongRangeType(input.SizeRange, context) }),
-    ...(input.TextLocales != null && { TextLocales: se_TextLocaleTypeList(input.TextLocales, context) }),
-  };
+  return take(input, {
+    AncestorIds: _json,
+    ContentCategories: _json,
+    CreatedRange: (_) => se_DateRangeType(_, context),
+    Labels: _json,
+    ModifiedRange: (_) => se_DateRangeType(_, context),
+    Principals: _json,
+    ResourceTypes: _json,
+    SearchCollectionTypes: _json,
+    SizeRange: _json,
+    TextLocales: _json,
+  });
 };
 
-/**
- * serializeAws_restJson1LongRangeType
- */
-const se_LongRangeType = (input: LongRangeType, context: __SerdeContext): any => {
-  return {
-    ...(input.EndValue != null && { EndValue: input.EndValue }),
-    ...(input.StartValue != null && { StartValue: input.StartValue }),
-  };
-};
+// se_LongRangeType omitted.
 
-/**
- * serializeAws_restJson1NotificationOptions
- */
-const se_NotificationOptions = (input: NotificationOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.EmailMessage != null && { EmailMessage: input.EmailMessage }),
-    ...(input.SendEmail != null && { SendEmail: input.SendEmail }),
-  };
-};
+// se_NotificationOptions omitted.
 
-/**
- * serializeAws_restJson1SearchAncestorIdList
- */
-const se_SearchAncestorIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SearchAncestorIdList omitted.
 
-/**
- * serializeAws_restJson1SearchCollectionTypeList
- */
-const se_SearchCollectionTypeList = (input: (SearchCollectionType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SearchCollectionTypeList omitted.
 
-/**
- * serializeAws_restJson1SearchContentCategoryTypeList
- */
-const se_SearchContentCategoryTypeList = (input: (ContentCategoryType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SearchContentCategoryTypeList omitted.
 
-/**
- * serializeAws_restJson1SearchLabelList
- */
-const se_SearchLabelList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SearchLabelList omitted.
 
-/**
- * serializeAws_restJson1SearchPrincipalRoleList
- */
-const se_SearchPrincipalRoleList = (input: (PrincipalRoleType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SearchPrincipalRoleList omitted.
 
-/**
- * serializeAws_restJson1SearchPrincipalType
- */
-const se_SearchPrincipalType = (input: SearchPrincipalType, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Roles != null && { Roles: se_SearchPrincipalRoleList(input.Roles, context) }),
-  };
-};
+// se_SearchPrincipalType omitted.
 
-/**
- * serializeAws_restJson1SearchPrincipalTypeList
- */
-const se_SearchPrincipalTypeList = (input: SearchPrincipalType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SearchPrincipalType(entry, context);
-    });
-};
+// se_SearchPrincipalTypeList omitted.
 
-/**
- * serializeAws_restJson1SearchQueryScopeTypeList
- */
-const se_SearchQueryScopeTypeList = (input: (SearchQueryScopeType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SearchQueryScopeTypeList omitted.
 
-/**
- * serializeAws_restJson1SearchResourceTypeList
- */
-const se_SearchResourceTypeList = (input: (SearchResourceType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SearchResourceTypeList omitted.
 
-/**
- * serializeAws_restJson1SearchResultSortList
- */
-const se_SearchResultSortList = (input: SearchSortResult[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SearchSortResult(entry, context);
-    });
-};
+// se_SearchResultSortList omitted.
 
-/**
- * serializeAws_restJson1SearchSortResult
- */
-const se_SearchSortResult = (input: SearchSortResult, context: __SerdeContext): any => {
-  return {
-    ...(input.Field != null && { Field: input.Field }),
-    ...(input.Order != null && { Order: input.Order }),
-  };
-};
+// se_SearchSortResult omitted.
 
-/**
- * serializeAws_restJson1SharedLabels
- */
-const se_SharedLabels = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SharedLabels omitted.
 
-/**
- * serializeAws_restJson1SharePrincipal
- */
-const se_SharePrincipal = (input: SharePrincipal, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Role != null && { Role: input.Role }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_SharePrincipal omitted.
 
-/**
- * serializeAws_restJson1SharePrincipalList
- */
-const se_SharePrincipalList = (input: SharePrincipal[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SharePrincipal(entry, context);
-    });
-};
+// se_SharePrincipalList omitted.
 
-/**
- * serializeAws_restJson1StorageRuleType
- */
-const se_StorageRuleType = (input: StorageRuleType, context: __SerdeContext): any => {
-  return {
-    ...(input.StorageAllocatedInBytes != null && { StorageAllocatedInBytes: input.StorageAllocatedInBytes }),
-    ...(input.StorageType != null && { StorageType: input.StorageType }),
-  };
-};
+// se_StorageRuleType omitted.
 
-/**
- * serializeAws_restJson1TextLocaleTypeList
- */
-const se_TextLocaleTypeList = (input: (LanguageCodeType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TextLocaleTypeList omitted.
 
 /**
  * deserializeAws_restJson1Activity
  */
 const de_Activity = (output: any, context: __SerdeContext): Activity => {
-  return {
-    CommentMetadata: output.CommentMetadata != null ? de_CommentMetadata(output.CommentMetadata, context) : undefined,
-    Initiator: output.Initiator != null ? de_UserMetadata(output.Initiator, context) : undefined,
-    IsIndirectActivity: __expectBoolean(output.IsIndirectActivity),
-    OrganizationId: __expectString(output.OrganizationId),
-    OriginalParent: output.OriginalParent != null ? de_ResourceMetadata(output.OriginalParent, context) : undefined,
-    Participants: output.Participants != null ? de_Participants(output.Participants, context) : undefined,
-    ResourceMetadata:
-      output.ResourceMetadata != null ? de_ResourceMetadata(output.ResourceMetadata, context) : undefined,
-    TimeStamp:
-      output.TimeStamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TimeStamp))) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CommentMetadata: (_: any) => de_CommentMetadata(_, context),
+    Initiator: _json,
+    IsIndirectActivity: __expectBoolean,
+    OrganizationId: __expectString,
+    OriginalParent: _json,
+    Participants: _json,
+    ResourceMetadata: _json,
+    TimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Comment
  */
 const de_Comment = (output: any, context: __SerdeContext): Comment => {
-  return {
-    CommentId: __expectString(output.CommentId),
-    Contributor: output.Contributor != null ? de_User(output.Contributor, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    ParentId: __expectString(output.ParentId),
-    RecipientId: __expectString(output.RecipientId),
-    Status: __expectString(output.Status),
-    Text: __expectString(output.Text),
-    ThreadId: __expectString(output.ThreadId),
-    Visibility: __expectString(output.Visibility),
-  } as any;
+  return take(output, {
+    CommentId: __expectString,
+    Contributor: (_: any) => de_User(_, context),
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ParentId: __expectString,
+    RecipientId: __expectString,
+    Status: __expectString,
+    Text: __expectString,
+    ThreadId: __expectString,
+    Visibility: __expectString,
+  }) as any;
 };
 
 /**
@@ -5163,9 +4944,6 @@ const de_CommentList = (output: any, context: __SerdeContext): Comment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Comment(entry, context);
     });
   return retVal;
@@ -5175,55 +4953,32 @@ const de_CommentList = (output: any, context: __SerdeContext): Comment[] => {
  * deserializeAws_restJson1CommentMetadata
  */
 const de_CommentMetadata = (output: any, context: __SerdeContext): CommentMetadata => {
-  return {
-    CommentId: __expectString(output.CommentId),
-    CommentStatus: __expectString(output.CommentStatus),
-    Contributor: output.Contributor != null ? de_User(output.Contributor, context) : undefined,
-    ContributorId: __expectString(output.ContributorId),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    RecipientId: __expectString(output.RecipientId),
-  } as any;
+  return take(output, {
+    CommentId: __expectString,
+    CommentStatus: __expectString,
+    Contributor: (_: any) => de_User(_, context),
+    ContributorId: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecipientId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1CustomMetadataMap
- */
-const de_CustomMetadataMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_CustomMetadataMap omitted.
 
 /**
  * deserializeAws_restJson1DocumentMetadata
  */
 const de_DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    CreatorId: __expectString(output.CreatorId),
-    Id: __expectString(output.Id),
-    Labels: output.Labels != null ? de_SharedLabels(output.Labels, context) : undefined,
-    LatestVersionMetadata:
-      output.LatestVersionMetadata != null
-        ? de_DocumentVersionMetadata(output.LatestVersionMetadata, context)
-        : undefined,
-    ModifiedTimestamp:
-      output.ModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
-        : undefined,
-    ParentFolderId: __expectString(output.ParentFolderId),
-    ResourceState: __expectString(output.ResourceState),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorId: __expectString,
+    Id: __expectString,
+    Labels: _json,
+    LatestVersionMetadata: (_: any) => de_DocumentVersionMetadata(_, context),
+    ModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ParentFolderId: __expectString,
+    ResourceState: __expectString,
+  }) as any;
 };
 
 /**
@@ -5233,77 +4988,34 @@ const de_DocumentMetadataList = (output: any, context: __SerdeContext): Document
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DocumentMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DocumentSourceUrlMap
- */
-const de_DocumentSourceUrlMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [DocumentSourceType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_DocumentSourceUrlMap omitted.
 
-/**
- * deserializeAws_restJson1DocumentThumbnailUrlMap
- */
-const de_DocumentThumbnailUrlMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [DocumentThumbnailType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_DocumentThumbnailUrlMap omitted.
 
 /**
  * deserializeAws_restJson1DocumentVersionMetadata
  */
 const de_DocumentVersionMetadata = (output: any, context: __SerdeContext): DocumentVersionMetadata => {
-  return {
-    ContentCreatedTimestamp:
-      output.ContentCreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ContentCreatedTimestamp)))
-        : undefined,
-    ContentModifiedTimestamp:
-      output.ContentModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ContentModifiedTimestamp)))
-        : undefined,
-    ContentType: __expectString(output.ContentType),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    CreatorId: __expectString(output.CreatorId),
-    Id: __expectString(output.Id),
-    ModifiedTimestamp:
-      output.ModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Signature: __expectString(output.Signature),
-    Size: __expectLong(output.Size),
-    Source: output.Source != null ? de_DocumentSourceUrlMap(output.Source, context) : undefined,
-    Status: __expectString(output.Status),
-    Thumbnail: output.Thumbnail != null ? de_DocumentThumbnailUrlMap(output.Thumbnail, context) : undefined,
-  } as any;
+  return take(output, {
+    ContentCreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentType: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorId: __expectString,
+    Id: __expectString,
+    ModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Signature: __expectString,
+    Size: __expectLong,
+    Source: _json,
+    Status: __expectString,
+    Thumbnail: _json,
+  }) as any;
 };
 
 /**
@@ -5313,52 +5025,30 @@ const de_DocumentVersionMetadataList = (output: any, context: __SerdeContext): D
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DocumentVersionMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1EntityIdList
- */
-const de_EntityIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EntityIdList omitted.
 
 /**
  * deserializeAws_restJson1FolderMetadata
  */
 const de_FolderMetadata = (output: any, context: __SerdeContext): FolderMetadata => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    CreatorId: __expectString(output.CreatorId),
-    Id: __expectString(output.Id),
-    Labels: output.Labels != null ? de_SharedLabels(output.Labels, context) : undefined,
-    LatestVersionSize: __expectLong(output.LatestVersionSize),
-    ModifiedTimestamp:
-      output.ModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    ParentFolderId: __expectString(output.ParentFolderId),
-    ResourceState: __expectString(output.ResourceState),
-    Signature: __expectString(output.Signature),
-    Size: __expectLong(output.Size),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorId: __expectString,
+    Id: __expectString,
+    Labels: _json,
+    LatestVersionSize: __expectLong,
+    ModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    ParentFolderId: __expectString,
+    ResourceState: __expectString,
+    Signature: __expectString,
+    Size: __expectLong,
+  }) as any;
 };
 
 /**
@@ -5368,38 +5058,14 @@ const de_FolderMetadataList = (output: any, context: __SerdeContext): FolderMeta
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_FolderMetadata(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1GroupMetadata
- */
-const de_GroupMetadata = (output: any, context: __SerdeContext): GroupMetadata => {
-  return {
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_GroupMetadata omitted.
 
-/**
- * deserializeAws_restJson1GroupMetadataList
- */
-const de_GroupMetadataList = (output: any, context: __SerdeContext): GroupMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_GroupMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_GroupMetadataList omitted.
 
 /**
  * deserializeAws_restJson1OrganizationUserList
@@ -5408,140 +5074,41 @@ const de_OrganizationUserList = (output: any, context: __SerdeContext): User[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_User(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1Participants
- */
-const de_Participants = (output: any, context: __SerdeContext): Participants => {
-  return {
-    Groups: output.Groups != null ? de_GroupMetadataList(output.Groups, context) : undefined,
-    Users: output.Users != null ? de_UserMetadataList(output.Users, context) : undefined,
-  } as any;
-};
+// de_Participants omitted.
 
-/**
- * deserializeAws_restJson1PermissionInfo
- */
-const de_PermissionInfo = (output: any, context: __SerdeContext): PermissionInfo => {
-  return {
-    Role: __expectString(output.Role),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_PermissionInfo omitted.
 
-/**
- * deserializeAws_restJson1PermissionInfoList
- */
-const de_PermissionInfoList = (output: any, context: __SerdeContext): PermissionInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PermissionInfo(entry, context);
-    });
-  return retVal;
-};
+// de_PermissionInfoList omitted.
 
-/**
- * deserializeAws_restJson1Principal
- */
-const de_Principal = (output: any, context: __SerdeContext): Principal => {
-  return {
-    Id: __expectString(output.Id),
-    Roles: output.Roles != null ? de_PermissionInfoList(output.Roles, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Principal omitted.
 
-/**
- * deserializeAws_restJson1PrincipalList
- */
-const de_PrincipalList = (output: any, context: __SerdeContext): Principal[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Principal(entry, context);
-    });
-  return retVal;
-};
+// de_PrincipalList omitted.
 
-/**
- * deserializeAws_restJson1ResourceMetadata
- */
-const de_ResourceMetadata = (output: any, context: __SerdeContext): ResourceMetadata => {
-  return {
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    OriginalName: __expectString(output.OriginalName),
-    Owner: output.Owner != null ? de_UserMetadata(output.Owner, context) : undefined,
-    ParentId: __expectString(output.ParentId),
-    Type: __expectString(output.Type),
-    VersionId: __expectString(output.VersionId),
-  } as any;
-};
+// de_ResourceMetadata omitted.
 
-/**
- * deserializeAws_restJson1ResourcePath
- */
-const de_ResourcePath = (output: any, context: __SerdeContext): ResourcePath => {
-  return {
-    Components: output.Components != null ? de_ResourcePathComponentList(output.Components, context) : undefined,
-  } as any;
-};
+// de_ResourcePath omitted.
 
-/**
- * deserializeAws_restJson1ResourcePathComponent
- */
-const de_ResourcePathComponent = (output: any, context: __SerdeContext): ResourcePathComponent => {
-  return {
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ResourcePathComponent omitted.
 
-/**
- * deserializeAws_restJson1ResourcePathComponentList
- */
-const de_ResourcePathComponentList = (output: any, context: __SerdeContext): ResourcePathComponent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourcePathComponent(entry, context);
-    });
-  return retVal;
-};
+// de_ResourcePathComponentList omitted.
 
 /**
  * deserializeAws_restJson1ResponseItem
  */
 const de_ResponseItem = (output: any, context: __SerdeContext): ResponseItem => {
-  return {
-    CommentMetadata: output.CommentMetadata != null ? de_CommentMetadata(output.CommentMetadata, context) : undefined,
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    DocumentVersionMetadata:
-      output.DocumentVersionMetadata != null
-        ? de_DocumentVersionMetadata(output.DocumentVersionMetadata, context)
-        : undefined,
-    FolderMetadata: output.FolderMetadata != null ? de_FolderMetadata(output.FolderMetadata, context) : undefined,
-    ResourceType: __expectString(output.ResourceType),
-    WebUrl: __expectString(output.WebUrl),
-  } as any;
+  return take(output, {
+    CommentMetadata: (_: any) => de_CommentMetadata(_, context),
+    DocumentMetadata: (_: any) => de_DocumentMetadata(_, context),
+    DocumentVersionMetadata: (_: any) => de_DocumentVersionMetadata(_, context),
+    FolderMetadata: (_: any) => de_FolderMetadata(_, context),
+    ResourceType: __expectString,
+    WebUrl: __expectString,
+  }) as any;
 };
 
 /**
@@ -5551,144 +5118,48 @@ const de_ResponseItemsList = (output: any, context: __SerdeContext): ResponseIte
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ResponseItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SharedLabels
- */
-const de_SharedLabels = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SharedLabels omitted.
 
-/**
- * deserializeAws_restJson1ShareResult
- */
-const de_ShareResult = (output: any, context: __SerdeContext): ShareResult => {
-  return {
-    InviteePrincipalId: __expectString(output.InviteePrincipalId),
-    PrincipalId: __expectString(output.PrincipalId),
-    Role: __expectString(output.Role),
-    ShareId: __expectString(output.ShareId),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
+// de_ShareResult omitted.
 
-/**
- * deserializeAws_restJson1ShareResultsList
- */
-const de_ShareResultsList = (output: any, context: __SerdeContext): ShareResult[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ShareResult(entry, context);
-    });
-  return retVal;
-};
+// de_ShareResultsList omitted.
 
-/**
- * deserializeAws_restJson1SignedHeaderMap
- */
-const de_SignedHeaderMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_SignedHeaderMap omitted.
 
-/**
- * deserializeAws_restJson1StorageRuleType
- */
-const de_StorageRuleType = (output: any, context: __SerdeContext): StorageRuleType => {
-  return {
-    StorageAllocatedInBytes: __expectLong(output.StorageAllocatedInBytes),
-    StorageType: __expectString(output.StorageType),
-  } as any;
-};
+// de_StorageRuleType omitted.
 
-/**
- * deserializeAws_restJson1Subscription
- */
-const de_Subscription = (output: any, context: __SerdeContext): Subscription => {
-  return {
-    EndPoint: __expectString(output.EndPoint),
-    Protocol: __expectString(output.Protocol),
-    SubscriptionId: __expectString(output.SubscriptionId),
-  } as any;
-};
+// de_Subscription omitted.
 
-/**
- * deserializeAws_restJson1SubscriptionList
- */
-const de_SubscriptionList = (output: any, context: __SerdeContext): Subscription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Subscription(entry, context);
-    });
-  return retVal;
-};
+// de_SubscriptionList omitted.
 
-/**
- * deserializeAws_restJson1UploadMetadata
- */
-const de_UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {
-  return {
-    SignedHeaders: output.SignedHeaders != null ? de_SignedHeaderMap(output.SignedHeaders, context) : undefined,
-    UploadUrl: __expectString(output.UploadUrl),
-  } as any;
-};
+// de_UploadMetadata omitted.
 
 /**
  * deserializeAws_restJson1User
  */
 const de_User = (output: any, context: __SerdeContext): User => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    EmailAddress: __expectString(output.EmailAddress),
-    GivenName: __expectString(output.GivenName),
-    Id: __expectString(output.Id),
-    Locale: __expectString(output.Locale),
-    ModifiedTimestamp:
-      output.ModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
-        : undefined,
-    OrganizationId: __expectString(output.OrganizationId),
-    RecycleBinFolderId: __expectString(output.RecycleBinFolderId),
-    RootFolderId: __expectString(output.RootFolderId),
-    Status: __expectString(output.Status),
-    Storage: output.Storage != null ? de_UserStorageMetadata(output.Storage, context) : undefined,
-    Surname: __expectString(output.Surname),
-    TimeZoneId: __expectString(output.TimeZoneId),
-    Type: __expectString(output.Type),
-    Username: __expectString(output.Username),
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EmailAddress: __expectString,
+    GivenName: __expectString,
+    Id: __expectString,
+    Locale: __expectString,
+    ModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrganizationId: __expectString,
+    RecycleBinFolderId: __expectString,
+    RootFolderId: __expectString,
+    Status: __expectString,
+    Storage: _json,
+    Surname: __expectString,
+    TimeZoneId: __expectString,
+    Type: __expectString,
+    Username: __expectString,
+  }) as any;
 };
 
 /**
@@ -5698,51 +5169,16 @@ const de_UserActivities = (output: any, context: __SerdeContext): Activity[] => 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Activity(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1UserMetadata
- */
-const de_UserMetadata = (output: any, context: __SerdeContext): UserMetadata => {
-  return {
-    EmailAddress: __expectString(output.EmailAddress),
-    GivenName: __expectString(output.GivenName),
-    Id: __expectString(output.Id),
-    Surname: __expectString(output.Surname),
-    Username: __expectString(output.Username),
-  } as any;
-};
+// de_UserMetadata omitted.
 
-/**
- * deserializeAws_restJson1UserMetadataList
- */
-const de_UserMetadataList = (output: any, context: __SerdeContext): UserMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UserMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_UserMetadataList omitted.
 
-/**
- * deserializeAws_restJson1UserStorageMetadata
- */
-const de_UserStorageMetadata = (output: any, context: __SerdeContext): UserStorageMetadata => {
-  return {
-    StorageRule: output.StorageRule != null ? de_StorageRuleType(output.StorageRule, context) : undefined,
-    StorageUtilizedInBytes: __expectLong(output.StorageUtilizedInBytes),
-  } as any;
-};
+// de_UserStorageMetadata omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

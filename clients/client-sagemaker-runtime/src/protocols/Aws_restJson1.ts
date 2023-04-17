@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -174,10 +176,9 @@ const de_InvokeEndpointCommandError = async (
       throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -199,9 +200,10 @@ export const de_InvokeEndpointAsyncCommand = async (
     FailureLocation: [, output.headers["x-amzn-sagemaker-failurelocation"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InferenceId != null) {
-    contents.InferenceId = __expectString(data.InferenceId);
-  }
+  const doc = take(data, {
+    InferenceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -229,16 +231,15 @@ const de_InvokeEndpointAsyncCommandError = async (
       throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InternalDependencyExceptionRes
  */
@@ -248,9 +249,10 @@ const de_InternalDependencyExceptionRes = async (
 ): Promise<InternalDependencyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalDependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -264,9 +266,10 @@ const de_InternalDependencyExceptionRes = async (
 const de_InternalFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalFailure> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailure({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -280,18 +283,13 @@ const de_InternalFailureRes = async (parsedOutput: any, context: __SerdeContext)
 const de_ModelErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ModelError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.LogStreamArn != null) {
-    contents.LogStreamArn = __expectString(data.LogStreamArn);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.OriginalMessage != null) {
-    contents.OriginalMessage = __expectString(data.OriginalMessage);
-  }
-  if (data.OriginalStatusCode != null) {
-    contents.OriginalStatusCode = __expectInt32(data.OriginalStatusCode);
-  }
+  const doc = take(data, {
+    LogStreamArn: __expectString,
+    Message: __expectString,
+    OriginalMessage: __expectString,
+    OriginalStatusCode: __expectInt32,
+  });
+  Object.assign(contents, doc);
   const exception = new ModelError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -308,9 +306,10 @@ const de_ModelNotReadyExceptionRes = async (
 ): Promise<ModelNotReadyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ModelNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -324,9 +323,10 @@ const de_ModelNotReadyExceptionRes = async (
 const de_ServiceUnavailableRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceUnavailable> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailable({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -340,9 +340,10 @@ const de_ServiceUnavailableRes = async (parsedOutput: any, context: __SerdeConte
 const de_ValidationErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,

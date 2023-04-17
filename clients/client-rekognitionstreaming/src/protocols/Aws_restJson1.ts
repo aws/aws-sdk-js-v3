@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectString as __expectString,
   expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -140,16 +140,15 @@ const de_StartFaceLivenessSessionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -159,12 +158,11 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -181,12 +179,11 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -203,12 +200,11 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -225,12 +221,11 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -247,12 +242,11 @@ const de_SessionNotFoundExceptionRes = async (
 ): Promise<SessionNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SessionNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -266,12 +260,11 @@ const de_SessionNotFoundExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -285,12 +278,11 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -393,7 +385,7 @@ const de_LivenessResponseStream = (
 const de_DisconnectionEvent_event = async (output: any, context: __SerdeContext): Promise<DisconnectionEvent> => {
   const contents: DisconnectionEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, de_DisconnectionEvent(data, context));
+  Object.assign(contents, _json(data));
   return contents;
 };
 const de_InternalServerException_event = async (
@@ -453,12 +445,12 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
  * serializeAws_restJson1BoundingBox
  */
 const se_BoundingBox = (input: BoundingBox, context: __SerdeContext): any => {
-  return {
-    ...(input.Height != null && { Height: __serializeFloat(input.Height) }),
-    ...(input.Left != null && { Left: __serializeFloat(input.Left) }),
-    ...(input.Top != null && { Top: __serializeFloat(input.Top) }),
-    ...(input.Width != null && { Width: __serializeFloat(input.Width) }),
-  };
+  return take(input, {
+    Height: __serializeFloat,
+    Left: __serializeFloat,
+    Top: __serializeFloat,
+    Width: __serializeFloat,
+  });
 };
 
 /**
@@ -477,33 +469,14 @@ const se_ClientChallenge = (input: ClientChallenge, context: __SerdeContext): an
  * serializeAws_restJson1ClientSessionInformationEvent
  */
 const se_ClientSessionInformationEvent = (input: ClientSessionInformationEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.Challenge != null && { Challenge: se_ClientChallenge(input.Challenge, context) }),
-  };
+  return take(input, {
+    Challenge: (_) => se_ClientChallenge(_, context),
+  });
 };
 
-/**
- * serializeAws_restJson1ColorComponentList
- */
-const se_ColorComponentList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ColorComponentList omitted.
 
-/**
- * serializeAws_restJson1ColorDisplayed
- */
-const se_ColorDisplayed = (input: ColorDisplayed, context: __SerdeContext): any => {
-  return {
-    ...(input.CurrentColor != null && { CurrentColor: se_FreshnessColor(input.CurrentColor, context) }),
-    ...(input.CurrentColorStartTimestamp != null && { CurrentColorStartTimestamp: input.CurrentColorStartTimestamp }),
-    ...(input.PreviousColor != null && { PreviousColor: se_FreshnessColor(input.PreviousColor, context) }),
-    ...(input.SequenceNumber != null && { SequenceNumber: input.SequenceNumber }),
-  };
-};
+// se_ColorDisplayed omitted.
 
 /**
  * serializeAws_restJson1FaceMovementAndLightClientChallenge
@@ -512,104 +485,78 @@ const se_FaceMovementAndLightClientChallenge = (
   input: FaceMovementAndLightClientChallenge,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.ChallengeId != null && { ChallengeId: input.ChallengeId }),
-    ...(input.ColorDisplayed != null && { ColorDisplayed: se_ColorDisplayed(input.ColorDisplayed, context) }),
-    ...(input.InitialFace != null && { InitialFace: se_InitialFace(input.InitialFace, context) }),
-    ...(input.TargetFace != null && { TargetFace: se_TargetFace(input.TargetFace, context) }),
-    ...(input.VideoEndTimestamp != null && { VideoEndTimestamp: input.VideoEndTimestamp }),
-    ...(input.VideoStartTimestamp != null && { VideoStartTimestamp: input.VideoStartTimestamp }),
-  };
+  return take(input, {
+    ChallengeId: [],
+    ColorDisplayed: _json,
+    InitialFace: (_) => se_InitialFace(_, context),
+    TargetFace: (_) => se_TargetFace(_, context),
+    VideoEndTimestamp: [],
+    VideoStartTimestamp: [],
+  });
 };
 
-/**
- * serializeAws_restJson1FreshnessColor
- */
-const se_FreshnessColor = (input: FreshnessColor, context: __SerdeContext): any => {
-  return {
-    ...(input.RGB != null && { RGB: se_ColorComponentList(input.RGB, context) }),
-  };
-};
+// se_FreshnessColor omitted.
 
 /**
  * serializeAws_restJson1InitialFace
  */
 const se_InitialFace = (input: InitialFace, context: __SerdeContext): any => {
-  return {
-    ...(input.BoundingBox != null && { BoundingBox: se_BoundingBox(input.BoundingBox, context) }),
-    ...(input.InitialFaceDetectedTimestamp != null && {
-      InitialFaceDetectedTimestamp: input.InitialFaceDetectedTimestamp,
-    }),
-  };
+  return take(input, {
+    BoundingBox: (_) => se_BoundingBox(_, context),
+    InitialFaceDetectedTimestamp: [],
+  });
 };
 
 /**
  * serializeAws_restJson1TargetFace
  */
 const se_TargetFace = (input: TargetFace, context: __SerdeContext): any => {
-  return {
-    ...(input.BoundingBox != null && { BoundingBox: se_BoundingBox(input.BoundingBox, context) }),
-    ...(input.FaceDetectedInTargetPositionEndTimestamp != null && {
-      FaceDetectedInTargetPositionEndTimestamp: input.FaceDetectedInTargetPositionEndTimestamp,
-    }),
-    ...(input.FaceDetectedInTargetPositionStartTimestamp != null && {
-      FaceDetectedInTargetPositionStartTimestamp: input.FaceDetectedInTargetPositionStartTimestamp,
-    }),
-  };
+  return take(input, {
+    BoundingBox: (_) => se_BoundingBox(_, context),
+    FaceDetectedInTargetPositionEndTimestamp: [],
+    FaceDetectedInTargetPositionStartTimestamp: [],
+  });
 };
 
 /**
  * serializeAws_restJson1VideoEvent
  */
 const se_VideoEvent = (input: VideoEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.TimestampMillis != null && { TimestampMillis: input.TimestampMillis }),
-    ...(input.VideoChunk != null && { VideoChunk: context.base64Encoder(input.VideoChunk) }),
-  };
+  return take(input, {
+    TimestampMillis: [],
+    VideoChunk: context.base64Encoder,
+  });
 };
 
 /**
  * deserializeAws_restJson1ChallengeConfig
  */
 const de_ChallengeConfig = (output: any, context: __SerdeContext): ChallengeConfig => {
-  return {
-    BlazeFaceDetectionThreshold: __limitedParseFloat32(output.BlazeFaceDetectionThreshold),
-    FaceDistanceThreshold: __limitedParseFloat32(output.FaceDistanceThreshold),
-    FaceDistanceThresholdMax: __limitedParseFloat32(output.FaceDistanceThresholdMax),
-    FaceDistanceThresholdMin: __limitedParseFloat32(output.FaceDistanceThresholdMin),
-    FaceIouHeightThreshold: __limitedParseFloat32(output.FaceIouHeightThreshold),
-    FaceIouWidthThreshold: __limitedParseFloat32(output.FaceIouWidthThreshold),
-    OvalHeightWidthRatio: __limitedParseFloat32(output.OvalHeightWidthRatio),
-    OvalIouHeightThreshold: __limitedParseFloat32(output.OvalIouHeightThreshold),
-    OvalIouThreshold: __limitedParseFloat32(output.OvalIouThreshold),
-    OvalIouWidthThreshold: __limitedParseFloat32(output.OvalIouWidthThreshold),
-  } as any;
+  return take(output, {
+    BlazeFaceDetectionThreshold: __limitedParseFloat32,
+    FaceDistanceThreshold: __limitedParseFloat32,
+    FaceDistanceThresholdMax: __limitedParseFloat32,
+    FaceDistanceThresholdMin: __limitedParseFloat32,
+    FaceIouHeightThreshold: __limitedParseFloat32,
+    FaceIouWidthThreshold: __limitedParseFloat32,
+    OvalHeightWidthRatio: __limitedParseFloat32,
+    OvalIouHeightThreshold: __limitedParseFloat32,
+    OvalIouThreshold: __limitedParseFloat32,
+    OvalIouWidthThreshold: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ColorComponentList
- */
-const de_ColorComponentList = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_ColorComponentList omitted.
 
 /**
  * deserializeAws_restJson1ColorSequence
  */
 const de_ColorSequence = (output: any, context: __SerdeContext): ColorSequence => {
-  return {
-    DownscrollDuration: __limitedParseFloat32(output.DownscrollDuration),
-    FlatDisplayDuration: __limitedParseFloat32(output.FlatDisplayDuration),
-    FreshnessColor: output.FreshnessColor != null ? de_FreshnessColor(output.FreshnessColor, context) : undefined,
-  } as any;
+  return take(output, {
+    DownscrollDuration: __limitedParseFloat32,
+    FlatDisplayDuration: __limitedParseFloat32,
+    FreshnessColor: _json,
+  }) as any;
 };
 
 /**
@@ -619,22 +566,12 @@ const de_ColorSequences = (output: any, context: __SerdeContext): ColorSequence[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ColorSequence(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1DisconnectionEvent
- */
-const de_DisconnectionEvent = (output: any, context: __SerdeContext): DisconnectionEvent => {
-  return {
-    TimestampMillis: __expectLong(output.TimestampMillis),
-  } as any;
-};
+// de_DisconnectionEvent omitted.
 
 /**
  * deserializeAws_restJson1FaceMovementAndLightServerChallenge
@@ -643,33 +580,26 @@ const de_FaceMovementAndLightServerChallenge = (
   output: any,
   context: __SerdeContext
 ): FaceMovementAndLightServerChallenge => {
-  return {
-    ChallengeConfig: output.ChallengeConfig != null ? de_ChallengeConfig(output.ChallengeConfig, context) : undefined,
-    ColorSequences: output.ColorSequences != null ? de_ColorSequences(output.ColorSequences, context) : undefined,
-    LightChallengeType: __expectString(output.LightChallengeType),
-    OvalParameters: output.OvalParameters != null ? de_OvalParameters(output.OvalParameters, context) : undefined,
-  } as any;
+  return take(output, {
+    ChallengeConfig: (_: any) => de_ChallengeConfig(_, context),
+    ColorSequences: (_: any) => de_ColorSequences(_, context),
+    LightChallengeType: __expectString,
+    OvalParameters: (_: any) => de_OvalParameters(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1FreshnessColor
- */
-const de_FreshnessColor = (output: any, context: __SerdeContext): FreshnessColor => {
-  return {
-    RGB: output.RGB != null ? de_ColorComponentList(output.RGB, context) : undefined,
-  } as any;
-};
+// de_FreshnessColor omitted.
 
 /**
  * deserializeAws_restJson1OvalParameters
  */
 const de_OvalParameters = (output: any, context: __SerdeContext): OvalParameters => {
-  return {
-    CenterX: __limitedParseFloat32(output.CenterX),
-    CenterY: __limitedParseFloat32(output.CenterY),
-    Height: __limitedParseFloat32(output.Height),
-    Width: __limitedParseFloat32(output.Width),
-  } as any;
+  return take(output, {
+    CenterX: __limitedParseFloat32,
+    CenterY: __limitedParseFloat32,
+    Height: __limitedParseFloat32,
+    Width: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -691,19 +621,18 @@ const de_ServerChallenge = (output: any, context: __SerdeContext): ServerChallen
  * deserializeAws_restJson1ServerSessionInformationEvent
  */
 const de_ServerSessionInformationEvent = (output: any, context: __SerdeContext): ServerSessionInformationEvent => {
-  return {
-    SessionInformation:
-      output.SessionInformation != null ? de_SessionInformation(output.SessionInformation, context) : undefined,
-  } as any;
+  return take(output, {
+    SessionInformation: (_: any) => de_SessionInformation(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SessionInformation
  */
 const de_SessionInformation = (output: any, context: __SerdeContext): SessionInformation => {
-  return {
-    Challenge: output.Challenge != null ? de_ServerChallenge(__expectUnion(output.Challenge), context) : undefined,
-  } as any;
+  return take(output, {
+    Challenge: (_: any) => de_ServerChallenge(__expectUnion(_), context),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

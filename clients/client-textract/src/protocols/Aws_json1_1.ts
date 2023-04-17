@@ -1,12 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectString as __expectString,
   LazyJsonString as __LazyJsonString,
   limitedParseFloat32 as __limitedParseFloat32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -64,18 +66,13 @@ import {
   ContentClassifier,
   DetectDocumentTextRequest,
   DetectDocumentTextResponse,
-  DetectedSignature,
   Document,
-  DocumentGroup,
   DocumentLocation,
-  DocumentMetadata,
   DocumentTooLargeException,
-  EntityType,
   ExpenseCurrency,
   ExpenseDetection,
   ExpenseDocument,
   ExpenseField,
-  ExpenseGroupProperty,
   ExpenseType,
   Extraction,
   FeatureType,
@@ -89,7 +86,6 @@ import {
   GetLendingAnalysisRequest,
   GetLendingAnalysisResponse,
   GetLendingAnalysisSummaryRequest,
-  GetLendingAnalysisSummaryResponse,
   HumanLoopActivationOutput,
   HumanLoopConfig,
   HumanLoopDataAttributes,
@@ -106,11 +102,9 @@ import {
   LendingDocument,
   LendingField,
   LendingResult,
-  LendingSummary,
   LimitExceededException,
   LineItemFields,
   LineItemGroup,
-  NormalizedValue,
   NotificationChannel,
   OutputConfig,
   PageClassification,
@@ -119,22 +113,14 @@ import {
   ProvisionedThroughputExceededException,
   QueriesConfig,
   Query,
-  Relationship,
   S3Object,
   SignatureDetection,
-  SplitDocument,
   StartDocumentAnalysisRequest,
-  StartDocumentAnalysisResponse,
   StartDocumentTextDetectionRequest,
-  StartDocumentTextDetectionResponse,
   StartExpenseAnalysisRequest,
-  StartExpenseAnalysisResponse,
   StartLendingAnalysisRequest,
-  StartLendingAnalysisResponse,
   ThrottlingException,
-  UndetectedSignature,
   UnsupportedDocumentException,
-  Warning,
 } from "../models/models_0";
 import { TextractServiceException as __BaseException } from "../models/TextractServiceException";
 
@@ -199,7 +185,7 @@ export const se_GetDocumentAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDocumentAnalysis");
   let body: any;
-  body = JSON.stringify(se_GetDocumentAnalysisRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -212,7 +198,7 @@ export const se_GetDocumentTextDetectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDocumentTextDetection");
   let body: any;
-  body = JSON.stringify(se_GetDocumentTextDetectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -225,7 +211,7 @@ export const se_GetExpenseAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetExpenseAnalysis");
   let body: any;
-  body = JSON.stringify(se_GetExpenseAnalysisRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -238,7 +224,7 @@ export const se_GetLendingAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLendingAnalysis");
   let body: any;
-  body = JSON.stringify(se_GetLendingAnalysisRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -251,7 +237,7 @@ export const se_GetLendingAnalysisSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLendingAnalysisSummary");
   let body: any;
-  body = JSON.stringify(se_GetLendingAnalysisSummaryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -264,7 +250,7 @@ export const se_StartDocumentAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartDocumentAnalysis");
   let body: any;
-  body = JSON.stringify(se_StartDocumentAnalysisRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -277,7 +263,7 @@ export const se_StartDocumentTextDetectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartDocumentTextDetection");
   let body: any;
-  body = JSON.stringify(se_StartDocumentTextDetectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -290,7 +276,7 @@ export const se_StartExpenseAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartExpenseAnalysis");
   let body: any;
-  body = JSON.stringify(se_StartExpenseAnalysisRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -303,7 +289,7 @@ export const se_StartLendingAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartLendingAnalysis");
   let body: any;
-  body = JSON.stringify(se_StartLendingAnalysisRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -324,7 +310,7 @@ export const de_AnalyzeDocumentCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -372,10 +358,9 @@ const de_AnalyzeDocumentCommandError = async (
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -398,7 +383,7 @@ export const de_AnalyzeExpenseCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -443,10 +428,9 @@ const de_AnalyzeExpenseCommandError = async (
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -469,7 +453,7 @@ export const de_AnalyzeIDCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -514,10 +498,9 @@ const de_AnalyzeIDCommandError = async (
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -540,7 +523,7 @@ export const de_DetectDocumentTextCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -585,10 +568,9 @@ const de_DetectDocumentTextCommandError = async (
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -611,7 +593,7 @@ export const de_GetDocumentAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -653,10 +635,9 @@ const de_GetDocumentAnalysisCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -679,7 +660,7 @@ export const de_GetDocumentTextDetectionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -721,10 +702,9 @@ const de_GetDocumentTextDetectionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -747,7 +727,7 @@ export const de_GetExpenseAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -789,10 +769,9 @@ const de_GetExpenseAnalysisCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -815,7 +794,7 @@ export const de_GetLendingAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -857,10 +836,9 @@ const de_GetLendingAnalysisCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -878,12 +856,12 @@ export const de_GetLendingAnalysisSummaryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetLendingAnalysisSummaryResponse(data, context);
+  contents = _json(data);
   const response: GetLendingAnalysisSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -925,10 +903,9 @@ const de_GetLendingAnalysisSummaryCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -946,12 +923,12 @@ export const de_StartDocumentAnalysisCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartDocumentAnalysisResponse(data, context);
+  contents = _json(data);
   const response: StartDocumentAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1005,10 +982,9 @@ const de_StartDocumentAnalysisCommandError = async (
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1026,12 +1002,12 @@ export const de_StartDocumentTextDetectionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartDocumentTextDetectionResponse(data, context);
+  contents = _json(data);
   const response: StartDocumentTextDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1085,10 +1061,9 @@ const de_StartDocumentTextDetectionCommandError = async (
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1106,12 +1081,12 @@ export const de_StartExpenseAnalysisCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartExpenseAnalysisResponse(data, context);
+  contents = _json(data);
   const response: StartExpenseAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1165,10 +1140,9 @@ const de_StartExpenseAnalysisCommandError = async (
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1186,12 +1160,12 @@ export const de_StartLendingAnalysisCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartLendingAnalysisResponse(data, context);
+  contents = _json(data);
   const response: StartLendingAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1245,10 +1219,9 @@ const de_StartLendingAnalysisCommandError = async (
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1262,7 +1235,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1278,7 +1251,7 @@ const de_BadDocumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<BadDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_BadDocumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BadDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1294,7 +1267,7 @@ const de_DocumentTooLargeExceptionRes = async (
   context: __SerdeContext
 ): Promise<DocumentTooLargeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DocumentTooLargeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DocumentTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1310,7 +1283,7 @@ const de_HumanLoopQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<HumanLoopQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_HumanLoopQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new HumanLoopQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1326,7 +1299,7 @@ const de_IdempotentParameterMismatchExceptionRes = async (
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_IdempotentParameterMismatchException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IdempotentParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1339,7 +1312,7 @@ const de_IdempotentParameterMismatchExceptionRes = async (
  */
 const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1355,7 +1328,7 @@ const de_InvalidJobIdExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidJobIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidJobIdException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidJobIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1371,7 +1344,7 @@ const de_InvalidKMSKeyExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidKMSKeyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidKMSKeyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidKMSKeyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1387,7 +1360,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1403,7 +1376,7 @@ const de_InvalidS3ObjectExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidS3ObjectException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidS3ObjectException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidS3ObjectException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1419,7 +1392,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1435,7 +1408,7 @@ const de_ProvisionedThroughputExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ProvisionedThroughputExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ProvisionedThroughputExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProvisionedThroughputExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1448,7 +1421,7 @@ const de_ProvisionedThroughputExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1464,7 +1437,7 @@ const de_UnsupportedDocumentExceptionRes = async (
   context: __SerdeContext
 ): Promise<UnsupportedDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnsupportedDocumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1476,70 +1449,54 @@ const de_UnsupportedDocumentExceptionRes = async (
  * serializeAws_json1_1AnalyzeDocumentRequest
  */
 const se_AnalyzeDocumentRequest = (input: AnalyzeDocumentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Document != null && { Document: se_Document(input.Document, context) }),
-    ...(input.FeatureTypes != null && { FeatureTypes: se_FeatureTypes(input.FeatureTypes, context) }),
-    ...(input.HumanLoopConfig != null && { HumanLoopConfig: se_HumanLoopConfig(input.HumanLoopConfig, context) }),
-    ...(input.QueriesConfig != null && { QueriesConfig: se_QueriesConfig(input.QueriesConfig, context) }),
-  };
+  return take(input, {
+    Document: (_) => se_Document(_, context),
+    FeatureTypes: _json,
+    HumanLoopConfig: _json,
+    QueriesConfig: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1AnalyzeExpenseRequest
  */
 const se_AnalyzeExpenseRequest = (input: AnalyzeExpenseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Document != null && { Document: se_Document(input.Document, context) }),
-  };
+  return take(input, {
+    Document: (_) => se_Document(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1AnalyzeIDRequest
  */
 const se_AnalyzeIDRequest = (input: AnalyzeIDRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DocumentPages != null && { DocumentPages: se_DocumentPages(input.DocumentPages, context) }),
-  };
+  return take(input, {
+    DocumentPages: (_) => se_DocumentPages(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1ContentClassifiers
- */
-const se_ContentClassifiers = (input: (ContentClassifier | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ContentClassifiers omitted.
 
 /**
  * serializeAws_json1_1DetectDocumentTextRequest
  */
 const se_DetectDocumentTextRequest = (input: DetectDocumentTextRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Document != null && { Document: se_Document(input.Document, context) }),
-  };
+  return take(input, {
+    Document: (_) => se_Document(_, context),
+  });
 };
 
 /**
  * serializeAws_json1_1Document
  */
 const se_Document = (input: Document, context: __SerdeContext): any => {
-  return {
-    ...(input.Bytes != null && { Bytes: context.base64Encoder(input.Bytes) }),
-    ...(input.S3Object != null && { S3Object: se_S3Object(input.S3Object, context) }),
-  };
+  return take(input, {
+    Bytes: context.base64Encoder,
+    S3Object: _json,
+  });
 };
 
-/**
- * serializeAws_json1_1DocumentLocation
- */
-const se_DocumentLocation = (input: DocumentLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Object != null && { S3Object: se_S3Object(input.S3Object, context) }),
-  };
-};
+// se_DocumentLocation omitted.
 
 /**
  * serializeAws_json1_1DocumentPages
@@ -1552,327 +1509,113 @@ const se_DocumentPages = (input: Document[], context: __SerdeContext): any => {
     });
 };
 
-/**
- * serializeAws_json1_1FeatureTypes
- */
-const se_FeatureTypes = (input: (FeatureType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FeatureTypes omitted.
 
-/**
- * serializeAws_json1_1GetDocumentAnalysisRequest
- */
-const se_GetDocumentAnalysisRequest = (input: GetDocumentAnalysisRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetDocumentAnalysisRequest omitted.
 
-/**
- * serializeAws_json1_1GetDocumentTextDetectionRequest
- */
-const se_GetDocumentTextDetectionRequest = (input: GetDocumentTextDetectionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetDocumentTextDetectionRequest omitted.
 
-/**
- * serializeAws_json1_1GetExpenseAnalysisRequest
- */
-const se_GetExpenseAnalysisRequest = (input: GetExpenseAnalysisRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetExpenseAnalysisRequest omitted.
 
-/**
- * serializeAws_json1_1GetLendingAnalysisRequest
- */
-const se_GetLendingAnalysisRequest = (input: GetLendingAnalysisRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_GetLendingAnalysisRequest omitted.
 
-/**
- * serializeAws_json1_1GetLendingAnalysisSummaryRequest
- */
-const se_GetLendingAnalysisSummaryRequest = (input: GetLendingAnalysisSummaryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_GetLendingAnalysisSummaryRequest omitted.
 
-/**
- * serializeAws_json1_1HumanLoopConfig
- */
-const se_HumanLoopConfig = (input: HumanLoopConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DataAttributes != null && { DataAttributes: se_HumanLoopDataAttributes(input.DataAttributes, context) }),
-    ...(input.FlowDefinitionArn != null && { FlowDefinitionArn: input.FlowDefinitionArn }),
-    ...(input.HumanLoopName != null && { HumanLoopName: input.HumanLoopName }),
-  };
-};
+// se_HumanLoopConfig omitted.
 
-/**
- * serializeAws_json1_1HumanLoopDataAttributes
- */
-const se_HumanLoopDataAttributes = (input: HumanLoopDataAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentClassifiers != null && {
-      ContentClassifiers: se_ContentClassifiers(input.ContentClassifiers, context),
-    }),
-  };
-};
+// se_HumanLoopDataAttributes omitted.
 
-/**
- * serializeAws_json1_1NotificationChannel
- */
-const se_NotificationChannel = (input: NotificationChannel, context: __SerdeContext): any => {
-  return {
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.SNSTopicArn != null && { SNSTopicArn: input.SNSTopicArn }),
-  };
-};
+// se_NotificationChannel omitted.
 
-/**
- * serializeAws_json1_1OutputConfig
- */
-const se_OutputConfig = (input: OutputConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Prefix != null && { S3Prefix: input.S3Prefix }),
-  };
-};
+// se_OutputConfig omitted.
 
-/**
- * serializeAws_json1_1Queries
- */
-const se_Queries = (input: Query[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Query(entry, context);
-    });
-};
+// se_Queries omitted.
 
-/**
- * serializeAws_json1_1QueriesConfig
- */
-const se_QueriesConfig = (input: QueriesConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Queries != null && { Queries: se_Queries(input.Queries, context) }),
-  };
-};
+// se_QueriesConfig omitted.
 
-/**
- * serializeAws_json1_1Query
- */
-const se_Query = (input: Query, context: __SerdeContext): any => {
-  return {
-    ...(input.Alias != null && { Alias: input.Alias }),
-    ...(input.Pages != null && { Pages: se_QueryPages(input.Pages, context) }),
-    ...(input.Text != null && { Text: input.Text }),
-  };
-};
+// se_Query omitted.
 
-/**
- * serializeAws_json1_1QueryPages
- */
-const se_QueryPages = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_QueryPages omitted.
 
-/**
- * serializeAws_json1_1S3Object
- */
-const se_S3Object = (input: S3Object, context: __SerdeContext): any => {
-  return {
-    ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
+// se_S3Object omitted.
 
-/**
- * serializeAws_json1_1StartDocumentAnalysisRequest
- */
-const se_StartDocumentAnalysisRequest = (input: StartDocumentAnalysisRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation != null && { DocumentLocation: se_DocumentLocation(input.DocumentLocation, context) }),
-    ...(input.FeatureTypes != null && { FeatureTypes: se_FeatureTypes(input.FeatureTypes, context) }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
-    ...(input.QueriesConfig != null && { QueriesConfig: se_QueriesConfig(input.QueriesConfig, context) }),
-  };
-};
+// se_StartDocumentAnalysisRequest omitted.
 
-/**
- * serializeAws_json1_1StartDocumentTextDetectionRequest
- */
-const se_StartDocumentTextDetectionRequest = (
-  input: StartDocumentTextDetectionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation != null && { DocumentLocation: se_DocumentLocation(input.DocumentLocation, context) }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
-  };
-};
+// se_StartDocumentTextDetectionRequest omitted.
 
-/**
- * serializeAws_json1_1StartExpenseAnalysisRequest
- */
-const se_StartExpenseAnalysisRequest = (input: StartExpenseAnalysisRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation != null && { DocumentLocation: se_DocumentLocation(input.DocumentLocation, context) }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
-  };
-};
+// se_StartExpenseAnalysisRequest omitted.
 
-/**
- * serializeAws_json1_1StartLendingAnalysisRequest
- */
-const se_StartLendingAnalysisRequest = (input: StartLendingAnalysisRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation != null && { DocumentLocation: se_DocumentLocation(input.DocumentLocation, context) }),
-    ...(input.JobTag != null && { JobTag: input.JobTag }),
-    ...(input.KMSKeyId != null && { KMSKeyId: input.KMSKeyId }),
-    ...(input.NotificationChannel != null && {
-      NotificationChannel: se_NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.OutputConfig != null && { OutputConfig: se_OutputConfig(input.OutputConfig, context) }),
-  };
-};
+// se_StartLendingAnalysisRequest omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
 /**
  * deserializeAws_json1_1AnalyzeDocumentResponse
  */
 const de_AnalyzeDocumentResponse = (output: any, context: __SerdeContext): AnalyzeDocumentResponse => {
-  return {
-    AnalyzeDocumentModelVersion: __expectString(output.AnalyzeDocumentModelVersion),
-    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    HumanLoopActivationOutput:
-      output.HumanLoopActivationOutput != null
-        ? de_HumanLoopActivationOutput(output.HumanLoopActivationOutput, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    AnalyzeDocumentModelVersion: __expectString,
+    Blocks: (_: any) => de_BlockList(_, context),
+    DocumentMetadata: _json,
+    HumanLoopActivationOutput: (_: any) => de_HumanLoopActivationOutput(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1AnalyzeExpenseResponse
  */
 const de_AnalyzeExpenseResponse = (output: any, context: __SerdeContext): AnalyzeExpenseResponse => {
-  return {
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    ExpenseDocuments:
-      output.ExpenseDocuments != null ? de_ExpenseDocumentList(output.ExpenseDocuments, context) : undefined,
-  } as any;
+  return take(output, {
+    DocumentMetadata: _json,
+    ExpenseDocuments: (_: any) => de_ExpenseDocumentList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1AnalyzeIDDetections
  */
 const de_AnalyzeIDDetections = (output: any, context: __SerdeContext): AnalyzeIDDetections => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    NormalizedValue: output.NormalizedValue != null ? de_NormalizedValue(output.NormalizedValue, context) : undefined,
-    Text: __expectString(output.Text),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    NormalizedValue: _json,
+    Text: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1AnalyzeIDResponse
  */
 const de_AnalyzeIDResponse = (output: any, context: __SerdeContext): AnalyzeIDResponse => {
-  return {
-    AnalyzeIDModelVersion: __expectString(output.AnalyzeIDModelVersion),
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    IdentityDocuments:
-      output.IdentityDocuments != null ? de_IdentityDocumentList(output.IdentityDocuments, context) : undefined,
-  } as any;
+  return take(output, {
+    AnalyzeIDModelVersion: __expectString,
+    DocumentMetadata: _json,
+    IdentityDocuments: (_: any) => de_IdentityDocumentList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1BadDocumentException
- */
-const de_BadDocumentException = (output: any, context: __SerdeContext): BadDocumentException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_BadDocumentException omitted.
 
 /**
  * deserializeAws_json1_1Block
  */
 const de_Block = (output: any, context: __SerdeContext): Block => {
-  return {
-    BlockType: __expectString(output.BlockType),
-    ColumnIndex: __expectInt32(output.ColumnIndex),
-    ColumnSpan: __expectInt32(output.ColumnSpan),
-    Confidence: __limitedParseFloat32(output.Confidence),
-    EntityTypes: output.EntityTypes != null ? de_EntityTypes(output.EntityTypes, context) : undefined,
-    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
-    Id: __expectString(output.Id),
-    Page: __expectInt32(output.Page),
-    Query: output.Query != null ? de_Query(output.Query, context) : undefined,
-    Relationships: output.Relationships != null ? de_RelationshipList(output.Relationships, context) : undefined,
-    RowIndex: __expectInt32(output.RowIndex),
-    RowSpan: __expectInt32(output.RowSpan),
-    SelectionStatus: __expectString(output.SelectionStatus),
-    Text: __expectString(output.Text),
-    TextType: __expectString(output.TextType),
-  } as any;
+  return take(output, {
+    BlockType: __expectString,
+    ColumnIndex: __expectInt32,
+    ColumnSpan: __expectInt32,
+    Confidence: __limitedParseFloat32,
+    EntityTypes: _json,
+    Geometry: (_: any) => de_Geometry(_, context),
+    Id: __expectString,
+    Page: __expectInt32,
+    Query: _json,
+    Relationships: _json,
+    RowIndex: __expectInt32,
+    RowSpan: __expectInt32,
+    SelectionStatus: __expectString,
+    Text: __expectString,
+    TextType: __expectString,
+  }) as any;
 };
 
 /**
@@ -1882,9 +1625,6 @@ const de_BlockList = (output: any, context: __SerdeContext): Block[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Block(entry, context);
     });
   return retVal;
@@ -1894,146 +1634,70 @@ const de_BlockList = (output: any, context: __SerdeContext): Block[] => {
  * deserializeAws_json1_1BoundingBox
  */
 const de_BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
-  return {
-    Height: __limitedParseFloat32(output.Height),
-    Left: __limitedParseFloat32(output.Left),
-    Top: __limitedParseFloat32(output.Top),
-    Width: __limitedParseFloat32(output.Width),
-  } as any;
+  return take(output, {
+    Height: __limitedParseFloat32,
+    Left: __limitedParseFloat32,
+    Top: __limitedParseFloat32,
+    Width: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DetectDocumentTextResponse
  */
 const de_DetectDocumentTextResponse = (output: any, context: __SerdeContext): DetectDocumentTextResponse => {
-  return {
-    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
-    DetectDocumentTextModelVersion: __expectString(output.DetectDocumentTextModelVersion),
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-  } as any;
+  return take(output, {
+    Blocks: (_: any) => de_BlockList(_, context),
+    DetectDocumentTextModelVersion: __expectString,
+    DocumentMetadata: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DetectedSignature
- */
-const de_DetectedSignature = (output: any, context: __SerdeContext): DetectedSignature => {
-  return {
-    Page: __expectInt32(output.Page),
-  } as any;
-};
+// de_DetectedSignature omitted.
 
-/**
- * deserializeAws_json1_1DetectedSignatureList
- */
-const de_DetectedSignatureList = (output: any, context: __SerdeContext): DetectedSignature[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DetectedSignature(entry, context);
-    });
-  return retVal;
-};
+// de_DetectedSignatureList omitted.
 
-/**
- * deserializeAws_json1_1DocumentGroup
- */
-const de_DocumentGroup = (output: any, context: __SerdeContext): DocumentGroup => {
-  return {
-    DetectedSignatures:
-      output.DetectedSignatures != null ? de_DetectedSignatureList(output.DetectedSignatures, context) : undefined,
-    SplitDocuments: output.SplitDocuments != null ? de_SplitDocumentList(output.SplitDocuments, context) : undefined,
-    Type: __expectString(output.Type),
-    UndetectedSignatures:
-      output.UndetectedSignatures != null
-        ? de_UndetectedSignatureList(output.UndetectedSignatures, context)
-        : undefined,
-  } as any;
-};
+// de_DocumentGroup omitted.
 
-/**
- * deserializeAws_json1_1DocumentGroupList
- */
-const de_DocumentGroupList = (output: any, context: __SerdeContext): DocumentGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DocumentGroup(entry, context);
-    });
-  return retVal;
-};
+// de_DocumentGroupList omitted.
 
-/**
- * deserializeAws_json1_1DocumentMetadata
- */
-const de_DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
-  return {
-    Pages: __expectInt32(output.Pages),
-  } as any;
-};
+// de_DocumentMetadata omitted.
 
-/**
- * deserializeAws_json1_1DocumentTooLargeException
- */
-const de_DocumentTooLargeException = (output: any, context: __SerdeContext): DocumentTooLargeException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DocumentTooLargeException omitted.
 
-/**
- * deserializeAws_json1_1EntityTypes
- */
-const de_EntityTypes = (output: any, context: __SerdeContext): (EntityType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EntityTypes omitted.
 
 /**
  * deserializeAws_json1_1ExpenseCurrency
  */
 const de_ExpenseCurrency = (output: any, context: __SerdeContext): ExpenseCurrency => {
-  return {
-    Code: __expectString(output.Code),
-    Confidence: __limitedParseFloat32(output.Confidence),
-  } as any;
+  return take(output, {
+    Code: __expectString,
+    Confidence: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ExpenseDetection
  */
 const de_ExpenseDetection = (output: any, context: __SerdeContext): ExpenseDetection => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
-    Text: __expectString(output.Text),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Geometry: (_: any) => de_Geometry(_, context),
+    Text: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ExpenseDocument
  */
 const de_ExpenseDocument = (output: any, context: __SerdeContext): ExpenseDocument => {
-  return {
-    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
-    ExpenseIndex: __expectInt32(output.ExpenseIndex),
-    LineItemGroups: output.LineItemGroups != null ? de_LineItemGroupList(output.LineItemGroups, context) : undefined,
-    SummaryFields: output.SummaryFields != null ? de_ExpenseFieldList(output.SummaryFields, context) : undefined,
-  } as any;
+  return take(output, {
+    Blocks: (_: any) => de_BlockList(_, context),
+    ExpenseIndex: __expectInt32,
+    LineItemGroups: (_: any) => de_LineItemGroupList(_, context),
+    SummaryFields: (_: any) => de_ExpenseFieldList(_, context),
+  }) as any;
 };
 
 /**
@@ -2043,9 +1707,6 @@ const de_ExpenseDocumentList = (output: any, context: __SerdeContext): ExpenseDo
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ExpenseDocument(entry, context);
     });
   return retVal;
@@ -2055,15 +1716,14 @@ const de_ExpenseDocumentList = (output: any, context: __SerdeContext): ExpenseDo
  * deserializeAws_json1_1ExpenseField
  */
 const de_ExpenseField = (output: any, context: __SerdeContext): ExpenseField => {
-  return {
-    Currency: output.Currency != null ? de_ExpenseCurrency(output.Currency, context) : undefined,
-    GroupProperties:
-      output.GroupProperties != null ? de_ExpenseGroupPropertyList(output.GroupProperties, context) : undefined,
-    LabelDetection: output.LabelDetection != null ? de_ExpenseDetection(output.LabelDetection, context) : undefined,
-    PageNumber: __expectInt32(output.PageNumber),
-    Type: output.Type != null ? de_ExpenseType(output.Type, context) : undefined,
-    ValueDetection: output.ValueDetection != null ? de_ExpenseDetection(output.ValueDetection, context) : undefined,
-  } as any;
+  return take(output, {
+    Currency: (_: any) => de_ExpenseCurrency(_, context),
+    GroupProperties: _json,
+    LabelDetection: (_: any) => de_ExpenseDetection(_, context),
+    PageNumber: __expectInt32,
+    Type: (_: any) => de_ExpenseType(_, context),
+    ValueDetection: (_: any) => de_ExpenseDetection(_, context),
+  }) as any;
 };
 
 /**
@@ -2073,59 +1733,34 @@ const de_ExpenseFieldList = (output: any, context: __SerdeContext): ExpenseField
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ExpenseField(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ExpenseGroupProperty
- */
-const de_ExpenseGroupProperty = (output: any, context: __SerdeContext): ExpenseGroupProperty => {
-  return {
-    Id: __expectString(output.Id),
-    Types: output.Types != null ? de_StringList(output.Types, context) : undefined,
-  } as any;
-};
+// de_ExpenseGroupProperty omitted.
 
-/**
- * deserializeAws_json1_1ExpenseGroupPropertyList
- */
-const de_ExpenseGroupPropertyList = (output: any, context: __SerdeContext): ExpenseGroupProperty[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExpenseGroupProperty(entry, context);
-    });
-  return retVal;
-};
+// de_ExpenseGroupPropertyList omitted.
 
 /**
  * deserializeAws_json1_1ExpenseType
  */
 const de_ExpenseType = (output: any, context: __SerdeContext): ExpenseType => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Text: __expectString(output.Text),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Text: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Extraction
  */
 const de_Extraction = (output: any, context: __SerdeContext): Extraction => {
-  return {
-    ExpenseDocument: output.ExpenseDocument != null ? de_ExpenseDocument(output.ExpenseDocument, context) : undefined,
-    IdentityDocument:
-      output.IdentityDocument != null ? de_IdentityDocument(output.IdentityDocument, context) : undefined,
-    LendingDocument: output.LendingDocument != null ? de_LendingDocument(output.LendingDocument, context) : undefined,
-  } as any;
+  return take(output, {
+    ExpenseDocument: (_: any) => de_ExpenseDocument(_, context),
+    IdentityDocument: (_: any) => de_IdentityDocument(_, context),
+    LendingDocument: (_: any) => de_LendingDocument(_, context),
+  }) as any;
 };
 
 /**
@@ -2135,9 +1770,6 @@ const de_ExtractionList = (output: any, context: __SerdeContext): Extraction[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Extraction(entry, context);
     });
   return retVal;
@@ -2147,26 +1779,25 @@ const de_ExtractionList = (output: any, context: __SerdeContext): Extraction[] =
  * deserializeAws_json1_1Geometry
  */
 const de_Geometry = (output: any, context: __SerdeContext): Geometry => {
-  return {
-    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
-    Polygon: output.Polygon != null ? de_Polygon(output.Polygon, context) : undefined,
-  } as any;
+  return take(output, {
+    BoundingBox: (_: any) => de_BoundingBox(_, context),
+    Polygon: (_: any) => de_Polygon(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetDocumentAnalysisResponse
  */
 const de_GetDocumentAnalysisResponse = (output: any, context: __SerdeContext): GetDocumentAnalysisResponse => {
-  return {
-    AnalyzeDocumentModelVersion: __expectString(output.AnalyzeDocumentModelVersion),
-    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    StatusMessage: __expectString(output.StatusMessage),
-    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
-  } as any;
+  return take(output, {
+    AnalyzeDocumentModelVersion: __expectString,
+    Blocks: (_: any) => de_BlockList(_, context),
+    DocumentMetadata: _json,
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    StatusMessage: __expectString,
+    Warnings: _json,
+  }) as any;
 };
 
 /**
@@ -2176,149 +1807,85 @@ const de_GetDocumentTextDetectionResponse = (
   output: any,
   context: __SerdeContext
 ): GetDocumentTextDetectionResponse => {
-  return {
-    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
-    DetectDocumentTextModelVersion: __expectString(output.DetectDocumentTextModelVersion),
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    StatusMessage: __expectString(output.StatusMessage),
-    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
-  } as any;
+  return take(output, {
+    Blocks: (_: any) => de_BlockList(_, context),
+    DetectDocumentTextModelVersion: __expectString,
+    DocumentMetadata: _json,
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    StatusMessage: __expectString,
+    Warnings: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetExpenseAnalysisResponse
  */
 const de_GetExpenseAnalysisResponse = (output: any, context: __SerdeContext): GetExpenseAnalysisResponse => {
-  return {
-    AnalyzeExpenseModelVersion: __expectString(output.AnalyzeExpenseModelVersion),
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    ExpenseDocuments:
-      output.ExpenseDocuments != null ? de_ExpenseDocumentList(output.ExpenseDocuments, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    StatusMessage: __expectString(output.StatusMessage),
-    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
-  } as any;
+  return take(output, {
+    AnalyzeExpenseModelVersion: __expectString,
+    DocumentMetadata: _json,
+    ExpenseDocuments: (_: any) => de_ExpenseDocumentList(_, context),
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    StatusMessage: __expectString,
+    Warnings: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetLendingAnalysisResponse
  */
 const de_GetLendingAnalysisResponse = (output: any, context: __SerdeContext): GetLendingAnalysisResponse => {
-  return {
-    AnalyzeLendingModelVersion: __expectString(output.AnalyzeLendingModelVersion),
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    NextToken: __expectString(output.NextToken),
-    Results: output.Results != null ? de_LendingResultList(output.Results, context) : undefined,
-    StatusMessage: __expectString(output.StatusMessage),
-    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
-  } as any;
+  return take(output, {
+    AnalyzeLendingModelVersion: __expectString,
+    DocumentMetadata: _json,
+    JobStatus: __expectString,
+    NextToken: __expectString,
+    Results: (_: any) => de_LendingResultList(_, context),
+    StatusMessage: __expectString,
+    Warnings: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1GetLendingAnalysisSummaryResponse
- */
-const de_GetLendingAnalysisSummaryResponse = (
-  output: any,
-  context: __SerdeContext
-): GetLendingAnalysisSummaryResponse => {
-  return {
-    AnalyzeLendingModelVersion: __expectString(output.AnalyzeLendingModelVersion),
-    DocumentMetadata:
-      output.DocumentMetadata != null ? de_DocumentMetadata(output.DocumentMetadata, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    StatusMessage: __expectString(output.StatusMessage),
-    Summary: output.Summary != null ? de_LendingSummary(output.Summary, context) : undefined,
-    Warnings: output.Warnings != null ? de_Warnings(output.Warnings, context) : undefined,
-  } as any;
-};
+// de_GetLendingAnalysisSummaryResponse omitted.
 
 /**
  * deserializeAws_json1_1HumanLoopActivationOutput
  */
 const de_HumanLoopActivationOutput = (output: any, context: __SerdeContext): HumanLoopActivationOutput => {
-  return {
-    HumanLoopActivationConditionsEvaluationResults:
-      output.HumanLoopActivationConditionsEvaluationResults != null
-        ? new __LazyJsonString(output.HumanLoopActivationConditionsEvaluationResults)
-        : undefined,
-    HumanLoopActivationReasons:
-      output.HumanLoopActivationReasons != null
-        ? de_HumanLoopActivationReasons(output.HumanLoopActivationReasons, context)
-        : undefined,
-    HumanLoopArn: __expectString(output.HumanLoopArn),
-  } as any;
+  return take(output, {
+    HumanLoopActivationConditionsEvaluationResults: (_: any) => new __LazyJsonString(_),
+    HumanLoopActivationReasons: _json,
+    HumanLoopArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1HumanLoopActivationReasons
- */
-const de_HumanLoopActivationReasons = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_HumanLoopActivationReasons omitted.
 
-/**
- * deserializeAws_json1_1HumanLoopQuotaExceededException
- */
-const de_HumanLoopQuotaExceededException = (output: any, context: __SerdeContext): HumanLoopQuotaExceededException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-    QuotaCode: __expectString(output.QuotaCode),
-    ResourceType: __expectString(output.ResourceType),
-    ServiceCode: __expectString(output.ServiceCode),
-  } as any;
-};
+// de_HumanLoopQuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_1IdempotentParameterMismatchException
- */
-const de_IdempotentParameterMismatchException = (
-  output: any,
-  context: __SerdeContext
-): IdempotentParameterMismatchException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_IdempotentParameterMismatchException omitted.
 
 /**
  * deserializeAws_json1_1IdentityDocument
  */
 const de_IdentityDocument = (output: any, context: __SerdeContext): IdentityDocument => {
-  return {
-    Blocks: output.Blocks != null ? de_BlockList(output.Blocks, context) : undefined,
-    DocumentIndex: __expectInt32(output.DocumentIndex),
-    IdentityDocumentFields:
-      output.IdentityDocumentFields != null
-        ? de_IdentityDocumentFieldList(output.IdentityDocumentFields, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    Blocks: (_: any) => de_BlockList(_, context),
+    DocumentIndex: __expectInt32,
+    IdentityDocumentFields: (_: any) => de_IdentityDocumentFieldList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1IdentityDocumentField
  */
 const de_IdentityDocumentField = (output: any, context: __SerdeContext): IdentityDocumentField => {
-  return {
-    Type: output.Type != null ? de_AnalyzeIDDetections(output.Type, context) : undefined,
-    ValueDetection: output.ValueDetection != null ? de_AnalyzeIDDetections(output.ValueDetection, context) : undefined,
-  } as any;
+  return take(output, {
+    Type: (_: any) => de_AnalyzeIDDetections(_, context),
+    ValueDetection: (_: any) => de_AnalyzeIDDetections(_, context),
+  }) as any;
 };
 
 /**
@@ -2328,9 +1895,6 @@ const de_IdentityDocumentFieldList = (output: any, context: __SerdeContext): Ide
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_IdentityDocumentField(entry, context);
     });
   return retVal;
@@ -2343,89 +1907,33 @@ const de_IdentityDocumentList = (output: any, context: __SerdeContext): Identity
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_IdentityDocument(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1IdList
- */
-const de_IdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_IdList omitted.
 
-/**
- * deserializeAws_json1_1InternalServerError
- */
-const de_InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerError omitted.
 
-/**
- * deserializeAws_json1_1InvalidJobIdException
- */
-const de_InvalidJobIdException = (output: any, context: __SerdeContext): InvalidJobIdException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidJobIdException omitted.
 
-/**
- * deserializeAws_json1_1InvalidKMSKeyException
- */
-const de_InvalidKMSKeyException = (output: any, context: __SerdeContext): InvalidKMSKeyException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidKMSKeyException omitted.
 
-/**
- * deserializeAws_json1_1InvalidParameterException
- */
-const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidParameterException omitted.
 
-/**
- * deserializeAws_json1_1InvalidS3ObjectException
- */
-const de_InvalidS3ObjectException = (output: any, context: __SerdeContext): InvalidS3ObjectException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidS3ObjectException omitted.
 
 /**
  * deserializeAws_json1_1LendingDetection
  */
 const de_LendingDetection = (output: any, context: __SerdeContext): LendingDetection => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
-    SelectionStatus: __expectString(output.SelectionStatus),
-    Text: __expectString(output.Text),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Geometry: (_: any) => de_Geometry(_, context),
+    SelectionStatus: __expectString,
+    Text: __expectString,
+  }) as any;
 };
 
 /**
@@ -2435,9 +1943,6 @@ const de_LendingDetectionList = (output: any, context: __SerdeContext): LendingD
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LendingDetection(entry, context);
     });
   return retVal;
@@ -2447,23 +1952,21 @@ const de_LendingDetectionList = (output: any, context: __SerdeContext): LendingD
  * deserializeAws_json1_1LendingDocument
  */
 const de_LendingDocument = (output: any, context: __SerdeContext): LendingDocument => {
-  return {
-    LendingFields: output.LendingFields != null ? de_LendingFieldList(output.LendingFields, context) : undefined,
-    SignatureDetections:
-      output.SignatureDetections != null ? de_SignatureDetectionList(output.SignatureDetections, context) : undefined,
-  } as any;
+  return take(output, {
+    LendingFields: (_: any) => de_LendingFieldList(_, context),
+    SignatureDetections: (_: any) => de_SignatureDetectionList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1LendingField
  */
 const de_LendingField = (output: any, context: __SerdeContext): LendingField => {
-  return {
-    KeyDetection: output.KeyDetection != null ? de_LendingDetection(output.KeyDetection, context) : undefined,
-    Type: __expectString(output.Type),
-    ValueDetections:
-      output.ValueDetections != null ? de_LendingDetectionList(output.ValueDetections, context) : undefined,
-  } as any;
+  return take(output, {
+    KeyDetection: (_: any) => de_LendingDetection(_, context),
+    Type: __expectString,
+    ValueDetections: (_: any) => de_LendingDetectionList(_, context),
+  }) as any;
 };
 
 /**
@@ -2473,9 +1976,6 @@ const de_LendingFieldList = (output: any, context: __SerdeContext): LendingField
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LendingField(entry, context);
     });
   return retVal;
@@ -2485,12 +1985,11 @@ const de_LendingFieldList = (output: any, context: __SerdeContext): LendingField
  * deserializeAws_json1_1LendingResult
  */
 const de_LendingResult = (output: any, context: __SerdeContext): LendingResult => {
-  return {
-    Extractions: output.Extractions != null ? de_ExtractionList(output.Extractions, context) : undefined,
-    Page: __expectInt32(output.Page),
-    PageClassification:
-      output.PageClassification != null ? de_PageClassification(output.PageClassification, context) : undefined,
-  } as any;
+  return take(output, {
+    Extractions: (_: any) => de_ExtractionList(_, context),
+    Page: __expectInt32,
+    PageClassification: (_: any) => de_PageClassification(_, context),
+  }) as any;
 };
 
 /**
@@ -2500,55 +1999,32 @@ const de_LendingResultList = (output: any, context: __SerdeContext): LendingResu
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LendingResult(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1LendingSummary
- */
-const de_LendingSummary = (output: any, context: __SerdeContext): LendingSummary => {
-  return {
-    DocumentGroups: output.DocumentGroups != null ? de_DocumentGroupList(output.DocumentGroups, context) : undefined,
-    UndetectedDocumentTypes:
-      output.UndetectedDocumentTypes != null
-        ? de_UndetectedDocumentTypeList(output.UndetectedDocumentTypes, context)
-        : undefined,
-  } as any;
-};
+// de_LendingSummary omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
 /**
  * deserializeAws_json1_1LineItemFields
  */
 const de_LineItemFields = (output: any, context: __SerdeContext): LineItemFields => {
-  return {
-    LineItemExpenseFields:
-      output.LineItemExpenseFields != null ? de_ExpenseFieldList(output.LineItemExpenseFields, context) : undefined,
-  } as any;
+  return take(output, {
+    LineItemExpenseFields: (_: any) => de_ExpenseFieldList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1LineItemGroup
  */
 const de_LineItemGroup = (output: any, context: __SerdeContext): LineItemGroup => {
-  return {
-    LineItemGroupIndex: __expectInt32(output.LineItemGroupIndex),
-    LineItems: output.LineItems != null ? de_LineItemList(output.LineItems, context) : undefined,
-  } as any;
+  return take(output, {
+    LineItemGroupIndex: __expectInt32,
+    LineItems: (_: any) => de_LineItemList(_, context),
+  }) as any;
 };
 
 /**
@@ -2558,9 +2034,6 @@ const de_LineItemGroupList = (output: any, context: __SerdeContext): LineItemGro
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LineItemGroup(entry, context);
     });
   return retVal;
@@ -2573,72 +2046,35 @@ const de_LineItemList = (output: any, context: __SerdeContext): LineItemFields[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LineItemFields(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1NormalizedValue
- */
-const de_NormalizedValue = (output: any, context: __SerdeContext): NormalizedValue => {
-  return {
-    Value: __expectString(output.Value),
-    ValueType: __expectString(output.ValueType),
-  } as any;
-};
+// de_NormalizedValue omitted.
 
 /**
  * deserializeAws_json1_1PageClassification
  */
 const de_PageClassification = (output: any, context: __SerdeContext): PageClassification => {
-  return {
-    PageNumber: output.PageNumber != null ? de_PredictionList(output.PageNumber, context) : undefined,
-    PageType: output.PageType != null ? de_PredictionList(output.PageType, context) : undefined,
-  } as any;
+  return take(output, {
+    PageNumber: (_: any) => de_PredictionList(_, context),
+    PageType: (_: any) => de_PredictionList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1PageList
- */
-const de_PageList = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_PageList omitted.
 
-/**
- * deserializeAws_json1_1Pages
- */
-const de_Pages = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
+// de_Pages omitted.
 
 /**
  * deserializeAws_json1_1Point
  */
 const de_Point = (output: any, context: __SerdeContext): Point => {
-  return {
-    X: __limitedParseFloat32(output.X),
-    Y: __limitedParseFloat32(output.Y),
-  } as any;
+  return take(output, {
+    X: __limitedParseFloat32,
+    Y: __limitedParseFloat32,
+  }) as any;
 };
 
 /**
@@ -2648,9 +2084,6 @@ const de_Polygon = (output: any, context: __SerdeContext): Point[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Point(entry, context);
     });
   return retVal;
@@ -2660,10 +2093,10 @@ const de_Polygon = (output: any, context: __SerdeContext): Point[] => {
  * deserializeAws_json1_1Prediction
  */
 const de_Prediction = (output: any, context: __SerdeContext): Prediction => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Value: __expectString(output.Value),
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectString,
+  }) as any;
 };
 
 /**
@@ -2673,86 +2106,29 @@ const de_PredictionList = (output: any, context: __SerdeContext): Prediction[] =
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Prediction(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1ProvisionedThroughputExceededException
- */
-const de_ProvisionedThroughputExceededException = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedThroughputExceededException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ProvisionedThroughputExceededException omitted.
 
-/**
- * deserializeAws_json1_1Query
- */
-const de_Query = (output: any, context: __SerdeContext): Query => {
-  return {
-    Alias: __expectString(output.Alias),
-    Pages: output.Pages != null ? de_QueryPages(output.Pages, context) : undefined,
-    Text: __expectString(output.Text),
-  } as any;
-};
+// de_Query omitted.
 
-/**
- * deserializeAws_json1_1QueryPages
- */
-const de_QueryPages = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_QueryPages omitted.
 
-/**
- * deserializeAws_json1_1Relationship
- */
-const de_Relationship = (output: any, context: __SerdeContext): Relationship => {
-  return {
-    Ids: output.Ids != null ? de_IdList(output.Ids, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Relationship omitted.
 
-/**
- * deserializeAws_json1_1RelationshipList
- */
-const de_RelationshipList = (output: any, context: __SerdeContext): Relationship[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Relationship(entry, context);
-    });
-  return retVal;
-};
+// de_RelationshipList omitted.
 
 /**
  * deserializeAws_json1_1SignatureDetection
  */
 const de_SignatureDetection = (output: any, context: __SerdeContext): SignatureDetection => {
-  return {
-    Confidence: __limitedParseFloat32(output.Confidence),
-    Geometry: output.Geometry != null ? de_Geometry(output.Geometry, context) : undefined,
-  } as any;
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Geometry: (_: any) => de_Geometry(_, context),
+  }) as any;
 };
 
 /**
@@ -2762,176 +2138,38 @@ const de_SignatureDetectionList = (output: any, context: __SerdeContext): Signat
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SignatureDetection(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1SplitDocument
- */
-const de_SplitDocument = (output: any, context: __SerdeContext): SplitDocument => {
-  return {
-    Index: __expectInt32(output.Index),
-    Pages: output.Pages != null ? de_PageList(output.Pages, context) : undefined,
-  } as any;
-};
+// de_SplitDocument omitted.
 
-/**
- * deserializeAws_json1_1SplitDocumentList
- */
-const de_SplitDocumentList = (output: any, context: __SerdeContext): SplitDocument[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SplitDocument(entry, context);
-    });
-  return retVal;
-};
+// de_SplitDocumentList omitted.
 
-/**
- * deserializeAws_json1_1StartDocumentAnalysisResponse
- */
-const de_StartDocumentAnalysisResponse = (output: any, context: __SerdeContext): StartDocumentAnalysisResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartDocumentAnalysisResponse omitted.
 
-/**
- * deserializeAws_json1_1StartDocumentTextDetectionResponse
- */
-const de_StartDocumentTextDetectionResponse = (
-  output: any,
-  context: __SerdeContext
-): StartDocumentTextDetectionResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartDocumentTextDetectionResponse omitted.
 
-/**
- * deserializeAws_json1_1StartExpenseAnalysisResponse
- */
-const de_StartExpenseAnalysisResponse = (output: any, context: __SerdeContext): StartExpenseAnalysisResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartExpenseAnalysisResponse omitted.
 
-/**
- * deserializeAws_json1_1StartLendingAnalysisResponse
- */
-const de_StartLendingAnalysisResponse = (output: any, context: __SerdeContext): StartLendingAnalysisResponse => {
-  return {
-    JobId: __expectString(output.JobId),
-  } as any;
-};
+// de_StartLendingAnalysisResponse omitted.
 
-/**
- * deserializeAws_json1_1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_1UndetectedDocumentTypeList
- */
-const de_UndetectedDocumentTypeList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_UndetectedDocumentTypeList omitted.
 
-/**
- * deserializeAws_json1_1UndetectedSignature
- */
-const de_UndetectedSignature = (output: any, context: __SerdeContext): UndetectedSignature => {
-  return {
-    Page: __expectInt32(output.Page),
-  } as any;
-};
+// de_UndetectedSignature omitted.
 
-/**
- * deserializeAws_json1_1UndetectedSignatureList
- */
-const de_UndetectedSignatureList = (output: any, context: __SerdeContext): UndetectedSignature[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UndetectedSignature(entry, context);
-    });
-  return retVal;
-};
+// de_UndetectedSignatureList omitted.
 
-/**
- * deserializeAws_json1_1UnsupportedDocumentException
- */
-const de_UnsupportedDocumentException = (output: any, context: __SerdeContext): UnsupportedDocumentException => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UnsupportedDocumentException omitted.
 
-/**
- * deserializeAws_json1_1Warning
- */
-const de_Warning = (output: any, context: __SerdeContext): Warning => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    Pages: output.Pages != null ? de_Pages(output.Pages, context) : undefined,
-  } as any;
-};
+// de_Warning omitted.
 
-/**
- * deserializeAws_json1_1Warnings
- */
-const de_Warnings = (output: any, context: __SerdeContext): Warning[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Warning(entry, context);
-    });
-  return retVal;
-};
+// de_Warnings omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2953,6 +2191,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

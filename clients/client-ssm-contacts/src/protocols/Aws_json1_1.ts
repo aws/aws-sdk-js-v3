@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -101,49 +101,31 @@ import { UpdateContactCommandInput, UpdateContactCommandOutput } from "../comman
 import { UpdateRotationCommandInput, UpdateRotationCommandOutput } from "../commands/UpdateRotationCommand";
 import {
   AcceptPageRequest,
-  AcceptPageResult,
   AccessDeniedException,
   ActivateContactChannelRequest,
-  ActivateContactChannelResult,
   ChannelTargetInfo,
   ConflictException,
-  Contact,
-  ContactChannel,
   ContactChannelAddress,
   ContactTargetInfo,
   CoverageTime,
   CreateContactChannelRequest,
-  CreateContactChannelResult,
   CreateContactRequest,
-  CreateContactResult,
   CreateRotationOverrideRequest,
-  CreateRotationOverrideResult,
   CreateRotationRequest,
-  CreateRotationResult,
   DataEncryptionException,
-  DayOfWeek,
   DeactivateContactChannelRequest,
-  DeactivateContactChannelResult,
   DeleteContactChannelRequest,
-  DeleteContactChannelResult,
   DeleteContactRequest,
-  DeleteContactResult,
   DeleteRotationOverrideRequest,
-  DeleteRotationOverrideResult,
   DeleteRotationRequest,
-  DeleteRotationResult,
-  DependentEntity,
   DescribeEngagementRequest,
   DescribeEngagementResult,
   DescribePageRequest,
   DescribePageResult,
   Engagement,
   GetContactChannelRequest,
-  GetContactChannelResult,
   GetContactPolicyRequest,
-  GetContactPolicyResult,
   GetContactRequest,
-  GetContactResult,
   GetRotationOverrideRequest,
   GetRotationOverrideResult,
   GetRotationRequest,
@@ -151,15 +133,12 @@ import {
   HandOffTime,
   InternalServerException,
   ListContactChannelsRequest,
-  ListContactChannelsResult,
   ListContactsRequest,
-  ListContactsResult,
   ListEngagementsRequest,
   ListEngagementsResult,
   ListPageReceiptsRequest,
   ListPageReceiptsResult,
   ListPageResolutionsRequest,
-  ListPageResolutionsResult,
   ListPagesByContactRequest,
   ListPagesByContactResult,
   ListPagesByEngagementRequest,
@@ -173,45 +152,32 @@ import {
   ListRotationsRequest,
   ListRotationsResult,
   ListTagsForResourceRequest,
-  ListTagsForResourceResult,
   MonthlySetting,
   Page,
   Plan,
   PreviewOverride,
   PutContactPolicyRequest,
-  PutContactPolicyResult,
   Receipt,
   RecurrenceSettings,
-  ResolutionContact,
   ResourceNotFoundException,
   Rotation,
   RotationOverride,
   RotationShift,
   SendActivationCodeRequest,
-  SendActivationCodeResult,
   ServiceQuotaExceededException,
-  ShiftDetails,
   Stage,
   StartEngagementRequest,
-  StartEngagementResult,
   StopEngagementRequest,
-  StopEngagementResult,
   Tag,
   TagResourceRequest,
-  TagResourceResult,
   Target,
   ThrottlingException,
   TimeRange,
   UntagResourceRequest,
-  UntagResourceResult,
   UpdateContactChannelRequest,
-  UpdateContactChannelResult,
   UpdateContactRequest,
-  UpdateContactResult,
   UpdateRotationRequest,
-  UpdateRotationResult,
   ValidationException,
-  ValidationExceptionField,
   WeeklySetting,
 } from "../models/models_0";
 import { SSMContactsServiceException as __BaseException } from "../models/SSMContactsServiceException";
@@ -225,7 +191,7 @@ export const se_AcceptPageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AcceptPage");
   let body: any;
-  body = JSON.stringify(se_AcceptPageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -238,7 +204,7 @@ export const se_ActivateContactChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ActivateContactChannel");
   let body: any;
-  body = JSON.stringify(se_ActivateContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -303,7 +269,7 @@ export const se_DeactivateContactChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeactivateContactChannel");
   let body: any;
-  body = JSON.stringify(se_DeactivateContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -316,7 +282,7 @@ export const se_DeleteContactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteContact");
   let body: any;
-  body = JSON.stringify(se_DeleteContactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -329,7 +295,7 @@ export const se_DeleteContactChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteContactChannel");
   let body: any;
-  body = JSON.stringify(se_DeleteContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -342,7 +308,7 @@ export const se_DeleteRotationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRotation");
   let body: any;
-  body = JSON.stringify(se_DeleteRotationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -355,7 +321,7 @@ export const se_DeleteRotationOverrideCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRotationOverride");
   let body: any;
-  body = JSON.stringify(se_DeleteRotationOverrideRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -368,7 +334,7 @@ export const se_DescribeEngagementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEngagement");
   let body: any;
-  body = JSON.stringify(se_DescribeEngagementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -381,7 +347,7 @@ export const se_DescribePageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribePage");
   let body: any;
-  body = JSON.stringify(se_DescribePageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -394,7 +360,7 @@ export const se_GetContactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetContact");
   let body: any;
-  body = JSON.stringify(se_GetContactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -407,7 +373,7 @@ export const se_GetContactChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetContactChannel");
   let body: any;
-  body = JSON.stringify(se_GetContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -420,7 +386,7 @@ export const se_GetContactPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetContactPolicy");
   let body: any;
-  body = JSON.stringify(se_GetContactPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -433,7 +399,7 @@ export const se_GetRotationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRotation");
   let body: any;
-  body = JSON.stringify(se_GetRotationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -446,7 +412,7 @@ export const se_GetRotationOverrideCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetRotationOverride");
   let body: any;
-  body = JSON.stringify(se_GetRotationOverrideRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -459,7 +425,7 @@ export const se_ListContactChannelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListContactChannels");
   let body: any;
-  body = JSON.stringify(se_ListContactChannelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -472,7 +438,7 @@ export const se_ListContactsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListContacts");
   let body: any;
-  body = JSON.stringify(se_ListContactsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -498,7 +464,7 @@ export const se_ListPageReceiptsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPageReceipts");
   let body: any;
-  body = JSON.stringify(se_ListPageReceiptsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -511,7 +477,7 @@ export const se_ListPageResolutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPageResolutions");
   let body: any;
-  body = JSON.stringify(se_ListPageResolutionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -524,7 +490,7 @@ export const se_ListPagesByContactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPagesByContact");
   let body: any;
-  body = JSON.stringify(se_ListPagesByContactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -537,7 +503,7 @@ export const se_ListPagesByEngagementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPagesByEngagement");
   let body: any;
-  body = JSON.stringify(se_ListPagesByEngagementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -576,7 +542,7 @@ export const se_ListRotationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListRotations");
   let body: any;
-  body = JSON.stringify(se_ListRotationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -602,7 +568,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -615,7 +581,7 @@ export const se_PutContactPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutContactPolicy");
   let body: any;
-  body = JSON.stringify(se_PutContactPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -628,7 +594,7 @@ export const se_SendActivationCodeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendActivationCode");
   let body: any;
-  body = JSON.stringify(se_SendActivationCodeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -654,7 +620,7 @@ export const se_StopEngagementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopEngagement");
   let body: any;
-  body = JSON.stringify(se_StopEngagementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -667,7 +633,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -680,7 +646,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -693,7 +659,7 @@ export const se_UpdateContactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateContact");
   let body: any;
-  body = JSON.stringify(se_UpdateContactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -706,7 +672,7 @@ export const se_UpdateContactChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateContactChannel");
   let body: any;
-  body = JSON.stringify(se_UpdateContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -735,12 +701,12 @@ export const de_AcceptPageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AcceptPageResult(data, context);
+  contents = _json(data);
   const response: AcceptPageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -773,10 +739,9 @@ const de_AcceptPageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -794,12 +759,12 @@ export const de_ActivateContactChannelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ActivateContactChannelResult(data, context);
+  contents = _json(data);
   const response: ActivateContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -832,10 +797,9 @@ const de_ActivateContactChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -853,12 +817,12 @@ export const de_CreateContactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateContactResult(data, context);
+  contents = _json(data);
   const response: CreateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -897,10 +861,9 @@ const de_CreateContactCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -918,12 +881,12 @@ export const de_CreateContactChannelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateContactChannelResult(data, context);
+  contents = _json(data);
   const response: CreateContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -959,10 +922,9 @@ const de_CreateContactChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -980,12 +942,12 @@ export const de_CreateRotationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateRotationResult(data, context);
+  contents = _json(data);
   const response: CreateRotationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1021,10 +983,9 @@ const de_CreateRotationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1042,12 +1003,12 @@ export const de_CreateRotationOverrideCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateRotationOverrideResult(data, context);
+  contents = _json(data);
   const response: CreateRotationOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1083,10 +1044,9 @@ const de_CreateRotationOverrideCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1104,12 +1064,12 @@ export const de_DeactivateContactChannelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeactivateContactChannelResult(data, context);
+  contents = _json(data);
   const response: DeactivateContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1142,10 +1102,9 @@ const de_DeactivateContactChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1163,12 +1122,12 @@ export const de_DeleteContactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteContactResult(data, context);
+  contents = _json(data);
   const response: DeleteContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1204,10 +1163,9 @@ const de_DeleteContactCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1225,12 +1183,12 @@ export const de_DeleteContactChannelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteContactChannelResult(data, context);
+  contents = _json(data);
   const response: DeleteContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1263,10 +1221,9 @@ const de_DeleteContactChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1284,12 +1241,12 @@ export const de_DeleteRotationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRotationResult(data, context);
+  contents = _json(data);
   const response: DeleteRotationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1325,10 +1282,9 @@ const de_DeleteRotationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1346,12 +1302,12 @@ export const de_DeleteRotationOverrideCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteRotationOverrideResult(data, context);
+  contents = _json(data);
   const response: DeleteRotationOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1384,10 +1340,9 @@ const de_DeleteRotationOverrideCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1410,7 +1365,7 @@ export const de_DescribeEngagementCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1446,10 +1401,9 @@ const de_DescribeEngagementCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1472,7 +1426,7 @@ export const de_DescribePageCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1508,10 +1462,9 @@ const de_DescribePageCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1529,12 +1482,12 @@ export const de_GetContactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetContactResult(data, context);
+  contents = _json(data);
   const response: GetContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1570,10 +1523,9 @@ const de_GetContactCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1591,12 +1543,12 @@ export const de_GetContactChannelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetContactChannelResult(data, context);
+  contents = _json(data);
   const response: GetContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1632,10 +1584,9 @@ const de_GetContactChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1653,12 +1604,12 @@ export const de_GetContactPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetContactPolicyResult(data, context);
+  contents = _json(data);
   const response: GetContactPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1691,10 +1642,9 @@ const de_GetContactPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1717,7 +1667,7 @@ export const de_GetRotationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1750,10 +1700,9 @@ const de_GetRotationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1776,7 +1725,7 @@ export const de_GetRotationOverrideCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1809,10 +1758,9 @@ const de_GetRotationOverrideCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1830,12 +1778,12 @@ export const de_ListContactChannelsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListContactChannelsResult(data, context);
+  contents = _json(data);
   const response: ListContactChannelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1871,10 +1819,9 @@ const de_ListContactChannelsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1892,12 +1839,12 @@ export const de_ListContactsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListContactsResult(data, context);
+  contents = _json(data);
   const response: ListContactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1927,10 +1874,9 @@ const de_ListContactsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1953,7 +1899,7 @@ export const de_ListEngagementsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1983,10 +1929,9 @@ const de_ListEngagementsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2009,7 +1954,7 @@ export const de_ListPageReceiptsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2042,10 +1987,9 @@ const de_ListPageReceiptsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2063,12 +2007,12 @@ export const de_ListPageResolutionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListPageResolutionsResult(data, context);
+  contents = _json(data);
   const response: ListPageResolutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2101,10 +2045,9 @@ const de_ListPageResolutionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2127,7 +2070,7 @@ export const de_ListPagesByContactCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2160,10 +2103,9 @@ const de_ListPagesByContactCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2186,7 +2128,7 @@ export const de_ListPagesByEngagementCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2219,10 +2161,9 @@ const de_ListPagesByEngagementCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2245,7 +2186,7 @@ export const de_ListPreviewRotationShiftsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2275,10 +2216,9 @@ const de_ListPreviewRotationShiftsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2301,7 +2241,7 @@ export const de_ListRotationOverridesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2334,10 +2274,9 @@ const de_ListRotationOverridesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2360,7 +2299,7 @@ export const de_ListRotationsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2393,10 +2332,9 @@ const de_ListRotationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2419,7 +2357,7 @@ export const de_ListRotationShiftsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2455,10 +2393,9 @@ const de_ListRotationShiftsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2476,12 +2413,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResult(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2514,10 +2451,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2535,12 +2471,12 @@ export const de_PutContactPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PutContactPolicyResult(data, context);
+  contents = _json(data);
   const response: PutContactPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2576,10 +2512,9 @@ const de_PutContactPolicyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2597,12 +2532,12 @@ export const de_SendActivationCodeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SendActivationCodeResult(data, context);
+  contents = _json(data);
   const response: SendActivationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2641,10 +2576,9 @@ const de_SendActivationCodeCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2662,12 +2596,12 @@ export const de_StartEngagementCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StartEngagementResult(data, context);
+  contents = _json(data);
   const response: StartEngagementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2703,10 +2637,9 @@ const de_StartEngagementCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2724,12 +2657,12 @@ export const de_StopEngagementCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_StopEngagementResult(data, context);
+  contents = _json(data);
   const response: StopEngagementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2762,10 +2695,9 @@ const de_StopEngagementCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2783,12 +2715,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResult(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2824,10 +2756,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2845,12 +2776,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResult(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2883,10 +2814,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2904,12 +2834,12 @@ export const de_UpdateContactCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateContactResult(data, context);
+  contents = _json(data);
   const response: UpdateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2948,10 +2878,9 @@ const de_UpdateContactCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2969,12 +2898,12 @@ export const de_UpdateContactChannelCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateContactChannelResult(data, context);
+  contents = _json(data);
   const response: UpdateContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3013,10 +2942,9 @@ const de_UpdateContactChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3034,12 +2962,12 @@ export const de_UpdateRotationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateRotationResult(data, context);
+  contents = _json(data);
   const response: UpdateRotationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -3075,10 +3003,9 @@ const de_UpdateRotationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3092,7 +3019,7 @@ const de_AccessDeniedExceptionRes = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3105,7 +3032,7 @@ const de_AccessDeniedExceptionRes = async (
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3121,7 +3048,7 @@ const de_DataEncryptionExceptionRes = async (
   context: __SerdeContext
 ): Promise<DataEncryptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DataEncryptionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DataEncryptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3137,7 +3064,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3153,7 +3080,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3169,7 +3096,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3182,7 +3109,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3195,7 +3122,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3203,430 +3130,178 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AcceptPageRequest
- */
-const se_AcceptPageRequest = (input: AcceptPageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptCode != null && { AcceptCode: input.AcceptCode }),
-    ...(input.AcceptCodeValidation != null && { AcceptCodeValidation: input.AcceptCodeValidation }),
-    ...(input.AcceptType != null && { AcceptType: input.AcceptType }),
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-    ...(input.Note != null && { Note: input.Note }),
-    ...(input.PageId != null && { PageId: input.PageId }),
-  };
-};
+// se_AcceptPageRequest omitted.
 
-/**
- * serializeAws_json1_1ActivateContactChannelRequest
- */
-const se_ActivateContactChannelRequest = (input: ActivateContactChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ActivationCode != null && { ActivationCode: input.ActivationCode }),
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
-};
+// se_ActivateContactChannelRequest omitted.
 
-/**
- * serializeAws_json1_1ChannelTargetInfo
- */
-const se_ChannelTargetInfo = (input: ChannelTargetInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-    ...(input.RetryIntervalInMinutes != null && { RetryIntervalInMinutes: input.RetryIntervalInMinutes }),
-  };
-};
+// se_ChannelTargetInfo omitted.
 
-/**
- * serializeAws_json1_1ContactChannelAddress
- */
-const se_ContactChannelAddress = (input: ContactChannelAddress, context: __SerdeContext): any => {
-  return {
-    ...(input.SimpleAddress != null && { SimpleAddress: input.SimpleAddress }),
-  };
-};
+// se_ContactChannelAddress omitted.
 
-/**
- * serializeAws_json1_1ContactTargetInfo
- */
-const se_ContactTargetInfo = (input: ContactTargetInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.IsEssential != null && { IsEssential: input.IsEssential }),
-  };
-};
+// se_ContactTargetInfo omitted.
 
-/**
- * serializeAws_json1_1CoverageTime
- */
-const se_CoverageTime = (input: CoverageTime, context: __SerdeContext): any => {
-  return {
-    ...(input.End != null && { End: se_HandOffTime(input.End, context) }),
-    ...(input.Start != null && { Start: se_HandOffTime(input.Start, context) }),
-  };
-};
+// se_CoverageTime omitted.
 
-/**
- * serializeAws_json1_1CoverageTimes
- */
-const se_CoverageTimes = (input: CoverageTime[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CoverageTime(entry, context);
-    });
-};
+// se_CoverageTimes omitted.
 
 /**
  * serializeAws_json1_1CreateContactChannelRequest
  */
 const se_CreateContactChannelRequest = (input: CreateContactChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.DeferActivation != null && { DeferActivation: input.DeferActivation }),
-    ...(input.DeliveryAddress != null && { DeliveryAddress: se_ContactChannelAddress(input.DeliveryAddress, context) }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    ContactId: [],
+    DeferActivation: [],
+    DeliveryAddress: _json,
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Name: [],
+    Type: [],
+  });
 };
 
 /**
  * serializeAws_json1_1CreateContactRequest
  */
 const se_CreateContactRequest = (input: CreateContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Alias != null && { Alias: input.Alias }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Plan != null && { Plan: se_Plan(input.Plan, context) }),
-    ...(input.Tags != null && { Tags: se_TagsList(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    Alias: [],
+    DisplayName: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Plan: _json,
+    Tags: _json,
+    Type: [],
+  });
 };
 
 /**
  * serializeAws_json1_1CreateRotationOverrideRequest
  */
 const se_CreateRotationOverrideRequest = (input: CreateRotationOverrideRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.NewContactIds != null && {
-      NewContactIds: se_RotationOverrideContactsArnList(input.NewContactIds, context),
-    }),
-    ...(input.RotationId != null && { RotationId: input.RotationId }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    IdempotencyToken: [],
+    NewContactIds: _json,
+    RotationId: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_json1_1CreateRotationRequest
  */
 const se_CreateRotationRequest = (input: CreateRotationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactIds != null && { ContactIds: se_RotationContactsArnList(input.ContactIds, context) }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Recurrence != null && { Recurrence: se_RecurrenceSettings(input.Recurrence, context) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-    ...(input.Tags != null && { Tags: se_TagsList(input.Tags, context) }),
-    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
-  };
+  return take(input, {
+    ContactIds: _json,
+    IdempotencyToken: [],
+    Name: [],
+    Recurrence: _json,
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    Tags: _json,
+    TimeZoneId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DailySettings
- */
-const se_DailySettings = (input: HandOffTime[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_HandOffTime(entry, context);
-    });
-};
+// se_DailySettings omitted.
 
-/**
- * serializeAws_json1_1DeactivateContactChannelRequest
- */
-const se_DeactivateContactChannelRequest = (input: DeactivateContactChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
-};
+// se_DeactivateContactChannelRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteContactChannelRequest
- */
-const se_DeleteContactChannelRequest = (input: DeleteContactChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
-};
+// se_DeleteContactChannelRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteContactRequest
- */
-const se_DeleteContactRequest = (input: DeleteContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-  };
-};
+// se_DeleteContactRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRotationOverrideRequest
- */
-const se_DeleteRotationOverrideRequest = (input: DeleteRotationOverrideRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RotationId != null && { RotationId: input.RotationId }),
-    ...(input.RotationOverrideId != null && { RotationOverrideId: input.RotationOverrideId }),
-  };
-};
+// se_DeleteRotationOverrideRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteRotationRequest
- */
-const se_DeleteRotationRequest = (input: DeleteRotationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RotationId != null && { RotationId: input.RotationId }),
-  };
-};
+// se_DeleteRotationRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeEngagementRequest
- */
-const se_DescribeEngagementRequest = (input: DescribeEngagementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EngagementId != null && { EngagementId: input.EngagementId }),
-  };
-};
+// se_DescribeEngagementRequest omitted.
 
-/**
- * serializeAws_json1_1DescribePageRequest
- */
-const se_DescribePageRequest = (input: DescribePageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PageId != null && { PageId: input.PageId }),
-  };
-};
+// se_DescribePageRequest omitted.
 
-/**
- * serializeAws_json1_1GetContactChannelRequest
- */
-const se_GetContactChannelRequest = (input: GetContactChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
-};
+// se_GetContactChannelRequest omitted.
 
-/**
- * serializeAws_json1_1GetContactPolicyRequest
- */
-const se_GetContactPolicyRequest = (input: GetContactPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactArn != null && { ContactArn: input.ContactArn }),
-  };
-};
+// se_GetContactPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1GetContactRequest
- */
-const se_GetContactRequest = (input: GetContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-  };
-};
+// se_GetContactRequest omitted.
 
-/**
- * serializeAws_json1_1GetRotationOverrideRequest
- */
-const se_GetRotationOverrideRequest = (input: GetRotationOverrideRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RotationId != null && { RotationId: input.RotationId }),
-    ...(input.RotationOverrideId != null && { RotationOverrideId: input.RotationOverrideId }),
-  };
-};
+// se_GetRotationOverrideRequest omitted.
 
-/**
- * serializeAws_json1_1GetRotationRequest
- */
-const se_GetRotationRequest = (input: GetRotationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RotationId != null && { RotationId: input.RotationId }),
-  };
-};
+// se_GetRotationRequest omitted.
 
-/**
- * serializeAws_json1_1HandOffTime
- */
-const se_HandOffTime = (input: HandOffTime, context: __SerdeContext): any => {
-  return {
-    ...(input.HourOfDay != null && { HourOfDay: input.HourOfDay }),
-    ...(input.MinuteOfHour != null && { MinuteOfHour: input.MinuteOfHour }),
-  };
-};
+// se_HandOffTime omitted.
 
-/**
- * serializeAws_json1_1ListContactChannelsRequest
- */
-const se_ListContactChannelsRequest = (input: ListContactChannelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListContactChannelsRequest omitted.
 
-/**
- * serializeAws_json1_1ListContactsRequest
- */
-const se_ListContactsRequest = (input: ListContactsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AliasPrefix != null && { AliasPrefix: input.AliasPrefix }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_ListContactsRequest omitted.
 
 /**
  * serializeAws_json1_1ListEngagementsRequest
  */
 const se_ListEngagementsRequest = (input: ListEngagementsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IncidentId != null && { IncidentId: input.IncidentId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TimeRangeValue != null && { TimeRangeValue: se_TimeRange(input.TimeRangeValue, context) }),
-  };
+  return take(input, {
+    IncidentId: [],
+    MaxResults: [],
+    NextToken: [],
+    TimeRangeValue: (_) => se_TimeRange(_, context),
+  });
 };
 
-/**
- * serializeAws_json1_1ListPageReceiptsRequest
- */
-const se_ListPageReceiptsRequest = (input: ListPageReceiptsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PageId != null && { PageId: input.PageId }),
-  };
-};
+// se_ListPageReceiptsRequest omitted.
 
-/**
- * serializeAws_json1_1ListPageResolutionsRequest
- */
-const se_ListPageResolutionsRequest = (input: ListPageResolutionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PageId != null && { PageId: input.PageId }),
-  };
-};
+// se_ListPageResolutionsRequest omitted.
 
-/**
- * serializeAws_json1_1ListPagesByContactRequest
- */
-const se_ListPagesByContactRequest = (input: ListPagesByContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListPagesByContactRequest omitted.
 
-/**
- * serializeAws_json1_1ListPagesByEngagementRequest
- */
-const se_ListPagesByEngagementRequest = (input: ListPagesByEngagementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EngagementId != null && { EngagementId: input.EngagementId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListPagesByEngagementRequest omitted.
 
 /**
  * serializeAws_json1_1ListPreviewRotationShiftsRequest
  */
 const se_ListPreviewRotationShiftsRequest = (input: ListPreviewRotationShiftsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Members != null && { Members: se_RotationPreviewMemberList(input.Members, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Overrides != null && { Overrides: se_OverrideList(input.Overrides, context) }),
-    ...(input.Recurrence != null && { Recurrence: se_RecurrenceSettings(input.Recurrence, context) }),
-    ...(input.RotationStartTime != null && { RotationStartTime: Math.round(input.RotationStartTime.getTime() / 1000) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    Members: _json,
+    NextToken: [],
+    Overrides: (_) => se_OverrideList(_, context),
+    Recurrence: _json,
+    RotationStartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    TimeZoneId: [],
+  });
 };
 
 /**
  * serializeAws_json1_1ListRotationOverridesRequest
  */
 const se_ListRotationOverridesRequest = (input: ListRotationOverridesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RotationId != null && { RotationId: input.RotationId }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+    RotationId: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 /**
  * serializeAws_json1_1ListRotationShiftsRequest
  */
 const se_ListRotationShiftsRequest = (input: ListRotationShiftsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RotationId != null && { RotationId: input.RotationId }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+    RotationId: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1ListRotationsRequest
- */
-const se_ListRotationsRequest = (input: ListRotationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RotationNamePrefix != null && { RotationNamePrefix: input.RotationNamePrefix }),
-  };
-};
+// se_ListRotationsRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1MonthlySetting
- */
-const se_MonthlySetting = (input: MonthlySetting, context: __SerdeContext): any => {
-  return {
-    ...(input.DayOfMonth != null && { DayOfMonth: input.DayOfMonth }),
-    ...(input.HandOffTime != null && { HandOffTime: se_HandOffTime(input.HandOffTime, context) }),
-  };
-};
+// se_MonthlySetting omitted.
 
-/**
- * serializeAws_json1_1MonthlySettings
- */
-const se_MonthlySettings = (input: MonthlySetting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MonthlySetting(entry, context);
-    });
-};
+// se_MonthlySettings omitted.
 
 /**
  * serializeAws_json1_1OverrideList
@@ -3639,645 +3314,206 @@ const se_OverrideList = (input: PreviewOverride[], context: __SerdeContext): any
     });
 };
 
-/**
- * serializeAws_json1_1Plan
- */
-const se_Plan = (input: Plan, context: __SerdeContext): any => {
-  return {
-    ...(input.RotationIds != null && { RotationIds: se_SsmContactsArnList(input.RotationIds, context) }),
-    ...(input.Stages != null && { Stages: se_StagesList(input.Stages, context) }),
-  };
-};
+// se_Plan omitted.
 
 /**
  * serializeAws_json1_1PreviewOverride
  */
 const se_PreviewOverride = (input: PreviewOverride, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.NewMembers != null && { NewMembers: se_RotationOverridePreviewMemberList(input.NewMembers, context) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    NewMembers: _json,
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1PutContactPolicyRequest
- */
-const se_PutContactPolicyRequest = (input: PutContactPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactArn != null && { ContactArn: input.ContactArn }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-  };
-};
+// se_PutContactPolicyRequest omitted.
 
-/**
- * serializeAws_json1_1RecurrenceSettings
- */
-const se_RecurrenceSettings = (input: RecurrenceSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.DailySettings != null && { DailySettings: se_DailySettings(input.DailySettings, context) }),
-    ...(input.MonthlySettings != null && { MonthlySettings: se_MonthlySettings(input.MonthlySettings, context) }),
-    ...(input.NumberOfOnCalls != null && { NumberOfOnCalls: input.NumberOfOnCalls }),
-    ...(input.RecurrenceMultiplier != null && { RecurrenceMultiplier: input.RecurrenceMultiplier }),
-    ...(input.ShiftCoverages != null && { ShiftCoverages: se_ShiftCoveragesMap(input.ShiftCoverages, context) }),
-    ...(input.WeeklySettings != null && { WeeklySettings: se_WeeklySettings(input.WeeklySettings, context) }),
-  };
-};
+// se_RecurrenceSettings omitted.
 
-/**
- * serializeAws_json1_1RotationContactsArnList
- */
-const se_RotationContactsArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RotationContactsArnList omitted.
 
-/**
- * serializeAws_json1_1RotationOverrideContactsArnList
- */
-const se_RotationOverrideContactsArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RotationOverrideContactsArnList omitted.
 
-/**
- * serializeAws_json1_1RotationOverridePreviewMemberList
- */
-const se_RotationOverridePreviewMemberList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RotationOverridePreviewMemberList omitted.
 
-/**
- * serializeAws_json1_1RotationPreviewMemberList
- */
-const se_RotationPreviewMemberList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RotationPreviewMemberList omitted.
 
-/**
- * serializeAws_json1_1SendActivationCodeRequest
- */
-const se_SendActivationCodeRequest = (input: SendActivationCodeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
-};
+// se_SendActivationCodeRequest omitted.
 
-/**
- * serializeAws_json1_1ShiftCoveragesMap
- */
-const se_ShiftCoveragesMap = (input: Record<string, CoverageTime[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [DayOfWeek | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_CoverageTimes(value, context);
-    return acc;
-  }, {});
-};
+// se_ShiftCoveragesMap omitted.
 
-/**
- * serializeAws_json1_1SsmContactsArnList
- */
-const se_SsmContactsArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SsmContactsArnList omitted.
 
-/**
- * serializeAws_json1_1Stage
- */
-const se_Stage = (input: Stage, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationInMinutes != null && { DurationInMinutes: input.DurationInMinutes }),
-    ...(input.Targets != null && { Targets: se_TargetsList(input.Targets, context) }),
-  };
-};
+// se_Stage omitted.
 
-/**
- * serializeAws_json1_1StagesList
- */
-const se_StagesList = (input: Stage[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Stage(entry, context);
-    });
-};
+// se_StagesList omitted.
 
 /**
  * serializeAws_json1_1StartEngagementRequest
  */
 const se_StartEngagementRequest = (input: StartEngagementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.Content != null && { Content: input.Content }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.IncidentId != null && { IncidentId: input.IncidentId }),
-    ...(input.PublicContent != null && { PublicContent: input.PublicContent }),
-    ...(input.PublicSubject != null && { PublicSubject: input.PublicSubject }),
-    ...(input.Sender != null && { Sender: input.Sender }),
-    ...(input.Subject != null && { Subject: input.Subject }),
-  };
+  return take(input, {
+    ContactId: [],
+    Content: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IncidentId: [],
+    PublicContent: [],
+    PublicSubject: [],
+    Sender: [],
+    Subject: [],
+  });
 };
 
-/**
- * serializeAws_json1_1StopEngagementRequest
- */
-const se_StopEngagementRequest = (input: StopEngagementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EngagementId != null && { EngagementId: input.EngagementId }),
-    ...(input.Reason != null && { Reason: input.Reason }),
-  };
-};
+// se_StopEngagementRequest omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagsList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1TagsList
- */
-const se_TagsList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagsList omitted.
 
-/**
- * serializeAws_json1_1Target
- */
-const se_Target = (input: Target, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelTargetInfo != null && {
-      ChannelTargetInfo: se_ChannelTargetInfo(input.ChannelTargetInfo, context),
-    }),
-    ...(input.ContactTargetInfo != null && {
-      ContactTargetInfo: se_ContactTargetInfo(input.ContactTargetInfo, context),
-    }),
-  };
-};
+// se_Target omitted.
 
-/**
- * serializeAws_json1_1TargetsList
- */
-const se_TargetsList = (input: Target[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Target(entry, context);
-    });
-};
+// se_TargetsList omitted.
 
 /**
  * serializeAws_json1_1TimeRange
  */
 const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateContactChannelRequest
- */
-const se_UpdateContactChannelRequest = (input: UpdateContactChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-    ...(input.DeliveryAddress != null && { DeliveryAddress: se_ContactChannelAddress(input.DeliveryAddress, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_UpdateContactChannelRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateContactRequest
- */
-const se_UpdateContactRequest = (input: UpdateContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.Plan != null && { Plan: se_Plan(input.Plan, context) }),
-  };
-};
+// se_UpdateContactRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateRotationRequest
  */
 const se_UpdateRotationRequest = (input: UpdateRotationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactIds != null && { ContactIds: se_RotationContactsArnList(input.ContactIds, context) }),
-    ...(input.Recurrence != null && { Recurrence: se_RecurrenceSettings(input.Recurrence, context) }),
-    ...(input.RotationId != null && { RotationId: input.RotationId }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
-  };
+  return take(input, {
+    ContactIds: _json,
+    Recurrence: _json,
+    RotationId: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    TimeZoneId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1WeeklySetting
- */
-const se_WeeklySetting = (input: WeeklySetting, context: __SerdeContext): any => {
-  return {
-    ...(input.DayOfWeek != null && { DayOfWeek: input.DayOfWeek }),
-    ...(input.HandOffTime != null && { HandOffTime: se_HandOffTime(input.HandOffTime, context) }),
-  };
-};
+// se_WeeklySetting omitted.
 
-/**
- * serializeAws_json1_1WeeklySettings
- */
-const se_WeeklySettings = (input: WeeklySetting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_WeeklySetting(entry, context);
-    });
-};
+// se_WeeklySettings omitted.
 
-/**
- * deserializeAws_json1_1AcceptPageResult
- */
-const de_AcceptPageResult = (output: any, context: __SerdeContext): AcceptPageResult => {
-  return {} as any;
-};
+// de_AcceptPageResult omitted.
 
-/**
- * deserializeAws_json1_1AccessDeniedException
- */
-const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AccessDeniedException omitted.
 
-/**
- * deserializeAws_json1_1ActivateContactChannelResult
- */
-const de_ActivateContactChannelResult = (output: any, context: __SerdeContext): ActivateContactChannelResult => {
-  return {} as any;
-};
+// de_ActivateContactChannelResult omitted.
 
-/**
- * deserializeAws_json1_1ChannelTargetInfo
- */
-const de_ChannelTargetInfo = (output: any, context: __SerdeContext): ChannelTargetInfo => {
-  return {
-    ContactChannelId: __expectString(output.ContactChannelId),
-    RetryIntervalInMinutes: __expectInt32(output.RetryIntervalInMinutes),
-  } as any;
-};
+// de_ChannelTargetInfo omitted.
 
-/**
- * deserializeAws_json1_1ConflictException
- */
-const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    DependentEntities:
-      output.DependentEntities != null ? de_DependentEntityList(output.DependentEntities, context) : undefined,
-    Message: __expectString(output.Message),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ConflictException omitted.
 
-/**
- * deserializeAws_json1_1Contact
- */
-const de_Contact = (output: any, context: __SerdeContext): Contact => {
-  return {
-    Alias: __expectString(output.Alias),
-    ContactArn: __expectString(output.ContactArn),
-    DisplayName: __expectString(output.DisplayName),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Contact omitted.
 
-/**
- * deserializeAws_json1_1ContactChannel
- */
-const de_ContactChannel = (output: any, context: __SerdeContext): ContactChannel => {
-  return {
-    ActivationStatus: __expectString(output.ActivationStatus),
-    ContactArn: __expectString(output.ContactArn),
-    ContactChannelArn: __expectString(output.ContactChannelArn),
-    DeliveryAddress:
-      output.DeliveryAddress != null ? de_ContactChannelAddress(output.DeliveryAddress, context) : undefined,
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ContactChannel omitted.
 
-/**
- * deserializeAws_json1_1ContactChannelAddress
- */
-const de_ContactChannelAddress = (output: any, context: __SerdeContext): ContactChannelAddress => {
-  return {
-    SimpleAddress: __expectString(output.SimpleAddress),
-  } as any;
-};
+// de_ContactChannelAddress omitted.
 
-/**
- * deserializeAws_json1_1ContactChannelList
- */
-const de_ContactChannelList = (output: any, context: __SerdeContext): ContactChannel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ContactChannel(entry, context);
-    });
-  return retVal;
-};
+// de_ContactChannelList omitted.
 
-/**
- * deserializeAws_json1_1ContactsList
- */
-const de_ContactsList = (output: any, context: __SerdeContext): Contact[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Contact(entry, context);
-    });
-  return retVal;
-};
+// de_ContactsList omitted.
 
-/**
- * deserializeAws_json1_1ContactTargetInfo
- */
-const de_ContactTargetInfo = (output: any, context: __SerdeContext): ContactTargetInfo => {
-  return {
-    ContactId: __expectString(output.ContactId),
-    IsEssential: __expectBoolean(output.IsEssential),
-  } as any;
-};
+// de_ContactTargetInfo omitted.
 
-/**
- * deserializeAws_json1_1CoverageTime
- */
-const de_CoverageTime = (output: any, context: __SerdeContext): CoverageTime => {
-  return {
-    End: output.End != null ? de_HandOffTime(output.End, context) : undefined,
-    Start: output.Start != null ? de_HandOffTime(output.Start, context) : undefined,
-  } as any;
-};
+// de_CoverageTime omitted.
 
-/**
- * deserializeAws_json1_1CoverageTimes
- */
-const de_CoverageTimes = (output: any, context: __SerdeContext): CoverageTime[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CoverageTime(entry, context);
-    });
-  return retVal;
-};
+// de_CoverageTimes omitted.
 
-/**
- * deserializeAws_json1_1CreateContactChannelResult
- */
-const de_CreateContactChannelResult = (output: any, context: __SerdeContext): CreateContactChannelResult => {
-  return {
-    ContactChannelArn: __expectString(output.ContactChannelArn),
-  } as any;
-};
+// de_CreateContactChannelResult omitted.
 
-/**
- * deserializeAws_json1_1CreateContactResult
- */
-const de_CreateContactResult = (output: any, context: __SerdeContext): CreateContactResult => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-  } as any;
-};
+// de_CreateContactResult omitted.
 
-/**
- * deserializeAws_json1_1CreateRotationOverrideResult
- */
-const de_CreateRotationOverrideResult = (output: any, context: __SerdeContext): CreateRotationOverrideResult => {
-  return {
-    RotationOverrideId: __expectString(output.RotationOverrideId),
-  } as any;
-};
+// de_CreateRotationOverrideResult omitted.
 
-/**
- * deserializeAws_json1_1CreateRotationResult
- */
-const de_CreateRotationResult = (output: any, context: __SerdeContext): CreateRotationResult => {
-  return {
-    RotationArn: __expectString(output.RotationArn),
-  } as any;
-};
+// de_CreateRotationResult omitted.
 
-/**
- * deserializeAws_json1_1DailySettings
- */
-const de_DailySettings = (output: any, context: __SerdeContext): HandOffTime[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HandOffTime(entry, context);
-    });
-  return retVal;
-};
+// de_DailySettings omitted.
 
-/**
- * deserializeAws_json1_1DataEncryptionException
- */
-const de_DataEncryptionException = (output: any, context: __SerdeContext): DataEncryptionException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DataEncryptionException omitted.
 
-/**
- * deserializeAws_json1_1DeactivateContactChannelResult
- */
-const de_DeactivateContactChannelResult = (output: any, context: __SerdeContext): DeactivateContactChannelResult => {
-  return {} as any;
-};
+// de_DeactivateContactChannelResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteContactChannelResult
- */
-const de_DeleteContactChannelResult = (output: any, context: __SerdeContext): DeleteContactChannelResult => {
-  return {} as any;
-};
+// de_DeleteContactChannelResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteContactResult
- */
-const de_DeleteContactResult = (output: any, context: __SerdeContext): DeleteContactResult => {
-  return {} as any;
-};
+// de_DeleteContactResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteRotationOverrideResult
- */
-const de_DeleteRotationOverrideResult = (output: any, context: __SerdeContext): DeleteRotationOverrideResult => {
-  return {} as any;
-};
+// de_DeleteRotationOverrideResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteRotationResult
- */
-const de_DeleteRotationResult = (output: any, context: __SerdeContext): DeleteRotationResult => {
-  return {} as any;
-};
+// de_DeleteRotationResult omitted.
 
-/**
- * deserializeAws_json1_1DependentEntity
- */
-const de_DependentEntity = (output: any, context: __SerdeContext): DependentEntity => {
-  return {
-    DependentResourceIds:
-      output.DependentResourceIds != null ? de_SsmContactsArnList(output.DependentResourceIds, context) : undefined,
-    RelationType: __expectString(output.RelationType),
-  } as any;
-};
+// de_DependentEntity omitted.
 
-/**
- * deserializeAws_json1_1DependentEntityList
- */
-const de_DependentEntityList = (output: any, context: __SerdeContext): DependentEntity[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DependentEntity(entry, context);
-    });
-  return retVal;
-};
+// de_DependentEntityList omitted.
 
 /**
  * deserializeAws_json1_1DescribeEngagementResult
  */
 const de_DescribeEngagementResult = (output: any, context: __SerdeContext): DescribeEngagementResult => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    Content: __expectString(output.Content),
-    EngagementArn: __expectString(output.EngagementArn),
-    IncidentId: __expectString(output.IncidentId),
-    PublicContent: __expectString(output.PublicContent),
-    PublicSubject: __expectString(output.PublicSubject),
-    Sender: __expectString(output.Sender),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    StopTime:
-      output.StopTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime))) : undefined,
-    Subject: __expectString(output.Subject),
-  } as any;
+  return take(output, {
+    ContactArn: __expectString,
+    Content: __expectString,
+    EngagementArn: __expectString,
+    IncidentId: __expectString,
+    PublicContent: __expectString,
+    PublicSubject: __expectString,
+    Sender: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StopTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Subject: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribePageResult
  */
 const de_DescribePageResult = (output: any, context: __SerdeContext): DescribePageResult => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    Content: __expectString(output.Content),
-    DeliveryTime:
-      output.DeliveryTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryTime)))
-        : undefined,
-    EngagementArn: __expectString(output.EngagementArn),
-    IncidentId: __expectString(output.IncidentId),
-    PageArn: __expectString(output.PageArn),
-    PublicContent: __expectString(output.PublicContent),
-    PublicSubject: __expectString(output.PublicSubject),
-    ReadTime:
-      output.ReadTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime))) : undefined,
-    Sender: __expectString(output.Sender),
-    SentTime:
-      output.SentTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime))) : undefined,
-    Subject: __expectString(output.Subject),
-  } as any;
+  return take(output, {
+    ContactArn: __expectString,
+    Content: __expectString,
+    DeliveryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EngagementArn: __expectString,
+    IncidentId: __expectString,
+    PageArn: __expectString,
+    PublicContent: __expectString,
+    PublicSubject: __expectString,
+    ReadTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Sender: __expectString,
+    SentTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Subject: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Engagement
  */
 const de_Engagement = (output: any, context: __SerdeContext): Engagement => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    EngagementArn: __expectString(output.EngagementArn),
-    IncidentId: __expectString(output.IncidentId),
-    Sender: __expectString(output.Sender),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    StopTime:
-      output.StopTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime))) : undefined,
-  } as any;
+  return take(output, {
+    ContactArn: __expectString,
+    EngagementArn: __expectString,
+    IncidentId: __expectString,
+    Sender: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StopTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4287,269 +3523,155 @@ const de_EngagementsList = (output: any, context: __SerdeContext): Engagement[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Engagement(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1GetContactChannelResult
- */
-const de_GetContactChannelResult = (output: any, context: __SerdeContext): GetContactChannelResult => {
-  return {
-    ActivationStatus: __expectString(output.ActivationStatus),
-    ContactArn: __expectString(output.ContactArn),
-    ContactChannelArn: __expectString(output.ContactChannelArn),
-    DeliveryAddress:
-      output.DeliveryAddress != null ? de_ContactChannelAddress(output.DeliveryAddress, context) : undefined,
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_GetContactChannelResult omitted.
 
-/**
- * deserializeAws_json1_1GetContactPolicyResult
- */
-const de_GetContactPolicyResult = (output: any, context: __SerdeContext): GetContactPolicyResult => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    Policy: __expectString(output.Policy),
-  } as any;
-};
+// de_GetContactPolicyResult omitted.
 
-/**
- * deserializeAws_json1_1GetContactResult
- */
-const de_GetContactResult = (output: any, context: __SerdeContext): GetContactResult => {
-  return {
-    Alias: __expectString(output.Alias),
-    ContactArn: __expectString(output.ContactArn),
-    DisplayName: __expectString(output.DisplayName),
-    Plan: output.Plan != null ? de_Plan(output.Plan, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_GetContactResult omitted.
 
 /**
  * deserializeAws_json1_1GetRotationOverrideResult
  */
 const de_GetRotationOverrideResult = (output: any, context: __SerdeContext): GetRotationOverrideResult => {
-  return {
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    NewContactIds: output.NewContactIds != null ? de_SsmContactsArnList(output.NewContactIds, context) : undefined,
-    RotationArn: __expectString(output.RotationArn),
-    RotationOverrideId: __expectString(output.RotationOverrideId),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NewContactIds: _json,
+    RotationArn: __expectString,
+    RotationOverrideId: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetRotationResult
  */
 const de_GetRotationResult = (output: any, context: __SerdeContext): GetRotationResult => {
-  return {
-    ContactIds: output.ContactIds != null ? de_RotationContactsArnList(output.ContactIds, context) : undefined,
-    Name: __expectString(output.Name),
-    Recurrence: output.Recurrence != null ? de_RecurrenceSettings(output.Recurrence, context) : undefined,
-    RotationArn: __expectString(output.RotationArn),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    TimeZoneId: __expectString(output.TimeZoneId),
-  } as any;
+  return take(output, {
+    ContactIds: _json,
+    Name: __expectString,
+    Recurrence: _json,
+    RotationArn: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TimeZoneId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1HandOffTime
- */
-const de_HandOffTime = (output: any, context: __SerdeContext): HandOffTime => {
-  return {
-    HourOfDay: __expectInt32(output.HourOfDay),
-    MinuteOfHour: __expectInt32(output.MinuteOfHour),
-  } as any;
-};
+// de_HandOffTime omitted.
 
-/**
- * deserializeAws_json1_1InternalServerException
- */
-const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-    RetryAfterSeconds: __expectInt32(output.RetryAfterSeconds),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-/**
- * deserializeAws_json1_1ListContactChannelsResult
- */
-const de_ListContactChannelsResult = (output: any, context: __SerdeContext): ListContactChannelsResult => {
-  return {
-    ContactChannels:
-      output.ContactChannels != null ? de_ContactChannelList(output.ContactChannels, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListContactChannelsResult omitted.
 
-/**
- * deserializeAws_json1_1ListContactsResult
- */
-const de_ListContactsResult = (output: any, context: __SerdeContext): ListContactsResult => {
-  return {
-    Contacts: output.Contacts != null ? de_ContactsList(output.Contacts, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListContactsResult omitted.
 
 /**
  * deserializeAws_json1_1ListEngagementsResult
  */
 const de_ListEngagementsResult = (output: any, context: __SerdeContext): ListEngagementsResult => {
-  return {
-    Engagements: output.Engagements != null ? de_EngagementsList(output.Engagements, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Engagements: (_: any) => de_EngagementsList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListPageReceiptsResult
  */
 const de_ListPageReceiptsResult = (output: any, context: __SerdeContext): ListPageReceiptsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Receipts: output.Receipts != null ? de_ReceiptsList(output.Receipts, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Receipts: (_: any) => de_ReceiptsList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListPageResolutionsResult
- */
-const de_ListPageResolutionsResult = (output: any, context: __SerdeContext): ListPageResolutionsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PageResolutions: output.PageResolutions != null ? de_ResolutionList(output.PageResolutions, context) : undefined,
-  } as any;
-};
+// de_ListPageResolutionsResult omitted.
 
 /**
  * deserializeAws_json1_1ListPagesByContactResult
  */
 const de_ListPagesByContactResult = (output: any, context: __SerdeContext): ListPagesByContactResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Pages: output.Pages != null ? de_PagesList(output.Pages, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Pages: (_: any) => de_PagesList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListPagesByEngagementResult
  */
 const de_ListPagesByEngagementResult = (output: any, context: __SerdeContext): ListPagesByEngagementResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Pages: output.Pages != null ? de_PagesList(output.Pages, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Pages: (_: any) => de_PagesList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListPreviewRotationShiftsResult
  */
 const de_ListPreviewRotationShiftsResult = (output: any, context: __SerdeContext): ListPreviewRotationShiftsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RotationShifts: output.RotationShifts != null ? de_RotationShifts(output.RotationShifts, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    RotationShifts: (_: any) => de_RotationShifts(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListRotationOverridesResult
  */
 const de_ListRotationOverridesResult = (output: any, context: __SerdeContext): ListRotationOverridesResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RotationOverrides:
-      output.RotationOverrides != null ? de_RotationOverrides(output.RotationOverrides, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    RotationOverrides: (_: any) => de_RotationOverrides(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListRotationShiftsResult
  */
 const de_ListRotationShiftsResult = (output: any, context: __SerdeContext): ListRotationShiftsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RotationShifts: output.RotationShifts != null ? de_RotationShifts(output.RotationShifts, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    RotationShifts: (_: any) => de_RotationShifts(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1ListRotationsResult
  */
 const de_ListRotationsResult = (output: any, context: __SerdeContext): ListRotationsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Rotations: output.Rotations != null ? de_Rotations(output.Rotations, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Rotations: (_: any) => de_Rotations(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResult
- */
-const de_ListTagsForResourceResult = (output: any, context: __SerdeContext): ListTagsForResourceResult => {
-  return {
-    Tags: output.Tags != null ? de_TagsList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResult omitted.
 
-/**
- * deserializeAws_json1_1MonthlySetting
- */
-const de_MonthlySetting = (output: any, context: __SerdeContext): MonthlySetting => {
-  return {
-    DayOfMonth: __expectInt32(output.DayOfMonth),
-    HandOffTime: output.HandOffTime != null ? de_HandOffTime(output.HandOffTime, context) : undefined,
-  } as any;
-};
+// de_MonthlySetting omitted.
 
-/**
- * deserializeAws_json1_1MonthlySettings
- */
-const de_MonthlySettings = (output: any, context: __SerdeContext): MonthlySetting[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MonthlySetting(entry, context);
-    });
-  return retVal;
-};
+// de_MonthlySettings omitted.
 
 /**
  * deserializeAws_json1_1Page
  */
 const de_Page = (output: any, context: __SerdeContext): Page => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    DeliveryTime:
-      output.DeliveryTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryTime)))
-        : undefined,
-    EngagementArn: __expectString(output.EngagementArn),
-    IncidentId: __expectString(output.IncidentId),
-    PageArn: __expectString(output.PageArn),
-    ReadTime:
-      output.ReadTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime))) : undefined,
-    Sender: __expectString(output.Sender),
-    SentTime:
-      output.SentTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime))) : undefined,
-  } as any;
+  return take(output, {
+    ContactArn: __expectString,
+    DeliveryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EngagementArn: __expectString,
+    IncidentId: __expectString,
+    PageArn: __expectString,
+    ReadTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Sender: __expectString,
+    SentTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4559,44 +3681,25 @@ const de_PagesList = (output: any, context: __SerdeContext): Page[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Page(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1Plan
- */
-const de_Plan = (output: any, context: __SerdeContext): Plan => {
-  return {
-    RotationIds: output.RotationIds != null ? de_SsmContactsArnList(output.RotationIds, context) : undefined,
-    Stages: output.Stages != null ? de_StagesList(output.Stages, context) : undefined,
-  } as any;
-};
+// de_Plan omitted.
 
-/**
- * deserializeAws_json1_1PutContactPolicyResult
- */
-const de_PutContactPolicyResult = (output: any, context: __SerdeContext): PutContactPolicyResult => {
-  return {} as any;
-};
+// de_PutContactPolicyResult omitted.
 
 /**
  * deserializeAws_json1_1Receipt
  */
 const de_Receipt = (output: any, context: __SerdeContext): Receipt => {
-  return {
-    ContactChannelArn: __expectString(output.ContactChannelArn),
-    ReceiptInfo: __expectString(output.ReceiptInfo),
-    ReceiptTime:
-      output.ReceiptTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReceiptTime)))
-        : undefined,
-    ReceiptType: __expectString(output.ReceiptType),
-  } as any;
+  return take(output, {
+    ContactChannelArn: __expectString,
+    ReceiptInfo: __expectString,
+    ReceiptTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReceiptType: __expectString,
+  }) as any;
 };
 
 /**
@@ -4606,109 +3709,46 @@ const de_ReceiptsList = (output: any, context: __SerdeContext): Receipt[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Receipt(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1RecurrenceSettings
- */
-const de_RecurrenceSettings = (output: any, context: __SerdeContext): RecurrenceSettings => {
-  return {
-    DailySettings: output.DailySettings != null ? de_DailySettings(output.DailySettings, context) : undefined,
-    MonthlySettings: output.MonthlySettings != null ? de_MonthlySettings(output.MonthlySettings, context) : undefined,
-    NumberOfOnCalls: __expectInt32(output.NumberOfOnCalls),
-    RecurrenceMultiplier: __expectInt32(output.RecurrenceMultiplier),
-    ShiftCoverages: output.ShiftCoverages != null ? de_ShiftCoveragesMap(output.ShiftCoverages, context) : undefined,
-    WeeklySettings: output.WeeklySettings != null ? de_WeeklySettings(output.WeeklySettings, context) : undefined,
-  } as any;
-};
+// de_RecurrenceSettings omitted.
 
-/**
- * deserializeAws_json1_1ResolutionContact
- */
-const de_ResolutionContact = (output: any, context: __SerdeContext): ResolutionContact => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    StageIndex: __expectInt32(output.StageIndex),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ResolutionContact omitted.
 
-/**
- * deserializeAws_json1_1ResolutionList
- */
-const de_ResolutionList = (output: any, context: __SerdeContext): ResolutionContact[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResolutionContact(entry, context);
-    });
-  return retVal;
-};
+// de_ResolutionList omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1Rotation
  */
 const de_Rotation = (output: any, context: __SerdeContext): Rotation => {
-  return {
-    ContactIds: output.ContactIds != null ? de_SsmContactsArnList(output.ContactIds, context) : undefined,
-    Name: __expectString(output.Name),
-    Recurrence: output.Recurrence != null ? de_RecurrenceSettings(output.Recurrence, context) : undefined,
-    RotationArn: __expectString(output.RotationArn),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    TimeZoneId: __expectString(output.TimeZoneId),
-  } as any;
+  return take(output, {
+    ContactIds: _json,
+    Name: __expectString,
+    Recurrence: _json,
+    RotationArn: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TimeZoneId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1RotationContactsArnList
- */
-const de_RotationContactsArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RotationContactsArnList omitted.
 
 /**
  * deserializeAws_json1_1RotationOverride
  */
 const de_RotationOverride = (output: any, context: __SerdeContext): RotationOverride => {
-  return {
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    NewContactIds: output.NewContactIds != null ? de_SsmContactsArnList(output.NewContactIds, context) : undefined,
-    RotationOverrideId: __expectString(output.RotationOverrideId),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NewContactIds: _json,
+    RotationOverrideId: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4718,9 +3758,6 @@ const de_RotationOverrides = (output: any, context: __SerdeContext): RotationOve
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RotationOverride(entry, context);
     });
   return retVal;
@@ -4733,9 +3770,6 @@ const de_Rotations = (output: any, context: __SerdeContext): Rotation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Rotation(entry, context);
     });
   return retVal;
@@ -4745,15 +3779,13 @@ const de_Rotations = (output: any, context: __SerdeContext): Rotation[] => {
  * deserializeAws_json1_1RotationShift
  */
 const de_RotationShift = (output: any, context: __SerdeContext): RotationShift => {
-  return {
-    ContactIds: output.ContactIds != null ? de_SsmContactsArnList(output.ContactIds, context) : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    ShiftDetails: output.ShiftDetails != null ? de_ShiftDetails(output.ShiftDetails, context) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    ContactIds: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ShiftDetails: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -4763,275 +3795,58 @@ const de_RotationShifts = (output: any, context: __SerdeContext): RotationShift[
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RotationShift(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_1SendActivationCodeResult
- */
-const de_SendActivationCodeResult = (output: any, context: __SerdeContext): SendActivationCodeResult => {
-  return {} as any;
-};
+// de_SendActivationCodeResult omitted.
 
-/**
- * deserializeAws_json1_1ServiceQuotaExceededException
- */
-const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    QuotaCode: __expectString(output.QuotaCode),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-    ServiceCode: __expectString(output.ServiceCode),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
-/**
- * deserializeAws_json1_1ShiftCoveragesMap
- */
-const de_ShiftCoveragesMap = (output: any, context: __SerdeContext): Record<string, CoverageTime[]> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, CoverageTime[]>, [key, value]: [DayOfWeek | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_CoverageTimes(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_ShiftCoveragesMap omitted.
 
-/**
- * deserializeAws_json1_1ShiftDetails
- */
-const de_ShiftDetails = (output: any, context: __SerdeContext): ShiftDetails => {
-  return {
-    OverriddenContactIds:
-      output.OverriddenContactIds != null ? de_SsmContactsArnList(output.OverriddenContactIds, context) : undefined,
-  } as any;
-};
+// de_ShiftDetails omitted.
 
-/**
- * deserializeAws_json1_1SsmContactsArnList
- */
-const de_SsmContactsArnList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SsmContactsArnList omitted.
 
-/**
- * deserializeAws_json1_1Stage
- */
-const de_Stage = (output: any, context: __SerdeContext): Stage => {
-  return {
-    DurationInMinutes: __expectInt32(output.DurationInMinutes),
-    Targets: output.Targets != null ? de_TargetsList(output.Targets, context) : undefined,
-  } as any;
-};
+// de_Stage omitted.
 
-/**
- * deserializeAws_json1_1StagesList
- */
-const de_StagesList = (output: any, context: __SerdeContext): Stage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Stage(entry, context);
-    });
-  return retVal;
-};
+// de_StagesList omitted.
 
-/**
- * deserializeAws_json1_1StartEngagementResult
- */
-const de_StartEngagementResult = (output: any, context: __SerdeContext): StartEngagementResult => {
-  return {
-    EngagementArn: __expectString(output.EngagementArn),
-  } as any;
-};
+// de_StartEngagementResult omitted.
 
-/**
- * deserializeAws_json1_1StopEngagementResult
- */
-const de_StopEngagementResult = (output: any, context: __SerdeContext): StopEngagementResult => {
-  return {} as any;
-};
+// de_StopEngagementResult omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResult
- */
-const de_TagResourceResult = (output: any, context: __SerdeContext): TagResourceResult => {
-  return {} as any;
-};
+// de_TagResourceResult omitted.
 
-/**
- * deserializeAws_json1_1TagsList
- */
-const de_TagsList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagsList omitted.
 
-/**
- * deserializeAws_json1_1Target
- */
-const de_Target = (output: any, context: __SerdeContext): Target => {
-  return {
-    ChannelTargetInfo:
-      output.ChannelTargetInfo != null ? de_ChannelTargetInfo(output.ChannelTargetInfo, context) : undefined,
-    ContactTargetInfo:
-      output.ContactTargetInfo != null ? de_ContactTargetInfo(output.ContactTargetInfo, context) : undefined,
-  } as any;
-};
+// de_Target omitted.
 
-/**
- * deserializeAws_json1_1TargetsList
- */
-const de_TargetsList = (output: any, context: __SerdeContext): Target[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Target(entry, context);
-    });
-  return retVal;
-};
+// de_TargetsList omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-    QuotaCode: __expectString(output.QuotaCode),
-    RetryAfterSeconds: __expectInt32(output.RetryAfterSeconds),
-    ServiceCode: __expectString(output.ServiceCode),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResult
- */
-const de_UntagResourceResult = (output: any, context: __SerdeContext): UntagResourceResult => {
-  return {} as any;
-};
+// de_UntagResourceResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateContactChannelResult
- */
-const de_UpdateContactChannelResult = (output: any, context: __SerdeContext): UpdateContactChannelResult => {
-  return {} as any;
-};
+// de_UpdateContactChannelResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateContactResult
- */
-const de_UpdateContactResult = (output: any, context: __SerdeContext): UpdateContactResult => {
-  return {} as any;
-};
+// de_UpdateContactResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateRotationResult
- */
-const de_UpdateRotationResult = (output: any, context: __SerdeContext): UpdateRotationResult => {
-  return {} as any;
-};
+// de_UpdateRotationResult omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Fields: output.Fields != null ? de_ValidationExceptionFieldList(output.Fields, context) : undefined,
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_ValidationException omitted.
 
-/**
- * deserializeAws_json1_1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_json1_1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
-/**
- * deserializeAws_json1_1WeeklySetting
- */
-const de_WeeklySetting = (output: any, context: __SerdeContext): WeeklySetting => {
-  return {
-    DayOfWeek: __expectString(output.DayOfWeek),
-    HandOffTime: output.HandOffTime != null ? de_HandOffTime(output.HandOffTime, context) : undefined,
-  } as any;
-};
+// de_WeeklySetting omitted.
 
-/**
- * deserializeAws_json1_1WeeklySettings
- */
-const de_WeeklySettings = (output: any, context: __SerdeContext): WeeklySetting[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_WeeklySetting(entry, context);
-    });
-  return retVal;
-};
+// de_WeeklySettings omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -5053,6 +3868,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

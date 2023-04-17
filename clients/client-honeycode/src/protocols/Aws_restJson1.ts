@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -65,35 +65,24 @@ import {
   AccessDeniedException,
   AutomationExecutionException,
   AutomationExecutionTimeoutException,
-  Cell,
   CellInput,
-  ColumnMetadata,
   CreateRowData,
-  DataItem,
   DelimitedTextImportOptions,
   DestinationOptions,
-  FailedBatchItem,
   Filter,
   ImportDataSource,
   ImportDataSourceConfig,
-  ImportJobSubmitter,
   ImportOptions,
   InternalServerException,
   RequestTimeoutException,
   ResourceNotFoundException,
-  ResultRow,
-  ResultSet,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   SourceDataColumnProperties,
-  Table,
-  TableColumn,
   TableDataImportJobMetadata,
-  TableRow,
   ThrottlingException,
   UpdateRowData,
   UpsertRowData,
-  UpsertRowsResult,
   ValidationException,
   VariableValue,
 } from "../models/models_0";
@@ -115,10 +104,12 @@ export const se_BatchCreateTableRowsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowsToCreate != null && { rowsToCreate: se_CreateRowDataList(input.rowsToCreate, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowsToCreate: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -147,10 +138,12 @@ export const se_BatchDeleteTableRowsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowIds != null && { rowIds: se_RowIdList(input.rowIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -179,10 +172,12 @@ export const se_BatchUpdateTableRowsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowsToUpdate != null && { rowsToUpdate: se_UpdateRowDataList(input.rowsToUpdate, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowsToUpdate: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -211,10 +206,12 @@ export const se_BatchUpsertTableRowsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowsToUpsert != null && { rowsToUpsert: se_UpsertRowDataList(input.rowsToUpsert, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowsToUpsert: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -266,14 +263,16 @@ export const se_GetScreenDataCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/screendata";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appId != null && { appId: input.appId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.screenId != null && { screenId: input.screenId }),
-    ...(input.variables != null && { variables: se_VariableValueMap(input.variables, context) }),
-    ...(input.workbookId != null && { workbookId: input.workbookId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appId: [],
+      maxResults: [],
+      nextToken: [],
+      screenId: [],
+      variables: (_) => _json(_),
+      workbookId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -311,11 +310,13 @@ export const se_InvokeScreenAutomationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowId != null && { rowId: input.rowId }),
-    ...(input.variables != null && { variables: se_VariableValueMap(input.variables, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowId: [],
+      variables: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -374,11 +375,13 @@ export const se_ListTableRowsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.rowIds != null && { rowIds: se_RowIdList(input.rowIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      rowIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -459,11 +462,13 @@ export const se_QueryTableRowsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.filterFormula != null && { filterFormula: se_Filter(input.filterFormula, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filterFormula: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -499,12 +504,14 @@ export const se_StartTableDataImportJobCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.dataFormat != null && { dataFormat: input.dataFormat }),
-    ...(input.dataSource != null && { dataSource: se_ImportDataSource(input.dataSource, context) }),
-    ...(input.importOptions != null && { importOptions: se_ImportOptions(input.importOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      dataFormat: [],
+      dataSource: (_) => _json(_),
+      importOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -530,9 +537,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagsMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -588,15 +597,12 @@ export const de_BatchCreateTableRowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdRows != null) {
-    contents.createdRows = de_CreatedRowsMap(data.createdRows, context);
-  }
-  if (data.failedBatchItems != null) {
-    contents.failedBatchItems = de_FailedBatchItems(data.failedBatchItems, context);
-  }
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    createdRows: _json,
+    failedBatchItems: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -639,10 +645,9 @@ const de_BatchCreateTableRowsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -662,12 +667,11 @@ export const de_BatchDeleteTableRowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedBatchItems != null) {
-    contents.failedBatchItems = de_FailedBatchItems(data.failedBatchItems, context);
-  }
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    failedBatchItems: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -707,10 +711,9 @@ const de_BatchDeleteTableRowsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -730,12 +733,11 @@ export const de_BatchUpdateTableRowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedBatchItems != null) {
-    contents.failedBatchItems = de_FailedBatchItems(data.failedBatchItems, context);
-  }
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    failedBatchItems: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -775,10 +777,9 @@ const de_BatchUpdateTableRowsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -798,15 +799,12 @@ export const de_BatchUpsertTableRowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedBatchItems != null) {
-    contents.failedBatchItems = de_FailedBatchItems(data.failedBatchItems, context);
-  }
-  if (data.rows != null) {
-    contents.rows = de_UpsertRowsResultMap(data.rows, context);
-  }
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    failedBatchItems: _json,
+    rows: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -849,10 +847,9 @@ const de_BatchUpsertTableRowsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -872,18 +869,13 @@ export const de_DescribeTableDataImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errorCode != null) {
-    contents.errorCode = __expectString(data.errorCode);
-  }
-  if (data.jobMetadata != null) {
-    contents.jobMetadata = de_TableDataImportJobMetadata(data.jobMetadata, context);
-  }
-  if (data.jobStatus != null) {
-    contents.jobStatus = __expectString(data.jobStatus);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    errorCode: __expectString,
+    jobMetadata: (_) => de_TableDataImportJobMetadata(_, context),
+    jobStatus: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -923,10 +915,9 @@ const de_DescribeTableDataImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -946,15 +937,12 @@ export const de_GetScreenDataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.results != null) {
-    contents.results = de_ResultSetMap(data.results, context);
-  }
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    results: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -994,10 +982,9 @@ const de_GetScreenDataCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1017,9 +1004,10 @@ export const de_InvokeScreenAutomationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1068,10 +1056,9 @@ const de_InvokeScreenAutomationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1091,15 +1078,12 @@ export const de_ListTableColumnsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.tableColumns != null) {
-    contents.tableColumns = de_TableColumns(data.tableColumns, context);
-  }
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    tableColumns: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1139,10 +1123,9 @@ const de_ListTableColumnsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1162,21 +1145,14 @@ export const de_ListTableRowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.columnIds != null) {
-    contents.columnIds = de_ResourceIds(data.columnIds, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.rowIdsNotFound != null) {
-    contents.rowIdsNotFound = de_RowIdList(data.rowIdsNotFound, context);
-  }
-  if (data.rows != null) {
-    contents.rows = de_TableRows(data.rows, context);
-  }
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    columnIds: _json,
+    nextToken: __expectString,
+    rowIdsNotFound: _json,
+    rows: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1216,10 +1192,9 @@ const de_ListTableRowsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1239,15 +1214,12 @@ export const de_ListTablesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.tables != null) {
-    contents.tables = de_Tables(data.tables, context);
-  }
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    tables: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1287,10 +1259,9 @@ const de_ListTablesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1310,9 +1281,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagsMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1352,10 +1324,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1375,18 +1346,13 @@ export const de_QueryTableRowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.columnIds != null) {
-    contents.columnIds = de_ResourceIds(data.columnIds, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.rows != null) {
-    contents.rows = de_TableRows(data.rows, context);
-  }
-  if (data.workbookCursor != null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
+  const doc = take(data, {
+    columnIds: _json,
+    nextToken: __expectString,
+    rows: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1426,10 +1392,9 @@ const de_QueryTableRowsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1449,12 +1414,11 @@ export const de_StartTableDataImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobId != null) {
-    contents.jobId = __expectString(data.jobId);
-  }
-  if (data.jobStatus != null) {
-    contents.jobStatus = __expectString(data.jobStatus);
-  }
+  const doc = take(data, {
+    jobId: __expectString,
+    jobStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1497,10 +1461,9 @@ const de_StartTableDataImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1559,10 +1522,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1621,16 +1583,15 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -1640,9 +1601,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1659,9 +1621,10 @@ const de_AutomationExecutionExceptionRes = async (
 ): Promise<AutomationExecutionException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AutomationExecutionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1678,9 +1641,10 @@ const de_AutomationExecutionTimeoutExceptionRes = async (
 ): Promise<AutomationExecutionTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AutomationExecutionTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1697,9 +1661,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1716,9 +1681,10 @@ const de_RequestTimeoutExceptionRes = async (
 ): Promise<RequestTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1735,9 +1701,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1754,9 +1721,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1773,9 +1741,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1789,9 +1758,10 @@ const de_ServiceUnavailableExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1805,9 +1775,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1815,661 +1786,125 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1CellInput
- */
-const se_CellInput = (input: CellInput, context: __SerdeContext): any => {
-  return {
-    ...(input.fact != null && { fact: input.fact }),
-    ...(input.facts != null && { facts: se_FactList(input.facts, context) }),
-  };
-};
+// se_CellInput omitted.
 
-/**
- * serializeAws_restJson1CreateRowData
- */
-const se_CreateRowData = (input: CreateRowData, context: __SerdeContext): any => {
-  return {
-    ...(input.batchItemId != null && { batchItemId: input.batchItemId }),
-    ...(input.cellsToCreate != null && { cellsToCreate: se_RowDataInput(input.cellsToCreate, context) }),
-  };
-};
+// se_CreateRowData omitted.
 
-/**
- * serializeAws_restJson1CreateRowDataList
- */
-const se_CreateRowDataList = (input: CreateRowData[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateRowData(entry, context);
-    });
-};
+// se_CreateRowDataList omitted.
 
-/**
- * serializeAws_restJson1DelimitedTextImportOptions
- */
-const se_DelimitedTextImportOptions = (input: DelimitedTextImportOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.dataCharacterEncoding != null && { dataCharacterEncoding: input.dataCharacterEncoding }),
-    ...(input.delimiter != null && { delimiter: input.delimiter }),
-    ...(input.hasHeaderRow != null && { hasHeaderRow: input.hasHeaderRow }),
-    ...(input.ignoreEmptyRows != null && { ignoreEmptyRows: input.ignoreEmptyRows }),
-  };
-};
+// se_DelimitedTextImportOptions omitted.
 
-/**
- * serializeAws_restJson1DestinationOptions
- */
-const se_DestinationOptions = (input: DestinationOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.columnMap != null && { columnMap: se_ImportColumnMap(input.columnMap, context) }),
-  };
-};
+// se_DestinationOptions omitted.
 
-/**
- * serializeAws_restJson1FactList
- */
-const se_FactList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FactList omitted.
 
-/**
- * serializeAws_restJson1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.contextRowId != null && { contextRowId: input.contextRowId }),
-    ...(input.formula != null && { formula: input.formula }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_restJson1ImportColumnMap
- */
-const se_ImportColumnMap = (input: Record<string, SourceDataColumnProperties>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_SourceDataColumnProperties(value, context);
-    return acc;
-  }, {});
-};
+// se_ImportColumnMap omitted.
 
-/**
- * serializeAws_restJson1ImportDataSource
- */
-const se_ImportDataSource = (input: ImportDataSource, context: __SerdeContext): any => {
-  return {
-    ...(input.dataSourceConfig != null && {
-      dataSourceConfig: se_ImportDataSourceConfig(input.dataSourceConfig, context),
-    }),
-  };
-};
+// se_ImportDataSource omitted.
 
-/**
- * serializeAws_restJson1ImportDataSourceConfig
- */
-const se_ImportDataSourceConfig = (input: ImportDataSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.dataSourceUrl != null && { dataSourceUrl: input.dataSourceUrl }),
-  };
-};
+// se_ImportDataSourceConfig omitted.
 
-/**
- * serializeAws_restJson1ImportOptions
- */
-const se_ImportOptions = (input: ImportOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.delimitedTextOptions != null && {
-      delimitedTextOptions: se_DelimitedTextImportOptions(input.delimitedTextOptions, context),
-    }),
-    ...(input.destinationOptions != null && {
-      destinationOptions: se_DestinationOptions(input.destinationOptions, context),
-    }),
-  };
-};
+// se_ImportOptions omitted.
 
-/**
- * serializeAws_restJson1RowDataInput
- */
-const se_RowDataInput = (input: Record<string, CellInput>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_CellInput(value, context);
-    return acc;
-  }, {});
-};
+// se_RowDataInput omitted.
 
-/**
- * serializeAws_restJson1RowIdList
- */
-const se_RowIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RowIdList omitted.
 
-/**
- * serializeAws_restJson1SourceDataColumnProperties
- */
-const se_SourceDataColumnProperties = (input: SourceDataColumnProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.columnIndex != null && { columnIndex: input.columnIndex }),
-  };
-};
+// se_SourceDataColumnProperties omitted.
 
-/**
- * serializeAws_restJson1TagsMap
- */
-const se_TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagsMap omitted.
 
-/**
- * serializeAws_restJson1UpdateRowData
- */
-const se_UpdateRowData = (input: UpdateRowData, context: __SerdeContext): any => {
-  return {
-    ...(input.cellsToUpdate != null && { cellsToUpdate: se_RowDataInput(input.cellsToUpdate, context) }),
-    ...(input.rowId != null && { rowId: input.rowId }),
-  };
-};
+// se_UpdateRowData omitted.
 
-/**
- * serializeAws_restJson1UpdateRowDataList
- */
-const se_UpdateRowDataList = (input: UpdateRowData[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpdateRowData(entry, context);
-    });
-};
+// se_UpdateRowDataList omitted.
 
-/**
- * serializeAws_restJson1UpsertRowData
- */
-const se_UpsertRowData = (input: UpsertRowData, context: __SerdeContext): any => {
-  return {
-    ...(input.batchItemId != null && { batchItemId: input.batchItemId }),
-    ...(input.cellsToUpdate != null && { cellsToUpdate: se_RowDataInput(input.cellsToUpdate, context) }),
-    ...(input.filter != null && { filter: se_Filter(input.filter, context) }),
-  };
-};
+// se_UpsertRowData omitted.
 
-/**
- * serializeAws_restJson1UpsertRowDataList
- */
-const se_UpsertRowDataList = (input: UpsertRowData[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpsertRowData(entry, context);
-    });
-};
+// se_UpsertRowDataList omitted.
 
-/**
- * serializeAws_restJson1VariableValue
- */
-const se_VariableValue = (input: VariableValue, context: __SerdeContext): any => {
-  return {
-    ...(input.rawValue != null && { rawValue: input.rawValue }),
-  };
-};
+// se_VariableValue omitted.
 
-/**
- * serializeAws_restJson1VariableValueMap
- */
-const se_VariableValueMap = (input: Record<string, VariableValue>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_VariableValue(value, context);
-    return acc;
-  }, {});
-};
+// se_VariableValueMap omitted.
 
-/**
- * deserializeAws_restJson1Cell
- */
-const de_Cell = (output: any, context: __SerdeContext): Cell => {
-  return {
-    format: __expectString(output.format),
-    formattedValue: __expectString(output.formattedValue),
-    formattedValues:
-      output.formattedValues != null ? de_FormattedValuesList(output.formattedValues, context) : undefined,
-    formula: __expectString(output.formula),
-    rawValue: __expectString(output.rawValue),
-  } as any;
-};
+// de_Cell omitted.
 
-/**
- * deserializeAws_restJson1Cells
- */
-const de_Cells = (output: any, context: __SerdeContext): Cell[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Cell(entry, context);
-    });
-  return retVal;
-};
+// de_Cells omitted.
 
-/**
- * deserializeAws_restJson1ColumnMetadata
- */
-const de_ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
-  return {
-    format: __expectString(output.format),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ColumnMetadata omitted.
 
-/**
- * deserializeAws_restJson1CreatedRowsMap
- */
-const de_CreatedRowsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_CreatedRowsMap omitted.
 
-/**
- * deserializeAws_restJson1DataItem
- */
-const de_DataItem = (output: any, context: __SerdeContext): DataItem => {
-  return {
-    formattedValue: __expectString(output.formattedValue),
-    overrideFormat: __expectString(output.overrideFormat),
-    rawValue: __expectString(output.rawValue),
-  } as any;
-};
+// de_DataItem omitted.
 
-/**
- * deserializeAws_restJson1DataItems
- */
-const de_DataItems = (output: any, context: __SerdeContext): DataItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DataItem(entry, context);
-    });
-  return retVal;
-};
+// de_DataItems omitted.
 
-/**
- * deserializeAws_restJson1DelimitedTextImportOptions
- */
-const de_DelimitedTextImportOptions = (output: any, context: __SerdeContext): DelimitedTextImportOptions => {
-  return {
-    dataCharacterEncoding: __expectString(output.dataCharacterEncoding),
-    delimiter: __expectString(output.delimiter),
-    hasHeaderRow: __expectBoolean(output.hasHeaderRow),
-    ignoreEmptyRows: __expectBoolean(output.ignoreEmptyRows),
-  } as any;
-};
+// de_DelimitedTextImportOptions omitted.
 
-/**
- * deserializeAws_restJson1DestinationOptions
- */
-const de_DestinationOptions = (output: any, context: __SerdeContext): DestinationOptions => {
-  return {
-    columnMap: output.columnMap != null ? de_ImportColumnMap(output.columnMap, context) : undefined,
-  } as any;
-};
+// de_DestinationOptions omitted.
 
-/**
- * deserializeAws_restJson1FailedBatchItem
- */
-const de_FailedBatchItem = (output: any, context: __SerdeContext): FailedBatchItem => {
-  return {
-    errorMessage: __expectString(output.errorMessage),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_FailedBatchItem omitted.
 
-/**
- * deserializeAws_restJson1FailedBatchItems
- */
-const de_FailedBatchItems = (output: any, context: __SerdeContext): FailedBatchItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FailedBatchItem(entry, context);
-    });
-  return retVal;
-};
+// de_FailedBatchItems omitted.
 
-/**
- * deserializeAws_restJson1FormattedValuesList
- */
-const de_FormattedValuesList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FormattedValuesList omitted.
 
-/**
- * deserializeAws_restJson1ImportColumnMap
- */
-const de_ImportColumnMap = (output: any, context: __SerdeContext): Record<string, SourceDataColumnProperties> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, SourceDataColumnProperties>, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_SourceDataColumnProperties(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_ImportColumnMap omitted.
 
-/**
- * deserializeAws_restJson1ImportDataSource
- */
-const de_ImportDataSource = (output: any, context: __SerdeContext): ImportDataSource => {
-  return {
-    dataSourceConfig:
-      output.dataSourceConfig != null ? de_ImportDataSourceConfig(output.dataSourceConfig, context) : undefined,
-  } as any;
-};
+// de_ImportDataSource omitted.
 
-/**
- * deserializeAws_restJson1ImportDataSourceConfig
- */
-const de_ImportDataSourceConfig = (output: any, context: __SerdeContext): ImportDataSourceConfig => {
-  return {
-    dataSourceUrl: __expectString(output.dataSourceUrl),
-  } as any;
-};
+// de_ImportDataSourceConfig omitted.
 
-/**
- * deserializeAws_restJson1ImportJobSubmitter
- */
-const de_ImportJobSubmitter = (output: any, context: __SerdeContext): ImportJobSubmitter => {
-  return {
-    email: __expectString(output.email),
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_ImportJobSubmitter omitted.
 
-/**
- * deserializeAws_restJson1ImportOptions
- */
-const de_ImportOptions = (output: any, context: __SerdeContext): ImportOptions => {
-  return {
-    delimitedTextOptions:
-      output.delimitedTextOptions != null
-        ? de_DelimitedTextImportOptions(output.delimitedTextOptions, context)
-        : undefined,
-    destinationOptions:
-      output.destinationOptions != null ? de_DestinationOptions(output.destinationOptions, context) : undefined,
-  } as any;
-};
+// de_ImportOptions omitted.
 
-/**
- * deserializeAws_restJson1ResourceIds
- */
-const de_ResourceIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ResourceIds omitted.
 
-/**
- * deserializeAws_restJson1ResultHeader
- */
-const de_ResultHeader = (output: any, context: __SerdeContext): ColumnMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ColumnMetadata(entry, context);
-    });
-  return retVal;
-};
+// de_ResultHeader omitted.
 
-/**
- * deserializeAws_restJson1ResultRow
- */
-const de_ResultRow = (output: any, context: __SerdeContext): ResultRow => {
-  return {
-    dataItems: output.dataItems != null ? de_DataItems(output.dataItems, context) : undefined,
-    rowId: __expectString(output.rowId),
-  } as any;
-};
+// de_ResultRow omitted.
 
-/**
- * deserializeAws_restJson1ResultRows
- */
-const de_ResultRows = (output: any, context: __SerdeContext): ResultRow[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResultRow(entry, context);
-    });
-  return retVal;
-};
+// de_ResultRows omitted.
 
-/**
- * deserializeAws_restJson1ResultSet
- */
-const de_ResultSet = (output: any, context: __SerdeContext): ResultSet => {
-  return {
-    headers: output.headers != null ? de_ResultHeader(output.headers, context) : undefined,
-    rows: output.rows != null ? de_ResultRows(output.rows, context) : undefined,
-  } as any;
-};
+// de_ResultSet omitted.
 
-/**
- * deserializeAws_restJson1ResultSetMap
- */
-const de_ResultSetMap = (output: any, context: __SerdeContext): Record<string, ResultSet> => {
-  return Object.entries(output).reduce((acc: Record<string, ResultSet>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_ResultSet(value, context);
-    return acc;
-  }, {});
-};
+// de_ResultSetMap omitted.
 
-/**
- * deserializeAws_restJson1RowIdList
- */
-const de_RowIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RowIdList omitted.
 
-/**
- * deserializeAws_restJson1SourceDataColumnProperties
- */
-const de_SourceDataColumnProperties = (output: any, context: __SerdeContext): SourceDataColumnProperties => {
-  return {
-    columnIndex: __expectInt32(output.columnIndex),
-  } as any;
-};
+// de_SourceDataColumnProperties omitted.
 
-/**
- * deserializeAws_restJson1Table
- */
-const de_Table = (output: any, context: __SerdeContext): Table => {
-  return {
-    tableId: __expectString(output.tableId),
-    tableName: __expectString(output.tableName),
-  } as any;
-};
+// de_Table omitted.
 
-/**
- * deserializeAws_restJson1TableColumn
- */
-const de_TableColumn = (output: any, context: __SerdeContext): TableColumn => {
-  return {
-    format: __expectString(output.format),
-    tableColumnId: __expectString(output.tableColumnId),
-    tableColumnName: __expectString(output.tableColumnName),
-  } as any;
-};
+// de_TableColumn omitted.
 
-/**
- * deserializeAws_restJson1TableColumns
- */
-const de_TableColumns = (output: any, context: __SerdeContext): TableColumn[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TableColumn(entry, context);
-    });
-  return retVal;
-};
+// de_TableColumns omitted.
 
 /**
  * deserializeAws_restJson1TableDataImportJobMetadata
  */
 const de_TableDataImportJobMetadata = (output: any, context: __SerdeContext): TableDataImportJobMetadata => {
-  return {
-    dataSource: output.dataSource != null ? de_ImportDataSource(output.dataSource, context) : undefined,
-    importOptions: output.importOptions != null ? de_ImportOptions(output.importOptions, context) : undefined,
-    submitTime:
-      output.submitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.submitTime))) : undefined,
-    submitter: output.submitter != null ? de_ImportJobSubmitter(output.submitter, context) : undefined,
-  } as any;
+  return take(output, {
+    dataSource: _json,
+    importOptions: _json,
+    submitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    submitter: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TableRow
- */
-const de_TableRow = (output: any, context: __SerdeContext): TableRow => {
-  return {
-    cells: output.cells != null ? de_Cells(output.cells, context) : undefined,
-    rowId: __expectString(output.rowId),
-  } as any;
-};
+// de_TableRow omitted.
 
-/**
- * deserializeAws_restJson1TableRows
- */
-const de_TableRows = (output: any, context: __SerdeContext): TableRow[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TableRow(entry, context);
-    });
-  return retVal;
-};
+// de_TableRows omitted.
 
-/**
- * deserializeAws_restJson1Tables
- */
-const de_Tables = (output: any, context: __SerdeContext): Table[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Table(entry, context);
-    });
-  return retVal;
-};
+// de_Tables omitted.
 
-/**
- * deserializeAws_restJson1TagsMap
- */
-const de_TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagsMap omitted.
 
-/**
- * deserializeAws_restJson1UpsertRowsResult
- */
-const de_UpsertRowsResult = (output: any, context: __SerdeContext): UpsertRowsResult => {
-  return {
-    rowIds: output.rowIds != null ? de_RowIdList(output.rowIds, context) : undefined,
-    upsertAction: __expectString(output.upsertAction),
-  } as any;
-};
+// de_UpsertRowsResult omitted.
 
-/**
- * deserializeAws_restJson1UpsertRowsResultMap
- */
-const de_UpsertRowsResultMap = (output: any, context: __SerdeContext): Record<string, UpsertRowsResult> => {
-  return Object.entries(output).reduce((acc: Record<string, UpsertRowsResult>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_UpsertRowsResult(value, context);
-    return acc;
-  }, {});
-};
+// de_UpsertRowsResultMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,15 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -140,45 +141,21 @@ import {
 } from "../commands/UndeprecateWorkflowTypeCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
-  ActivityTask,
-  ActivityTaskCanceledEventAttributes,
-  ActivityTaskCancelRequestedEventAttributes,
-  ActivityTaskCompletedEventAttributes,
-  ActivityTaskFailedEventAttributes,
-  ActivityTaskScheduledEventAttributes,
-  ActivityTaskStartedEventAttributes,
-  ActivityTaskStatus,
-  ActivityTaskTimedOutEventAttributes,
   ActivityType,
-  ActivityTypeConfiguration,
   ActivityTypeDetail,
   ActivityTypeInfo,
   ActivityTypeInfos,
   CancelTimerDecisionAttributes,
-  CancelTimerFailedEventAttributes,
   CancelWorkflowExecutionDecisionAttributes,
-  CancelWorkflowExecutionFailedEventAttributes,
-  ChildWorkflowExecutionCanceledEventAttributes,
-  ChildWorkflowExecutionCompletedEventAttributes,
-  ChildWorkflowExecutionFailedEventAttributes,
-  ChildWorkflowExecutionStartedEventAttributes,
-  ChildWorkflowExecutionTerminatedEventAttributes,
-  ChildWorkflowExecutionTimedOutEventAttributes,
   CloseStatusFilter,
   CompleteWorkflowExecutionDecisionAttributes,
-  CompleteWorkflowExecutionFailedEventAttributes,
   ContinueAsNewWorkflowExecutionDecisionAttributes,
-  ContinueAsNewWorkflowExecutionFailedEventAttributes,
   CountClosedWorkflowExecutionsInput,
   CountOpenWorkflowExecutionsInput,
   CountPendingActivityTasksInput,
   CountPendingDecisionTasksInput,
   Decision,
   DecisionTask,
-  DecisionTaskCompletedEventAttributes,
-  DecisionTaskScheduledEventAttributes,
-  DecisionTaskStartedEventAttributes,
-  DecisionTaskTimedOutEventAttributes,
   DefaultUndefinedFault,
   DeprecateActivityTypeInput,
   DeprecateDomainInput,
@@ -188,77 +165,46 @@ import {
   DescribeWorkflowExecutionInput,
   DescribeWorkflowTypeInput,
   DomainAlreadyExistsFault,
-  DomainConfiguration,
   DomainDeprecatedFault,
-  DomainDetail,
-  DomainInfo,
-  DomainInfos,
   ExecutionTimeFilter,
-  ExternalWorkflowExecutionCancelRequestedEventAttributes,
-  ExternalWorkflowExecutionSignaledEventAttributes,
   FailWorkflowExecutionDecisionAttributes,
-  FailWorkflowExecutionFailedEventAttributes,
   GetWorkflowExecutionHistoryInput,
   History,
   HistoryEvent,
-  LambdaFunctionCompletedEventAttributes,
-  LambdaFunctionFailedEventAttributes,
-  LambdaFunctionScheduledEventAttributes,
-  LambdaFunctionStartedEventAttributes,
-  LambdaFunctionTimedOutEventAttributes,
   LimitExceededFault,
   ListActivityTypesInput,
   ListClosedWorkflowExecutionsInput,
   ListDomainsInput,
   ListOpenWorkflowExecutionsInput,
   ListTagsForResourceInput,
-  ListTagsForResourceOutput,
   ListWorkflowTypesInput,
-  MarkerRecordedEventAttributes,
   OperationNotPermittedFault,
-  PendingTaskCount,
   PollForActivityTaskInput,
   PollForDecisionTaskInput,
   RecordActivityTaskHeartbeatInput,
   RecordMarkerDecisionAttributes,
-  RecordMarkerFailedEventAttributes,
   RegisterActivityTypeInput,
   RegisterDomainInput,
   RegisterWorkflowTypeInput,
   RequestCancelActivityTaskDecisionAttributes,
-  RequestCancelActivityTaskFailedEventAttributes,
   RequestCancelExternalWorkflowExecutionDecisionAttributes,
-  RequestCancelExternalWorkflowExecutionFailedEventAttributes,
-  RequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
   RequestCancelWorkflowExecutionInput,
   ResourceTag,
   RespondActivityTaskCanceledInput,
   RespondActivityTaskCompletedInput,
   RespondActivityTaskFailedInput,
   RespondDecisionTaskCompletedInput,
-  Run,
   ScheduleActivityTaskDecisionAttributes,
-  ScheduleActivityTaskFailedEventAttributes,
   ScheduleLambdaFunctionDecisionAttributes,
-  ScheduleLambdaFunctionFailedEventAttributes,
   SignalExternalWorkflowExecutionDecisionAttributes,
-  SignalExternalWorkflowExecutionFailedEventAttributes,
-  SignalExternalWorkflowExecutionInitiatedEventAttributes,
   SignalWorkflowExecutionInput,
   StartChildWorkflowExecutionDecisionAttributes,
-  StartChildWorkflowExecutionFailedEventAttributes,
-  StartChildWorkflowExecutionInitiatedEventAttributes,
-  StartLambdaFunctionFailedEventAttributes,
   StartTimerDecisionAttributes,
-  StartTimerFailedEventAttributes,
   StartWorkflowExecutionInput,
   TagFilter,
   TagResourceInput,
   TaskList,
   TerminateWorkflowExecutionInput,
-  TimerCanceledEventAttributes,
-  TimerFiredEventAttributes,
-  TimerStartedEventAttributes,
   TooManyTagsFault,
   TypeAlreadyExistsFault,
   TypeDeprecatedFault,
@@ -269,24 +215,11 @@ import {
   UntagResourceInput,
   WorkflowExecution,
   WorkflowExecutionAlreadyStartedFault,
-  WorkflowExecutionCanceledEventAttributes,
-  WorkflowExecutionCancelRequestedEventAttributes,
-  WorkflowExecutionCompletedEventAttributes,
-  WorkflowExecutionConfiguration,
-  WorkflowExecutionContinuedAsNewEventAttributes,
-  WorkflowExecutionCount,
   WorkflowExecutionDetail,
-  WorkflowExecutionFailedEventAttributes,
   WorkflowExecutionFilter,
   WorkflowExecutionInfo,
   WorkflowExecutionInfos,
-  WorkflowExecutionOpenCounts,
-  WorkflowExecutionSignaledEventAttributes,
-  WorkflowExecutionStartedEventAttributes,
-  WorkflowExecutionTerminatedEventAttributes,
-  WorkflowExecutionTimedOutEventAttributes,
   WorkflowType,
-  WorkflowTypeConfiguration,
   WorkflowTypeDetail,
   WorkflowTypeFilter,
   WorkflowTypeInfo,
@@ -329,7 +262,7 @@ export const se_CountPendingActivityTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CountPendingActivityTasks");
   let body: any;
-  body = JSON.stringify(se_CountPendingActivityTasksInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -342,7 +275,7 @@ export const se_CountPendingDecisionTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CountPendingDecisionTasks");
   let body: any;
-  body = JSON.stringify(se_CountPendingDecisionTasksInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -355,7 +288,7 @@ export const se_DeprecateActivityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeprecateActivityType");
   let body: any;
-  body = JSON.stringify(se_DeprecateActivityTypeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -368,7 +301,7 @@ export const se_DeprecateDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeprecateDomain");
   let body: any;
-  body = JSON.stringify(se_DeprecateDomainInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -381,7 +314,7 @@ export const se_DeprecateWorkflowTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeprecateWorkflowType");
   let body: any;
-  body = JSON.stringify(se_DeprecateWorkflowTypeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -394,7 +327,7 @@ export const se_DescribeActivityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeActivityType");
   let body: any;
-  body = JSON.stringify(se_DescribeActivityTypeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -407,7 +340,7 @@ export const se_DescribeDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeDomain");
   let body: any;
-  body = JSON.stringify(se_DescribeDomainInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -420,7 +353,7 @@ export const se_DescribeWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeWorkflowExecution");
   let body: any;
-  body = JSON.stringify(se_DescribeWorkflowExecutionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -433,7 +366,7 @@ export const se_DescribeWorkflowTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeWorkflowType");
   let body: any;
-  body = JSON.stringify(se_DescribeWorkflowTypeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -446,7 +379,7 @@ export const se_GetWorkflowExecutionHistoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetWorkflowExecutionHistory");
   let body: any;
-  body = JSON.stringify(se_GetWorkflowExecutionHistoryInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -459,7 +392,7 @@ export const se_ListActivityTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListActivityTypes");
   let body: any;
-  body = JSON.stringify(se_ListActivityTypesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -485,7 +418,7 @@ export const se_ListDomainsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDomains");
   let body: any;
-  body = JSON.stringify(se_ListDomainsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -511,7 +444,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -524,7 +457,7 @@ export const se_ListWorkflowTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWorkflowTypes");
   let body: any;
-  body = JSON.stringify(se_ListWorkflowTypesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -537,7 +470,7 @@ export const se_PollForActivityTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PollForActivityTask");
   let body: any;
-  body = JSON.stringify(se_PollForActivityTaskInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -550,7 +483,7 @@ export const se_PollForDecisionTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PollForDecisionTask");
   let body: any;
-  body = JSON.stringify(se_PollForDecisionTaskInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -563,7 +496,7 @@ export const se_RecordActivityTaskHeartbeatCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RecordActivityTaskHeartbeat");
   let body: any;
-  body = JSON.stringify(se_RecordActivityTaskHeartbeatInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -576,7 +509,7 @@ export const se_RegisterActivityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterActivityType");
   let body: any;
-  body = JSON.stringify(se_RegisterActivityTypeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -589,7 +522,7 @@ export const se_RegisterDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterDomain");
   let body: any;
-  body = JSON.stringify(se_RegisterDomainInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -602,7 +535,7 @@ export const se_RegisterWorkflowTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RegisterWorkflowType");
   let body: any;
-  body = JSON.stringify(se_RegisterWorkflowTypeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -615,7 +548,7 @@ export const se_RequestCancelWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RequestCancelWorkflowExecution");
   let body: any;
-  body = JSON.stringify(se_RequestCancelWorkflowExecutionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -628,7 +561,7 @@ export const se_RespondActivityTaskCanceledCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RespondActivityTaskCanceled");
   let body: any;
-  body = JSON.stringify(se_RespondActivityTaskCanceledInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -641,7 +574,7 @@ export const se_RespondActivityTaskCompletedCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RespondActivityTaskCompleted");
   let body: any;
-  body = JSON.stringify(se_RespondActivityTaskCompletedInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -654,7 +587,7 @@ export const se_RespondActivityTaskFailedCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RespondActivityTaskFailed");
   let body: any;
-  body = JSON.stringify(se_RespondActivityTaskFailedInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -667,7 +600,7 @@ export const se_RespondDecisionTaskCompletedCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RespondDecisionTaskCompleted");
   let body: any;
-  body = JSON.stringify(se_RespondDecisionTaskCompletedInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -680,7 +613,7 @@ export const se_SignalWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SignalWorkflowExecution");
   let body: any;
-  body = JSON.stringify(se_SignalWorkflowExecutionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -693,7 +626,7 @@ export const se_StartWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartWorkflowExecution");
   let body: any;
-  body = JSON.stringify(se_StartWorkflowExecutionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -706,7 +639,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -719,7 +652,7 @@ export const se_TerminateWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TerminateWorkflowExecution");
   let body: any;
-  body = JSON.stringify(se_TerminateWorkflowExecutionInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -732,7 +665,7 @@ export const se_UndeprecateActivityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UndeprecateActivityType");
   let body: any;
-  body = JSON.stringify(se_UndeprecateActivityTypeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -745,7 +678,7 @@ export const se_UndeprecateDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UndeprecateDomain");
   let body: any;
-  body = JSON.stringify(se_UndeprecateDomainInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -758,7 +691,7 @@ export const se_UndeprecateWorkflowTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UndeprecateWorkflowType");
   let body: any;
-  body = JSON.stringify(se_UndeprecateWorkflowTypeInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -771,7 +704,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -787,12 +720,12 @@ export const de_CountClosedWorkflowExecutionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_WorkflowExecutionCount(data, context);
+  contents = _json(data);
   const response: CountClosedWorkflowExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -816,10 +749,9 @@ const de_CountClosedWorkflowExecutionsCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -837,12 +769,12 @@ export const de_CountOpenWorkflowExecutionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_WorkflowExecutionCount(data, context);
+  contents = _json(data);
   const response: CountOpenWorkflowExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -866,10 +798,9 @@ const de_CountOpenWorkflowExecutionsCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -887,12 +818,12 @@ export const de_CountPendingActivityTasksCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PendingTaskCount(data, context);
+  contents = _json(data);
   const response: CountPendingActivityTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -916,10 +847,9 @@ const de_CountPendingActivityTasksCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -937,12 +867,12 @@ export const de_CountPendingDecisionTasksCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_PendingTaskCount(data, context);
+  contents = _json(data);
   const response: CountPendingDecisionTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -966,10 +896,9 @@ const de_CountPendingDecisionTasksCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -989,7 +918,7 @@ export const de_DeprecateActivityTypeCommand = async (
   const response: DeprecateActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1016,10 +945,9 @@ const de_DeprecateActivityTypeCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1039,7 +967,7 @@ export const de_DeprecateDomainCommand = async (
   const response: DeprecateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1066,10 +994,9 @@ const de_DeprecateDomainCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1089,7 +1016,7 @@ export const de_DeprecateWorkflowTypeCommand = async (
   const response: DeprecateWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1116,10 +1043,9 @@ const de_DeprecateWorkflowTypeCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1142,7 +1068,7 @@ export const de_DescribeActivityTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1166,10 +1092,9 @@ const de_DescribeActivityTypeCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1187,12 +1112,12 @@ export const de_DescribeDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DomainDetail(data, context);
+  contents = _json(data);
   const response: DescribeDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1216,10 +1141,9 @@ const de_DescribeDomainCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1242,7 +1166,7 @@ export const de_DescribeWorkflowExecutionCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1266,10 +1190,9 @@ const de_DescribeWorkflowExecutionCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1292,7 +1215,7 @@ export const de_DescribeWorkflowTypeCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1316,10 +1239,9 @@ const de_DescribeWorkflowTypeCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1342,7 +1264,7 @@ export const de_GetWorkflowExecutionHistoryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1366,10 +1288,9 @@ const de_GetWorkflowExecutionHistoryCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1392,7 +1313,7 @@ export const de_ListActivityTypesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1416,10 +1337,9 @@ const de_ListActivityTypesCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1442,7 +1362,7 @@ export const de_ListClosedWorkflowExecutionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1466,10 +1386,9 @@ const de_ListClosedWorkflowExecutionsCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1487,12 +1406,12 @@ export const de_ListDomainsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DomainInfos(data, context);
+  contents = _json(data);
   const response: ListDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1513,10 +1432,9 @@ const de_ListDomainsCommandError = async (
       throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1539,7 +1457,7 @@ export const de_ListOpenWorkflowExecutionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1563,10 +1481,9 @@ const de_ListOpenWorkflowExecutionsCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1584,12 +1501,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceOutput(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1616,10 +1533,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1642,7 +1558,7 @@ export const de_ListWorkflowTypesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1666,10 +1582,9 @@ const de_ListWorkflowTypesCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1687,12 +1602,12 @@ export const de_PollForActivityTaskCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ActivityTask(data, context);
+  contents = _json(data);
   const response: PollForActivityTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1719,10 +1634,9 @@ const de_PollForActivityTaskCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1745,7 +1659,7 @@ export const de_PollForDecisionTaskCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1772,10 +1686,9 @@ const de_PollForDecisionTaskCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1793,12 +1706,12 @@ export const de_RecordActivityTaskHeartbeatCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ActivityTaskStatus(data, context);
+  contents = _json(data);
   const response: RecordActivityTaskHeartbeatCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1822,10 +1735,9 @@ const de_RecordActivityTaskHeartbeatCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1845,7 +1757,7 @@ export const de_RegisterActivityTypeCommand = async (
   const response: RegisterActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1875,10 +1787,9 @@ const de_RegisterActivityTypeCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1898,7 +1809,7 @@ export const de_RegisterDomainCommand = async (
   const response: RegisterDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1928,10 +1839,9 @@ const de_RegisterDomainCommandError = async (
       throw await de_TooManyTagsFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1951,7 +1861,7 @@ export const de_RegisterWorkflowTypeCommand = async (
   const response: RegisterWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1981,10 +1891,9 @@ const de_RegisterWorkflowTypeCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2004,7 +1913,7 @@ export const de_RequestCancelWorkflowExecutionCommand = async (
   const response: RequestCancelWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2028,10 +1937,9 @@ const de_RequestCancelWorkflowExecutionCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2051,7 +1959,7 @@ export const de_RespondActivityTaskCanceledCommand = async (
   const response: RespondActivityTaskCanceledCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2075,10 +1983,9 @@ const de_RespondActivityTaskCanceledCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2098,7 +2005,7 @@ export const de_RespondActivityTaskCompletedCommand = async (
   const response: RespondActivityTaskCompletedCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2122,10 +2029,9 @@ const de_RespondActivityTaskCompletedCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2145,7 +2051,7 @@ export const de_RespondActivityTaskFailedCommand = async (
   const response: RespondActivityTaskFailedCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2169,10 +2075,9 @@ const de_RespondActivityTaskFailedCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2192,7 +2097,7 @@ export const de_RespondDecisionTaskCompletedCommand = async (
   const response: RespondDecisionTaskCompletedCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2216,10 +2121,9 @@ const de_RespondDecisionTaskCompletedCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2239,7 +2143,7 @@ export const de_SignalWorkflowExecutionCommand = async (
   const response: SignalWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2263,10 +2167,9 @@ const de_SignalWorkflowExecutionCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2284,12 +2187,12 @@ export const de_StartWorkflowExecutionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_Run(data, context);
+  contents = _json(data);
   const response: StartWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2325,10 +2228,9 @@ const de_StartWorkflowExecutionCommandError = async (
       throw await de_WorkflowExecutionAlreadyStartedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2348,7 +2250,7 @@ export const de_TagResourceCommand = async (
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2378,10 +2280,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2401,7 +2302,7 @@ export const de_TerminateWorkflowExecutionCommand = async (
   const response: TerminateWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2425,10 +2326,9 @@ const de_TerminateWorkflowExecutionCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2448,7 +2348,7 @@ export const de_UndeprecateActivityTypeCommand = async (
   const response: UndeprecateActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2475,10 +2375,9 @@ const de_UndeprecateActivityTypeCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2498,7 +2397,7 @@ export const de_UndeprecateDomainCommand = async (
   const response: UndeprecateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2525,10 +2424,9 @@ const de_UndeprecateDomainCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2548,7 +2446,7 @@ export const de_UndeprecateWorkflowTypeCommand = async (
   const response: UndeprecateWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2575,10 +2473,9 @@ const de_UndeprecateWorkflowTypeCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2598,7 +2495,7 @@ export const de_UntagResourceCommand = async (
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -2625,10 +2522,9 @@ const de_UntagResourceCommandError = async (
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2642,7 +2538,7 @@ const de_DefaultUndefinedFaultRes = async (
   context: __SerdeContext
 ): Promise<DefaultUndefinedFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DefaultUndefinedFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new DefaultUndefinedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2658,7 +2554,7 @@ const de_DomainAlreadyExistsFaultRes = async (
   context: __SerdeContext
 ): Promise<DomainAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DomainAlreadyExistsFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new DomainAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2674,7 +2570,7 @@ const de_DomainDeprecatedFaultRes = async (
   context: __SerdeContext
 ): Promise<DomainDeprecatedFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DomainDeprecatedFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new DomainDeprecatedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2687,7 +2583,7 @@ const de_DomainDeprecatedFaultRes = async (
  */
 const de_LimitExceededFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<LimitExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2703,7 +2599,7 @@ const de_OperationNotPermittedFaultRes = async (
   context: __SerdeContext
 ): Promise<OperationNotPermittedFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OperationNotPermittedFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new OperationNotPermittedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2716,7 +2612,7 @@ const de_OperationNotPermittedFaultRes = async (
  */
 const de_TooManyTagsFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyTagsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2732,7 +2628,7 @@ const de_TypeAlreadyExistsFaultRes = async (
   context: __SerdeContext
 ): Promise<TypeAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TypeAlreadyExistsFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new TypeAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2745,7 +2641,7 @@ const de_TypeAlreadyExistsFaultRes = async (
  */
 const de_TypeDeprecatedFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<TypeDeprecatedFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TypeDeprecatedFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new TypeDeprecatedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2761,7 +2657,7 @@ const de_UnknownResourceFaultRes = async (
   context: __SerdeContext
 ): Promise<UnknownResourceFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UnknownResourceFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnknownResourceFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2777,7 +2673,7 @@ const de_WorkflowExecutionAlreadyStartedFaultRes = async (
   context: __SerdeContext
 ): Promise<WorkflowExecutionAlreadyStartedFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_WorkflowExecutionAlreadyStartedFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new WorkflowExecutionAlreadyStartedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2785,79 +2681,17 @@ const de_WorkflowExecutionAlreadyStartedFaultRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0ActivityType
- */
-const se_ActivityType = (input: ActivityType, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_ActivityType omitted.
 
-/**
- * serializeAws_json1_0CancelTimerDecisionAttributes
- */
-const se_CancelTimerDecisionAttributes = (input: CancelTimerDecisionAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.timerId != null && { timerId: input.timerId }),
-  };
-};
+// se_CancelTimerDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0CancelWorkflowExecutionDecisionAttributes
- */
-const se_CancelWorkflowExecutionDecisionAttributes = (
-  input: CancelWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.details != null && { details: input.details }),
-  };
-};
+// se_CancelWorkflowExecutionDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0CloseStatusFilter
- */
-const se_CloseStatusFilter = (input: CloseStatusFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_CloseStatusFilter omitted.
 
-/**
- * serializeAws_json1_0CompleteWorkflowExecutionDecisionAttributes
- */
-const se_CompleteWorkflowExecutionDecisionAttributes = (
-  input: CompleteWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.result != null && { result: input.result }),
-  };
-};
+// se_CompleteWorkflowExecutionDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes
- */
-const se_ContinueAsNewWorkflowExecutionDecisionAttributes = (
-  input: ContinueAsNewWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.childPolicy != null && { childPolicy: input.childPolicy }),
-    ...(input.executionStartToCloseTimeout != null && {
-      executionStartToCloseTimeout: input.executionStartToCloseTimeout,
-    }),
-    ...(input.input != null && { input: input.input }),
-    ...(input.lambdaRole != null && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList != null && { tagList: se_TagList(input.tagList, context) }),
-    ...(input.taskList != null && { taskList: se_TaskList(input.taskList, context) }),
-    ...(input.taskPriority != null && { taskPriority: input.taskPriority }),
-    ...(input.taskStartToCloseTimeout != null && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
-    ...(input.workflowTypeVersion != null && { workflowTypeVersion: input.workflowTypeVersion }),
-  };
-};
+// se_ContinueAsNewWorkflowExecutionDecisionAttributes omitted.
 
 /**
  * serializeAws_json1_0CountClosedWorkflowExecutionsInput
@@ -2866,263 +2700,67 @@ const se_CountClosedWorkflowExecutionsInput = (
   input: CountClosedWorkflowExecutionsInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.closeStatusFilter != null && {
-      closeStatusFilter: se_CloseStatusFilter(input.closeStatusFilter, context),
-    }),
-    ...(input.closeTimeFilter != null && { closeTimeFilter: se_ExecutionTimeFilter(input.closeTimeFilter, context) }),
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.executionFilter != null && {
-      executionFilter: se_WorkflowExecutionFilter(input.executionFilter, context),
-    }),
-    ...(input.startTimeFilter != null && { startTimeFilter: se_ExecutionTimeFilter(input.startTimeFilter, context) }),
-    ...(input.tagFilter != null && { tagFilter: se_TagFilter(input.tagFilter, context) }),
-    ...(input.typeFilter != null && { typeFilter: se_WorkflowTypeFilter(input.typeFilter, context) }),
-  };
+  return take(input, {
+    closeStatusFilter: _json,
+    closeTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
+    domain: [],
+    executionFilter: _json,
+    startTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
+    tagFilter: _json,
+    typeFilter: _json,
+  });
 };
 
 /**
  * serializeAws_json1_0CountOpenWorkflowExecutionsInput
  */
 const se_CountOpenWorkflowExecutionsInput = (input: CountOpenWorkflowExecutionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.executionFilter != null && {
-      executionFilter: se_WorkflowExecutionFilter(input.executionFilter, context),
-    }),
-    ...(input.startTimeFilter != null && { startTimeFilter: se_ExecutionTimeFilter(input.startTimeFilter, context) }),
-    ...(input.tagFilter != null && { tagFilter: se_TagFilter(input.tagFilter, context) }),
-    ...(input.typeFilter != null && { typeFilter: se_WorkflowTypeFilter(input.typeFilter, context) }),
-  };
+  return take(input, {
+    domain: [],
+    executionFilter: _json,
+    startTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
+    tagFilter: _json,
+    typeFilter: _json,
+  });
 };
 
-/**
- * serializeAws_json1_0CountPendingActivityTasksInput
- */
-const se_CountPendingActivityTasksInput = (input: CountPendingActivityTasksInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.taskList != null && { taskList: se_TaskList(input.taskList, context) }),
-  };
-};
+// se_CountPendingActivityTasksInput omitted.
 
-/**
- * serializeAws_json1_0CountPendingDecisionTasksInput
- */
-const se_CountPendingDecisionTasksInput = (input: CountPendingDecisionTasksInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.taskList != null && { taskList: se_TaskList(input.taskList, context) }),
-  };
-};
+// se_CountPendingDecisionTasksInput omitted.
 
-/**
- * serializeAws_json1_0Decision
- */
-const se_Decision = (input: Decision, context: __SerdeContext): any => {
-  return {
-    ...(input.cancelTimerDecisionAttributes != null && {
-      cancelTimerDecisionAttributes: se_CancelTimerDecisionAttributes(input.cancelTimerDecisionAttributes, context),
-    }),
-    ...(input.cancelWorkflowExecutionDecisionAttributes != null && {
-      cancelWorkflowExecutionDecisionAttributes: se_CancelWorkflowExecutionDecisionAttributes(
-        input.cancelWorkflowExecutionDecisionAttributes,
-        context
-      ),
-    }),
-    ...(input.completeWorkflowExecutionDecisionAttributes != null && {
-      completeWorkflowExecutionDecisionAttributes: se_CompleteWorkflowExecutionDecisionAttributes(
-        input.completeWorkflowExecutionDecisionAttributes,
-        context
-      ),
-    }),
-    ...(input.continueAsNewWorkflowExecutionDecisionAttributes != null && {
-      continueAsNewWorkflowExecutionDecisionAttributes: se_ContinueAsNewWorkflowExecutionDecisionAttributes(
-        input.continueAsNewWorkflowExecutionDecisionAttributes,
-        context
-      ),
-    }),
-    ...(input.decisionType != null && { decisionType: input.decisionType }),
-    ...(input.failWorkflowExecutionDecisionAttributes != null && {
-      failWorkflowExecutionDecisionAttributes: se_FailWorkflowExecutionDecisionAttributes(
-        input.failWorkflowExecutionDecisionAttributes,
-        context
-      ),
-    }),
-    ...(input.recordMarkerDecisionAttributes != null && {
-      recordMarkerDecisionAttributes: se_RecordMarkerDecisionAttributes(input.recordMarkerDecisionAttributes, context),
-    }),
-    ...(input.requestCancelActivityTaskDecisionAttributes != null && {
-      requestCancelActivityTaskDecisionAttributes: se_RequestCancelActivityTaskDecisionAttributes(
-        input.requestCancelActivityTaskDecisionAttributes,
-        context
-      ),
-    }),
-    ...(input.requestCancelExternalWorkflowExecutionDecisionAttributes != null && {
-      requestCancelExternalWorkflowExecutionDecisionAttributes:
-        se_RequestCancelExternalWorkflowExecutionDecisionAttributes(
-          input.requestCancelExternalWorkflowExecutionDecisionAttributes,
-          context
-        ),
-    }),
-    ...(input.scheduleActivityTaskDecisionAttributes != null && {
-      scheduleActivityTaskDecisionAttributes: se_ScheduleActivityTaskDecisionAttributes(
-        input.scheduleActivityTaskDecisionAttributes,
-        context
-      ),
-    }),
-    ...(input.scheduleLambdaFunctionDecisionAttributes != null && {
-      scheduleLambdaFunctionDecisionAttributes: se_ScheduleLambdaFunctionDecisionAttributes(
-        input.scheduleLambdaFunctionDecisionAttributes,
-        context
-      ),
-    }),
-    ...(input.signalExternalWorkflowExecutionDecisionAttributes != null && {
-      signalExternalWorkflowExecutionDecisionAttributes: se_SignalExternalWorkflowExecutionDecisionAttributes(
-        input.signalExternalWorkflowExecutionDecisionAttributes,
-        context
-      ),
-    }),
-    ...(input.startChildWorkflowExecutionDecisionAttributes != null && {
-      startChildWorkflowExecutionDecisionAttributes: se_StartChildWorkflowExecutionDecisionAttributes(
-        input.startChildWorkflowExecutionDecisionAttributes,
-        context
-      ),
-    }),
-    ...(input.startTimerDecisionAttributes != null && {
-      startTimerDecisionAttributes: se_StartTimerDecisionAttributes(input.startTimerDecisionAttributes, context),
-    }),
-  };
-};
+// se_Decision omitted.
 
-/**
- * serializeAws_json1_0DecisionList
- */
-const se_DecisionList = (input: Decision[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Decision(entry, context);
-    });
-};
+// se_DecisionList omitted.
 
-/**
- * serializeAws_json1_0DeprecateActivityTypeInput
- */
-const se_DeprecateActivityTypeInput = (input: DeprecateActivityTypeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.activityType != null && { activityType: se_ActivityType(input.activityType, context) }),
-    ...(input.domain != null && { domain: input.domain }),
-  };
-};
+// se_DeprecateActivityTypeInput omitted.
 
-/**
- * serializeAws_json1_0DeprecateDomainInput
- */
-const se_DeprecateDomainInput = (input: DeprecateDomainInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_DeprecateDomainInput omitted.
 
-/**
- * serializeAws_json1_0DeprecateWorkflowTypeInput
- */
-const se_DeprecateWorkflowTypeInput = (input: DeprecateWorkflowTypeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.workflowType != null && { workflowType: se_WorkflowType(input.workflowType, context) }),
-  };
-};
+// se_DeprecateWorkflowTypeInput omitted.
 
-/**
- * serializeAws_json1_0DescribeActivityTypeInput
- */
-const se_DescribeActivityTypeInput = (input: DescribeActivityTypeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.activityType != null && { activityType: se_ActivityType(input.activityType, context) }),
-    ...(input.domain != null && { domain: input.domain }),
-  };
-};
+// se_DescribeActivityTypeInput omitted.
 
-/**
- * serializeAws_json1_0DescribeDomainInput
- */
-const se_DescribeDomainInput = (input: DescribeDomainInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_DescribeDomainInput omitted.
 
-/**
- * serializeAws_json1_0DescribeWorkflowExecutionInput
- */
-const se_DescribeWorkflowExecutionInput = (input: DescribeWorkflowExecutionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.execution != null && { execution: se_WorkflowExecution(input.execution, context) }),
-  };
-};
+// se_DescribeWorkflowExecutionInput omitted.
 
-/**
- * serializeAws_json1_0DescribeWorkflowTypeInput
- */
-const se_DescribeWorkflowTypeInput = (input: DescribeWorkflowTypeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.workflowType != null && { workflowType: se_WorkflowType(input.workflowType, context) }),
-  };
-};
+// se_DescribeWorkflowTypeInput omitted.
 
 /**
  * serializeAws_json1_0ExecutionTimeFilter
  */
 const se_ExecutionTimeFilter = (input: ExecutionTimeFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.latestDate != null && { latestDate: Math.round(input.latestDate.getTime() / 1000) }),
-    ...(input.oldestDate != null && { oldestDate: Math.round(input.oldestDate.getTime() / 1000) }),
-  };
+  return take(input, {
+    latestDate: (_) => Math.round(_.getTime() / 1000),
+    oldestDate: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_json1_0FailWorkflowExecutionDecisionAttributes
- */
-const se_FailWorkflowExecutionDecisionAttributes = (
-  input: FailWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.details != null && { details: input.details }),
-    ...(input.reason != null && { reason: input.reason }),
-  };
-};
+// se_FailWorkflowExecutionDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0GetWorkflowExecutionHistoryInput
- */
-const se_GetWorkflowExecutionHistoryInput = (input: GetWorkflowExecutionHistoryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.execution != null && { execution: se_WorkflowExecution(input.execution, context) }),
-    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
-    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
-  };
-};
+// se_GetWorkflowExecutionHistoryInput omitted.
 
-/**
- * serializeAws_json1_0ListActivityTypesInput
- */
-const se_ListActivityTypesInput = (input: ListActivityTypesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
-    ...(input.registrationStatus != null && { registrationStatus: input.registrationStatus }),
-    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
-  };
-};
+// se_ListActivityTypesInput omitted.
 
 /**
  * serializeAws_json1_0ListClosedWorkflowExecutionsInput
@@ -3131,740 +2769,159 @@ const se_ListClosedWorkflowExecutionsInput = (
   input: ListClosedWorkflowExecutionsInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.closeStatusFilter != null && {
-      closeStatusFilter: se_CloseStatusFilter(input.closeStatusFilter, context),
-    }),
-    ...(input.closeTimeFilter != null && { closeTimeFilter: se_ExecutionTimeFilter(input.closeTimeFilter, context) }),
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.executionFilter != null && {
-      executionFilter: se_WorkflowExecutionFilter(input.executionFilter, context),
-    }),
-    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
-    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
-    ...(input.startTimeFilter != null && { startTimeFilter: se_ExecutionTimeFilter(input.startTimeFilter, context) }),
-    ...(input.tagFilter != null && { tagFilter: se_TagFilter(input.tagFilter, context) }),
-    ...(input.typeFilter != null && { typeFilter: se_WorkflowTypeFilter(input.typeFilter, context) }),
-  };
+  return take(input, {
+    closeStatusFilter: _json,
+    closeTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
+    domain: [],
+    executionFilter: _json,
+    maximumPageSize: [],
+    nextPageToken: [],
+    reverseOrder: [],
+    startTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
+    tagFilter: _json,
+    typeFilter: _json,
+  });
 };
 
-/**
- * serializeAws_json1_0ListDomainsInput
- */
-const se_ListDomainsInput = (input: ListDomainsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
-    ...(input.registrationStatus != null && { registrationStatus: input.registrationStatus }),
-    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
-  };
-};
+// se_ListDomainsInput omitted.
 
 /**
  * serializeAws_json1_0ListOpenWorkflowExecutionsInput
  */
 const se_ListOpenWorkflowExecutionsInput = (input: ListOpenWorkflowExecutionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.executionFilter != null && {
-      executionFilter: se_WorkflowExecutionFilter(input.executionFilter, context),
-    }),
-    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
-    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
-    ...(input.startTimeFilter != null && { startTimeFilter: se_ExecutionTimeFilter(input.startTimeFilter, context) }),
-    ...(input.tagFilter != null && { tagFilter: se_TagFilter(input.tagFilter, context) }),
-    ...(input.typeFilter != null && { typeFilter: se_WorkflowTypeFilter(input.typeFilter, context) }),
-  };
+  return take(input, {
+    domain: [],
+    executionFilter: _json,
+    maximumPageSize: [],
+    nextPageToken: [],
+    reverseOrder: [],
+    startTimeFilter: (_) => se_ExecutionTimeFilter(_, context),
+    tagFilter: _json,
+    typeFilter: _json,
+  });
 };
 
-/**
- * serializeAws_json1_0ListTagsForResourceInput
- */
-const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTagsForResourceInput omitted.
 
-/**
- * serializeAws_json1_0ListWorkflowTypesInput
- */
-const se_ListWorkflowTypesInput = (input: ListWorkflowTypesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
-    ...(input.registrationStatus != null && { registrationStatus: input.registrationStatus }),
-    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
-  };
-};
+// se_ListWorkflowTypesInput omitted.
 
-/**
- * serializeAws_json1_0PollForActivityTaskInput
- */
-const se_PollForActivityTaskInput = (input: PollForActivityTaskInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.identity != null && { identity: input.identity }),
-    ...(input.taskList != null && { taskList: se_TaskList(input.taskList, context) }),
-  };
-};
+// se_PollForActivityTaskInput omitted.
 
-/**
- * serializeAws_json1_0PollForDecisionTaskInput
- */
-const se_PollForDecisionTaskInput = (input: PollForDecisionTaskInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.identity != null && { identity: input.identity }),
-    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
-    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
-    ...(input.taskList != null && { taskList: se_TaskList(input.taskList, context) }),
-  };
-};
+// se_PollForDecisionTaskInput omitted.
 
-/**
- * serializeAws_json1_0RecordActivityTaskHeartbeatInput
- */
-const se_RecordActivityTaskHeartbeatInput = (input: RecordActivityTaskHeartbeatInput, context: __SerdeContext): any => {
-  return {
-    ...(input.details != null && { details: input.details }),
-    ...(input.taskToken != null && { taskToken: input.taskToken }),
-  };
-};
+// se_RecordActivityTaskHeartbeatInput omitted.
 
-/**
- * serializeAws_json1_0RecordMarkerDecisionAttributes
- */
-const se_RecordMarkerDecisionAttributes = (input: RecordMarkerDecisionAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.details != null && { details: input.details }),
-    ...(input.markerName != null && { markerName: input.markerName }),
-  };
-};
+// se_RecordMarkerDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0RegisterActivityTypeInput
- */
-const se_RegisterActivityTypeInput = (input: RegisterActivityTypeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultTaskHeartbeatTimeout != null && {
-      defaultTaskHeartbeatTimeout: input.defaultTaskHeartbeatTimeout,
-    }),
-    ...(input.defaultTaskList != null && { defaultTaskList: se_TaskList(input.defaultTaskList, context) }),
-    ...(input.defaultTaskPriority != null && { defaultTaskPriority: input.defaultTaskPriority }),
-    ...(input.defaultTaskScheduleToCloseTimeout != null && {
-      defaultTaskScheduleToCloseTimeout: input.defaultTaskScheduleToCloseTimeout,
-    }),
-    ...(input.defaultTaskScheduleToStartTimeout != null && {
-      defaultTaskScheduleToStartTimeout: input.defaultTaskScheduleToStartTimeout,
-    }),
-    ...(input.defaultTaskStartToCloseTimeout != null && {
-      defaultTaskStartToCloseTimeout: input.defaultTaskStartToCloseTimeout,
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_RegisterActivityTypeInput omitted.
 
-/**
- * serializeAws_json1_0RegisterDomainInput
- */
-const se_RegisterDomainInput = (input: RegisterDomainInput, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_ResourceTagList(input.tags, context) }),
-    ...(input.workflowExecutionRetentionPeriodInDays != null && {
-      workflowExecutionRetentionPeriodInDays: input.workflowExecutionRetentionPeriodInDays,
-    }),
-  };
-};
+// se_RegisterDomainInput omitted.
 
-/**
- * serializeAws_json1_0RegisterWorkflowTypeInput
- */
-const se_RegisterWorkflowTypeInput = (input: RegisterWorkflowTypeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultChildPolicy != null && { defaultChildPolicy: input.defaultChildPolicy }),
-    ...(input.defaultExecutionStartToCloseTimeout != null && {
-      defaultExecutionStartToCloseTimeout: input.defaultExecutionStartToCloseTimeout,
-    }),
-    ...(input.defaultLambdaRole != null && { defaultLambdaRole: input.defaultLambdaRole }),
-    ...(input.defaultTaskList != null && { defaultTaskList: se_TaskList(input.defaultTaskList, context) }),
-    ...(input.defaultTaskPriority != null && { defaultTaskPriority: input.defaultTaskPriority }),
-    ...(input.defaultTaskStartToCloseTimeout != null && {
-      defaultTaskStartToCloseTimeout: input.defaultTaskStartToCloseTimeout,
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_RegisterWorkflowTypeInput omitted.
 
-/**
- * serializeAws_json1_0RequestCancelActivityTaskDecisionAttributes
- */
-const se_RequestCancelActivityTaskDecisionAttributes = (
-  input: RequestCancelActivityTaskDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.activityId != null && { activityId: input.activityId }),
-  };
-};
+// se_RequestCancelActivityTaskDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttributes
- */
-const se_RequestCancelExternalWorkflowExecutionDecisionAttributes = (
-  input: RequestCancelExternalWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.control != null && { control: input.control }),
-    ...(input.runId != null && { runId: input.runId }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-  };
-};
+// se_RequestCancelExternalWorkflowExecutionDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0RequestCancelWorkflowExecutionInput
- */
-const se_RequestCancelWorkflowExecutionInput = (
-  input: RequestCancelWorkflowExecutionInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.runId != null && { runId: input.runId }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-  };
-};
+// se_RequestCancelWorkflowExecutionInput omitted.
 
-/**
- * serializeAws_json1_0ResourceTag
- */
-const se_ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_ResourceTag omitted.
 
-/**
- * serializeAws_json1_0ResourceTagKeyList
- */
-const se_ResourceTagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceTagKeyList omitted.
 
-/**
- * serializeAws_json1_0ResourceTagList
- */
-const se_ResourceTagList = (input: ResourceTag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ResourceTag(entry, context);
-    });
-};
+// se_ResourceTagList omitted.
 
-/**
- * serializeAws_json1_0RespondActivityTaskCanceledInput
- */
-const se_RespondActivityTaskCanceledInput = (input: RespondActivityTaskCanceledInput, context: __SerdeContext): any => {
-  return {
-    ...(input.details != null && { details: input.details }),
-    ...(input.taskToken != null && { taskToken: input.taskToken }),
-  };
-};
+// se_RespondActivityTaskCanceledInput omitted.
 
-/**
- * serializeAws_json1_0RespondActivityTaskCompletedInput
- */
-const se_RespondActivityTaskCompletedInput = (
-  input: RespondActivityTaskCompletedInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.result != null && { result: input.result }),
-    ...(input.taskToken != null && { taskToken: input.taskToken }),
-  };
-};
+// se_RespondActivityTaskCompletedInput omitted.
 
-/**
- * serializeAws_json1_0RespondActivityTaskFailedInput
- */
-const se_RespondActivityTaskFailedInput = (input: RespondActivityTaskFailedInput, context: __SerdeContext): any => {
-  return {
-    ...(input.details != null && { details: input.details }),
-    ...(input.reason != null && { reason: input.reason }),
-    ...(input.taskToken != null && { taskToken: input.taskToken }),
-  };
-};
+// se_RespondActivityTaskFailedInput omitted.
 
-/**
- * serializeAws_json1_0RespondDecisionTaskCompletedInput
- */
-const se_RespondDecisionTaskCompletedInput = (
-  input: RespondDecisionTaskCompletedInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.decisions != null && { decisions: se_DecisionList(input.decisions, context) }),
-    ...(input.executionContext != null && { executionContext: input.executionContext }),
-    ...(input.taskToken != null && { taskToken: input.taskToken }),
-  };
-};
+// se_RespondDecisionTaskCompletedInput omitted.
 
-/**
- * serializeAws_json1_0ScheduleActivityTaskDecisionAttributes
- */
-const se_ScheduleActivityTaskDecisionAttributes = (
-  input: ScheduleActivityTaskDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.activityId != null && { activityId: input.activityId }),
-    ...(input.activityType != null && { activityType: se_ActivityType(input.activityType, context) }),
-    ...(input.control != null && { control: input.control }),
-    ...(input.heartbeatTimeout != null && { heartbeatTimeout: input.heartbeatTimeout }),
-    ...(input.input != null && { input: input.input }),
-    ...(input.scheduleToCloseTimeout != null && { scheduleToCloseTimeout: input.scheduleToCloseTimeout }),
-    ...(input.scheduleToStartTimeout != null && { scheduleToStartTimeout: input.scheduleToStartTimeout }),
-    ...(input.startToCloseTimeout != null && { startToCloseTimeout: input.startToCloseTimeout }),
-    ...(input.taskList != null && { taskList: se_TaskList(input.taskList, context) }),
-    ...(input.taskPriority != null && { taskPriority: input.taskPriority }),
-  };
-};
+// se_ScheduleActivityTaskDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0ScheduleLambdaFunctionDecisionAttributes
- */
-const se_ScheduleLambdaFunctionDecisionAttributes = (
-  input: ScheduleLambdaFunctionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.control != null && { control: input.control }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.input != null && { input: input.input }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.startToCloseTimeout != null && { startToCloseTimeout: input.startToCloseTimeout }),
-  };
-};
+// se_ScheduleLambdaFunctionDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes
- */
-const se_SignalExternalWorkflowExecutionDecisionAttributes = (
-  input: SignalExternalWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.control != null && { control: input.control }),
-    ...(input.input != null && { input: input.input }),
-    ...(input.runId != null && { runId: input.runId }),
-    ...(input.signalName != null && { signalName: input.signalName }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-  };
-};
+// se_SignalExternalWorkflowExecutionDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0SignalWorkflowExecutionInput
- */
-const se_SignalWorkflowExecutionInput = (input: SignalWorkflowExecutionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.input != null && { input: input.input }),
-    ...(input.runId != null && { runId: input.runId }),
-    ...(input.signalName != null && { signalName: input.signalName }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-  };
-};
+// se_SignalWorkflowExecutionInput omitted.
 
-/**
- * serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes
- */
-const se_StartChildWorkflowExecutionDecisionAttributes = (
-  input: StartChildWorkflowExecutionDecisionAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.childPolicy != null && { childPolicy: input.childPolicy }),
-    ...(input.control != null && { control: input.control }),
-    ...(input.executionStartToCloseTimeout != null && {
-      executionStartToCloseTimeout: input.executionStartToCloseTimeout,
-    }),
-    ...(input.input != null && { input: input.input }),
-    ...(input.lambdaRole != null && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList != null && { tagList: se_TagList(input.tagList, context) }),
-    ...(input.taskList != null && { taskList: se_TaskList(input.taskList, context) }),
-    ...(input.taskPriority != null && { taskPriority: input.taskPriority }),
-    ...(input.taskStartToCloseTimeout != null && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-    ...(input.workflowType != null && { workflowType: se_WorkflowType(input.workflowType, context) }),
-  };
-};
+// se_StartChildWorkflowExecutionDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0StartTimerDecisionAttributes
- */
-const se_StartTimerDecisionAttributes = (input: StartTimerDecisionAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.control != null && { control: input.control }),
-    ...(input.startToFireTimeout != null && { startToFireTimeout: input.startToFireTimeout }),
-    ...(input.timerId != null && { timerId: input.timerId }),
-  };
-};
+// se_StartTimerDecisionAttributes omitted.
 
-/**
- * serializeAws_json1_0StartWorkflowExecutionInput
- */
-const se_StartWorkflowExecutionInput = (input: StartWorkflowExecutionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.childPolicy != null && { childPolicy: input.childPolicy }),
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.executionStartToCloseTimeout != null && {
-      executionStartToCloseTimeout: input.executionStartToCloseTimeout,
-    }),
-    ...(input.input != null && { input: input.input }),
-    ...(input.lambdaRole != null && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList != null && { tagList: se_TagList(input.tagList, context) }),
-    ...(input.taskList != null && { taskList: se_TaskList(input.taskList, context) }),
-    ...(input.taskPriority != null && { taskPriority: input.taskPriority }),
-    ...(input.taskStartToCloseTimeout != null && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-    ...(input.workflowType != null && { workflowType: se_WorkflowType(input.workflowType, context) }),
-  };
-};
+// se_StartWorkflowExecutionInput omitted.
 
-/**
- * serializeAws_json1_0TagFilter
- */
-const se_TagFilter = (input: TagFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.tag != null && { tag: input.tag }),
-  };
-};
+// se_TagFilter omitted.
 
-/**
- * serializeAws_json1_0TagList
- */
-const se_TagList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_0TagResourceInput
- */
-const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: se_ResourceTagList(input.tags, context) }),
-  };
-};
+// se_TagResourceInput omitted.
 
-/**
- * serializeAws_json1_0TaskList
- */
-const se_TaskList = (input: TaskList, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_TaskList omitted.
 
-/**
- * serializeAws_json1_0TerminateWorkflowExecutionInput
- */
-const se_TerminateWorkflowExecutionInput = (input: TerminateWorkflowExecutionInput, context: __SerdeContext): any => {
-  return {
-    ...(input.childPolicy != null && { childPolicy: input.childPolicy }),
-    ...(input.details != null && { details: input.details }),
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.reason != null && { reason: input.reason }),
-    ...(input.runId != null && { runId: input.runId }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-  };
-};
+// se_TerminateWorkflowExecutionInput omitted.
 
-/**
- * serializeAws_json1_0UndeprecateActivityTypeInput
- */
-const se_UndeprecateActivityTypeInput = (input: UndeprecateActivityTypeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.activityType != null && { activityType: se_ActivityType(input.activityType, context) }),
-    ...(input.domain != null && { domain: input.domain }),
-  };
-};
+// se_UndeprecateActivityTypeInput omitted.
 
-/**
- * serializeAws_json1_0UndeprecateDomainInput
- */
-const se_UndeprecateDomainInput = (input: UndeprecateDomainInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_UndeprecateDomainInput omitted.
 
-/**
- * serializeAws_json1_0UndeprecateWorkflowTypeInput
- */
-const se_UndeprecateWorkflowTypeInput = (input: UndeprecateWorkflowTypeInput, context: __SerdeContext): any => {
-  return {
-    ...(input.domain != null && { domain: input.domain }),
-    ...(input.workflowType != null && { workflowType: se_WorkflowType(input.workflowType, context) }),
-  };
-};
+// se_UndeprecateWorkflowTypeInput omitted.
 
-/**
- * serializeAws_json1_0UntagResourceInput
- */
-const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: se_ResourceTagKeyList(input.tagKeys, context) }),
-  };
-};
+// se_UntagResourceInput omitted.
 
-/**
- * serializeAws_json1_0WorkflowExecution
- */
-const se_WorkflowExecution = (input: WorkflowExecution, context: __SerdeContext): any => {
-  return {
-    ...(input.runId != null && { runId: input.runId }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-  };
-};
+// se_WorkflowExecution omitted.
 
-/**
- * serializeAws_json1_0WorkflowExecutionFilter
- */
-const se_WorkflowExecutionFilter = (input: WorkflowExecutionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-  };
-};
+// se_WorkflowExecutionFilter omitted.
 
-/**
- * serializeAws_json1_0WorkflowType
- */
-const se_WorkflowType = (input: WorkflowType, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_WorkflowType omitted.
 
-/**
- * serializeAws_json1_0WorkflowTypeFilter
- */
-const se_WorkflowTypeFilter = (input: WorkflowTypeFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_WorkflowTypeFilter omitted.
 
-/**
- * deserializeAws_json1_0ActivityTask
- */
-const de_ActivityTask = (output: any, context: __SerdeContext): ActivityTask => {
-  return {
-    activityId: __expectString(output.activityId),
-    activityType: output.activityType != null ? de_ActivityType(output.activityType, context) : undefined,
-    input: __expectString(output.input),
-    startedEventId: __expectLong(output.startedEventId),
-    taskToken: __expectString(output.taskToken),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-  } as any;
-};
+// de_ActivityTask omitted.
 
-/**
- * deserializeAws_json1_0ActivityTaskCanceledEventAttributes
- */
-const de_ActivityTaskCanceledEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ActivityTaskCanceledEventAttributes => {
-  return {
-    details: __expectString(output.details),
-    latestCancelRequestedEventId: __expectLong(output.latestCancelRequestedEventId),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-    startedEventId: __expectLong(output.startedEventId),
-  } as any;
-};
+// de_ActivityTaskCanceledEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ActivityTaskCancelRequestedEventAttributes
- */
-const de_ActivityTaskCancelRequestedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ActivityTaskCancelRequestedEventAttributes => {
-  return {
-    activityId: __expectString(output.activityId),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-  } as any;
-};
+// de_ActivityTaskCancelRequestedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ActivityTaskCompletedEventAttributes
- */
-const de_ActivityTaskCompletedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ActivityTaskCompletedEventAttributes => {
-  return {
-    result: __expectString(output.result),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-    startedEventId: __expectLong(output.startedEventId),
-  } as any;
-};
+// de_ActivityTaskCompletedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ActivityTaskFailedEventAttributes
- */
-const de_ActivityTaskFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ActivityTaskFailedEventAttributes => {
-  return {
-    details: __expectString(output.details),
-    reason: __expectString(output.reason),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-    startedEventId: __expectLong(output.startedEventId),
-  } as any;
-};
+// de_ActivityTaskFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ActivityTaskScheduledEventAttributes
- */
-const de_ActivityTaskScheduledEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ActivityTaskScheduledEventAttributes => {
-  return {
-    activityId: __expectString(output.activityId),
-    activityType: output.activityType != null ? de_ActivityType(output.activityType, context) : undefined,
-    control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    heartbeatTimeout: __expectString(output.heartbeatTimeout),
-    input: __expectString(output.input),
-    scheduleToCloseTimeout: __expectString(output.scheduleToCloseTimeout),
-    scheduleToStartTimeout: __expectString(output.scheduleToStartTimeout),
-    startToCloseTimeout: __expectString(output.startToCloseTimeout),
-    taskList: output.taskList != null ? de_TaskList(output.taskList, context) : undefined,
-    taskPriority: __expectString(output.taskPriority),
-  } as any;
-};
+// de_ActivityTaskScheduledEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ActivityTaskStartedEventAttributes
- */
-const de_ActivityTaskStartedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ActivityTaskStartedEventAttributes => {
-  return {
-    identity: __expectString(output.identity),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-  } as any;
-};
+// de_ActivityTaskStartedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ActivityTaskStatus
- */
-const de_ActivityTaskStatus = (output: any, context: __SerdeContext): ActivityTaskStatus => {
-  return {
-    cancelRequested: __expectBoolean(output.cancelRequested),
-  } as any;
-};
+// de_ActivityTaskStatus omitted.
 
-/**
- * deserializeAws_json1_0ActivityTaskTimedOutEventAttributes
- */
-const de_ActivityTaskTimedOutEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ActivityTaskTimedOutEventAttributes => {
-  return {
-    details: __expectString(output.details),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-    startedEventId: __expectLong(output.startedEventId),
-    timeoutType: __expectString(output.timeoutType),
-  } as any;
-};
+// de_ActivityTaskTimedOutEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ActivityType
- */
-const de_ActivityType = (output: any, context: __SerdeContext): ActivityType => {
-  return {
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_ActivityType omitted.
 
-/**
- * deserializeAws_json1_0ActivityTypeConfiguration
- */
-const de_ActivityTypeConfiguration = (output: any, context: __SerdeContext): ActivityTypeConfiguration => {
-  return {
-    defaultTaskHeartbeatTimeout: __expectString(output.defaultTaskHeartbeatTimeout),
-    defaultTaskList: output.defaultTaskList != null ? de_TaskList(output.defaultTaskList, context) : undefined,
-    defaultTaskPriority: __expectString(output.defaultTaskPriority),
-    defaultTaskScheduleToCloseTimeout: __expectString(output.defaultTaskScheduleToCloseTimeout),
-    defaultTaskScheduleToStartTimeout: __expectString(output.defaultTaskScheduleToStartTimeout),
-    defaultTaskStartToCloseTimeout: __expectString(output.defaultTaskStartToCloseTimeout),
-  } as any;
-};
+// de_ActivityTypeConfiguration omitted.
 
 /**
  * deserializeAws_json1_0ActivityTypeDetail
  */
 const de_ActivityTypeDetail = (output: any, context: __SerdeContext): ActivityTypeDetail => {
-  return {
-    configuration:
-      output.configuration != null ? de_ActivityTypeConfiguration(output.configuration, context) : undefined,
-    typeInfo: output.typeInfo != null ? de_ActivityTypeInfo(output.typeInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    configuration: _json,
+    typeInfo: (_: any) => de_ActivityTypeInfo(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ActivityTypeInfo
  */
 const de_ActivityTypeInfo = (output: any, context: __SerdeContext): ActivityTypeInfo => {
-  return {
-    activityType: output.activityType != null ? de_ActivityType(output.activityType, context) : undefined,
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    deprecationDate:
-      output.deprecationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deprecationDate)))
-        : undefined,
-    description: __expectString(output.description),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    activityType: _json,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deprecationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -3874,9 +2931,6 @@ const de_ActivityTypeInfoList = (output: any, context: __SerdeContext): Activity
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ActivityTypeInfo(entry, context);
     });
   return retVal;
@@ -3886,649 +2940,150 @@ const de_ActivityTypeInfoList = (output: any, context: __SerdeContext): Activity
  * deserializeAws_json1_0ActivityTypeInfos
  */
 const de_ActivityTypeInfos = (output: any, context: __SerdeContext): ActivityTypeInfos => {
-  return {
-    nextPageToken: __expectString(output.nextPageToken),
-    typeInfos: output.typeInfos != null ? de_ActivityTypeInfoList(output.typeInfos, context) : undefined,
-  } as any;
+  return take(output, {
+    nextPageToken: __expectString,
+    typeInfos: (_: any) => de_ActivityTypeInfoList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0CancelTimerFailedEventAttributes
- */
-const de_CancelTimerFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): CancelTimerFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    timerId: __expectString(output.timerId),
-  } as any;
-};
+// de_CancelTimerFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0CancelWorkflowExecutionFailedEventAttributes
- */
-const de_CancelWorkflowExecutionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): CancelWorkflowExecutionFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-  } as any;
-};
+// de_CancelWorkflowExecutionFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ChildWorkflowExecutionCanceledEventAttributes
- */
-const de_ChildWorkflowExecutionCanceledEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ChildWorkflowExecutionCanceledEventAttributes => {
-  return {
-    details: __expectString(output.details),
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    startedEventId: __expectLong(output.startedEventId),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_ChildWorkflowExecutionCanceledEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ChildWorkflowExecutionCompletedEventAttributes
- */
-const de_ChildWorkflowExecutionCompletedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ChildWorkflowExecutionCompletedEventAttributes => {
-  return {
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    result: __expectString(output.result),
-    startedEventId: __expectLong(output.startedEventId),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_ChildWorkflowExecutionCompletedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ChildWorkflowExecutionFailedEventAttributes
- */
-const de_ChildWorkflowExecutionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ChildWorkflowExecutionFailedEventAttributes => {
-  return {
-    details: __expectString(output.details),
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    reason: __expectString(output.reason),
-    startedEventId: __expectLong(output.startedEventId),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_ChildWorkflowExecutionFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ChildWorkflowExecutionStartedEventAttributes
- */
-const de_ChildWorkflowExecutionStartedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ChildWorkflowExecutionStartedEventAttributes => {
-  return {
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_ChildWorkflowExecutionStartedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ChildWorkflowExecutionTerminatedEventAttributes
- */
-const de_ChildWorkflowExecutionTerminatedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ChildWorkflowExecutionTerminatedEventAttributes => {
-  return {
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    startedEventId: __expectLong(output.startedEventId),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_ChildWorkflowExecutionTerminatedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ChildWorkflowExecutionTimedOutEventAttributes
- */
-const de_ChildWorkflowExecutionTimedOutEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ChildWorkflowExecutionTimedOutEventAttributes => {
-  return {
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    startedEventId: __expectLong(output.startedEventId),
-    timeoutType: __expectString(output.timeoutType),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_ChildWorkflowExecutionTimedOutEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0CompleteWorkflowExecutionFailedEventAttributes
- */
-const de_CompleteWorkflowExecutionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): CompleteWorkflowExecutionFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-  } as any;
-};
+// de_CompleteWorkflowExecutionFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ContinueAsNewWorkflowExecutionFailedEventAttributes
- */
-const de_ContinueAsNewWorkflowExecutionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ContinueAsNewWorkflowExecutionFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-  } as any;
-};
+// de_ContinueAsNewWorkflowExecutionFailedEventAttributes omitted.
 
 /**
  * deserializeAws_json1_0DecisionTask
  */
 const de_DecisionTask = (output: any, context: __SerdeContext): DecisionTask => {
-  return {
-    events: output.events != null ? de_HistoryEventList(output.events, context) : undefined,
-    nextPageToken: __expectString(output.nextPageToken),
-    previousStartedEventId: __expectLong(output.previousStartedEventId),
-    startedEventId: __expectLong(output.startedEventId),
-    taskToken: __expectString(output.taskToken),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
+  return take(output, {
+    events: (_: any) => de_HistoryEventList(_, context),
+    nextPageToken: __expectString,
+    previousStartedEventId: __expectLong,
+    startedEventId: __expectLong,
+    taskToken: __expectString,
+    workflowExecution: _json,
+    workflowType: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0DecisionTaskCompletedEventAttributes
- */
-const de_DecisionTaskCompletedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): DecisionTaskCompletedEventAttributes => {
-  return {
-    executionContext: __expectString(output.executionContext),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-    startedEventId: __expectLong(output.startedEventId),
-  } as any;
-};
+// de_DecisionTaskCompletedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0DecisionTaskScheduledEventAttributes
- */
-const de_DecisionTaskScheduledEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): DecisionTaskScheduledEventAttributes => {
-  return {
-    startToCloseTimeout: __expectString(output.startToCloseTimeout),
-    taskList: output.taskList != null ? de_TaskList(output.taskList, context) : undefined,
-    taskPriority: __expectString(output.taskPriority),
-  } as any;
-};
+// de_DecisionTaskScheduledEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0DecisionTaskStartedEventAttributes
- */
-const de_DecisionTaskStartedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): DecisionTaskStartedEventAttributes => {
-  return {
-    identity: __expectString(output.identity),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-  } as any;
-};
+// de_DecisionTaskStartedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0DecisionTaskTimedOutEventAttributes
- */
-const de_DecisionTaskTimedOutEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): DecisionTaskTimedOutEventAttributes => {
-  return {
-    scheduledEventId: __expectLong(output.scheduledEventId),
-    startedEventId: __expectLong(output.startedEventId),
-    timeoutType: __expectString(output.timeoutType),
-  } as any;
-};
+// de_DecisionTaskTimedOutEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0DefaultUndefinedFault
- */
-const de_DefaultUndefinedFault = (output: any, context: __SerdeContext): DefaultUndefinedFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DefaultUndefinedFault omitted.
 
-/**
- * deserializeAws_json1_0DomainAlreadyExistsFault
- */
-const de_DomainAlreadyExistsFault = (output: any, context: __SerdeContext): DomainAlreadyExistsFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DomainAlreadyExistsFault omitted.
 
-/**
- * deserializeAws_json1_0DomainConfiguration
- */
-const de_DomainConfiguration = (output: any, context: __SerdeContext): DomainConfiguration => {
-  return {
-    workflowExecutionRetentionPeriodInDays: __expectString(output.workflowExecutionRetentionPeriodInDays),
-  } as any;
-};
+// de_DomainConfiguration omitted.
 
-/**
- * deserializeAws_json1_0DomainDeprecatedFault
- */
-const de_DomainDeprecatedFault = (output: any, context: __SerdeContext): DomainDeprecatedFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DomainDeprecatedFault omitted.
 
-/**
- * deserializeAws_json1_0DomainDetail
- */
-const de_DomainDetail = (output: any, context: __SerdeContext): DomainDetail => {
-  return {
-    configuration: output.configuration != null ? de_DomainConfiguration(output.configuration, context) : undefined,
-    domainInfo: output.domainInfo != null ? de_DomainInfo(output.domainInfo, context) : undefined,
-  } as any;
-};
+// de_DomainDetail omitted.
 
-/**
- * deserializeAws_json1_0DomainInfo
- */
-const de_DomainInfo = (output: any, context: __SerdeContext): DomainInfo => {
-  return {
-    arn: __expectString(output.arn),
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_DomainInfo omitted.
 
-/**
- * deserializeAws_json1_0DomainInfoList
- */
-const de_DomainInfoList = (output: any, context: __SerdeContext): DomainInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DomainInfo(entry, context);
-    });
-  return retVal;
-};
+// de_DomainInfoList omitted.
 
-/**
- * deserializeAws_json1_0DomainInfos
- */
-const de_DomainInfos = (output: any, context: __SerdeContext): DomainInfos => {
-  return {
-    domainInfos: output.domainInfos != null ? de_DomainInfoList(output.domainInfos, context) : undefined,
-    nextPageToken: __expectString(output.nextPageToken),
-  } as any;
-};
+// de_DomainInfos omitted.
 
-/**
- * deserializeAws_json1_0ExternalWorkflowExecutionCancelRequestedEventAttributes
- */
-const de_ExternalWorkflowExecutionCancelRequestedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ExternalWorkflowExecutionCancelRequestedEventAttributes => {
-  return {
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-  } as any;
-};
+// de_ExternalWorkflowExecutionCancelRequestedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ExternalWorkflowExecutionSignaledEventAttributes
- */
-const de_ExternalWorkflowExecutionSignaledEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ExternalWorkflowExecutionSignaledEventAttributes => {
-  return {
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    workflowExecution:
-      output.workflowExecution != null ? de_WorkflowExecution(output.workflowExecution, context) : undefined,
-  } as any;
-};
+// de_ExternalWorkflowExecutionSignaledEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0FailWorkflowExecutionFailedEventAttributes
- */
-const de_FailWorkflowExecutionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): FailWorkflowExecutionFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-  } as any;
-};
+// de_FailWorkflowExecutionFailedEventAttributes omitted.
 
 /**
  * deserializeAws_json1_0History
  */
 const de_History = (output: any, context: __SerdeContext): History => {
-  return {
-    events: output.events != null ? de_HistoryEventList(output.events, context) : undefined,
-    nextPageToken: __expectString(output.nextPageToken),
-  } as any;
+  return take(output, {
+    events: (_: any) => de_HistoryEventList(_, context),
+    nextPageToken: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0HistoryEvent
  */
 const de_HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => {
-  return {
-    activityTaskCancelRequestedEventAttributes:
-      output.activityTaskCancelRequestedEventAttributes != null
-        ? de_ActivityTaskCancelRequestedEventAttributes(output.activityTaskCancelRequestedEventAttributes, context)
-        : undefined,
-    activityTaskCanceledEventAttributes:
-      output.activityTaskCanceledEventAttributes != null
-        ? de_ActivityTaskCanceledEventAttributes(output.activityTaskCanceledEventAttributes, context)
-        : undefined,
-    activityTaskCompletedEventAttributes:
-      output.activityTaskCompletedEventAttributes != null
-        ? de_ActivityTaskCompletedEventAttributes(output.activityTaskCompletedEventAttributes, context)
-        : undefined,
-    activityTaskFailedEventAttributes:
-      output.activityTaskFailedEventAttributes != null
-        ? de_ActivityTaskFailedEventAttributes(output.activityTaskFailedEventAttributes, context)
-        : undefined,
-    activityTaskScheduledEventAttributes:
-      output.activityTaskScheduledEventAttributes != null
-        ? de_ActivityTaskScheduledEventAttributes(output.activityTaskScheduledEventAttributes, context)
-        : undefined,
-    activityTaskStartedEventAttributes:
-      output.activityTaskStartedEventAttributes != null
-        ? de_ActivityTaskStartedEventAttributes(output.activityTaskStartedEventAttributes, context)
-        : undefined,
-    activityTaskTimedOutEventAttributes:
-      output.activityTaskTimedOutEventAttributes != null
-        ? de_ActivityTaskTimedOutEventAttributes(output.activityTaskTimedOutEventAttributes, context)
-        : undefined,
-    cancelTimerFailedEventAttributes:
-      output.cancelTimerFailedEventAttributes != null
-        ? de_CancelTimerFailedEventAttributes(output.cancelTimerFailedEventAttributes, context)
-        : undefined,
-    cancelWorkflowExecutionFailedEventAttributes:
-      output.cancelWorkflowExecutionFailedEventAttributes != null
-        ? de_CancelWorkflowExecutionFailedEventAttributes(output.cancelWorkflowExecutionFailedEventAttributes, context)
-        : undefined,
-    childWorkflowExecutionCanceledEventAttributes:
-      output.childWorkflowExecutionCanceledEventAttributes != null
-        ? de_ChildWorkflowExecutionCanceledEventAttributes(
-            output.childWorkflowExecutionCanceledEventAttributes,
-            context
-          )
-        : undefined,
-    childWorkflowExecutionCompletedEventAttributes:
-      output.childWorkflowExecutionCompletedEventAttributes != null
-        ? de_ChildWorkflowExecutionCompletedEventAttributes(
-            output.childWorkflowExecutionCompletedEventAttributes,
-            context
-          )
-        : undefined,
-    childWorkflowExecutionFailedEventAttributes:
-      output.childWorkflowExecutionFailedEventAttributes != null
-        ? de_ChildWorkflowExecutionFailedEventAttributes(output.childWorkflowExecutionFailedEventAttributes, context)
-        : undefined,
-    childWorkflowExecutionStartedEventAttributes:
-      output.childWorkflowExecutionStartedEventAttributes != null
-        ? de_ChildWorkflowExecutionStartedEventAttributes(output.childWorkflowExecutionStartedEventAttributes, context)
-        : undefined,
-    childWorkflowExecutionTerminatedEventAttributes:
-      output.childWorkflowExecutionTerminatedEventAttributes != null
-        ? de_ChildWorkflowExecutionTerminatedEventAttributes(
-            output.childWorkflowExecutionTerminatedEventAttributes,
-            context
-          )
-        : undefined,
-    childWorkflowExecutionTimedOutEventAttributes:
-      output.childWorkflowExecutionTimedOutEventAttributes != null
-        ? de_ChildWorkflowExecutionTimedOutEventAttributes(
-            output.childWorkflowExecutionTimedOutEventAttributes,
-            context
-          )
-        : undefined,
-    completeWorkflowExecutionFailedEventAttributes:
-      output.completeWorkflowExecutionFailedEventAttributes != null
-        ? de_CompleteWorkflowExecutionFailedEventAttributes(
-            output.completeWorkflowExecutionFailedEventAttributes,
-            context
-          )
-        : undefined,
-    continueAsNewWorkflowExecutionFailedEventAttributes:
-      output.continueAsNewWorkflowExecutionFailedEventAttributes != null
-        ? de_ContinueAsNewWorkflowExecutionFailedEventAttributes(
-            output.continueAsNewWorkflowExecutionFailedEventAttributes,
-            context
-          )
-        : undefined,
-    decisionTaskCompletedEventAttributes:
-      output.decisionTaskCompletedEventAttributes != null
-        ? de_DecisionTaskCompletedEventAttributes(output.decisionTaskCompletedEventAttributes, context)
-        : undefined,
-    decisionTaskScheduledEventAttributes:
-      output.decisionTaskScheduledEventAttributes != null
-        ? de_DecisionTaskScheduledEventAttributes(output.decisionTaskScheduledEventAttributes, context)
-        : undefined,
-    decisionTaskStartedEventAttributes:
-      output.decisionTaskStartedEventAttributes != null
-        ? de_DecisionTaskStartedEventAttributes(output.decisionTaskStartedEventAttributes, context)
-        : undefined,
-    decisionTaskTimedOutEventAttributes:
-      output.decisionTaskTimedOutEventAttributes != null
-        ? de_DecisionTaskTimedOutEventAttributes(output.decisionTaskTimedOutEventAttributes, context)
-        : undefined,
-    eventId: __expectLong(output.eventId),
-    eventTimestamp:
-      output.eventTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTimestamp)))
-        : undefined,
-    eventType: __expectString(output.eventType),
-    externalWorkflowExecutionCancelRequestedEventAttributes:
-      output.externalWorkflowExecutionCancelRequestedEventAttributes != null
-        ? de_ExternalWorkflowExecutionCancelRequestedEventAttributes(
-            output.externalWorkflowExecutionCancelRequestedEventAttributes,
-            context
-          )
-        : undefined,
-    externalWorkflowExecutionSignaledEventAttributes:
-      output.externalWorkflowExecutionSignaledEventAttributes != null
-        ? de_ExternalWorkflowExecutionSignaledEventAttributes(
-            output.externalWorkflowExecutionSignaledEventAttributes,
-            context
-          )
-        : undefined,
-    failWorkflowExecutionFailedEventAttributes:
-      output.failWorkflowExecutionFailedEventAttributes != null
-        ? de_FailWorkflowExecutionFailedEventAttributes(output.failWorkflowExecutionFailedEventAttributes, context)
-        : undefined,
-    lambdaFunctionCompletedEventAttributes:
-      output.lambdaFunctionCompletedEventAttributes != null
-        ? de_LambdaFunctionCompletedEventAttributes(output.lambdaFunctionCompletedEventAttributes, context)
-        : undefined,
-    lambdaFunctionFailedEventAttributes:
-      output.lambdaFunctionFailedEventAttributes != null
-        ? de_LambdaFunctionFailedEventAttributes(output.lambdaFunctionFailedEventAttributes, context)
-        : undefined,
-    lambdaFunctionScheduledEventAttributes:
-      output.lambdaFunctionScheduledEventAttributes != null
-        ? de_LambdaFunctionScheduledEventAttributes(output.lambdaFunctionScheduledEventAttributes, context)
-        : undefined,
-    lambdaFunctionStartedEventAttributes:
-      output.lambdaFunctionStartedEventAttributes != null
-        ? de_LambdaFunctionStartedEventAttributes(output.lambdaFunctionStartedEventAttributes, context)
-        : undefined,
-    lambdaFunctionTimedOutEventAttributes:
-      output.lambdaFunctionTimedOutEventAttributes != null
-        ? de_LambdaFunctionTimedOutEventAttributes(output.lambdaFunctionTimedOutEventAttributes, context)
-        : undefined,
-    markerRecordedEventAttributes:
-      output.markerRecordedEventAttributes != null
-        ? de_MarkerRecordedEventAttributes(output.markerRecordedEventAttributes, context)
-        : undefined,
-    recordMarkerFailedEventAttributes:
-      output.recordMarkerFailedEventAttributes != null
-        ? de_RecordMarkerFailedEventAttributes(output.recordMarkerFailedEventAttributes, context)
-        : undefined,
-    requestCancelActivityTaskFailedEventAttributes:
-      output.requestCancelActivityTaskFailedEventAttributes != null
-        ? de_RequestCancelActivityTaskFailedEventAttributes(
-            output.requestCancelActivityTaskFailedEventAttributes,
-            context
-          )
-        : undefined,
-    requestCancelExternalWorkflowExecutionFailedEventAttributes:
-      output.requestCancelExternalWorkflowExecutionFailedEventAttributes != null
-        ? de_RequestCancelExternalWorkflowExecutionFailedEventAttributes(
-            output.requestCancelExternalWorkflowExecutionFailedEventAttributes,
-            context
-          )
-        : undefined,
-    requestCancelExternalWorkflowExecutionInitiatedEventAttributes:
-      output.requestCancelExternalWorkflowExecutionInitiatedEventAttributes != null
-        ? de_RequestCancelExternalWorkflowExecutionInitiatedEventAttributes(
-            output.requestCancelExternalWorkflowExecutionInitiatedEventAttributes,
-            context
-          )
-        : undefined,
-    scheduleActivityTaskFailedEventAttributes:
-      output.scheduleActivityTaskFailedEventAttributes != null
-        ? de_ScheduleActivityTaskFailedEventAttributes(output.scheduleActivityTaskFailedEventAttributes, context)
-        : undefined,
-    scheduleLambdaFunctionFailedEventAttributes:
-      output.scheduleLambdaFunctionFailedEventAttributes != null
-        ? de_ScheduleLambdaFunctionFailedEventAttributes(output.scheduleLambdaFunctionFailedEventAttributes, context)
-        : undefined,
-    signalExternalWorkflowExecutionFailedEventAttributes:
-      output.signalExternalWorkflowExecutionFailedEventAttributes != null
-        ? de_SignalExternalWorkflowExecutionFailedEventAttributes(
-            output.signalExternalWorkflowExecutionFailedEventAttributes,
-            context
-          )
-        : undefined,
-    signalExternalWorkflowExecutionInitiatedEventAttributes:
-      output.signalExternalWorkflowExecutionInitiatedEventAttributes != null
-        ? de_SignalExternalWorkflowExecutionInitiatedEventAttributes(
-            output.signalExternalWorkflowExecutionInitiatedEventAttributes,
-            context
-          )
-        : undefined,
-    startChildWorkflowExecutionFailedEventAttributes:
-      output.startChildWorkflowExecutionFailedEventAttributes != null
-        ? de_StartChildWorkflowExecutionFailedEventAttributes(
-            output.startChildWorkflowExecutionFailedEventAttributes,
-            context
-          )
-        : undefined,
-    startChildWorkflowExecutionInitiatedEventAttributes:
-      output.startChildWorkflowExecutionInitiatedEventAttributes != null
-        ? de_StartChildWorkflowExecutionInitiatedEventAttributes(
-            output.startChildWorkflowExecutionInitiatedEventAttributes,
-            context
-          )
-        : undefined,
-    startLambdaFunctionFailedEventAttributes:
-      output.startLambdaFunctionFailedEventAttributes != null
-        ? de_StartLambdaFunctionFailedEventAttributes(output.startLambdaFunctionFailedEventAttributes, context)
-        : undefined,
-    startTimerFailedEventAttributes:
-      output.startTimerFailedEventAttributes != null
-        ? de_StartTimerFailedEventAttributes(output.startTimerFailedEventAttributes, context)
-        : undefined,
-    timerCanceledEventAttributes:
-      output.timerCanceledEventAttributes != null
-        ? de_TimerCanceledEventAttributes(output.timerCanceledEventAttributes, context)
-        : undefined,
-    timerFiredEventAttributes:
-      output.timerFiredEventAttributes != null
-        ? de_TimerFiredEventAttributes(output.timerFiredEventAttributes, context)
-        : undefined,
-    timerStartedEventAttributes:
-      output.timerStartedEventAttributes != null
-        ? de_TimerStartedEventAttributes(output.timerStartedEventAttributes, context)
-        : undefined,
-    workflowExecutionCancelRequestedEventAttributes:
-      output.workflowExecutionCancelRequestedEventAttributes != null
-        ? de_WorkflowExecutionCancelRequestedEventAttributes(
-            output.workflowExecutionCancelRequestedEventAttributes,
-            context
-          )
-        : undefined,
-    workflowExecutionCanceledEventAttributes:
-      output.workflowExecutionCanceledEventAttributes != null
-        ? de_WorkflowExecutionCanceledEventAttributes(output.workflowExecutionCanceledEventAttributes, context)
-        : undefined,
-    workflowExecutionCompletedEventAttributes:
-      output.workflowExecutionCompletedEventAttributes != null
-        ? de_WorkflowExecutionCompletedEventAttributes(output.workflowExecutionCompletedEventAttributes, context)
-        : undefined,
-    workflowExecutionContinuedAsNewEventAttributes:
-      output.workflowExecutionContinuedAsNewEventAttributes != null
-        ? de_WorkflowExecutionContinuedAsNewEventAttributes(
-            output.workflowExecutionContinuedAsNewEventAttributes,
-            context
-          )
-        : undefined,
-    workflowExecutionFailedEventAttributes:
-      output.workflowExecutionFailedEventAttributes != null
-        ? de_WorkflowExecutionFailedEventAttributes(output.workflowExecutionFailedEventAttributes, context)
-        : undefined,
-    workflowExecutionSignaledEventAttributes:
-      output.workflowExecutionSignaledEventAttributes != null
-        ? de_WorkflowExecutionSignaledEventAttributes(output.workflowExecutionSignaledEventAttributes, context)
-        : undefined,
-    workflowExecutionStartedEventAttributes:
-      output.workflowExecutionStartedEventAttributes != null
-        ? de_WorkflowExecutionStartedEventAttributes(output.workflowExecutionStartedEventAttributes, context)
-        : undefined,
-    workflowExecutionTerminatedEventAttributes:
-      output.workflowExecutionTerminatedEventAttributes != null
-        ? de_WorkflowExecutionTerminatedEventAttributes(output.workflowExecutionTerminatedEventAttributes, context)
-        : undefined,
-    workflowExecutionTimedOutEventAttributes:
-      output.workflowExecutionTimedOutEventAttributes != null
-        ? de_WorkflowExecutionTimedOutEventAttributes(output.workflowExecutionTimedOutEventAttributes, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    activityTaskCancelRequestedEventAttributes: _json,
+    activityTaskCanceledEventAttributes: _json,
+    activityTaskCompletedEventAttributes: _json,
+    activityTaskFailedEventAttributes: _json,
+    activityTaskScheduledEventAttributes: _json,
+    activityTaskStartedEventAttributes: _json,
+    activityTaskTimedOutEventAttributes: _json,
+    cancelTimerFailedEventAttributes: _json,
+    cancelWorkflowExecutionFailedEventAttributes: _json,
+    childWorkflowExecutionCanceledEventAttributes: _json,
+    childWorkflowExecutionCompletedEventAttributes: _json,
+    childWorkflowExecutionFailedEventAttributes: _json,
+    childWorkflowExecutionStartedEventAttributes: _json,
+    childWorkflowExecutionTerminatedEventAttributes: _json,
+    childWorkflowExecutionTimedOutEventAttributes: _json,
+    completeWorkflowExecutionFailedEventAttributes: _json,
+    continueAsNewWorkflowExecutionFailedEventAttributes: _json,
+    decisionTaskCompletedEventAttributes: _json,
+    decisionTaskScheduledEventAttributes: _json,
+    decisionTaskStartedEventAttributes: _json,
+    decisionTaskTimedOutEventAttributes: _json,
+    eventId: __expectLong,
+    eventTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    eventType: __expectString,
+    externalWorkflowExecutionCancelRequestedEventAttributes: _json,
+    externalWorkflowExecutionSignaledEventAttributes: _json,
+    failWorkflowExecutionFailedEventAttributes: _json,
+    lambdaFunctionCompletedEventAttributes: _json,
+    lambdaFunctionFailedEventAttributes: _json,
+    lambdaFunctionScheduledEventAttributes: _json,
+    lambdaFunctionStartedEventAttributes: _json,
+    lambdaFunctionTimedOutEventAttributes: _json,
+    markerRecordedEventAttributes: _json,
+    recordMarkerFailedEventAttributes: _json,
+    requestCancelActivityTaskFailedEventAttributes: _json,
+    requestCancelExternalWorkflowExecutionFailedEventAttributes: _json,
+    requestCancelExternalWorkflowExecutionInitiatedEventAttributes: _json,
+    scheduleActivityTaskFailedEventAttributes: _json,
+    scheduleLambdaFunctionFailedEventAttributes: _json,
+    signalExternalWorkflowExecutionFailedEventAttributes: _json,
+    signalExternalWorkflowExecutionInitiatedEventAttributes: _json,
+    startChildWorkflowExecutionFailedEventAttributes: _json,
+    startChildWorkflowExecutionInitiatedEventAttributes: _json,
+    startLambdaFunctionFailedEventAttributes: _json,
+    startTimerFailedEventAttributes: _json,
+    timerCanceledEventAttributes: _json,
+    timerFiredEventAttributes: _json,
+    timerStartedEventAttributes: _json,
+    workflowExecutionCancelRequestedEventAttributes: _json,
+    workflowExecutionCanceledEventAttributes: _json,
+    workflowExecutionCompletedEventAttributes: _json,
+    workflowExecutionContinuedAsNewEventAttributes: _json,
+    workflowExecutionFailedEventAttributes: _json,
+    workflowExecutionSignaledEventAttributes: _json,
+    workflowExecutionStartedEventAttributes: _json,
+    workflowExecutionTerminatedEventAttributes: _json,
+    workflowExecutionTimedOutEventAttributes: _json,
+  }) as any;
 };
 
 /**
@@ -4538,615 +3093,125 @@ const de_HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_HistoryEvent(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_json1_0LambdaFunctionCompletedEventAttributes
- */
-const de_LambdaFunctionCompletedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): LambdaFunctionCompletedEventAttributes => {
-  return {
-    result: __expectString(output.result),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-    startedEventId: __expectLong(output.startedEventId),
-  } as any;
-};
+// de_LambdaFunctionCompletedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0LambdaFunctionFailedEventAttributes
- */
-const de_LambdaFunctionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): LambdaFunctionFailedEventAttributes => {
-  return {
-    details: __expectString(output.details),
-    reason: __expectString(output.reason),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-    startedEventId: __expectLong(output.startedEventId),
-  } as any;
-};
+// de_LambdaFunctionFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0LambdaFunctionScheduledEventAttributes
- */
-const de_LambdaFunctionScheduledEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): LambdaFunctionScheduledEventAttributes => {
-  return {
-    control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    id: __expectString(output.id),
-    input: __expectString(output.input),
-    name: __expectString(output.name),
-    startToCloseTimeout: __expectString(output.startToCloseTimeout),
-  } as any;
-};
+// de_LambdaFunctionScheduledEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0LambdaFunctionStartedEventAttributes
- */
-const de_LambdaFunctionStartedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): LambdaFunctionStartedEventAttributes => {
-  return {
-    scheduledEventId: __expectLong(output.scheduledEventId),
-  } as any;
-};
+// de_LambdaFunctionStartedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0LambdaFunctionTimedOutEventAttributes
- */
-const de_LambdaFunctionTimedOutEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): LambdaFunctionTimedOutEventAttributes => {
-  return {
-    scheduledEventId: __expectLong(output.scheduledEventId),
-    startedEventId: __expectLong(output.startedEventId),
-    timeoutType: __expectString(output.timeoutType),
-  } as any;
-};
+// de_LambdaFunctionTimedOutEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0LimitExceededFault
- */
-const de_LimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededFault omitted.
 
-/**
- * deserializeAws_json1_0ListTagsForResourceOutput
- */
-const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
-  return {
-    tags: output.tags != null ? de_ResourceTagList(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceOutput omitted.
 
-/**
- * deserializeAws_json1_0MarkerRecordedEventAttributes
- */
-const de_MarkerRecordedEventAttributes = (output: any, context: __SerdeContext): MarkerRecordedEventAttributes => {
-  return {
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    details: __expectString(output.details),
-    markerName: __expectString(output.markerName),
-  } as any;
-};
+// de_MarkerRecordedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0OperationNotPermittedFault
- */
-const de_OperationNotPermittedFault = (output: any, context: __SerdeContext): OperationNotPermittedFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_OperationNotPermittedFault omitted.
 
-/**
- * deserializeAws_json1_0PendingTaskCount
- */
-const de_PendingTaskCount = (output: any, context: __SerdeContext): PendingTaskCount => {
-  return {
-    count: __expectInt32(output.count),
-    truncated: __expectBoolean(output.truncated),
-  } as any;
-};
+// de_PendingTaskCount omitted.
 
-/**
- * deserializeAws_json1_0RecordMarkerFailedEventAttributes
- */
-const de_RecordMarkerFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): RecordMarkerFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    markerName: __expectString(output.markerName),
-  } as any;
-};
+// de_RecordMarkerFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0RequestCancelActivityTaskFailedEventAttributes
- */
-const de_RequestCancelActivityTaskFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): RequestCancelActivityTaskFailedEventAttributes => {
-  return {
-    activityId: __expectString(output.activityId),
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-  } as any;
-};
+// de_RequestCancelActivityTaskFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0RequestCancelExternalWorkflowExecutionFailedEventAttributes
- */
-const de_RequestCancelExternalWorkflowExecutionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): RequestCancelExternalWorkflowExecutionFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    runId: __expectString(output.runId),
-    workflowId: __expectString(output.workflowId),
-  } as any;
-};
+// de_RequestCancelExternalWorkflowExecutionFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
- */
-const de_RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): RequestCancelExternalWorkflowExecutionInitiatedEventAttributes => {
-  return {
-    control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    runId: __expectString(output.runId),
-    workflowId: __expectString(output.workflowId),
-  } as any;
-};
+// de_RequestCancelExternalWorkflowExecutionInitiatedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ResourceTag
- */
-const de_ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_ResourceTag omitted.
 
-/**
- * deserializeAws_json1_0ResourceTagList
- */
-const de_ResourceTagList = (output: any, context: __SerdeContext): ResourceTag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ResourceTag(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceTagList omitted.
 
-/**
- * deserializeAws_json1_0Run
- */
-const de_Run = (output: any, context: __SerdeContext): Run => {
-  return {
-    runId: __expectString(output.runId),
-  } as any;
-};
+// de_Run omitted.
 
-/**
- * deserializeAws_json1_0ScheduleActivityTaskFailedEventAttributes
- */
-const de_ScheduleActivityTaskFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ScheduleActivityTaskFailedEventAttributes => {
-  return {
-    activityId: __expectString(output.activityId),
-    activityType: output.activityType != null ? de_ActivityType(output.activityType, context) : undefined,
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-  } as any;
-};
+// de_ScheduleActivityTaskFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0ScheduleLambdaFunctionFailedEventAttributes
- */
-const de_ScheduleLambdaFunctionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): ScheduleLambdaFunctionFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ScheduleLambdaFunctionFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0SignalExternalWorkflowExecutionFailedEventAttributes
- */
-const de_SignalExternalWorkflowExecutionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): SignalExternalWorkflowExecutionFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    runId: __expectString(output.runId),
-    workflowId: __expectString(output.workflowId),
-  } as any;
-};
+// de_SignalExternalWorkflowExecutionFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0SignalExternalWorkflowExecutionInitiatedEventAttributes
- */
-const de_SignalExternalWorkflowExecutionInitiatedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): SignalExternalWorkflowExecutionInitiatedEventAttributes => {
-  return {
-    control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    input: __expectString(output.input),
-    runId: __expectString(output.runId),
-    signalName: __expectString(output.signalName),
-    workflowId: __expectString(output.workflowId),
-  } as any;
-};
+// de_SignalExternalWorkflowExecutionInitiatedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0StartChildWorkflowExecutionFailedEventAttributes
- */
-const de_StartChildWorkflowExecutionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): StartChildWorkflowExecutionFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    initiatedEventId: __expectLong(output.initiatedEventId),
-    workflowId: __expectString(output.workflowId),
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_StartChildWorkflowExecutionFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0StartChildWorkflowExecutionInitiatedEventAttributes
- */
-const de_StartChildWorkflowExecutionInitiatedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): StartChildWorkflowExecutionInitiatedEventAttributes => {
-  return {
-    childPolicy: __expectString(output.childPolicy),
-    control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
-    input: __expectString(output.input),
-    lambdaRole: __expectString(output.lambdaRole),
-    tagList: output.tagList != null ? de_TagList(output.tagList, context) : undefined,
-    taskList: output.taskList != null ? de_TaskList(output.taskList, context) : undefined,
-    taskPriority: __expectString(output.taskPriority),
-    taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
-    workflowId: __expectString(output.workflowId),
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_StartChildWorkflowExecutionInitiatedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0StartLambdaFunctionFailedEventAttributes
- */
-const de_StartLambdaFunctionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): StartLambdaFunctionFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    message: __expectString(output.message),
-    scheduledEventId: __expectLong(output.scheduledEventId),
-  } as any;
-};
+// de_StartLambdaFunctionFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0StartTimerFailedEventAttributes
- */
-const de_StartTimerFailedEventAttributes = (output: any, context: __SerdeContext): StartTimerFailedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    timerId: __expectString(output.timerId),
-  } as any;
-};
+// de_StartTimerFailedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_0TaskList
- */
-const de_TaskList = (output: any, context: __SerdeContext): TaskList => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
+// de_TaskList omitted.
 
-/**
- * deserializeAws_json1_0TimerCanceledEventAttributes
- */
-const de_TimerCanceledEventAttributes = (output: any, context: __SerdeContext): TimerCanceledEventAttributes => {
-  return {
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    startedEventId: __expectLong(output.startedEventId),
-    timerId: __expectString(output.timerId),
-  } as any;
-};
+// de_TimerCanceledEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0TimerFiredEventAttributes
- */
-const de_TimerFiredEventAttributes = (output: any, context: __SerdeContext): TimerFiredEventAttributes => {
-  return {
-    startedEventId: __expectLong(output.startedEventId),
-    timerId: __expectString(output.timerId),
-  } as any;
-};
+// de_TimerFiredEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0TimerStartedEventAttributes
- */
-const de_TimerStartedEventAttributes = (output: any, context: __SerdeContext): TimerStartedEventAttributes => {
-  return {
-    control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    startToFireTimeout: __expectString(output.startToFireTimeout),
-    timerId: __expectString(output.timerId),
-  } as any;
-};
+// de_TimerStartedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0TooManyTagsFault
- */
-const de_TooManyTagsFault = (output: any, context: __SerdeContext): TooManyTagsFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyTagsFault omitted.
 
-/**
- * deserializeAws_json1_0TypeAlreadyExistsFault
- */
-const de_TypeAlreadyExistsFault = (output: any, context: __SerdeContext): TypeAlreadyExistsFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TypeAlreadyExistsFault omitted.
 
-/**
- * deserializeAws_json1_0TypeDeprecatedFault
- */
-const de_TypeDeprecatedFault = (output: any, context: __SerdeContext): TypeDeprecatedFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TypeDeprecatedFault omitted.
 
-/**
- * deserializeAws_json1_0UnknownResourceFault
- */
-const de_UnknownResourceFault = (output: any, context: __SerdeContext): UnknownResourceFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnknownResourceFault omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecution
- */
-const de_WorkflowExecution = (output: any, context: __SerdeContext): WorkflowExecution => {
-  return {
-    runId: __expectString(output.runId),
-    workflowId: __expectString(output.workflowId),
-  } as any;
-};
+// de_WorkflowExecution omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionAlreadyStartedFault
- */
-const de_WorkflowExecutionAlreadyStartedFault = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionAlreadyStartedFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_WorkflowExecutionAlreadyStartedFault omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionCanceledEventAttributes
- */
-const de_WorkflowExecutionCanceledEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionCanceledEventAttributes => {
-  return {
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    details: __expectString(output.details),
-  } as any;
-};
+// de_WorkflowExecutionCanceledEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes
- */
-const de_WorkflowExecutionCancelRequestedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionCancelRequestedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    externalInitiatedEventId: __expectLong(output.externalInitiatedEventId),
-    externalWorkflowExecution:
-      output.externalWorkflowExecution != null
-        ? de_WorkflowExecution(output.externalWorkflowExecution, context)
-        : undefined,
-  } as any;
-};
+// de_WorkflowExecutionCancelRequestedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionCompletedEventAttributes
- */
-const de_WorkflowExecutionCompletedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionCompletedEventAttributes => {
-  return {
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    result: __expectString(output.result),
-  } as any;
-};
+// de_WorkflowExecutionCompletedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionConfiguration
- */
-const de_WorkflowExecutionConfiguration = (output: any, context: __SerdeContext): WorkflowExecutionConfiguration => {
-  return {
-    childPolicy: __expectString(output.childPolicy),
-    executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
-    lambdaRole: __expectString(output.lambdaRole),
-    taskList: output.taskList != null ? de_TaskList(output.taskList, context) : undefined,
-    taskPriority: __expectString(output.taskPriority),
-    taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
-  } as any;
-};
+// de_WorkflowExecutionConfiguration omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes
- */
-const de_WorkflowExecutionContinuedAsNewEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionContinuedAsNewEventAttributes => {
-  return {
-    childPolicy: __expectString(output.childPolicy),
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
-    input: __expectString(output.input),
-    lambdaRole: __expectString(output.lambdaRole),
-    newExecutionRunId: __expectString(output.newExecutionRunId),
-    tagList: output.tagList != null ? de_TagList(output.tagList, context) : undefined,
-    taskList: output.taskList != null ? de_TaskList(output.taskList, context) : undefined,
-    taskPriority: __expectString(output.taskPriority),
-    taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_WorkflowExecutionContinuedAsNewEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionCount
- */
-const de_WorkflowExecutionCount = (output: any, context: __SerdeContext): WorkflowExecutionCount => {
-  return {
-    count: __expectInt32(output.count),
-    truncated: __expectBoolean(output.truncated),
-  } as any;
-};
+// de_WorkflowExecutionCount omitted.
 
 /**
  * deserializeAws_json1_0WorkflowExecutionDetail
  */
 const de_WorkflowExecutionDetail = (output: any, context: __SerdeContext): WorkflowExecutionDetail => {
-  return {
-    executionConfiguration:
-      output.executionConfiguration != null
-        ? de_WorkflowExecutionConfiguration(output.executionConfiguration, context)
-        : undefined,
-    executionInfo: output.executionInfo != null ? de_WorkflowExecutionInfo(output.executionInfo, context) : undefined,
-    latestActivityTaskTimestamp:
-      output.latestActivityTaskTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestActivityTaskTimestamp)))
-        : undefined,
-    latestExecutionContext: __expectString(output.latestExecutionContext),
-    openCounts: output.openCounts != null ? de_WorkflowExecutionOpenCounts(output.openCounts, context) : undefined,
-  } as any;
+  return take(output, {
+    executionConfiguration: _json,
+    executionInfo: (_: any) => de_WorkflowExecutionInfo(_, context),
+    latestActivityTaskTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    latestExecutionContext: __expectString,
+    openCounts: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0WorkflowExecutionFailedEventAttributes
- */
-const de_WorkflowExecutionFailedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionFailedEventAttributes => {
-  return {
-    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
-    details: __expectString(output.details),
-    reason: __expectString(output.reason),
-  } as any;
-};
+// de_WorkflowExecutionFailedEventAttributes omitted.
 
 /**
  * deserializeAws_json1_0WorkflowExecutionInfo
  */
 const de_WorkflowExecutionInfo = (output: any, context: __SerdeContext): WorkflowExecutionInfo => {
-  return {
-    cancelRequested: __expectBoolean(output.cancelRequested),
-    closeStatus: __expectString(output.closeStatus),
-    closeTimestamp:
-      output.closeTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.closeTimestamp)))
-        : undefined,
-    execution: output.execution != null ? de_WorkflowExecution(output.execution, context) : undefined,
-    executionStatus: __expectString(output.executionStatus),
-    parent: output.parent != null ? de_WorkflowExecution(output.parent, context) : undefined,
-    startTimestamp:
-      output.startTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTimestamp)))
-        : undefined,
-    tagList: output.tagList != null ? de_TagList(output.tagList, context) : undefined,
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
+  return take(output, {
+    cancelRequested: __expectBoolean,
+    closeStatus: __expectString,
+    closeTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    execution: _json,
+    executionStatus: __expectString,
+    parent: _json,
+    startTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    tagList: _json,
+    workflowType: _json,
+  }) as any;
 };
 
 /**
@@ -5156,9 +3221,6 @@ const de_WorkflowExecutionInfoList = (output: any, context: __SerdeContext): Wor
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorkflowExecutionInfo(entry, context);
     });
   return retVal;
@@ -5168,150 +3230,47 @@ const de_WorkflowExecutionInfoList = (output: any, context: __SerdeContext): Wor
  * deserializeAws_json1_0WorkflowExecutionInfos
  */
 const de_WorkflowExecutionInfos = (output: any, context: __SerdeContext): WorkflowExecutionInfos => {
-  return {
-    executionInfos:
-      output.executionInfos != null ? de_WorkflowExecutionInfoList(output.executionInfos, context) : undefined,
-    nextPageToken: __expectString(output.nextPageToken),
-  } as any;
+  return take(output, {
+    executionInfos: (_: any) => de_WorkflowExecutionInfoList(_, context),
+    nextPageToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0WorkflowExecutionOpenCounts
- */
-const de_WorkflowExecutionOpenCounts = (output: any, context: __SerdeContext): WorkflowExecutionOpenCounts => {
-  return {
-    openActivityTasks: __expectInt32(output.openActivityTasks),
-    openChildWorkflowExecutions: __expectInt32(output.openChildWorkflowExecutions),
-    openDecisionTasks: __expectInt32(output.openDecisionTasks),
-    openLambdaFunctions: __expectInt32(output.openLambdaFunctions),
-    openTimers: __expectInt32(output.openTimers),
-  } as any;
-};
+// de_WorkflowExecutionOpenCounts omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionSignaledEventAttributes
- */
-const de_WorkflowExecutionSignaledEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionSignaledEventAttributes => {
-  return {
-    externalInitiatedEventId: __expectLong(output.externalInitiatedEventId),
-    externalWorkflowExecution:
-      output.externalWorkflowExecution != null
-        ? de_WorkflowExecution(output.externalWorkflowExecution, context)
-        : undefined,
-    input: __expectString(output.input),
-    signalName: __expectString(output.signalName),
-  } as any;
-};
+// de_WorkflowExecutionSignaledEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionStartedEventAttributes
- */
-const de_WorkflowExecutionStartedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionStartedEventAttributes => {
-  return {
-    childPolicy: __expectString(output.childPolicy),
-    continuedExecutionRunId: __expectString(output.continuedExecutionRunId),
-    executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
-    input: __expectString(output.input),
-    lambdaRole: __expectString(output.lambdaRole),
-    parentInitiatedEventId: __expectLong(output.parentInitiatedEventId),
-    parentWorkflowExecution:
-      output.parentWorkflowExecution != null
-        ? de_WorkflowExecution(output.parentWorkflowExecution, context)
-        : undefined,
-    tagList: output.tagList != null ? de_TagList(output.tagList, context) : undefined,
-    taskList: output.taskList != null ? de_TaskList(output.taskList, context) : undefined,
-    taskPriority: __expectString(output.taskPriority),
-    taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
-};
+// de_WorkflowExecutionStartedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionTerminatedEventAttributes
- */
-const de_WorkflowExecutionTerminatedEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionTerminatedEventAttributes => {
-  return {
-    cause: __expectString(output.cause),
-    childPolicy: __expectString(output.childPolicy),
-    details: __expectString(output.details),
-    reason: __expectString(output.reason),
-  } as any;
-};
+// de_WorkflowExecutionTerminatedEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0WorkflowExecutionTimedOutEventAttributes
- */
-const de_WorkflowExecutionTimedOutEventAttributes = (
-  output: any,
-  context: __SerdeContext
-): WorkflowExecutionTimedOutEventAttributes => {
-  return {
-    childPolicy: __expectString(output.childPolicy),
-    timeoutType: __expectString(output.timeoutType),
-  } as any;
-};
+// de_WorkflowExecutionTimedOutEventAttributes omitted.
 
-/**
- * deserializeAws_json1_0WorkflowType
- */
-const de_WorkflowType = (output: any, context: __SerdeContext): WorkflowType => {
-  return {
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_WorkflowType omitted.
 
-/**
- * deserializeAws_json1_0WorkflowTypeConfiguration
- */
-const de_WorkflowTypeConfiguration = (output: any, context: __SerdeContext): WorkflowTypeConfiguration => {
-  return {
-    defaultChildPolicy: __expectString(output.defaultChildPolicy),
-    defaultExecutionStartToCloseTimeout: __expectString(output.defaultExecutionStartToCloseTimeout),
-    defaultLambdaRole: __expectString(output.defaultLambdaRole),
-    defaultTaskList: output.defaultTaskList != null ? de_TaskList(output.defaultTaskList, context) : undefined,
-    defaultTaskPriority: __expectString(output.defaultTaskPriority),
-    defaultTaskStartToCloseTimeout: __expectString(output.defaultTaskStartToCloseTimeout),
-  } as any;
-};
+// de_WorkflowTypeConfiguration omitted.
 
 /**
  * deserializeAws_json1_0WorkflowTypeDetail
  */
 const de_WorkflowTypeDetail = (output: any, context: __SerdeContext): WorkflowTypeDetail => {
-  return {
-    configuration:
-      output.configuration != null ? de_WorkflowTypeConfiguration(output.configuration, context) : undefined,
-    typeInfo: output.typeInfo != null ? de_WorkflowTypeInfo(output.typeInfo, context) : undefined,
-  } as any;
+  return take(output, {
+    configuration: _json,
+    typeInfo: (_: any) => de_WorkflowTypeInfo(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0WorkflowTypeInfo
  */
 const de_WorkflowTypeInfo = (output: any, context: __SerdeContext): WorkflowTypeInfo => {
-  return {
-    creationDate:
-      output.creationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
-        : undefined,
-    deprecationDate:
-      output.deprecationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deprecationDate)))
-        : undefined,
-    description: __expectString(output.description),
-    status: __expectString(output.status),
-    workflowType: output.workflowType != null ? de_WorkflowType(output.workflowType, context) : undefined,
-  } as any;
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deprecationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    status: __expectString,
+    workflowType: _json,
+  }) as any;
 };
 
 /**
@@ -5321,9 +3280,6 @@ const de_WorkflowTypeInfoList = (output: any, context: __SerdeContext): Workflow
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorkflowTypeInfo(entry, context);
     });
   return retVal;
@@ -5333,10 +3289,10 @@ const de_WorkflowTypeInfoList = (output: any, context: __SerdeContext): Workflow
  * deserializeAws_json1_0WorkflowTypeInfos
  */
 const de_WorkflowTypeInfos = (output: any, context: __SerdeContext): WorkflowTypeInfos => {
-  return {
-    nextPageToken: __expectString(output.nextPageToken),
-    typeInfos: output.typeInfos != null ? de_WorkflowTypeInfoList(output.typeInfos, context) : undefined,
-  } as any;
+  return take(output, {
+    nextPageToken: __expectString,
+    typeInfos: (_: any) => de_WorkflowTypeInfoList(_, context),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -5359,6 +3315,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

@@ -1,15 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -35,9 +36,6 @@ import {
   CertificateValidationException,
   InvalidRequestException,
   InvalidStateTransitionException,
-  JobExecution,
-  JobExecutionState,
-  JobExecutionSummary,
   ResourceNotFoundException,
   ServiceUnavailableException,
   TerminalStateException,
@@ -112,10 +110,12 @@ export const se_StartNextPendingJobExecutionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/$next";
   resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.statusDetails != null && { statusDetails: se_DetailsMap(input.statusDetails, context) }),
-    ...(input.stepTimeoutInMinutes != null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      statusDetails: (_) => _json(_),
+      stepTimeoutInMinutes: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -143,15 +143,17 @@ export const se_UpdateJobExecutionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.executionNumber != null && { executionNumber: input.executionNumber }),
-    ...(input.expectedVersion != null && { expectedVersion: input.expectedVersion }),
-    ...(input.includeJobDocument != null && { includeJobDocument: input.includeJobDocument }),
-    ...(input.includeJobExecutionState != null && { includeJobExecutionState: input.includeJobExecutionState }),
-    ...(input.status != null && { status: input.status }),
-    ...(input.statusDetails != null && { statusDetails: se_DetailsMap(input.statusDetails, context) }),
-    ...(input.stepTimeoutInMinutes != null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      executionNumber: [],
+      expectedVersion: [],
+      includeJobDocument: [],
+      includeJobExecutionState: [],
+      status: [],
+      statusDetails: (_) => _json(_),
+      stepTimeoutInMinutes: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -177,9 +179,10 @@ export const de_DescribeJobExecutionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.execution != null) {
-    contents.execution = de_JobExecution(data.execution, context);
-  }
+  const doc = take(data, {
+    execution: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -216,10 +219,9 @@ const de_DescribeJobExecutionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -239,12 +241,11 @@ export const de_GetPendingJobExecutionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.inProgressJobs != null) {
-    contents.inProgressJobs = de_JobExecutionSummaryList(data.inProgressJobs, context);
-  }
-  if (data.queuedJobs != null) {
-    contents.queuedJobs = de_JobExecutionSummaryList(data.queuedJobs, context);
-  }
+  const doc = take(data, {
+    inProgressJobs: _json,
+    queuedJobs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -278,10 +279,9 @@ const de_GetPendingJobExecutionsCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -301,9 +301,10 @@ export const de_StartNextPendingJobExecutionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.execution != null) {
-    contents.execution = de_JobExecution(data.execution, context);
-  }
+  const doc = take(data, {
+    execution: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -337,10 +338,9 @@ const de_StartNextPendingJobExecutionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -360,12 +360,11 @@ export const de_UpdateJobExecutionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.executionState != null) {
-    contents.executionState = de_JobExecutionState(data.executionState, context);
-  }
-  if (data.jobDocument != null) {
-    contents.jobDocument = __expectString(data.jobDocument);
-  }
+  const doc = take(data, {
+    executionState: _json,
+    jobDocument: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -402,16 +401,15 @@ const de_UpdateJobExecutionCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1CertificateValidationExceptionRes
  */
@@ -421,9 +419,10 @@ const de_CertificateValidationExceptionRes = async (
 ): Promise<CertificateValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new CertificateValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -440,9 +439,10 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -459,9 +459,10 @@ const de_InvalidStateTransitionExceptionRes = async (
 ): Promise<InvalidStateTransitionException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidStateTransitionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -478,9 +479,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -497,9 +499,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -516,9 +519,10 @@ const de_TerminalStateExceptionRes = async (
 ): Promise<TerminalStateException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TerminalStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -532,12 +536,11 @@ const de_TerminalStateExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.payload != null) {
-    contents.payload = context.base64Decoder(data.payload);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    payload: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -545,90 +548,17 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1DetailsMap
- */
-const se_DetailsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_DetailsMap omitted.
 
-/**
- * deserializeAws_restJson1DetailsMap
- */
-const de_DetailsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_DetailsMap omitted.
 
-/**
- * deserializeAws_restJson1JobExecution
- */
-const de_JobExecution = (output: any, context: __SerdeContext): JobExecution => {
-  return {
-    approximateSecondsBeforeTimedOut: __expectLong(output.approximateSecondsBeforeTimedOut),
-    executionNumber: __expectLong(output.executionNumber),
-    jobDocument: __expectString(output.jobDocument),
-    jobId: __expectString(output.jobId),
-    lastUpdatedAt: __expectLong(output.lastUpdatedAt),
-    queuedAt: __expectLong(output.queuedAt),
-    startedAt: __expectLong(output.startedAt),
-    status: __expectString(output.status),
-    statusDetails: output.statusDetails != null ? de_DetailsMap(output.statusDetails, context) : undefined,
-    thingName: __expectString(output.thingName),
-    versionNumber: __expectLong(output.versionNumber),
-  } as any;
-};
+// de_JobExecution omitted.
 
-/**
- * deserializeAws_restJson1JobExecutionState
- */
-const de_JobExecutionState = (output: any, context: __SerdeContext): JobExecutionState => {
-  return {
-    status: __expectString(output.status),
-    statusDetails: output.statusDetails != null ? de_DetailsMap(output.statusDetails, context) : undefined,
-    versionNumber: __expectLong(output.versionNumber),
-  } as any;
-};
+// de_JobExecutionState omitted.
 
-/**
- * deserializeAws_restJson1JobExecutionSummary
- */
-const de_JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
-  return {
-    executionNumber: __expectLong(output.executionNumber),
-    jobId: __expectString(output.jobId),
-    lastUpdatedAt: __expectLong(output.lastUpdatedAt),
-    queuedAt: __expectLong(output.queuedAt),
-    startedAt: __expectLong(output.startedAt),
-    versionNumber: __expectLong(output.versionNumber),
-  } as any;
-};
+// de_JobExecutionSummary omitted.
 
-/**
- * deserializeAws_restJson1JobExecutionSummaryList
- */
-const de_JobExecutionSummaryList = (output: any, context: __SerdeContext): JobExecutionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_JobExecutionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_JobExecutionSummaryList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

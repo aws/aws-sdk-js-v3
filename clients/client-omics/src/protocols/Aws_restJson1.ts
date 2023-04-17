@@ -5,6 +5,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -14,10 +15,11 @@ import {
   expectString as __expectString,
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   DocumentType as __DocumentType,
@@ -191,25 +193,18 @@ import {
   AccessDeniedException,
   ActivateReadSetFilter,
   ActivateReadSetJobItem,
-  ActivateReadSetSourceItem,
-  AnnotationImportItemDetail,
   AnnotationImportItemSource,
   AnnotationImportJobItem,
   AnnotationStoreItem,
   ConflictException,
   ExportReadSet,
-  ExportReadSetDetail,
   ExportReadSetFilter,
   ExportReadSetJobDetail,
-  FileInformation,
   FormatOptions,
-  FormatToHeaderKey,
   ImportReadSetFilter,
   ImportReadSetJobItem,
-  ImportReadSetSourceItem,
   ImportReferenceFilter,
   ImportReferenceJobItem,
-  ImportReferenceSourceItem,
   InternalServerException,
   ListAnnotationImportJobsFilter,
   ListAnnotationStoresFilter,
@@ -217,11 +212,8 @@ import {
   ListVariantStoresFilter,
   RangeNotSatisfiableException,
   ReadOptions,
-  ReadSetBatchError,
-  ReadSetFiles,
   ReadSetFilter,
   ReadSetListItem,
-  ReferenceFiles,
   ReferenceFilter,
   ReferenceItem,
   ReferenceListItem,
@@ -232,7 +224,6 @@ import {
   RunGroupListItem,
   RunListItem,
   SchemaValueType,
-  SequenceInformation,
   SequenceStoreDetail,
   SequenceStoreFilter,
   ServiceQuotaExceededException,
@@ -247,7 +238,6 @@ import {
   TsvOptions,
   TsvStoreOptions,
   ValidationException,
-  VariantImportItemDetail,
   VariantImportItemSource,
   VariantImportJobItem,
   VariantStoreItem,
@@ -280,9 +270,11 @@ export const se_BatchDeleteReadSetCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ids != null && { ids: se_ReadSetIdList(input.ids, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ids: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -405,15 +397,17 @@ export const se_CreateAnnotationStoreCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.reference != null && { reference: se_ReferenceItem(input.reference, context) }),
-    ...(input.sseConfig != null && { sseConfig: se_SseConfig(input.sseConfig, context) }),
-    ...(input.storeFormat != null && { storeFormat: input.storeFormat }),
-    ...(input.storeOptions != null && { storeOptions: se_StoreOptions(input.storeOptions, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      reference: (_) => _json(_),
+      sseConfig: (_) => _json(_),
+      storeFormat: [],
+      storeOptions: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -445,13 +439,15 @@ export const se_CreateReferenceStoreCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/referencestore";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.sseConfig != null && { sseConfig: se_SseConfig(input.sseConfig, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      description: [],
+      name: [],
+      sseConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -483,14 +479,16 @@ export const se_CreateRunGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runGroup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxCpus != null && { maxCpus: input.maxCpus }),
-    ...(input.maxDuration != null && { maxDuration: input.maxDuration }),
-    ...(input.maxRuns != null && { maxRuns: input.maxRuns }),
-    ...(input.name != null && { name: input.name }),
-    requestId: input.requestId ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxCpus: [],
+      maxDuration: [],
+      maxRuns: [],
+      name: [],
+      requestId: (_) => _ ?? generateIdempotencyToken(),
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "workflows-" + resolvedHostname;
@@ -522,13 +520,15 @@ export const se_CreateSequenceStoreCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestore";
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.sseConfig != null && { sseConfig: se_SseConfig(input.sseConfig, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      description: [],
+      name: [],
+      sseConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -560,13 +560,15 @@ export const se_CreateVariantStoreCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/variantStore";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.reference != null && { reference: se_ReferenceItem(input.reference, context) }),
-    ...(input.sseConfig != null && { sseConfig: se_SseConfig(input.sseConfig, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      reference: (_) => _json(_),
+      sseConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -598,20 +600,20 @@ export const se_CreateWorkflowCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflow";
   let body: any;
-  body = JSON.stringify({
-    ...(input.definitionUri != null && { definitionUri: input.definitionUri }),
-    ...(input.definitionZip != null && { definitionZip: context.base64Encoder(input.definitionZip) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.engine != null && { engine: input.engine }),
-    ...(input.main != null && { main: input.main }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.parameterTemplate != null && {
-      parameterTemplate: se_WorkflowParameterTemplate(input.parameterTemplate, context),
-    }),
-    requestId: input.requestId ?? generateIdempotencyToken(),
-    ...(input.storageCapacity != null && { storageCapacity: input.storageCapacity }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      definitionUri: [],
+      definitionZip: (_) => context.base64Encoder(_),
+      description: [],
+      engine: [],
+      main: [],
+      name: [],
+      parameterTemplate: (_) => _json(_),
+      requestId: (_) => _ ?? generateIdempotencyToken(),
+      storageCapacity: [],
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "workflows-" + resolvedHostname;
@@ -1545,10 +1547,12 @@ export const se_ListAnnotationImportJobsCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ListAnnotationImportJobsFilter(input.filter, context) }),
-    ...(input.ids != null && { ids: se_IdList(input.ids, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      ids: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -1585,10 +1589,12 @@ export const se_ListAnnotationStoresCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ListAnnotationStoresFilter(input.filter, context) }),
-    ...(input.ids != null && { ids: se_IdList(input.ids, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      ids: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -1635,9 +1641,11 @@ export const se_ListReadSetActivationJobsCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ActivateReadSetFilter(input.filter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => se_ActivateReadSetFilter(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -1684,9 +1692,11 @@ export const se_ListReadSetExportJobsCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ExportReadSetFilter(input.filter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => se_ExportReadSetFilter(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -1733,9 +1743,11 @@ export const se_ListReadSetImportJobsCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ImportReadSetFilter(input.filter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => se_ImportReadSetFilter(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -1781,9 +1793,11 @@ export const se_ListReadSetsCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ReadSetFilter(input.filter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => se_ReadSetFilter(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -1830,9 +1844,11 @@ export const se_ListReferenceImportJobsCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ImportReferenceFilter(input.filter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => se_ImportReferenceFilter(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -1879,9 +1895,11 @@ export const se_ListReferencesCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ReferenceFilter(input.filter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => se_ReferenceFilter(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -1918,9 +1936,11 @@ export const se_ListReferenceStoresCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ReferenceStoreFilter(input.filter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => se_ReferenceStoreFilter(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -2064,9 +2084,11 @@ export const se_ListSequenceStoresCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_SequenceStoreFilter(input.filter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => se_SequenceStoreFilter(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -2133,10 +2155,12 @@ export const se_ListVariantImportJobsCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ListVariantImportJobsFilter(input.filter, context) }),
-    ...(input.ids != null && { ids: se_IdList(input.ids, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      ids: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -2173,10 +2197,12 @@ export const se_ListVariantStoresCommand = async (
     nextToken: [, input.nextToken!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.filter != null && { filter: se_ListVariantStoresFilter(input.filter, context) }),
-    ...(input.ids != null && { ids: se_IdList(input.ids, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      ids: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -2245,13 +2271,15 @@ export const se_StartAnnotationImportJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/annotation";
   let body: any;
-  body = JSON.stringify({
-    ...(input.destinationName != null && { destinationName: input.destinationName }),
-    ...(input.formatOptions != null && { formatOptions: se_FormatOptions(input.formatOptions, context) }),
-    ...(input.items != null && { items: se_AnnotationImportItemSources(input.items, context) }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.runLeftNormalization != null && { runLeftNormalization: input.runLeftNormalization }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      destinationName: [],
+      formatOptions: (_) => _json(_),
+      items: (_) => _json(_),
+      roleArn: [],
+      runLeftNormalization: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -2293,10 +2321,12 @@ export const se_StartReadSetActivationJobCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.sources != null && { sources: se_StartReadSetActivationJobSourceList(input.sources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      sources: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -2338,12 +2368,14 @@ export const se_StartReadSetExportJobCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.destination != null && { destination: input.destination }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.sources != null && { sources: se_ExportReadSetList(input.sources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      destination: [],
+      roleArn: [],
+      sources: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -2385,11 +2417,13 @@ export const se_StartReadSetImportJobCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.sources != null && { sources: se_StartReadSetImportJobSourceList(input.sources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      roleArn: [],
+      sources: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -2431,11 +2465,13 @@ export const se_StartReferenceImportJobCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientToken != null && { clientToken: input.clientToken }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.sources != null && { sources: se_StartReferenceImportJobSourceList(input.sources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      roleArn: [],
+      sources: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "control-storage-" + resolvedHostname;
@@ -2467,21 +2503,23 @@ export const se_StartRunCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/run";
   let body: any;
-  body = JSON.stringify({
-    ...(input.logLevel != null && { logLevel: input.logLevel }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.outputUri != null && { outputUri: input.outputUri }),
-    ...(input.parameters != null && { parameters: se_RunParameters(input.parameters, context) }),
-    ...(input.priority != null && { priority: input.priority }),
-    requestId: input.requestId ?? generateIdempotencyToken(),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.runGroupId != null && { runGroupId: input.runGroupId }),
-    ...(input.runId != null && { runId: input.runId }),
-    ...(input.storageCapacity != null && { storageCapacity: input.storageCapacity }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-    ...(input.workflowType != null && { workflowType: input.workflowType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      logLevel: [],
+      name: [],
+      outputUri: [],
+      parameters: (_) => se_RunParameters(_, context),
+      priority: [],
+      requestId: (_) => _ ?? generateIdempotencyToken(),
+      roleArn: [],
+      runGroupId: [],
+      runId: [],
+      storageCapacity: [],
+      tags: (_) => _json(_),
+      workflowId: [],
+      workflowType: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "workflows-" + resolvedHostname;
@@ -2513,12 +2551,14 @@ export const se_StartVariantImportJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/variant";
   let body: any;
-  body = JSON.stringify({
-    ...(input.destinationName != null && { destinationName: input.destinationName }),
-    ...(input.items != null && { items: se_VariantImportItemSources(input.items, context) }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.runLeftNormalization != null && { runLeftNormalization: input.runLeftNormalization }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      destinationName: [],
+      items: (_) => _json(_),
+      roleArn: [],
+      runLeftNormalization: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -2551,9 +2591,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "tags-" + resolvedHostname;
@@ -2623,9 +2665,11 @@ export const se_UpdateAnnotationStoreCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -2658,12 +2702,14 @@ export const se_UpdateRunGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runGroup/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxCpus != null && { maxCpus: input.maxCpus }),
-    ...(input.maxDuration != null && { maxDuration: input.maxDuration }),
-    ...(input.maxRuns != null && { maxRuns: input.maxRuns }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxCpus: [],
+      maxDuration: [],
+      maxRuns: [],
+      name: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "workflows-" + resolvedHostname;
@@ -2696,9 +2742,11 @@ export const se_UpdateVariantStoreCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/variantStore/{name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
@@ -2731,10 +2779,12 @@ export const se_UpdateWorkflowCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflow/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "workflows-" + resolvedHostname;
@@ -2767,9 +2817,10 @@ export const de_BatchDeleteReadSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = de_ReadSetBatchErrorList(data.errors, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2806,10 +2857,9 @@ const de_BatchDeleteReadSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2862,10 +2912,9 @@ const de_CancelAnnotationImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2927,10 +2976,9 @@ const de_CancelRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2983,10 +3031,9 @@ const de_CancelVariantImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3006,27 +3053,16 @@ export const de_CreateAnnotationStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.reference != null) {
-    contents.reference = de_ReferenceItem(__expectUnion(data.reference), context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.storeFormat != null) {
-    contents.storeFormat = __expectString(data.storeFormat);
-  }
-  if (data.storeOptions != null) {
-    contents.storeOptions = de_StoreOptions(__expectUnion(data.storeOptions), context);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    name: __expectString,
+    reference: (_) => _json(__expectUnion(_)),
+    status: __expectString,
+    storeFormat: __expectString,
+    storeOptions: (_) => _json(__expectUnion(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3066,10 +3102,9 @@ const de_CreateAnnotationStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3089,24 +3124,15 @@ export const de_CreateReferenceStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.sseConfig != null) {
-    contents.sseConfig = de_SseConfig(data.sseConfig, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    sseConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3143,10 +3169,9 @@ const de_CreateReferenceStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3166,15 +3191,12 @@ export const de_CreateRunGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3217,10 +3239,9 @@ const de_CreateRunGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3240,24 +3261,15 @@ export const de_CreateSequenceStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.sseConfig != null) {
-    contents.sseConfig = de_SseConfig(data.sseConfig, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    sseConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3294,10 +3306,9 @@ const de_CreateSequenceStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3317,21 +3328,14 @@ export const de_CreateVariantStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.reference != null) {
-    contents.reference = de_ReferenceItem(__expectUnion(data.reference), context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    name: __expectString,
+    reference: (_) => _json(__expectUnion(_)),
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3371,10 +3375,9 @@ const de_CreateVariantStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3394,18 +3397,13 @@ export const de_CreateWorkflowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3448,10 +3446,9 @@ const de_CreateWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3471,9 +3468,10 @@ export const de_DeleteAnnotationStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3510,10 +3508,9 @@ const de_DeleteAnnotationStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3572,10 +3569,9 @@ const de_DeleteReferenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3634,10 +3630,9 @@ const de_DeleteReferenceStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3699,10 +3694,9 @@ const de_DeleteRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3764,10 +3758,9 @@ const de_DeleteRunGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3826,10 +3819,9 @@ const de_DeleteSequenceStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3849,9 +3841,10 @@ export const de_DeleteVariantStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3888,10 +3881,9 @@ const de_DeleteVariantStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3953,10 +3945,9 @@ const de_DeleteWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3976,39 +3967,20 @@ export const de_GetAnnotationImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.destinationName != null) {
-    contents.destinationName = __expectString(data.destinationName);
-  }
-  if (data.formatOptions != null) {
-    contents.formatOptions = de_FormatOptions(__expectUnion(data.formatOptions), context);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.items != null) {
-    contents.items = de_AnnotationImportItemDetails(data.items, context);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
-  if (data.runLeftNormalization != null) {
-    contents.runLeftNormalization = __expectBoolean(data.runLeftNormalization);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
-  }
+  const doc = take(data, {
+    completionTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    destinationName: __expectString,
+    formatOptions: (_) => _json(__expectUnion(_)),
+    id: __expectString,
+    items: _json,
+    roleArn: __expectString,
+    runLeftNormalization: __expectBoolean,
+    status: __expectString,
+    statusMessage: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4042,10 +4014,9 @@ const de_GetAnnotationImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4065,48 +4036,23 @@ export const de_GetAnnotationStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.reference != null) {
-    contents.reference = de_ReferenceItem(__expectUnion(data.reference), context);
-  }
-  if (data.sseConfig != null) {
-    contents.sseConfig = de_SseConfig(data.sseConfig, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.storeArn != null) {
-    contents.storeArn = __expectString(data.storeArn);
-  }
-  if (data.storeFormat != null) {
-    contents.storeFormat = __expectString(data.storeFormat);
-  }
-  if (data.storeOptions != null) {
-    contents.storeOptions = de_StoreOptions(__expectUnion(data.storeOptions), context);
-  }
-  if (data.storeSizeBytes != null) {
-    contents.storeSizeBytes = __expectLong(data.storeSizeBytes);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    reference: (_) => _json(__expectUnion(_)),
+    sseConfig: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    storeArn: __expectString,
+    storeFormat: __expectString,
+    storeOptions: (_) => _json(__expectUnion(_)),
+    storeSizeBytes: __expectLong,
+    tags: _json,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4140,10 +4086,9 @@ const de_GetAnnotationStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4207,10 +4152,9 @@ const de_GetReadSetCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4230,27 +4174,16 @@ export const de_GetReadSetActivationJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.sequenceStoreId != null) {
-    contents.sequenceStoreId = __expectString(data.sequenceStoreId);
-  }
-  if (data.sources != null) {
-    contents.sources = de_ActivateReadSetSourceList(data.sources, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
+  const doc = take(data, {
+    completionTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    sequenceStoreId: __expectString,
+    sources: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4287,10 +4220,9 @@ const de_GetReadSetActivationJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4310,30 +4242,17 @@ export const de_GetReadSetExportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.destination != null) {
-    contents.destination = __expectString(data.destination);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.readSets != null) {
-    contents.readSets = de_ExportReadSetDetailList(data.readSets, context);
-  }
-  if (data.sequenceStoreId != null) {
-    contents.sequenceStoreId = __expectString(data.sequenceStoreId);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
+  const doc = take(data, {
+    completionTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    destination: __expectString,
+    id: __expectString,
+    readSets: _json,
+    sequenceStoreId: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4370,10 +4289,9 @@ const de_GetReadSetExportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4393,30 +4311,17 @@ export const de_GetReadSetImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
-  if (data.sequenceStoreId != null) {
-    contents.sequenceStoreId = __expectString(data.sequenceStoreId);
-  }
-  if (data.sources != null) {
-    contents.sources = de_ImportReadSetSourceList(data.sources, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
+  const doc = take(data, {
+    completionTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    roleArn: __expectString,
+    sequenceStoreId: __expectString,
+    sources: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4453,10 +4358,9 @@ const de_GetReadSetImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4476,45 +4380,22 @@ export const de_GetReadSetMetadataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.fileType != null) {
-    contents.fileType = __expectString(data.fileType);
-  }
-  if (data.files != null) {
-    contents.files = de_ReadSetFiles(data.files, context);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.referenceArn != null) {
-    contents.referenceArn = __expectString(data.referenceArn);
-  }
-  if (data.sampleId != null) {
-    contents.sampleId = __expectString(data.sampleId);
-  }
-  if (data.sequenceInformation != null) {
-    contents.sequenceInformation = de_SequenceInformation(data.sequenceInformation, context);
-  }
-  if (data.sequenceStoreId != null) {
-    contents.sequenceStoreId = __expectString(data.sequenceStoreId);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.subjectId != null) {
-    contents.subjectId = __expectString(data.subjectId);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    fileType: __expectString,
+    files: _json,
+    id: __expectString,
+    name: __expectString,
+    referenceArn: __expectString,
+    sampleId: __expectString,
+    sequenceInformation: _json,
+    sequenceStoreId: __expectString,
+    status: __expectString,
+    subjectId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4551,10 +4432,9 @@ const de_GetReadSetMetadataCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4615,10 +4495,9 @@ const de_GetReferenceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4638,30 +4517,17 @@ export const de_GetReferenceImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.referenceStoreId != null) {
-    contents.referenceStoreId = __expectString(data.referenceStoreId);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
-  if (data.sources != null) {
-    contents.sources = de_ImportReferenceSourceList(data.sources, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
+  const doc = take(data, {
+    completionTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    referenceStoreId: __expectString,
+    roleArn: __expectString,
+    sources: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4698,10 +4564,9 @@ const de_GetReferenceImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4721,36 +4586,19 @@ export const de_GetReferenceMetadataCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.files != null) {
-    contents.files = de_ReferenceFiles(data.files, context);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.md5 != null) {
-    contents.md5 = __expectString(data.md5);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.referenceStoreId != null) {
-    contents.referenceStoreId = __expectString(data.referenceStoreId);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    files: _json,
+    id: __expectString,
+    md5: __expectString,
+    name: __expectString,
+    referenceStoreId: __expectString,
+    status: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4787,10 +4635,9 @@ const de_GetReferenceMetadataCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4810,24 +4657,15 @@ export const de_GetReferenceStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.sseConfig != null) {
-    contents.sseConfig = de_SseConfig(data.sseConfig, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    sseConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4864,10 +4702,9 @@ const de_GetReferenceStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -4887,75 +4724,32 @@ export const de_GetRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.definition != null) {
-    contents.definition = __expectString(data.definition);
-  }
-  if (data.digest != null) {
-    contents.digest = __expectString(data.digest);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.logLevel != null) {
-    contents.logLevel = __expectString(data.logLevel);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.outputUri != null) {
-    contents.outputUri = __expectString(data.outputUri);
-  }
-  if (data.parameters != null) {
-    contents.parameters = de_RunParameters(data.parameters, context);
-  }
-  if (data.priority != null) {
-    contents.priority = __expectInt32(data.priority);
-  }
-  if (data.resourceDigests != null) {
-    contents.resourceDigests = de_RunResourceDigests(data.resourceDigests, context);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
-  if (data.runGroupId != null) {
-    contents.runGroupId = __expectString(data.runGroupId);
-  }
-  if (data.runId != null) {
-    contents.runId = __expectString(data.runId);
-  }
-  if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.startTime));
-  }
-  if (data.startedBy != null) {
-    contents.startedBy = __expectString(data.startedBy);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.stopTime != null) {
-    contents.stopTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.stopTime));
-  }
-  if (data.storageCapacity != null) {
-    contents.storageCapacity = __expectInt32(data.storageCapacity);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
-  if (data.workflowType != null) {
-    contents.workflowType = __expectString(data.workflowType);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definition: __expectString,
+    digest: __expectString,
+    id: __expectString,
+    logLevel: __expectString,
+    name: __expectString,
+    outputUri: __expectString,
+    parameters: (_) => de_RunParameters(_, context),
+    priority: __expectInt32,
+    resourceDigests: _json,
+    roleArn: __expectString,
+    runGroupId: __expectString,
+    runId: __expectString,
+    startTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    startedBy: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    stopTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    storageCapacity: __expectInt32,
+    tags: _json,
+    workflowId: __expectString,
+    workflowType: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4995,10 +4789,9 @@ const de_GetRunCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5018,30 +4811,17 @@ export const de_GetRunGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.maxCpus != null) {
-    contents.maxCpus = __expectInt32(data.maxCpus);
-  }
-  if (data.maxDuration != null) {
-    contents.maxDuration = __expectInt32(data.maxDuration);
-  }
-  if (data.maxRuns != null) {
-    contents.maxRuns = __expectInt32(data.maxRuns);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    maxCpus: __expectInt32,
+    maxDuration: __expectInt32,
+    maxRuns: __expectInt32,
+    name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5084,10 +4864,9 @@ const de_GetRunGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5107,36 +4886,19 @@ export const de_GetRunTaskCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cpus != null) {
-    contents.cpus = __expectInt32(data.cpus);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.logStream != null) {
-    contents.logStream = __expectString(data.logStream);
-  }
-  if (data.memory != null) {
-    contents.memory = __expectInt32(data.memory);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.startTime != null) {
-    contents.startTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.startTime));
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.stopTime != null) {
-    contents.stopTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.stopTime));
-  }
-  if (data.taskId != null) {
-    contents.taskId = __expectString(data.taskId);
-  }
+  const doc = take(data, {
+    cpus: __expectInt32,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    logStream: __expectString,
+    memory: __expectInt32,
+    name: __expectString,
+    startTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    statusMessage: __expectString,
+    stopTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    taskId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5179,10 +4941,9 @@ const de_GetRunTaskCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5202,24 +4963,15 @@ export const de_GetSequenceStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.sseConfig != null) {
-    contents.sseConfig = de_SseConfig(data.sseConfig, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    sseConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5256,10 +5008,9 @@ const de_GetSequenceStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5279,36 +5030,19 @@ export const de_GetVariantImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.completionTime != null) {
-    contents.completionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.completionTime));
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.destinationName != null) {
-    contents.destinationName = __expectString(data.destinationName);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.items != null) {
-    contents.items = de_VariantImportItemDetails(data.items, context);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
-  if (data.runLeftNormalization != null) {
-    contents.runLeftNormalization = __expectBoolean(data.runLeftNormalization);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
-  }
+  const doc = take(data, {
+    completionTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    destinationName: __expectString,
+    id: __expectString,
+    items: _json,
+    roleArn: __expectString,
+    runLeftNormalization: __expectBoolean,
+    status: __expectString,
+    statusMessage: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5342,10 +5076,9 @@ const de_GetVariantImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5365,42 +5098,21 @@ export const de_GetVariantStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.reference != null) {
-    contents.reference = de_ReferenceItem(__expectUnion(data.reference), context);
-  }
-  if (data.sseConfig != null) {
-    contents.sseConfig = de_SseConfig(data.sseConfig, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.storeArn != null) {
-    contents.storeArn = __expectString(data.storeArn);
-  }
-  if (data.storeSizeBytes != null) {
-    contents.storeSizeBytes = __expectLong(data.storeSizeBytes);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    reference: (_) => _json(__expectUnion(_)),
+    sseConfig: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    storeArn: __expectString,
+    storeSizeBytes: __expectLong,
+    tags: _json,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5434,10 +5146,9 @@ const de_GetVariantStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5457,51 +5168,24 @@ export const de_GetWorkflowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.definition != null) {
-    contents.definition = __expectString(data.definition);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.digest != null) {
-    contents.digest = __expectString(data.digest);
-  }
-  if (data.engine != null) {
-    contents.engine = __expectString(data.engine);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.main != null) {
-    contents.main = __expectString(data.main);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.parameterTemplate != null) {
-    contents.parameterTemplate = de_WorkflowParameterTemplate(data.parameterTemplate, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.storageCapacity != null) {
-    contents.storageCapacity = __expectInt32(data.storageCapacity);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.type != null) {
-    contents.type = __expectString(data.type);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definition: __expectString,
+    description: __expectString,
+    digest: __expectString,
+    engine: __expectString,
+    id: __expectString,
+    main: __expectString,
+    name: __expectString,
+    parameterTemplate: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    storageCapacity: __expectInt32,
+    tags: _json,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5544,10 +5228,9 @@ const de_GetWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5567,12 +5250,11 @@ export const de_ListAnnotationImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.annotationImportJobs != null) {
-    contents.annotationImportJobs = de_AnnotationImportJobItems(data.annotationImportJobs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    annotationImportJobs: (_) => de_AnnotationImportJobItems(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5606,10 +5288,9 @@ const de_ListAnnotationImportJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5629,12 +5310,11 @@ export const de_ListAnnotationStoresCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.annotationStores != null) {
-    contents.annotationStores = de_AnnotationStoreItems(data.annotationStores, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    annotationStores: (_) => de_AnnotationStoreItems(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5668,10 +5348,9 @@ const de_ListAnnotationStoresCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5691,12 +5370,11 @@ export const de_ListReadSetActivationJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.activationJobs != null) {
-    contents.activationJobs = de_ActivateReadSetJobList(data.activationJobs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    activationJobs: (_) => de_ActivateReadSetJobList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5733,10 +5411,9 @@ const de_ListReadSetActivationJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5756,12 +5433,11 @@ export const de_ListReadSetExportJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.exportJobs != null) {
-    contents.exportJobs = de_ExportReadSetJobDetailList(data.exportJobs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    exportJobs: (_) => de_ExportReadSetJobDetailList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5798,10 +5474,9 @@ const de_ListReadSetExportJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5821,12 +5496,11 @@ export const de_ListReadSetImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.importJobs != null) {
-    contents.importJobs = de_ImportReadSetJobList(data.importJobs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    importJobs: (_) => de_ImportReadSetJobList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5863,10 +5537,9 @@ const de_ListReadSetImportJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5886,12 +5559,11 @@ export const de_ListReadSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.readSets != null) {
-    contents.readSets = de_ReadSetList(data.readSets, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    readSets: (_) => de_ReadSetList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5928,10 +5600,9 @@ const de_ListReadSetsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -5951,12 +5622,11 @@ export const de_ListReferenceImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.importJobs != null) {
-    contents.importJobs = de_ImportReferenceJobList(data.importJobs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    importJobs: (_) => de_ImportReferenceJobList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5993,10 +5663,9 @@ const de_ListReferenceImportJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6016,12 +5685,11 @@ export const de_ListReferencesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.references != null) {
-    contents.references = de_ReferenceList(data.references, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    references: (_) => de_ReferenceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6058,10 +5726,9 @@ const de_ListReferencesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6081,12 +5748,11 @@ export const de_ListReferenceStoresCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.referenceStores != null) {
-    contents.referenceStores = de_ReferenceStoreDetailList(data.referenceStores, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    referenceStores: (_) => de_ReferenceStoreDetailList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6120,10 +5786,9 @@ const de_ListReferenceStoresCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6143,12 +5808,11 @@ export const de_ListRunGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.items != null) {
-    contents.items = de_RunGroupList(data.items, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    items: (_) => de_RunGroupList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6191,10 +5855,9 @@ const de_ListRunGroupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6214,12 +5877,11 @@ export const de_ListRunsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.items != null) {
-    contents.items = de_RunList(data.items, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    items: (_) => de_RunList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6262,10 +5924,9 @@ const de_ListRunsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6285,12 +5946,11 @@ export const de_ListRunTasksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.items != null) {
-    contents.items = de_TaskList(data.items, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    items: (_) => de_TaskList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6333,10 +5993,9 @@ const de_ListRunTasksCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6356,12 +6015,11 @@ export const de_ListSequenceStoresCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.sequenceStores != null) {
-    contents.sequenceStores = de_SequenceStoreDetailList(data.sequenceStores, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    sequenceStores: (_) => de_SequenceStoreDetailList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6395,10 +6053,9 @@ const de_ListSequenceStoresCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6418,9 +6075,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6463,10 +6121,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6486,12 +6143,11 @@ export const de_ListVariantImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.variantImportJobs != null) {
-    contents.variantImportJobs = de_VariantImportJobItems(data.variantImportJobs, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    variantImportJobs: (_) => de_VariantImportJobItems(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6525,10 +6181,9 @@ const de_ListVariantImportJobsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6548,12 +6203,11 @@ export const de_ListVariantStoresCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.variantStores != null) {
-    contents.variantStores = de_VariantStoreItems(data.variantStores, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    variantStores: (_) => de_VariantStoreItems(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6587,10 +6241,9 @@ const de_ListVariantStoresCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6610,12 +6263,11 @@ export const de_ListWorkflowsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.items != null) {
-    contents.items = de_WorkflowList(data.items, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    items: (_) => de_WorkflowList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6658,10 +6310,9 @@ const de_ListWorkflowsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6681,9 +6332,10 @@ export const de_StartAnnotationImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobId != null) {
-    contents.jobId = __expectString(data.jobId);
-  }
+  const doc = take(data, {
+    jobId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6720,10 +6372,9 @@ const de_StartAnnotationImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6743,18 +6394,13 @@ export const de_StartReadSetActivationJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.sequenceStoreId != null) {
-    contents.sequenceStoreId = __expectString(data.sequenceStoreId);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    sequenceStoreId: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6794,10 +6440,9 @@ const de_StartReadSetActivationJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6817,21 +6462,14 @@ export const de_StartReadSetExportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.destination != null) {
-    contents.destination = __expectString(data.destination);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.sequenceStoreId != null) {
-    contents.sequenceStoreId = __expectString(data.sequenceStoreId);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    destination: __expectString,
+    id: __expectString,
+    sequenceStoreId: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6871,10 +6509,9 @@ const de_StartReadSetExportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6894,21 +6531,14 @@ export const de_StartReadSetImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
-  if (data.sequenceStoreId != null) {
-    contents.sequenceStoreId = __expectString(data.sequenceStoreId);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    roleArn: __expectString,
+    sequenceStoreId: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6948,10 +6578,9 @@ const de_StartReadSetImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -6971,21 +6600,14 @@ export const de_StartReferenceImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.referenceStoreId != null) {
-    contents.referenceStoreId = __expectString(data.referenceStoreId);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    referenceStoreId: __expectString,
+    roleArn: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7025,10 +6647,9 @@ const de_StartReferenceImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7048,18 +6669,13 @@ export const de_StartRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7102,10 +6718,9 @@ const de_StartRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7125,9 +6740,10 @@ export const de_StartVariantImportJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobId != null) {
-    contents.jobId = __expectString(data.jobId);
-  }
+  const doc = take(data, {
+    jobId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7164,10 +6780,9 @@ const de_StartVariantImportJobCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7229,10 +6844,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7294,10 +6908,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7317,33 +6930,18 @@ export const de_UpdateAnnotationStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.reference != null) {
-    contents.reference = de_ReferenceItem(__expectUnion(data.reference), context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.storeFormat != null) {
-    contents.storeFormat = __expectString(data.storeFormat);
-  }
-  if (data.storeOptions != null) {
-    contents.storeOptions = de_StoreOptions(__expectUnion(data.storeOptions), context);
-  }
-  if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    reference: (_) => _json(__expectUnion(_)),
+    status: __expectString,
+    storeFormat: __expectString,
+    storeOptions: (_) => _json(__expectUnion(_)),
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7377,10 +6975,9 @@ const de_UpdateAnnotationStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7442,10 +7039,9 @@ const de_UpdateRunGroupCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7465,27 +7061,16 @@ export const de_UpdateVariantStoreCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.reference != null) {
-    contents.reference = de_ReferenceItem(__expectUnion(data.reference), context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.updateTime != null) {
-    contents.updateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.updateTime));
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    reference: (_) => _json(__expectUnion(_)),
+    status: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7519,10 +7104,9 @@ const de_UpdateVariantStoreCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7584,16 +7168,15 @@ const de_UpdateWorkflowCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -7603,9 +7186,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7619,9 +7203,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7638,9 +7223,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7657,9 +7243,10 @@ const de_RangeNotSatisfiableExceptionRes = async (
 ): Promise<RangeNotSatisfiableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RangeNotSatisfiableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7676,9 +7263,10 @@ const de_RequestTimeoutExceptionRes = async (
 ): Promise<RequestTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7695,9 +7283,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7714,9 +7303,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7730,9 +7320,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7746,9 +7337,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7760,231 +7352,108 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * serializeAws_restJson1ActivateReadSetFilter
  */
 const se_ActivateReadSetFilter = (input: ActivateReadSetFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.createdAfter != null && { createdAfter: input.createdAfter.toISOString().split(".")[0] + "Z" }),
-    ...(input.createdBefore != null && { createdBefore: input.createdBefore.toISOString().split(".")[0] + "Z" }),
-    ...(input.status != null && { status: input.status }),
-  };
+  return take(input, {
+    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
+    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    status: [],
+  });
 };
 
-/**
- * serializeAws_restJson1AnnotationImportItemSource
- */
-const se_AnnotationImportItemSource = (input: AnnotationImportItemSource, context: __SerdeContext): any => {
-  return {
-    ...(input.source != null && { source: input.source }),
-  };
-};
+// se_AnnotationImportItemSource omitted.
 
-/**
- * serializeAws_restJson1AnnotationImportItemSources
- */
-const se_AnnotationImportItemSources = (input: AnnotationImportItemSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AnnotationImportItemSource(entry, context);
-    });
-};
+// se_AnnotationImportItemSources omitted.
 
-/**
- * serializeAws_restJson1ExportReadSet
- */
-const se_ExportReadSet = (input: ExportReadSet, context: __SerdeContext): any => {
-  return {
-    ...(input.readSetId != null && { readSetId: input.readSetId }),
-  };
-};
+// se_ExportReadSet omitted.
 
 /**
  * serializeAws_restJson1ExportReadSetFilter
  */
 const se_ExportReadSetFilter = (input: ExportReadSetFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.createdAfter != null && { createdAfter: input.createdAfter.toISOString().split(".")[0] + "Z" }),
-    ...(input.createdBefore != null && { createdBefore: input.createdBefore.toISOString().split(".")[0] + "Z" }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
-
-/**
- * serializeAws_restJson1ExportReadSetList
- */
-const se_ExportReadSetList = (input: ExportReadSet[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ExportReadSet(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1FormatOptions
- */
-const se_FormatOptions = (input: FormatOptions, context: __SerdeContext): any => {
-  return FormatOptions.visit(input, {
-    tsvOptions: (value) => ({ tsvOptions: se_TsvOptions(value, context) }),
-    vcfOptions: (value) => ({ vcfOptions: se_VcfOptions(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
+    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    status: [],
   });
 };
 
-/**
- * serializeAws_restJson1FormatToHeader
- */
-const se_FormatToHeader = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [FormatToHeaderKey | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ExportReadSetList omitted.
 
-/**
- * serializeAws_restJson1IdList
- */
-const se_IdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FormatOptions omitted.
+
+// se_FormatToHeader omitted.
+
+// se_IdList omitted.
 
 /**
  * serializeAws_restJson1ImportReadSetFilter
  */
 const se_ImportReadSetFilter = (input: ImportReadSetFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.createdAfter != null && { createdAfter: input.createdAfter.toISOString().split(".")[0] + "Z" }),
-    ...(input.createdBefore != null && { createdBefore: input.createdBefore.toISOString().split(".")[0] + "Z" }),
-    ...(input.status != null && { status: input.status }),
-  };
+  return take(input, {
+    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
+    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    status: [],
+  });
 };
 
 /**
  * serializeAws_restJson1ImportReferenceFilter
  */
 const se_ImportReferenceFilter = (input: ImportReferenceFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.createdAfter != null && { createdAfter: input.createdAfter.toISOString().split(".")[0] + "Z" }),
-    ...(input.createdBefore != null && { createdBefore: input.createdBefore.toISOString().split(".")[0] + "Z" }),
-    ...(input.status != null && { status: input.status }),
-  };
+  return take(input, {
+    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
+    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    status: [],
+  });
 };
 
-/**
- * serializeAws_restJson1ListAnnotationImportJobsFilter
- */
-const se_ListAnnotationImportJobsFilter = (input: ListAnnotationImportJobsFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-    ...(input.storeName != null && { storeName: input.storeName }),
-  };
-};
+// se_ListAnnotationImportJobsFilter omitted.
 
-/**
- * serializeAws_restJson1ListAnnotationStoresFilter
- */
-const se_ListAnnotationStoresFilter = (input: ListAnnotationStoresFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_ListAnnotationStoresFilter omitted.
 
-/**
- * serializeAws_restJson1ListVariantImportJobsFilter
- */
-const se_ListVariantImportJobsFilter = (input: ListVariantImportJobsFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-    ...(input.storeName != null && { storeName: input.storeName }),
-  };
-};
+// se_ListVariantImportJobsFilter omitted.
 
-/**
- * serializeAws_restJson1ListVariantStoresFilter
- */
-const se_ListVariantStoresFilter = (input: ListVariantStoresFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_ListVariantStoresFilter omitted.
 
-/**
- * serializeAws_restJson1ReadOptions
- */
-const se_ReadOptions = (input: ReadOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.comment != null && { comment: input.comment }),
-    ...(input.encoding != null && { encoding: input.encoding }),
-    ...(input.escape != null && { escape: input.escape }),
-    ...(input.escapeQuotes != null && { escapeQuotes: input.escapeQuotes }),
-    ...(input.header != null && { header: input.header }),
-    ...(input.lineSep != null && { lineSep: input.lineSep }),
-    ...(input.quote != null && { quote: input.quote }),
-    ...(input.quoteAll != null && { quoteAll: input.quoteAll }),
-    ...(input.sep != null && { sep: input.sep }),
-  };
-};
+// se_ReadOptions omitted.
 
 /**
  * serializeAws_restJson1ReadSetFilter
  */
 const se_ReadSetFilter = (input: ReadSetFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.createdAfter != null && { createdAfter: input.createdAfter.toISOString().split(".")[0] + "Z" }),
-    ...(input.createdBefore != null && { createdBefore: input.createdBefore.toISOString().split(".")[0] + "Z" }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.referenceArn != null && { referenceArn: input.referenceArn }),
-    ...(input.status != null && { status: input.status }),
-  };
+  return take(input, {
+    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
+    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    name: [],
+    referenceArn: [],
+    status: [],
+  });
 };
 
-/**
- * serializeAws_restJson1ReadSetIdList
- */
-const se_ReadSetIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ReadSetIdList omitted.
 
 /**
  * serializeAws_restJson1ReferenceFilter
  */
 const se_ReferenceFilter = (input: ReferenceFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.createdAfter != null && { createdAfter: input.createdAfter.toISOString().split(".")[0] + "Z" }),
-    ...(input.createdBefore != null && { createdBefore: input.createdBefore.toISOString().split(".")[0] + "Z" }),
-    ...(input.md5 != null && { md5: input.md5 }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_restJson1ReferenceItem
- */
-const se_ReferenceItem = (input: ReferenceItem, context: __SerdeContext): any => {
-  return ReferenceItem.visit(input, {
-    referenceArn: (value) => ({ referenceArn: value }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
+    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    md5: [],
+    name: [],
   });
 };
+
+// se_ReferenceItem omitted.
 
 /**
  * serializeAws_restJson1ReferenceStoreFilter
  */
 const se_ReferenceStoreFilter = (input: ReferenceStoreFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.createdAfter != null && { createdAfter: input.createdAfter.toISOString().split(".")[0] + "Z" }),
-    ...(input.createdBefore != null && { createdBefore: input.createdBefore.toISOString().split(".")[0] + "Z" }),
-    ...(input.name != null && { name: input.name }),
-  };
+  return take(input, {
+    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
+    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    name: [],
+  });
 };
 
 /**
@@ -7994,255 +7463,66 @@ const se_RunParameters = (input: __DocumentType, context: __SerdeContext): any =
   return input;
 };
 
-/**
- * serializeAws_restJson1Schema
- */
-const se_Schema = (input: Record<string, SchemaValueType | string>[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SchemaItem(entry, context);
-    });
-};
+// se_Schema omitted.
 
-/**
- * serializeAws_restJson1SchemaItem
- */
-const se_SchemaItem = (input: Record<string, SchemaValueType | string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_SchemaItem omitted.
 
 /**
  * serializeAws_restJson1SequenceStoreFilter
  */
 const se_SequenceStoreFilter = (input: SequenceStoreFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.createdAfter != null && { createdAfter: input.createdAfter.toISOString().split(".")[0] + "Z" }),
-    ...(input.createdBefore != null && { createdBefore: input.createdBefore.toISOString().split(".")[0] + "Z" }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
-
-/**
- * serializeAws_restJson1SourceFiles
- */
-const se_SourceFiles = (input: SourceFiles, context: __SerdeContext): any => {
-  return {
-    ...(input.source1 != null && { source1: input.source1 }),
-    ...(input.source2 != null && { source2: input.source2 }),
-  };
-};
-
-/**
- * serializeAws_restJson1SseConfig
- */
-const se_SseConfig = (input: SseConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.keyArn != null && { keyArn: input.keyArn }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
-
-/**
- * serializeAws_restJson1StartReadSetActivationJobSourceItem
- */
-const se_StartReadSetActivationJobSourceItem = (
-  input: StartReadSetActivationJobSourceItem,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.readSetId != null && { readSetId: input.readSetId }),
-  };
-};
-
-/**
- * serializeAws_restJson1StartReadSetActivationJobSourceList
- */
-const se_StartReadSetActivationJobSourceList = (
-  input: StartReadSetActivationJobSourceItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_StartReadSetActivationJobSourceItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1StartReadSetImportJobSourceItem
- */
-const se_StartReadSetImportJobSourceItem = (input: StartReadSetImportJobSourceItem, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.generatedFrom != null && { generatedFrom: input.generatedFrom }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.referenceArn != null && { referenceArn: input.referenceArn }),
-    ...(input.sampleId != null && { sampleId: input.sampleId }),
-    ...(input.sourceFileType != null && { sourceFileType: input.sourceFileType }),
-    ...(input.sourceFiles != null && { sourceFiles: se_SourceFiles(input.sourceFiles, context) }),
-    ...(input.subjectId != null && { subjectId: input.subjectId }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1StartReadSetImportJobSourceList
- */
-const se_StartReadSetImportJobSourceList = (input: StartReadSetImportJobSourceItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_StartReadSetImportJobSourceItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1StartReferenceImportJobSourceItem
- */
-const se_StartReferenceImportJobSourceItem = (
-  input: StartReferenceImportJobSourceItem,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.sourceFile != null && { sourceFile: input.sourceFile }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1StartReferenceImportJobSourceList
- */
-const se_StartReferenceImportJobSourceList = (
-  input: StartReferenceImportJobSourceItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_StartReferenceImportJobSourceItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1StoreOptions
- */
-const se_StoreOptions = (input: StoreOptions, context: __SerdeContext): any => {
-  return StoreOptions.visit(input, {
-    tsvStoreOptions: (value) => ({ tsvStoreOptions: se_TsvStoreOptions(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
+    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    name: [],
   });
 };
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_SourceFiles omitted.
 
-/**
- * serializeAws_restJson1TsvOptions
- */
-const se_TsvOptions = (input: TsvOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.readOptions != null && { readOptions: se_ReadOptions(input.readOptions, context) }),
-  };
-};
+// se_SseConfig omitted.
 
-/**
- * serializeAws_restJson1TsvStoreOptions
- */
-const se_TsvStoreOptions = (input: TsvStoreOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.annotationType != null && { annotationType: input.annotationType }),
-    ...(input.formatToHeader != null && { formatToHeader: se_FormatToHeader(input.formatToHeader, context) }),
-    ...(input.schema != null && { schema: se_Schema(input.schema, context) }),
-  };
-};
+// se_StartReadSetActivationJobSourceItem omitted.
 
-/**
- * serializeAws_restJson1VariantImportItemSource
- */
-const se_VariantImportItemSource = (input: VariantImportItemSource, context: __SerdeContext): any => {
-  return {
-    ...(input.source != null && { source: input.source }),
-  };
-};
+// se_StartReadSetActivationJobSourceList omitted.
 
-/**
- * serializeAws_restJson1VariantImportItemSources
- */
-const se_VariantImportItemSources = (input: VariantImportItemSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_VariantImportItemSource(entry, context);
-    });
-};
+// se_StartReadSetImportJobSourceItem omitted.
 
-/**
- * serializeAws_restJson1VcfOptions
- */
-const se_VcfOptions = (input: VcfOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.ignoreFilterField != null && { ignoreFilterField: input.ignoreFilterField }),
-    ...(input.ignoreQualField != null && { ignoreQualField: input.ignoreQualField }),
-  };
-};
+// se_StartReadSetImportJobSourceList omitted.
 
-/**
- * serializeAws_restJson1WorkflowParameter
- */
-const se_WorkflowParameter = (input: WorkflowParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.optional != null && { optional: input.optional }),
-  };
-};
+// se_StartReferenceImportJobSourceItem omitted.
 
-/**
- * serializeAws_restJson1WorkflowParameterTemplate
- */
-const se_WorkflowParameterTemplate = (input: Record<string, WorkflowParameter>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_WorkflowParameter(value, context);
-    return acc;
-  }, {});
-};
+// se_StartReferenceImportJobSourceList omitted.
+
+// se_StoreOptions omitted.
+
+// se_TagMap omitted.
+
+// se_TsvOptions omitted.
+
+// se_TsvStoreOptions omitted.
+
+// se_VariantImportItemSource omitted.
+
+// se_VariantImportItemSources omitted.
+
+// se_VcfOptions omitted.
+
+// se_WorkflowParameter omitted.
+
+// se_WorkflowParameterTemplate omitted.
 
 /**
  * deserializeAws_restJson1ActivateReadSetJobItem
  */
 const de_ActivateReadSetJobItem = (output: any, context: __SerdeContext): ActivateReadSetJobItem => {
-  return {
-    completionTime:
-      output.completionTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
-        : undefined,
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    id: __expectString(output.id),
-    sequenceStoreId: __expectString(output.sequenceStoreId),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    completionTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    sequenceStoreId: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -8252,84 +7532,33 @@ const de_ActivateReadSetJobList = (output: any, context: __SerdeContext): Activa
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ActivateReadSetJobItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ActivateReadSetSourceItem
- */
-const de_ActivateReadSetSourceItem = (output: any, context: __SerdeContext): ActivateReadSetSourceItem => {
-  return {
-    readSetId: __expectString(output.readSetId),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-  } as any;
-};
+// de_ActivateReadSetSourceItem omitted.
 
-/**
- * deserializeAws_restJson1ActivateReadSetSourceList
- */
-const de_ActivateReadSetSourceList = (output: any, context: __SerdeContext): ActivateReadSetSourceItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ActivateReadSetSourceItem(entry, context);
-    });
-  return retVal;
-};
+// de_ActivateReadSetSourceList omitted.
 
-/**
- * deserializeAws_restJson1AnnotationImportItemDetail
- */
-const de_AnnotationImportItemDetail = (output: any, context: __SerdeContext): AnnotationImportItemDetail => {
-  return {
-    jobStatus: __expectString(output.jobStatus),
-    source: __expectString(output.source),
-  } as any;
-};
+// de_AnnotationImportItemDetail omitted.
 
-/**
- * deserializeAws_restJson1AnnotationImportItemDetails
- */
-const de_AnnotationImportItemDetails = (output: any, context: __SerdeContext): AnnotationImportItemDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AnnotationImportItemDetail(entry, context);
-    });
-  return retVal;
-};
+// de_AnnotationImportItemDetails omitted.
 
 /**
  * deserializeAws_restJson1AnnotationImportJobItem
  */
 const de_AnnotationImportJobItem = (output: any, context: __SerdeContext): AnnotationImportJobItem => {
-  return {
-    completionTime:
-      output.completionTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
-        : undefined,
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    destinationName: __expectString(output.destinationName),
-    id: __expectString(output.id),
-    roleArn: __expectString(output.roleArn),
-    runLeftNormalization: __expectBoolean(output.runLeftNormalization),
-    status: __expectString(output.status),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
-  } as any;
+  return take(output, {
+    completionTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    destinationName: __expectString,
+    id: __expectString,
+    roleArn: __expectString,
+    runLeftNormalization: __expectBoolean,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -8339,9 +7568,6 @@ const de_AnnotationImportJobItems = (output: any, context: __SerdeContext): Anno
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AnnotationImportJobItem(entry, context);
     });
   return retVal;
@@ -8351,22 +7577,20 @@ const de_AnnotationImportJobItems = (output: any, context: __SerdeContext): Anno
  * deserializeAws_restJson1AnnotationStoreItem
  */
 const de_AnnotationStoreItem = (output: any, context: __SerdeContext): AnnotationStoreItem => {
-  return {
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    reference: output.reference != null ? de_ReferenceItem(__expectUnion(output.reference), context) : undefined,
-    sseConfig: output.sseConfig != null ? de_SseConfig(output.sseConfig, context) : undefined,
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    storeArn: __expectString(output.storeArn),
-    storeFormat: __expectString(output.storeFormat),
-    storeSizeBytes: __expectLong(output.storeSizeBytes),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
-  } as any;
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    reference: (_: any) => _json(__expectUnion(_)),
+    sseConfig: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    storeArn: __expectString,
+    storeFormat: __expectString,
+    storeSizeBytes: __expectLong,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -8376,56 +7600,27 @@ const de_AnnotationStoreItems = (output: any, context: __SerdeContext): Annotati
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AnnotationStoreItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ExportReadSetDetail
- */
-const de_ExportReadSetDetail = (output: any, context: __SerdeContext): ExportReadSetDetail => {
-  return {
-    id: __expectString(output.id),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-  } as any;
-};
+// de_ExportReadSetDetail omitted.
 
-/**
- * deserializeAws_restJson1ExportReadSetDetailList
- */
-const de_ExportReadSetDetailList = (output: any, context: __SerdeContext): ExportReadSetDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ExportReadSetDetail(entry, context);
-    });
-  return retVal;
-};
+// de_ExportReadSetDetailList omitted.
 
 /**
  * deserializeAws_restJson1ExportReadSetJobDetail
  */
 const de_ExportReadSetJobDetail = (output: any, context: __SerdeContext): ExportReadSetJobDetail => {
-  return {
-    completionTime:
-      output.completionTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
-        : undefined,
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    destination: __expectString(output.destination),
-    id: __expectString(output.id),
-    sequenceStoreId: __expectString(output.sequenceStoreId),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    completionTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    destination: __expectString,
+    id: __expectString,
+    sequenceStoreId: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -8435,74 +7630,29 @@ const de_ExportReadSetJobDetailList = (output: any, context: __SerdeContext): Ex
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ExportReadSetJobDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1FileInformation
- */
-const de_FileInformation = (output: any, context: __SerdeContext): FileInformation => {
-  return {
-    contentLength: __expectLong(output.contentLength),
-    partSize: __expectLong(output.partSize),
-    totalParts: __expectInt32(output.totalParts),
-  } as any;
-};
+// de_FileInformation omitted.
 
-/**
- * deserializeAws_restJson1FormatOptions
- */
-const de_FormatOptions = (output: any, context: __SerdeContext): FormatOptions => {
-  if (output.tsvOptions != null) {
-    return {
-      tsvOptions: de_TsvOptions(output.tsvOptions, context),
-    };
-  }
-  if (output.vcfOptions != null) {
-    return {
-      vcfOptions: de_VcfOptions(output.vcfOptions, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_FormatOptions omitted.
 
-/**
- * deserializeAws_restJson1FormatToHeader
- */
-const de_FormatToHeader = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [FormatToHeaderKey | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_FormatToHeader omitted.
 
 /**
  * deserializeAws_restJson1ImportReadSetJobItem
  */
 const de_ImportReadSetJobItem = (output: any, context: __SerdeContext): ImportReadSetJobItem => {
-  return {
-    completionTime:
-      output.completionTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
-        : undefined,
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    id: __expectString(output.id),
-    roleArn: __expectString(output.roleArn),
-    sequenceStoreId: __expectString(output.sequenceStoreId),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    completionTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    roleArn: __expectString,
+    sequenceStoreId: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -8512,64 +7662,27 @@ const de_ImportReadSetJobList = (output: any, context: __SerdeContext): ImportRe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ImportReadSetJobItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ImportReadSetSourceItem
- */
-const de_ImportReadSetSourceItem = (output: any, context: __SerdeContext): ImportReadSetSourceItem => {
-  return {
-    description: __expectString(output.description),
-    generatedFrom: __expectString(output.generatedFrom),
-    name: __expectString(output.name),
-    referenceArn: __expectString(output.referenceArn),
-    sampleId: __expectString(output.sampleId),
-    sourceFileType: __expectString(output.sourceFileType),
-    sourceFiles: output.sourceFiles != null ? de_SourceFiles(output.sourceFiles, context) : undefined,
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    subjectId: __expectString(output.subjectId),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
-};
+// de_ImportReadSetSourceItem omitted.
 
-/**
- * deserializeAws_restJson1ImportReadSetSourceList
- */
-const de_ImportReadSetSourceList = (output: any, context: __SerdeContext): ImportReadSetSourceItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ImportReadSetSourceItem(entry, context);
-    });
-  return retVal;
-};
+// de_ImportReadSetSourceList omitted.
 
 /**
  * deserializeAws_restJson1ImportReferenceJobItem
  */
 const de_ImportReferenceJobItem = (output: any, context: __SerdeContext): ImportReferenceJobItem => {
-  return {
-    completionTime:
-      output.completionTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
-        : undefined,
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    id: __expectString(output.id),
-    referenceStoreId: __expectString(output.referenceStoreId),
-    roleArn: __expectString(output.roleArn),
-    status: __expectString(output.status),
-  } as any;
+  return take(output, {
+    completionTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    referenceStoreId: __expectString,
+    roleArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -8579,96 +7692,22 @@ const de_ImportReferenceJobList = (output: any, context: __SerdeContext): Import
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ImportReferenceJobItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ImportReferenceSourceItem
- */
-const de_ImportReferenceSourceItem = (output: any, context: __SerdeContext): ImportReferenceSourceItem => {
-  return {
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    sourceFile: __expectString(output.sourceFile),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
-};
+// de_ImportReferenceSourceItem omitted.
 
-/**
- * deserializeAws_restJson1ImportReferenceSourceList
- */
-const de_ImportReferenceSourceList = (output: any, context: __SerdeContext): ImportReferenceSourceItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ImportReferenceSourceItem(entry, context);
-    });
-  return retVal;
-};
+// de_ImportReferenceSourceList omitted.
 
-/**
- * deserializeAws_restJson1ReadOptions
- */
-const de_ReadOptions = (output: any, context: __SerdeContext): ReadOptions => {
-  return {
-    comment: __expectString(output.comment),
-    encoding: __expectString(output.encoding),
-    escape: __expectString(output.escape),
-    escapeQuotes: __expectBoolean(output.escapeQuotes),
-    header: __expectBoolean(output.header),
-    lineSep: __expectString(output.lineSep),
-    quote: __expectString(output.quote),
-    quoteAll: __expectBoolean(output.quoteAll),
-    sep: __expectString(output.sep),
-  } as any;
-};
+// de_ReadOptions omitted.
 
-/**
- * deserializeAws_restJson1ReadSetBatchError
- */
-const de_ReadSetBatchError = (output: any, context: __SerdeContext): ReadSetBatchError => {
-  return {
-    code: __expectString(output.code),
-    id: __expectString(output.id),
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ReadSetBatchError omitted.
 
-/**
- * deserializeAws_restJson1ReadSetBatchErrorList
- */
-const de_ReadSetBatchErrorList = (output: any, context: __SerdeContext): ReadSetBatchError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ReadSetBatchError(entry, context);
-    });
-  return retVal;
-};
+// de_ReadSetBatchErrorList omitted.
 
-/**
- * deserializeAws_restJson1ReadSetFiles
- */
-const de_ReadSetFiles = (output: any, context: __SerdeContext): ReadSetFiles => {
-  return {
-    index: output.index != null ? de_FileInformation(output.index, context) : undefined,
-    source1: output.source1 != null ? de_FileInformation(output.source1, context) : undefined,
-    source2: output.source2 != null ? de_FileInformation(output.source2, context) : undefined,
-  } as any;
-};
+// de_ReadSetFiles omitted.
 
 /**
  * deserializeAws_restJson1ReadSetList
@@ -8677,9 +7716,6 @@ const de_ReadSetList = (output: any, context: __SerdeContext): ReadSetListItem[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReadSetListItem(entry, context);
     });
   return retVal;
@@ -8689,43 +7725,25 @@ const de_ReadSetList = (output: any, context: __SerdeContext): ReadSetListItem[]
  * deserializeAws_restJson1ReadSetListItem
  */
 const de_ReadSetListItem = (output: any, context: __SerdeContext): ReadSetListItem => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    description: __expectString(output.description),
-    fileType: __expectString(output.fileType),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    referenceArn: __expectString(output.referenceArn),
-    sampleId: __expectString(output.sampleId),
-    sequenceInformation:
-      output.sequenceInformation != null ? de_SequenceInformation(output.sequenceInformation, context) : undefined,
-    sequenceStoreId: __expectString(output.sequenceStoreId),
-    status: __expectString(output.status),
-    subjectId: __expectString(output.subjectId),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    fileType: __expectString,
+    id: __expectString,
+    name: __expectString,
+    referenceArn: __expectString,
+    sampleId: __expectString,
+    sequenceInformation: _json,
+    sequenceStoreId: __expectString,
+    status: __expectString,
+    subjectId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ReferenceFiles
- */
-const de_ReferenceFiles = (output: any, context: __SerdeContext): ReferenceFiles => {
-  return {
-    index: output.index != null ? de_FileInformation(output.index, context) : undefined,
-    source: output.source != null ? de_FileInformation(output.source, context) : undefined,
-  } as any;
-};
+// de_ReferenceFiles omitted.
 
-/**
- * deserializeAws_restJson1ReferenceItem
- */
-const de_ReferenceItem = (output: any, context: __SerdeContext): ReferenceItem => {
-  if (__expectString(output.referenceArn) !== undefined) {
-    return { referenceArn: __expectString(output.referenceArn) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ReferenceItem omitted.
 
 /**
  * deserializeAws_restJson1ReferenceList
@@ -8734,9 +7752,6 @@ const de_ReferenceList = (output: any, context: __SerdeContext): ReferenceListIt
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReferenceListItem(entry, context);
     });
   return retVal;
@@ -8746,34 +7761,31 @@ const de_ReferenceList = (output: any, context: __SerdeContext): ReferenceListIt
  * deserializeAws_restJson1ReferenceListItem
  */
 const de_ReferenceListItem = (output: any, context: __SerdeContext): ReferenceListItem => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    md5: __expectString(output.md5),
-    name: __expectString(output.name),
-    referenceStoreId: __expectString(output.referenceStoreId),
-    status: __expectString(output.status),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    md5: __expectString,
+    name: __expectString,
+    referenceStoreId: __expectString,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ReferenceStoreDetail
  */
 const de_ReferenceStoreDetail = (output: any, context: __SerdeContext): ReferenceStoreDetail => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    sseConfig: output.sseConfig != null ? de_SseConfig(output.sseConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    sseConfig: _json,
+  }) as any;
 };
 
 /**
@@ -8783,9 +7795,6 @@ const de_ReferenceStoreDetailList = (output: any, context: __SerdeContext): Refe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReferenceStoreDetail(entry, context);
     });
   return retVal;
@@ -8798,9 +7807,6 @@ const de_RunGroupList = (output: any, context: __SerdeContext): RunGroupListItem
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RunGroupListItem(entry, context);
     });
   return retVal;
@@ -8810,16 +7816,15 @@ const de_RunGroupList = (output: any, context: __SerdeContext): RunGroupListItem
  * deserializeAws_restJson1RunGroupListItem
  */
 const de_RunGroupListItem = (output: any, context: __SerdeContext): RunGroupListItem => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    id: __expectString(output.id),
-    maxCpus: __expectInt32(output.maxCpus),
-    maxDuration: __expectInt32(output.maxDuration),
-    maxRuns: __expectInt32(output.maxRuns),
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    maxCpus: __expectInt32,
+    maxDuration: __expectInt32,
+    maxRuns: __expectInt32,
+    name: __expectString,
+  }) as any;
 };
 
 /**
@@ -8829,9 +7834,6 @@ const de_RunList = (output: any, context: __SerdeContext): RunListItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RunListItem(entry, context);
     });
   return retVal;
@@ -8841,20 +7843,18 @@ const de_RunList = (output: any, context: __SerdeContext): RunListItem[] => {
  * deserializeAws_restJson1RunListItem
  */
 const de_RunListItem = (output: any, context: __SerdeContext): RunListItem => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    priority: __expectInt32(output.priority),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
-    status: __expectString(output.status),
-    stopTime: output.stopTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stopTime)) : undefined,
-    storageCapacity: __expectInt32(output.storageCapacity),
-    workflowId: __expectString(output.workflowId),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    name: __expectString,
+    priority: __expectInt32,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    stopTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    storageCapacity: __expectInt32,
+    workflowId: __expectString,
+  }) as any;
 };
 
 /**
@@ -8864,72 +7864,26 @@ const de_RunParameters = (output: any, context: __SerdeContext): __DocumentType 
   return output;
 };
 
-/**
- * deserializeAws_restJson1RunResourceDigests
- */
-const de_RunResourceDigests = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_RunResourceDigests omitted.
 
-/**
- * deserializeAws_restJson1Schema
- */
-const de_Schema = (output: any, context: __SerdeContext): Record<string, SchemaValueType | string>[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SchemaItem(entry, context);
-    });
-  return retVal;
-};
+// de_Schema omitted.
 
-/**
- * deserializeAws_restJson1SchemaItem
- */
-const de_SchemaItem = (output: any, context: __SerdeContext): Record<string, SchemaValueType | string> => {
-  return Object.entries(output).reduce((acc: Record<string, SchemaValueType | string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_SchemaItem omitted.
 
-/**
- * deserializeAws_restJson1SequenceInformation
- */
-const de_SequenceInformation = (output: any, context: __SerdeContext): SequenceInformation => {
-  return {
-    alignment: __expectString(output.alignment),
-    generatedFrom: __expectString(output.generatedFrom),
-    totalBaseCount: __expectLong(output.totalBaseCount),
-    totalReadCount: __expectLong(output.totalReadCount),
-  } as any;
-};
+// de_SequenceInformation omitted.
 
 /**
  * deserializeAws_restJson1SequenceStoreDetail
  */
 const de_SequenceStoreDetail = (output: any, context: __SerdeContext): SequenceStoreDetail => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    sseConfig: output.sseConfig != null ? de_SseConfig(output.sseConfig, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    sseConfig: _json,
+  }) as any;
 };
 
 /**
@@ -8939,58 +7893,18 @@ const de_SequenceStoreDetailList = (output: any, context: __SerdeContext): Seque
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SequenceStoreDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SourceFiles
- */
-const de_SourceFiles = (output: any, context: __SerdeContext): SourceFiles => {
-  return {
-    source1: __expectString(output.source1),
-    source2: __expectString(output.source2),
-  } as any;
-};
+// de_SourceFiles omitted.
 
-/**
- * deserializeAws_restJson1SseConfig
- */
-const de_SseConfig = (output: any, context: __SerdeContext): SseConfig => {
-  return {
-    keyArn: __expectString(output.keyArn),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_SseConfig omitted.
 
-/**
- * deserializeAws_restJson1StoreOptions
- */
-const de_StoreOptions = (output: any, context: __SerdeContext): StoreOptions => {
-  if (output.tsvStoreOptions != null) {
-    return {
-      tsvStoreOptions: de_TsvStoreOptions(output.tsvStoreOptions, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_StoreOptions omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 /**
  * deserializeAws_restJson1TaskList
@@ -8999,9 +7913,6 @@ const de_TaskList = (output: any, context: __SerdeContext): TaskListItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TaskListItem(entry, context);
     });
   return retVal;
@@ -9011,85 +7922,40 @@ const de_TaskList = (output: any, context: __SerdeContext): TaskListItem[] => {
  * deserializeAws_restJson1TaskListItem
  */
 const de_TaskListItem = (output: any, context: __SerdeContext): TaskListItem => {
-  return {
-    cpus: __expectInt32(output.cpus),
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    memory: __expectInt32(output.memory),
-    name: __expectString(output.name),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.startTime)) : undefined,
-    status: __expectString(output.status),
-    stopTime: output.stopTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.stopTime)) : undefined,
-    taskId: __expectString(output.taskId),
-  } as any;
+  return take(output, {
+    cpus: __expectInt32,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    memory: __expectInt32,
+    name: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    stopTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    taskId: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1TsvOptions
- */
-const de_TsvOptions = (output: any, context: __SerdeContext): TsvOptions => {
-  return {
-    readOptions: output.readOptions != null ? de_ReadOptions(output.readOptions, context) : undefined,
-  } as any;
-};
+// de_TsvOptions omitted.
 
-/**
- * deserializeAws_restJson1TsvStoreOptions
- */
-const de_TsvStoreOptions = (output: any, context: __SerdeContext): TsvStoreOptions => {
-  return {
-    annotationType: __expectString(output.annotationType),
-    formatToHeader: output.formatToHeader != null ? de_FormatToHeader(output.formatToHeader, context) : undefined,
-    schema: output.schema != null ? de_Schema(output.schema, context) : undefined,
-  } as any;
-};
+// de_TsvStoreOptions omitted.
 
-/**
- * deserializeAws_restJson1VariantImportItemDetail
- */
-const de_VariantImportItemDetail = (output: any, context: __SerdeContext): VariantImportItemDetail => {
-  return {
-    jobStatus: __expectString(output.jobStatus),
-    source: __expectString(output.source),
-    statusMessage: __expectString(output.statusMessage),
-  } as any;
-};
+// de_VariantImportItemDetail omitted.
 
-/**
- * deserializeAws_restJson1VariantImportItemDetails
- */
-const de_VariantImportItemDetails = (output: any, context: __SerdeContext): VariantImportItemDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VariantImportItemDetail(entry, context);
-    });
-  return retVal;
-};
+// de_VariantImportItemDetails omitted.
 
 /**
  * deserializeAws_restJson1VariantImportJobItem
  */
 const de_VariantImportJobItem = (output: any, context: __SerdeContext): VariantImportJobItem => {
-  return {
-    completionTime:
-      output.completionTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.completionTime))
-        : undefined,
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    destinationName: __expectString(output.destinationName),
-    id: __expectString(output.id),
-    roleArn: __expectString(output.roleArn),
-    runLeftNormalization: __expectBoolean(output.runLeftNormalization),
-    status: __expectString(output.status),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
-  } as any;
+  return take(output, {
+    completionTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    destinationName: __expectString,
+    id: __expectString,
+    roleArn: __expectString,
+    runLeftNormalization: __expectBoolean,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -9099,9 +7965,6 @@ const de_VariantImportJobItems = (output: any, context: __SerdeContext): Variant
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VariantImportJobItem(entry, context);
     });
   return retVal;
@@ -9111,21 +7974,19 @@ const de_VariantImportJobItems = (output: any, context: __SerdeContext): Variant
  * deserializeAws_restJson1VariantStoreItem
  */
 const de_VariantStoreItem = (output: any, context: __SerdeContext): VariantStoreItem => {
-  return {
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    reference: output.reference != null ? de_ReferenceItem(__expectUnion(output.reference), context) : undefined,
-    sseConfig: output.sseConfig != null ? de_SseConfig(output.sseConfig, context) : undefined,
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    storeArn: __expectString(output.storeArn),
-    storeSizeBytes: __expectLong(output.storeSizeBytes),
-    updateTime:
-      output.updateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.updateTime)) : undefined,
-  } as any;
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    reference: (_: any) => _json(__expectUnion(_)),
+    sseConfig: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    storeArn: __expectString,
+    storeSizeBytes: __expectLong,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -9135,23 +7996,12 @@ const de_VariantStoreItems = (output: any, context: __SerdeContext): VariantStor
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VariantStoreItem(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1VcfOptions
- */
-const de_VcfOptions = (output: any, context: __SerdeContext): VcfOptions => {
-  return {
-    ignoreFilterField: __expectBoolean(output.ignoreFilterField),
-    ignoreQualField: __expectBoolean(output.ignoreQualField),
-  } as any;
-};
+// de_VcfOptions omitted.
 
 /**
  * deserializeAws_restJson1WorkflowList
@@ -9160,9 +8010,6 @@ const de_WorkflowList = (output: any, context: __SerdeContext): WorkflowListItem
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_WorkflowListItem(entry, context);
     });
   return retVal;
@@ -9172,40 +8019,20 @@ const de_WorkflowList = (output: any, context: __SerdeContext): WorkflowListItem
  * deserializeAws_restJson1WorkflowListItem
  */
 const de_WorkflowListItem = (output: any, context: __SerdeContext): WorkflowListItem => {
-  return {
-    arn: __expectString(output.arn),
-    creationTime:
-      output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
-    digest: __expectString(output.digest),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    digest: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1WorkflowParameter
- */
-const de_WorkflowParameter = (output: any, context: __SerdeContext): WorkflowParameter => {
-  return {
-    description: __expectString(output.description),
-    optional: __expectBoolean(output.optional),
-  } as any;
-};
+// de_WorkflowParameter omitted.
 
-/**
- * deserializeAws_restJson1WorkflowParameterTemplate
- */
-const de_WorkflowParameterTemplate = (output: any, context: __SerdeContext): Record<string, WorkflowParameter> => {
-  return Object.entries(output).reduce((acc: Record<string, WorkflowParameter>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = de_WorkflowParameter(value, context);
-    return acc;
-  }, {});
-};
+// de_WorkflowParameterTemplate omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

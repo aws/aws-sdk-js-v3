@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -31,10 +32,8 @@ import {
 import { LicenseManagerLinuxSubscriptionsServiceException as __BaseException } from "../models/LicenseManagerLinuxSubscriptionsServiceException";
 import {
   Filter,
-  Instance,
   InternalServerException,
   LinuxSubscriptionsDiscoverySettings,
-  Subscription,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -80,11 +79,13 @@ export const se_ListLinuxSubscriptionInstancesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/subscription/ListLinuxSubscriptionInstances";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -110,11 +111,13 @@ export const se_ListLinuxSubscriptionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/subscription/ListLinuxSubscriptions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -140,18 +143,13 @@ export const se_UpdateServiceSettingsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/subscription/UpdateServiceSettings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AllowUpdate != null && { AllowUpdate: input.AllowUpdate }),
-    ...(input.LinuxSubscriptionsDiscovery != null && {
-      LinuxSubscriptionsDiscovery: input.LinuxSubscriptionsDiscovery,
-    }),
-    ...(input.LinuxSubscriptionsDiscoverySettings != null && {
-      LinuxSubscriptionsDiscoverySettings: se_LinuxSubscriptionsDiscoverySettings(
-        input.LinuxSubscriptionsDiscoverySettings,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AllowUpdate: [],
+      LinuxSubscriptionsDiscovery: [],
+      LinuxSubscriptionsDiscoverySettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -177,24 +175,14 @@ export const de_GetServiceSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HomeRegions != null) {
-    contents.HomeRegions = de_StringList(data.HomeRegions, context);
-  }
-  if (data.LinuxSubscriptionsDiscovery != null) {
-    contents.LinuxSubscriptionsDiscovery = __expectString(data.LinuxSubscriptionsDiscovery);
-  }
-  if (data.LinuxSubscriptionsDiscoverySettings != null) {
-    contents.LinuxSubscriptionsDiscoverySettings = de_LinuxSubscriptionsDiscoverySettings(
-      data.LinuxSubscriptionsDiscoverySettings,
-      context
-    );
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusMessage != null) {
-    contents.StatusMessage = de_StringMap(data.StatusMessage, context);
-  }
+  const doc = take(data, {
+    HomeRegions: _json,
+    LinuxSubscriptionsDiscovery: __expectString,
+    LinuxSubscriptionsDiscoverySettings: _json,
+    Status: __expectString,
+    StatusMessage: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -222,10 +210,9 @@ const de_GetServiceSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -245,12 +232,11 @@ export const de_ListLinuxSubscriptionInstancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Instances != null) {
-    contents.Instances = de_InstanceList(data.Instances, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Instances: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -278,10 +264,9 @@ const de_ListLinuxSubscriptionInstancesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -301,12 +286,11 @@ export const de_ListLinuxSubscriptionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Subscriptions != null) {
-    contents.Subscriptions = de_SubscriptionList(data.Subscriptions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Subscriptions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -334,10 +318,9 @@ const de_ListLinuxSubscriptionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -357,24 +340,14 @@ export const de_UpdateServiceSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HomeRegions != null) {
-    contents.HomeRegions = de_StringList(data.HomeRegions, context);
-  }
-  if (data.LinuxSubscriptionsDiscovery != null) {
-    contents.LinuxSubscriptionsDiscovery = __expectString(data.LinuxSubscriptionsDiscovery);
-  }
-  if (data.LinuxSubscriptionsDiscoverySettings != null) {
-    contents.LinuxSubscriptionsDiscoverySettings = de_LinuxSubscriptionsDiscoverySettings(
-      data.LinuxSubscriptionsDiscoverySettings,
-      context
-    );
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusMessage != null) {
-    contents.StatusMessage = de_StringMap(data.StatusMessage, context);
-  }
+  const doc = take(data, {
+    HomeRegions: _json,
+    LinuxSubscriptionsDiscovery: __expectString,
+    LinuxSubscriptionsDiscoverySettings: _json,
+    Status: __expectString,
+    StatusMessage: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -402,16 +375,15 @@ const de_UpdateServiceSettingsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InternalServerExceptionRes
  */
@@ -421,9 +393,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -437,9 +410,10 @@ const de_InternalServerExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -453,9 +427,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -463,166 +438,29 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1Filter
- */
-const se_Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Operator != null && { Operator: input.Operator }),
-    ...(input.Values != null && { Values: se_StringList(input.Values, context) }),
-  };
-};
+// se_Filter omitted.
 
-/**
- * serializeAws_restJson1FilterList
- */
-const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Filter(entry, context);
-    });
-};
+// se_FilterList omitted.
 
-/**
- * serializeAws_restJson1LinuxSubscriptionsDiscoverySettings
- */
-const se_LinuxSubscriptionsDiscoverySettings = (
-  input: LinuxSubscriptionsDiscoverySettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OrganizationIntegration != null && { OrganizationIntegration: input.OrganizationIntegration }),
-    ...(input.SourceRegions != null && { SourceRegions: se_StringList(input.SourceRegions, context) }),
-  };
-};
+// se_LinuxSubscriptionsDiscoverySettings omitted.
 
-/**
- * serializeAws_restJson1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
-/**
- * deserializeAws_restJson1Instance
- */
-const de_Instance = (output: any, context: __SerdeContext): Instance => {
-  return {
-    AccountID: __expectString(output.AccountID),
-    AmiId: __expectString(output.AmiId),
-    InstanceID: __expectString(output.InstanceID),
-    InstanceType: __expectString(output.InstanceType),
-    LastUpdatedTime: __expectString(output.LastUpdatedTime),
-    ProductCode: output.ProductCode != null ? de_ProductCodeList(output.ProductCode, context) : undefined,
-    Region: __expectString(output.Region),
-    Status: __expectString(output.Status),
-    SubscriptionName: __expectString(output.SubscriptionName),
-    UsageOperation: __expectString(output.UsageOperation),
-  } as any;
-};
+// de_Instance omitted.
 
-/**
- * deserializeAws_restJson1InstanceList
- */
-const de_InstanceList = (output: any, context: __SerdeContext): Instance[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Instance(entry, context);
-    });
-  return retVal;
-};
+// de_InstanceList omitted.
 
-/**
- * deserializeAws_restJson1LinuxSubscriptionsDiscoverySettings
- */
-const de_LinuxSubscriptionsDiscoverySettings = (
-  output: any,
-  context: __SerdeContext
-): LinuxSubscriptionsDiscoverySettings => {
-  return {
-    OrganizationIntegration: __expectString(output.OrganizationIntegration),
-    SourceRegions: output.SourceRegions != null ? de_StringList(output.SourceRegions, context) : undefined,
-  } as any;
-};
+// de_LinuxSubscriptionsDiscoverySettings omitted.
 
-/**
- * deserializeAws_restJson1ProductCodeList
- */
-const de_ProductCodeList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ProductCodeList omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1StringMap
- */
-const de_StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_StringMap omitted.
 
-/**
- * deserializeAws_restJson1Subscription
- */
-const de_Subscription = (output: any, context: __SerdeContext): Subscription => {
-  return {
-    InstanceCount: __expectLong(output.InstanceCount),
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Subscription omitted.
 
-/**
- * deserializeAws_restJson1SubscriptionList
- */
-const de_SubscriptionList = (output: any, context: __SerdeContext): Subscription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Subscription(entry, context);
-    });
-  return retVal;
-};
+// de_SubscriptionList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

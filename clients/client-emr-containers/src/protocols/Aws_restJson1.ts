@@ -1,17 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -71,7 +71,6 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { EMRContainersServiceException as __BaseException } from "../models/EMRContainersServiceException";
 import {
-  Certificate,
   CloudWatchMonitoringConfiguration,
   Configuration,
   ConfigurationOverrides,
@@ -91,7 +90,6 @@ import {
   ParametricS3MonitoringConfiguration,
   ResourceNotFoundException,
   RetryPolicyConfiguration,
-  RetryPolicyExecution,
   S3MonitoringConfiguration,
   SparkSqlJobDriver,
   SparkSubmitJobDriver,
@@ -146,13 +144,15 @@ export const se_CreateJobTemplateCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.jobTemplateData != null && { jobTemplateData: se_JobTemplateData(input.jobTemplateData, context) }),
-    ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      jobTemplateData: (_) => se_JobTemplateData(_, context),
+      kmsKeyArn: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -187,18 +187,18 @@ export const se_CreateManagedEndpointCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.configurationOverrides != null && {
-      configurationOverrides: se_ConfigurationOverrides(input.configurationOverrides, context),
-    }),
-    ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      certificateArn: [],
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      configurationOverrides: (_) => se_ConfigurationOverrides(_, context),
+      executionRoleArn: [],
+      name: [],
+      releaseLabel: [],
+      tags: (_) => _json(_),
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -223,14 +223,14 @@ export const se_CreateVirtualClusterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.containerProvider != null && {
-      containerProvider: se_ContainerProvider(input.containerProvider, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      containerProvider: (_) => _json(_),
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -646,24 +646,20 @@ export const se_StartJobRunCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.configurationOverrides != null && {
-      configurationOverrides: se_ConfigurationOverrides(input.configurationOverrides, context),
-    }),
-    ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
-    ...(input.jobDriver != null && { jobDriver: se_JobDriver(input.jobDriver, context) }),
-    ...(input.jobTemplateId != null && { jobTemplateId: input.jobTemplateId }),
-    ...(input.jobTemplateParameters != null && {
-      jobTemplateParameters: se_TemplateParameterInputMap(input.jobTemplateParameters, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
-    ...(input.retryPolicyConfiguration != null && {
-      retryPolicyConfiguration: se_RetryPolicyConfiguration(input.retryPolicyConfiguration, context),
-    }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      configurationOverrides: (_) => se_ConfigurationOverrides(_, context),
+      executionRoleArn: [],
+      jobDriver: (_) => _json(_),
+      jobTemplateId: [],
+      jobTemplateParameters: (_) => _json(_),
+      name: [],
+      releaseLabel: [],
+      retryPolicyConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -689,9 +685,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -747,12 +745,11 @@ export const de_CancelJobRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.virtualClusterId != null) {
-    contents.virtualClusterId = __expectString(data.virtualClusterId);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    virtualClusterId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -777,10 +774,9 @@ const de_CancelJobRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -800,18 +796,13 @@ export const de_CreateJobTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.createdAt != null) {
-    contents.createdAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdAt));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -839,10 +830,9 @@ const de_CreateJobTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -862,18 +852,13 @@ export const de_CreateManagedEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.virtualClusterId != null) {
-    contents.virtualClusterId = __expectString(data.virtualClusterId);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    name: __expectString,
+    virtualClusterId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -901,10 +886,9 @@ const de_CreateManagedEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -924,15 +908,12 @@ export const de_CreateVirtualClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -960,10 +941,9 @@ const de_CreateVirtualClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -983,9 +963,10 @@ export const de_DeleteJobTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
+  const doc = take(data, {
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1010,10 +991,9 @@ const de_DeleteJobTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1033,12 +1013,11 @@ export const de_DeleteManagedEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.virtualClusterId != null) {
-    contents.virtualClusterId = __expectString(data.virtualClusterId);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    virtualClusterId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1063,10 +1042,9 @@ const de_DeleteManagedEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1086,9 +1064,10 @@ export const de_DeleteVirtualClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
+  const doc = take(data, {
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1113,10 +1092,9 @@ const de_DeleteVirtualClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1136,9 +1114,10 @@ export const de_DescribeJobRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobRun != null) {
-    contents.jobRun = de_JobRun(data.jobRun, context);
-  }
+  const doc = take(data, {
+    jobRun: (_) => de_JobRun(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1166,10 +1145,9 @@ const de_DescribeJobRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1189,9 +1167,10 @@ export const de_DescribeJobTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobTemplate != null) {
-    contents.jobTemplate = de_JobTemplate(data.jobTemplate, context);
-  }
+  const doc = take(data, {
+    jobTemplate: (_) => de_JobTemplate(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1219,10 +1198,9 @@ const de_DescribeJobTemplateCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1242,9 +1220,10 @@ export const de_DescribeManagedEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endpoint != null) {
-    contents.endpoint = de_Endpoint(data.endpoint, context);
-  }
+  const doc = take(data, {
+    endpoint: (_) => de_Endpoint(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1272,10 +1251,9 @@ const de_DescribeManagedEndpointCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1295,9 +1273,10 @@ export const de_DescribeVirtualClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.virtualCluster != null) {
-    contents.virtualCluster = de_VirtualCluster(data.virtualCluster, context);
-  }
+  const doc = take(data, {
+    virtualCluster: (_) => de_VirtualCluster(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1325,10 +1304,9 @@ const de_DescribeVirtualClusterCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1348,12 +1326,11 @@ export const de_ListJobRunsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobRuns != null) {
-    contents.jobRuns = de_JobRuns(data.jobRuns, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    jobRuns: (_) => de_JobRuns(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1378,10 +1355,9 @@ const de_ListJobRunsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1401,12 +1377,11 @@ export const de_ListJobTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.templates != null) {
-    contents.templates = de_JobTemplates(data.templates, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    templates: (_) => de_JobTemplates(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1431,10 +1406,9 @@ const de_ListJobTemplatesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1454,12 +1428,11 @@ export const de_ListManagedEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endpoints != null) {
-    contents.endpoints = de_Endpoints(data.endpoints, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    endpoints: (_) => de_Endpoints(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1484,10 +1457,9 @@ const de_ListManagedEndpointsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1507,9 +1479,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1537,10 +1510,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1560,12 +1532,11 @@ export const de_ListVirtualClustersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.virtualClusters != null) {
-    contents.virtualClusters = de_VirtualClusters(data.virtualClusters, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    virtualClusters: (_) => de_VirtualClusters(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1590,10 +1561,9 @@ const de_ListVirtualClustersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1613,18 +1583,13 @@ export const de_StartJobRunCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.virtualClusterId != null) {
-    contents.virtualClusterId = __expectString(data.virtualClusterId);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    name: __expectString,
+    virtualClusterId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1652,10 +1617,9 @@ const de_StartJobRunCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1702,10 +1666,9 @@ const de_TagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1752,16 +1715,15 @@ const de_UntagResourceCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1InternalServerExceptionRes
  */
@@ -1771,9 +1733,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1790,9 +1753,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1806,9 +1770,10 @@ const de_ResourceNotFoundExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1816,28 +1781,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1CloudWatchMonitoringConfiguration
- */
-const se_CloudWatchMonitoringConfiguration = (
-  input: CloudWatchMonitoringConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
-    ...(input.logStreamNamePrefix != null && { logStreamNamePrefix: input.logStreamNamePrefix }),
-  };
-};
+// se_CloudWatchMonitoringConfiguration omitted.
 
 /**
  * serializeAws_restJson1Configuration
  */
 const se_Configuration = (input: Configuration, context: __SerdeContext): any => {
-  return {
-    ...(input.classification != null && { classification: input.classification }),
-    ...(input.configurations != null && { configurations: se_ConfigurationList(input.configurations, context) }),
-    ...(input.properties != null && { properties: se_SensitivePropertiesMap(input.properties, context) }),
-  };
+  return take(input, {
+    classification: [],
+    configurations: (_) => se_ConfigurationList(_, context),
+    properties: _json,
+  });
 };
 
 /**
@@ -1855,305 +1809,85 @@ const se_ConfigurationList = (input: Configuration[], context: __SerdeContext): 
  * serializeAws_restJson1ConfigurationOverrides
  */
 const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __SerdeContext): any => {
-  return {
-    ...(input.applicationConfiguration != null && {
-      applicationConfiguration: se_ConfigurationList(input.applicationConfiguration, context),
-    }),
-    ...(input.monitoringConfiguration != null && {
-      monitoringConfiguration: se_MonitoringConfiguration(input.monitoringConfiguration, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1ContainerInfo
- */
-const se_ContainerInfo = (input: ContainerInfo, context: __SerdeContext): any => {
-  return ContainerInfo.visit(input, {
-    eksInfo: (value) => ({ eksInfo: se_EksInfo(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    applicationConfiguration: (_) => se_ConfigurationList(_, context),
+    monitoringConfiguration: _json,
   });
 };
 
-/**
- * serializeAws_restJson1ContainerProvider
- */
-const se_ContainerProvider = (input: ContainerProvider, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.info != null && { info: se_ContainerInfo(input.info, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ContainerInfo omitted.
 
-/**
- * serializeAws_restJson1EksInfo
- */
-const se_EksInfo = (input: EksInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.namespace != null && { namespace: input.namespace }),
-  };
-};
+// se_ContainerProvider omitted.
 
-/**
- * serializeAws_restJson1EntryPointArguments
- */
-const se_EntryPointArguments = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EksInfo omitted.
 
-/**
- * serializeAws_restJson1JobDriver
- */
-const se_JobDriver = (input: JobDriver, context: __SerdeContext): any => {
-  return {
-    ...(input.sparkSqlJobDriver != null && {
-      sparkSqlJobDriver: se_SparkSqlJobDriver(input.sparkSqlJobDriver, context),
-    }),
-    ...(input.sparkSubmitJobDriver != null && {
-      sparkSubmitJobDriver: se_SparkSubmitJobDriver(input.sparkSubmitJobDriver, context),
-    }),
-  };
-};
+// se_EntryPointArguments omitted.
+
+// se_JobDriver omitted.
 
 /**
  * serializeAws_restJson1JobTemplateData
  */
 const se_JobTemplateData = (input: JobTemplateData, context: __SerdeContext): any => {
-  return {
-    ...(input.configurationOverrides != null && {
-      configurationOverrides: se_ParametricConfigurationOverrides(input.configurationOverrides, context),
-    }),
-    ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
-    ...(input.jobDriver != null && { jobDriver: se_JobDriver(input.jobDriver, context) }),
-    ...(input.jobTags != null && { jobTags: se_TagMap(input.jobTags, context) }),
-    ...(input.parameterConfiguration != null && {
-      parameterConfiguration: se_TemplateParameterConfigurationMap(input.parameterConfiguration, context),
-    }),
-    ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
-  };
+  return take(input, {
+    configurationOverrides: (_) => se_ParametricConfigurationOverrides(_, context),
+    executionRoleArn: [],
+    jobDriver: _json,
+    jobTags: _json,
+    parameterConfiguration: _json,
+    releaseLabel: [],
+  });
 };
 
-/**
- * serializeAws_restJson1MonitoringConfiguration
- */
-const se_MonitoringConfiguration = (input: MonitoringConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.cloudWatchMonitoringConfiguration != null && {
-      cloudWatchMonitoringConfiguration: se_CloudWatchMonitoringConfiguration(
-        input.cloudWatchMonitoringConfiguration,
-        context
-      ),
-    }),
-    ...(input.persistentAppUI != null && { persistentAppUI: input.persistentAppUI }),
-    ...(input.s3MonitoringConfiguration != null && {
-      s3MonitoringConfiguration: se_S3MonitoringConfiguration(input.s3MonitoringConfiguration, context),
-    }),
-  };
-};
+// se_MonitoringConfiguration omitted.
 
-/**
- * serializeAws_restJson1ParametricCloudWatchMonitoringConfiguration
- */
-const se_ParametricCloudWatchMonitoringConfiguration = (
-  input: ParametricCloudWatchMonitoringConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
-    ...(input.logStreamNamePrefix != null && { logStreamNamePrefix: input.logStreamNamePrefix }),
-  };
-};
+// se_ParametricCloudWatchMonitoringConfiguration omitted.
 
 /**
  * serializeAws_restJson1ParametricConfigurationOverrides
  */
 const se_ParametricConfigurationOverrides = (input: ParametricConfigurationOverrides, context: __SerdeContext): any => {
-  return {
-    ...(input.applicationConfiguration != null && {
-      applicationConfiguration: se_ConfigurationList(input.applicationConfiguration, context),
-    }),
-    ...(input.monitoringConfiguration != null && {
-      monitoringConfiguration: se_ParametricMonitoringConfiguration(input.monitoringConfiguration, context),
-    }),
-  };
+  return take(input, {
+    applicationConfiguration: (_) => se_ConfigurationList(_, context),
+    monitoringConfiguration: _json,
+  });
 };
 
-/**
- * serializeAws_restJson1ParametricMonitoringConfiguration
- */
-const se_ParametricMonitoringConfiguration = (
-  input: ParametricMonitoringConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.cloudWatchMonitoringConfiguration != null && {
-      cloudWatchMonitoringConfiguration: se_ParametricCloudWatchMonitoringConfiguration(
-        input.cloudWatchMonitoringConfiguration,
-        context
-      ),
-    }),
-    ...(input.persistentAppUI != null && { persistentAppUI: input.persistentAppUI }),
-    ...(input.s3MonitoringConfiguration != null && {
-      s3MonitoringConfiguration: se_ParametricS3MonitoringConfiguration(input.s3MonitoringConfiguration, context),
-    }),
-  };
-};
+// se_ParametricMonitoringConfiguration omitted.
 
-/**
- * serializeAws_restJson1ParametricS3MonitoringConfiguration
- */
-const se_ParametricS3MonitoringConfiguration = (
-  input: ParametricS3MonitoringConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.logUri != null && { logUri: input.logUri }),
-  };
-};
+// se_ParametricS3MonitoringConfiguration omitted.
 
-/**
- * serializeAws_restJson1RetryPolicyConfiguration
- */
-const se_RetryPolicyConfiguration = (input: RetryPolicyConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.maxAttempts != null && { maxAttempts: input.maxAttempts }),
-  };
-};
+// se_RetryPolicyConfiguration omitted.
 
-/**
- * serializeAws_restJson1S3MonitoringConfiguration
- */
-const se_S3MonitoringConfiguration = (input: S3MonitoringConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.logUri != null && { logUri: input.logUri }),
-  };
-};
+// se_S3MonitoringConfiguration omitted.
 
-/**
- * serializeAws_restJson1SensitivePropertiesMap
- */
-const se_SensitivePropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_SensitivePropertiesMap omitted.
 
-/**
- * serializeAws_restJson1SparkSqlJobDriver
- */
-const se_SparkSqlJobDriver = (input: SparkSqlJobDriver, context: __SerdeContext): any => {
-  return {
-    ...(input.entryPoint != null && { entryPoint: input.entryPoint }),
-    ...(input.sparkSqlParameters != null && { sparkSqlParameters: input.sparkSqlParameters }),
-  };
-};
+// se_SparkSqlJobDriver omitted.
 
-/**
- * serializeAws_restJson1SparkSubmitJobDriver
- */
-const se_SparkSubmitJobDriver = (input: SparkSubmitJobDriver, context: __SerdeContext): any => {
-  return {
-    ...(input.entryPoint != null && { entryPoint: input.entryPoint }),
-    ...(input.entryPointArguments != null && {
-      entryPointArguments: se_EntryPointArguments(input.entryPointArguments, context),
-    }),
-    ...(input.sparkSubmitParameters != null && { sparkSubmitParameters: input.sparkSubmitParameters }),
-  };
-};
+// se_SparkSubmitJobDriver omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1TemplateParameterConfiguration
- */
-const se_TemplateParameterConfiguration = (input: TemplateParameterConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_TemplateParameterConfiguration omitted.
 
-/**
- * serializeAws_restJson1TemplateParameterConfigurationMap
- */
-const se_TemplateParameterConfigurationMap = (
-  input: Record<string, TemplateParameterConfiguration>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = se_TemplateParameterConfiguration(value, context);
-    return acc;
-  }, {});
-};
+// se_TemplateParameterConfigurationMap omitted.
 
-/**
- * serializeAws_restJson1TemplateParameterInputMap
- */
-const se_TemplateParameterInputMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TemplateParameterInputMap omitted.
 
-/**
- * deserializeAws_restJson1Certificate
- */
-const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
-  return {
-    certificateArn: __expectString(output.certificateArn),
-    certificateData: __expectString(output.certificateData),
-  } as any;
-};
+// de_Certificate omitted.
 
-/**
- * deserializeAws_restJson1CloudWatchMonitoringConfiguration
- */
-const de_CloudWatchMonitoringConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchMonitoringConfiguration => {
-  return {
-    logGroupName: __expectString(output.logGroupName),
-    logStreamNamePrefix: __expectString(output.logStreamNamePrefix),
-  } as any;
-};
+// de_CloudWatchMonitoringConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Configuration
  */
 const de_Configuration = (output: any, context: __SerdeContext): Configuration => {
-  return {
-    classification: __expectString(output.classification),
-    configurations: output.configurations != null ? de_ConfigurationList(output.configurations, context) : undefined,
-    properties: output.properties != null ? de_SensitivePropertiesMap(output.properties, context) : undefined,
-  } as any;
+  return take(output, {
+    classification: __expectString,
+    configurations: (_: any) => de_ConfigurationList(_, context),
+    properties: _json,
+  }) as any;
 };
 
 /**
@@ -2163,9 +1897,6 @@ const de_ConfigurationList = (output: any, context: __SerdeContext): Configurati
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Configuration(entry, context);
     });
   return retVal;
@@ -2175,79 +1906,42 @@ const de_ConfigurationList = (output: any, context: __SerdeContext): Configurati
  * deserializeAws_restJson1ConfigurationOverrides
  */
 const de_ConfigurationOverrides = (output: any, context: __SerdeContext): ConfigurationOverrides => {
-  return {
-    applicationConfiguration:
-      output.applicationConfiguration != null
-        ? de_ConfigurationList(output.applicationConfiguration, context)
-        : undefined,
-    monitoringConfiguration:
-      output.monitoringConfiguration != null
-        ? de_MonitoringConfiguration(output.monitoringConfiguration, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    applicationConfiguration: (_: any) => de_ConfigurationList(_, context),
+    monitoringConfiguration: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ContainerInfo
- */
-const de_ContainerInfo = (output: any, context: __SerdeContext): ContainerInfo => {
-  if (output.eksInfo != null) {
-    return {
-      eksInfo: de_EksInfo(output.eksInfo, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_ContainerInfo omitted.
 
-/**
- * deserializeAws_restJson1ContainerProvider
- */
-const de_ContainerProvider = (output: any, context: __SerdeContext): ContainerProvider => {
-  return {
-    id: __expectString(output.id),
-    info: output.info != null ? de_ContainerInfo(__expectUnion(output.info), context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
+// de_ContainerProvider omitted.
 
-/**
- * deserializeAws_restJson1EksInfo
- */
-const de_EksInfo = (output: any, context: __SerdeContext): EksInfo => {
-  return {
-    namespace: __expectString(output.namespace),
-  } as any;
-};
+// de_EksInfo omitted.
 
 /**
  * deserializeAws_restJson1Endpoint
  */
 const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
-  return {
-    arn: __expectString(output.arn),
-    certificateArn: __expectString(output.certificateArn),
-    certificateAuthority:
-      output.certificateAuthority != null ? de_Certificate(output.certificateAuthority, context) : undefined,
-    configurationOverrides:
-      output.configurationOverrides != null
-        ? de_ConfigurationOverrides(output.configurationOverrides, context)
-        : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    executionRoleArn: __expectString(output.executionRoleArn),
-    failureReason: __expectString(output.failureReason),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    releaseLabel: __expectString(output.releaseLabel),
-    securityGroup: __expectString(output.securityGroup),
-    serverUrl: __expectString(output.serverUrl),
-    state: __expectString(output.state),
-    stateDetails: __expectString(output.stateDetails),
-    subnetIds: output.subnetIds != null ? de_SubnetIds(output.subnetIds, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    type: __expectString(output.type),
-    virtualClusterId: __expectString(output.virtualClusterId),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    certificateArn: __expectString,
+    certificateAuthority: _json,
+    configurationOverrides: (_: any) => de_ConfigurationOverrides(_, context),
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    executionRoleArn: __expectString,
+    failureReason: __expectString,
+    id: __expectString,
+    name: __expectString,
+    releaseLabel: __expectString,
+    securityGroup: __expectString,
+    serverUrl: __expectString,
+    state: __expectString,
+    stateDetails: __expectString,
+    subnetIds: _json,
+    tags: _json,
+    type: __expectString,
+    virtualClusterId: __expectString,
+  }) as any;
 };
 
 /**
@@ -2257,74 +1951,39 @@ const de_Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Endpoint(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1EntryPointArguments
- */
-const de_EntryPointArguments = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EntryPointArguments omitted.
 
-/**
- * deserializeAws_restJson1JobDriver
- */
-const de_JobDriver = (output: any, context: __SerdeContext): JobDriver => {
-  return {
-    sparkSqlJobDriver:
-      output.sparkSqlJobDriver != null ? de_SparkSqlJobDriver(output.sparkSqlJobDriver, context) : undefined,
-    sparkSubmitJobDriver:
-      output.sparkSubmitJobDriver != null ? de_SparkSubmitJobDriver(output.sparkSubmitJobDriver, context) : undefined,
-  } as any;
-};
+// de_JobDriver omitted.
 
 /**
  * deserializeAws_restJson1JobRun
  */
 const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
-  return {
-    arn: __expectString(output.arn),
-    clientToken: __expectString(output.clientToken),
-    configurationOverrides:
-      output.configurationOverrides != null
-        ? de_ConfigurationOverrides(output.configurationOverrides, context)
-        : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    createdBy: __expectString(output.createdBy),
-    executionRoleArn: __expectString(output.executionRoleArn),
-    failureReason: __expectString(output.failureReason),
-    finishedAt:
-      output.finishedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.finishedAt)) : undefined,
-    id: __expectString(output.id),
-    jobDriver: output.jobDriver != null ? de_JobDriver(output.jobDriver, context) : undefined,
-    name: __expectString(output.name),
-    releaseLabel: __expectString(output.releaseLabel),
-    retryPolicyConfiguration:
-      output.retryPolicyConfiguration != null
-        ? de_RetryPolicyConfiguration(output.retryPolicyConfiguration, context)
-        : undefined,
-    retryPolicyExecution:
-      output.retryPolicyExecution != null ? de_RetryPolicyExecution(output.retryPolicyExecution, context) : undefined,
-    state: __expectString(output.state),
-    stateDetails: __expectString(output.stateDetails),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    virtualClusterId: __expectString(output.virtualClusterId),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    clientToken: __expectString,
+    configurationOverrides: (_: any) => de_ConfigurationOverrides(_, context),
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    executionRoleArn: __expectString,
+    failureReason: __expectString,
+    finishedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    jobDriver: _json,
+    name: __expectString,
+    releaseLabel: __expectString,
+    retryPolicyConfiguration: _json,
+    retryPolicyExecution: _json,
+    state: __expectString,
+    stateDetails: __expectString,
+    tags: _json,
+    virtualClusterId: __expectString,
+  }) as any;
 };
 
 /**
@@ -2334,9 +1993,6 @@ const de_JobRuns = (output: any, context: __SerdeContext): JobRun[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_JobRun(entry, context);
     });
   return retVal;
@@ -2346,38 +2002,31 @@ const de_JobRuns = (output: any, context: __SerdeContext): JobRun[] => {
  * deserializeAws_restJson1JobTemplate
  */
 const de_JobTemplate = (output: any, context: __SerdeContext): JobTemplate => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    createdBy: __expectString(output.createdBy),
-    decryptionError: __expectString(output.decryptionError),
-    id: __expectString(output.id),
-    jobTemplateData: output.jobTemplateData != null ? de_JobTemplateData(output.jobTemplateData, context) : undefined,
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    name: __expectString(output.name),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    decryptionError: __expectString,
+    id: __expectString,
+    jobTemplateData: (_: any) => de_JobTemplateData(_, context),
+    kmsKeyArn: __expectString,
+    name: __expectString,
+    tags: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1JobTemplateData
  */
 const de_JobTemplateData = (output: any, context: __SerdeContext): JobTemplateData => {
-  return {
-    configurationOverrides:
-      output.configurationOverrides != null
-        ? de_ParametricConfigurationOverrides(output.configurationOverrides, context)
-        : undefined,
-    executionRoleArn: __expectString(output.executionRoleArn),
-    jobDriver: output.jobDriver != null ? de_JobDriver(output.jobDriver, context) : undefined,
-    jobTags: output.jobTags != null ? de_TagMap(output.jobTags, context) : undefined,
-    parameterConfiguration:
-      output.parameterConfiguration != null
-        ? de_TemplateParameterConfigurationMap(output.parameterConfiguration, context)
-        : undefined,
-    releaseLabel: __expectString(output.releaseLabel),
-  } as any;
+  return take(output, {
+    configurationOverrides: (_: any) => de_ParametricConfigurationOverrides(_, context),
+    executionRoleArn: __expectString,
+    jobDriver: _json,
+    jobTags: _json,
+    parameterConfiguration: _json,
+    releaseLabel: __expectString,
+  }) as any;
 };
 
 /**
@@ -2387,43 +2036,14 @@ const de_JobTemplates = (output: any, context: __SerdeContext): JobTemplate[] =>
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_JobTemplate(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1MonitoringConfiguration
- */
-const de_MonitoringConfiguration = (output: any, context: __SerdeContext): MonitoringConfiguration => {
-  return {
-    cloudWatchMonitoringConfiguration:
-      output.cloudWatchMonitoringConfiguration != null
-        ? de_CloudWatchMonitoringConfiguration(output.cloudWatchMonitoringConfiguration, context)
-        : undefined,
-    persistentAppUI: __expectString(output.persistentAppUI),
-    s3MonitoringConfiguration:
-      output.s3MonitoringConfiguration != null
-        ? de_S3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_MonitoringConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ParametricCloudWatchMonitoringConfiguration
- */
-const de_ParametricCloudWatchMonitoringConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ParametricCloudWatchMonitoringConfiguration => {
-  return {
-    logGroupName: __expectString(output.logGroupName),
-    logStreamNamePrefix: __expectString(output.logStreamNamePrefix),
-  } as any;
-};
+// de_ParametricCloudWatchMonitoringConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ParametricConfigurationOverrides
@@ -2432,184 +2052,49 @@ const de_ParametricConfigurationOverrides = (
   output: any,
   context: __SerdeContext
 ): ParametricConfigurationOverrides => {
-  return {
-    applicationConfiguration:
-      output.applicationConfiguration != null
-        ? de_ConfigurationList(output.applicationConfiguration, context)
-        : undefined,
-    monitoringConfiguration:
-      output.monitoringConfiguration != null
-        ? de_ParametricMonitoringConfiguration(output.monitoringConfiguration, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    applicationConfiguration: (_: any) => de_ConfigurationList(_, context),
+    monitoringConfiguration: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ParametricMonitoringConfiguration
- */
-const de_ParametricMonitoringConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ParametricMonitoringConfiguration => {
-  return {
-    cloudWatchMonitoringConfiguration:
-      output.cloudWatchMonitoringConfiguration != null
-        ? de_ParametricCloudWatchMonitoringConfiguration(output.cloudWatchMonitoringConfiguration, context)
-        : undefined,
-    persistentAppUI: __expectString(output.persistentAppUI),
-    s3MonitoringConfiguration:
-      output.s3MonitoringConfiguration != null
-        ? de_ParametricS3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_ParametricMonitoringConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ParametricS3MonitoringConfiguration
- */
-const de_ParametricS3MonitoringConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ParametricS3MonitoringConfiguration => {
-  return {
-    logUri: __expectString(output.logUri),
-  } as any;
-};
+// de_ParametricS3MonitoringConfiguration omitted.
 
-/**
- * deserializeAws_restJson1RetryPolicyConfiguration
- */
-const de_RetryPolicyConfiguration = (output: any, context: __SerdeContext): RetryPolicyConfiguration => {
-  return {
-    maxAttempts: __expectInt32(output.maxAttempts),
-  } as any;
-};
+// de_RetryPolicyConfiguration omitted.
 
-/**
- * deserializeAws_restJson1RetryPolicyExecution
- */
-const de_RetryPolicyExecution = (output: any, context: __SerdeContext): RetryPolicyExecution => {
-  return {
-    currentAttemptCount: __expectInt32(output.currentAttemptCount),
-  } as any;
-};
+// de_RetryPolicyExecution omitted.
 
-/**
- * deserializeAws_restJson1S3MonitoringConfiguration
- */
-const de_S3MonitoringConfiguration = (output: any, context: __SerdeContext): S3MonitoringConfiguration => {
-  return {
-    logUri: __expectString(output.logUri),
-  } as any;
-};
+// de_S3MonitoringConfiguration omitted.
 
-/**
- * deserializeAws_restJson1SensitivePropertiesMap
- */
-const de_SensitivePropertiesMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_SensitivePropertiesMap omitted.
 
-/**
- * deserializeAws_restJson1SparkSqlJobDriver
- */
-const de_SparkSqlJobDriver = (output: any, context: __SerdeContext): SparkSqlJobDriver => {
-  return {
-    entryPoint: __expectString(output.entryPoint),
-    sparkSqlParameters: __expectString(output.sparkSqlParameters),
-  } as any;
-};
+// de_SparkSqlJobDriver omitted.
 
-/**
- * deserializeAws_restJson1SparkSubmitJobDriver
- */
-const de_SparkSubmitJobDriver = (output: any, context: __SerdeContext): SparkSubmitJobDriver => {
-  return {
-    entryPoint: __expectString(output.entryPoint),
-    entryPointArguments:
-      output.entryPointArguments != null ? de_EntryPointArguments(output.entryPointArguments, context) : undefined,
-    sparkSubmitParameters: __expectString(output.sparkSubmitParameters),
-  } as any;
-};
+// de_SparkSubmitJobDriver omitted.
 
-/**
- * deserializeAws_restJson1SubnetIds
- */
-const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SubnetIds omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1TemplateParameterConfiguration
- */
-const de_TemplateParameterConfiguration = (output: any, context: __SerdeContext): TemplateParameterConfiguration => {
-  return {
-    defaultValue: __expectString(output.defaultValue),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_TemplateParameterConfiguration omitted.
 
-/**
- * deserializeAws_restJson1TemplateParameterConfigurationMap
- */
-const de_TemplateParameterConfigurationMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, TemplateParameterConfiguration> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, TemplateParameterConfiguration>, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_TemplateParameterConfiguration(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_TemplateParameterConfigurationMap omitted.
 
 /**
  * deserializeAws_restJson1VirtualCluster
  */
 const de_VirtualCluster = (output: any, context: __SerdeContext): VirtualCluster => {
-  return {
-    arn: __expectString(output.arn),
-    containerProvider:
-      output.containerProvider != null ? de_ContainerProvider(output.containerProvider, context) : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    state: __expectString(output.state),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    containerProvider: _json,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    name: __expectString,
+    state: __expectString,
+    tags: _json,
+  }) as any;
 };
 
 /**
@@ -2619,9 +2104,6 @@ const de_VirtualClusters = (output: any, context: __SerdeContext): VirtualCluste
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VirtualCluster(entry, context);
     });
   return retVal;

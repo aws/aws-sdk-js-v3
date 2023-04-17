@@ -1,18 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -108,50 +109,29 @@ import { EKSServiceException as __BaseException } from "../models/EKSServiceExce
 import {
   AccessDeniedException,
   Addon,
-  AddonHealth,
-  AddonInfo,
-  AddonIssue,
-  AddonVersionInfo,
-  AutoScalingGroup,
   BadRequestException,
-  Certificate,
   ClientException,
   Cluster,
-  ClusterHealth,
-  ClusterIssue,
-  Compatibility,
   ConnectorConfigRequest,
   ConnectorConfigResponse,
   ControlPlanePlacementRequest,
-  ControlPlanePlacementResponse,
   EncryptionConfig,
-  ErrorDetail,
   FargateProfile,
   FargateProfileSelector,
-  Identity,
   IdentityProviderConfig,
-  IdentityProviderConfigResponse,
   InvalidParameterException,
   InvalidRequestException,
-  Issue,
   KubernetesNetworkConfigRequest,
-  KubernetesNetworkConfigResponse,
   LaunchTemplateSpecification,
   Logging,
   LogSetup,
   LogType,
-  MarketplaceInformation,
   Nodegroup,
-  NodegroupHealth,
-  NodegroupResources,
   NodegroupScalingConfig,
   NodegroupUpdateConfig,
   NotFoundException,
-  OIDC,
-  OidcIdentityProviderConfig,
   OidcIdentityProviderConfigRequest,
   OutpostConfigRequest,
-  OutpostConfigResponse,
   Provider,
   RemoteAccessConfig,
   ResourceInUseException,
@@ -164,10 +144,8 @@ import {
   UnsupportedAvailabilityZoneException,
   Update,
   UpdateLabelsPayload,
-  UpdateParam,
   UpdateTaintsPayload,
   VpcConfigRequest,
-  VpcConfigResponse,
 } from "../models/models_0";
 
 /**
@@ -186,12 +164,12 @@ export const se_AssociateEncryptionConfigCommand = async (
     "/clusters/{clusterName}/encryption-config/associate";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.encryptionConfig != null && {
-      encryptionConfig: se_EncryptionConfigList(input.encryptionConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      encryptionConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -219,11 +197,13 @@ export const se_AssociateIdentityProviderConfigCommand = async (
     "/clusters/{clusterName}/identity-provider-configs/associate";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.oidc != null && { oidc: se_OidcIdentityProviderConfigRequest(input.oidc, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      oidc: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -250,15 +230,17 @@ export const se_CreateAddonCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/addons";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.addonName != null && { addonName: input.addonName }),
-    ...(input.addonVersion != null && { addonVersion: input.addonVersion }),
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.configurationValues != null && { configurationValues: input.configurationValues }),
-    ...(input.resolveConflicts != null && { resolveConflicts: input.resolveConflicts }),
-    ...(input.serviceAccountRoleArn != null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      addonName: [],
+      addonVersion: [],
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      configurationValues: [],
+      resolveConflicts: [],
+      serviceAccountRoleArn: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -283,24 +265,20 @@ export const se_CreateClusterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters";
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.encryptionConfig != null && {
-      encryptionConfig: se_EncryptionConfigList(input.encryptionConfig, context),
-    }),
-    ...(input.kubernetesNetworkConfig != null && {
-      kubernetesNetworkConfig: se_KubernetesNetworkConfigRequest(input.kubernetesNetworkConfig, context),
-    }),
-    ...(input.logging != null && { logging: se_Logging(input.logging, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.outpostConfig != null && { outpostConfig: se_OutpostConfigRequest(input.outpostConfig, context) }),
-    ...(input.resourcesVpcConfig != null && {
-      resourcesVpcConfig: se_VpcConfigRequest(input.resourcesVpcConfig, context),
-    }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.version != null && { version: input.version }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      encryptionConfig: (_) => _json(_),
+      kubernetesNetworkConfig: (_) => _json(_),
+      logging: (_) => _json(_),
+      name: [],
+      outpostConfig: (_) => _json(_),
+      resourcesVpcConfig: (_) => _json(_),
+      roleArn: [],
+      tags: (_) => _json(_),
+      version: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -327,14 +305,16 @@ export const se_CreateFargateProfileCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/fargate-profiles";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.fargateProfileName != null && { fargateProfileName: input.fargateProfileName }),
-    ...(input.podExecutionRoleArn != null && { podExecutionRoleArn: input.podExecutionRoleArn }),
-    ...(input.selectors != null && { selectors: se_FargateProfileSelectors(input.selectors, context) }),
-    ...(input.subnets != null && { subnets: se_StringList(input.subnets, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      fargateProfileName: [],
+      podExecutionRoleArn: [],
+      selectors: (_) => _json(_),
+      subnets: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -361,27 +341,27 @@ export const se_CreateNodegroupCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/node-groups";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.amiType != null && { amiType: input.amiType }),
-    ...(input.capacityType != null && { capacityType: input.capacityType }),
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.diskSize != null && { diskSize: input.diskSize }),
-    ...(input.instanceTypes != null && { instanceTypes: se_StringList(input.instanceTypes, context) }),
-    ...(input.labels != null && { labels: se_labelsMap(input.labels, context) }),
-    ...(input.launchTemplate != null && {
-      launchTemplate: se_LaunchTemplateSpecification(input.launchTemplate, context),
-    }),
-    ...(input.nodeRole != null && { nodeRole: input.nodeRole }),
-    ...(input.nodegroupName != null && { nodegroupName: input.nodegroupName }),
-    ...(input.releaseVersion != null && { releaseVersion: input.releaseVersion }),
-    ...(input.remoteAccess != null && { remoteAccess: se_RemoteAccessConfig(input.remoteAccess, context) }),
-    ...(input.scalingConfig != null && { scalingConfig: se_NodegroupScalingConfig(input.scalingConfig, context) }),
-    ...(input.subnets != null && { subnets: se_StringList(input.subnets, context) }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-    ...(input.taints != null && { taints: se_taintsList(input.taints, context) }),
-    ...(input.updateConfig != null && { updateConfig: se_NodegroupUpdateConfig(input.updateConfig, context) }),
-    ...(input.version != null && { version: input.version }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      amiType: [],
+      capacityType: [],
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      diskSize: [],
+      instanceTypes: (_) => _json(_),
+      labels: (_) => _json(_),
+      launchTemplate: (_) => _json(_),
+      nodeRole: [],
+      nodegroupName: [],
+      releaseVersion: [],
+      remoteAccess: (_) => _json(_),
+      scalingConfig: (_) => _json(_),
+      subnets: (_) => _json(_),
+      tags: (_) => _json(_),
+      taints: (_) => _json(_),
+      updateConfig: (_) => _json(_),
+      version: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -695,11 +675,11 @@ export const se_DescribeIdentityProviderConfigCommand = async (
     "/clusters/{clusterName}/identity-provider-configs/describe";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.identityProviderConfig != null && {
-      identityProviderConfig: se_IdentityProviderConfig(input.identityProviderConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      identityProviderConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -790,12 +770,12 @@ export const se_DisassociateIdentityProviderConfigCommand = async (
     "/clusters/{clusterName}/identity-provider-configs/disassociate";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.identityProviderConfig != null && {
-      identityProviderConfig: se_IdentityProviderConfig(input.identityProviderConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      identityProviderConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1018,14 +998,14 @@ export const se_RegisterClusterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-registrations";
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.connectorConfig != null && {
-      connectorConfig: se_ConnectorConfigRequest(input.connectorConfig, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      connectorConfig: (_) => _json(_),
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1051,9 +1031,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1112,13 +1094,15 @@ export const se_UpdateAddonCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "addonName", () => input.addonName!, "{addonName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.addonVersion != null && { addonVersion: input.addonVersion }),
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.configurationValues != null && { configurationValues: input.configurationValues }),
-    ...(input.resolveConflicts != null && { resolveConflicts: input.resolveConflicts }),
-    ...(input.serviceAccountRoleArn != null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      addonVersion: [],
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      configurationValues: [],
+      resolveConflicts: [],
+      serviceAccountRoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1145,13 +1129,13 @@ export const se_UpdateClusterConfigCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/update-config";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.logging != null && { logging: se_Logging(input.logging, context) }),
-    ...(input.resourcesVpcConfig != null && {
-      resourcesVpcConfig: se_VpcConfigRequest(input.resourcesVpcConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      logging: (_) => _json(_),
+      resourcesVpcConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1177,10 +1161,12 @@ export const se_UpdateClusterVersionCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/updates";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.version != null && { version: input.version }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      version: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1216,13 +1202,15 @@ export const se_UpdateNodegroupConfigCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.labels != null && { labels: se_UpdateLabelsPayload(input.labels, context) }),
-    ...(input.scalingConfig != null && { scalingConfig: se_NodegroupScalingConfig(input.scalingConfig, context) }),
-    ...(input.taints != null && { taints: se_UpdateTaintsPayload(input.taints, context) }),
-    ...(input.updateConfig != null && { updateConfig: se_NodegroupUpdateConfig(input.updateConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      labels: (_) => _json(_),
+      scalingConfig: (_) => _json(_),
+      taints: (_) => _json(_),
+      updateConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1258,15 +1246,15 @@ export const se_UpdateNodegroupVersionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.force != null && { force: input.force }),
-    ...(input.launchTemplate != null && {
-      launchTemplate: se_LaunchTemplateSpecification(input.launchTemplate, context),
-    }),
-    ...(input.releaseVersion != null && { releaseVersion: input.releaseVersion }),
-    ...(input.version != null && { version: input.version }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      force: [],
+      launchTemplate: (_) => _json(_),
+      releaseVersion: [],
+      version: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1292,9 +1280,10 @@ export const de_AssociateEncryptionConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.update != null) {
-    contents.update = de_Update(data.update, context);
-  }
+  const doc = take(data, {
+    update: (_) => de_Update(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1331,10 +1320,9 @@ const de_AssociateEncryptionConfigCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1354,12 +1342,11 @@ export const de_AssociateIdentityProviderConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
-  if (data.update != null) {
-    contents.update = de_Update(data.update, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+    update: (_) => de_Update(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1396,10 +1383,9 @@ const de_AssociateIdentityProviderConfigCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1419,9 +1405,10 @@ export const de_CreateAddonCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.addon != null) {
-    contents.addon = de_Addon(data.addon, context);
-  }
+  const doc = take(data, {
+    addon: (_) => de_Addon(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1458,10 +1445,9 @@ const de_CreateAddonCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1481,9 +1467,10 @@ export const de_CreateClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: (_) => de_Cluster(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1523,10 +1510,9 @@ const de_CreateClusterCommandError = async (
       throw await de_UnsupportedAvailabilityZoneExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1546,9 +1532,10 @@ export const de_CreateFargateProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fargateProfile != null) {
-    contents.fargateProfile = de_FargateProfile(data.fargateProfile, context);
-  }
+  const doc = take(data, {
+    fargateProfile: (_) => de_FargateProfile(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1585,10 +1572,9 @@ const de_CreateFargateProfileCommandError = async (
       throw await de_UnsupportedAvailabilityZoneExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1608,9 +1594,10 @@ export const de_CreateNodegroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nodegroup != null) {
-    contents.nodegroup = de_Nodegroup(data.nodegroup, context);
-  }
+  const doc = take(data, {
+    nodegroup: (_) => de_Nodegroup(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1650,10 +1637,9 @@ const de_CreateNodegroupCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1673,9 +1659,10 @@ export const de_DeleteAddonCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.addon != null) {
-    contents.addon = de_Addon(data.addon, context);
-  }
+  const doc = take(data, {
+    addon: (_) => de_Addon(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1709,10 +1696,9 @@ const de_DeleteAddonCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1732,9 +1718,10 @@ export const de_DeleteClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: (_) => de_Cluster(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1768,10 +1755,9 @@ const de_DeleteClusterCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1791,9 +1777,10 @@ export const de_DeleteFargateProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fargateProfile != null) {
-    contents.fargateProfile = de_FargateProfile(data.fargateProfile, context);
-  }
+  const doc = take(data, {
+    fargateProfile: (_) => de_FargateProfile(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1824,10 +1811,9 @@ const de_DeleteFargateProfileCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1847,9 +1833,10 @@ export const de_DeleteNodegroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nodegroup != null) {
-    contents.nodegroup = de_Nodegroup(data.nodegroup, context);
-  }
+  const doc = take(data, {
+    nodegroup: (_) => de_Nodegroup(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1886,10 +1873,9 @@ const de_DeleteNodegroupCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1909,9 +1895,10 @@ export const de_DeregisterClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: (_) => de_Cluster(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1948,10 +1935,9 @@ const de_DeregisterClusterCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1971,9 +1957,10 @@ export const de_DescribeAddonCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.addon != null) {
-    contents.addon = de_Addon(data.addon, context);
-  }
+  const doc = take(data, {
+    addon: (_) => de_Addon(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2007,10 +1994,9 @@ const de_DescribeAddonCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2030,15 +2016,12 @@ export const de_DescribeAddonConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.addonName != null) {
-    contents.addonName = __expectString(data.addonName);
-  }
-  if (data.addonVersion != null) {
-    contents.addonVersion = __expectString(data.addonVersion);
-  }
-  if (data.configurationSchema != null) {
-    contents.configurationSchema = __expectString(data.configurationSchema);
-  }
+  const doc = take(data, {
+    addonName: __expectString,
+    addonVersion: __expectString,
+    configurationSchema: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2066,10 +2049,9 @@ const de_DescribeAddonConfigurationCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2089,12 +2071,11 @@ export const de_DescribeAddonVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.addons != null) {
-    contents.addons = de_Addons(data.addons, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    addons: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2122,10 +2103,9 @@ const de_DescribeAddonVersionsCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2145,9 +2125,10 @@ export const de_DescribeClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: (_) => de_Cluster(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2178,10 +2159,9 @@ const de_DescribeClusterCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2201,9 +2181,10 @@ export const de_DescribeFargateProfileCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fargateProfile != null) {
-    contents.fargateProfile = de_FargateProfile(data.fargateProfile, context);
-  }
+  const doc = take(data, {
+    fargateProfile: (_) => de_FargateProfile(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2234,10 +2215,9 @@ const de_DescribeFargateProfileCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2257,9 +2237,10 @@ export const de_DescribeIdentityProviderConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.identityProviderConfig != null) {
-    contents.identityProviderConfig = de_IdentityProviderConfigResponse(data.identityProviderConfig, context);
-  }
+  const doc = take(data, {
+    identityProviderConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2293,10 +2274,9 @@ const de_DescribeIdentityProviderConfigCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2316,9 +2296,10 @@ export const de_DescribeNodegroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nodegroup != null) {
-    contents.nodegroup = de_Nodegroup(data.nodegroup, context);
-  }
+  const doc = take(data, {
+    nodegroup: (_) => de_Nodegroup(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2352,10 +2333,9 @@ const de_DescribeNodegroupCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2375,9 +2355,10 @@ export const de_DescribeUpdateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.update != null) {
-    contents.update = de_Update(data.update, context);
-  }
+  const doc = take(data, {
+    update: (_) => de_Update(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2408,10 +2389,9 @@ const de_DescribeUpdateCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2431,9 +2411,10 @@ export const de_DisassociateIdentityProviderConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.update != null) {
-    contents.update = de_Update(data.update, context);
-  }
+  const doc = take(data, {
+    update: (_) => de_Update(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2470,10 +2451,9 @@ const de_DisassociateIdentityProviderConfigCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2493,12 +2473,11 @@ export const de_ListAddonsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.addons != null) {
-    contents.addons = de_StringList(data.addons, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    addons: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2532,10 +2511,9 @@ const de_ListAddonsCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2555,12 +2533,11 @@ export const de_ListClustersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clusters != null) {
-    contents.clusters = de_StringList(data.clusters, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    clusters: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2591,10 +2568,9 @@ const de_ListClustersCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2614,12 +2590,11 @@ export const de_ListFargateProfilesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fargateProfileNames != null) {
-    contents.fargateProfileNames = de_StringList(data.fargateProfileNames, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    fargateProfileNames: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2650,10 +2625,9 @@ const de_ListFargateProfilesCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2673,12 +2647,11 @@ export const de_ListIdentityProviderConfigsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.identityProviderConfigs != null) {
-    contents.identityProviderConfigs = de_IdentityProviderConfigs(data.identityProviderConfigs, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    identityProviderConfigs: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2712,10 +2685,9 @@ const de_ListIdentityProviderConfigsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2735,12 +2707,11 @@ export const de_ListNodegroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.nodegroups != null) {
-    contents.nodegroups = de_StringList(data.nodegroups, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    nodegroups: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2774,10 +2745,9 @@ const de_ListNodegroupsCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2797,9 +2767,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = de_TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2824,10 +2795,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2847,12 +2817,11 @@ export const de_ListUpdatesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.updateIds != null) {
-    contents.updateIds = de_StringList(data.updateIds, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    updateIds: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2883,10 +2852,9 @@ const de_ListUpdatesCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2906,9 +2874,10 @@ export const de_RegisterClusterCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.cluster != null) {
-    contents.cluster = de_Cluster(data.cluster, context);
-  }
+  const doc = take(data, {
+    cluster: (_) => de_Cluster(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2951,10 +2920,9 @@ const de_RegisterClusterCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2998,10 +2966,9 @@ const de_TagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3045,10 +3012,9 @@ const de_UntagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3068,9 +3034,10 @@ export const de_UpdateAddonCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.update != null) {
-    contents.update = de_Update(data.update, context);
-  }
+  const doc = take(data, {
+    update: (_) => de_Update(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3107,10 +3074,9 @@ const de_UpdateAddonCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3130,9 +3096,10 @@ export const de_UpdateClusterConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.update != null) {
-    contents.update = de_Update(data.update, context);
-  }
+  const doc = take(data, {
+    update: (_) => de_Update(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3169,10 +3136,9 @@ const de_UpdateClusterConfigCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3192,9 +3158,10 @@ export const de_UpdateClusterVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.update != null) {
-    contents.update = de_Update(data.update, context);
-  }
+  const doc = take(data, {
+    update: (_) => de_Update(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3231,10 +3198,9 @@ const de_UpdateClusterVersionCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3254,9 +3220,10 @@ export const de_UpdateNodegroupConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.update != null) {
-    contents.update = de_Update(data.update, context);
-  }
+  const doc = take(data, {
+    update: (_) => de_Update(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3293,10 +3260,9 @@ const de_UpdateNodegroupConfigCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3316,9 +3282,10 @@ export const de_UpdateNodegroupVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.update != null) {
-    contents.update = de_Update(data.update, context);
-  }
+  const doc = take(data, {
+    update: (_) => de_Update(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3355,16 +3322,15 @@ const de_UpdateNodegroupVersionCommandError = async (
       throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -3374,9 +3340,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3390,9 +3357,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3406,18 +3374,13 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ClientExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.addonName != null) {
-    contents.addonName = __expectString(data.addonName);
-  }
-  if (data.clusterName != null) {
-    contents.clusterName = __expectString(data.clusterName);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.nodegroupName != null) {
-    contents.nodegroupName = __expectString(data.nodegroupName);
-  }
+  const doc = take(data, {
+    addonName: __expectString,
+    clusterName: __expectString,
+    message: __expectString,
+    nodegroupName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3434,21 +3397,14 @@ const de_InvalidParameterExceptionRes = async (
 ): Promise<InvalidParameterException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.addonName != null) {
-    contents.addonName = __expectString(data.addonName);
-  }
-  if (data.clusterName != null) {
-    contents.clusterName = __expectString(data.clusterName);
-  }
-  if (data.fargateProfileName != null) {
-    contents.fargateProfileName = __expectString(data.fargateProfileName);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.nodegroupName != null) {
-    contents.nodegroupName = __expectString(data.nodegroupName);
-  }
+  const doc = take(data, {
+    addonName: __expectString,
+    clusterName: __expectString,
+    fargateProfileName: __expectString,
+    message: __expectString,
+    nodegroupName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3465,18 +3421,13 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.addonName != null) {
-    contents.addonName = __expectString(data.addonName);
-  }
-  if (data.clusterName != null) {
-    contents.clusterName = __expectString(data.clusterName);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.nodegroupName != null) {
-    contents.nodegroupName = __expectString(data.nodegroupName);
-  }
+  const doc = take(data, {
+    addonName: __expectString,
+    clusterName: __expectString,
+    message: __expectString,
+    nodegroupName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3490,9 +3441,10 @@ const de_InvalidRequestExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3509,18 +3461,13 @@ const de_ResourceInUseExceptionRes = async (
 ): Promise<ResourceInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.addonName != null) {
-    contents.addonName = __expectString(data.addonName);
-  }
-  if (data.clusterName != null) {
-    contents.clusterName = __expectString(data.clusterName);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.nodegroupName != null) {
-    contents.nodegroupName = __expectString(data.nodegroupName);
-  }
+  const doc = take(data, {
+    addonName: __expectString,
+    clusterName: __expectString,
+    message: __expectString,
+    nodegroupName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3537,15 +3484,12 @@ const de_ResourceLimitExceededExceptionRes = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.clusterName != null) {
-    contents.clusterName = __expectString(data.clusterName);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.nodegroupName != null) {
-    contents.nodegroupName = __expectString(data.nodegroupName);
-  }
+  const doc = take(data, {
+    clusterName: __expectString,
+    message: __expectString,
+    nodegroupName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3562,21 +3506,14 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.addonName != null) {
-    contents.addonName = __expectString(data.addonName);
-  }
-  if (data.clusterName != null) {
-    contents.clusterName = __expectString(data.clusterName);
-  }
-  if (data.fargateProfileName != null) {
-    contents.fargateProfileName = __expectString(data.fargateProfileName);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.nodegroupName != null) {
-    contents.nodegroupName = __expectString(data.nodegroupName);
-  }
+  const doc = take(data, {
+    addonName: __expectString,
+    clusterName: __expectString,
+    fargateProfileName: __expectString,
+    message: __expectString,
+    nodegroupName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3593,9 +3530,10 @@ const de_ResourcePropagationDelayExceptionRes = async (
 ): Promise<ResourcePropagationDelayException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourcePropagationDelayException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3609,18 +3547,13 @@ const de_ResourcePropagationDelayExceptionRes = async (
 const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.addonName != null) {
-    contents.addonName = __expectString(data.addonName);
-  }
-  if (data.clusterName != null) {
-    contents.clusterName = __expectString(data.clusterName);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.nodegroupName != null) {
-    contents.nodegroupName = __expectString(data.nodegroupName);
-  }
+  const doc = take(data, {
+    addonName: __expectString,
+    clusterName: __expectString,
+    message: __expectString,
+    nodegroupName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3637,9 +3570,10 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3656,18 +3590,13 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 ): Promise<UnsupportedAvailabilityZoneException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.clusterName != null) {
-    contents.clusterName = __expectString(data.clusterName);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.nodegroupName != null) {
-    contents.nodegroupName = __expectString(data.nodegroupName);
-  }
-  if (data.validZones != null) {
-    contents.validZones = de_StringList(data.validZones, context);
-  }
+  const doc = take(data, {
+    clusterName: __expectString,
+    message: __expectString,
+    nodegroupName: __expectString,
+    validZones: _json,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedAvailabilityZoneException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3675,1147 +3604,298 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ConnectorConfigRequest
- */
-const se_ConnectorConfigRequest = (input: ConnectorConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.provider != null && { provider: input.provider }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-  };
-};
+// se_ConnectorConfigRequest omitted.
 
-/**
- * serializeAws_restJson1ControlPlanePlacementRequest
- */
-const se_ControlPlanePlacementRequest = (input: ControlPlanePlacementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.groupName != null && { groupName: input.groupName }),
-  };
-};
+// se_ControlPlanePlacementRequest omitted.
 
-/**
- * serializeAws_restJson1EncryptionConfig
- */
-const se_EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.provider != null && { provider: se_Provider(input.provider, context) }),
-    ...(input.resources != null && { resources: se_StringList(input.resources, context) }),
-  };
-};
+// se_EncryptionConfig omitted.
 
-/**
- * serializeAws_restJson1EncryptionConfigList
- */
-const se_EncryptionConfigList = (input: EncryptionConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_EncryptionConfig(entry, context);
-    });
-};
+// se_EncryptionConfigList omitted.
 
-/**
- * serializeAws_restJson1FargateProfileLabel
- */
-const se_FargateProfileLabel = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_FargateProfileLabel omitted.
 
-/**
- * serializeAws_restJson1FargateProfileSelector
- */
-const se_FargateProfileSelector = (input: FargateProfileSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.labels != null && { labels: se_FargateProfileLabel(input.labels, context) }),
-    ...(input.namespace != null && { namespace: input.namespace }),
-  };
-};
+// se_FargateProfileSelector omitted.
 
-/**
- * serializeAws_restJson1FargateProfileSelectors
- */
-const se_FargateProfileSelectors = (input: FargateProfileSelector[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_FargateProfileSelector(entry, context);
-    });
-};
+// se_FargateProfileSelectors omitted.
 
-/**
- * serializeAws_restJson1IdentityProviderConfig
- */
-const se_IdentityProviderConfig = (input: IdentityProviderConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_IdentityProviderConfig omitted.
 
-/**
- * serializeAws_restJson1KubernetesNetworkConfigRequest
- */
-const se_KubernetesNetworkConfigRequest = (input: KubernetesNetworkConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ipFamily != null && { ipFamily: input.ipFamily }),
-    ...(input.serviceIpv4Cidr != null && { serviceIpv4Cidr: input.serviceIpv4Cidr }),
-  };
-};
+// se_KubernetesNetworkConfigRequest omitted.
 
-/**
- * serializeAws_restJson1labelsKeyList
- */
-const se_labelsKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_labelsKeyList omitted.
 
-/**
- * serializeAws_restJson1labelsMap
- */
-const se_labelsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_labelsMap omitted.
 
-/**
- * serializeAws_restJson1LaunchTemplateSpecification
- */
-const se_LaunchTemplateSpecification = (input: LaunchTemplateSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.version != null && { version: input.version }),
-  };
-};
+// se_LaunchTemplateSpecification omitted.
 
-/**
- * serializeAws_restJson1Logging
- */
-const se_Logging = (input: Logging, context: __SerdeContext): any => {
-  return {
-    ...(input.clusterLogging != null && { clusterLogging: se_LogSetups(input.clusterLogging, context) }),
-  };
-};
+// se_Logging omitted.
 
-/**
- * serializeAws_restJson1LogSetup
- */
-const se_LogSetup = (input: LogSetup, context: __SerdeContext): any => {
-  return {
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.types != null && { types: se_LogTypes(input.types, context) }),
-  };
-};
+// se_LogSetup omitted.
 
-/**
- * serializeAws_restJson1LogSetups
- */
-const se_LogSetups = (input: LogSetup[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_LogSetup(entry, context);
-    });
-};
+// se_LogSetups omitted.
 
-/**
- * serializeAws_restJson1LogTypes
- */
-const se_LogTypes = (input: (LogType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LogTypes omitted.
 
-/**
- * serializeAws_restJson1NodegroupScalingConfig
- */
-const se_NodegroupScalingConfig = (input: NodegroupScalingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.desiredSize != null && { desiredSize: input.desiredSize }),
-    ...(input.maxSize != null && { maxSize: input.maxSize }),
-    ...(input.minSize != null && { minSize: input.minSize }),
-  };
-};
+// se_NodegroupScalingConfig omitted.
 
-/**
- * serializeAws_restJson1NodegroupUpdateConfig
- */
-const se_NodegroupUpdateConfig = (input: NodegroupUpdateConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.maxUnavailable != null && { maxUnavailable: input.maxUnavailable }),
-    ...(input.maxUnavailablePercentage != null && { maxUnavailablePercentage: input.maxUnavailablePercentage }),
-  };
-};
+// se_NodegroupUpdateConfig omitted.
 
-/**
- * serializeAws_restJson1OidcIdentityProviderConfigRequest
- */
-const se_OidcIdentityProviderConfigRequest = (
-  input: OidcIdentityProviderConfigRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.clientId != null && { clientId: input.clientId }),
-    ...(input.groupsClaim != null && { groupsClaim: input.groupsClaim }),
-    ...(input.groupsPrefix != null && { groupsPrefix: input.groupsPrefix }),
-    ...(input.identityProviderConfigName != null && { identityProviderConfigName: input.identityProviderConfigName }),
-    ...(input.issuerUrl != null && { issuerUrl: input.issuerUrl }),
-    ...(input.requiredClaims != null && { requiredClaims: se_requiredClaimsMap(input.requiredClaims, context) }),
-    ...(input.usernameClaim != null && { usernameClaim: input.usernameClaim }),
-    ...(input.usernamePrefix != null && { usernamePrefix: input.usernamePrefix }),
-  };
-};
+// se_OidcIdentityProviderConfigRequest omitted.
 
-/**
- * serializeAws_restJson1OutpostConfigRequest
- */
-const se_OutpostConfigRequest = (input: OutpostConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.controlPlaneInstanceType != null && { controlPlaneInstanceType: input.controlPlaneInstanceType }),
-    ...(input.controlPlanePlacement != null && {
-      controlPlanePlacement: se_ControlPlanePlacementRequest(input.controlPlanePlacement, context),
-    }),
-    ...(input.outpostArns != null && { outpostArns: se_StringList(input.outpostArns, context) }),
-  };
-};
+// se_OutpostConfigRequest omitted.
 
-/**
- * serializeAws_restJson1Provider
- */
-const se_Provider = (input: Provider, context: __SerdeContext): any => {
-  return {
-    ...(input.keyArn != null && { keyArn: input.keyArn }),
-  };
-};
+// se_Provider omitted.
 
-/**
- * serializeAws_restJson1RemoteAccessConfig
- */
-const se_RemoteAccessConfig = (input: RemoteAccessConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ec2SshKey != null && { ec2SshKey: input.ec2SshKey }),
-    ...(input.sourceSecurityGroups != null && {
-      sourceSecurityGroups: se_StringList(input.sourceSecurityGroups, context),
-    }),
-  };
-};
+// se_RemoteAccessConfig omitted.
 
-/**
- * serializeAws_restJson1requiredClaimsMap
- */
-const se_requiredClaimsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_requiredClaimsMap omitted.
 
-/**
- * serializeAws_restJson1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
-/**
- * serializeAws_restJson1TagMap
- */
-const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TagMap omitted.
 
-/**
- * serializeAws_restJson1Taint
- */
-const se_Taint = (input: Taint, context: __SerdeContext): any => {
-  return {
-    ...(input.effect != null && { effect: input.effect }),
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Taint omitted.
 
-/**
- * serializeAws_restJson1taintsList
- */
-const se_taintsList = (input: Taint[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Taint(entry, context);
-    });
-};
+// se_taintsList omitted.
 
-/**
- * serializeAws_restJson1UpdateLabelsPayload
- */
-const se_UpdateLabelsPayload = (input: UpdateLabelsPayload, context: __SerdeContext): any => {
-  return {
-    ...(input.addOrUpdateLabels != null && { addOrUpdateLabels: se_labelsMap(input.addOrUpdateLabels, context) }),
-    ...(input.removeLabels != null && { removeLabels: se_labelsKeyList(input.removeLabels, context) }),
-  };
-};
+// se_UpdateLabelsPayload omitted.
 
-/**
- * serializeAws_restJson1UpdateTaintsPayload
- */
-const se_UpdateTaintsPayload = (input: UpdateTaintsPayload, context: __SerdeContext): any => {
-  return {
-    ...(input.addOrUpdateTaints != null && { addOrUpdateTaints: se_taintsList(input.addOrUpdateTaints, context) }),
-    ...(input.removeTaints != null && { removeTaints: se_taintsList(input.removeTaints, context) }),
-  };
-};
+// se_UpdateTaintsPayload omitted.
 
-/**
- * serializeAws_restJson1VpcConfigRequest
- */
-const se_VpcConfigRequest = (input: VpcConfigRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.endpointPrivateAccess != null && { endpointPrivateAccess: input.endpointPrivateAccess }),
-    ...(input.endpointPublicAccess != null && { endpointPublicAccess: input.endpointPublicAccess }),
-    ...(input.publicAccessCidrs != null && { publicAccessCidrs: se_StringList(input.publicAccessCidrs, context) }),
-    ...(input.securityGroupIds != null && { securityGroupIds: se_StringList(input.securityGroupIds, context) }),
-    ...(input.subnetIds != null && { subnetIds: se_StringList(input.subnetIds, context) }),
-  };
-};
+// se_VpcConfigRequest omitted.
 
 /**
  * deserializeAws_restJson1Addon
  */
 const de_Addon = (output: any, context: __SerdeContext): Addon => {
-  return {
-    addonArn: __expectString(output.addonArn),
-    addonName: __expectString(output.addonName),
-    addonVersion: __expectString(output.addonVersion),
-    clusterName: __expectString(output.clusterName),
-    configurationValues: __expectString(output.configurationValues),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    health: output.health != null ? de_AddonHealth(output.health, context) : undefined,
-    marketplaceInformation:
-      output.marketplaceInformation != null
-        ? de_MarketplaceInformation(output.marketplaceInformation, context)
-        : undefined,
-    modifiedAt:
-      output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
-    owner: __expectString(output.owner),
-    publisher: __expectString(output.publisher),
-    serviceAccountRoleArn: __expectString(output.serviceAccountRoleArn),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    addonArn: __expectString,
+    addonName: __expectString,
+    addonVersion: __expectString,
+    clusterName: __expectString,
+    configurationValues: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    health: _json,
+    marketplaceInformation: _json,
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    owner: __expectString,
+    publisher: __expectString,
+    serviceAccountRoleArn: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AddonHealth
- */
-const de_AddonHealth = (output: any, context: __SerdeContext): AddonHealth => {
-  return {
-    issues: output.issues != null ? de_AddonIssueList(output.issues, context) : undefined,
-  } as any;
-};
+// de_AddonHealth omitted.
 
-/**
- * deserializeAws_restJson1AddonInfo
- */
-const de_AddonInfo = (output: any, context: __SerdeContext): AddonInfo => {
-  return {
-    addonName: __expectString(output.addonName),
-    addonVersions: output.addonVersions != null ? de_AddonVersionInfoList(output.addonVersions, context) : undefined,
-    marketplaceInformation:
-      output.marketplaceInformation != null
-        ? de_MarketplaceInformation(output.marketplaceInformation, context)
-        : undefined,
-    owner: __expectString(output.owner),
-    publisher: __expectString(output.publisher),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_AddonInfo omitted.
 
-/**
- * deserializeAws_restJson1AddonIssue
- */
-const de_AddonIssue = (output: any, context: __SerdeContext): AddonIssue => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-    resourceIds: output.resourceIds != null ? de_StringList(output.resourceIds, context) : undefined,
-  } as any;
-};
+// de_AddonIssue omitted.
 
-/**
- * deserializeAws_restJson1AddonIssueList
- */
-const de_AddonIssueList = (output: any, context: __SerdeContext): AddonIssue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AddonIssue(entry, context);
-    });
-  return retVal;
-};
+// de_AddonIssueList omitted.
 
-/**
- * deserializeAws_restJson1Addons
- */
-const de_Addons = (output: any, context: __SerdeContext): AddonInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AddonInfo(entry, context);
-    });
-  return retVal;
-};
+// de_Addons omitted.
 
-/**
- * deserializeAws_restJson1AddonVersionInfo
- */
-const de_AddonVersionInfo = (output: any, context: __SerdeContext): AddonVersionInfo => {
-  return {
-    addonVersion: __expectString(output.addonVersion),
-    architecture: output.architecture != null ? de_StringList(output.architecture, context) : undefined,
-    compatibilities: output.compatibilities != null ? de_Compatibilities(output.compatibilities, context) : undefined,
-    requiresConfiguration: __expectBoolean(output.requiresConfiguration),
-  } as any;
-};
+// de_AddonVersionInfo omitted.
 
-/**
- * deserializeAws_restJson1AddonVersionInfoList
- */
-const de_AddonVersionInfoList = (output: any, context: __SerdeContext): AddonVersionInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AddonVersionInfo(entry, context);
-    });
-  return retVal;
-};
+// de_AddonVersionInfoList omitted.
 
-/**
- * deserializeAws_restJson1AutoScalingGroup
- */
-const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
+// de_AutoScalingGroup omitted.
 
-/**
- * deserializeAws_restJson1AutoScalingGroupList
- */
-const de_AutoScalingGroupList = (output: any, context: __SerdeContext): AutoScalingGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AutoScalingGroup(entry, context);
-    });
-  return retVal;
-};
+// de_AutoScalingGroupList omitted.
 
-/**
- * deserializeAws_restJson1Certificate
- */
-const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
-  return {
-    data: __expectString(output.data),
-  } as any;
-};
+// de_Certificate omitted.
 
 /**
  * deserializeAws_restJson1Cluster
  */
 const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
-  return {
-    arn: __expectString(output.arn),
-    certificateAuthority:
-      output.certificateAuthority != null ? de_Certificate(output.certificateAuthority, context) : undefined,
-    clientRequestToken: __expectString(output.clientRequestToken),
-    connectorConfig:
-      output.connectorConfig != null ? de_ConnectorConfigResponse(output.connectorConfig, context) : undefined,
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    encryptionConfig:
-      output.encryptionConfig != null ? de_EncryptionConfigList(output.encryptionConfig, context) : undefined,
-    endpoint: __expectString(output.endpoint),
-    health: output.health != null ? de_ClusterHealth(output.health, context) : undefined,
-    id: __expectString(output.id),
-    identity: output.identity != null ? de_Identity(output.identity, context) : undefined,
-    kubernetesNetworkConfig:
-      output.kubernetesNetworkConfig != null
-        ? de_KubernetesNetworkConfigResponse(output.kubernetesNetworkConfig, context)
-        : undefined,
-    logging: output.logging != null ? de_Logging(output.logging, context) : undefined,
-    name: __expectString(output.name),
-    outpostConfig: output.outpostConfig != null ? de_OutpostConfigResponse(output.outpostConfig, context) : undefined,
-    platformVersion: __expectString(output.platformVersion),
-    resourcesVpcConfig:
-      output.resourcesVpcConfig != null ? de_VpcConfigResponse(output.resourcesVpcConfig, context) : undefined,
-    roleArn: __expectString(output.roleArn),
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    certificateAuthority: _json,
+    clientRequestToken: __expectString,
+    connectorConfig: (_: any) => de_ConnectorConfigResponse(_, context),
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionConfig: _json,
+    endpoint: __expectString,
+    health: _json,
+    id: __expectString,
+    identity: _json,
+    kubernetesNetworkConfig: _json,
+    logging: _json,
+    name: __expectString,
+    outpostConfig: _json,
+    platformVersion: __expectString,
+    resourcesVpcConfig: _json,
+    roleArn: __expectString,
+    status: __expectString,
+    tags: _json,
+    version: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ClusterHealth
- */
-const de_ClusterHealth = (output: any, context: __SerdeContext): ClusterHealth => {
-  return {
-    issues: output.issues != null ? de_ClusterIssueList(output.issues, context) : undefined,
-  } as any;
-};
+// de_ClusterHealth omitted.
 
-/**
- * deserializeAws_restJson1ClusterIssue
- */
-const de_ClusterIssue = (output: any, context: __SerdeContext): ClusterIssue => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-    resourceIds: output.resourceIds != null ? de_StringList(output.resourceIds, context) : undefined,
-  } as any;
-};
+// de_ClusterIssue omitted.
 
-/**
- * deserializeAws_restJson1ClusterIssueList
- */
-const de_ClusterIssueList = (output: any, context: __SerdeContext): ClusterIssue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ClusterIssue(entry, context);
-    });
-  return retVal;
-};
+// de_ClusterIssueList omitted.
 
-/**
- * deserializeAws_restJson1Compatibilities
- */
-const de_Compatibilities = (output: any, context: __SerdeContext): Compatibility[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Compatibility(entry, context);
-    });
-  return retVal;
-};
+// de_Compatibilities omitted.
 
-/**
- * deserializeAws_restJson1Compatibility
- */
-const de_Compatibility = (output: any, context: __SerdeContext): Compatibility => {
-  return {
-    clusterVersion: __expectString(output.clusterVersion),
-    defaultVersion: __expectBoolean(output.defaultVersion),
-    platformVersions: output.platformVersions != null ? de_StringList(output.platformVersions, context) : undefined,
-  } as any;
-};
+// de_Compatibility omitted.
 
 /**
  * deserializeAws_restJson1ConnectorConfigResponse
  */
 const de_ConnectorConfigResponse = (output: any, context: __SerdeContext): ConnectorConfigResponse => {
-  return {
-    activationCode: __expectString(output.activationCode),
-    activationExpiry:
-      output.activationExpiry != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.activationExpiry)))
-        : undefined,
-    activationId: __expectString(output.activationId),
-    provider: __expectString(output.provider),
-    roleArn: __expectString(output.roleArn),
-  } as any;
+  return take(output, {
+    activationCode: __expectString,
+    activationExpiry: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    activationId: __expectString,
+    provider: __expectString,
+    roleArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ControlPlanePlacementResponse
- */
-const de_ControlPlanePlacementResponse = (output: any, context: __SerdeContext): ControlPlanePlacementResponse => {
-  return {
-    groupName: __expectString(output.groupName),
-  } as any;
-};
+// de_ControlPlanePlacementResponse omitted.
 
-/**
- * deserializeAws_restJson1EncryptionConfig
- */
-const de_EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
-  return {
-    provider: output.provider != null ? de_Provider(output.provider, context) : undefined,
-    resources: output.resources != null ? de_StringList(output.resources, context) : undefined,
-  } as any;
-};
+// de_EncryptionConfig omitted.
 
-/**
- * deserializeAws_restJson1EncryptionConfigList
- */
-const de_EncryptionConfigList = (output: any, context: __SerdeContext): EncryptionConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EncryptionConfig(entry, context);
-    });
-  return retVal;
-};
+// de_EncryptionConfigList omitted.
 
-/**
- * deserializeAws_restJson1ErrorDetail
- */
-const de_ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    resourceIds: output.resourceIds != null ? de_StringList(output.resourceIds, context) : undefined,
-  } as any;
-};
+// de_ErrorDetail omitted.
 
-/**
- * deserializeAws_restJson1ErrorDetails
- */
-const de_ErrorDetails = (output: any, context: __SerdeContext): ErrorDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ErrorDetail(entry, context);
-    });
-  return retVal;
-};
+// de_ErrorDetails omitted.
 
 /**
  * deserializeAws_restJson1FargateProfile
  */
 const de_FargateProfile = (output: any, context: __SerdeContext): FargateProfile => {
-  return {
-    clusterName: __expectString(output.clusterName),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    fargateProfileArn: __expectString(output.fargateProfileArn),
-    fargateProfileName: __expectString(output.fargateProfileName),
-    podExecutionRoleArn: __expectString(output.podExecutionRoleArn),
-    selectors: output.selectors != null ? de_FargateProfileSelectors(output.selectors, context) : undefined,
-    status: __expectString(output.status),
-    subnets: output.subnets != null ? de_StringList(output.subnets, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    clusterName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fargateProfileArn: __expectString,
+    fargateProfileName: __expectString,
+    podExecutionRoleArn: __expectString,
+    selectors: _json,
+    status: __expectString,
+    subnets: _json,
+    tags: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1FargateProfileLabel
- */
-const de_FargateProfileLabel = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_FargateProfileLabel omitted.
 
-/**
- * deserializeAws_restJson1FargateProfileSelector
- */
-const de_FargateProfileSelector = (output: any, context: __SerdeContext): FargateProfileSelector => {
-  return {
-    labels: output.labels != null ? de_FargateProfileLabel(output.labels, context) : undefined,
-    namespace: __expectString(output.namespace),
-  } as any;
-};
+// de_FargateProfileSelector omitted.
 
-/**
- * deserializeAws_restJson1FargateProfileSelectors
- */
-const de_FargateProfileSelectors = (output: any, context: __SerdeContext): FargateProfileSelector[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_FargateProfileSelector(entry, context);
-    });
-  return retVal;
-};
+// de_FargateProfileSelectors omitted.
 
-/**
- * deserializeAws_restJson1Identity
- */
-const de_Identity = (output: any, context: __SerdeContext): Identity => {
-  return {
-    oidc: output.oidc != null ? de_OIDC(output.oidc, context) : undefined,
-  } as any;
-};
+// de_Identity omitted.
 
-/**
- * deserializeAws_restJson1IdentityProviderConfig
- */
-const de_IdentityProviderConfig = (output: any, context: __SerdeContext): IdentityProviderConfig => {
-  return {
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_IdentityProviderConfig omitted.
 
-/**
- * deserializeAws_restJson1IdentityProviderConfigResponse
- */
-const de_IdentityProviderConfigResponse = (output: any, context: __SerdeContext): IdentityProviderConfigResponse => {
-  return {
-    oidc: output.oidc != null ? de_OidcIdentityProviderConfig(output.oidc, context) : undefined,
-  } as any;
-};
+// de_IdentityProviderConfigResponse omitted.
 
-/**
- * deserializeAws_restJson1IdentityProviderConfigs
- */
-const de_IdentityProviderConfigs = (output: any, context: __SerdeContext): IdentityProviderConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_IdentityProviderConfig(entry, context);
-    });
-  return retVal;
-};
+// de_IdentityProviderConfigs omitted.
 
-/**
- * deserializeAws_restJson1Issue
- */
-const de_Issue = (output: any, context: __SerdeContext): Issue => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-    resourceIds: output.resourceIds != null ? de_StringList(output.resourceIds, context) : undefined,
-  } as any;
-};
+// de_Issue omitted.
 
-/**
- * deserializeAws_restJson1IssueList
- */
-const de_IssueList = (output: any, context: __SerdeContext): Issue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Issue(entry, context);
-    });
-  return retVal;
-};
+// de_IssueList omitted.
 
-/**
- * deserializeAws_restJson1KubernetesNetworkConfigResponse
- */
-const de_KubernetesNetworkConfigResponse = (output: any, context: __SerdeContext): KubernetesNetworkConfigResponse => {
-  return {
-    ipFamily: __expectString(output.ipFamily),
-    serviceIpv4Cidr: __expectString(output.serviceIpv4Cidr),
-    serviceIpv6Cidr: __expectString(output.serviceIpv6Cidr),
-  } as any;
-};
+// de_KubernetesNetworkConfigResponse omitted.
 
-/**
- * deserializeAws_restJson1labelsMap
- */
-const de_labelsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_labelsMap omitted.
 
-/**
- * deserializeAws_restJson1LaunchTemplateSpecification
- */
-const de_LaunchTemplateSpecification = (output: any, context: __SerdeContext): LaunchTemplateSpecification => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_LaunchTemplateSpecification omitted.
 
-/**
- * deserializeAws_restJson1Logging
- */
-const de_Logging = (output: any, context: __SerdeContext): Logging => {
-  return {
-    clusterLogging: output.clusterLogging != null ? de_LogSetups(output.clusterLogging, context) : undefined,
-  } as any;
-};
+// de_Logging omitted.
 
-/**
- * deserializeAws_restJson1LogSetup
- */
-const de_LogSetup = (output: any, context: __SerdeContext): LogSetup => {
-  return {
-    enabled: __expectBoolean(output.enabled),
-    types: output.types != null ? de_LogTypes(output.types, context) : undefined,
-  } as any;
-};
+// de_LogSetup omitted.
 
-/**
- * deserializeAws_restJson1LogSetups
- */
-const de_LogSetups = (output: any, context: __SerdeContext): LogSetup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_LogSetup(entry, context);
-    });
-  return retVal;
-};
+// de_LogSetups omitted.
 
-/**
- * deserializeAws_restJson1LogTypes
- */
-const de_LogTypes = (output: any, context: __SerdeContext): (LogType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LogTypes omitted.
 
-/**
- * deserializeAws_restJson1MarketplaceInformation
- */
-const de_MarketplaceInformation = (output: any, context: __SerdeContext): MarketplaceInformation => {
-  return {
-    productId: __expectString(output.productId),
-    productUrl: __expectString(output.productUrl),
-  } as any;
-};
+// de_MarketplaceInformation omitted.
 
 /**
  * deserializeAws_restJson1Nodegroup
  */
 const de_Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
-  return {
-    amiType: __expectString(output.amiType),
-    capacityType: __expectString(output.capacityType),
-    clusterName: __expectString(output.clusterName),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    diskSize: __expectInt32(output.diskSize),
-    health: output.health != null ? de_NodegroupHealth(output.health, context) : undefined,
-    instanceTypes: output.instanceTypes != null ? de_StringList(output.instanceTypes, context) : undefined,
-    labels: output.labels != null ? de_labelsMap(output.labels, context) : undefined,
-    launchTemplate:
-      output.launchTemplate != null ? de_LaunchTemplateSpecification(output.launchTemplate, context) : undefined,
-    modifiedAt:
-      output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
-    nodeRole: __expectString(output.nodeRole),
-    nodegroupArn: __expectString(output.nodegroupArn),
-    nodegroupName: __expectString(output.nodegroupName),
-    releaseVersion: __expectString(output.releaseVersion),
-    remoteAccess: output.remoteAccess != null ? de_RemoteAccessConfig(output.remoteAccess, context) : undefined,
-    resources: output.resources != null ? de_NodegroupResources(output.resources, context) : undefined,
-    scalingConfig: output.scalingConfig != null ? de_NodegroupScalingConfig(output.scalingConfig, context) : undefined,
-    status: __expectString(output.status),
-    subnets: output.subnets != null ? de_StringList(output.subnets, context) : undefined,
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    taints: output.taints != null ? de_taintsList(output.taints, context) : undefined,
-    updateConfig: output.updateConfig != null ? de_NodegroupUpdateConfig(output.updateConfig, context) : undefined,
-    version: __expectString(output.version),
-  } as any;
+  return take(output, {
+    amiType: __expectString,
+    capacityType: __expectString,
+    clusterName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    diskSize: __expectInt32,
+    health: _json,
+    instanceTypes: _json,
+    labels: _json,
+    launchTemplate: _json,
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    nodeRole: __expectString,
+    nodegroupArn: __expectString,
+    nodegroupName: __expectString,
+    releaseVersion: __expectString,
+    remoteAccess: _json,
+    resources: _json,
+    scalingConfig: _json,
+    status: __expectString,
+    subnets: _json,
+    tags: _json,
+    taints: _json,
+    updateConfig: _json,
+    version: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1NodegroupHealth
- */
-const de_NodegroupHealth = (output: any, context: __SerdeContext): NodegroupHealth => {
-  return {
-    issues: output.issues != null ? de_IssueList(output.issues, context) : undefined,
-  } as any;
-};
+// de_NodegroupHealth omitted.
 
-/**
- * deserializeAws_restJson1NodegroupResources
- */
-const de_NodegroupResources = (output: any, context: __SerdeContext): NodegroupResources => {
-  return {
-    autoScalingGroups:
-      output.autoScalingGroups != null ? de_AutoScalingGroupList(output.autoScalingGroups, context) : undefined,
-    remoteAccessSecurityGroup: __expectString(output.remoteAccessSecurityGroup),
-  } as any;
-};
+// de_NodegroupResources omitted.
 
-/**
- * deserializeAws_restJson1NodegroupScalingConfig
- */
-const de_NodegroupScalingConfig = (output: any, context: __SerdeContext): NodegroupScalingConfig => {
-  return {
-    desiredSize: __expectInt32(output.desiredSize),
-    maxSize: __expectInt32(output.maxSize),
-    minSize: __expectInt32(output.minSize),
-  } as any;
-};
+// de_NodegroupScalingConfig omitted.
 
-/**
- * deserializeAws_restJson1NodegroupUpdateConfig
- */
-const de_NodegroupUpdateConfig = (output: any, context: __SerdeContext): NodegroupUpdateConfig => {
-  return {
-    maxUnavailable: __expectInt32(output.maxUnavailable),
-    maxUnavailablePercentage: __expectInt32(output.maxUnavailablePercentage),
-  } as any;
-};
+// de_NodegroupUpdateConfig omitted.
 
-/**
- * deserializeAws_restJson1OIDC
- */
-const de_OIDC = (output: any, context: __SerdeContext): OIDC => {
-  return {
-    issuer: __expectString(output.issuer),
-  } as any;
-};
+// de_OIDC omitted.
 
-/**
- * deserializeAws_restJson1OidcIdentityProviderConfig
- */
-const de_OidcIdentityProviderConfig = (output: any, context: __SerdeContext): OidcIdentityProviderConfig => {
-  return {
-    clientId: __expectString(output.clientId),
-    clusterName: __expectString(output.clusterName),
-    groupsClaim: __expectString(output.groupsClaim),
-    groupsPrefix: __expectString(output.groupsPrefix),
-    identityProviderConfigArn: __expectString(output.identityProviderConfigArn),
-    identityProviderConfigName: __expectString(output.identityProviderConfigName),
-    issuerUrl: __expectString(output.issuerUrl),
-    requiredClaims: output.requiredClaims != null ? de_requiredClaimsMap(output.requiredClaims, context) : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
-    usernameClaim: __expectString(output.usernameClaim),
-    usernamePrefix: __expectString(output.usernamePrefix),
-  } as any;
-};
+// de_OidcIdentityProviderConfig omitted.
 
-/**
- * deserializeAws_restJson1OutpostConfigResponse
- */
-const de_OutpostConfigResponse = (output: any, context: __SerdeContext): OutpostConfigResponse => {
-  return {
-    controlPlaneInstanceType: __expectString(output.controlPlaneInstanceType),
-    controlPlanePlacement:
-      output.controlPlanePlacement != null
-        ? de_ControlPlanePlacementResponse(output.controlPlanePlacement, context)
-        : undefined,
-    outpostArns: output.outpostArns != null ? de_StringList(output.outpostArns, context) : undefined,
-  } as any;
-};
+// de_OutpostConfigResponse omitted.
 
-/**
- * deserializeAws_restJson1Provider
- */
-const de_Provider = (output: any, context: __SerdeContext): Provider => {
-  return {
-    keyArn: __expectString(output.keyArn),
-  } as any;
-};
+// de_Provider omitted.
 
-/**
- * deserializeAws_restJson1RemoteAccessConfig
- */
-const de_RemoteAccessConfig = (output: any, context: __SerdeContext): RemoteAccessConfig => {
-  return {
-    ec2SshKey: __expectString(output.ec2SshKey),
-    sourceSecurityGroups:
-      output.sourceSecurityGroups != null ? de_StringList(output.sourceSecurityGroups, context) : undefined,
-  } as any;
-};
+// de_RemoteAccessConfig omitted.
 
-/**
- * deserializeAws_restJson1requiredClaimsMap
- */
-const de_requiredClaimsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_requiredClaimsMap omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1TagMap
- */
-const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-/**
- * deserializeAws_restJson1Taint
- */
-const de_Taint = (output: any, context: __SerdeContext): Taint => {
-  return {
-    effect: __expectString(output.effect),
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_Taint omitted.
 
-/**
- * deserializeAws_restJson1taintsList
- */
-const de_taintsList = (output: any, context: __SerdeContext): Taint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Taint(entry, context);
-    });
-  return retVal;
-};
+// de_taintsList omitted.
 
 /**
  * deserializeAws_restJson1Update
  */
 const de_Update = (output: any, context: __SerdeContext): Update => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    errors: output.errors != null ? de_ErrorDetails(output.errors, context) : undefined,
-    id: __expectString(output.id),
-    params: output.params != null ? de_UpdateParams(output.params, context) : undefined,
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    errors: _json,
+    id: __expectString,
+    params: _json,
+    status: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1UpdateParam
- */
-const de_UpdateParam = (output: any, context: __SerdeContext): UpdateParam => {
-  return {
-    type: __expectString(output.type),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_UpdateParam omitted.
 
-/**
- * deserializeAws_restJson1UpdateParams
- */
-const de_UpdateParams = (output: any, context: __SerdeContext): UpdateParam[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UpdateParam(entry, context);
-    });
-  return retVal;
-};
+// de_UpdateParams omitted.
 
-/**
- * deserializeAws_restJson1VpcConfigResponse
- */
-const de_VpcConfigResponse = (output: any, context: __SerdeContext): VpcConfigResponse => {
-  return {
-    clusterSecurityGroupId: __expectString(output.clusterSecurityGroupId),
-    endpointPrivateAccess: __expectBoolean(output.endpointPrivateAccess),
-    endpointPublicAccess: __expectBoolean(output.endpointPublicAccess),
-    publicAccessCidrs: output.publicAccessCidrs != null ? de_StringList(output.publicAccessCidrs, context) : undefined,
-    securityGroupIds: output.securityGroupIds != null ? de_StringList(output.securityGroupIds, context) : undefined,
-    subnetIds: output.subnetIds != null ? de_StringList(output.subnetIds, context) : undefined,
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
+// de_VpcConfigResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

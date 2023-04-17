@@ -5,6 +5,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -13,11 +14,12 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -567,73 +569,48 @@ import {
   AccessDeniedException,
   Account,
   AccountSettings,
-  Address,
   AlexaForBusinessMetadata,
   AppInstance,
   AppInstanceAdmin,
-  AppInstanceAdminSummary,
   AppInstanceRetentionSettings,
   AppInstanceStreamingConfiguration,
-  AppInstanceSummary,
   AppInstanceUser,
   AppInstanceUserMembershipSummary,
-  AppInstanceUserSummary,
   ArtifactsConfiguration,
-  Attendee,
   AudioArtifactsConfiguration,
   BadRequestException,
-  BatchChannelMemberships,
-  BatchCreateChannelMembershipError,
   Bot,
   BusinessCallingSettings,
-  CandidateAddress,
   Capability,
   Channel,
   ChannelBan,
-  ChannelBanSummary,
   ChannelMembership,
   ChannelMembershipForAppInstanceUserSummary,
-  ChannelMembershipSummary,
   ChannelMessage,
   ChannelMessageSummary,
   ChannelModeratedByAppInstanceUserSummary,
   ChannelModerator,
-  ChannelModeratorSummary,
   ChannelRetentionSettings,
   ChannelSummary,
   ChimeSdkMeetingConfiguration,
   ConflictException,
   ContentArtifactsConfiguration,
   ConversationRetentionSettings,
-  CreateAttendeeError,
   CreateAttendeeRequestItem,
   Credential,
   DNISEmergencyCallingConfiguration,
   EmergencyCallingConfiguration,
   EngineTranscribeMedicalSettings,
   EngineTranscribeSettings,
-  EventsConfiguration,
   ForbiddenException,
   GeoMatchParams,
-  Identity,
-  License,
   MediaCapturePipeline,
-  MediaPlacement,
-  Meeting,
   MeetingNotificationConfiguration,
-  Member,
-  MemberError,
   MembershipItem,
-  MessagingSessionEndpoint,
   NotFoundException,
-  OrderedPhoneNumber,
-  Participant,
   PhoneNumber,
   PhoneNumberAssociation,
-  PhoneNumberCapabilities,
-  PhoneNumberError,
   PhoneNumberOrder,
-  PhoneNumberType,
   ProxySession,
   ResourceLimitExceededException,
   Room,
@@ -643,7 +620,6 @@ import {
   ServiceUnavailableException,
   SigninDelegateGroup,
   SipMediaApplication,
-  SipMediaApplicationCall,
   SipMediaApplicationEndpoint,
   SipRule,
   SipRuleTargetApplication,
@@ -655,7 +631,6 @@ import {
   UpdatePhoneNumberRequestItem,
   UpdateUserRequestItem,
   User,
-  UserError,
   VideoArtifactsConfiguration,
   VoiceConnector,
   VoiceConnectorGroup,
@@ -663,12 +638,9 @@ import {
   VoiceConnectorSettings,
 } from "../models/models_0";
 import {
-  Invite,
   LoggingConfiguration,
   Origination,
   OriginationRoute,
-  PhoneNumberCountry,
-  Proxy,
   RetentionSettings,
   RoomRetentionSettings,
   SipMediaApplicationLoggingConfiguration,
@@ -706,12 +678,12 @@ export const se_AssociatePhoneNumbersWithVoiceConnectorCommand = async (
     operation: [, "associate-phone-numbers"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.E164PhoneNumbers != null && {
-      E164PhoneNumbers: se_E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
-    ...(input.ForceAssociate != null && { ForceAssociate: input.ForceAssociate }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      E164PhoneNumbers: (_) => _json(_),
+      ForceAssociate: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -750,12 +722,12 @@ export const se_AssociatePhoneNumbersWithVoiceConnectorGroupCommand = async (
     operation: [, "associate-phone-numbers"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.E164PhoneNumbers != null && {
-      E164PhoneNumbers: se_E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
-    ...(input.ForceAssociate != null && { ForceAssociate: input.ForceAssociate }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      E164PhoneNumbers: (_) => _json(_),
+      ForceAssociate: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -787,9 +759,11 @@ export const se_AssociatePhoneNumberWithUserCommand = async (
     operation: [, "associate-phone-number"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.E164PhoneNumber != null && { E164PhoneNumber: input.E164PhoneNumber }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      E164PhoneNumber: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -819,11 +793,11 @@ export const se_AssociateSigninDelegateGroupsWithAccountCommand = async (
     operation: [, "associate-signin-delegate-groups"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.SigninDelegateGroups != null && {
-      SigninDelegateGroups: se_SigninDelegateGroupList(input.SigninDelegateGroups, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SigninDelegateGroups: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -854,9 +828,11 @@ export const se_BatchCreateAttendeeCommand = async (
     operation: [, "batch-create"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attendees != null && { Attendees: se_CreateAttendeeRequestItemList(input.Attendees, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attendees: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -888,10 +864,12 @@ export const se_BatchCreateChannelMembershipCommand = async (
     operation: [, "batch-create"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.MemberArns != null && { MemberArns: se_MemberArns(input.MemberArns, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MemberArns: (_) => _json(_),
+      Type: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -931,11 +909,11 @@ export const se_BatchCreateRoomMembershipCommand = async (
     operation: [, "batch-create"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.MembershipItemList != null && {
-      MembershipItemList: se_MembershipItemList(input.MembershipItemList, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MembershipItemList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -964,9 +942,11 @@ export const se_BatchDeletePhoneNumberCommand = async (
     operation: [, "batch-delete"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.PhoneNumberIds != null && { PhoneNumberIds: se_NonEmptyStringList(input.PhoneNumberIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PhoneNumberIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -997,9 +977,11 @@ export const se_BatchSuspendUserCommand = async (
     operation: [, "suspend"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.UserIdList != null && { UserIdList: se_UserIdList(input.UserIdList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      UserIdList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1030,9 +1012,11 @@ export const se_BatchUnsuspendUserCommand = async (
     operation: [, "unsuspend"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.UserIdList != null && { UserIdList: se_UserIdList(input.UserIdList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      UserIdList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1061,11 +1045,11 @@ export const se_BatchUpdatePhoneNumberCommand = async (
     operation: [, "batch-update"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.UpdatePhoneNumberRequestItems != null && {
-      UpdatePhoneNumberRequestItems: se_UpdatePhoneNumberRequestItemList(input.UpdatePhoneNumberRequestItems, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      UpdatePhoneNumberRequestItems: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1093,11 +1077,11 @@ export const se_BatchUpdateUserCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AccountId}/users";
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.UpdateUserRequestItems != null && {
-      UpdateUserRequestItems: se_UpdateUserRequestItemList(input.UpdateUserRequestItems, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      UpdateUserRequestItems: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1122,9 +1106,11 @@ export const se_CreateAccountCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1149,12 +1135,14 @@ export const se_CreateAppInstanceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instances";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Metadata: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "identity-" + resolvedHostname;
@@ -1195,9 +1183,11 @@ export const se_CreateAppInstanceAdminCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceAdminArn != null && { AppInstanceAdminArn: input.AppInstanceAdminArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceAdminArn: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "identity-" + resolvedHostname;
@@ -1229,14 +1219,16 @@ export const se_CreateAppInstanceUserCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-users";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceArn != null && { AppInstanceArn: input.AppInstanceArn }),
-    ...(input.AppInstanceUserId != null && { AppInstanceUserId: input.AppInstanceUserId }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceArn: [],
+      AppInstanceUserId: [],
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Metadata: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "identity-" + resolvedHostname;
@@ -1270,10 +1262,12 @@ export const se_CreateAttendeeCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/attendees";
   resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ExternalUserId != null && { ExternalUserId: input.ExternalUserId }),
-    ...(input.Tags != null && { Tags: se_AttendeeTagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ExternalUserId: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1300,10 +1294,12 @@ export const se_CreateBotCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AccountId}/bots";
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DisplayName: [],
+      Domain: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1329,15 +1325,17 @@ export const se_CreateChannelCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceArn != null && { AppInstanceArn: input.AppInstanceArn }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Mode != null && { Mode: input.Mode }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Privacy != null && { Privacy: input.Privacy }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceArn: [],
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Metadata: [],
+      Mode: [],
+      Name: [],
+      Privacy: [],
+      Tags: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -1372,9 +1370,11 @@ export const se_CreateChannelBanCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/bans";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MemberArn != null && { MemberArn: input.MemberArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MemberArn: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -1409,10 +1409,12 @@ export const se_CreateChannelMembershipCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/memberships";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MemberArn != null && { MemberArn: input.MemberArn }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MemberArn: [],
+      Type: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -1447,9 +1449,11 @@ export const se_CreateChannelModeratorCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/moderators";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelModeratorArn != null && { ChannelModeratorArn: input.ChannelModeratorArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelModeratorArn: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -1482,16 +1486,16 @@ export const se_CreateMediaCapturePipelineCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-capture-pipelines";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChimeSdkMeetingConfiguration != null && {
-      ChimeSdkMeetingConfiguration: se_ChimeSdkMeetingConfiguration(input.ChimeSdkMeetingConfiguration, context),
-    }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SinkArn != null && { SinkArn: input.SinkArn }),
-    ...(input.SinkType != null && { SinkType: input.SinkType }),
-    ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
-    ...(input.SourceType != null && { SourceType: input.SourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChimeSdkMeetingConfiguration: (_) => _json(_),
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      SinkArn: [],
+      SinkType: [],
+      SourceArn: [],
+      SourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1516,16 +1520,16 @@ export const se_CreateMeetingCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId != null && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion != null && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingHostId != null && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration != null && {
-      NotificationsConfiguration: se_MeetingNotificationConfiguration(input.NotificationsConfiguration, context),
-    }),
-    ...(input.Tags != null && { Tags: se_MeetingTagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ExternalMeetingId: [],
+      MediaRegion: [],
+      MeetingHostId: [],
+      NotificationsConfiguration: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1552,11 +1556,13 @@ export const se_CreateMeetingDialOutCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/dial-outs";
   resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FromPhoneNumber != null && { FromPhoneNumber: input.FromPhoneNumber }),
-    ...(input.JoinToken != null && { JoinToken: input.JoinToken }),
-    ...(input.ToPhoneNumber != null && { ToPhoneNumber: input.ToPhoneNumber }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FromPhoneNumber: [],
+      JoinToken: [],
+      ToPhoneNumber: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1584,19 +1590,17 @@ export const se_CreateMeetingWithAttendeesCommand = async (
     operation: [, "create-attendees"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attendees != null && {
-      Attendees: se_CreateMeetingWithAttendeesRequestItemList(input.Attendees, context),
-    }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId != null && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion != null && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingHostId != null && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration != null && {
-      NotificationsConfiguration: se_MeetingNotificationConfiguration(input.NotificationsConfiguration, context),
-    }),
-    ...(input.Tags != null && { Tags: se_MeetingTagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attendees: (_) => _json(_),
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ExternalMeetingId: [],
+      MediaRegion: [],
+      MeetingHostId: [],
+      NotificationsConfiguration: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1622,12 +1626,12 @@ export const se_CreatePhoneNumberOrderCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number-orders";
   let body: any;
-  body = JSON.stringify({
-    ...(input.E164PhoneNumbers != null && {
-      E164PhoneNumbers: se_E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
-    ...(input.ProductType != null && { ProductType: input.ProductType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      E164PhoneNumbers: (_) => _json(_),
+      ProductType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1662,17 +1666,17 @@ export const se_CreateProxySessionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Capabilities != null && { Capabilities: se_CapabilityList(input.Capabilities, context) }),
-    ...(input.ExpiryMinutes != null && { ExpiryMinutes: input.ExpiryMinutes }),
-    ...(input.GeoMatchLevel != null && { GeoMatchLevel: input.GeoMatchLevel }),
-    ...(input.GeoMatchParams != null && { GeoMatchParams: se_GeoMatchParams(input.GeoMatchParams, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NumberSelectionBehavior != null && { NumberSelectionBehavior: input.NumberSelectionBehavior }),
-    ...(input.ParticipantPhoneNumbers != null && {
-      ParticipantPhoneNumbers: se_ParticipantPhoneNumberList(input.ParticipantPhoneNumbers, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+      ExpiryMinutes: [],
+      GeoMatchLevel: [],
+      GeoMatchParams: (_) => _json(_),
+      Name: [],
+      NumberSelectionBehavior: [],
+      ParticipantPhoneNumbers: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1699,10 +1703,12 @@ export const se_CreateRoomCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AccountId}/rooms";
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1731,10 +1737,12 @@ export const se_CreateRoomMembershipCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "RoomId", () => input.RoomId!, "{RoomId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MemberId != null && { MemberId: input.MemberId }),
-    ...(input.Role != null && { Role: input.Role }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MemberId: [],
+      Role: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1760,11 +1768,13 @@ export const se_CreateSipMediaApplicationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-media-applications";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.Endpoints != null && { Endpoints: se_SipMediaApplicationEndpointList(input.Endpoints, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AwsRegion: [],
+      Endpoints: (_) => _json(_),
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1799,11 +1809,13 @@ export const se_CreateSipMediaApplicationCallCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.FromPhoneNumber != null && { FromPhoneNumber: input.FromPhoneNumber }),
-    ...(input.SipHeaders != null && { SipHeaders: se_SipHeadersMap(input.SipHeaders, context) }),
-    ...(input.ToPhoneNumber != null && { ToPhoneNumber: input.ToPhoneNumber }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FromPhoneNumber: [],
+      SipHeaders: (_) => _json(_),
+      ToPhoneNumber: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1828,15 +1840,15 @@ export const se_CreateSipRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-rules";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Disabled != null && { Disabled: input.Disabled }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.TargetApplications != null && {
-      TargetApplications: se_SipRuleTargetApplicationList(input.TargetApplications, context),
-    }),
-    ...(input.TriggerType != null && { TriggerType: input.TriggerType }),
-    ...(input.TriggerValue != null && { TriggerValue: input.TriggerValue }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Disabled: [],
+      Name: [],
+      TargetApplications: (_) => _json(_),
+      TriggerType: [],
+      TriggerValue: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1866,11 +1878,13 @@ export const se_CreateUserCommand = async (
     operation: [, "create"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Email != null && { Email: input.Email }),
-    ...(input.UserType != null && { UserType: input.UserType }),
-    ...(input.Username != null && { Username: input.Username }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Email: [],
+      UserType: [],
+      Username: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1896,11 +1910,13 @@ export const se_CreateVoiceConnectorCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connectors";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RequireEncryption != null && { RequireEncryption: input.RequireEncryption }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AwsRegion: [],
+      Name: [],
+      RequireEncryption: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1926,12 +1942,12 @@ export const se_CreateVoiceConnectorGroupCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connector-groups";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.VoiceConnectorItems != null && {
-      VoiceConnectorItems: se_VoiceConnectorItemList(input.VoiceConnectorItems, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      VoiceConnectorItems: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2833,9 +2849,11 @@ export const se_DeleteVoiceConnectorTerminationCredentialsCommand = async (
     operation: [, "delete"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Usernames != null && { Usernames: se_SensitiveStringList(input.Usernames, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Usernames: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3242,11 +3260,11 @@ export const se_DisassociatePhoneNumbersFromVoiceConnectorCommand = async (
     operation: [, "disassociate-phone-numbers"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.E164PhoneNumbers != null && {
-      E164PhoneNumbers: se_E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      E164PhoneNumbers: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3285,11 +3303,11 @@ export const se_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand = async (
     operation: [, "disassociate-phone-numbers"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.E164PhoneNumbers != null && {
-      E164PhoneNumbers: se_E164PhoneNumberList(input.E164PhoneNumbers, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      E164PhoneNumbers: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3319,9 +3337,11 @@ export const se_DisassociateSigninDelegateGroupsFromAccountCommand = async (
     operation: [, "disassociate-signin-delegate-groups"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.GroupNames != null && { GroupNames: se_NonEmptyStringList(input.GroupNames, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GroupNames: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4293,10 +4313,12 @@ export const se_InviteUsersCommand = async (
     operation: [, "add"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.UserEmailList != null && { UserEmailList: se_UserEmailList(input.UserEmailList, context) }),
-    ...(input.UserType != null && { UserType: input.UserType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      UserEmailList: (_) => _json(_),
+      UserType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5325,11 +5347,11 @@ export const se_PutAppInstanceRetentionSettingsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceRetentionSettings != null && {
-      AppInstanceRetentionSettings: se_AppInstanceRetentionSettings(input.AppInstanceRetentionSettings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceRetentionSettings: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "identity-" + resolvedHostname;
@@ -5371,14 +5393,11 @@ export const se_PutAppInstanceStreamingConfigurationsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppInstanceStreamingConfigurations != null && {
-      AppInstanceStreamingConfigurations: se_AppInstanceStreamingConfigurationList(
-        input.AppInstanceStreamingConfigurations,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppInstanceStreamingConfigurations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5407,12 +5426,12 @@ export const se_PutEventsConfigurationCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "BotId", () => input.BotId!, "{BotId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LambdaFunctionArn != null && { LambdaFunctionArn: input.LambdaFunctionArn }),
-    ...(input.OutboundEventsHTTPSEndpoint != null && {
-      OutboundEventsHTTPSEndpoint: input.OutboundEventsHTTPSEndpoint,
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LambdaFunctionArn: [],
+      OutboundEventsHTTPSEndpoint: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5439,11 +5458,11 @@ export const se_PutRetentionSettingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AccountId}/retention-settings";
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.RetentionSettings != null && {
-      RetentionSettings: se_RetentionSettings(input.RetentionSettings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      RetentionSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5478,14 +5497,11 @@ export const se_PutSipMediaApplicationLoggingConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SipMediaApplicationLoggingConfiguration != null && {
-      SipMediaApplicationLoggingConfiguration: se_SipMediaApplicationLoggingConfiguration(
-        input.SipMediaApplicationLoggingConfiguration,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SipMediaApplicationLoggingConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5520,11 +5536,11 @@ export const se_PutVoiceConnectorEmergencyCallingConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.EmergencyCallingConfiguration != null && {
-      EmergencyCallingConfiguration: se_EmergencyCallingConfiguration(input.EmergencyCallingConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EmergencyCallingConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5559,11 +5575,11 @@ export const se_PutVoiceConnectorLoggingConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.LoggingConfiguration != null && {
-      LoggingConfiguration: se_LoggingConfiguration(input.LoggingConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LoggingConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5598,9 +5614,11 @@ export const se_PutVoiceConnectorOriginationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Origination != null && { Origination: se_Origination(input.Origination, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Origination: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5635,16 +5653,14 @@ export const se_PutVoiceConnectorProxyCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.DefaultSessionExpiryMinutes != null && {
-      DefaultSessionExpiryMinutes: input.DefaultSessionExpiryMinutes,
-    }),
-    ...(input.Disabled != null && { Disabled: input.Disabled }),
-    ...(input.FallBackPhoneNumber != null && { FallBackPhoneNumber: input.FallBackPhoneNumber }),
-    ...(input.PhoneNumberPoolCountries != null && {
-      PhoneNumberPoolCountries: se_CountryList(input.PhoneNumberPoolCountries, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DefaultSessionExpiryMinutes: [],
+      Disabled: [],
+      FallBackPhoneNumber: [],
+      PhoneNumberPoolCountries: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5679,11 +5695,11 @@ export const se_PutVoiceConnectorStreamingConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamingConfiguration != null && {
-      StreamingConfiguration: se_StreamingConfiguration(input.StreamingConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamingConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5718,9 +5734,11 @@ export const se_PutVoiceConnectorTerminationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Termination != null && { Termination: se_Termination(input.Termination, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Termination: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -5758,9 +5776,11 @@ export const se_PutVoiceConnectorTerminationCredentialsCommand = async (
     operation: [, "put"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Credentials != null && { Credentials: se_CredentialList(input.Credentials, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Credentials: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6024,13 +6044,15 @@ export const se_SendChannelMessageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/messages";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Persistence != null && { Persistence: input.Persistence }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Content: [],
+      Metadata: [],
+      Persistence: [],
+      Type: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -6067,11 +6089,11 @@ export const se_StartMeetingTranscriptionCommand = async (
     operation: [, "start"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.TranscriptionConfiguration != null && {
-      TranscriptionConfiguration: se_TranscriptionConfiguration(input.TranscriptionConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TranscriptionConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6132,9 +6154,11 @@ export const se_TagAttendeeCommand = async (
     operation: [, "add"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_AttendeeTagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6165,9 +6189,11 @@ export const se_TagMeetingCommand = async (
     operation: [, "add"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: se_MeetingTagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6196,10 +6222,12 @@ export const se_TagResourceCommand = async (
     operation: [, "tag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6232,9 +6260,11 @@ export const se_UntagAttendeeCommand = async (
     operation: [, "delete"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.TagKeys != null && { TagKeys: se_AttendeeTagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6265,9 +6295,11 @@ export const se_UntagMeetingCommand = async (
     operation: [, "delete"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.TagKeys != null && { TagKeys: se_MeetingTagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6296,10 +6328,12 @@ export const se_UntagResourceCommand = async (
     operation: [, "untag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6326,10 +6360,12 @@ export const se_UpdateAccountCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AccountId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DefaultLicense != null && { DefaultLicense: input.DefaultLicense }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DefaultLicense: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6356,9 +6392,11 @@ export const se_UpdateAccountSettingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AccountId}/settings";
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountSettings != null && { AccountSettings: se_AccountSettings(input.AccountSettings, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6392,10 +6430,12 @@ export const se_UpdateAppInstanceCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Metadata: [],
+      Name: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "identity-" + resolvedHostname;
@@ -6436,10 +6476,12 @@ export const se_UpdateAppInstanceUserCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Metadata: [],
+      Name: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "identity-" + resolvedHostname;
@@ -6474,9 +6516,11 @@ export const se_UpdateBotCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "BotId", () => input.BotId!, "{BotId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Disabled != null && { Disabled: input.Disabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Disabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6503,11 +6547,13 @@ export const se_UpdateChannelCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.Mode != null && { Mode: input.Mode }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Metadata: [],
+      Mode: [],
+      Name: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -6544,10 +6590,12 @@ export const se_UpdateChannelMessageCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Content: [],
+      Metadata: [],
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -6612,12 +6660,12 @@ export const se_UpdateGlobalSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/settings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BusinessCalling != null && {
-      BusinessCalling: se_BusinessCallingSettings(input.BusinessCalling, context),
-    }),
-    ...(input.VoiceConnector != null && { VoiceConnector: se_VoiceConnectorSettings(input.VoiceConnector, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BusinessCalling: (_) => _json(_),
+      VoiceConnector: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6651,10 +6699,12 @@ export const se_UpdatePhoneNumberCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.CallingName != null && { CallingName: input.CallingName }),
-    ...(input.ProductType != null && { ProductType: input.ProductType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CallingName: [],
+      ProductType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6679,9 +6729,11 @@ export const se_UpdatePhoneNumberSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/settings/phone-number";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CallingName != null && { CallingName: input.CallingName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CallingName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6724,10 +6776,12 @@ export const se_UpdateProxySessionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Capabilities != null && { Capabilities: se_CapabilityList(input.Capabilities, context) }),
-    ...(input.ExpiryMinutes != null && { ExpiryMinutes: input.ExpiryMinutes }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+      ExpiryMinutes: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6755,9 +6809,11 @@ export const se_UpdateRoomCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "RoomId", () => input.RoomId!, "{RoomId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6787,9 +6843,11 @@ export const se_UpdateRoomMembershipCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "RoomId", () => input.RoomId!, "{RoomId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "MemberId", () => input.MemberId!, "{MemberId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Role != null && { Role: input.Role }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Role: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6824,10 +6882,12 @@ export const se_UpdateSipMediaApplicationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Endpoints != null && { Endpoints: se_SipMediaApplicationEndpointList(input.Endpoints, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Endpoints: (_) => _json(_),
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6870,9 +6930,11 @@ export const se_UpdateSipMediaApplicationCallCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arguments != null && { Arguments: se_SMAUpdateCallArgumentsMap(input.Arguments, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arguments: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6898,13 +6960,13 @@ export const se_UpdateSipRuleCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-rules/{SipRuleId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "SipRuleId", () => input.SipRuleId!, "{SipRuleId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Disabled != null && { Disabled: input.Disabled }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.TargetApplications != null && {
-      TargetApplications: se_SipRuleTargetApplicationList(input.TargetApplications, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Disabled: [],
+      Name: [],
+      TargetApplications: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6932,13 +6994,13 @@ export const se_UpdateUserCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AlexaForBusinessMetadata != null && {
-      AlexaForBusinessMetadata: se_AlexaForBusinessMetadata(input.AlexaForBusinessMetadata, context),
-    }),
-    ...(input.LicenseType != null && { LicenseType: input.LicenseType }),
-    ...(input.UserType != null && { UserType: input.UserType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AlexaForBusinessMetadata: (_) => _json(_),
+      LicenseType: [],
+      UserType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6967,9 +7029,11 @@ export const se_UpdateUserSettingsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "AccountId", () => input.AccountId!, "{AccountId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.UserSettings != null && { UserSettings: se_UserSettings(input.UserSettings, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      UserSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -7003,10 +7067,12 @@ export const se_UpdateVoiceConnectorCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RequireEncryption != null && { RequireEncryption: input.RequireEncryption }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      RequireEncryption: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -7041,12 +7107,12 @@ export const se_UpdateVoiceConnectorGroupCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.VoiceConnectorItems != null && {
-      VoiceConnectorItems: se_VoiceConnectorItemList(input.VoiceConnectorItems, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      VoiceConnectorItems: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -7072,15 +7138,17 @@ export const se_ValidateE911AddressCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/emergency-calling/address";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AwsAccountId != null && { AwsAccountId: input.AwsAccountId }),
-    ...(input.City != null && { City: input.City }),
-    ...(input.Country != null && { Country: input.Country }),
-    ...(input.PostalCode != null && { PostalCode: input.PostalCode }),
-    ...(input.State != null && { State: input.State }),
-    ...(input.StreetInfo != null && { StreetInfo: input.StreetInfo }),
-    ...(input.StreetNumber != null && { StreetNumber: input.StreetNumber }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AwsAccountId: [],
+      City: [],
+      Country: [],
+      PostalCode: [],
+      State: [],
+      StreetInfo: [],
+      StreetNumber: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -7106,9 +7174,10 @@ export const de_AssociatePhoneNumbersWithVoiceConnectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumberErrors != null) {
-    contents.PhoneNumberErrors = de_PhoneNumberErrorList(data.PhoneNumberErrors, context);
-  }
+  const doc = take(data, {
+    PhoneNumberErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7151,10 +7220,9 @@ const de_AssociatePhoneNumbersWithVoiceConnectorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7174,9 +7242,10 @@ export const de_AssociatePhoneNumbersWithVoiceConnectorGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumberErrors != null) {
-    contents.PhoneNumberErrors = de_PhoneNumberErrorList(data.PhoneNumberErrors, context);
-  }
+  const doc = take(data, {
+    PhoneNumberErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7219,10 +7288,9 @@ const de_AssociatePhoneNumbersWithVoiceConnectorGroupCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7284,10 +7352,9 @@ const de_AssociatePhoneNumberWithUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7346,10 +7413,9 @@ const de_AssociateSigninDelegateGroupsWithAccountCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7369,12 +7435,11 @@ export const de_BatchCreateAttendeeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendees != null) {
-    contents.Attendees = de_AttendeeList(data.Attendees, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = de_BatchCreateAttendeeErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Attendees: _json,
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7417,10 +7482,9 @@ const de_BatchCreateAttendeeCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7440,12 +7504,11 @@ export const de_BatchCreateChannelMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BatchChannelMemberships != null) {
-    contents.BatchChannelMemberships = de_BatchChannelMemberships(data.BatchChannelMemberships, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = de_BatchCreateChannelMembershipErrors(data.Errors, context);
-  }
+  const doc = take(data, {
+    BatchChannelMemberships: _json,
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7482,10 +7545,9 @@ const de_BatchCreateChannelMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7505,9 +7567,10 @@ export const de_BatchCreateRoomMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = de_MemberErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7547,10 +7610,9 @@ const de_BatchCreateRoomMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7570,9 +7632,10 @@ export const de_BatchDeletePhoneNumberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumberErrors != null) {
-    contents.PhoneNumberErrors = de_PhoneNumberErrorList(data.PhoneNumberErrors, context);
-  }
+  const doc = take(data, {
+    PhoneNumberErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7612,10 +7675,9 @@ const de_BatchDeletePhoneNumberCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7635,9 +7697,10 @@ export const de_BatchSuspendUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.UserErrors != null) {
-    contents.UserErrors = de_UserErrorList(data.UserErrors, context);
-  }
+  const doc = take(data, {
+    UserErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7677,10 +7740,9 @@ const de_BatchSuspendUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7700,9 +7762,10 @@ export const de_BatchUnsuspendUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.UserErrors != null) {
-    contents.UserErrors = de_UserErrorList(data.UserErrors, context);
-  }
+  const doc = take(data, {
+    UserErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7742,10 +7805,9 @@ const de_BatchUnsuspendUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7765,9 +7827,10 @@ export const de_BatchUpdatePhoneNumberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumberErrors != null) {
-    contents.PhoneNumberErrors = de_PhoneNumberErrorList(data.PhoneNumberErrors, context);
-  }
+  const doc = take(data, {
+    PhoneNumberErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7807,10 +7870,9 @@ const de_BatchUpdatePhoneNumberCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7830,9 +7892,10 @@ export const de_BatchUpdateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.UserErrors != null) {
-    contents.UserErrors = de_UserErrorList(data.UserErrors, context);
-  }
+  const doc = take(data, {
+    UserErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7872,10 +7935,9 @@ const de_BatchUpdateUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7895,9 +7957,10 @@ export const de_CreateAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Account != null) {
-    contents.Account = de_Account(data.Account, context);
-  }
+  const doc = take(data, {
+    Account: (_) => de_Account(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7937,10 +8000,9 @@ const de_CreateAccountCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -7960,9 +8022,10 @@ export const de_CreateAppInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
+  const doc = take(data, {
+    AppInstanceArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8005,10 +8068,9 @@ const de_CreateAppInstanceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8028,12 +8090,11 @@ export const de_CreateAppInstanceAdminCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceAdmin != null) {
-    contents.AppInstanceAdmin = de_Identity(data.AppInstanceAdmin, context);
-  }
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
+  const doc = take(data, {
+    AppInstanceAdmin: _json,
+    AppInstanceArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8076,10 +8137,9 @@ const de_CreateAppInstanceAdminCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8099,9 +8159,10 @@ export const de_CreateAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUserArn != null) {
-    contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
-  }
+  const doc = take(data, {
+    AppInstanceUserArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8144,10 +8205,9 @@ const de_CreateAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8167,9 +8227,10 @@ export const de_CreateAttendeeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendee != null) {
-    contents.Attendee = de_Attendee(data.Attendee, context);
-  }
+  const doc = take(data, {
+    Attendee: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8212,10 +8273,9 @@ const de_CreateAttendeeCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8235,9 +8295,10 @@ export const de_CreateBotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Bot != null) {
-    contents.Bot = de_Bot(data.Bot, context);
-  }
+  const doc = take(data, {
+    Bot: (_) => de_Bot(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8280,10 +8341,9 @@ const de_CreateBotCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8303,9 +8363,10 @@ export const de_CreateChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8348,10 +8409,9 @@ const de_CreateChannelCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8371,12 +8431,11 @@ export const de_CreateChannelBanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.Member != null) {
-    contents.Member = de_Identity(data.Member, context);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    Member: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8419,10 +8478,9 @@ const de_CreateChannelBanCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8442,12 +8500,11 @@ export const de_CreateChannelMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.Member != null) {
-    contents.Member = de_Identity(data.Member, context);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    Member: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8490,10 +8547,9 @@ const de_CreateChannelMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8513,12 +8569,11 @@ export const de_CreateChannelModeratorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelModerator != null) {
-    contents.ChannelModerator = de_Identity(data.ChannelModerator, context);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelModerator: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8561,10 +8616,9 @@ const de_CreateChannelModeratorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8584,9 +8638,10 @@ export const de_CreateMediaCapturePipelineCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipeline != null) {
-    contents.MediaCapturePipeline = de_MediaCapturePipeline(data.MediaCapturePipeline, context);
-  }
+  const doc = take(data, {
+    MediaCapturePipeline: (_) => de_MediaCapturePipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8626,10 +8681,9 @@ const de_CreateMediaCapturePipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8649,9 +8703,10 @@ export const de_CreateMeetingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Meeting != null) {
-    contents.Meeting = de_Meeting(data.Meeting, context);
-  }
+  const doc = take(data, {
+    Meeting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8691,10 +8746,9 @@ const de_CreateMeetingCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8714,9 +8768,10 @@ export const de_CreateMeetingDialOutCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TransactionId != null) {
-    contents.TransactionId = __expectString(data.TransactionId);
-  }
+  const doc = take(data, {
+    TransactionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8759,10 +8814,9 @@ const de_CreateMeetingDialOutCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8782,15 +8836,12 @@ export const de_CreateMeetingWithAttendeesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendees != null) {
-    contents.Attendees = de_AttendeeList(data.Attendees, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = de_BatchCreateAttendeeErrorList(data.Errors, context);
-  }
-  if (data.Meeting != null) {
-    contents.Meeting = de_Meeting(data.Meeting, context);
-  }
+  const doc = take(data, {
+    Attendees: _json,
+    Errors: _json,
+    Meeting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8830,10 +8881,9 @@ const de_CreateMeetingWithAttendeesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8853,9 +8903,10 @@ export const de_CreatePhoneNumberOrderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumberOrder != null) {
-    contents.PhoneNumberOrder = de_PhoneNumberOrder(data.PhoneNumberOrder, context);
-  }
+  const doc = take(data, {
+    PhoneNumberOrder: (_) => de_PhoneNumberOrder(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8898,10 +8949,9 @@ const de_CreatePhoneNumberOrderCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8921,9 +8971,10 @@ export const de_CreateProxySessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProxySession != null) {
-    contents.ProxySession = de_ProxySession(data.ProxySession, context);
-  }
+  const doc = take(data, {
+    ProxySession: (_) => de_ProxySession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8963,10 +9014,9 @@ const de_CreateProxySessionCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -8986,9 +9036,10 @@ export const de_CreateRoomCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Room != null) {
-    contents.Room = de_Room(data.Room, context);
-  }
+  const doc = take(data, {
+    Room: (_) => de_Room(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9031,10 +9082,9 @@ const de_CreateRoomCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9054,9 +9104,10 @@ export const de_CreateRoomMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RoomMembership != null) {
-    contents.RoomMembership = de_RoomMembership(data.RoomMembership, context);
-  }
+  const doc = take(data, {
+    RoomMembership: (_) => de_RoomMembership(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9102,10 +9153,9 @@ const de_CreateRoomMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9125,9 +9175,10 @@ export const de_CreateSipMediaApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipMediaApplication != null) {
-    contents.SipMediaApplication = de_SipMediaApplication(data.SipMediaApplication, context);
-  }
+  const doc = take(data, {
+    SipMediaApplication: (_) => de_SipMediaApplication(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9173,10 +9224,9 @@ const de_CreateSipMediaApplicationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9196,9 +9246,10 @@ export const de_CreateSipMediaApplicationCallCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipMediaApplicationCall != null) {
-    contents.SipMediaApplicationCall = de_SipMediaApplicationCall(data.SipMediaApplicationCall, context);
-  }
+  const doc = take(data, {
+    SipMediaApplicationCall: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9241,10 +9292,9 @@ const de_CreateSipMediaApplicationCallCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9264,9 +9314,10 @@ export const de_CreateSipRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipRule != null) {
-    contents.SipRule = de_SipRule(data.SipRule, context);
-  }
+  const doc = take(data, {
+    SipRule: (_) => de_SipRule(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9312,10 +9363,9 @@ const de_CreateSipRuleCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9335,9 +9385,10 @@ export const de_CreateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = de_User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9380,10 +9431,9 @@ const de_CreateUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9403,9 +9453,10 @@ export const de_CreateVoiceConnectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VoiceConnector != null) {
-    contents.VoiceConnector = de_VoiceConnector(data.VoiceConnector, context);
-  }
+  const doc = take(data, {
+    VoiceConnector: (_) => de_VoiceConnector(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9448,10 +9499,9 @@ const de_CreateVoiceConnectorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9471,9 +9521,10 @@ export const de_CreateVoiceConnectorGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VoiceConnectorGroup != null) {
-    contents.VoiceConnectorGroup = de_VoiceConnectorGroup(data.VoiceConnectorGroup, context);
-  }
+  const doc = take(data, {
+    VoiceConnectorGroup: (_) => de_VoiceConnectorGroup(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9516,10 +9567,9 @@ const de_CreateVoiceConnectorGroupCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9581,10 +9631,9 @@ const de_DeleteAccountCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9640,10 +9689,9 @@ const de_DeleteAppInstanceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9702,10 +9750,9 @@ const de_DeleteAppInstanceAdminCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9764,10 +9811,9 @@ const de_DeleteAppInstanceStreamingConfigurationsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9823,10 +9869,9 @@ const de_DeleteAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9885,10 +9930,9 @@ const de_DeleteAttendeeCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -9944,10 +9988,9 @@ const de_DeleteChannelCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10003,10 +10046,9 @@ const de_DeleteChannelBanCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10065,10 +10107,9 @@ const de_DeleteChannelMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10124,10 +10165,9 @@ const de_DeleteChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10183,10 +10223,9 @@ const de_DeleteChannelModeratorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10242,10 +10281,9 @@ const de_DeleteEventsConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10304,10 +10342,9 @@ const de_DeleteMediaCapturePipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10366,10 +10403,9 @@ const de_DeleteMeetingCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10428,10 +10464,9 @@ const de_DeletePhoneNumberCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10490,10 +10525,9 @@ const de_DeleteProxySessionCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10552,10 +10586,9 @@ const de_DeleteRoomCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10614,10 +10647,9 @@ const de_DeleteRoomMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10679,10 +10711,9 @@ const de_DeleteSipMediaApplicationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10744,10 +10775,9 @@ const de_DeleteSipRuleCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10809,10 +10839,9 @@ const de_DeleteVoiceConnectorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10871,10 +10900,9 @@ const de_DeleteVoiceConnectorEmergencyCallingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10936,10 +10964,9 @@ const de_DeleteVoiceConnectorGroupCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -10998,10 +11025,9 @@ const de_DeleteVoiceConnectorOriginationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11060,10 +11086,9 @@ const de_DeleteVoiceConnectorProxyCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11122,10 +11147,9 @@ const de_DeleteVoiceConnectorStreamingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11184,10 +11208,9 @@ const de_DeleteVoiceConnectorTerminationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11246,10 +11269,9 @@ const de_DeleteVoiceConnectorTerminationCredentialsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11269,9 +11291,10 @@ export const de_DescribeAppInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstance != null) {
-    contents.AppInstance = de_AppInstance(data.AppInstance, context);
-  }
+  const doc = take(data, {
+    AppInstance: (_) => de_AppInstance(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11308,10 +11331,9 @@ const de_DescribeAppInstanceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11331,9 +11353,10 @@ export const de_DescribeAppInstanceAdminCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceAdmin != null) {
-    contents.AppInstanceAdmin = de_AppInstanceAdmin(data.AppInstanceAdmin, context);
-  }
+  const doc = take(data, {
+    AppInstanceAdmin: (_) => de_AppInstanceAdmin(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11370,10 +11393,9 @@ const de_DescribeAppInstanceAdminCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11393,9 +11415,10 @@ export const de_DescribeAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUser != null) {
-    contents.AppInstanceUser = de_AppInstanceUser(data.AppInstanceUser, context);
-  }
+  const doc = take(data, {
+    AppInstanceUser: (_) => de_AppInstanceUser(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11432,10 +11455,9 @@ const de_DescribeAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11455,9 +11477,10 @@ export const de_DescribeChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channel != null) {
-    contents.Channel = de_Channel(data.Channel, context);
-  }
+  const doc = take(data, {
+    Channel: (_) => de_Channel(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11494,10 +11517,9 @@ const de_DescribeChannelCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11517,9 +11539,10 @@ export const de_DescribeChannelBanCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelBan != null) {
-    contents.ChannelBan = de_ChannelBan(data.ChannelBan, context);
-  }
+  const doc = take(data, {
+    ChannelBan: (_) => de_ChannelBan(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11559,10 +11582,9 @@ const de_DescribeChannelBanCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11582,9 +11604,10 @@ export const de_DescribeChannelMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelMembership != null) {
-    contents.ChannelMembership = de_ChannelMembership(data.ChannelMembership, context);
-  }
+  const doc = take(data, {
+    ChannelMembership: (_) => de_ChannelMembership(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11624,10 +11647,9 @@ const de_DescribeChannelMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11647,9 +11669,10 @@ export const de_DescribeChannelMembershipForAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelMembership != null) {
-    contents.ChannelMembership = de_ChannelMembershipForAppInstanceUserSummary(data.ChannelMembership, context);
-  }
+  const doc = take(data, {
+    ChannelMembership: (_) => de_ChannelMembershipForAppInstanceUserSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11686,10 +11709,9 @@ const de_DescribeChannelMembershipForAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11709,9 +11731,10 @@ export const de_DescribeChannelModeratedByAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channel != null) {
-    contents.Channel = de_ChannelModeratedByAppInstanceUserSummary(data.Channel, context);
-  }
+  const doc = take(data, {
+    Channel: (_) => de_ChannelModeratedByAppInstanceUserSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11748,10 +11771,9 @@ const de_DescribeChannelModeratedByAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11771,9 +11793,10 @@ export const de_DescribeChannelModeratorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelModerator != null) {
-    contents.ChannelModerator = de_ChannelModerator(data.ChannelModerator, context);
-  }
+  const doc = take(data, {
+    ChannelModerator: (_) => de_ChannelModerator(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11813,10 +11836,9 @@ const de_DescribeChannelModeratorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11875,10 +11897,9 @@ const de_DisassociatePhoneNumberFromUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11898,9 +11919,10 @@ export const de_DisassociatePhoneNumbersFromVoiceConnectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumberErrors != null) {
-    contents.PhoneNumberErrors = de_PhoneNumberErrorList(data.PhoneNumberErrors, context);
-  }
+  const doc = take(data, {
+    PhoneNumberErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -11940,10 +11962,9 @@ const de_DisassociatePhoneNumbersFromVoiceConnectorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -11963,9 +11984,10 @@ export const de_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumberErrors != null) {
-    contents.PhoneNumberErrors = de_PhoneNumberErrorList(data.PhoneNumberErrors, context);
-  }
+  const doc = take(data, {
+    PhoneNumberErrors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12005,10 +12027,9 @@ const de_DisassociatePhoneNumbersFromVoiceConnectorGroupCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12067,10 +12088,9 @@ const de_DisassociateSigninDelegateGroupsFromAccountCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12090,9 +12110,10 @@ export const de_GetAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Account != null) {
-    contents.Account = de_Account(data.Account, context);
-  }
+  const doc = take(data, {
+    Account: (_) => de_Account(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12132,10 +12153,9 @@ const de_GetAccountCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12155,9 +12175,10 @@ export const de_GetAccountSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountSettings != null) {
-    contents.AccountSettings = de_AccountSettings(data.AccountSettings, context);
-  }
+  const doc = take(data, {
+    AccountSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12197,10 +12218,9 @@ const de_GetAccountSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12220,14 +12240,11 @@ export const de_GetAppInstanceRetentionSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceRetentionSettings != null) {
-    contents.AppInstanceRetentionSettings = de_AppInstanceRetentionSettings(data.AppInstanceRetentionSettings, context);
-  }
-  if (data.InitiateDeletionTimestamp != null) {
-    contents.InitiateDeletionTimestamp = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.InitiateDeletionTimestamp))
-    );
-  }
+  const doc = take(data, {
+    AppInstanceRetentionSettings: _json,
+    InitiateDeletionTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12267,10 +12284,9 @@ const de_GetAppInstanceRetentionSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12290,12 +12306,10 @@ export const de_GetAppInstanceStreamingConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceStreamingConfigurations != null) {
-    contents.AppInstanceStreamingConfigurations = de_AppInstanceStreamingConfigurationList(
-      data.AppInstanceStreamingConfigurations,
-      context
-    );
-  }
+  const doc = take(data, {
+    AppInstanceStreamingConfigurations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12335,10 +12349,9 @@ const de_GetAppInstanceStreamingConfigurationsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12358,9 +12371,10 @@ export const de_GetAttendeeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendee != null) {
-    contents.Attendee = de_Attendee(data.Attendee, context);
-  }
+  const doc = take(data, {
+    Attendee: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12400,10 +12414,9 @@ const de_GetAttendeeCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12423,9 +12436,10 @@ export const de_GetBotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Bot != null) {
-    contents.Bot = de_Bot(data.Bot, context);
-  }
+  const doc = take(data, {
+    Bot: (_) => de_Bot(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12462,10 +12476,9 @@ const de_GetBotCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12485,9 +12498,10 @@ export const de_GetChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelMessage != null) {
-    contents.ChannelMessage = de_ChannelMessage(data.ChannelMessage, context);
-  }
+  const doc = take(data, {
+    ChannelMessage: (_) => de_ChannelMessage(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12527,10 +12541,9 @@ const de_GetChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12550,9 +12563,10 @@ export const de_GetEventsConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventsConfiguration != null) {
-    contents.EventsConfiguration = de_EventsConfiguration(data.EventsConfiguration, context);
-  }
+  const doc = take(data, {
+    EventsConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12592,10 +12606,9 @@ const de_GetEventsConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12615,12 +12628,11 @@ export const de_GetGlobalSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BusinessCalling != null) {
-    contents.BusinessCalling = de_BusinessCallingSettings(data.BusinessCalling, context);
-  }
-  if (data.VoiceConnector != null) {
-    contents.VoiceConnector = de_VoiceConnectorSettings(data.VoiceConnector, context);
-  }
+  const doc = take(data, {
+    BusinessCalling: _json,
+    VoiceConnector: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12657,10 +12669,9 @@ const de_GetGlobalSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12680,9 +12691,10 @@ export const de_GetMediaCapturePipelineCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipeline != null) {
-    contents.MediaCapturePipeline = de_MediaCapturePipeline(data.MediaCapturePipeline, context);
-  }
+  const doc = take(data, {
+    MediaCapturePipeline: (_) => de_MediaCapturePipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12722,10 +12734,9 @@ const de_GetMediaCapturePipelineCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12745,9 +12756,10 @@ export const de_GetMeetingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Meeting != null) {
-    contents.Meeting = de_Meeting(data.Meeting, context);
-  }
+  const doc = take(data, {
+    Meeting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12787,10 +12799,9 @@ const de_GetMeetingCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12810,9 +12821,10 @@ export const de_GetMessagingSessionEndpointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Endpoint != null) {
-    contents.Endpoint = de_MessagingSessionEndpoint(data.Endpoint, context);
-  }
+  const doc = take(data, {
+    Endpoint: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12846,10 +12858,9 @@ const de_GetMessagingSessionEndpointCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12869,9 +12880,10 @@ export const de_GetPhoneNumberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumber != null) {
-    contents.PhoneNumber = de_PhoneNumber(data.PhoneNumber, context);
-  }
+  const doc = take(data, {
+    PhoneNumber: (_) => de_PhoneNumber(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12911,10 +12923,9 @@ const de_GetPhoneNumberCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12934,9 +12945,10 @@ export const de_GetPhoneNumberOrderCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumberOrder != null) {
-    contents.PhoneNumberOrder = de_PhoneNumberOrder(data.PhoneNumberOrder, context);
-  }
+  const doc = take(data, {
+    PhoneNumberOrder: (_) => de_PhoneNumberOrder(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12976,10 +12988,9 @@ const de_GetPhoneNumberOrderCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -12999,14 +13010,11 @@ export const de_GetPhoneNumberSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CallingName != null) {
-    contents.CallingName = __expectString(data.CallingName);
-  }
-  if (data.CallingNameUpdatedTimestamp != null) {
-    contents.CallingNameUpdatedTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(data.CallingNameUpdatedTimestamp)
-    );
-  }
+  const doc = take(data, {
+    CallingName: __expectString,
+    CallingNameUpdatedTimestamp: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13043,10 +13051,9 @@ const de_GetPhoneNumberSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13066,9 +13073,10 @@ export const de_GetProxySessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProxySession != null) {
-    contents.ProxySession = de_ProxySession(data.ProxySession, context);
-  }
+  const doc = take(data, {
+    ProxySession: (_) => de_ProxySession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13108,10 +13116,9 @@ const de_GetProxySessionCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13131,14 +13138,11 @@ export const de_GetRetentionSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InitiateDeletionTimestamp != null) {
-    contents.InitiateDeletionTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(data.InitiateDeletionTimestamp)
-    );
-  }
-  if (data.RetentionSettings != null) {
-    contents.RetentionSettings = de_RetentionSettings(data.RetentionSettings, context);
-  }
+  const doc = take(data, {
+    InitiateDeletionTimestamp: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    RetentionSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13178,10 +13182,9 @@ const de_GetRetentionSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13201,9 +13204,10 @@ export const de_GetRoomCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Room != null) {
-    contents.Room = de_Room(data.Room, context);
-  }
+  const doc = take(data, {
+    Room: (_) => de_Room(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13243,10 +13247,9 @@ const de_GetRoomCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13266,9 +13269,10 @@ export const de_GetSipMediaApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipMediaApplication != null) {
-    contents.SipMediaApplication = de_SipMediaApplication(data.SipMediaApplication, context);
-  }
+  const doc = take(data, {
+    SipMediaApplication: (_) => de_SipMediaApplication(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13308,10 +13312,9 @@ const de_GetSipMediaApplicationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13331,12 +13334,10 @@ export const de_GetSipMediaApplicationLoggingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipMediaApplicationLoggingConfiguration != null) {
-    contents.SipMediaApplicationLoggingConfiguration = de_SipMediaApplicationLoggingConfiguration(
-      data.SipMediaApplicationLoggingConfiguration,
-      context
-    );
-  }
+  const doc = take(data, {
+    SipMediaApplicationLoggingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13376,10 +13377,9 @@ const de_GetSipMediaApplicationLoggingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13399,9 +13399,10 @@ export const de_GetSipRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipRule != null) {
-    contents.SipRule = de_SipRule(data.SipRule, context);
-  }
+  const doc = take(data, {
+    SipRule: (_) => de_SipRule(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13441,10 +13442,9 @@ const de_GetSipRuleCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13464,9 +13464,10 @@ export const de_GetUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = de_User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13506,10 +13507,9 @@ const de_GetUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13529,9 +13529,10 @@ export const de_GetUserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.UserSettings != null) {
-    contents.UserSettings = de_UserSettings(data.UserSettings, context);
-  }
+  const doc = take(data, {
+    UserSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13571,10 +13572,9 @@ const de_GetUserSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13594,9 +13594,10 @@ export const de_GetVoiceConnectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VoiceConnector != null) {
-    contents.VoiceConnector = de_VoiceConnector(data.VoiceConnector, context);
-  }
+  const doc = take(data, {
+    VoiceConnector: (_) => de_VoiceConnector(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13636,10 +13637,9 @@ const de_GetVoiceConnectorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13659,12 +13659,10 @@ export const de_GetVoiceConnectorEmergencyCallingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EmergencyCallingConfiguration != null) {
-    contents.EmergencyCallingConfiguration = de_EmergencyCallingConfiguration(
-      data.EmergencyCallingConfiguration,
-      context
-    );
-  }
+  const doc = take(data, {
+    EmergencyCallingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13704,10 +13702,9 @@ const de_GetVoiceConnectorEmergencyCallingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13727,9 +13724,10 @@ export const de_GetVoiceConnectorGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VoiceConnectorGroup != null) {
-    contents.VoiceConnectorGroup = de_VoiceConnectorGroup(data.VoiceConnectorGroup, context);
-  }
+  const doc = take(data, {
+    VoiceConnectorGroup: (_) => de_VoiceConnectorGroup(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13769,10 +13767,9 @@ const de_GetVoiceConnectorGroupCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13792,9 +13789,10 @@ export const de_GetVoiceConnectorLoggingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LoggingConfiguration != null) {
-    contents.LoggingConfiguration = de_LoggingConfiguration(data.LoggingConfiguration, context);
-  }
+  const doc = take(data, {
+    LoggingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13834,10 +13832,9 @@ const de_GetVoiceConnectorLoggingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13857,9 +13854,10 @@ export const de_GetVoiceConnectorOriginationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Origination != null) {
-    contents.Origination = de_Origination(data.Origination, context);
-  }
+  const doc = take(data, {
+    Origination: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13899,10 +13897,9 @@ const de_GetVoiceConnectorOriginationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13922,9 +13919,10 @@ export const de_GetVoiceConnectorProxyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Proxy != null) {
-    contents.Proxy = de_Proxy(data.Proxy, context);
-  }
+  const doc = take(data, {
+    Proxy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13964,10 +13962,9 @@ const de_GetVoiceConnectorProxyCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -13987,9 +13984,10 @@ export const de_GetVoiceConnectorStreamingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamingConfiguration != null) {
-    contents.StreamingConfiguration = de_StreamingConfiguration(data.StreamingConfiguration, context);
-  }
+  const doc = take(data, {
+    StreamingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14029,10 +14027,9 @@ const de_GetVoiceConnectorStreamingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14052,9 +14049,10 @@ export const de_GetVoiceConnectorTerminationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Termination != null) {
-    contents.Termination = de_Termination(data.Termination, context);
-  }
+  const doc = take(data, {
+    Termination: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14094,10 +14092,9 @@ const de_GetVoiceConnectorTerminationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14117,9 +14114,10 @@ export const de_GetVoiceConnectorTerminationHealthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TerminationHealth != null) {
-    contents.TerminationHealth = de_TerminationHealth(data.TerminationHealth, context);
-  }
+  const doc = take(data, {
+    TerminationHealth: (_) => de_TerminationHealth(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14159,10 +14157,9 @@ const de_GetVoiceConnectorTerminationHealthCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14182,9 +14179,10 @@ export const de_InviteUsersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Invites != null) {
-    contents.Invites = de_InviteList(data.Invites, context);
-  }
+  const doc = take(data, {
+    Invites: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14224,10 +14222,9 @@ const de_InviteUsersCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14247,12 +14244,11 @@ export const de_ListAccountsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Accounts != null) {
-    contents.Accounts = de_AccountList(data.Accounts, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Accounts: (_) => de_AccountList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14292,10 +14288,9 @@ const de_ListAccountsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14315,15 +14310,12 @@ export const de_ListAppInstanceAdminsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceAdmins != null) {
-    contents.AppInstanceAdmins = de_AppInstanceAdminList(data.AppInstanceAdmins, context);
-  }
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AppInstanceAdmins: _json,
+    AppInstanceArn: __expectString,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14360,10 +14352,9 @@ const de_ListAppInstanceAdminsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14383,12 +14374,11 @@ export const de_ListAppInstancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstances != null) {
-    contents.AppInstances = de_AppInstanceList(data.AppInstances, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AppInstances: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14425,10 +14415,9 @@ const de_ListAppInstancesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14448,15 +14437,12 @@ export const de_ListAppInstanceUsersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
-  if (data.AppInstanceUsers != null) {
-    contents.AppInstanceUsers = de_AppInstanceUserList(data.AppInstanceUsers, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AppInstanceArn: __expectString,
+    AppInstanceUsers: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14493,10 +14479,9 @@ const de_ListAppInstanceUsersCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14516,12 +14501,11 @@ export const de_ListAttendeesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendees != null) {
-    contents.Attendees = de_AttendeeList(data.Attendees, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Attendees: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14561,10 +14545,9 @@ const de_ListAttendeesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14584,9 +14567,10 @@ export const de_ListAttendeeTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14626,10 +14610,9 @@ const de_ListAttendeeTagsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14649,12 +14632,11 @@ export const de_ListBotsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Bots != null) {
-    contents.Bots = de_BotList(data.Bots, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Bots: (_) => de_BotList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14694,10 +14676,9 @@ const de_ListBotsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14717,15 +14698,12 @@ export const de_ListChannelBansCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelBans != null) {
-    contents.ChannelBans = de_ChannelBanSummaryList(data.ChannelBans, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelBans: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14762,10 +14740,9 @@ const de_ListChannelBansCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14785,15 +14762,12 @@ export const de_ListChannelMembershipsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelMemberships != null) {
-    contents.ChannelMemberships = de_ChannelMembershipSummaryList(data.ChannelMemberships, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelMemberships: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14830,10 +14804,9 @@ const de_ListChannelMembershipsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14853,12 +14826,11 @@ export const de_ListChannelMembershipsForAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelMemberships != null) {
-    contents.ChannelMemberships = de_ChannelMembershipForAppInstanceUserSummaryList(data.ChannelMemberships, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelMemberships: (_) => de_ChannelMembershipForAppInstanceUserSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14895,10 +14867,9 @@ const de_ListChannelMembershipsForAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14918,15 +14889,12 @@ export const de_ListChannelMessagesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelMessages != null) {
-    contents.ChannelMessages = de_ChannelMessageSummaryList(data.ChannelMessages, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelMessages: (_) => de_ChannelMessageSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -14963,10 +14931,9 @@ const de_ListChannelMessagesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -14986,15 +14953,12 @@ export const de_ListChannelModeratorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.ChannelModerators != null) {
-    contents.ChannelModerators = de_ChannelModeratorSummaryList(data.ChannelModerators, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    ChannelModerators: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15031,10 +14995,9 @@ const de_ListChannelModeratorsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15054,12 +15017,11 @@ export const de_ListChannelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channels != null) {
-    contents.Channels = de_ChannelSummaryList(data.Channels, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Channels: (_) => de_ChannelSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15096,10 +15058,9 @@ const de_ListChannelsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15119,12 +15080,11 @@ export const de_ListChannelsModeratedByAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channels != null) {
-    contents.Channels = de_ChannelModeratedByAppInstanceUserSummaryList(data.Channels, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Channels: (_) => de_ChannelModeratedByAppInstanceUserSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15161,10 +15121,9 @@ const de_ListChannelsModeratedByAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15184,12 +15143,11 @@ export const de_ListMediaCapturePipelinesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipelines != null) {
-    contents.MediaCapturePipelines = de_MediaCapturePipelineList(data.MediaCapturePipelines, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MediaCapturePipelines: (_) => de_MediaCapturePipelineList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15226,10 +15184,9 @@ const de_ListMediaCapturePipelinesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15249,12 +15206,11 @@ export const de_ListMeetingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Meetings != null) {
-    contents.Meetings = de_MeetingList(data.Meetings, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Meetings: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15291,10 +15247,9 @@ const de_ListMeetingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15314,9 +15269,10 @@ export const de_ListMeetingTagsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15356,10 +15312,9 @@ const de_ListMeetingTagsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15379,12 +15334,11 @@ export const de_ListPhoneNumberOrdersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PhoneNumberOrders != null) {
-    contents.PhoneNumberOrders = de_PhoneNumberOrderList(data.PhoneNumberOrders, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PhoneNumberOrders: (_) => de_PhoneNumberOrderList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15421,10 +15375,9 @@ const de_ListPhoneNumberOrdersCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15444,12 +15397,11 @@ export const de_ListPhoneNumbersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PhoneNumbers != null) {
-    contents.PhoneNumbers = de_PhoneNumberList(data.PhoneNumbers, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PhoneNumbers: (_) => de_PhoneNumberList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15489,10 +15441,9 @@ const de_ListPhoneNumbersCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15512,12 +15463,11 @@ export const de_ListProxySessionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ProxySessions != null) {
-    contents.ProxySessions = de_ProxySessions(data.ProxySessions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProxySessions: (_) => de_ProxySessions(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15557,10 +15507,9 @@ const de_ListProxySessionsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15580,12 +15529,11 @@ export const de_ListRoomMembershipsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RoomMemberships != null) {
-    contents.RoomMemberships = de_RoomMembershipList(data.RoomMemberships, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RoomMemberships: (_) => de_RoomMembershipList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15625,10 +15573,9 @@ const de_ListRoomMembershipsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15648,12 +15595,11 @@ export const de_ListRoomsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Rooms != null) {
-    contents.Rooms = de_RoomList(data.Rooms, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Rooms: (_) => de_RoomList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15693,10 +15639,9 @@ const de_ListRoomsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15716,12 +15661,11 @@ export const de_ListSipMediaApplicationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SipMediaApplications != null) {
-    contents.SipMediaApplications = de_SipMediaApplicationList(data.SipMediaApplications, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SipMediaApplications: (_) => de_SipMediaApplicationList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15758,10 +15702,9 @@ const de_ListSipMediaApplicationsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15781,12 +15724,11 @@ export const de_ListSipRulesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SipRules != null) {
-    contents.SipRules = de_SipRuleList(data.SipRules, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SipRules: (_) => de_SipRuleList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15823,10 +15765,9 @@ const de_ListSipRulesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15846,9 +15787,10 @@ export const de_ListSupportedPhoneNumberCountriesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumberCountries != null) {
-    contents.PhoneNumberCountries = de_PhoneNumberCountriesList(data.PhoneNumberCountries, context);
-  }
+  const doc = take(data, {
+    PhoneNumberCountries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15888,10 +15830,9 @@ const de_ListSupportedPhoneNumberCountriesCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15911,9 +15852,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = de_TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -15950,10 +15892,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -15973,12 +15914,11 @@ export const de_ListUsersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Users != null) {
-    contents.Users = de_UserList(data.Users, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Users: (_) => de_UserList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16018,10 +15958,9 @@ const de_ListUsersCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16041,12 +15980,11 @@ export const de_ListVoiceConnectorGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.VoiceConnectorGroups != null) {
-    contents.VoiceConnectorGroups = de_VoiceConnectorGroupList(data.VoiceConnectorGroups, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    VoiceConnectorGroups: (_) => de_VoiceConnectorGroupList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16083,10 +16021,9 @@ const de_ListVoiceConnectorGroupsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16106,12 +16043,11 @@ export const de_ListVoiceConnectorsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.VoiceConnectors != null) {
-    contents.VoiceConnectors = de_VoiceConnectorList(data.VoiceConnectors, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    VoiceConnectors: (_) => de_VoiceConnectorList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16148,10 +16084,9 @@ const de_ListVoiceConnectorsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16171,9 +16106,10 @@ export const de_ListVoiceConnectorTerminationCredentialsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Usernames != null) {
-    contents.Usernames = de_SensitiveStringList(data.Usernames, context);
-  }
+  const doc = take(data, {
+    Usernames: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16213,10 +16149,9 @@ const de_ListVoiceConnectorTerminationCredentialsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16275,10 +16210,9 @@ const de_LogoutUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16298,14 +16232,11 @@ export const de_PutAppInstanceRetentionSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceRetentionSettings != null) {
-    contents.AppInstanceRetentionSettings = de_AppInstanceRetentionSettings(data.AppInstanceRetentionSettings, context);
-  }
-  if (data.InitiateDeletionTimestamp != null) {
-    contents.InitiateDeletionTimestamp = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.InitiateDeletionTimestamp))
-    );
-  }
+  const doc = take(data, {
+    AppInstanceRetentionSettings: _json,
+    InitiateDeletionTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16348,10 +16279,9 @@ const de_PutAppInstanceRetentionSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16371,12 +16301,10 @@ export const de_PutAppInstanceStreamingConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceStreamingConfigurations != null) {
-    contents.AppInstanceStreamingConfigurations = de_AppInstanceStreamingConfigurationList(
-      data.AppInstanceStreamingConfigurations,
-      context
-    );
-  }
+  const doc = take(data, {
+    AppInstanceStreamingConfigurations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16416,10 +16344,9 @@ const de_PutAppInstanceStreamingConfigurationsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16439,9 +16366,10 @@ export const de_PutEventsConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventsConfiguration != null) {
-    contents.EventsConfiguration = de_EventsConfiguration(data.EventsConfiguration, context);
-  }
+  const doc = take(data, {
+    EventsConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16481,10 +16409,9 @@ const de_PutEventsConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16504,14 +16431,11 @@ export const de_PutRetentionSettingsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InitiateDeletionTimestamp != null) {
-    contents.InitiateDeletionTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(data.InitiateDeletionTimestamp)
-    );
-  }
-  if (data.RetentionSettings != null) {
-    contents.RetentionSettings = de_RetentionSettings(data.RetentionSettings, context);
-  }
+  const doc = take(data, {
+    InitiateDeletionTimestamp: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    RetentionSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16554,10 +16478,9 @@ const de_PutRetentionSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16577,12 +16500,10 @@ export const de_PutSipMediaApplicationLoggingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipMediaApplicationLoggingConfiguration != null) {
-    contents.SipMediaApplicationLoggingConfiguration = de_SipMediaApplicationLoggingConfiguration(
-      data.SipMediaApplicationLoggingConfiguration,
-      context
-    );
-  }
+  const doc = take(data, {
+    SipMediaApplicationLoggingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16622,10 +16543,9 @@ const de_PutSipMediaApplicationLoggingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16645,12 +16565,10 @@ export const de_PutVoiceConnectorEmergencyCallingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EmergencyCallingConfiguration != null) {
-    contents.EmergencyCallingConfiguration = de_EmergencyCallingConfiguration(
-      data.EmergencyCallingConfiguration,
-      context
-    );
-  }
+  const doc = take(data, {
+    EmergencyCallingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16690,10 +16608,9 @@ const de_PutVoiceConnectorEmergencyCallingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16713,9 +16630,10 @@ export const de_PutVoiceConnectorLoggingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LoggingConfiguration != null) {
-    contents.LoggingConfiguration = de_LoggingConfiguration(data.LoggingConfiguration, context);
-  }
+  const doc = take(data, {
+    LoggingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16755,10 +16673,9 @@ const de_PutVoiceConnectorLoggingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16778,9 +16695,10 @@ export const de_PutVoiceConnectorOriginationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Origination != null) {
-    contents.Origination = de_Origination(data.Origination, context);
-  }
+  const doc = take(data, {
+    Origination: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16820,10 +16738,9 @@ const de_PutVoiceConnectorOriginationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16843,9 +16760,10 @@ export const de_PutVoiceConnectorProxyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Proxy != null) {
-    contents.Proxy = de_Proxy(data.Proxy, context);
-  }
+  const doc = take(data, {
+    Proxy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16888,10 +16806,9 @@ const de_PutVoiceConnectorProxyCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16911,9 +16828,10 @@ export const de_PutVoiceConnectorStreamingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamingConfiguration != null) {
-    contents.StreamingConfiguration = de_StreamingConfiguration(data.StreamingConfiguration, context);
-  }
+  const doc = take(data, {
+    StreamingConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -16953,10 +16871,9 @@ const de_PutVoiceConnectorStreamingConfigurationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -16976,9 +16893,10 @@ export const de_PutVoiceConnectorTerminationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Termination != null) {
-    contents.Termination = de_Termination(data.Termination, context);
-  }
+  const doc = take(data, {
+    Termination: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -17021,10 +16939,9 @@ const de_PutVoiceConnectorTerminationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17083,10 +17000,9 @@ const de_PutVoiceConnectorTerminationCredentialsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17106,12 +17022,11 @@ export const de_RedactChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    MessageId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -17148,10 +17063,9 @@ const de_RedactChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17210,10 +17124,9 @@ const de_RedactConversationMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17272,10 +17185,9 @@ const de_RedactRoomMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17295,9 +17207,10 @@ export const de_RegenerateSecurityTokenCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Bot != null) {
-    contents.Bot = de_Bot(data.Bot, context);
-  }
+  const doc = take(data, {
+    Bot: (_) => de_Bot(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -17337,10 +17250,9 @@ const de_RegenerateSecurityTokenCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17360,9 +17272,10 @@ export const de_ResetPersonalPINCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = de_User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -17402,10 +17315,9 @@ const de_ResetPersonalPINCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17425,9 +17337,10 @@ export const de_RestorePhoneNumberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumber != null) {
-    contents.PhoneNumber = de_PhoneNumber(data.PhoneNumber, context);
-  }
+  const doc = take(data, {
+    PhoneNumber: (_) => de_PhoneNumber(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -17470,10 +17383,9 @@ const de_RestorePhoneNumberCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17493,12 +17405,11 @@ export const de_SearchAvailablePhoneNumbersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.E164PhoneNumbers != null) {
-    contents.E164PhoneNumbers = de_E164PhoneNumberList(data.E164PhoneNumbers, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    E164PhoneNumbers: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -17538,10 +17449,9 @@ const de_SearchAvailablePhoneNumbersCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17561,12 +17471,11 @@ export const de_SendChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    MessageId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -17606,10 +17515,9 @@ const de_SendChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17674,10 +17582,9 @@ const de_StartMeetingTranscriptionCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17739,10 +17646,9 @@ const de_StopMeetingTranscriptionCommandError = async (
       throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17804,10 +17710,9 @@ const de_TagAttendeeCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17869,10 +17774,9 @@ const de_TagMeetingCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17928,10 +17832,9 @@ const de_TagResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -17990,10 +17893,9 @@ const de_UntagAttendeeCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18052,10 +17954,9 @@ const de_UntagMeetingCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18111,10 +18012,9 @@ const de_UntagResourceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18134,9 +18034,10 @@ export const de_UpdateAccountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Account != null) {
-    contents.Account = de_Account(data.Account, context);
-  }
+  const doc = take(data, {
+    Account: (_) => de_Account(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18176,10 +18077,9 @@ const de_UpdateAccountCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18241,10 +18141,9 @@ const de_UpdateAccountSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18264,9 +18163,10 @@ export const de_UpdateAppInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceArn != null) {
-    contents.AppInstanceArn = __expectString(data.AppInstanceArn);
-  }
+  const doc = take(data, {
+    AppInstanceArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18306,10 +18206,9 @@ const de_UpdateAppInstanceCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18329,9 +18228,10 @@ export const de_UpdateAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppInstanceUserArn != null) {
-    contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
-  }
+  const doc = take(data, {
+    AppInstanceUserArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18371,10 +18271,9 @@ const de_UpdateAppInstanceUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18394,9 +18293,10 @@ export const de_UpdateBotCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Bot != null) {
-    contents.Bot = de_Bot(data.Bot, context);
-  }
+  const doc = take(data, {
+    Bot: (_) => de_Bot(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18436,10 +18336,9 @@ const de_UpdateBotCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18459,9 +18358,10 @@ export const de_UpdateChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18501,10 +18401,9 @@ const de_UpdateChannelCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18524,12 +18423,11 @@ export const de_UpdateChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
-  if (data.MessageId != null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    MessageId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18569,10 +18467,9 @@ const de_UpdateChannelMessageCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18592,9 +18489,10 @@ export const de_UpdateChannelReadMarkerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelArn != null) {
-    contents.ChannelArn = __expectString(data.ChannelArn);
-  }
+  const doc = take(data, {
+    ChannelArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18634,10 +18532,9 @@ const de_UpdateChannelReadMarkerCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18693,10 +18590,9 @@ const de_UpdateGlobalSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18716,9 +18612,10 @@ export const de_UpdatePhoneNumberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PhoneNumber != null) {
-    contents.PhoneNumber = de_PhoneNumber(data.PhoneNumber, context);
-  }
+  const doc = take(data, {
+    PhoneNumber: (_) => de_PhoneNumber(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18761,10 +18658,9 @@ const de_UpdatePhoneNumberCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18820,10 +18716,9 @@ const de_UpdatePhoneNumberSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18843,9 +18738,10 @@ export const de_UpdateProxySessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProxySession != null) {
-    contents.ProxySession = de_ProxySession(data.ProxySession, context);
-  }
+  const doc = take(data, {
+    ProxySession: (_) => de_ProxySession(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18885,10 +18781,9 @@ const de_UpdateProxySessionCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18908,9 +18803,10 @@ export const de_UpdateRoomCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Room != null) {
-    contents.Room = de_Room(data.Room, context);
-  }
+  const doc = take(data, {
+    Room: (_) => de_Room(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -18950,10 +18846,9 @@ const de_UpdateRoomCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -18973,9 +18868,10 @@ export const de_UpdateRoomMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RoomMembership != null) {
-    contents.RoomMembership = de_RoomMembership(data.RoomMembership, context);
-  }
+  const doc = take(data, {
+    RoomMembership: (_) => de_RoomMembership(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -19015,10 +18911,9 @@ const de_UpdateRoomMembershipCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -19038,9 +18933,10 @@ export const de_UpdateSipMediaApplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipMediaApplication != null) {
-    contents.SipMediaApplication = de_SipMediaApplication(data.SipMediaApplication, context);
-  }
+  const doc = take(data, {
+    SipMediaApplication: (_) => de_SipMediaApplication(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -19083,10 +18979,9 @@ const de_UpdateSipMediaApplicationCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -19106,9 +19001,10 @@ export const de_UpdateSipMediaApplicationCallCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipMediaApplicationCall != null) {
-    contents.SipMediaApplicationCall = de_SipMediaApplicationCall(data.SipMediaApplicationCall, context);
-  }
+  const doc = take(data, {
+    SipMediaApplicationCall: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -19151,10 +19047,9 @@ const de_UpdateSipMediaApplicationCallCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -19174,9 +19069,10 @@ export const de_UpdateSipRuleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SipRule != null) {
-    contents.SipRule = de_SipRule(data.SipRule, context);
-  }
+  const doc = take(data, {
+    SipRule: (_) => de_SipRule(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -19222,10 +19118,9 @@ const de_UpdateSipRuleCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -19245,9 +19140,10 @@ export const de_UpdateUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = de_User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -19287,10 +19183,9 @@ const de_UpdateUserCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -19349,10 +19244,9 @@ const de_UpdateUserSettingsCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -19372,9 +19266,10 @@ export const de_UpdateVoiceConnectorCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VoiceConnector != null) {
-    contents.VoiceConnector = de_VoiceConnector(data.VoiceConnector, context);
-  }
+  const doc = take(data, {
+    VoiceConnector: (_) => de_VoiceConnector(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -19414,10 +19309,9 @@ const de_UpdateVoiceConnectorCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -19437,9 +19331,10 @@ export const de_UpdateVoiceConnectorGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VoiceConnectorGroup != null) {
-    contents.VoiceConnectorGroup = de_VoiceConnectorGroup(data.VoiceConnectorGroup, context);
-  }
+  const doc = take(data, {
+    VoiceConnectorGroup: (_) => de_VoiceConnectorGroup(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -19482,10 +19377,9 @@ const de_UpdateVoiceConnectorGroupCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -19505,18 +19399,13 @@ export const de_ValidateE911AddressCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Address != null) {
-    contents.Address = de_Address(data.Address, context);
-  }
-  if (data.AddressExternalId != null) {
-    contents.AddressExternalId = __expectString(data.AddressExternalId);
-  }
-  if (data.CandidateAddressList != null) {
-    contents.CandidateAddressList = de_CandidateAddressList(data.CandidateAddressList, context);
-  }
-  if (data.ValidationResult != null) {
-    contents.ValidationResult = __expectInt32(data.ValidationResult);
-  }
+  const doc = take(data, {
+    Address: _json,
+    AddressExternalId: __expectString,
+    CandidateAddressList: _json,
+    ValidationResult: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -19556,16 +19445,15 @@ const de_ValidateE911AddressCommandError = async (
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -19575,12 +19463,11 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19594,12 +19481,11 @@ const de_AccessDeniedExceptionRes = async (
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19613,12 +19499,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19632,12 +19517,11 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19651,12 +19535,11 @@ const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeConte
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19673,12 +19556,11 @@ const de_ResourceLimitExceededExceptionRes = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19695,12 +19577,11 @@ const de_ServiceFailureExceptionRes = async (
 ): Promise<ServiceFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19717,12 +19598,11 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19739,12 +19619,11 @@ const de_ThrottledClientExceptionRes = async (
 ): Promise<ThrottledClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottledClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19761,12 +19640,11 @@ const de_UnauthorizedClientExceptionRes = async (
 ): Promise<UnauthorizedClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19783,12 +19661,11 @@ const de_UnprocessableEntityExceptionRes = async (
 ): Promise<UnprocessableEntityException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnprocessableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -19796,904 +19673,177 @@ const de_UnprocessableEntityExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AccountSettings
- */
-const se_AccountSettings = (input: AccountSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.DisableRemoteControl != null && { DisableRemoteControl: input.DisableRemoteControl }),
-    ...(input.EnableDialOut != null && { EnableDialOut: input.EnableDialOut }),
-  };
-};
-
-/**
- * serializeAws_restJson1AlexaForBusinessMetadata
- */
-const se_AlexaForBusinessMetadata = (input: AlexaForBusinessMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.AlexaForBusinessRoomArn != null && { AlexaForBusinessRoomArn: input.AlexaForBusinessRoomArn }),
-    ...(input.IsAlexaForBusinessEnabled != null && { IsAlexaForBusinessEnabled: input.IsAlexaForBusinessEnabled }),
-  };
-};
-
-/**
- * serializeAws_restJson1AppInstanceRetentionSettings
- */
-const se_AppInstanceRetentionSettings = (input: AppInstanceRetentionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelRetentionSettings != null && {
-      ChannelRetentionSettings: se_ChannelRetentionSettings(input.ChannelRetentionSettings, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1AppInstanceStreamingConfiguration
- */
-const se_AppInstanceStreamingConfiguration = (
-  input: AppInstanceStreamingConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AppInstanceDataType != null && { AppInstanceDataType: input.AppInstanceDataType }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
-
-/**
- * serializeAws_restJson1AppInstanceStreamingConfigurationList
- */
-const se_AppInstanceStreamingConfigurationList = (
-  input: AppInstanceStreamingConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_AppInstanceStreamingConfiguration(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1ArtifactsConfiguration
- */
-const se_ArtifactsConfiguration = (input: ArtifactsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Audio != null && { Audio: se_AudioArtifactsConfiguration(input.Audio, context) }),
-    ...(input.Content != null && { Content: se_ContentArtifactsConfiguration(input.Content, context) }),
-    ...(input.Video != null && { Video: se_VideoArtifactsConfiguration(input.Video, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1AttendeeIdList
- */
-const se_AttendeeIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1AttendeeTagKeyList
- */
-const se_AttendeeTagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1AttendeeTagList
- */
-const se_AttendeeTagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1AudioArtifactsConfiguration
- */
-const se_AudioArtifactsConfiguration = (input: AudioArtifactsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-  };
-};
-
-/**
- * serializeAws_restJson1BusinessCallingSettings
- */
-const se_BusinessCallingSettings = (input: BusinessCallingSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.CdrBucket != null && { CdrBucket: input.CdrBucket }),
-  };
-};
-
-/**
- * serializeAws_restJson1CallingRegionList
- */
-const se_CallingRegionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1CapabilityList
- */
-const se_CapabilityList = (input: (Capability | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1ChannelRetentionSettings
- */
-const se_ChannelRetentionSettings = (input: ChannelRetentionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.RetentionDays != null && { RetentionDays: input.RetentionDays }),
-  };
-};
-
-/**
- * serializeAws_restJson1ChimeSdkMeetingConfiguration
- */
-const se_ChimeSdkMeetingConfiguration = (input: ChimeSdkMeetingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ArtifactsConfiguration != null && {
-      ArtifactsConfiguration: se_ArtifactsConfiguration(input.ArtifactsConfiguration, context),
-    }),
-    ...(input.SourceConfiguration != null && {
-      SourceConfiguration: se_SourceConfiguration(input.SourceConfiguration, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1ContentArtifactsConfiguration
- */
-const se_ContentArtifactsConfiguration = (input: ContentArtifactsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-/**
- * serializeAws_restJson1ConversationRetentionSettings
- */
-const se_ConversationRetentionSettings = (input: ConversationRetentionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.RetentionDays != null && { RetentionDays: input.RetentionDays }),
-  };
-};
-
-/**
- * serializeAws_restJson1CountryList
- */
-const se_CountryList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1CreateAttendeeRequestItem
- */
-const se_CreateAttendeeRequestItem = (input: CreateAttendeeRequestItem, context: __SerdeContext): any => {
-  return {
-    ...(input.ExternalUserId != null && { ExternalUserId: input.ExternalUserId }),
-    ...(input.Tags != null && { Tags: se_AttendeeTagList(input.Tags, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1CreateAttendeeRequestItemList
- */
-const se_CreateAttendeeRequestItemList = (input: CreateAttendeeRequestItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateAttendeeRequestItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList
- */
-const se_CreateMeetingWithAttendeesRequestItemList = (
-  input: CreateAttendeeRequestItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_CreateAttendeeRequestItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1Credential
- */
-const se_Credential = (input: Credential, context: __SerdeContext): any => {
-  return {
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.Username != null && { Username: input.Username }),
-  };
-};
-
-/**
- * serializeAws_restJson1CredentialList
- */
-const se_CredentialList = (input: Credential[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Credential(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1DNISEmergencyCallingConfiguration
- */
-const se_DNISEmergencyCallingConfiguration = (
-  input: DNISEmergencyCallingConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CallingCountry != null && { CallingCountry: input.CallingCountry }),
-    ...(input.EmergencyPhoneNumber != null && { EmergencyPhoneNumber: input.EmergencyPhoneNumber }),
-    ...(input.TestPhoneNumber != null && { TestPhoneNumber: input.TestPhoneNumber }),
-  };
-};
-
-/**
- * serializeAws_restJson1DNISEmergencyCallingConfigurationList
- */
-const se_DNISEmergencyCallingConfigurationList = (
-  input: DNISEmergencyCallingConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DNISEmergencyCallingConfiguration(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1E164PhoneNumberList
- */
-const se_E164PhoneNumberList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1EmergencyCallingConfiguration
- */
-const se_EmergencyCallingConfiguration = (input: EmergencyCallingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.DNIS != null && { DNIS: se_DNISEmergencyCallingConfigurationList(input.DNIS, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1EngineTranscribeMedicalSettings
- */
-const se_EngineTranscribeMedicalSettings = (input: EngineTranscribeMedicalSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.Specialty != null && { Specialty: input.Specialty }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_restJson1EngineTranscribeSettings
- */
-const se_EngineTranscribeSettings = (input: EngineTranscribeSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.ContentRedactionType != null && { ContentRedactionType: input.ContentRedactionType }),
-    ...(input.EnablePartialResultsStabilization != null && {
-      EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
-    }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.PartialResultsStability != null && { PartialResultsStability: input.PartialResultsStability }),
-    ...(input.PiiEntityTypes != null && { PiiEntityTypes: input.PiiEntityTypes }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
-
-/**
- * serializeAws_restJson1ExternalUserIdList
- */
-const se_ExternalUserIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1GeoMatchParams
- */
-const se_GeoMatchParams = (input: GeoMatchParams, context: __SerdeContext): any => {
-  return {
-    ...(input.AreaCode != null && { AreaCode: input.AreaCode }),
-    ...(input.Country != null && { Country: input.Country }),
-  };
-};
-
-/**
- * serializeAws_restJson1LoggingConfiguration
- */
-const se_LoggingConfiguration = (input: LoggingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.EnableMediaMetricLogs != null && { EnableMediaMetricLogs: input.EnableMediaMetricLogs }),
-    ...(input.EnableSIPLogs != null && { EnableSIPLogs: input.EnableSIPLogs }),
-  };
-};
-
-/**
- * serializeAws_restJson1MeetingNotificationConfiguration
- */
-const se_MeetingNotificationConfiguration = (input: MeetingNotificationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
-    ...(input.SqsQueueArn != null && { SqsQueueArn: input.SqsQueueArn }),
-  };
-};
-
-/**
- * serializeAws_restJson1MeetingTagKeyList
- */
-const se_MeetingTagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1MeetingTagList
- */
-const se_MeetingTagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1MemberArns
- */
-const se_MemberArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1MembershipItem
- */
-const se_MembershipItem = (input: MembershipItem, context: __SerdeContext): any => {
-  return {
-    ...(input.MemberId != null && { MemberId: input.MemberId }),
-    ...(input.Role != null && { Role: input.Role }),
-  };
-};
-
-/**
- * serializeAws_restJson1MembershipItemList
- */
-const se_MembershipItemList = (input: MembershipItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_MembershipItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1NonEmptyStringList
- */
-const se_NonEmptyStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1Origination
- */
-const se_Origination = (input: Origination, context: __SerdeContext): any => {
-  return {
-    ...(input.Disabled != null && { Disabled: input.Disabled }),
-    ...(input.Routes != null && { Routes: se_OriginationRouteList(input.Routes, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1OriginationRoute
- */
-const se_OriginationRoute = (input: OriginationRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.Host != null && { Host: input.Host }),
-    ...(input.Port != null && { Port: input.Port }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.Protocol != null && { Protocol: input.Protocol }),
-    ...(input.Weight != null && { Weight: input.Weight }),
-  };
-};
-
-/**
- * serializeAws_restJson1OriginationRouteList
- */
-const se_OriginationRouteList = (input: OriginationRoute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_OriginationRoute(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1ParticipantPhoneNumberList
- */
-const se_ParticipantPhoneNumberList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1RetentionSettings
- */
-const se_RetentionSettings = (input: RetentionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ConversationRetentionSettings != null && {
-      ConversationRetentionSettings: se_ConversationRetentionSettings(input.ConversationRetentionSettings, context),
-    }),
-    ...(input.RoomRetentionSettings != null && {
-      RoomRetentionSettings: se_RoomRetentionSettings(input.RoomRetentionSettings, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1RoomRetentionSettings
- */
-const se_RoomRetentionSettings = (input: RoomRetentionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.RetentionDays != null && { RetentionDays: input.RetentionDays }),
-  };
-};
-
-/**
- * serializeAws_restJson1SelectedVideoStreams
- */
-const se_SelectedVideoStreams = (input: SelectedVideoStreams, context: __SerdeContext): any => {
-  return {
-    ...(input.AttendeeIds != null && { AttendeeIds: se_AttendeeIdList(input.AttendeeIds, context) }),
-    ...(input.ExternalUserIds != null && { ExternalUserIds: se_ExternalUserIdList(input.ExternalUserIds, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1SensitiveStringList
- */
-const se_SensitiveStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1SigninDelegateGroup
- */
-const se_SigninDelegateGroup = (input: SigninDelegateGroup, context: __SerdeContext): any => {
-  return {
-    ...(input.GroupName != null && { GroupName: input.GroupName }),
-  };
-};
-
-/**
- * serializeAws_restJson1SigninDelegateGroupList
- */
-const se_SigninDelegateGroupList = (input: SigninDelegateGroup[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SigninDelegateGroup(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1SipHeadersMap
- */
-const se_SipHeadersMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_restJson1SipMediaApplicationEndpoint
- */
-const se_SipMediaApplicationEndpoint = (input: SipMediaApplicationEndpoint, context: __SerdeContext): any => {
-  return {
-    ...(input.LambdaArn != null && { LambdaArn: input.LambdaArn }),
-  };
-};
-
-/**
- * serializeAws_restJson1SipMediaApplicationEndpointList
- */
-const se_SipMediaApplicationEndpointList = (input: SipMediaApplicationEndpoint[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SipMediaApplicationEndpoint(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1SipMediaApplicationLoggingConfiguration
- */
-const se_SipMediaApplicationLoggingConfiguration = (
-  input: SipMediaApplicationLoggingConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EnableSipMediaApplicationMessageLogs != null && {
-      EnableSipMediaApplicationMessageLogs: input.EnableSipMediaApplicationMessageLogs,
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1SipRuleTargetApplication
- */
-const se_SipRuleTargetApplication = (input: SipRuleTargetApplication, context: __SerdeContext): any => {
-  return {
-    ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.SipMediaApplicationId != null && { SipMediaApplicationId: input.SipMediaApplicationId }),
-  };
-};
-
-/**
- * serializeAws_restJson1SipRuleTargetApplicationList
- */
-const se_SipRuleTargetApplicationList = (input: SipRuleTargetApplication[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_SipRuleTargetApplication(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1SMAUpdateCallArgumentsMap
- */
-const se_SMAUpdateCallArgumentsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-/**
- * serializeAws_restJson1SourceConfiguration
- */
-const se_SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.SelectedVideoStreams != null && {
-      SelectedVideoStreams: se_SelectedVideoStreams(input.SelectedVideoStreams, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1StreamingConfiguration
- */
-const se_StreamingConfiguration = (input: StreamingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.DataRetentionInHours != null && { DataRetentionInHours: input.DataRetentionInHours }),
-    ...(input.Disabled != null && { Disabled: input.Disabled }),
-    ...(input.StreamingNotificationTargets != null && {
-      StreamingNotificationTargets: se_StreamingNotificationTargetList(input.StreamingNotificationTargets, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1StreamingNotificationTarget
- */
-const se_StreamingNotificationTarget = (input: StreamingNotificationTarget, context: __SerdeContext): any => {
-  return {
-    ...(input.NotificationTarget != null && { NotificationTarget: input.NotificationTarget }),
-  };
-};
-
-/**
- * serializeAws_restJson1StreamingNotificationTargetList
- */
-const se_StreamingNotificationTargetList = (input: StreamingNotificationTarget[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_StreamingNotificationTarget(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-/**
- * serializeAws_restJson1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1TelephonySettings
- */
-const se_TelephonySettings = (input: TelephonySettings, context: __SerdeContext): any => {
-  return {
-    ...(input.InboundCalling != null && { InboundCalling: input.InboundCalling }),
-    ...(input.OutboundCalling != null && { OutboundCalling: input.OutboundCalling }),
-    ...(input.SMS != null && { SMS: input.SMS }),
-  };
-};
-
-/**
- * serializeAws_restJson1Termination
- */
-const se_Termination = (input: Termination, context: __SerdeContext): any => {
-  return {
-    ...(input.CallingRegions != null && { CallingRegions: se_CallingRegionList(input.CallingRegions, context) }),
-    ...(input.CidrAllowedList != null && { CidrAllowedList: se_StringList(input.CidrAllowedList, context) }),
-    ...(input.CpsLimit != null && { CpsLimit: input.CpsLimit }),
-    ...(input.DefaultPhoneNumber != null && { DefaultPhoneNumber: input.DefaultPhoneNumber }),
-    ...(input.Disabled != null && { Disabled: input.Disabled }),
-  };
-};
-
-/**
- * serializeAws_restJson1TranscriptionConfiguration
- */
-const se_TranscriptionConfiguration = (input: TranscriptionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.EngineTranscribeMedicalSettings != null && {
-      EngineTranscribeMedicalSettings: se_EngineTranscribeMedicalSettings(
-        input.EngineTranscribeMedicalSettings,
-        context
-      ),
-    }),
-    ...(input.EngineTranscribeSettings != null && {
-      EngineTranscribeSettings: se_EngineTranscribeSettings(input.EngineTranscribeSettings, context),
-    }),
-  };
-};
-
-/**
- * serializeAws_restJson1UpdatePhoneNumberRequestItem
- */
-const se_UpdatePhoneNumberRequestItem = (input: UpdatePhoneNumberRequestItem, context: __SerdeContext): any => {
-  return {
-    ...(input.CallingName != null && { CallingName: input.CallingName }),
-    ...(input.PhoneNumberId != null && { PhoneNumberId: input.PhoneNumberId }),
-    ...(input.ProductType != null && { ProductType: input.ProductType }),
-  };
-};
-
-/**
- * serializeAws_restJson1UpdatePhoneNumberRequestItemList
- */
-const se_UpdatePhoneNumberRequestItemList = (input: UpdatePhoneNumberRequestItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpdatePhoneNumberRequestItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1UpdateUserRequestItem
- */
-const se_UpdateUserRequestItem = (input: UpdateUserRequestItem, context: __SerdeContext): any => {
-  return {
-    ...(input.AlexaForBusinessMetadata != null && {
-      AlexaForBusinessMetadata: se_AlexaForBusinessMetadata(input.AlexaForBusinessMetadata, context),
-    }),
-    ...(input.LicenseType != null && { LicenseType: input.LicenseType }),
-    ...(input.UserId != null && { UserId: input.UserId }),
-    ...(input.UserType != null && { UserType: input.UserType }),
-  };
-};
-
-/**
- * serializeAws_restJson1UpdateUserRequestItemList
- */
-const se_UpdateUserRequestItemList = (input: UpdateUserRequestItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpdateUserRequestItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1UserEmailList
- */
-const se_UserEmailList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1UserIdList
- */
-const se_UserIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-/**
- * serializeAws_restJson1UserSettings
- */
-const se_UserSettings = (input: UserSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.Telephony != null && { Telephony: se_TelephonySettings(input.Telephony, context) }),
-  };
-};
-
-/**
- * serializeAws_restJson1VideoArtifactsConfiguration
- */
-const se_VideoArtifactsConfiguration = (input: VideoArtifactsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-/**
- * serializeAws_restJson1VoiceConnectorItem
- */
-const se_VoiceConnectorItem = (input: VoiceConnectorItem, context: __SerdeContext): any => {
-  return {
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.VoiceConnectorId != null && { VoiceConnectorId: input.VoiceConnectorId }),
-  };
-};
-
-/**
- * serializeAws_restJson1VoiceConnectorItemList
- */
-const se_VoiceConnectorItemList = (input: VoiceConnectorItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_VoiceConnectorItem(entry, context);
-    });
-};
-
-/**
- * serializeAws_restJson1VoiceConnectorSettings
- */
-const se_VoiceConnectorSettings = (input: VoiceConnectorSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.CdrBucket != null && { CdrBucket: input.CdrBucket }),
-  };
-};
+// se_AccountSettings omitted.
+
+// se_AlexaForBusinessMetadata omitted.
+
+// se_AppInstanceRetentionSettings omitted.
+
+// se_AppInstanceStreamingConfiguration omitted.
+
+// se_AppInstanceStreamingConfigurationList omitted.
+
+// se_ArtifactsConfiguration omitted.
+
+// se_AttendeeIdList omitted.
+
+// se_AttendeeTagKeyList omitted.
+
+// se_AttendeeTagList omitted.
+
+// se_AudioArtifactsConfiguration omitted.
+
+// se_BusinessCallingSettings omitted.
+
+// se_CallingRegionList omitted.
+
+// se_CapabilityList omitted.
+
+// se_ChannelRetentionSettings omitted.
+
+// se_ChimeSdkMeetingConfiguration omitted.
+
+// se_ContentArtifactsConfiguration omitted.
+
+// se_ConversationRetentionSettings omitted.
+
+// se_CountryList omitted.
+
+// se_CreateAttendeeRequestItem omitted.
+
+// se_CreateAttendeeRequestItemList omitted.
+
+// se_CreateMeetingWithAttendeesRequestItemList omitted.
+
+// se_Credential omitted.
+
+// se_CredentialList omitted.
+
+// se_DNISEmergencyCallingConfiguration omitted.
+
+// se_DNISEmergencyCallingConfigurationList omitted.
+
+// se_E164PhoneNumberList omitted.
+
+// se_EmergencyCallingConfiguration omitted.
+
+// se_EngineTranscribeMedicalSettings omitted.
+
+// se_EngineTranscribeSettings omitted.
+
+// se_ExternalUserIdList omitted.
+
+// se_GeoMatchParams omitted.
+
+// se_LoggingConfiguration omitted.
+
+// se_MeetingNotificationConfiguration omitted.
+
+// se_MeetingTagKeyList omitted.
+
+// se_MeetingTagList omitted.
+
+// se_MemberArns omitted.
+
+// se_MembershipItem omitted.
+
+// se_MembershipItemList omitted.
+
+// se_NonEmptyStringList omitted.
+
+// se_Origination omitted.
+
+// se_OriginationRoute omitted.
+
+// se_OriginationRouteList omitted.
+
+// se_ParticipantPhoneNumberList omitted.
+
+// se_RetentionSettings omitted.
+
+// se_RoomRetentionSettings omitted.
+
+// se_SelectedVideoStreams omitted.
+
+// se_SensitiveStringList omitted.
+
+// se_SigninDelegateGroup omitted.
+
+// se_SigninDelegateGroupList omitted.
+
+// se_SipHeadersMap omitted.
+
+// se_SipMediaApplicationEndpoint omitted.
+
+// se_SipMediaApplicationEndpointList omitted.
+
+// se_SipMediaApplicationLoggingConfiguration omitted.
+
+// se_SipRuleTargetApplication omitted.
+
+// se_SipRuleTargetApplicationList omitted.
+
+// se_SMAUpdateCallArgumentsMap omitted.
+
+// se_SourceConfiguration omitted.
+
+// se_StreamingConfiguration omitted.
+
+// se_StreamingNotificationTarget omitted.
+
+// se_StreamingNotificationTargetList omitted.
+
+// se_StringList omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TelephonySettings omitted.
+
+// se_Termination omitted.
+
+// se_TranscriptionConfiguration omitted.
+
+// se_UpdatePhoneNumberRequestItem omitted.
+
+// se_UpdatePhoneNumberRequestItemList omitted.
+
+// se_UpdateUserRequestItem omitted.
+
+// se_UpdateUserRequestItemList omitted.
+
+// se_UserEmailList omitted.
+
+// se_UserIdList omitted.
+
+// se_UserSettings omitted.
+
+// se_VideoArtifactsConfiguration omitted.
+
+// se_VoiceConnectorItem omitted.
+
+// se_VoiceConnectorItemList omitted.
+
+// se_VoiceConnectorSettings omitted.
 
 /**
  * deserializeAws_restJson1Account
  */
 const de_Account = (output: any, context: __SerdeContext): Account => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    AccountStatus: __expectString(output.AccountStatus),
-    AccountType: __expectString(output.AccountType),
-    AwsAccountId: __expectString(output.AwsAccountId),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    DefaultLicense: __expectString(output.DefaultLicense),
-    Name: __expectString(output.Name),
-    SigninDelegateGroups:
-      output.SigninDelegateGroups != null
-        ? de_SigninDelegateGroupList(output.SigninDelegateGroups, context)
-        : undefined,
-    SupportedLicenses: output.SupportedLicenses != null ? de_LicenseList(output.SupportedLicenses, context) : undefined,
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    AccountStatus: __expectString,
+    AccountType: __expectString,
+    AwsAccountId: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DefaultLicense: __expectString,
+    Name: __expectString,
+    SigninDelegateGroups: _json,
+    SupportedLicenses: _json,
+  }) as any;
 };
 
 /**
@@ -20703,211 +19853,69 @@ const de_AccountList = (output: any, context: __SerdeContext): Account[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Account(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1AccountSettings
- */
-const de_AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
-  return {
-    DisableRemoteControl: __expectBoolean(output.DisableRemoteControl),
-    EnableDialOut: __expectBoolean(output.EnableDialOut),
-  } as any;
-};
+// de_AccountSettings omitted.
 
-/**
- * deserializeAws_restJson1Address
- */
-const de_Address = (output: any, context: __SerdeContext): Address => {
-  return {
-    city: __expectString(output.city),
-    country: __expectString(output.country),
-    postDirectional: __expectString(output.postDirectional),
-    postalCode: __expectString(output.postalCode),
-    postalCodePlus4: __expectString(output.postalCodePlus4),
-    preDirectional: __expectString(output.preDirectional),
-    state: __expectString(output.state),
-    streetName: __expectString(output.streetName),
-    streetNumber: __expectString(output.streetNumber),
-    streetSuffix: __expectString(output.streetSuffix),
-  } as any;
-};
+// de_Address omitted.
 
-/**
- * deserializeAws_restJson1AlexaForBusinessMetadata
- */
-const de_AlexaForBusinessMetadata = (output: any, context: __SerdeContext): AlexaForBusinessMetadata => {
-  return {
-    AlexaForBusinessRoomArn: __expectString(output.AlexaForBusinessRoomArn),
-    IsAlexaForBusinessEnabled: __expectBoolean(output.IsAlexaForBusinessEnabled),
-  } as any;
-};
+// de_AlexaForBusinessMetadata omitted.
 
 /**
  * deserializeAws_restJson1AppInstance
  */
 const de_AppInstance = (output: any, context: __SerdeContext): AppInstance => {
-  return {
-    AppInstanceArn: __expectString(output.AppInstanceArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    AppInstanceArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: __expectString,
+    Name: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1AppInstanceAdmin
  */
 const de_AppInstanceAdmin = (output: any, context: __SerdeContext): AppInstanceAdmin => {
-  return {
-    Admin: output.Admin != null ? de_Identity(output.Admin, context) : undefined,
-    AppInstanceArn: __expectString(output.AppInstanceArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Admin: _json,
+    AppInstanceArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AppInstanceAdminList
- */
-const de_AppInstanceAdminList = (output: any, context: __SerdeContext): AppInstanceAdminSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInstanceAdminSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AppInstanceAdminList omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceAdminSummary
- */
-const de_AppInstanceAdminSummary = (output: any, context: __SerdeContext): AppInstanceAdminSummary => {
-  return {
-    Admin: output.Admin != null ? de_Identity(output.Admin, context) : undefined,
-  } as any;
-};
+// de_AppInstanceAdminSummary omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceList
- */
-const de_AppInstanceList = (output: any, context: __SerdeContext): AppInstanceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInstanceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AppInstanceList omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceRetentionSettings
- */
-const de_AppInstanceRetentionSettings = (output: any, context: __SerdeContext): AppInstanceRetentionSettings => {
-  return {
-    ChannelRetentionSettings:
-      output.ChannelRetentionSettings != null
-        ? de_ChannelRetentionSettings(output.ChannelRetentionSettings, context)
-        : undefined,
-  } as any;
-};
+// de_AppInstanceRetentionSettings omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceStreamingConfiguration
- */
-const de_AppInstanceStreamingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceStreamingConfiguration => {
-  return {
-    AppInstanceDataType: __expectString(output.AppInstanceDataType),
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
-};
+// de_AppInstanceStreamingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceStreamingConfigurationList
- */
-const de_AppInstanceStreamingConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): AppInstanceStreamingConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInstanceStreamingConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_AppInstanceStreamingConfigurationList omitted.
 
-/**
- * deserializeAws_restJson1AppInstanceSummary
- */
-const de_AppInstanceSummary = (output: any, context: __SerdeContext): AppInstanceSummary => {
-  return {
-    AppInstanceArn: __expectString(output.AppInstanceArn),
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_AppInstanceSummary omitted.
 
 /**
  * deserializeAws_restJson1AppInstanceUser
  */
 const de_AppInstanceUser = (output: any, context: __SerdeContext): AppInstanceUser => {
-  return {
-    AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    AppInstanceUserArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: __expectString,
+    Name: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AppInstanceUserList
- */
-const de_AppInstanceUserList = (output: any, context: __SerdeContext): AppInstanceUserSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AppInstanceUserSummary(entry, context);
-    });
-  return retVal;
-};
+// de_AppInstanceUserList omitted.
 
 /**
  * deserializeAws_restJson1AppInstanceUserMembershipSummary
@@ -20916,167 +19924,47 @@ const de_AppInstanceUserMembershipSummary = (
   output: any,
   context: __SerdeContext
 ): AppInstanceUserMembershipSummary => {
-  return {
-    ReadMarkerTimestamp:
-      output.ReadMarkerTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadMarkerTimestamp)))
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    ReadMarkerTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AppInstanceUserSummary
- */
-const de_AppInstanceUserSummary = (output: any, context: __SerdeContext): AppInstanceUserSummary => {
-  return {
-    AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
-    Metadata: __expectString(output.Metadata),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_AppInstanceUserSummary omitted.
 
-/**
- * deserializeAws_restJson1ArtifactsConfiguration
- */
-const de_ArtifactsConfiguration = (output: any, context: __SerdeContext): ArtifactsConfiguration => {
-  return {
-    Audio: output.Audio != null ? de_AudioArtifactsConfiguration(output.Audio, context) : undefined,
-    Content: output.Content != null ? de_ContentArtifactsConfiguration(output.Content, context) : undefined,
-    Video: output.Video != null ? de_VideoArtifactsConfiguration(output.Video, context) : undefined,
-  } as any;
-};
+// de_ArtifactsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1Attendee
- */
-const de_Attendee = (output: any, context: __SerdeContext): Attendee => {
-  return {
-    AttendeeId: __expectString(output.AttendeeId),
-    ExternalUserId: __expectString(output.ExternalUserId),
-    JoinToken: __expectString(output.JoinToken),
-  } as any;
-};
+// de_Attendee omitted.
 
-/**
- * deserializeAws_restJson1AttendeeIdList
- */
-const de_AttendeeIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AttendeeIdList omitted.
 
-/**
- * deserializeAws_restJson1AttendeeList
- */
-const de_AttendeeList = (output: any, context: __SerdeContext): Attendee[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Attendee(entry, context);
-    });
-  return retVal;
-};
+// de_AttendeeList omitted.
 
-/**
- * deserializeAws_restJson1AudioArtifactsConfiguration
- */
-const de_AudioArtifactsConfiguration = (output: any, context: __SerdeContext): AudioArtifactsConfiguration => {
-  return {
-    MuxType: __expectString(output.MuxType),
-  } as any;
-};
+// de_AudioArtifactsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1BatchChannelMemberships
- */
-const de_BatchChannelMemberships = (output: any, context: __SerdeContext): BatchChannelMemberships => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    InvitedBy: output.InvitedBy != null ? de_Identity(output.InvitedBy, context) : undefined,
-    Members: output.Members != null ? de_Members(output.Members, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_BatchChannelMemberships omitted.
 
-/**
- * deserializeAws_restJson1BatchCreateAttendeeErrorList
- */
-const de_BatchCreateAttendeeErrorList = (output: any, context: __SerdeContext): CreateAttendeeError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CreateAttendeeError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchCreateAttendeeErrorList omitted.
 
-/**
- * deserializeAws_restJson1BatchCreateChannelMembershipError
- */
-const de_BatchCreateChannelMembershipError = (
-  output: any,
-  context: __SerdeContext
-): BatchCreateChannelMembershipError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    MemberArn: __expectString(output.MemberArn),
-  } as any;
-};
+// de_BatchCreateChannelMembershipError omitted.
 
-/**
- * deserializeAws_restJson1BatchCreateChannelMembershipErrors
- */
-const de_BatchCreateChannelMembershipErrors = (
-  output: any,
-  context: __SerdeContext
-): BatchCreateChannelMembershipError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_BatchCreateChannelMembershipError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchCreateChannelMembershipErrors omitted.
 
 /**
  * deserializeAws_restJson1Bot
  */
 const de_Bot = (output: any, context: __SerdeContext): Bot => {
-  return {
-    BotEmail: __expectString(output.BotEmail),
-    BotId: __expectString(output.BotId),
-    BotType: __expectString(output.BotType),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    Disabled: __expectBoolean(output.Disabled),
-    DisplayName: __expectString(output.DisplayName),
-    SecurityToken: __expectString(output.SecurityToken),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-    UserId: __expectString(output.UserId),
-  } as any;
+  return take(output, {
+    BotEmail: __expectString,
+    BotId: __expectString,
+    BotType: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Disabled: __expectBoolean,
+    DisplayName: __expectString,
+    SecurityToken: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    UserId: __expectString,
+  }) as any;
 };
 
 /**
@@ -21086,166 +19974,66 @@ const de_BotList = (output: any, context: __SerdeContext): Bot[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Bot(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1BusinessCallingSettings
- */
-const de_BusinessCallingSettings = (output: any, context: __SerdeContext): BusinessCallingSettings => {
-  return {
-    CdrBucket: __expectString(output.CdrBucket),
-  } as any;
-};
+// de_BusinessCallingSettings omitted.
 
-/**
- * deserializeAws_restJson1CallingRegionList
- */
-const de_CallingRegionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CallingRegionList omitted.
 
-/**
- * deserializeAws_restJson1CandidateAddress
- */
-const de_CandidateAddress = (output: any, context: __SerdeContext): CandidateAddress => {
-  return {
-    city: __expectString(output.city),
-    country: __expectString(output.country),
-    postalCode: __expectString(output.postalCode),
-    postalCodePlus4: __expectString(output.postalCodePlus4),
-    state: __expectString(output.state),
-    streetInfo: __expectString(output.streetInfo),
-    streetNumber: __expectString(output.streetNumber),
-  } as any;
-};
+// de_CandidateAddress omitted.
 
-/**
- * deserializeAws_restJson1CandidateAddressList
- */
-const de_CandidateAddressList = (output: any, context: __SerdeContext): CandidateAddress[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CandidateAddress(entry, context);
-    });
-  return retVal;
-};
+// de_CandidateAddressList omitted.
 
-/**
- * deserializeAws_restJson1CapabilityList
- */
-const de_CapabilityList = (output: any, context: __SerdeContext): (Capability | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CapabilityList omitted.
 
 /**
  * deserializeAws_restJson1Channel
  */
 const de_Channel = (output: any, context: __SerdeContext): Channel => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    CreatedBy: output.CreatedBy != null ? de_Identity(output.CreatedBy, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastMessageTimestamp:
-      output.LastMessageTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Metadata: __expectString(output.Metadata),
-    Mode: __expectString(output.Mode),
-    Name: __expectString(output.Name),
-    Privacy: __expectString(output.Privacy),
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    CreatedBy: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastMessageTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: __expectString,
+    Mode: __expectString,
+    Name: __expectString,
+    Privacy: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ChannelBan
  */
 const de_ChannelBan = (output: any, context: __SerdeContext): ChannelBan => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    CreatedBy: output.CreatedBy != null ? de_Identity(output.CreatedBy, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    CreatedBy: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Member: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ChannelBanSummary
- */
-const de_ChannelBanSummary = (output: any, context: __SerdeContext): ChannelBanSummary => {
-  return {
-    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
-  } as any;
-};
+// de_ChannelBanSummary omitted.
 
-/**
- * deserializeAws_restJson1ChannelBanSummaryList
- */
-const de_ChannelBanSummaryList = (output: any, context: __SerdeContext): ChannelBanSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelBanSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelBanSummaryList omitted.
 
 /**
  * deserializeAws_restJson1ChannelMembership
  */
 const de_ChannelMembership = (output: any, context: __SerdeContext): ChannelMembership => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    InvitedBy: output.InvitedBy != null ? de_Identity(output.InvitedBy, context) : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InvitedBy: _json,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Member: _json,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -21255,13 +20043,10 @@ const de_ChannelMembershipForAppInstanceUserSummary = (
   output: any,
   context: __SerdeContext
 ): ChannelMembershipForAppInstanceUserSummary => {
-  return {
-    AppInstanceUserMembershipSummary:
-      output.AppInstanceUserMembershipSummary != null
-        ? de_AppInstanceUserMembershipSummary(output.AppInstanceUserMembershipSummary, context)
-        : undefined,
-    ChannelSummary: output.ChannelSummary != null ? de_ChannelSummary(output.ChannelSummary, context) : undefined,
-  } as any;
+  return take(output, {
+    AppInstanceUserMembershipSummary: (_: any) => de_AppInstanceUserMembershipSummary(_, context),
+    ChannelSummary: (_: any) => de_ChannelSummary(_, context),
+  }) as any;
 };
 
 /**
@@ -21274,90 +20059,49 @@ const de_ChannelMembershipForAppInstanceUserSummaryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChannelMembershipForAppInstanceUserSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ChannelMembershipSummary
- */
-const de_ChannelMembershipSummary = (output: any, context: __SerdeContext): ChannelMembershipSummary => {
-  return {
-    Member: output.Member != null ? de_Identity(output.Member, context) : undefined,
-  } as any;
-};
+// de_ChannelMembershipSummary omitted.
 
-/**
- * deserializeAws_restJson1ChannelMembershipSummaryList
- */
-const de_ChannelMembershipSummaryList = (output: any, context: __SerdeContext): ChannelMembershipSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelMembershipSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelMembershipSummaryList omitted.
 
 /**
  * deserializeAws_restJson1ChannelMessage
  */
 const de_ChannelMessage = (output: any, context: __SerdeContext): ChannelMessage => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    Content: __expectString(output.Content),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastEditedTimestamp:
-      output.LastEditedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastEditedTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    MessageId: __expectString(output.MessageId),
-    Metadata: __expectString(output.Metadata),
-    Persistence: __expectString(output.Persistence),
-    Redacted: __expectBoolean(output.Redacted),
-    Sender: output.Sender != null ? de_Identity(output.Sender, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    Content: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastEditedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MessageId: __expectString,
+    Metadata: __expectString,
+    Persistence: __expectString,
+    Redacted: __expectBoolean,
+    Sender: _json,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ChannelMessageSummary
  */
 const de_ChannelMessageSummary = (output: any, context: __SerdeContext): ChannelMessageSummary => {
-  return {
-    Content: __expectString(output.Content),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    LastEditedTimestamp:
-      output.LastEditedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastEditedTimestamp)))
-        : undefined,
-    LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
-        : undefined,
-    MessageId: __expectString(output.MessageId),
-    Metadata: __expectString(output.Metadata),
-    Redacted: __expectBoolean(output.Redacted),
-    Sender: output.Sender != null ? de_Identity(output.Sender, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Content: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastEditedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MessageId: __expectString,
+    Metadata: __expectString,
+    Redacted: __expectBoolean,
+    Sender: _json,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -21367,9 +20111,6 @@ const de_ChannelMessageSummaryList = (output: any, context: __SerdeContext): Cha
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChannelMessageSummary(entry, context);
     });
   return retVal;
@@ -21382,9 +20123,9 @@ const de_ChannelModeratedByAppInstanceUserSummary = (
   output: any,
   context: __SerdeContext
 ): ChannelModeratedByAppInstanceUserSummary => {
-  return {
-    ChannelSummary: output.ChannelSummary != null ? de_ChannelSummary(output.ChannelSummary, context) : undefined,
-  } as any;
+  return take(output, {
+    ChannelSummary: (_: any) => de_ChannelSummary(_, context),
+  }) as any;
 };
 
 /**
@@ -21397,9 +20138,6 @@ const de_ChannelModeratedByAppInstanceUserSummaryList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChannelModeratedByAppInstanceUserSummary(entry, context);
     });
   return retVal;
@@ -21409,65 +20147,32 @@ const de_ChannelModeratedByAppInstanceUserSummaryList = (
  * deserializeAws_restJson1ChannelModerator
  */
 const de_ChannelModerator = (output: any, context: __SerdeContext): ChannelModerator => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    CreatedBy: output.CreatedBy != null ? de_Identity(output.CreatedBy, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    Moderator: output.Moderator != null ? de_Identity(output.Moderator, context) : undefined,
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    CreatedBy: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Moderator: _json,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1ChannelModeratorSummary
- */
-const de_ChannelModeratorSummary = (output: any, context: __SerdeContext): ChannelModeratorSummary => {
-  return {
-    Moderator: output.Moderator != null ? de_Identity(output.Moderator, context) : undefined,
-  } as any;
-};
+// de_ChannelModeratorSummary omitted.
 
-/**
- * deserializeAws_restJson1ChannelModeratorSummaryList
- */
-const de_ChannelModeratorSummaryList = (output: any, context: __SerdeContext): ChannelModeratorSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ChannelModeratorSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelModeratorSummaryList omitted.
 
-/**
- * deserializeAws_restJson1ChannelRetentionSettings
- */
-const de_ChannelRetentionSettings = (output: any, context: __SerdeContext): ChannelRetentionSettings => {
-  return {
-    RetentionDays: __expectInt32(output.RetentionDays),
-  } as any;
-};
+// de_ChannelRetentionSettings omitted.
 
 /**
  * deserializeAws_restJson1ChannelSummary
  */
 const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
-  return {
-    ChannelArn: __expectString(output.ChannelArn),
-    LastMessageTimestamp:
-      output.LastMessageTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
-        : undefined,
-    Metadata: __expectString(output.Metadata),
-    Mode: __expectString(output.Mode),
-    Name: __expectString(output.Name),
-    Privacy: __expectString(output.Privacy),
-  } as any;
+  return take(output, {
+    ChannelArn: __expectString,
+    LastMessageTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: __expectString,
+    Mode: __expectString,
+    Name: __expectString,
+    Privacy: __expectString,
+  }) as any;
 };
 
 /**
@@ -21477,236 +20182,58 @@ const de_ChannelSummaryList = (output: any, context: __SerdeContext): ChannelSum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ChannelSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ChimeSdkMeetingConfiguration
- */
-const de_ChimeSdkMeetingConfiguration = (output: any, context: __SerdeContext): ChimeSdkMeetingConfiguration => {
-  return {
-    ArtifactsConfiguration:
-      output.ArtifactsConfiguration != null
-        ? de_ArtifactsConfiguration(output.ArtifactsConfiguration, context)
-        : undefined,
-    SourceConfiguration:
-      output.SourceConfiguration != null ? de_SourceConfiguration(output.SourceConfiguration, context) : undefined,
-  } as any;
-};
+// de_ChimeSdkMeetingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ContentArtifactsConfiguration
- */
-const de_ContentArtifactsConfiguration = (output: any, context: __SerdeContext): ContentArtifactsConfiguration => {
-  return {
-    MuxType: __expectString(output.MuxType),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_ContentArtifactsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ConversationRetentionSettings
- */
-const de_ConversationRetentionSettings = (output: any, context: __SerdeContext): ConversationRetentionSettings => {
-  return {
-    RetentionDays: __expectInt32(output.RetentionDays),
-  } as any;
-};
+// de_ConversationRetentionSettings omitted.
 
-/**
- * deserializeAws_restJson1CreateAttendeeError
- */
-const de_CreateAttendeeError = (output: any, context: __SerdeContext): CreateAttendeeError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ExternalUserId: __expectString(output.ExternalUserId),
-  } as any;
-};
+// de_CreateAttendeeError omitted.
 
-/**
- * deserializeAws_restJson1DNISEmergencyCallingConfiguration
- */
-const de_DNISEmergencyCallingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DNISEmergencyCallingConfiguration => {
-  return {
-    CallingCountry: __expectString(output.CallingCountry),
-    EmergencyPhoneNumber: __expectString(output.EmergencyPhoneNumber),
-    TestPhoneNumber: __expectString(output.TestPhoneNumber),
-  } as any;
-};
+// de_DNISEmergencyCallingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1DNISEmergencyCallingConfigurationList
- */
-const de_DNISEmergencyCallingConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): DNISEmergencyCallingConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DNISEmergencyCallingConfiguration(entry, context);
-    });
-  return retVal;
-};
+// de_DNISEmergencyCallingConfigurationList omitted.
 
-/**
- * deserializeAws_restJson1E164PhoneNumberList
- */
-const de_E164PhoneNumberList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_E164PhoneNumberList omitted.
 
-/**
- * deserializeAws_restJson1EmergencyCallingConfiguration
- */
-const de_EmergencyCallingConfiguration = (output: any, context: __SerdeContext): EmergencyCallingConfiguration => {
-  return {
-    DNIS: output.DNIS != null ? de_DNISEmergencyCallingConfigurationList(output.DNIS, context) : undefined,
-  } as any;
-};
+// de_EmergencyCallingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1EventsConfiguration
- */
-const de_EventsConfiguration = (output: any, context: __SerdeContext): EventsConfiguration => {
-  return {
-    BotId: __expectString(output.BotId),
-    LambdaFunctionArn: __expectString(output.LambdaFunctionArn),
-    OutboundEventsHTTPSEndpoint: __expectString(output.OutboundEventsHTTPSEndpoint),
-  } as any;
-};
+// de_EventsConfiguration omitted.
 
-/**
- * deserializeAws_restJson1ExternalUserIdList
- */
-const de_ExternalUserIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ExternalUserIdList omitted.
 
-/**
- * deserializeAws_restJson1GeoMatchParams
- */
-const de_GeoMatchParams = (output: any, context: __SerdeContext): GeoMatchParams => {
-  return {
-    AreaCode: __expectString(output.AreaCode),
-    Country: __expectString(output.Country),
-  } as any;
-};
+// de_GeoMatchParams omitted.
 
-/**
- * deserializeAws_restJson1Identity
- */
-const de_Identity = (output: any, context: __SerdeContext): Identity => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Identity omitted.
 
-/**
- * deserializeAws_restJson1Invite
- */
-const de_Invite = (output: any, context: __SerdeContext): Invite => {
-  return {
-    EmailAddress: __expectString(output.EmailAddress),
-    EmailStatus: __expectString(output.EmailStatus),
-    InviteId: __expectString(output.InviteId),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_Invite omitted.
 
-/**
- * deserializeAws_restJson1InviteList
- */
-const de_InviteList = (output: any, context: __SerdeContext): Invite[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Invite(entry, context);
-    });
-  return retVal;
-};
+// de_InviteList omitted.
 
-/**
- * deserializeAws_restJson1LicenseList
- */
-const de_LicenseList = (output: any, context: __SerdeContext): (License | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_LicenseList omitted.
 
-/**
- * deserializeAws_restJson1LoggingConfiguration
- */
-const de_LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
-  return {
-    EnableMediaMetricLogs: __expectBoolean(output.EnableMediaMetricLogs),
-    EnableSIPLogs: __expectBoolean(output.EnableSIPLogs),
-  } as any;
-};
+// de_LoggingConfiguration omitted.
 
 /**
  * deserializeAws_restJson1MediaCapturePipeline
  */
 const de_MediaCapturePipeline = (output: any, context: __SerdeContext): MediaCapturePipeline => {
-  return {
-    ChimeSdkMeetingConfiguration:
-      output.ChimeSdkMeetingConfiguration != null
-        ? de_ChimeSdkMeetingConfiguration(output.ChimeSdkMeetingConfiguration, context)
-        : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-    SinkArn: __expectString(output.SinkArn),
-    SinkType: __expectString(output.SinkType),
-    SourceArn: __expectString(output.SourceArn),
-    SourceType: __expectString(output.SourceType),
-    Status: __expectString(output.Status),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    ChimeSdkMeetingConfiguration: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MediaPipelineId: __expectString,
+    SinkArn: __expectString,
+    SinkType: __expectString,
+    SourceArn: __expectString,
+    SourceType: __expectString,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -21716,250 +20243,71 @@ const de_MediaCapturePipelineList = (output: any, context: __SerdeContext): Medi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MediaCapturePipeline(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1MediaPlacement
- */
-const de_MediaPlacement = (output: any, context: __SerdeContext): MediaPlacement => {
-  return {
-    AudioFallbackUrl: __expectString(output.AudioFallbackUrl),
-    AudioHostUrl: __expectString(output.AudioHostUrl),
-    EventIngestionUrl: __expectString(output.EventIngestionUrl),
-    ScreenDataUrl: __expectString(output.ScreenDataUrl),
-    ScreenSharingUrl: __expectString(output.ScreenSharingUrl),
-    ScreenViewingUrl: __expectString(output.ScreenViewingUrl),
-    SignalingUrl: __expectString(output.SignalingUrl),
-    TurnControlUrl: __expectString(output.TurnControlUrl),
-  } as any;
-};
+// de_MediaPlacement omitted.
 
-/**
- * deserializeAws_restJson1Meeting
- */
-const de_Meeting = (output: any, context: __SerdeContext): Meeting => {
-  return {
-    ExternalMeetingId: __expectString(output.ExternalMeetingId),
-    MediaPlacement: output.MediaPlacement != null ? de_MediaPlacement(output.MediaPlacement, context) : undefined,
-    MediaRegion: __expectString(output.MediaRegion),
-    MeetingId: __expectString(output.MeetingId),
-  } as any;
-};
+// de_Meeting omitted.
 
-/**
- * deserializeAws_restJson1MeetingList
- */
-const de_MeetingList = (output: any, context: __SerdeContext): Meeting[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Meeting(entry, context);
-    });
-  return retVal;
-};
+// de_MeetingList omitted.
 
-/**
- * deserializeAws_restJson1Member
- */
-const de_Member = (output: any, context: __SerdeContext): Member => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Email: __expectString(output.Email),
-    FullName: __expectString(output.FullName),
-    MemberId: __expectString(output.MemberId),
-    MemberType: __expectString(output.MemberType),
-  } as any;
-};
+// de_Member omitted.
 
-/**
- * deserializeAws_restJson1MemberError
- */
-const de_MemberError = (output: any, context: __SerdeContext): MemberError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    MemberId: __expectString(output.MemberId),
-  } as any;
-};
+// de_MemberError omitted.
 
-/**
- * deserializeAws_restJson1MemberErrorList
- */
-const de_MemberErrorList = (output: any, context: __SerdeContext): MemberError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_MemberError(entry, context);
-    });
-  return retVal;
-};
+// de_MemberErrorList omitted.
 
-/**
- * deserializeAws_restJson1Members
- */
-const de_Members = (output: any, context: __SerdeContext): Identity[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Identity(entry, context);
-    });
-  return retVal;
-};
+// de_Members omitted.
 
-/**
- * deserializeAws_restJson1MessagingSessionEndpoint
- */
-const de_MessagingSessionEndpoint = (output: any, context: __SerdeContext): MessagingSessionEndpoint => {
-  return {
-    Url: __expectString(output.Url),
-  } as any;
-};
+// de_MessagingSessionEndpoint omitted.
 
-/**
- * deserializeAws_restJson1OrderedPhoneNumber
- */
-const de_OrderedPhoneNumber = (output: any, context: __SerdeContext): OrderedPhoneNumber => {
-  return {
-    E164PhoneNumber: __expectString(output.E164PhoneNumber),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_OrderedPhoneNumber omitted.
 
-/**
- * deserializeAws_restJson1OrderedPhoneNumberList
- */
-const de_OrderedPhoneNumberList = (output: any, context: __SerdeContext): OrderedPhoneNumber[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OrderedPhoneNumber(entry, context);
-    });
-  return retVal;
-};
+// de_OrderedPhoneNumberList omitted.
 
-/**
- * deserializeAws_restJson1Origination
- */
-const de_Origination = (output: any, context: __SerdeContext): Origination => {
-  return {
-    Disabled: __expectBoolean(output.Disabled),
-    Routes: output.Routes != null ? de_OriginationRouteList(output.Routes, context) : undefined,
-  } as any;
-};
+// de_Origination omitted.
 
-/**
- * deserializeAws_restJson1OriginationRoute
- */
-const de_OriginationRoute = (output: any, context: __SerdeContext): OriginationRoute => {
-  return {
-    Host: __expectString(output.Host),
-    Port: __expectInt32(output.Port),
-    Priority: __expectInt32(output.Priority),
-    Protocol: __expectString(output.Protocol),
-    Weight: __expectInt32(output.Weight),
-  } as any;
-};
+// de_OriginationRoute omitted.
 
-/**
- * deserializeAws_restJson1OriginationRouteList
- */
-const de_OriginationRouteList = (output: any, context: __SerdeContext): OriginationRoute[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OriginationRoute(entry, context);
-    });
-  return retVal;
-};
+// de_OriginationRouteList omitted.
 
-/**
- * deserializeAws_restJson1Participant
- */
-const de_Participant = (output: any, context: __SerdeContext): Participant => {
-  return {
-    PhoneNumber: __expectString(output.PhoneNumber),
-    ProxyPhoneNumber: __expectString(output.ProxyPhoneNumber),
-  } as any;
-};
+// de_Participant omitted.
 
-/**
- * deserializeAws_restJson1Participants
- */
-const de_Participants = (output: any, context: __SerdeContext): Participant[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Participant(entry, context);
-    });
-  return retVal;
-};
+// de_Participants omitted.
 
 /**
  * deserializeAws_restJson1PhoneNumber
  */
 const de_PhoneNumber = (output: any, context: __SerdeContext): PhoneNumber => {
-  return {
-    Associations: output.Associations != null ? de_PhoneNumberAssociationList(output.Associations, context) : undefined,
-    CallingName: __expectString(output.CallingName),
-    CallingNameStatus: __expectString(output.CallingNameStatus),
-    Capabilities: output.Capabilities != null ? de_PhoneNumberCapabilities(output.Capabilities, context) : undefined,
-    Country: __expectString(output.Country),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    DeletionTimestamp:
-      output.DeletionTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.DeletionTimestamp))
-        : undefined,
-    E164PhoneNumber: __expectString(output.E164PhoneNumber),
-    PhoneNumberId: __expectString(output.PhoneNumberId),
-    ProductType: __expectString(output.ProductType),
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    Associations: (_: any) => de_PhoneNumberAssociationList(_, context),
+    CallingName: __expectString,
+    CallingNameStatus: __expectString,
+    Capabilities: _json,
+    Country: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DeletionTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    E164PhoneNumber: __expectString,
+    PhoneNumberId: __expectString,
+    ProductType: __expectString,
+    Status: __expectString,
+    Type: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PhoneNumberAssociation
  */
 const de_PhoneNumberAssociation = (output: any, context: __SerdeContext): PhoneNumberAssociation => {
-  return {
-    AssociatedTimestamp:
-      output.AssociatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.AssociatedTimestamp))
-        : undefined,
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
+  return take(output, {
+    AssociatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Name: __expectString,
+    Value: __expectString,
+  }) as any;
 };
 
 /**
@@ -21969,81 +20317,20 @@ const de_PhoneNumberAssociationList = (output: any, context: __SerdeContext): Ph
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PhoneNumberAssociation(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1PhoneNumberCapabilities
- */
-const de_PhoneNumberCapabilities = (output: any, context: __SerdeContext): PhoneNumberCapabilities => {
-  return {
-    InboundCall: __expectBoolean(output.InboundCall),
-    InboundMMS: __expectBoolean(output.InboundMMS),
-    InboundSMS: __expectBoolean(output.InboundSMS),
-    OutboundCall: __expectBoolean(output.OutboundCall),
-    OutboundMMS: __expectBoolean(output.OutboundMMS),
-    OutboundSMS: __expectBoolean(output.OutboundSMS),
-  } as any;
-};
+// de_PhoneNumberCapabilities omitted.
 
-/**
- * deserializeAws_restJson1PhoneNumberCountriesList
- */
-const de_PhoneNumberCountriesList = (output: any, context: __SerdeContext): PhoneNumberCountry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PhoneNumberCountry(entry, context);
-    });
-  return retVal;
-};
+// de_PhoneNumberCountriesList omitted.
 
-/**
- * deserializeAws_restJson1PhoneNumberCountry
- */
-const de_PhoneNumberCountry = (output: any, context: __SerdeContext): PhoneNumberCountry => {
-  return {
-    CountryCode: __expectString(output.CountryCode),
-    SupportedPhoneNumberTypes:
-      output.SupportedPhoneNumberTypes != null
-        ? de_PhoneNumberTypeList(output.SupportedPhoneNumberTypes, context)
-        : undefined,
-  } as any;
-};
+// de_PhoneNumberCountry omitted.
 
-/**
- * deserializeAws_restJson1PhoneNumberError
- */
-const de_PhoneNumberError = (output: any, context: __SerdeContext): PhoneNumberError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    PhoneNumberId: __expectString(output.PhoneNumberId),
-  } as any;
-};
+// de_PhoneNumberError omitted.
 
-/**
- * deserializeAws_restJson1PhoneNumberErrorList
- */
-const de_PhoneNumberErrorList = (output: any, context: __SerdeContext): PhoneNumberError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_PhoneNumberError(entry, context);
-    });
-  return retVal;
-};
+// de_PhoneNumberErrorList omitted.
 
 /**
  * deserializeAws_restJson1PhoneNumberList
@@ -22052,9 +20339,6 @@ const de_PhoneNumberList = (output: any, context: __SerdeContext): PhoneNumber[]
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PhoneNumber(entry, context);
     });
   return retVal;
@@ -22064,21 +20348,14 @@ const de_PhoneNumberList = (output: any, context: __SerdeContext): PhoneNumber[]
  * deserializeAws_restJson1PhoneNumberOrder
  */
 const de_PhoneNumberOrder = (output: any, context: __SerdeContext): PhoneNumberOrder => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    OrderedPhoneNumbers:
-      output.OrderedPhoneNumbers != null ? de_OrderedPhoneNumberList(output.OrderedPhoneNumbers, context) : undefined,
-    PhoneNumberOrderId: __expectString(output.PhoneNumberOrderId),
-    ProductType: __expectString(output.ProductType),
-    Status: __expectString(output.Status),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    OrderedPhoneNumbers: _json,
+    PhoneNumberOrderId: __expectString,
+    ProductType: __expectString,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -22088,70 +20365,34 @@ const de_PhoneNumberOrderList = (output: any, context: __SerdeContext): PhoneNum
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PhoneNumberOrder(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1PhoneNumberTypeList
- */
-const de_PhoneNumberTypeList = (output: any, context: __SerdeContext): (PhoneNumberType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PhoneNumberTypeList omitted.
 
-/**
- * deserializeAws_restJson1Proxy
- */
-const de_Proxy = (output: any, context: __SerdeContext): Proxy => {
-  return {
-    DefaultSessionExpiryMinutes: __expectInt32(output.DefaultSessionExpiryMinutes),
-    Disabled: __expectBoolean(output.Disabled),
-    FallBackPhoneNumber: __expectString(output.FallBackPhoneNumber),
-    PhoneNumberCountries:
-      output.PhoneNumberCountries != null ? de_StringList(output.PhoneNumberCountries, context) : undefined,
-  } as any;
-};
+// de_Proxy omitted.
 
 /**
  * deserializeAws_restJson1ProxySession
  */
 const de_ProxySession = (output: any, context: __SerdeContext): ProxySession => {
-  return {
-    Capabilities: output.Capabilities != null ? de_CapabilityList(output.Capabilities, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    EndedTimestamp:
-      output.EndedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.EndedTimestamp))
-        : undefined,
-    ExpiryMinutes: __expectInt32(output.ExpiryMinutes),
-    GeoMatchLevel: __expectString(output.GeoMatchLevel),
-    GeoMatchParams: output.GeoMatchParams != null ? de_GeoMatchParams(output.GeoMatchParams, context) : undefined,
-    Name: __expectString(output.Name),
-    NumberSelectionBehavior: __expectString(output.NumberSelectionBehavior),
-    Participants: output.Participants != null ? de_Participants(output.Participants, context) : undefined,
-    ProxySessionId: __expectString(output.ProxySessionId),
-    Status: __expectString(output.Status),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-    VoiceConnectorId: __expectString(output.VoiceConnectorId),
-  } as any;
+  return take(output, {
+    Capabilities: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EndedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ExpiryMinutes: __expectInt32,
+    GeoMatchLevel: __expectString,
+    GeoMatchParams: _json,
+    Name: __expectString,
+    NumberSelectionBehavior: __expectString,
+    Participants: _json,
+    ProxySessionId: __expectString,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    VoiceConnectorId: __expectString,
+  }) as any;
 };
 
 /**
@@ -22161,48 +20402,25 @@ const de_ProxySessions = (output: any, context: __SerdeContext): ProxySession[] 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProxySession(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1RetentionSettings
- */
-const de_RetentionSettings = (output: any, context: __SerdeContext): RetentionSettings => {
-  return {
-    ConversationRetentionSettings:
-      output.ConversationRetentionSettings != null
-        ? de_ConversationRetentionSettings(output.ConversationRetentionSettings, context)
-        : undefined,
-    RoomRetentionSettings:
-      output.RoomRetentionSettings != null
-        ? de_RoomRetentionSettings(output.RoomRetentionSettings, context)
-        : undefined,
-  } as any;
-};
+// de_RetentionSettings omitted.
 
 /**
  * deserializeAws_restJson1Room
  */
 const de_Room = (output: any, context: __SerdeContext): Room => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    CreatedBy: __expectString(output.CreatedBy),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    Name: __expectString(output.Name),
-    RoomId: __expectString(output.RoomId),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    CreatedBy: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Name: __expectString,
+    RoomId: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -22212,9 +20430,6 @@ const de_RoomList = (output: any, context: __SerdeContext): Room[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Room(entry, context);
     });
   return retVal;
@@ -22224,16 +20439,13 @@ const de_RoomList = (output: any, context: __SerdeContext): Room[] => {
  * deserializeAws_restJson1RoomMembership
  */
 const de_RoomMembership = (output: any, context: __SerdeContext): RoomMembership => {
-  return {
-    InvitedBy: __expectString(output.InvitedBy),
-    Member: output.Member != null ? de_Member(output.Member, context) : undefined,
-    Role: __expectString(output.Role),
-    RoomId: __expectString(output.RoomId),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    InvitedBy: __expectString,
+    Member: _json,
+    Role: __expectString,
+    RoomId: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -22243,125 +20455,40 @@ const de_RoomMembershipList = (output: any, context: __SerdeContext): RoomMember
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RoomMembership(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1RoomRetentionSettings
- */
-const de_RoomRetentionSettings = (output: any, context: __SerdeContext): RoomRetentionSettings => {
-  return {
-    RetentionDays: __expectInt32(output.RetentionDays),
-  } as any;
-};
+// de_RoomRetentionSettings omitted.
 
-/**
- * deserializeAws_restJson1SelectedVideoStreams
- */
-const de_SelectedVideoStreams = (output: any, context: __SerdeContext): SelectedVideoStreams => {
-  return {
-    AttendeeIds: output.AttendeeIds != null ? de_AttendeeIdList(output.AttendeeIds, context) : undefined,
-    ExternalUserIds:
-      output.ExternalUserIds != null ? de_ExternalUserIdList(output.ExternalUserIds, context) : undefined,
-  } as any;
-};
+// de_SelectedVideoStreams omitted.
 
-/**
- * deserializeAws_restJson1SensitiveStringList
- */
-const de_SensitiveStringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SensitiveStringList omitted.
 
-/**
- * deserializeAws_restJson1SigninDelegateGroup
- */
-const de_SigninDelegateGroup = (output: any, context: __SerdeContext): SigninDelegateGroup => {
-  return {
-    GroupName: __expectString(output.GroupName),
-  } as any;
-};
+// de_SigninDelegateGroup omitted.
 
-/**
- * deserializeAws_restJson1SigninDelegateGroupList
- */
-const de_SigninDelegateGroupList = (output: any, context: __SerdeContext): SigninDelegateGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SigninDelegateGroup(entry, context);
-    });
-  return retVal;
-};
+// de_SigninDelegateGroupList omitted.
 
 /**
  * deserializeAws_restJson1SipMediaApplication
  */
 const de_SipMediaApplication = (output: any, context: __SerdeContext): SipMediaApplication => {
-  return {
-    AwsRegion: __expectString(output.AwsRegion),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    Endpoints: output.Endpoints != null ? de_SipMediaApplicationEndpointList(output.Endpoints, context) : undefined,
-    Name: __expectString(output.Name),
-    SipMediaApplicationId: __expectString(output.SipMediaApplicationId),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    AwsRegion: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Endpoints: _json,
+    Name: __expectString,
+    SipMediaApplicationId: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SipMediaApplicationCall
- */
-const de_SipMediaApplicationCall = (output: any, context: __SerdeContext): SipMediaApplicationCall => {
-  return {
-    TransactionId: __expectString(output.TransactionId),
-  } as any;
-};
+// de_SipMediaApplicationCall omitted.
 
-/**
- * deserializeAws_restJson1SipMediaApplicationEndpoint
- */
-const de_SipMediaApplicationEndpoint = (output: any, context: __SerdeContext): SipMediaApplicationEndpoint => {
-  return {
-    LambdaArn: __expectString(output.LambdaArn),
-  } as any;
-};
+// de_SipMediaApplicationEndpoint omitted.
 
-/**
- * deserializeAws_restJson1SipMediaApplicationEndpointList
- */
-const de_SipMediaApplicationEndpointList = (output: any, context: __SerdeContext): SipMediaApplicationEndpoint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SipMediaApplicationEndpoint(entry, context);
-    });
-  return retVal;
-};
+// de_SipMediaApplicationEndpointList omitted.
 
 /**
  * deserializeAws_restJson1SipMediaApplicationList
@@ -22370,49 +20497,27 @@ const de_SipMediaApplicationList = (output: any, context: __SerdeContext): SipMe
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SipMediaApplication(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SipMediaApplicationLoggingConfiguration
- */
-const de_SipMediaApplicationLoggingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SipMediaApplicationLoggingConfiguration => {
-  return {
-    EnableSipMediaApplicationMessageLogs: __expectBoolean(output.EnableSipMediaApplicationMessageLogs),
-  } as any;
-};
+// de_SipMediaApplicationLoggingConfiguration omitted.
 
 /**
  * deserializeAws_restJson1SipRule
  */
 const de_SipRule = (output: any, context: __SerdeContext): SipRule => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    Disabled: __expectBoolean(output.Disabled),
-    Name: __expectString(output.Name),
-    SipRuleId: __expectString(output.SipRuleId),
-    TargetApplications:
-      output.TargetApplications != null
-        ? de_SipRuleTargetApplicationList(output.TargetApplications, context)
-        : undefined,
-    TriggerType: __expectString(output.TriggerType),
-    TriggerValue: __expectString(output.TriggerValue),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Disabled: __expectBoolean,
+    Name: __expectString,
+    SipRuleId: __expectString,
+    TargetApplications: _json,
+    TriggerType: __expectString,
+    TriggerValue: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -22422,214 +20527,67 @@ const de_SipRuleList = (output: any, context: __SerdeContext): SipRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SipRule(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SipRuleTargetApplication
- */
-const de_SipRuleTargetApplication = (output: any, context: __SerdeContext): SipRuleTargetApplication => {
-  return {
-    AwsRegion: __expectString(output.AwsRegion),
-    Priority: __expectInt32(output.Priority),
-    SipMediaApplicationId: __expectString(output.SipMediaApplicationId),
-  } as any;
-};
+// de_SipRuleTargetApplication omitted.
 
-/**
- * deserializeAws_restJson1SipRuleTargetApplicationList
- */
-const de_SipRuleTargetApplicationList = (output: any, context: __SerdeContext): SipRuleTargetApplication[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SipRuleTargetApplication(entry, context);
-    });
-  return retVal;
-};
+// de_SipRuleTargetApplicationList omitted.
 
-/**
- * deserializeAws_restJson1SourceConfiguration
- */
-const de_SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
-  return {
-    SelectedVideoStreams:
-      output.SelectedVideoStreams != null ? de_SelectedVideoStreams(output.SelectedVideoStreams, context) : undefined,
-  } as any;
-};
+// de_SourceConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StreamingConfiguration
- */
-const de_StreamingConfiguration = (output: any, context: __SerdeContext): StreamingConfiguration => {
-  return {
-    DataRetentionInHours: __expectInt32(output.DataRetentionInHours),
-    Disabled: __expectBoolean(output.Disabled),
-    StreamingNotificationTargets:
-      output.StreamingNotificationTargets != null
-        ? de_StreamingNotificationTargetList(output.StreamingNotificationTargets, context)
-        : undefined,
-  } as any;
-};
+// de_StreamingConfiguration omitted.
 
-/**
- * deserializeAws_restJson1StreamingNotificationTarget
- */
-const de_StreamingNotificationTarget = (output: any, context: __SerdeContext): StreamingNotificationTarget => {
-  return {
-    NotificationTarget: __expectString(output.NotificationTarget),
-  } as any;
-};
+// de_StreamingNotificationTarget omitted.
 
-/**
- * deserializeAws_restJson1StreamingNotificationTargetList
- */
-const de_StreamingNotificationTargetList = (output: any, context: __SerdeContext): StreamingNotificationTarget[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_StreamingNotificationTarget(entry, context);
-    });
-  return retVal;
-};
+// de_StreamingNotificationTargetList omitted.
 
-/**
- * deserializeAws_restJson1StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_restJson1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_restJson1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_restJson1TelephonySettings
- */
-const de_TelephonySettings = (output: any, context: __SerdeContext): TelephonySettings => {
-  return {
-    InboundCalling: __expectBoolean(output.InboundCalling),
-    OutboundCalling: __expectBoolean(output.OutboundCalling),
-    SMS: __expectBoolean(output.SMS),
-  } as any;
-};
+// de_TelephonySettings omitted.
 
-/**
- * deserializeAws_restJson1Termination
- */
-const de_Termination = (output: any, context: __SerdeContext): Termination => {
-  return {
-    CallingRegions: output.CallingRegions != null ? de_CallingRegionList(output.CallingRegions, context) : undefined,
-    CidrAllowedList: output.CidrAllowedList != null ? de_StringList(output.CidrAllowedList, context) : undefined,
-    CpsLimit: __expectInt32(output.CpsLimit),
-    DefaultPhoneNumber: __expectString(output.DefaultPhoneNumber),
-    Disabled: __expectBoolean(output.Disabled),
-  } as any;
-};
+// de_Termination omitted.
 
 /**
  * deserializeAws_restJson1TerminationHealth
  */
 const de_TerminationHealth = (output: any, context: __SerdeContext): TerminationHealth => {
-  return {
-    Source: __expectString(output.Source),
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.Timestamp)) : undefined,
-  } as any;
+  return take(output, {
+    Source: __expectString,
+    Timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1User
  */
 const de_User = (output: any, context: __SerdeContext): User => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    AlexaForBusinessMetadata:
-      output.AlexaForBusinessMetadata != null
-        ? de_AlexaForBusinessMetadata(output.AlexaForBusinessMetadata, context)
-        : undefined,
-    DisplayName: __expectString(output.DisplayName),
-    InvitedOn:
-      output.InvitedOn != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.InvitedOn)) : undefined,
-    LicenseType: __expectString(output.LicenseType),
-    PersonalPIN: __expectString(output.PersonalPIN),
-    PrimaryEmail: __expectString(output.PrimaryEmail),
-    PrimaryProvisionedNumber: __expectString(output.PrimaryProvisionedNumber),
-    RegisteredOn:
-      output.RegisteredOn != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.RegisteredOn)) : undefined,
-    UserId: __expectString(output.UserId),
-    UserInvitationStatus: __expectString(output.UserInvitationStatus),
-    UserRegistrationStatus: __expectString(output.UserRegistrationStatus),
-    UserType: __expectString(output.UserType),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    AlexaForBusinessMetadata: _json,
+    DisplayName: __expectString,
+    InvitedOn: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    LicenseType: __expectString,
+    PersonalPIN: __expectString,
+    PrimaryEmail: __expectString,
+    PrimaryProvisionedNumber: __expectString,
+    RegisteredOn: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    UserId: __expectString,
+    UserInvitationStatus: __expectString,
+    UserRegistrationStatus: __expectString,
+    UserType: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1UserError
- */
-const de_UserError = (output: any, context: __SerdeContext): UserError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    UserId: __expectString(output.UserId),
-  } as any;
-};
+// de_UserError omitted.
 
-/**
- * deserializeAws_restJson1UserErrorList
- */
-const de_UserErrorList = (output: any, context: __SerdeContext): UserError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UserError(entry, context);
-    });
-  return retVal;
-};
+// de_UserErrorList omitted.
 
 /**
  * deserializeAws_restJson1UserList
@@ -22638,74 +20596,43 @@ const de_UserList = (output: any, context: __SerdeContext): User[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_User(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1UserSettings
- */
-const de_UserSettings = (output: any, context: __SerdeContext): UserSettings => {
-  return {
-    Telephony: output.Telephony != null ? de_TelephonySettings(output.Telephony, context) : undefined,
-  } as any;
-};
+// de_UserSettings omitted.
 
-/**
- * deserializeAws_restJson1VideoArtifactsConfiguration
- */
-const de_VideoArtifactsConfiguration = (output: any, context: __SerdeContext): VideoArtifactsConfiguration => {
-  return {
-    MuxType: __expectString(output.MuxType),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_VideoArtifactsConfiguration omitted.
 
 /**
  * deserializeAws_restJson1VoiceConnector
  */
 const de_VoiceConnector = (output: any, context: __SerdeContext): VoiceConnector => {
-  return {
-    AwsRegion: __expectString(output.AwsRegion),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    Name: __expectString(output.Name),
-    OutboundHostName: __expectString(output.OutboundHostName),
-    RequireEncryption: __expectBoolean(output.RequireEncryption),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-    VoiceConnectorArn: __expectString(output.VoiceConnectorArn),
-    VoiceConnectorId: __expectString(output.VoiceConnectorId),
-  } as any;
+  return take(output, {
+    AwsRegion: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Name: __expectString,
+    OutboundHostName: __expectString,
+    RequireEncryption: __expectBoolean,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    VoiceConnectorArn: __expectString,
+    VoiceConnectorId: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1VoiceConnectorGroup
  */
 const de_VoiceConnectorGroup = (output: any, context: __SerdeContext): VoiceConnectorGroup => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
-        : undefined,
-    Name: __expectString(output.Name),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
-        : undefined,
-    VoiceConnectorGroupArn: __expectString(output.VoiceConnectorGroupArn),
-    VoiceConnectorGroupId: __expectString(output.VoiceConnectorGroupId),
-    VoiceConnectorItems:
-      output.VoiceConnectorItems != null ? de_VoiceConnectorItemList(output.VoiceConnectorItems, context) : undefined,
-  } as any;
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Name: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    VoiceConnectorGroupArn: __expectString,
+    VoiceConnectorGroupId: __expectString,
+    VoiceConnectorItems: _json,
+  }) as any;
 };
 
 /**
@@ -22715,38 +20642,14 @@ const de_VoiceConnectorGroupList = (output: any, context: __SerdeContext): Voice
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VoiceConnectorGroup(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1VoiceConnectorItem
- */
-const de_VoiceConnectorItem = (output: any, context: __SerdeContext): VoiceConnectorItem => {
-  return {
-    Priority: __expectInt32(output.Priority),
-    VoiceConnectorId: __expectString(output.VoiceConnectorId),
-  } as any;
-};
+// de_VoiceConnectorItem omitted.
 
-/**
- * deserializeAws_restJson1VoiceConnectorItemList
- */
-const de_VoiceConnectorItemList = (output: any, context: __SerdeContext): VoiceConnectorItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_VoiceConnectorItem(entry, context);
-    });
-  return retVal;
-};
+// de_VoiceConnectorItemList omitted.
 
 /**
  * deserializeAws_restJson1VoiceConnectorList
@@ -22755,22 +20658,12 @@ const de_VoiceConnectorList = (output: any, context: __SerdeContext): VoiceConne
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_VoiceConnector(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1VoiceConnectorSettings
- */
-const de_VoiceConnectorSettings = (output: any, context: __SerdeContext): VoiceConnectorSettings => {
-  return {
-    CdrBucket: __expectString(output.CdrBucket),
-  } as any;
-};
+// de_VoiceConnectorSettings omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

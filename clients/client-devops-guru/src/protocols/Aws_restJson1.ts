@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -10,11 +11,12 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -123,32 +125,23 @@ import {
 import { DevOpsGuruServiceException as __BaseException } from "../models/DevOpsGuruServiceException";
 import {
   AccessDeniedException,
-  AccountHealth,
-  AccountInsightHealth,
   AmazonCodeGuruProfilerIntegration,
   AnomalousLogGroup,
   AnomalyReportedTimeRange,
-  AnomalyResource,
   AnomalySourceDetails,
-  AnomalySourceMetadata,
   AnomalyTimeRange,
   CloudFormationCollection,
-  CloudFormationCollectionFilter,
   CloudFormationCostEstimationResourceCollectionFilter,
-  CloudFormationHealth,
   CloudWatchMetricsDataSummary,
   CloudWatchMetricsDetail,
-  CloudWatchMetricsDimension,
   ConflictException,
   CostEstimationResourceCollectionFilter,
   CostEstimationTimeRange,
   EndTimeRange,
   Event,
-  EventResource,
   EventSourcesConfig,
   EventTimeRange,
   InsightFeedback,
-  InsightHealth,
   InsightSeverity,
   InsightStatus,
   InsightTimeRange,
@@ -162,21 +155,15 @@ import {
   ListMonitoredResourcesFilters,
   LogAnomalyClass,
   LogAnomalyShowcase,
-  LogsAnomalyDetectionIntegration,
   LogsAnomalyDetectionIntegrationConfig,
   MonitoredResourceIdentifier,
-  NotificationChannel,
   NotificationChannelConfig,
   NotificationFilterConfig,
   NotificationMessageType,
-  OpsCenterIntegration,
   OpsCenterIntegrationConfig,
-  PerformanceInsightsMetricDimensionGroup,
-  PerformanceInsightsMetricQuery,
   PerformanceInsightsMetricsDetail,
   PerformanceInsightsReferenceComparisonValues,
   PerformanceInsightsReferenceData,
-  PerformanceInsightsReferenceMetric,
   PerformanceInsightsReferenceScalar,
   PerformanceInsightsStat,
   PredictionTimeRange,
@@ -190,32 +177,19 @@ import {
   ReactiveInsight,
   ReactiveInsightSummary,
   ReactiveOrganizationInsightSummary,
-  Recommendation,
-  RecommendationRelatedAnomaly,
-  RecommendationRelatedAnomalyResource,
-  RecommendationRelatedAnomalySourceDetail,
-  RecommendationRelatedCloudWatchMetricsSourceDetail,
-  RecommendationRelatedEvent,
-  RecommendationRelatedEventResource,
   ResourceCollection,
-  ResourceCollectionFilter,
   ResourceNotFoundException,
   ResourceTypeFilter,
   SearchInsightsFilters,
   SearchOrganizationInsightsFilters,
   ServiceCollection,
-  ServiceHealth,
-  ServiceInsightHealth,
-  ServiceIntegrationConfig,
   ServiceName,
   ServiceQuotaExceededException,
   ServiceResourceCost,
   SnsChannelConfig,
   StartTimeRange,
   TagCollection,
-  TagCollectionFilter,
   TagCostEstimationResourceCollectionFilter,
-  TagHealth,
   ThrottlingException,
   TimestampMetricValuePair,
   UpdateCloudFormationCollectionFilter,
@@ -223,7 +197,6 @@ import {
   UpdateServiceIntegrationConfig,
   UpdateTagCollectionFilter,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 
 /**
@@ -239,9 +212,11 @@ export const se_AddNotificationChannelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Config != null && { Config: se_NotificationChannelConfig(input.Config, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Config: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -314,10 +289,12 @@ export const se_DescribeAccountOverviewCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/overview";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FromTime: (_) => Math.round(_.getTime() / 1000),
+      ToTime: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -394,9 +371,11 @@ export const se_DescribeFeedbackCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/feedback";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InsightId != null && { InsightId: input.InsightId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InsightId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -448,12 +427,12 @@ export const se_DescribeOrganizationHealthCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/health";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_AccountIdList(input.AccountIds, context) }),
-    ...(input.OrganizationalUnitIds != null && {
-      OrganizationalUnitIds: se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      OrganizationalUnitIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -478,14 +457,14 @@ export const se_DescribeOrganizationOverviewCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/overview";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_AccountIdList(input.AccountIds, context) }),
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
-    ...(input.OrganizationalUnitIds != null && {
-      OrganizationalUnitIds: se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context),
-    }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      FromTime: (_) => Math.round(_.getTime() / 1000),
+      OrganizationalUnitIds: (_) => _json(_),
+      ToTime: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -511,17 +490,15 @@ export const se_DescribeOrganizationResourceCollectionHealthCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/health/resource-collection";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_AccountIdList(input.AccountIds, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OrganizationResourceCollectionType != null && {
-      OrganizationResourceCollectionType: input.OrganizationResourceCollectionType,
-    }),
-    ...(input.OrganizationalUnitIds != null && {
-      OrganizationalUnitIds: se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      OrganizationResourceCollectionType: [],
+      OrganizationalUnitIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -671,13 +648,15 @@ export const se_ListAnomaliesForInsightCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/anomalies/insight/{InsightId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "InsightId", () => input.InsightId!, "{InsightId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.Filters != null && { Filters: se_ListAnomaliesForInsightFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTimeRange != null && { StartTimeRange: se_StartTimeRange(input.StartTimeRange, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      StartTimeRange: (_) => se_StartTimeRange(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -702,11 +681,13 @@ export const se_ListAnomalousLogGroupsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-log-anomalies";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InsightId != null && { InsightId: input.InsightId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InsightId: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -731,12 +712,14 @@ export const se_ListEventsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.Filters != null && { Filters: se_ListEventsFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      Filters: (_) => se_ListEventsFilters(_, context),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -761,11 +744,13 @@ export const se_ListInsightsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StatusFilter != null && { StatusFilter: se_ListInsightsStatusFilter(input.StatusFilter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      StatusFilter: (_) => se_ListInsightsStatusFilter(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -790,11 +775,13 @@ export const se_ListMonitoredResourcesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/monitoredResources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_ListMonitoredResourcesFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -819,9 +806,11 @@ export const se_ListNotificationChannelsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -846,15 +835,15 @@ export const se_ListOrganizationInsightsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/insights";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_ListInsightsAccountIdList(input.AccountIds, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.OrganizationalUnitIds != null && {
-      OrganizationalUnitIds: se_ListInsightsOrganizationalUnitIdList(input.OrganizationalUnitIds, context),
-    }),
-    ...(input.StatusFilter != null && { StatusFilter: se_ListInsightsStatusFilter(input.StatusFilter, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      OrganizationalUnitIds: (_) => _json(_),
+      StatusFilter: (_) => se_ListInsightsStatusFilter(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -879,12 +868,14 @@ export const se_ListRecommendationsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/recommendations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.InsightId != null && { InsightId: input.InsightId }),
-    ...(input.Locale != null && { Locale: input.Locale }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      InsightId: [],
+      Locale: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -909,9 +900,11 @@ export const se_PutFeedbackCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/feedback";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InsightFeedback != null && { InsightFeedback: se_InsightFeedback(input.InsightFeedback, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InsightFeedback: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -959,13 +952,15 @@ export const se_SearchInsightsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights/search";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: se_SearchInsightsFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTimeRange != null && { StartTimeRange: se_StartTimeRange(input.StartTimeRange, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      StartTimeRange: (_) => se_StartTimeRange(_, context),
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -991,14 +986,16 @@ export const se_SearchOrganizationInsightsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/insights/search";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountIds != null && { AccountIds: se_SearchInsightsAccountIdList(input.AccountIds, context) }),
-    ...(input.Filters != null && { Filters: se_SearchOrganizationInsightsFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StartTimeRange != null && { StartTimeRange: se_StartTimeRange(input.StartTimeRange, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountIds: (_) => _json(_),
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      StartTimeRange: (_) => se_StartTimeRange(_, context),
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1023,12 +1020,12 @@ export const se_StartCostEstimationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cost-estimation";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ResourceCollection != null && {
-      ResourceCollection: se_CostEstimationResourceCollectionFilter(input.ResourceCollection, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ResourceCollection: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1053,9 +1050,11 @@ export const se_UpdateEventSourcesConfigCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-sources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EventSources != null && { EventSources: se_EventSourcesConfig(input.EventSources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EventSources: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1080,12 +1079,12 @@ export const se_UpdateResourceCollectionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-collections";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.ResourceCollection != null && {
-      ResourceCollection: se_UpdateResourceCollectionFilter(input.ResourceCollection, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Action: [],
+      ResourceCollection: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1110,11 +1109,11 @@ export const se_UpdateServiceIntegrationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-integrations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ServiceIntegration != null && {
-      ServiceIntegration: se_UpdateServiceIntegrationConfig(input.ServiceIntegration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ServiceIntegration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1140,9 +1139,10 @@ export const de_AddNotificationChannelCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
+  const doc = take(data, {
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1182,10 +1182,9 @@ const de_AddNotificationChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1241,10 +1240,9 @@ const de_DeleteInsightCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1264,21 +1262,14 @@ export const de_DescribeAccountHealthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnalyzedResourceCount != null) {
-    contents.AnalyzedResourceCount = __expectLong(data.AnalyzedResourceCount);
-  }
-  if (data.MetricsAnalyzed != null) {
-    contents.MetricsAnalyzed = __expectInt32(data.MetricsAnalyzed);
-  }
-  if (data.OpenProactiveInsights != null) {
-    contents.OpenProactiveInsights = __expectInt32(data.OpenProactiveInsights);
-  }
-  if (data.OpenReactiveInsights != null) {
-    contents.OpenReactiveInsights = __expectInt32(data.OpenReactiveInsights);
-  }
-  if (data.ResourceHours != null) {
-    contents.ResourceHours = __expectLong(data.ResourceHours);
-  }
+  const doc = take(data, {
+    AnalyzedResourceCount: __expectLong,
+    MetricsAnalyzed: __expectInt32,
+    OpenProactiveInsights: __expectInt32,
+    OpenReactiveInsights: __expectInt32,
+    ResourceHours: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1309,10 +1300,9 @@ const de_DescribeAccountHealthCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1332,15 +1322,12 @@ export const de_DescribeAccountOverviewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MeanTimeToRecoverInMilliseconds != null) {
-    contents.MeanTimeToRecoverInMilliseconds = __expectLong(data.MeanTimeToRecoverInMilliseconds);
-  }
-  if (data.ProactiveInsights != null) {
-    contents.ProactiveInsights = __expectInt32(data.ProactiveInsights);
-  }
-  if (data.ReactiveInsights != null) {
-    contents.ReactiveInsights = __expectInt32(data.ReactiveInsights);
-  }
+  const doc = take(data, {
+    MeanTimeToRecoverInMilliseconds: __expectLong,
+    ProactiveInsights: __expectInt32,
+    ReactiveInsights: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1371,10 +1358,9 @@ const de_DescribeAccountOverviewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1394,12 +1380,11 @@ export const de_DescribeAnomalyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProactiveAnomaly != null) {
-    contents.ProactiveAnomaly = de_ProactiveAnomaly(data.ProactiveAnomaly, context);
-  }
-  if (data.ReactiveAnomaly != null) {
-    contents.ReactiveAnomaly = de_ReactiveAnomaly(data.ReactiveAnomaly, context);
-  }
+  const doc = take(data, {
+    ProactiveAnomaly: (_) => de_ProactiveAnomaly(_, context),
+    ReactiveAnomaly: (_) => de_ReactiveAnomaly(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1433,10 +1418,9 @@ const de_DescribeAnomalyCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1456,9 +1440,10 @@ export const de_DescribeEventSourcesConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventSources != null) {
-    contents.EventSources = de_EventSourcesConfig(data.EventSources, context);
-  }
+  const doc = take(data, {
+    EventSources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1489,10 +1474,9 @@ const de_DescribeEventSourcesConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1512,9 +1496,10 @@ export const de_DescribeFeedbackCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InsightFeedback != null) {
-    contents.InsightFeedback = de_InsightFeedback(data.InsightFeedback, context);
-  }
+  const doc = take(data, {
+    InsightFeedback: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1548,10 +1533,9 @@ const de_DescribeFeedbackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1571,12 +1555,11 @@ export const de_DescribeInsightCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProactiveInsight != null) {
-    contents.ProactiveInsight = de_ProactiveInsight(data.ProactiveInsight, context);
-  }
-  if (data.ReactiveInsight != null) {
-    contents.ReactiveInsight = de_ReactiveInsight(data.ReactiveInsight, context);
-  }
+  const doc = take(data, {
+    ProactiveInsight: (_) => de_ProactiveInsight(_, context),
+    ReactiveInsight: (_) => de_ReactiveInsight(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1610,10 +1593,9 @@ const de_DescribeInsightCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1633,18 +1615,13 @@ export const de_DescribeOrganizationHealthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MetricsAnalyzed != null) {
-    contents.MetricsAnalyzed = __expectInt32(data.MetricsAnalyzed);
-  }
-  if (data.OpenProactiveInsights != null) {
-    contents.OpenProactiveInsights = __expectInt32(data.OpenProactiveInsights);
-  }
-  if (data.OpenReactiveInsights != null) {
-    contents.OpenReactiveInsights = __expectInt32(data.OpenReactiveInsights);
-  }
-  if (data.ResourceHours != null) {
-    contents.ResourceHours = __expectLong(data.ResourceHours);
-  }
+  const doc = take(data, {
+    MetricsAnalyzed: __expectInt32,
+    OpenProactiveInsights: __expectInt32,
+    OpenReactiveInsights: __expectInt32,
+    ResourceHours: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1675,10 +1652,9 @@ const de_DescribeOrganizationHealthCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1698,12 +1674,11 @@ export const de_DescribeOrganizationOverviewCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ProactiveInsights != null) {
-    contents.ProactiveInsights = __expectInt32(data.ProactiveInsights);
-  }
-  if (data.ReactiveInsights != null) {
-    contents.ReactiveInsights = __expectInt32(data.ReactiveInsights);
-  }
+  const doc = take(data, {
+    ProactiveInsights: __expectInt32,
+    ReactiveInsights: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1734,10 +1709,9 @@ const de_DescribeOrganizationOverviewCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1757,21 +1731,14 @@ export const de_DescribeOrganizationResourceCollectionHealthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Account != null) {
-    contents.Account = de_AccountHealths(data.Account, context);
-  }
-  if (data.CloudFormation != null) {
-    contents.CloudFormation = de_CloudFormationHealths(data.CloudFormation, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Service != null) {
-    contents.Service = de_ServiceHealths(data.Service, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagHealths(data.Tags, context);
-  }
+  const doc = take(data, {
+    Account: _json,
+    CloudFormation: _json,
+    NextToken: __expectString,
+    Service: _json,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1802,10 +1769,9 @@ const de_DescribeOrganizationResourceCollectionHealthCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1825,18 +1791,13 @@ export const de_DescribeResourceCollectionHealthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CloudFormation != null) {
-    contents.CloudFormation = de_CloudFormationHealths(data.CloudFormation, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Service != null) {
-    contents.Service = de_ServiceHealths(data.Service, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = de_TagHealths(data.Tags, context);
-  }
+  const doc = take(data, {
+    CloudFormation: _json,
+    NextToken: __expectString,
+    Service: _json,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1867,10 +1828,9 @@ const de_DescribeResourceCollectionHealthCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1890,9 +1850,10 @@ export const de_DescribeServiceIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ServiceIntegration != null) {
-    contents.ServiceIntegration = de_ServiceIntegrationConfig(data.ServiceIntegration, context);
-  }
+  const doc = take(data, {
+    ServiceIntegration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1926,10 +1887,9 @@ const de_DescribeServiceIntegrationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1949,24 +1909,15 @@ export const de_GetCostEstimationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Costs != null) {
-    contents.Costs = de_ServiceResourceCosts(data.Costs, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ResourceCollection != null) {
-    contents.ResourceCollection = de_CostEstimationResourceCollectionFilter(data.ResourceCollection, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.TimeRange != null) {
-    contents.TimeRange = de_CostEstimationTimeRange(data.TimeRange, context);
-  }
-  if (data.TotalCost != null) {
-    contents.TotalCost = __limitedParseDouble(data.TotalCost);
-  }
+  const doc = take(data, {
+    Costs: (_) => de_ServiceResourceCosts(_, context),
+    NextToken: __expectString,
+    ResourceCollection: _json,
+    Status: __expectString,
+    TimeRange: (_) => de_CostEstimationTimeRange(_, context),
+    TotalCost: __limitedParseDouble,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2000,10 +1951,9 @@ const de_GetCostEstimationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2023,12 +1973,11 @@ export const de_GetResourceCollectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ResourceCollection != null) {
-    contents.ResourceCollection = de_ResourceCollectionFilter(data.ResourceCollection, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ResourceCollection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2062,10 +2011,9 @@ const de_GetResourceCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2085,15 +2033,12 @@ export const de_ListAnomaliesForInsightCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ProactiveAnomalies != null) {
-    contents.ProactiveAnomalies = de_ProactiveAnomalies(data.ProactiveAnomalies, context);
-  }
-  if (data.ReactiveAnomalies != null) {
-    contents.ReactiveAnomalies = de_ReactiveAnomalies(data.ReactiveAnomalies, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveAnomalies: (_) => de_ProactiveAnomalies(_, context),
+    ReactiveAnomalies: (_) => de_ReactiveAnomalies(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2127,10 +2072,9 @@ const de_ListAnomaliesForInsightCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2150,15 +2094,12 @@ export const de_ListAnomalousLogGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AnomalousLogGroups != null) {
-    contents.AnomalousLogGroups = de_AnomalousLogGroups(data.AnomalousLogGroups, context);
-  }
-  if (data.InsightId != null) {
-    contents.InsightId = __expectString(data.InsightId);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AnomalousLogGroups: (_) => de_AnomalousLogGroups(_, context),
+    InsightId: __expectString,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2192,10 +2133,9 @@ const de_ListAnomalousLogGroupsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2215,12 +2155,11 @@ export const de_ListEventsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Events != null) {
-    contents.Events = de_Events(data.Events, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Events: (_) => de_Events(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2254,10 +2193,9 @@ const de_ListEventsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2277,15 +2215,12 @@ export const de_ListInsightsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ProactiveInsights != null) {
-    contents.ProactiveInsights = de_ProactiveInsights(data.ProactiveInsights, context);
-  }
-  if (data.ReactiveInsights != null) {
-    contents.ReactiveInsights = de_ReactiveInsights(data.ReactiveInsights, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveInsights: (_) => de_ProactiveInsights(_, context),
+    ReactiveInsights: (_) => de_ReactiveInsights(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2316,10 +2251,9 @@ const de_ListInsightsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2339,12 +2273,11 @@ export const de_ListMonitoredResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MonitoredResourceIdentifiers != null) {
-    contents.MonitoredResourceIdentifiers = de_MonitoredResourceIdentifiers(data.MonitoredResourceIdentifiers, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MonitoredResourceIdentifiers: (_) => de_MonitoredResourceIdentifiers(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2375,10 +2308,9 @@ const de_ListMonitoredResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2398,12 +2330,11 @@ export const de_ListNotificationChannelsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Channels != null) {
-    contents.Channels = de_Channels(data.Channels, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Channels: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2434,10 +2365,9 @@ const de_ListNotificationChannelsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2457,15 +2387,12 @@ export const de_ListOrganizationInsightsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ProactiveInsights != null) {
-    contents.ProactiveInsights = de_ProactiveOrganizationInsights(data.ProactiveInsights, context);
-  }
-  if (data.ReactiveInsights != null) {
-    contents.ReactiveInsights = de_ReactiveOrganizationInsights(data.ReactiveInsights, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveInsights: (_) => de_ProactiveOrganizationInsights(_, context),
+    ReactiveInsights: (_) => de_ReactiveOrganizationInsights(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2496,10 +2423,9 @@ const de_ListOrganizationInsightsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2519,12 +2445,11 @@ export const de_ListRecommendationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Recommendations != null) {
-    contents.Recommendations = de_Recommendations(data.Recommendations, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Recommendations: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2558,10 +2483,9 @@ const de_ListRecommendationsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2617,10 +2541,9 @@ const de_PutFeedbackCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2676,10 +2599,9 @@ const de_RemoveNotificationChannelCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2699,15 +2621,12 @@ export const de_SearchInsightsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ProactiveInsights != null) {
-    contents.ProactiveInsights = de_ProactiveInsights(data.ProactiveInsights, context);
-  }
-  if (data.ReactiveInsights != null) {
-    contents.ReactiveInsights = de_ReactiveInsights(data.ReactiveInsights, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveInsights: (_) => de_ProactiveInsights(_, context),
+    ReactiveInsights: (_) => de_ReactiveInsights(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2738,10 +2657,9 @@ const de_SearchInsightsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2761,15 +2679,12 @@ export const de_SearchOrganizationInsightsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ProactiveInsights != null) {
-    contents.ProactiveInsights = de_ProactiveInsights(data.ProactiveInsights, context);
-  }
-  if (data.ReactiveInsights != null) {
-    contents.ReactiveInsights = de_ReactiveInsights(data.ReactiveInsights, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveInsights: (_) => de_ProactiveInsights(_, context),
+    ReactiveInsights: (_) => de_ReactiveInsights(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2800,10 +2715,9 @@ const de_SearchOrganizationInsightsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2859,10 +2773,9 @@ const de_StartCostEstimationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2912,10 +2825,9 @@ const de_UpdateEventSourcesConfigCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2968,10 +2880,9 @@ const de_UpdateResourceCollectionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3024,16 +2935,15 @@ const de_UpdateServiceIntegrationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -3043,9 +2953,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3059,15 +2970,12 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3089,9 +2997,10 @@ const de_InternalServerExceptionRes = async (
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3108,15 +3017,12 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
-  if (data.ResourceType != null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3133,9 +3039,10 @@ const de_ServiceQuotaExceededExceptionRes = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3154,15 +3061,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.QuotaCode != null) {
-    contents.QuotaCode = __expectString(data.QuotaCode);
-  }
-  if (data.ServiceCode != null) {
-    contents.ServiceCode = __expectString(data.ServiceCode);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    QuotaCode: __expectString,
+    ServiceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3176,15 +3080,12 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Fields != null) {
-    contents.Fields = de_ValidationExceptionFields(data.Fields, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason != null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Fields: _json,
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3192,634 +3093,186 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1AccountIdList
- */
-const se_AccountIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AccountIdList omitted.
 
-/**
- * serializeAws_restJson1AmazonCodeGuruProfilerIntegration
- */
-const se_AmazonCodeGuruProfilerIntegration = (
-  input: AmazonCodeGuruProfilerIntegration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_AmazonCodeGuruProfilerIntegration omitted.
 
-/**
- * serializeAws_restJson1CloudFormationCollection
- */
-const se_CloudFormationCollection = (input: CloudFormationCollection, context: __SerdeContext): any => {
-  return {
-    ...(input.StackNames != null && { StackNames: se_StackNames(input.StackNames, context) }),
-  };
-};
+// se_CloudFormationCollection omitted.
 
-/**
- * serializeAws_restJson1CloudFormationCostEstimationResourceCollectionFilter
- */
-const se_CloudFormationCostEstimationResourceCollectionFilter = (
-  input: CloudFormationCostEstimationResourceCollectionFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.StackNames != null && { StackNames: se_CostEstimationStackNames(input.StackNames, context) }),
-  };
-};
+// se_CloudFormationCostEstimationResourceCollectionFilter omitted.
 
-/**
- * serializeAws_restJson1CostEstimationResourceCollectionFilter
- */
-const se_CostEstimationResourceCollectionFilter = (
-  input: CostEstimationResourceCollectionFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CloudFormation != null && {
-      CloudFormation: se_CloudFormationCostEstimationResourceCollectionFilter(input.CloudFormation, context),
-    }),
-    ...(input.Tags != null && { Tags: se_TagCostEstimationResourceCollectionFilters(input.Tags, context) }),
-  };
-};
+// se_CostEstimationResourceCollectionFilter omitted.
 
-/**
- * serializeAws_restJson1CostEstimationStackNames
- */
-const se_CostEstimationStackNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CostEstimationStackNames omitted.
 
-/**
- * serializeAws_restJson1CostEstimationTagValues
- */
-const se_CostEstimationTagValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CostEstimationTagValues omitted.
 
 /**
  * serializeAws_restJson1EndTimeRange
  */
 const se_EndTimeRange = (input: EndTimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    FromTime: (_) => Math.round(_.getTime() / 1000),
+    ToTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_restJson1EventSourcesConfig
- */
-const se_EventSourcesConfig = (input: EventSourcesConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AmazonCodeGuruProfiler != null && {
-      AmazonCodeGuruProfiler: se_AmazonCodeGuruProfilerIntegration(input.AmazonCodeGuruProfiler, context),
-    }),
-  };
-};
+// se_EventSourcesConfig omitted.
 
 /**
  * serializeAws_restJson1EventTimeRange
  */
 const se_EventTimeRange = (input: EventTimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    FromTime: (_) => Math.round(_.getTime() / 1000),
+    ToTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_restJson1InsightFeedback
- */
-const se_InsightFeedback = (input: InsightFeedback, context: __SerdeContext): any => {
-  return {
-    ...(input.Feedback != null && { Feedback: input.Feedback }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_InsightFeedback omitted.
 
-/**
- * serializeAws_restJson1InsightSeverities
- */
-const se_InsightSeverities = (input: (InsightSeverity | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InsightSeverities omitted.
 
-/**
- * serializeAws_restJson1InsightStatuses
- */
-const se_InsightStatuses = (input: (InsightStatus | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InsightStatuses omitted.
 
-/**
- * serializeAws_restJson1ListAnomaliesForInsightFilters
- */
-const se_ListAnomaliesForInsightFilters = (input: ListAnomaliesForInsightFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.ServiceCollection != null && {
-      ServiceCollection: se_ServiceCollection(input.ServiceCollection, context),
-    }),
-  };
-};
+// se_ListAnomaliesForInsightFilters omitted.
 
 /**
  * serializeAws_restJson1ListEventsFilters
  */
 const se_ListEventsFilters = (input: ListEventsFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSource != null && { DataSource: input.DataSource }),
-    ...(input.EventClass != null && { EventClass: input.EventClass }),
-    ...(input.EventSource != null && { EventSource: input.EventSource }),
-    ...(input.EventTimeRange != null && { EventTimeRange: se_EventTimeRange(input.EventTimeRange, context) }),
-    ...(input.InsightId != null && { InsightId: input.InsightId }),
-    ...(input.ResourceCollection != null && {
-      ResourceCollection: se_ResourceCollection(input.ResourceCollection, context),
-    }),
-  };
+  return take(input, {
+    DataSource: [],
+    EventClass: [],
+    EventSource: [],
+    EventTimeRange: (_) => se_EventTimeRange(_, context),
+    InsightId: [],
+    ResourceCollection: _json,
+  });
 };
 
-/**
- * serializeAws_restJson1ListInsightsAccountIdList
- */
-const se_ListInsightsAccountIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListInsightsAccountIdList omitted.
 
 /**
  * serializeAws_restJson1ListInsightsAnyStatusFilter
  */
 const se_ListInsightsAnyStatusFilter = (input: ListInsightsAnyStatusFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.StartTimeRange != null && { StartTimeRange: se_StartTimeRange(input.StartTimeRange, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    StartTimeRange: (_) => se_StartTimeRange(_, context),
+    Type: [],
+  });
 };
 
 /**
  * serializeAws_restJson1ListInsightsClosedStatusFilter
  */
 const se_ListInsightsClosedStatusFilter = (input: ListInsightsClosedStatusFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTimeRange != null && { EndTimeRange: se_EndTimeRange(input.EndTimeRange, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    EndTimeRange: (_) => se_EndTimeRange(_, context),
+    Type: [],
+  });
 };
 
-/**
- * serializeAws_restJson1ListInsightsOngoingStatusFilter
- */
-const se_ListInsightsOngoingStatusFilter = (input: ListInsightsOngoingStatusFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_ListInsightsOngoingStatusFilter omitted.
 
-/**
- * serializeAws_restJson1ListInsightsOrganizationalUnitIdList
- */
-const se_ListInsightsOrganizationalUnitIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ListInsightsOrganizationalUnitIdList omitted.
 
 /**
  * serializeAws_restJson1ListInsightsStatusFilter
  */
 const se_ListInsightsStatusFilter = (input: ListInsightsStatusFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Any != null && { Any: se_ListInsightsAnyStatusFilter(input.Any, context) }),
-    ...(input.Closed != null && { Closed: se_ListInsightsClosedStatusFilter(input.Closed, context) }),
-    ...(input.Ongoing != null && { Ongoing: se_ListInsightsOngoingStatusFilter(input.Ongoing, context) }),
-  };
+  return take(input, {
+    Any: (_) => se_ListInsightsAnyStatusFilter(_, context),
+    Closed: (_) => se_ListInsightsClosedStatusFilter(_, context),
+    Ongoing: _json,
+  });
 };
 
-/**
- * serializeAws_restJson1ListMonitoredResourcesFilters
- */
-const se_ListMonitoredResourcesFilters = (input: ListMonitoredResourcesFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourcePermission != null && { ResourcePermission: input.ResourcePermission }),
-    ...(input.ResourceTypeFilters != null && {
-      ResourceTypeFilters: se_ResourceTypeFilters(input.ResourceTypeFilters, context),
-    }),
-  };
-};
+// se_ListMonitoredResourcesFilters omitted.
 
-/**
- * serializeAws_restJson1LogsAnomalyDetectionIntegrationConfig
- */
-const se_LogsAnomalyDetectionIntegrationConfig = (
-  input: LogsAnomalyDetectionIntegrationConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OptInStatus != null && { OptInStatus: input.OptInStatus }),
-  };
-};
+// se_LogsAnomalyDetectionIntegrationConfig omitted.
 
-/**
- * serializeAws_restJson1NotificationChannelConfig
- */
-const se_NotificationChannelConfig = (input: NotificationChannelConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_NotificationFilterConfig(input.Filters, context) }),
-    ...(input.Sns != null && { Sns: se_SnsChannelConfig(input.Sns, context) }),
-  };
-};
+// se_NotificationChannelConfig omitted.
 
-/**
- * serializeAws_restJson1NotificationFilterConfig
- */
-const se_NotificationFilterConfig = (input: NotificationFilterConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.MessageTypes != null && { MessageTypes: se_NotificationMessageTypes(input.MessageTypes, context) }),
-    ...(input.Severities != null && { Severities: se_InsightSeverities(input.Severities, context) }),
-  };
-};
+// se_NotificationFilterConfig omitted.
 
-/**
- * serializeAws_restJson1NotificationMessageTypes
- */
-const se_NotificationMessageTypes = (input: (NotificationMessageType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_NotificationMessageTypes omitted.
 
-/**
- * serializeAws_restJson1OpsCenterIntegrationConfig
- */
-const se_OpsCenterIntegrationConfig = (input: OpsCenterIntegrationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.OptInStatus != null && { OptInStatus: input.OptInStatus }),
-  };
-};
+// se_OpsCenterIntegrationConfig omitted.
 
-/**
- * serializeAws_restJson1OrganizationalUnitIdList
- */
-const se_OrganizationalUnitIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OrganizationalUnitIdList omitted.
 
-/**
- * serializeAws_restJson1ResourceCollection
- */
-const se_ResourceCollection = (input: ResourceCollection, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudFormation != null && { CloudFormation: se_CloudFormationCollection(input.CloudFormation, context) }),
-    ...(input.Tags != null && { Tags: se_TagCollections(input.Tags, context) }),
-  };
-};
+// se_ResourceCollection omitted.
 
-/**
- * serializeAws_restJson1ResourceTypeFilters
- */
-const se_ResourceTypeFilters = (input: (ResourceTypeFilter | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ResourceTypeFilters omitted.
 
-/**
- * serializeAws_restJson1SearchInsightsAccountIdList
- */
-const se_SearchInsightsAccountIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SearchInsightsAccountIdList omitted.
 
-/**
- * serializeAws_restJson1SearchInsightsFilters
- */
-const se_SearchInsightsFilters = (input: SearchInsightsFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceCollection != null && {
-      ResourceCollection: se_ResourceCollection(input.ResourceCollection, context),
-    }),
-    ...(input.ServiceCollection != null && {
-      ServiceCollection: se_ServiceCollection(input.ServiceCollection, context),
-    }),
-    ...(input.Severities != null && { Severities: se_InsightSeverities(input.Severities, context) }),
-    ...(input.Statuses != null && { Statuses: se_InsightStatuses(input.Statuses, context) }),
-  };
-};
+// se_SearchInsightsFilters omitted.
 
-/**
- * serializeAws_restJson1SearchOrganizationInsightsFilters
- */
-const se_SearchOrganizationInsightsFilters = (
-  input: SearchOrganizationInsightsFilters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceCollection != null && {
-      ResourceCollection: se_ResourceCollection(input.ResourceCollection, context),
-    }),
-    ...(input.ServiceCollection != null && {
-      ServiceCollection: se_ServiceCollection(input.ServiceCollection, context),
-    }),
-    ...(input.Severities != null && { Severities: se_InsightSeverities(input.Severities, context) }),
-    ...(input.Statuses != null && { Statuses: se_InsightStatuses(input.Statuses, context) }),
-  };
-};
+// se_SearchOrganizationInsightsFilters omitted.
 
-/**
- * serializeAws_restJson1ServiceCollection
- */
-const se_ServiceCollection = (input: ServiceCollection, context: __SerdeContext): any => {
-  return {
-    ...(input.ServiceNames != null && { ServiceNames: se_ServiceNames(input.ServiceNames, context) }),
-  };
-};
+// se_ServiceCollection omitted.
 
-/**
- * serializeAws_restJson1ServiceNames
- */
-const se_ServiceNames = (input: (ServiceName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ServiceNames omitted.
 
-/**
- * serializeAws_restJson1SnsChannelConfig
- */
-const se_SnsChannelConfig = (input: SnsChannelConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
-  };
-};
+// se_SnsChannelConfig omitted.
 
-/**
- * serializeAws_restJson1StackNames
- */
-const se_StackNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StackNames omitted.
 
 /**
  * serializeAws_restJson1StartTimeRange
  */
 const se_StartTimeRange = (input: StartTimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.FromTime != null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
-    ...(input.ToTime != null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
-  };
+  return take(input, {
+    FromTime: (_) => Math.round(_.getTime() / 1000),
+    ToTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-/**
- * serializeAws_restJson1TagCollection
- */
-const se_TagCollection = (input: TagCollection, context: __SerdeContext): any => {
-  return {
-    ...(input.AppBoundaryKey != null && { AppBoundaryKey: input.AppBoundaryKey }),
-    ...(input.TagValues != null && { TagValues: se_TagValues(input.TagValues, context) }),
-  };
-};
+// se_TagCollection omitted.
 
-/**
- * serializeAws_restJson1TagCollections
- */
-const se_TagCollections = (input: TagCollection[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TagCollection(entry, context);
-    });
-};
+// se_TagCollections omitted.
 
-/**
- * serializeAws_restJson1TagCostEstimationResourceCollectionFilter
- */
-const se_TagCostEstimationResourceCollectionFilter = (
-  input: TagCostEstimationResourceCollectionFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AppBoundaryKey != null && { AppBoundaryKey: input.AppBoundaryKey }),
-    ...(input.TagValues != null && { TagValues: se_CostEstimationTagValues(input.TagValues, context) }),
-  };
-};
+// se_TagCostEstimationResourceCollectionFilter omitted.
 
-/**
- * serializeAws_restJson1TagCostEstimationResourceCollectionFilters
- */
-const se_TagCostEstimationResourceCollectionFilters = (
-  input: TagCostEstimationResourceCollectionFilter[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_TagCostEstimationResourceCollectionFilter(entry, context);
-    });
-};
+// se_TagCostEstimationResourceCollectionFilters omitted.
 
-/**
- * serializeAws_restJson1TagValues
- */
-const se_TagValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagValues omitted.
 
-/**
- * serializeAws_restJson1UpdateCloudFormationCollectionFilter
- */
-const se_UpdateCloudFormationCollectionFilter = (
-  input: UpdateCloudFormationCollectionFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.StackNames != null && { StackNames: se_UpdateStackNames(input.StackNames, context) }),
-  };
-};
+// se_UpdateCloudFormationCollectionFilter omitted.
 
-/**
- * serializeAws_restJson1UpdateResourceCollectionFilter
- */
-const se_UpdateResourceCollectionFilter = (input: UpdateResourceCollectionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudFormation != null && {
-      CloudFormation: se_UpdateCloudFormationCollectionFilter(input.CloudFormation, context),
-    }),
-    ...(input.Tags != null && { Tags: se_UpdateTagCollectionFilters(input.Tags, context) }),
-  };
-};
+// se_UpdateResourceCollectionFilter omitted.
 
-/**
- * serializeAws_restJson1UpdateServiceIntegrationConfig
- */
-const se_UpdateServiceIntegrationConfig = (input: UpdateServiceIntegrationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.LogsAnomalyDetection != null && {
-      LogsAnomalyDetection: se_LogsAnomalyDetectionIntegrationConfig(input.LogsAnomalyDetection, context),
-    }),
-    ...(input.OpsCenter != null && { OpsCenter: se_OpsCenterIntegrationConfig(input.OpsCenter, context) }),
-  };
-};
+// se_UpdateServiceIntegrationConfig omitted.
 
-/**
- * serializeAws_restJson1UpdateStackNames
- */
-const se_UpdateStackNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_UpdateStackNames omitted.
 
-/**
- * serializeAws_restJson1UpdateTagCollectionFilter
- */
-const se_UpdateTagCollectionFilter = (input: UpdateTagCollectionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AppBoundaryKey != null && { AppBoundaryKey: input.AppBoundaryKey }),
-    ...(input.TagValues != null && { TagValues: se_UpdateTagValues(input.TagValues, context) }),
-  };
-};
+// se_UpdateTagCollectionFilter omitted.
 
-/**
- * serializeAws_restJson1UpdateTagCollectionFilters
- */
-const se_UpdateTagCollectionFilters = (input: UpdateTagCollectionFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_UpdateTagCollectionFilter(entry, context);
-    });
-};
+// se_UpdateTagCollectionFilters omitted.
 
-/**
- * serializeAws_restJson1UpdateTagValues
- */
-const se_UpdateTagValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_UpdateTagValues omitted.
 
-/**
- * deserializeAws_restJson1AccountHealth
- */
-const de_AccountHealth = (output: any, context: __SerdeContext): AccountHealth => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Insight: output.Insight != null ? de_AccountInsightHealth(output.Insight, context) : undefined,
-  } as any;
-};
+// de_AccountHealth omitted.
 
-/**
- * deserializeAws_restJson1AccountHealths
- */
-const de_AccountHealths = (output: any, context: __SerdeContext): AccountHealth[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AccountHealth(entry, context);
-    });
-  return retVal;
-};
+// de_AccountHealths omitted.
 
-/**
- * deserializeAws_restJson1AccountInsightHealth
- */
-const de_AccountInsightHealth = (output: any, context: __SerdeContext): AccountInsightHealth => {
-  return {
-    OpenProactiveInsights: __expectInt32(output.OpenProactiveInsights),
-    OpenReactiveInsights: __expectInt32(output.OpenReactiveInsights),
-  } as any;
-};
+// de_AccountInsightHealth omitted.
 
-/**
- * deserializeAws_restJson1AmazonCodeGuruProfilerIntegration
- */
-const de_AmazonCodeGuruProfilerIntegration = (
-  output: any,
-  context: __SerdeContext
-): AmazonCodeGuruProfilerIntegration => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_AmazonCodeGuruProfilerIntegration omitted.
 
 /**
  * deserializeAws_restJson1AnomalousLogGroup
  */
 const de_AnomalousLogGroup = (output: any, context: __SerdeContext): AnomalousLogGroup => {
-  return {
-    ImpactEndTime:
-      output.ImpactEndTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImpactEndTime)))
-        : undefined,
-    ImpactStartTime:
-      output.ImpactStartTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImpactStartTime)))
-        : undefined,
-    LogAnomalyShowcases:
-      output.LogAnomalyShowcases != null ? de_LogAnomalyShowcases(output.LogAnomalyShowcases, context) : undefined,
-    LogGroupName: __expectString(output.LogGroupName),
-    NumberOfLogLinesScanned: __expectInt32(output.NumberOfLogLinesScanned),
-  } as any;
+  return take(output, {
+    ImpactEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ImpactStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogAnomalyShowcases: (_: any) => de_LogAnomalyShowcases(_, context),
+    LogGroupName: __expectString,
+    NumberOfLogLinesScanned: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -3829,9 +3282,6 @@ const de_AnomalousLogGroups = (output: any, context: __SerdeContext): AnomalousL
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_AnomalousLogGroup(entry, context);
     });
   return retVal;
@@ -3841,189 +3291,75 @@ const de_AnomalousLogGroups = (output: any, context: __SerdeContext): AnomalousL
  * deserializeAws_restJson1AnomalyReportedTimeRange
  */
 const de_AnomalyReportedTimeRange = (output: any, context: __SerdeContext): AnomalyReportedTimeRange => {
-  return {
-    CloseTime:
-      output.CloseTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CloseTime))) : undefined,
-    OpenTime:
-      output.OpenTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OpenTime))) : undefined,
-  } as any;
+  return take(output, {
+    CloseTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OpenTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AnomalyResource
- */
-const de_AnomalyResource = (output: any, context: __SerdeContext): AnomalyResource => {
-  return {
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_AnomalyResource omitted.
 
-/**
- * deserializeAws_restJson1AnomalyResources
- */
-const de_AnomalyResources = (output: any, context: __SerdeContext): AnomalyResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_AnomalyResource(entry, context);
-    });
-  return retVal;
-};
+// de_AnomalyResources omitted.
 
 /**
  * deserializeAws_restJson1AnomalySourceDetails
  */
 const de_AnomalySourceDetails = (output: any, context: __SerdeContext): AnomalySourceDetails => {
-  return {
-    CloudWatchMetrics:
-      output.CloudWatchMetrics != null ? de_CloudWatchMetricsDetails(output.CloudWatchMetrics, context) : undefined,
-    PerformanceInsightsMetrics:
-      output.PerformanceInsightsMetrics != null
-        ? de_PerformanceInsightsMetricsDetails(output.PerformanceInsightsMetrics, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CloudWatchMetrics: (_: any) => de_CloudWatchMetricsDetails(_, context),
+    PerformanceInsightsMetrics: (_: any) => de_PerformanceInsightsMetricsDetails(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AnomalySourceMetadata
- */
-const de_AnomalySourceMetadata = (output: any, context: __SerdeContext): AnomalySourceMetadata => {
-  return {
-    Source: __expectString(output.Source),
-    SourceResourceName: __expectString(output.SourceResourceName),
-    SourceResourceType: __expectString(output.SourceResourceType),
-  } as any;
-};
+// de_AnomalySourceMetadata omitted.
 
 /**
  * deserializeAws_restJson1AnomalyTimeRange
  */
 const de_AnomalyTimeRange = (output: any, context: __SerdeContext): AnomalyTimeRange => {
-  return {
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1AssociatedResourceArns
- */
-const de_AssociatedResourceArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_AssociatedResourceArns omitted.
 
-/**
- * deserializeAws_restJson1Channels
- */
-const de_Channels = (output: any, context: __SerdeContext): NotificationChannel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_NotificationChannel(entry, context);
-    });
-  return retVal;
-};
+// de_Channels omitted.
 
-/**
- * deserializeAws_restJson1CloudFormationCollection
- */
-const de_CloudFormationCollection = (output: any, context: __SerdeContext): CloudFormationCollection => {
-  return {
-    StackNames: output.StackNames != null ? de_StackNames(output.StackNames, context) : undefined,
-  } as any;
-};
+// de_CloudFormationCollection omitted.
 
-/**
- * deserializeAws_restJson1CloudFormationCollectionFilter
- */
-const de_CloudFormationCollectionFilter = (output: any, context: __SerdeContext): CloudFormationCollectionFilter => {
-  return {
-    StackNames: output.StackNames != null ? de_StackNames(output.StackNames, context) : undefined,
-  } as any;
-};
+// de_CloudFormationCollectionFilter omitted.
 
-/**
- * deserializeAws_restJson1CloudFormationCostEstimationResourceCollectionFilter
- */
-const de_CloudFormationCostEstimationResourceCollectionFilter = (
-  output: any,
-  context: __SerdeContext
-): CloudFormationCostEstimationResourceCollectionFilter => {
-  return {
-    StackNames: output.StackNames != null ? de_CostEstimationStackNames(output.StackNames, context) : undefined,
-  } as any;
-};
+// de_CloudFormationCostEstimationResourceCollectionFilter omitted.
 
-/**
- * deserializeAws_restJson1CloudFormationHealth
- */
-const de_CloudFormationHealth = (output: any, context: __SerdeContext): CloudFormationHealth => {
-  return {
-    AnalyzedResourceCount: __expectLong(output.AnalyzedResourceCount),
-    Insight: output.Insight != null ? de_InsightHealth(output.Insight, context) : undefined,
-    StackName: __expectString(output.StackName),
-  } as any;
-};
+// de_CloudFormationHealth omitted.
 
-/**
- * deserializeAws_restJson1CloudFormationHealths
- */
-const de_CloudFormationHealths = (output: any, context: __SerdeContext): CloudFormationHealth[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CloudFormationHealth(entry, context);
-    });
-  return retVal;
-};
+// de_CloudFormationHealths omitted.
 
 /**
  * deserializeAws_restJson1CloudWatchMetricsDataSummary
  */
 const de_CloudWatchMetricsDataSummary = (output: any, context: __SerdeContext): CloudWatchMetricsDataSummary => {
-  return {
-    StatusCode: __expectString(output.StatusCode),
-    TimestampMetricValuePairList:
-      output.TimestampMetricValuePairList != null
-        ? de_TimestampMetricValuePairList(output.TimestampMetricValuePairList, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    StatusCode: __expectString,
+    TimestampMetricValuePairList: (_: any) => de_TimestampMetricValuePairList(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1CloudWatchMetricsDetail
  */
 const de_CloudWatchMetricsDetail = (output: any, context: __SerdeContext): CloudWatchMetricsDetail => {
-  return {
-    Dimensions: output.Dimensions != null ? de_CloudWatchMetricsDimensions(output.Dimensions, context) : undefined,
-    MetricDataSummary:
-      output.MetricDataSummary != null ? de_CloudWatchMetricsDataSummary(output.MetricDataSummary, context) : undefined,
-    MetricName: __expectString(output.MetricName),
-    Namespace: __expectString(output.Namespace),
-    Period: __expectInt32(output.Period),
-    Stat: __expectString(output.Stat),
-    Unit: __expectString(output.Unit),
-  } as any;
+  return take(output, {
+    Dimensions: _json,
+    MetricDataSummary: (_: any) => de_CloudWatchMetricsDataSummary(_, context),
+    MetricName: __expectString,
+    Namespace: __expectString,
+    Period: __expectInt32,
+    Stat: __expectString,
+    Unit: __expectString,
+  }) as any;
 };
 
 /**
@@ -4033,139 +3369,50 @@ const de_CloudWatchMetricsDetails = (output: any, context: __SerdeContext): Clou
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_CloudWatchMetricsDetail(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1CloudWatchMetricsDimension
- */
-const de_CloudWatchMetricsDimension = (output: any, context: __SerdeContext): CloudWatchMetricsDimension => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_CloudWatchMetricsDimension omitted.
 
-/**
- * deserializeAws_restJson1CloudWatchMetricsDimensions
- */
-const de_CloudWatchMetricsDimensions = (output: any, context: __SerdeContext): CloudWatchMetricsDimension[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_CloudWatchMetricsDimension(entry, context);
-    });
-  return retVal;
-};
+// de_CloudWatchMetricsDimensions omitted.
 
-/**
- * deserializeAws_restJson1CostEstimationResourceCollectionFilter
- */
-const de_CostEstimationResourceCollectionFilter = (
-  output: any,
-  context: __SerdeContext
-): CostEstimationResourceCollectionFilter => {
-  return {
-    CloudFormation:
-      output.CloudFormation != null
-        ? de_CloudFormationCostEstimationResourceCollectionFilter(output.CloudFormation, context)
-        : undefined,
-    Tags: output.Tags != null ? de_TagCostEstimationResourceCollectionFilters(output.Tags, context) : undefined,
-  } as any;
-};
+// de_CostEstimationResourceCollectionFilter omitted.
 
-/**
- * deserializeAws_restJson1CostEstimationStackNames
- */
-const de_CostEstimationStackNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CostEstimationStackNames omitted.
 
-/**
- * deserializeAws_restJson1CostEstimationTagValues
- */
-const de_CostEstimationTagValues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CostEstimationTagValues omitted.
 
 /**
  * deserializeAws_restJson1CostEstimationTimeRange
  */
 const de_CostEstimationTimeRange = (output: any, context: __SerdeContext): CostEstimationTimeRange => {
-  return {
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1Event
  */
 const de_Event = (output: any, context: __SerdeContext): Event => {
-  return {
-    DataSource: __expectString(output.DataSource),
-    EventClass: __expectString(output.EventClass),
-    EventSource: __expectString(output.EventSource),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    Resources: output.Resources != null ? de_EventResources(output.Resources, context) : undefined,
-    Time: output.Time != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Time))) : undefined,
-  } as any;
+  return take(output, {
+    DataSource: __expectString,
+    EventClass: __expectString,
+    EventSource: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ResourceCollection: _json,
+    Resources: _json,
+    Time: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1EventResource
- */
-const de_EventResource = (output: any, context: __SerdeContext): EventResource => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_EventResource omitted.
 
-/**
- * deserializeAws_restJson1EventResources
- */
-const de_EventResources = (output: any, context: __SerdeContext): EventResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_EventResource(entry, context);
-    });
-  return retVal;
-};
+// de_EventResources omitted.
 
 /**
  * deserializeAws_restJson1Events
@@ -4174,90 +3421,42 @@ const de_Events = (output: any, context: __SerdeContext): Event[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_Event(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1EventSourcesConfig
- */
-const de_EventSourcesConfig = (output: any, context: __SerdeContext): EventSourcesConfig => {
-  return {
-    AmazonCodeGuruProfiler:
-      output.AmazonCodeGuruProfiler != null
-        ? de_AmazonCodeGuruProfilerIntegration(output.AmazonCodeGuruProfiler, context)
-        : undefined,
-  } as any;
-};
+// de_EventSourcesConfig omitted.
 
-/**
- * deserializeAws_restJson1InsightFeedback
- */
-const de_InsightFeedback = (output: any, context: __SerdeContext): InsightFeedback => {
-  return {
-    Feedback: __expectString(output.Feedback),
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_InsightFeedback omitted.
 
-/**
- * deserializeAws_restJson1InsightHealth
- */
-const de_InsightHealth = (output: any, context: __SerdeContext): InsightHealth => {
-  return {
-    MeanTimeToRecoverInMilliseconds: __expectLong(output.MeanTimeToRecoverInMilliseconds),
-    OpenProactiveInsights: __expectInt32(output.OpenProactiveInsights),
-    OpenReactiveInsights: __expectInt32(output.OpenReactiveInsights),
-  } as any;
-};
+// de_InsightHealth omitted.
 
-/**
- * deserializeAws_restJson1InsightSeverities
- */
-const de_InsightSeverities = (output: any, context: __SerdeContext): (InsightSeverity | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_InsightSeverities omitted.
 
 /**
  * deserializeAws_restJson1InsightTimeRange
  */
 const de_InsightTimeRange = (output: any, context: __SerdeContext): InsightTimeRange => {
-  return {
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1LogAnomalyClass
  */
 const de_LogAnomalyClass = (output: any, context: __SerdeContext): LogAnomalyClass => {
-  return {
-    Explanation: __expectString(output.Explanation),
-    LogAnomalyToken: __expectString(output.LogAnomalyToken),
-    LogAnomalyType: __expectString(output.LogAnomalyType),
-    LogEventId: __expectString(output.LogEventId),
-    LogEventTimestamp:
-      output.LogEventTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LogEventTimestamp)))
-        : undefined,
-    LogStreamName: __expectString(output.LogStreamName),
-    NumberOfLogLinesOccurrences: __expectInt32(output.NumberOfLogLinesOccurrences),
-  } as any;
+  return take(output, {
+    Explanation: __expectString,
+    LogAnomalyToken: __expectString,
+    LogAnomalyType: __expectString,
+    LogEventId: __expectString,
+    LogEventTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogStreamName: __expectString,
+    NumberOfLogLinesOccurrences: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -4267,9 +3466,6 @@ const de_LogAnomalyClasses = (output: any, context: __SerdeContext): LogAnomalyC
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LogAnomalyClass(entry, context);
     });
   return retVal;
@@ -4279,10 +3475,9 @@ const de_LogAnomalyClasses = (output: any, context: __SerdeContext): LogAnomalyC
  * deserializeAws_restJson1LogAnomalyShowcase
  */
 const de_LogAnomalyShowcase = (output: any, context: __SerdeContext): LogAnomalyShowcase => {
-  return {
-    LogAnomalyClasses:
-      output.LogAnomalyClasses != null ? de_LogAnomalyClasses(output.LogAnomalyClasses, context) : undefined,
-  } as any;
+  return take(output, {
+    LogAnomalyClasses: (_: any) => de_LogAnomalyClasses(_, context),
+  }) as any;
 };
 
 /**
@@ -4292,38 +3487,24 @@ const de_LogAnomalyShowcases = (output: any, context: __SerdeContext): LogAnomal
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_LogAnomalyShowcase(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1LogsAnomalyDetectionIntegration
- */
-const de_LogsAnomalyDetectionIntegration = (output: any, context: __SerdeContext): LogsAnomalyDetectionIntegration => {
-  return {
-    OptInStatus: __expectString(output.OptInStatus),
-  } as any;
-};
+// de_LogsAnomalyDetectionIntegration omitted.
 
 /**
  * deserializeAws_restJson1MonitoredResourceIdentifier
  */
 const de_MonitoredResourceIdentifier = (output: any, context: __SerdeContext): MonitoredResourceIdentifier => {
-  return {
-    LastUpdated:
-      output.LastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
-        : undefined,
-    MonitoredResourceName: __expectString(output.MonitoredResourceName),
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    ResourcePermission: __expectString(output.ResourcePermission),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MonitoredResourceName: __expectString,
+    ResourceCollection: _json,
+    ResourcePermission: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
@@ -4333,121 +3514,28 @@ const de_MonitoredResourceIdentifiers = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_MonitoredResourceIdentifier(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1NotificationChannel
- */
-const de_NotificationChannel = (output: any, context: __SerdeContext): NotificationChannel => {
-  return {
-    Config: output.Config != null ? de_NotificationChannelConfig(output.Config, context) : undefined,
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_NotificationChannel omitted.
 
-/**
- * deserializeAws_restJson1NotificationChannelConfig
- */
-const de_NotificationChannelConfig = (output: any, context: __SerdeContext): NotificationChannelConfig => {
-  return {
-    Filters: output.Filters != null ? de_NotificationFilterConfig(output.Filters, context) : undefined,
-    Sns: output.Sns != null ? de_SnsChannelConfig(output.Sns, context) : undefined,
-  } as any;
-};
+// de_NotificationChannelConfig omitted.
 
-/**
- * deserializeAws_restJson1NotificationFilterConfig
- */
-const de_NotificationFilterConfig = (output: any, context: __SerdeContext): NotificationFilterConfig => {
-  return {
-    MessageTypes: output.MessageTypes != null ? de_NotificationMessageTypes(output.MessageTypes, context) : undefined,
-    Severities: output.Severities != null ? de_InsightSeverities(output.Severities, context) : undefined,
-  } as any;
-};
+// de_NotificationFilterConfig omitted.
 
-/**
- * deserializeAws_restJson1NotificationMessageTypes
- */
-const de_NotificationMessageTypes = (output: any, context: __SerdeContext): (NotificationMessageType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_NotificationMessageTypes omitted.
 
-/**
- * deserializeAws_restJson1OpsCenterIntegration
- */
-const de_OpsCenterIntegration = (output: any, context: __SerdeContext): OpsCenterIntegration => {
-  return {
-    OptInStatus: __expectString(output.OptInStatus),
-  } as any;
-};
+// de_OpsCenterIntegration omitted.
 
-/**
- * deserializeAws_restJson1PerformanceInsightsMetricDimensionGroup
- */
-const de_PerformanceInsightsMetricDimensionGroup = (
-  output: any,
-  context: __SerdeContext
-): PerformanceInsightsMetricDimensionGroup => {
-  return {
-    Dimensions:
-      output.Dimensions != null ? de_PerformanceInsightsMetricDimensions(output.Dimensions, context) : undefined,
-    Group: __expectString(output.Group),
-    Limit: __expectInt32(output.Limit),
-  } as any;
-};
+// de_PerformanceInsightsMetricDimensionGroup omitted.
 
-/**
- * deserializeAws_restJson1PerformanceInsightsMetricDimensions
- */
-const de_PerformanceInsightsMetricDimensions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_PerformanceInsightsMetricDimensions omitted.
 
-/**
- * deserializeAws_restJson1PerformanceInsightsMetricFilterMap
- */
-const de_PerformanceInsightsMetricFilterMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_PerformanceInsightsMetricFilterMap omitted.
 
-/**
- * deserializeAws_restJson1PerformanceInsightsMetricQuery
- */
-const de_PerformanceInsightsMetricQuery = (output: any, context: __SerdeContext): PerformanceInsightsMetricQuery => {
-  return {
-    Filter: output.Filter != null ? de_PerformanceInsightsMetricFilterMap(output.Filter, context) : undefined,
-    GroupBy: output.GroupBy != null ? de_PerformanceInsightsMetricDimensionGroup(output.GroupBy, context) : undefined,
-    Metric: __expectString(output.Metric),
-  } as any;
-};
+// de_PerformanceInsightsMetricQuery omitted.
 
 /**
  * deserializeAws_restJson1PerformanceInsightsMetricsDetail
@@ -4456,18 +3544,14 @@ const de_PerformanceInsightsMetricsDetail = (
   output: any,
   context: __SerdeContext
 ): PerformanceInsightsMetricsDetail => {
-  return {
-    MetricDisplayName: __expectString(output.MetricDisplayName),
-    MetricQuery:
-      output.MetricQuery != null ? de_PerformanceInsightsMetricQuery(output.MetricQuery, context) : undefined,
-    ReferenceData:
-      output.ReferenceData != null ? de_PerformanceInsightsReferenceDataList(output.ReferenceData, context) : undefined,
-    StatsAtAnomaly:
-      output.StatsAtAnomaly != null ? de_PerformanceInsightsStats(output.StatsAtAnomaly, context) : undefined,
-    StatsAtBaseline:
-      output.StatsAtBaseline != null ? de_PerformanceInsightsStats(output.StatsAtBaseline, context) : undefined,
-    Unit: __expectString(output.Unit),
-  } as any;
+  return take(output, {
+    MetricDisplayName: __expectString,
+    MetricQuery: _json,
+    ReferenceData: (_: any) => de_PerformanceInsightsReferenceDataList(_, context),
+    StatsAtAnomaly: (_: any) => de_PerformanceInsightsStats(_, context),
+    StatsAtBaseline: (_: any) => de_PerformanceInsightsStats(_, context),
+    Unit: __expectString,
+  }) as any;
 };
 
 /**
@@ -4480,9 +3564,6 @@ const de_PerformanceInsightsMetricsDetails = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PerformanceInsightsMetricsDetail(entry, context);
     });
   return retVal;
@@ -4495,16 +3576,10 @@ const de_PerformanceInsightsReferenceComparisonValues = (
   output: any,
   context: __SerdeContext
 ): PerformanceInsightsReferenceComparisonValues => {
-  return {
-    ReferenceMetric:
-      output.ReferenceMetric != null
-        ? de_PerformanceInsightsReferenceMetric(output.ReferenceMetric, context)
-        : undefined,
-    ReferenceScalar:
-      output.ReferenceScalar != null
-        ? de_PerformanceInsightsReferenceScalar(output.ReferenceScalar, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    ReferenceMetric: _json,
+    ReferenceScalar: (_: any) => de_PerformanceInsightsReferenceScalar(_, context),
+  }) as any;
 };
 
 /**
@@ -4514,13 +3589,10 @@ const de_PerformanceInsightsReferenceData = (
   output: any,
   context: __SerdeContext
 ): PerformanceInsightsReferenceData => {
-  return {
-    ComparisonValues:
-      output.ComparisonValues != null
-        ? de_PerformanceInsightsReferenceComparisonValues(output.ComparisonValues, context)
-        : undefined,
-    Name: __expectString(output.Name),
-  } as any;
+  return take(output, {
+    ComparisonValues: (_: any) => de_PerformanceInsightsReferenceComparisonValues(_, context),
+    Name: __expectString,
+  }) as any;
 };
 
 /**
@@ -4533,26 +3605,12 @@ const de_PerformanceInsightsReferenceDataList = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PerformanceInsightsReferenceData(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1PerformanceInsightsReferenceMetric
- */
-const de_PerformanceInsightsReferenceMetric = (
-  output: any,
-  context: __SerdeContext
-): PerformanceInsightsReferenceMetric => {
-  return {
-    MetricQuery:
-      output.MetricQuery != null ? de_PerformanceInsightsMetricQuery(output.MetricQuery, context) : undefined,
-  } as any;
-};
+// de_PerformanceInsightsReferenceMetric omitted.
 
 /**
  * deserializeAws_restJson1PerformanceInsightsReferenceScalar
@@ -4561,19 +3619,19 @@ const de_PerformanceInsightsReferenceScalar = (
   output: any,
   context: __SerdeContext
 ): PerformanceInsightsReferenceScalar => {
-  return {
-    Value: __limitedParseDouble(output.Value),
-  } as any;
+  return take(output, {
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PerformanceInsightsStat
  */
 const de_PerformanceInsightsStat = (output: any, context: __SerdeContext): PerformanceInsightsStat => {
-  return {
-    Type: __expectString(output.Type),
-    Value: __limitedParseDouble(output.Value),
-  } as any;
+  return take(output, {
+    Type: __expectString,
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -4583,9 +3641,6 @@ const de_PerformanceInsightsStats = (output: any, context: __SerdeContext): Perf
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_PerformanceInsightsStat(entry, context);
     });
   return retVal;
@@ -4595,12 +3650,10 @@ const de_PerformanceInsightsStats = (output: any, context: __SerdeContext): Perf
  * deserializeAws_restJson1PredictionTimeRange
  */
 const de_PredictionTimeRange = (output: any, context: __SerdeContext): PredictionTimeRange => {
-  return {
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -4610,9 +3663,6 @@ const de_ProactiveAnomalies = (output: any, context: __SerdeContext): ProactiveA
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProactiveAnomalySummary(entry, context);
     });
   return retVal;
@@ -4622,82 +3672,61 @@ const de_ProactiveAnomalies = (output: any, context: __SerdeContext): ProactiveA
  * deserializeAws_restJson1ProactiveAnomaly
  */
 const de_ProactiveAnomaly = (output: any, context: __SerdeContext): ProactiveAnomaly => {
-  return {
-    AnomalyReportedTimeRange:
-      output.AnomalyReportedTimeRange != null
-        ? de_AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
-        : undefined,
-    AnomalyResources:
-      output.AnomalyResources != null ? de_AnomalyResources(output.AnomalyResources, context) : undefined,
-    AnomalyTimeRange:
-      output.AnomalyTimeRange != null ? de_AnomalyTimeRange(output.AnomalyTimeRange, context) : undefined,
-    AssociatedInsightId: __expectString(output.AssociatedInsightId),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Limit: __limitedParseDouble(output.Limit),
-    PredictionTimeRange:
-      output.PredictionTimeRange != null ? de_PredictionTimeRange(output.PredictionTimeRange, context) : undefined,
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    SourceDetails: output.SourceDetails != null ? de_AnomalySourceDetails(output.SourceDetails, context) : undefined,
-    SourceMetadata:
-      output.SourceMetadata != null ? de_AnomalySourceMetadata(output.SourceMetadata, context) : undefined,
-    Status: __expectString(output.Status),
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateTime))) : undefined,
-  } as any;
+  return take(output, {
+    AnomalyReportedTimeRange: (_: any) => de_AnomalyReportedTimeRange(_, context),
+    AnomalyResources: _json,
+    AnomalyTimeRange: (_: any) => de_AnomalyTimeRange(_, context),
+    AssociatedInsightId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Limit: __limitedParseDouble,
+    PredictionTimeRange: (_: any) => de_PredictionTimeRange(_, context),
+    ResourceCollection: _json,
+    Severity: __expectString,
+    SourceDetails: (_: any) => de_AnomalySourceDetails(_, context),
+    SourceMetadata: _json,
+    Status: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ProactiveAnomalySummary
  */
 const de_ProactiveAnomalySummary = (output: any, context: __SerdeContext): ProactiveAnomalySummary => {
-  return {
-    AnomalyReportedTimeRange:
-      output.AnomalyReportedTimeRange != null
-        ? de_AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
-        : undefined,
-    AnomalyResources:
-      output.AnomalyResources != null ? de_AnomalyResources(output.AnomalyResources, context) : undefined,
-    AnomalyTimeRange:
-      output.AnomalyTimeRange != null ? de_AnomalyTimeRange(output.AnomalyTimeRange, context) : undefined,
-    AssociatedInsightId: __expectString(output.AssociatedInsightId),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Limit: __limitedParseDouble(output.Limit),
-    PredictionTimeRange:
-      output.PredictionTimeRange != null ? de_PredictionTimeRange(output.PredictionTimeRange, context) : undefined,
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    SourceDetails: output.SourceDetails != null ? de_AnomalySourceDetails(output.SourceDetails, context) : undefined,
-    SourceMetadata:
-      output.SourceMetadata != null ? de_AnomalySourceMetadata(output.SourceMetadata, context) : undefined,
-    Status: __expectString(output.Status),
-    UpdateTime:
-      output.UpdateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateTime))) : undefined,
-  } as any;
+  return take(output, {
+    AnomalyReportedTimeRange: (_: any) => de_AnomalyReportedTimeRange(_, context),
+    AnomalyResources: _json,
+    AnomalyTimeRange: (_: any) => de_AnomalyTimeRange(_, context),
+    AssociatedInsightId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Limit: __limitedParseDouble,
+    PredictionTimeRange: (_: any) => de_PredictionTimeRange(_, context),
+    ResourceCollection: _json,
+    Severity: __expectString,
+    SourceDetails: (_: any) => de_AnomalySourceDetails(_, context),
+    SourceMetadata: _json,
+    Status: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ProactiveInsight
  */
 const de_ProactiveInsight = (output: any, context: __SerdeContext): ProactiveInsight => {
-  return {
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    InsightTimeRange:
-      output.InsightTimeRange != null ? de_InsightTimeRange(output.InsightTimeRange, context) : undefined,
-    Name: __expectString(output.Name),
-    PredictionTimeRange:
-      output.PredictionTimeRange != null ? de_PredictionTimeRange(output.PredictionTimeRange, context) : undefined,
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    SsmOpsItemId: __expectString(output.SsmOpsItemId),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Description: __expectString,
+    Id: __expectString,
+    InsightTimeRange: (_: any) => de_InsightTimeRange(_, context),
+    Name: __expectString,
+    PredictionTimeRange: (_: any) => de_PredictionTimeRange(_, context),
+    ResourceCollection: _json,
+    Severity: __expectString,
+    SsmOpsItemId: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -4707,9 +3736,6 @@ const de_ProactiveInsights = (output: any, context: __SerdeContext): ProactiveIn
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProactiveInsightSummary(entry, context);
     });
   return retVal;
@@ -4719,24 +3745,17 @@ const de_ProactiveInsights = (output: any, context: __SerdeContext): ProactiveIn
  * deserializeAws_restJson1ProactiveInsightSummary
  */
 const de_ProactiveInsightSummary = (output: any, context: __SerdeContext): ProactiveInsightSummary => {
-  return {
-    AssociatedResourceArns:
-      output.AssociatedResourceArns != null
-        ? de_AssociatedResourceArns(output.AssociatedResourceArns, context)
-        : undefined,
-    Id: __expectString(output.Id),
-    InsightTimeRange:
-      output.InsightTimeRange != null ? de_InsightTimeRange(output.InsightTimeRange, context) : undefined,
-    Name: __expectString(output.Name),
-    PredictionTimeRange:
-      output.PredictionTimeRange != null ? de_PredictionTimeRange(output.PredictionTimeRange, context) : undefined,
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    ServiceCollection:
-      output.ServiceCollection != null ? de_ServiceCollection(output.ServiceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AssociatedResourceArns: _json,
+    Id: __expectString,
+    InsightTimeRange: (_: any) => de_InsightTimeRange(_, context),
+    Name: __expectString,
+    PredictionTimeRange: (_: any) => de_PredictionTimeRange(_, context),
+    ResourceCollection: _json,
+    ServiceCollection: _json,
+    Severity: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -4749,9 +3768,6 @@ const de_ProactiveOrganizationInsights = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ProactiveOrganizationInsightSummary(entry, context);
     });
   return retVal;
@@ -4764,22 +3780,18 @@ const de_ProactiveOrganizationInsightSummary = (
   output: any,
   context: __SerdeContext
 ): ProactiveOrganizationInsightSummary => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Id: __expectString(output.Id),
-    InsightTimeRange:
-      output.InsightTimeRange != null ? de_InsightTimeRange(output.InsightTimeRange, context) : undefined,
-    Name: __expectString(output.Name),
-    OrganizationalUnitId: __expectString(output.OrganizationalUnitId),
-    PredictionTimeRange:
-      output.PredictionTimeRange != null ? de_PredictionTimeRange(output.PredictionTimeRange, context) : undefined,
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    ServiceCollection:
-      output.ServiceCollection != null ? de_ServiceCollection(output.ServiceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    Id: __expectString,
+    InsightTimeRange: (_: any) => de_InsightTimeRange(_, context),
+    Name: __expectString,
+    OrganizationalUnitId: __expectString,
+    PredictionTimeRange: (_: any) => de_PredictionTimeRange(_, context),
+    ResourceCollection: _json,
+    ServiceCollection: _json,
+    Severity: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -4789,9 +3801,6 @@ const de_ReactiveAnomalies = (output: any, context: __SerdeContext): ReactiveAno
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReactiveAnomalySummary(entry, context);
     });
   return retVal;
@@ -4801,72 +3810,58 @@ const de_ReactiveAnomalies = (output: any, context: __SerdeContext): ReactiveAno
  * deserializeAws_restJson1ReactiveAnomaly
  */
 const de_ReactiveAnomaly = (output: any, context: __SerdeContext): ReactiveAnomaly => {
-  return {
-    AnomalyReportedTimeRange:
-      output.AnomalyReportedTimeRange != null
-        ? de_AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
-        : undefined,
-    AnomalyResources:
-      output.AnomalyResources != null ? de_AnomalyResources(output.AnomalyResources, context) : undefined,
-    AnomalyTimeRange:
-      output.AnomalyTimeRange != null ? de_AnomalyTimeRange(output.AnomalyTimeRange, context) : undefined,
-    AssociatedInsightId: __expectString(output.AssociatedInsightId),
-    CausalAnomalyId: __expectString(output.CausalAnomalyId),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    SourceDetails: output.SourceDetails != null ? de_AnomalySourceDetails(output.SourceDetails, context) : undefined,
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    AnomalyReportedTimeRange: (_: any) => de_AnomalyReportedTimeRange(_, context),
+    AnomalyResources: _json,
+    AnomalyTimeRange: (_: any) => de_AnomalyTimeRange(_, context),
+    AssociatedInsightId: __expectString,
+    CausalAnomalyId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ResourceCollection: _json,
+    Severity: __expectString,
+    SourceDetails: (_: any) => de_AnomalySourceDetails(_, context),
+    Status: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ReactiveAnomalySummary
  */
 const de_ReactiveAnomalySummary = (output: any, context: __SerdeContext): ReactiveAnomalySummary => {
-  return {
-    AnomalyReportedTimeRange:
-      output.AnomalyReportedTimeRange != null
-        ? de_AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
-        : undefined,
-    AnomalyResources:
-      output.AnomalyResources != null ? de_AnomalyResources(output.AnomalyResources, context) : undefined,
-    AnomalyTimeRange:
-      output.AnomalyTimeRange != null ? de_AnomalyTimeRange(output.AnomalyTimeRange, context) : undefined,
-    AssociatedInsightId: __expectString(output.AssociatedInsightId),
-    CausalAnomalyId: __expectString(output.CausalAnomalyId),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    SourceDetails: output.SourceDetails != null ? de_AnomalySourceDetails(output.SourceDetails, context) : undefined,
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    AnomalyReportedTimeRange: (_: any) => de_AnomalyReportedTimeRange(_, context),
+    AnomalyResources: _json,
+    AnomalyTimeRange: (_: any) => de_AnomalyTimeRange(_, context),
+    AssociatedInsightId: __expectString,
+    CausalAnomalyId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ResourceCollection: _json,
+    Severity: __expectString,
+    SourceDetails: (_: any) => de_AnomalySourceDetails(_, context),
+    Status: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1ReactiveInsight
  */
 const de_ReactiveInsight = (output: any, context: __SerdeContext): ReactiveInsight => {
-  return {
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    InsightTimeRange:
-      output.InsightTimeRange != null ? de_InsightTimeRange(output.InsightTimeRange, context) : undefined,
-    Name: __expectString(output.Name),
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    SsmOpsItemId: __expectString(output.SsmOpsItemId),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    Description: __expectString,
+    Id: __expectString,
+    InsightTimeRange: (_: any) => de_InsightTimeRange(_, context),
+    Name: __expectString,
+    ResourceCollection: _json,
+    Severity: __expectString,
+    SsmOpsItemId: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -4876,9 +3871,6 @@ const de_ReactiveInsights = (output: any, context: __SerdeContext): ReactiveInsi
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReactiveInsightSummary(entry, context);
     });
   return retVal;
@@ -4888,22 +3880,16 @@ const de_ReactiveInsights = (output: any, context: __SerdeContext): ReactiveInsi
  * deserializeAws_restJson1ReactiveInsightSummary
  */
 const de_ReactiveInsightSummary = (output: any, context: __SerdeContext): ReactiveInsightSummary => {
-  return {
-    AssociatedResourceArns:
-      output.AssociatedResourceArns != null
-        ? de_AssociatedResourceArns(output.AssociatedResourceArns, context)
-        : undefined,
-    Id: __expectString(output.Id),
-    InsightTimeRange:
-      output.InsightTimeRange != null ? de_InsightTimeRange(output.InsightTimeRange, context) : undefined,
-    Name: __expectString(output.Name),
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    ServiceCollection:
-      output.ServiceCollection != null ? de_ServiceCollection(output.ServiceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AssociatedResourceArns: _json,
+    Id: __expectString,
+    InsightTimeRange: (_: any) => de_InsightTimeRange(_, context),
+    Name: __expectString,
+    ResourceCollection: _json,
+    ServiceCollection: _json,
+    Severity: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
 /**
@@ -4916,9 +3902,6 @@ const de_ReactiveOrganizationInsights = (
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ReactiveOrganizationInsightSummary(entry, context);
     });
   return retVal;
@@ -4931,339 +3914,74 @@ const de_ReactiveOrganizationInsightSummary = (
   output: any,
   context: __SerdeContext
 ): ReactiveOrganizationInsightSummary => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    Id: __expectString(output.Id),
-    InsightTimeRange:
-      output.InsightTimeRange != null ? de_InsightTimeRange(output.InsightTimeRange, context) : undefined,
-    Name: __expectString(output.Name),
-    OrganizationalUnitId: __expectString(output.OrganizationalUnitId),
-    ResourceCollection:
-      output.ResourceCollection != null ? de_ResourceCollection(output.ResourceCollection, context) : undefined,
-    ServiceCollection:
-      output.ServiceCollection != null ? de_ServiceCollection(output.ServiceCollection, context) : undefined,
-    Severity: __expectString(output.Severity),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    AccountId: __expectString,
+    Id: __expectString,
+    InsightTimeRange: (_: any) => de_InsightTimeRange(_, context),
+    Name: __expectString,
+    OrganizationalUnitId: __expectString,
+    ResourceCollection: _json,
+    ServiceCollection: _json,
+    Severity: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Recommendation
- */
-const de_Recommendation = (output: any, context: __SerdeContext): Recommendation => {
-  return {
-    Category: __expectString(output.Category),
-    Description: __expectString(output.Description),
-    Link: __expectString(output.Link),
-    Name: __expectString(output.Name),
-    Reason: __expectString(output.Reason),
-    RelatedAnomalies:
-      output.RelatedAnomalies != null ? de_RecommendationRelatedAnomalies(output.RelatedAnomalies, context) : undefined,
-    RelatedEvents:
-      output.RelatedEvents != null ? de_RecommendationRelatedEvents(output.RelatedEvents, context) : undefined,
-  } as any;
-};
+// de_Recommendation omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedAnomalies
- */
-const de_RecommendationRelatedAnomalies = (output: any, context: __SerdeContext): RecommendationRelatedAnomaly[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationRelatedAnomaly(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationRelatedAnomalies omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedAnomaly
- */
-const de_RecommendationRelatedAnomaly = (output: any, context: __SerdeContext): RecommendationRelatedAnomaly => {
-  return {
-    AnomalyId: __expectString(output.AnomalyId),
-    Resources:
-      output.Resources != null ? de_RecommendationRelatedAnomalyResources(output.Resources, context) : undefined,
-    SourceDetails:
-      output.SourceDetails != null ? de_RelatedAnomalySourceDetails(output.SourceDetails, context) : undefined,
-  } as any;
-};
+// de_RecommendationRelatedAnomaly omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedAnomalyResource
- */
-const de_RecommendationRelatedAnomalyResource = (
-  output: any,
-  context: __SerdeContext
-): RecommendationRelatedAnomalyResource => {
-  return {
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_RecommendationRelatedAnomalyResource omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedAnomalyResources
- */
-const de_RecommendationRelatedAnomalyResources = (
-  output: any,
-  context: __SerdeContext
-): RecommendationRelatedAnomalyResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationRelatedAnomalyResource(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationRelatedAnomalyResources omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedAnomalySourceDetail
- */
-const de_RecommendationRelatedAnomalySourceDetail = (
-  output: any,
-  context: __SerdeContext
-): RecommendationRelatedAnomalySourceDetail => {
-  return {
-    CloudWatchMetrics:
-      output.CloudWatchMetrics != null
-        ? de_RecommendationRelatedCloudWatchMetricsSourceDetails(output.CloudWatchMetrics, context)
-        : undefined,
-  } as any;
-};
+// de_RecommendationRelatedAnomalySourceDetail omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedCloudWatchMetricsSourceDetail
- */
-const de_RecommendationRelatedCloudWatchMetricsSourceDetail = (
-  output: any,
-  context: __SerdeContext
-): RecommendationRelatedCloudWatchMetricsSourceDetail => {
-  return {
-    MetricName: __expectString(output.MetricName),
-    Namespace: __expectString(output.Namespace),
-  } as any;
-};
+// de_RecommendationRelatedCloudWatchMetricsSourceDetail omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedCloudWatchMetricsSourceDetails
- */
-const de_RecommendationRelatedCloudWatchMetricsSourceDetails = (
-  output: any,
-  context: __SerdeContext
-): RecommendationRelatedCloudWatchMetricsSourceDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationRelatedCloudWatchMetricsSourceDetail(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationRelatedCloudWatchMetricsSourceDetails omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedEvent
- */
-const de_RecommendationRelatedEvent = (output: any, context: __SerdeContext): RecommendationRelatedEvent => {
-  return {
-    Name: __expectString(output.Name),
-    Resources: output.Resources != null ? de_RecommendationRelatedEventResources(output.Resources, context) : undefined,
-  } as any;
-};
+// de_RecommendationRelatedEvent omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedEventResource
- */
-const de_RecommendationRelatedEventResource = (
-  output: any,
-  context: __SerdeContext
-): RecommendationRelatedEventResource => {
-  return {
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_RecommendationRelatedEventResource omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedEventResources
- */
-const de_RecommendationRelatedEventResources = (
-  output: any,
-  context: __SerdeContext
-): RecommendationRelatedEventResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationRelatedEventResource(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationRelatedEventResources omitted.
 
-/**
- * deserializeAws_restJson1RecommendationRelatedEvents
- */
-const de_RecommendationRelatedEvents = (output: any, context: __SerdeContext): RecommendationRelatedEvent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationRelatedEvent(entry, context);
-    });
-  return retVal;
-};
+// de_RecommendationRelatedEvents omitted.
 
-/**
- * deserializeAws_restJson1Recommendations
- */
-const de_Recommendations = (output: any, context: __SerdeContext): Recommendation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Recommendation(entry, context);
-    });
-  return retVal;
-};
+// de_Recommendations omitted.
 
-/**
- * deserializeAws_restJson1RelatedAnomalySourceDetails
- */
-const de_RelatedAnomalySourceDetails = (
-  output: any,
-  context: __SerdeContext
-): RecommendationRelatedAnomalySourceDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_RecommendationRelatedAnomalySourceDetail(entry, context);
-    });
-  return retVal;
-};
+// de_RelatedAnomalySourceDetails omitted.
 
-/**
- * deserializeAws_restJson1ResourceCollection
- */
-const de_ResourceCollection = (output: any, context: __SerdeContext): ResourceCollection => {
-  return {
-    CloudFormation:
-      output.CloudFormation != null ? de_CloudFormationCollection(output.CloudFormation, context) : undefined,
-    Tags: output.Tags != null ? de_TagCollections(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ResourceCollection omitted.
 
-/**
- * deserializeAws_restJson1ResourceCollectionFilter
- */
-const de_ResourceCollectionFilter = (output: any, context: __SerdeContext): ResourceCollectionFilter => {
-  return {
-    CloudFormation:
-      output.CloudFormation != null ? de_CloudFormationCollectionFilter(output.CloudFormation, context) : undefined,
-    Tags: output.Tags != null ? de_TagCollectionFilters(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ResourceCollectionFilter omitted.
 
-/**
- * deserializeAws_restJson1ServiceCollection
- */
-const de_ServiceCollection = (output: any, context: __SerdeContext): ServiceCollection => {
-  return {
-    ServiceNames: output.ServiceNames != null ? de_ServiceNames(output.ServiceNames, context) : undefined,
-  } as any;
-};
+// de_ServiceCollection omitted.
 
-/**
- * deserializeAws_restJson1ServiceHealth
- */
-const de_ServiceHealth = (output: any, context: __SerdeContext): ServiceHealth => {
-  return {
-    AnalyzedResourceCount: __expectLong(output.AnalyzedResourceCount),
-    Insight: output.Insight != null ? de_ServiceInsightHealth(output.Insight, context) : undefined,
-    ServiceName: __expectString(output.ServiceName),
-  } as any;
-};
+// de_ServiceHealth omitted.
 
-/**
- * deserializeAws_restJson1ServiceHealths
- */
-const de_ServiceHealths = (output: any, context: __SerdeContext): ServiceHealth[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ServiceHealth(entry, context);
-    });
-  return retVal;
-};
+// de_ServiceHealths omitted.
 
-/**
- * deserializeAws_restJson1ServiceInsightHealth
- */
-const de_ServiceInsightHealth = (output: any, context: __SerdeContext): ServiceInsightHealth => {
-  return {
-    OpenProactiveInsights: __expectInt32(output.OpenProactiveInsights),
-    OpenReactiveInsights: __expectInt32(output.OpenReactiveInsights),
-  } as any;
-};
+// de_ServiceInsightHealth omitted.
 
-/**
- * deserializeAws_restJson1ServiceIntegrationConfig
- */
-const de_ServiceIntegrationConfig = (output: any, context: __SerdeContext): ServiceIntegrationConfig => {
-  return {
-    LogsAnomalyDetection:
-      output.LogsAnomalyDetection != null
-        ? de_LogsAnomalyDetectionIntegration(output.LogsAnomalyDetection, context)
-        : undefined,
-    OpsCenter: output.OpsCenter != null ? de_OpsCenterIntegration(output.OpsCenter, context) : undefined,
-  } as any;
-};
+// de_ServiceIntegrationConfig omitted.
 
-/**
- * deserializeAws_restJson1ServiceNames
- */
-const de_ServiceNames = (output: any, context: __SerdeContext): (ServiceName | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ServiceNames omitted.
 
 /**
  * deserializeAws_restJson1ServiceResourceCost
  */
 const de_ServiceResourceCost = (output: any, context: __SerdeContext): ServiceResourceCost => {
-  return {
-    Cost: __limitedParseDouble(output.Cost),
-    Count: __expectInt32(output.Count),
-    State: __expectString(output.State),
-    Type: __expectString(output.Type),
-    UnitCost: __limitedParseDouble(output.UnitCost),
-  } as any;
+  return take(output, {
+    Cost: __limitedParseDouble,
+    Count: __expectInt32,
+    State: __expectString,
+    Type: __expectString,
+    UnitCost: __limitedParseDouble,
+  }) as any;
 };
 
 /**
@@ -5273,170 +3991,41 @@ const de_ServiceResourceCosts = (output: any, context: __SerdeContext): ServiceR
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServiceResourceCost(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1SnsChannelConfig
- */
-const de_SnsChannelConfig = (output: any, context: __SerdeContext): SnsChannelConfig => {
-  return {
-    TopicArn: __expectString(output.TopicArn),
-  } as any;
-};
+// de_SnsChannelConfig omitted.
 
-/**
- * deserializeAws_restJson1StackNames
- */
-const de_StackNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StackNames omitted.
 
-/**
- * deserializeAws_restJson1TagCollection
- */
-const de_TagCollection = (output: any, context: __SerdeContext): TagCollection => {
-  return {
-    AppBoundaryKey: __expectString(output.AppBoundaryKey),
-    TagValues: output.TagValues != null ? de_TagValues(output.TagValues, context) : undefined,
-  } as any;
-};
+// de_TagCollection omitted.
 
-/**
- * deserializeAws_restJson1TagCollectionFilter
- */
-const de_TagCollectionFilter = (output: any, context: __SerdeContext): TagCollectionFilter => {
-  return {
-    AppBoundaryKey: __expectString(output.AppBoundaryKey),
-    TagValues: output.TagValues != null ? de_TagValues(output.TagValues, context) : undefined,
-  } as any;
-};
+// de_TagCollectionFilter omitted.
 
-/**
- * deserializeAws_restJson1TagCollectionFilters
- */
-const de_TagCollectionFilters = (output: any, context: __SerdeContext): TagCollectionFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TagCollectionFilter(entry, context);
-    });
-  return retVal;
-};
+// de_TagCollectionFilters omitted.
 
-/**
- * deserializeAws_restJson1TagCollections
- */
-const de_TagCollections = (output: any, context: __SerdeContext): TagCollection[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TagCollection(entry, context);
-    });
-  return retVal;
-};
+// de_TagCollections omitted.
 
-/**
- * deserializeAws_restJson1TagCostEstimationResourceCollectionFilter
- */
-const de_TagCostEstimationResourceCollectionFilter = (
-  output: any,
-  context: __SerdeContext
-): TagCostEstimationResourceCollectionFilter => {
-  return {
-    AppBoundaryKey: __expectString(output.AppBoundaryKey),
-    TagValues: output.TagValues != null ? de_CostEstimationTagValues(output.TagValues, context) : undefined,
-  } as any;
-};
+// de_TagCostEstimationResourceCollectionFilter omitted.
 
-/**
- * deserializeAws_restJson1TagCostEstimationResourceCollectionFilters
- */
-const de_TagCostEstimationResourceCollectionFilters = (
-  output: any,
-  context: __SerdeContext
-): TagCostEstimationResourceCollectionFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TagCostEstimationResourceCollectionFilter(entry, context);
-    });
-  return retVal;
-};
+// de_TagCostEstimationResourceCollectionFilters omitted.
 
-/**
- * deserializeAws_restJson1TagHealth
- */
-const de_TagHealth = (output: any, context: __SerdeContext): TagHealth => {
-  return {
-    AnalyzedResourceCount: __expectLong(output.AnalyzedResourceCount),
-    AppBoundaryKey: __expectString(output.AppBoundaryKey),
-    Insight: output.Insight != null ? de_InsightHealth(output.Insight, context) : undefined,
-    TagValue: __expectString(output.TagValue),
-  } as any;
-};
+// de_TagHealth omitted.
 
-/**
- * deserializeAws_restJson1TagHealths
- */
-const de_TagHealths = (output: any, context: __SerdeContext): TagHealth[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TagHealth(entry, context);
-    });
-  return retVal;
-};
+// de_TagHealths omitted.
 
-/**
- * deserializeAws_restJson1TagValues
- */
-const de_TagValues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagValues omitted.
 
 /**
  * deserializeAws_restJson1TimestampMetricValuePair
  */
 const de_TimestampMetricValuePair = (output: any, context: __SerdeContext): TimestampMetricValuePair => {
-  return {
-    MetricValue: __limitedParseDouble(output.MetricValue),
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-  } as any;
+  return take(output, {
+    MetricValue: __limitedParseDouble,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 /**
@@ -5446,38 +4035,14 @@ const de_TimestampMetricValuePairList = (output: any, context: __SerdeContext): 
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_TimestampMetricValuePair(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFields
- */
-const de_ValidationExceptionFields = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFields omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

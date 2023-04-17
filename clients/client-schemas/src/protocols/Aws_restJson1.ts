@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
@@ -9,10 +10,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
-  map as __map,
+  map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -81,7 +83,6 @@ import {
   PreconditionFailedException,
   RegistrySummary,
   SchemaSummary,
-  SchemaVersionSummary,
   SearchSchemaSummary,
   SearchSchemaVersionSummary,
   ServiceUnavailableException,
@@ -103,12 +104,14 @@ export const se_CreateDiscovererCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CrossAccount != null && { CrossAccount: input.CrossAccount }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CrossAccount: [],
+      Description: [],
+      SourceArn: [],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -142,10 +145,12 @@ export const se_CreateRegistryCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -181,12 +186,14 @@ export const se_CreateSchemaCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Content: [],
+      Description: [],
+      tags: [, (_) => _json(_), `Tags`],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -586,10 +593,12 @@ export const se_GetDiscoveredSchemaCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discover";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Events != null && { Events: se___listOfGetDiscoveredSchemaVersionItemInput(input.Events, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Events: (_) => _json(_),
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -838,10 +847,12 @@ export const se_PutResourcePolicyCommand = async (
     registryName: [, input.RegistryName!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy != null && { Policy: __LazyJsonString.fromObject(input.Policy) }),
-    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: (_) => __LazyJsonString.fromObject(_),
+      RevisionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -968,9 +979,11 @@ export const se_TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1034,10 +1047,12 @@ export const se_UpdateDiscovererCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.CrossAccount != null && { CrossAccount: input.CrossAccount }),
-    ...(input.Description != null && { Description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CrossAccount: [],
+      Description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1071,9 +1086,11 @@ export const se_UpdateRegistryCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1109,12 +1126,14 @@ export const se_UpdateSchemaCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   let body: any;
-  body = JSON.stringify({
-    ClientTokenId: input.ClientTokenId ?? generateIdempotencyToken(),
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientTokenId: (_) => _ ?? generateIdempotencyToken(),
+      Content: [],
+      Description: [],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1140,27 +1159,16 @@ export const de_CreateDiscovererCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CrossAccount != null) {
-    contents.CrossAccount = __expectBoolean(data.CrossAccount);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.DiscovererArn != null) {
-    contents.DiscovererArn = __expectString(data.DiscovererArn);
-  }
-  if (data.DiscovererId != null) {
-    contents.DiscovererId = __expectString(data.DiscovererId);
-  }
-  if (data.SourceArn != null) {
-    contents.SourceArn = __expectString(data.SourceArn);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    CrossAccount: __expectBoolean,
+    Description: __expectString,
+    DiscovererArn: __expectString,
+    DiscovererId: __expectString,
+    SourceArn: __expectString,
+    State: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1197,10 +1205,9 @@ const de_CreateDiscovererCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1220,18 +1227,13 @@ export const de_CreateRegistryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.RegistryArn != null) {
-    contents.RegistryArn = __expectString(data.RegistryArn);
-  }
-  if (data.RegistryName != null) {
-    contents.RegistryName = __expectString(data.RegistryName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    RegistryArn: __expectString,
+    RegistryName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1268,10 +1270,9 @@ const de_CreateRegistryCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1291,30 +1292,17 @@ export const de_CreateSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
-  }
-  if (data.SchemaArn != null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
-  if (data.SchemaName != null) {
-    contents.SchemaName = __expectString(data.SchemaName);
-  }
-  if (data.SchemaVersion != null) {
-    contents.SchemaVersion = __expectString(data.SchemaVersion);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.VersionCreatedDate != null) {
-    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.VersionCreatedDate));
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    LastModified: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SchemaArn: __expectString,
+    SchemaName: __expectString,
+    SchemaVersion: __expectString,
+    Tags: [, _json, `tags`],
+    Type: __expectString,
+    VersionCreatedDate: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1345,10 +1333,9 @@ const de_CreateSchemaCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1404,10 +1391,9 @@ const de_DeleteDiscovererCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1463,10 +1449,9 @@ const de_DeleteRegistryCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1522,10 +1507,9 @@ const de_DeleteResourcePolicyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1581,10 +1565,9 @@ const de_DeleteSchemaCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1640,10 +1623,9 @@ const de_DeleteSchemaVersionCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1663,18 +1645,13 @@ export const de_DescribeCodeBindingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationDate));
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
-  }
-  if (data.SchemaVersion != null) {
-    contents.SchemaVersion = __expectString(data.SchemaVersion);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    CreationDate: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    LastModified: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SchemaVersion: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1711,10 +1688,9 @@ const de_DescribeCodeBindingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1734,27 +1710,16 @@ export const de_DescribeDiscovererCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CrossAccount != null) {
-    contents.CrossAccount = __expectBoolean(data.CrossAccount);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.DiscovererArn != null) {
-    contents.DiscovererArn = __expectString(data.DiscovererArn);
-  }
-  if (data.DiscovererId != null) {
-    contents.DiscovererId = __expectString(data.DiscovererId);
-  }
-  if (data.SourceArn != null) {
-    contents.SourceArn = __expectString(data.SourceArn);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    CrossAccount: __expectBoolean,
+    Description: __expectString,
+    DiscovererArn: __expectString,
+    DiscovererId: __expectString,
+    SourceArn: __expectString,
+    State: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1791,10 +1756,9 @@ const de_DescribeDiscovererCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1814,18 +1778,13 @@ export const de_DescribeRegistryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.RegistryArn != null) {
-    contents.RegistryArn = __expectString(data.RegistryArn);
-  }
-  if (data.RegistryName != null) {
-    contents.RegistryName = __expectString(data.RegistryName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    RegistryArn: __expectString,
+    RegistryName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1862,10 +1821,9 @@ const de_DescribeRegistryCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1885,33 +1843,18 @@ export const de_DescribeSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Content != null) {
-    contents.Content = __expectString(data.Content);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
-  }
-  if (data.SchemaArn != null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
-  if (data.SchemaName != null) {
-    contents.SchemaName = __expectString(data.SchemaName);
-  }
-  if (data.SchemaVersion != null) {
-    contents.SchemaVersion = __expectString(data.SchemaVersion);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.VersionCreatedDate != null) {
-    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.VersionCreatedDate));
-  }
+  const doc = take(data, {
+    Content: __expectString,
+    Description: __expectString,
+    LastModified: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SchemaArn: __expectString,
+    SchemaName: __expectString,
+    SchemaVersion: __expectString,
+    Tags: [, _json, `tags`],
+    Type: __expectString,
+    VersionCreatedDate: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1948,10 +1891,9 @@ const de_DescribeSchemaCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1971,21 +1913,14 @@ export const de_ExportSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Content != null) {
-    contents.Content = __expectString(data.Content);
-  }
-  if (data.SchemaArn != null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
-  if (data.SchemaName != null) {
-    contents.SchemaName = __expectString(data.SchemaName);
-  }
-  if (data.SchemaVersion != null) {
-    contents.SchemaVersion = __expectString(data.SchemaVersion);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Content: __expectString,
+    SchemaArn: __expectString,
+    SchemaName: __expectString,
+    SchemaVersion: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2025,10 +1960,9 @@ const de_ExportSchemaCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2085,10 +2019,9 @@ const de_GetCodeBindingSourceCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2108,9 +2041,10 @@ export const de_GetDiscoveredSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Content != null) {
-    contents.Content = __expectString(data.Content);
-  }
+  const doc = take(data, {
+    Content: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2144,10 +2078,9 @@ const de_GetDiscoveredSchemaCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2167,12 +2100,11 @@ export const de_GetResourcePolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy != null) {
-    contents.Policy = new __LazyJsonString(data.Policy);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
+  const doc = take(data, {
+    Policy: (_) => new __LazyJsonString(_),
+    RevisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2209,10 +2141,9 @@ const de_GetResourcePolicyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2232,12 +2163,11 @@ export const de_ListDiscoverersCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Discoverers != null) {
-    contents.Discoverers = de___listOfDiscovererSummary(data.Discoverers, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Discoverers: (_) => de___listOfDiscovererSummary(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2271,10 +2201,9 @@ const de_ListDiscoverersCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2294,12 +2223,11 @@ export const de_ListRegistriesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Registries != null) {
-    contents.Registries = de___listOfRegistrySummary(data.Registries, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Registries: (_) => de___listOfRegistrySummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2333,10 +2261,9 @@ const de_ListRegistriesCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2356,12 +2283,11 @@ export const de_ListSchemasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Schemas != null) {
-    contents.Schemas = de___listOfSchemaSummary(data.Schemas, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Schemas: (_) => de___listOfSchemaSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2395,10 +2321,9 @@ const de_ListSchemasCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2418,12 +2343,11 @@ export const de_ListSchemaVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SchemaVersions != null) {
-    contents.SchemaVersions = de___listOfSchemaVersionSummary(data.SchemaVersions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SchemaVersions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2460,10 +2384,9 @@ const de_ListSchemaVersionsCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2483,9 +2406,10 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2516,10 +2440,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2539,18 +2462,13 @@ export const de_PutCodeBindingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationDate != null) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationDate));
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
-  }
-  if (data.SchemaVersion != null) {
-    contents.SchemaVersion = __expectString(data.SchemaVersion);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
+  const doc = take(data, {
+    CreationDate: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    LastModified: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SchemaVersion: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2590,10 +2508,9 @@ const de_PutCodeBindingCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2613,12 +2530,11 @@ export const de_PutResourcePolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy != null) {
-    contents.Policy = new __LazyJsonString(data.Policy);
-  }
-  if (data.RevisionId != null) {
-    contents.RevisionId = __expectString(data.RevisionId);
-  }
+  const doc = take(data, {
+    Policy: (_) => new __LazyJsonString(_),
+    RevisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2658,10 +2574,9 @@ const de_PutResourcePolicyCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2681,12 +2596,11 @@ export const de_SearchSchemasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Schemas != null) {
-    contents.Schemas = de___listOfSearchSchemaSummary(data.Schemas, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Schemas: (_) => de___listOfSearchSchemaSummary(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2720,10 +2634,9 @@ const de_SearchSchemasCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2743,12 +2656,11 @@ export const de_StartDiscovererCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DiscovererId != null) {
-    contents.DiscovererId = __expectString(data.DiscovererId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    DiscovererId: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2785,10 +2697,9 @@ const de_StartDiscovererCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2808,12 +2719,11 @@ export const de_StopDiscovererCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DiscovererId != null) {
-    contents.DiscovererId = __expectString(data.DiscovererId);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
+  const doc = take(data, {
+    DiscovererId: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2850,10 +2760,9 @@ const de_StopDiscovererCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2903,10 +2812,9 @@ const de_TagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2956,10 +2864,9 @@ const de_UntagResourceCommandError = async (
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -2979,27 +2886,16 @@ export const de_UpdateDiscovererCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CrossAccount != null) {
-    contents.CrossAccount = __expectBoolean(data.CrossAccount);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.DiscovererArn != null) {
-    contents.DiscovererArn = __expectString(data.DiscovererArn);
-  }
-  if (data.DiscovererId != null) {
-    contents.DiscovererId = __expectString(data.DiscovererId);
-  }
-  if (data.SourceArn != null) {
-    contents.SourceArn = __expectString(data.SourceArn);
-  }
-  if (data.State != null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    CrossAccount: __expectBoolean,
+    Description: __expectString,
+    DiscovererArn: __expectString,
+    DiscovererId: __expectString,
+    SourceArn: __expectString,
+    State: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3036,10 +2932,9 @@ const de_UpdateDiscovererCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3059,18 +2954,13 @@ export const de_UpdateRegistryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.RegistryArn != null) {
-    contents.RegistryArn = __expectString(data.RegistryArn);
-  }
-  if (data.RegistryName != null) {
-    contents.RegistryName = __expectString(data.RegistryName);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    RegistryArn: __expectString,
+    RegistryName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3107,10 +2997,9 @@ const de_UpdateRegistryCommandError = async (
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -3130,30 +3019,17 @@ export const de_UpdateSchemaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.LastModified != null) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.LastModified));
-  }
-  if (data.SchemaArn != null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
-  if (data.SchemaName != null) {
-    contents.SchemaName = __expectString(data.SchemaName);
-  }
-  if (data.SchemaVersion != null) {
-    contents.SchemaVersion = __expectString(data.SchemaVersion);
-  }
-  if (data.tags != null) {
-    contents.Tags = de_Tags(data.tags, context);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.VersionCreatedDate != null) {
-    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.VersionCreatedDate));
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    LastModified: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SchemaArn: __expectString,
+    SchemaName: __expectString,
+    SchemaVersion: __expectString,
+    Tags: [, _json, `tags`],
+    Type: __expectString,
+    VersionCreatedDate: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3187,28 +3063,26 @@ const de_UpdateSchemaCommandError = async (
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3222,12 +3096,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3241,12 +3114,11 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3260,12 +3132,11 @@ const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeConte
 const de_GoneExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<GoneException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new GoneException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3282,12 +3153,11 @@ const de_InternalServerErrorExceptionRes = async (
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3301,12 +3171,11 @@ const de_InternalServerErrorExceptionRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3323,12 +3192,11 @@ const de_PreconditionFailedExceptionRes = async (
 ): Promise<PreconditionFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PreconditionFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3345,12 +3213,11 @@ const de_ServiceUnavailableExceptionRes = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3367,12 +3234,11 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3389,12 +3255,11 @@ const de_UnauthorizedExceptionRes = async (
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3402,29 +3267,9 @@ const de_UnauthorizedExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1__listOfGetDiscoveredSchemaVersionItemInput
- */
-const se___listOfGetDiscoveredSchemaVersionItemInput = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOfGetDiscoveredSchemaVersionItemInput omitted.
 
-/**
- * serializeAws_restJson1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
 /**
  * deserializeAws_restJson1__listOfDiscovererSummary
@@ -3433,9 +3278,6 @@ const de___listOfDiscovererSummary = (output: any, context: __SerdeContext): Dis
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_DiscovererSummary(entry, context);
     });
   return retVal;
@@ -3448,9 +3290,6 @@ const de___listOfRegistrySummary = (output: any, context: __SerdeContext): Regis
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_RegistrySummary(entry, context);
     });
   return retVal;
@@ -3463,28 +3302,12 @@ const de___listOfSchemaSummary = (output: any, context: __SerdeContext): SchemaS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SchemaSummary(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1__listOfSchemaVersionSummary
- */
-const de___listOfSchemaVersionSummary = (output: any, context: __SerdeContext): SchemaVersionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_SchemaVersionSummary(entry, context);
-    });
-  return retVal;
-};
+// de___listOfSchemaVersionSummary omitted.
 
 /**
  * deserializeAws_restJson1__listOfSearchSchemaSummary
@@ -3493,9 +3316,6 @@ const de___listOfSearchSchemaSummary = (output: any, context: __SerdeContext): S
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SearchSchemaSummary(entry, context);
     });
   return retVal;
@@ -3508,9 +3328,6 @@ const de___listOfSearchSchemaVersionSummary = (output: any, context: __SerdeCont
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_SearchSchemaVersionSummary(entry, context);
     });
   return retVal;
@@ -3520,90 +3337,66 @@ const de___listOfSearchSchemaVersionSummary = (output: any, context: __SerdeCont
  * deserializeAws_restJson1DiscovererSummary
  */
 const de_DiscovererSummary = (output: any, context: __SerdeContext): DiscovererSummary => {
-  return {
-    CrossAccount: __expectBoolean(output.CrossAccount),
-    DiscovererArn: __expectString(output.DiscovererArn),
-    DiscovererId: __expectString(output.DiscovererId),
-    SourceArn: __expectString(output.SourceArn),
-    State: __expectString(output.State),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    CrossAccount: __expectBoolean,
+    DiscovererArn: __expectString,
+    DiscovererId: __expectString,
+    SourceArn: __expectString,
+    State: __expectString,
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1RegistrySummary
  */
 const de_RegistrySummary = (output: any, context: __SerdeContext): RegistrySummary => {
-  return {
-    RegistryArn: __expectString(output.RegistryArn),
-    RegistryName: __expectString(output.RegistryName),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    RegistryArn: __expectString,
+    RegistryName: __expectString,
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SchemaSummary
  */
 const de_SchemaSummary = (output: any, context: __SerdeContext): SchemaSummary => {
-  return {
-    LastModified:
-      output.LastModified != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastModified)) : undefined,
-    SchemaArn: __expectString(output.SchemaArn),
-    SchemaName: __expectString(output.SchemaName),
-    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-    VersionCount: __expectLong(output.VersionCount),
-  } as any;
+  return take(output, {
+    LastModified: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SchemaArn: __expectString,
+    SchemaName: __expectString,
+    Tags: [, _json, `tags`],
+    VersionCount: __expectLong,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1SchemaVersionSummary
- */
-const de_SchemaVersionSummary = (output: any, context: __SerdeContext): SchemaVersionSummary => {
-  return {
-    SchemaArn: __expectString(output.SchemaArn),
-    SchemaName: __expectString(output.SchemaName),
-    SchemaVersion: __expectString(output.SchemaVersion),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_SchemaVersionSummary omitted.
 
 /**
  * deserializeAws_restJson1SearchSchemaSummary
  */
 const de_SearchSchemaSummary = (output: any, context: __SerdeContext): SearchSchemaSummary => {
-  return {
-    RegistryName: __expectString(output.RegistryName),
-    SchemaArn: __expectString(output.SchemaArn),
-    SchemaName: __expectString(output.SchemaName),
-    SchemaVersions:
-      output.SchemaVersions != null ? de___listOfSearchSchemaVersionSummary(output.SchemaVersions, context) : undefined,
-  } as any;
+  return take(output, {
+    RegistryName: __expectString,
+    SchemaArn: __expectString,
+    SchemaName: __expectString,
+    SchemaVersions: (_: any) => de___listOfSearchSchemaVersionSummary(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1SearchSchemaVersionSummary
  */
 const de_SearchSchemaVersionSummary = (output: any, context: __SerdeContext): SearchSchemaVersionSummary => {
-  return {
-    CreatedDate:
-      output.CreatedDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedDate)) : undefined,
-    SchemaVersion: __expectString(output.SchemaVersion),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    CreatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SchemaVersion: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_restJson1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

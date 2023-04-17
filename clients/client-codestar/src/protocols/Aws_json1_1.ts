@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -46,66 +47,47 @@ import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from ".
 import { CodeStarServiceException as __BaseException } from "../models/CodeStarServiceException";
 import {
   AssociateTeamMemberRequest,
-  AssociateTeamMemberResult,
   Code,
   CodeCommitCodeDestination,
   CodeDestination,
   CodeSource,
   ConcurrentModificationException,
   CreateProjectRequest,
-  CreateProjectResult,
   CreateUserProfileRequest,
   CreateUserProfileResult,
   DeleteProjectRequest,
-  DeleteProjectResult,
   DeleteUserProfileRequest,
-  DeleteUserProfileResult,
   DescribeProjectRequest,
   DescribeProjectResult,
   DescribeUserProfileRequest,
   DescribeUserProfileResult,
   DisassociateTeamMemberRequest,
-  DisassociateTeamMemberResult,
   GitHubCodeDestination,
   InvalidNextTokenException,
   InvalidServiceRoleException,
   LimitExceededException,
   ListProjectsRequest,
-  ListProjectsResult,
   ListResourcesRequest,
-  ListResourcesResult,
   ListTagsForProjectRequest,
-  ListTagsForProjectResult,
   ListTeamMembersRequest,
-  ListTeamMembersResult,
   ListUserProfilesRequest,
-  ListUserProfilesResult,
   ProjectAlreadyExistsException,
   ProjectConfigurationException,
   ProjectCreationFailedException,
   ProjectNotFoundException,
-  ProjectStatus,
-  ProjectSummary,
-  Resource,
   S3Location,
   TagProjectRequest,
-  TagProjectResult,
-  TeamMember,
   TeamMemberAlreadyAssociatedException,
   TeamMemberNotFoundException,
   Toolchain,
   ToolchainSource,
   UntagProjectRequest,
-  UntagProjectResult,
   UpdateProjectRequest,
-  UpdateProjectResult,
   UpdateTeamMemberRequest,
-  UpdateTeamMemberResult,
   UpdateUserProfileRequest,
   UpdateUserProfileResult,
   UserProfileAlreadyExistsException,
   UserProfileNotFoundException,
-  UserProfileSummary,
   ValidationException,
 } from "../models/models_0";
 
@@ -118,7 +100,7 @@ export const se_AssociateTeamMemberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateTeamMember");
   let body: any;
-  body = JSON.stringify(se_AssociateTeamMemberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -131,7 +113,7 @@ export const se_CreateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateProject");
   let body: any;
-  body = JSON.stringify(se_CreateProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -144,7 +126,7 @@ export const se_CreateUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateUserProfile");
   let body: any;
-  body = JSON.stringify(se_CreateUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -157,7 +139,7 @@ export const se_DeleteProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteProject");
   let body: any;
-  body = JSON.stringify(se_DeleteProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -170,7 +152,7 @@ export const se_DeleteUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUserProfile");
   let body: any;
-  body = JSON.stringify(se_DeleteUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -183,7 +165,7 @@ export const se_DescribeProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeProject");
   let body: any;
-  body = JSON.stringify(se_DescribeProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -196,7 +178,7 @@ export const se_DescribeUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeUserProfile");
   let body: any;
-  body = JSON.stringify(se_DescribeUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -209,7 +191,7 @@ export const se_DisassociateTeamMemberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateTeamMember");
   let body: any;
-  body = JSON.stringify(se_DisassociateTeamMemberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -222,7 +204,7 @@ export const se_ListProjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListProjects");
   let body: any;
-  body = JSON.stringify(se_ListProjectsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -235,7 +217,7 @@ export const se_ListResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListResources");
   let body: any;
-  body = JSON.stringify(se_ListResourcesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -248,7 +230,7 @@ export const se_ListTagsForProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForProject");
   let body: any;
-  body = JSON.stringify(se_ListTagsForProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -261,7 +243,7 @@ export const se_ListTeamMembersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTeamMembers");
   let body: any;
-  body = JSON.stringify(se_ListTeamMembersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -274,7 +256,7 @@ export const se_ListUserProfilesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListUserProfiles");
   let body: any;
-  body = JSON.stringify(se_ListUserProfilesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -287,7 +269,7 @@ export const se_TagProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagProject");
   let body: any;
-  body = JSON.stringify(se_TagProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -300,7 +282,7 @@ export const se_UntagProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagProject");
   let body: any;
-  body = JSON.stringify(se_UntagProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -313,7 +295,7 @@ export const se_UpdateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateProject");
   let body: any;
-  body = JSON.stringify(se_UpdateProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -326,7 +308,7 @@ export const se_UpdateTeamMemberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTeamMember");
   let body: any;
-  body = JSON.stringify(se_UpdateTeamMemberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -339,7 +321,7 @@ export const se_UpdateUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateUserProfile");
   let body: any;
-  body = JSON.stringify(se_UpdateUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -355,12 +337,12 @@ export const de_AssociateTeamMemberCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_AssociateTeamMemberResult(data, context);
+  contents = _json(data);
   const response: AssociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -399,10 +381,9 @@ const de_AssociateTeamMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -420,12 +401,12 @@ export const de_CreateProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateProjectResult(data, context);
+  contents = _json(data);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -464,10 +445,9 @@ const de_CreateProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -490,7 +470,7 @@ export const de_CreateUserProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -514,10 +494,9 @@ const de_CreateUserProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -535,12 +514,12 @@ export const de_DeleteProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteProjectResult(data, context);
+  contents = _json(data);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -567,10 +546,9 @@ const de_DeleteProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -588,12 +566,12 @@ export const de_DeleteUserProfileCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteUserProfileResult(data, context);
+  contents = _json(data);
   const response: DeleteUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -614,10 +592,9 @@ const de_DeleteUserProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -640,7 +617,7 @@ export const de_DescribeProjectCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -673,10 +650,9 @@ const de_DescribeProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -699,7 +675,7 @@ export const de_DescribeUserProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -723,10 +699,9 @@ const de_DescribeUserProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -744,12 +719,12 @@ export const de_DisassociateTeamMemberCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DisassociateTeamMemberResult(data, context);
+  contents = _json(data);
   const response: DisassociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -779,10 +754,9 @@ const de_DisassociateTeamMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -800,12 +774,12 @@ export const de_ListProjectsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListProjectsResult(data, context);
+  contents = _json(data);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -829,10 +803,9 @@ const de_ListProjectsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -850,12 +823,12 @@ export const de_ListResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListResourcesResult(data, context);
+  contents = _json(data);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -882,10 +855,9 @@ const de_ListResourcesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -903,12 +875,12 @@ export const de_ListTagsForProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForProjectResult(data, context);
+  contents = _json(data);
   const response: ListTagsForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -935,10 +907,9 @@ const de_ListTagsForProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -956,12 +927,12 @@ export const de_ListTeamMembersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTeamMembersResult(data, context);
+  contents = _json(data);
   const response: ListTeamMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -988,10 +959,9 @@ const de_ListTeamMembersCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1009,12 +979,12 @@ export const de_ListUserProfilesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListUserProfilesResult(data, context);
+  contents = _json(data);
   const response: ListUserProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1038,10 +1008,9 @@ const de_ListUserProfilesCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1059,12 +1028,12 @@ export const de_TagProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagProjectResult(data, context);
+  contents = _json(data);
   const response: TagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1094,10 +1063,9 @@ const de_TagProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1115,12 +1083,12 @@ export const de_UntagProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagProjectResult(data, context);
+  contents = _json(data);
   const response: UntagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1150,10 +1118,9 @@ const de_UntagProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1171,12 +1138,12 @@ export const de_UpdateProjectCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateProjectResult(data, context);
+  contents = _json(data);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1200,10 +1167,9 @@ const de_UpdateProjectCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1221,12 +1187,12 @@ export const de_UpdateTeamMemberCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateTeamMemberResult(data, context);
+  contents = _json(data);
   const response: UpdateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1265,10 +1231,9 @@ const de_UpdateTeamMemberCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1291,7 +1256,7 @@ export const de_UpdateUserProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1315,10 +1280,9 @@ const de_UpdateUserProfileCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1332,7 +1296,7 @@ const de_ConcurrentModificationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1348,7 +1312,7 @@ const de_InvalidNextTokenExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1364,7 +1328,7 @@ const de_InvalidServiceRoleExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidServiceRoleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidServiceRoleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidServiceRoleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1380,7 +1344,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1396,7 +1360,7 @@ const de_ProjectAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<ProjectAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ProjectAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProjectAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1412,7 +1376,7 @@ const de_ProjectConfigurationExceptionRes = async (
   context: __SerdeContext
 ): Promise<ProjectConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ProjectConfigurationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProjectConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1428,7 +1392,7 @@ const de_ProjectCreationFailedExceptionRes = async (
   context: __SerdeContext
 ): Promise<ProjectCreationFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ProjectCreationFailedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProjectCreationFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1444,7 +1408,7 @@ const de_ProjectNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ProjectNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ProjectNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProjectNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1460,7 +1424,7 @@ const de_TeamMemberAlreadyAssociatedExceptionRes = async (
   context: __SerdeContext
 ): Promise<TeamMemberAlreadyAssociatedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TeamMemberAlreadyAssociatedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TeamMemberAlreadyAssociatedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1476,7 +1440,7 @@ const de_TeamMemberNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<TeamMemberNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TeamMemberNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TeamMemberNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1492,7 +1456,7 @@ const de_UserProfileAlreadyExistsExceptionRes = async (
   context: __SerdeContext
 ): Promise<UserProfileAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UserProfileAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserProfileAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1508,7 +1472,7 @@ const de_UserProfileNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<UserProfileNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_UserProfileNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserProfileNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1521,7 +1485,7 @@ const de_UserProfileNotFoundExceptionRes = async (
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1529,791 +1493,198 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1AssociateTeamMemberRequest
- */
-const se_AssociateTeamMemberRequest = (input: AssociateTeamMemberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.projectId != null && { projectId: input.projectId }),
-    ...(input.projectRole != null && { projectRole: input.projectRole }),
-    ...(input.remoteAccessAllowed != null && { remoteAccessAllowed: input.remoteAccessAllowed }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_AssociateTeamMemberRequest omitted.
 
-/**
- * serializeAws_json1_1Code
- */
-const se_Code = (input: Code, context: __SerdeContext): any => {
-  return {
-    ...(input.destination != null && { destination: se_CodeDestination(input.destination, context) }),
-    ...(input.source != null && { source: se_CodeSource(input.source, context) }),
-  };
-};
+// se_Code omitted.
 
-/**
- * serializeAws_json1_1CodeCommitCodeDestination
- */
-const se_CodeCommitCodeDestination = (input: CodeCommitCodeDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_CodeCommitCodeDestination omitted.
 
-/**
- * serializeAws_json1_1CodeDestination
- */
-const se_CodeDestination = (input: CodeDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.codeCommit != null && { codeCommit: se_CodeCommitCodeDestination(input.codeCommit, context) }),
-    ...(input.gitHub != null && { gitHub: se_GitHubCodeDestination(input.gitHub, context) }),
-  };
-};
+// se_CodeDestination omitted.
 
-/**
- * serializeAws_json1_1CodeSource
- */
-const se_CodeSource = (input: CodeSource, context: __SerdeContext): any => {
-  return {
-    ...(input.s3 != null && { s3: se_S3Location(input.s3, context) }),
-  };
-};
+// se_CodeSource omitted.
 
-/**
- * serializeAws_json1_1CreateProjectRequest
- */
-const se_CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.sourceCode != null && { sourceCode: se_SourceCode(input.sourceCode, context) }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-    ...(input.toolchain != null && { toolchain: se_Toolchain(input.toolchain, context) }),
-  };
-};
+// se_CreateProjectRequest omitted.
 
-/**
- * serializeAws_json1_1CreateUserProfileRequest
- */
-const se_CreateUserProfileRequest = (input: CreateUserProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.emailAddress != null && { emailAddress: input.emailAddress }),
-    ...(input.sshPublicKey != null && { sshPublicKey: input.sshPublicKey }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_CreateUserProfileRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteProjectRequest
- */
-const se_DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.deleteStack != null && { deleteStack: input.deleteStack }),
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DeleteProjectRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteUserProfileRequest
- */
-const se_DeleteUserProfileRequest = (input: DeleteUserProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_DeleteUserProfileRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeProjectRequest
- */
-const se_DescribeProjectRequest = (input: DescribeProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DescribeProjectRequest omitted.
 
-/**
- * serializeAws_json1_1DescribeUserProfileRequest
- */
-const se_DescribeUserProfileRequest = (input: DescribeUserProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_DescribeUserProfileRequest omitted.
 
-/**
- * serializeAws_json1_1DisassociateTeamMemberRequest
- */
-const se_DisassociateTeamMemberRequest = (input: DisassociateTeamMemberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.projectId != null && { projectId: input.projectId }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_DisassociateTeamMemberRequest omitted.
 
-/**
- * serializeAws_json1_1GitHubCodeDestination
- */
-const se_GitHubCodeDestination = (input: GitHubCodeDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.issuesEnabled != null && { issuesEnabled: input.issuesEnabled }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.owner != null && { owner: input.owner }),
-    ...(input.privateRepository != null && { privateRepository: input.privateRepository }),
-    ...(input.token != null && { token: input.token }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_GitHubCodeDestination omitted.
 
-/**
- * serializeAws_json1_1ListProjectsRequest
- */
-const se_ListProjectsRequest = (input: ListProjectsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListProjectsRequest omitted.
 
-/**
- * serializeAws_json1_1ListResourcesRequest
- */
-const se_ListResourcesRequest = (input: ListResourcesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.projectId != null && { projectId: input.projectId }),
-  };
-};
+// se_ListResourcesRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForProjectRequest
- */
-const se_ListTagsForProjectRequest = (input: ListTagsForProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListTagsForProjectRequest omitted.
 
-/**
- * serializeAws_json1_1ListTeamMembersRequest
- */
-const se_ListTeamMembersRequest = (input: ListTeamMembersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.projectId != null && { projectId: input.projectId }),
-  };
-};
+// se_ListTeamMembersRequest omitted.
 
-/**
- * serializeAws_json1_1ListUserProfilesRequest
- */
-const se_ListUserProfilesRequest = (input: ListUserProfilesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListUserProfilesRequest omitted.
 
-/**
- * serializeAws_json1_1S3Location
- */
-const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketKey != null && { bucketKey: input.bucketKey }),
-    ...(input.bucketName != null && { bucketName: input.bucketName }),
-  };
-};
+// se_S3Location omitted.
 
-/**
- * serializeAws_json1_1SourceCode
- */
-const se_SourceCode = (input: Code[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Code(entry, context);
-    });
-};
+// se_SourceCode omitted.
 
-/**
- * serializeAws_json1_1TagKeys
- */
-const se_TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-/**
- * serializeAws_json1_1TagProjectRequest
- */
-const se_TagProjectRequest = (input: TagProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
-  };
-};
+// se_TagProjectRequest omitted.
 
-/**
- * serializeAws_json1_1Tags
- */
-const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-/**
- * serializeAws_json1_1TemplateParameterMap
- */
-const se_TemplateParameterMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TemplateParameterMap omitted.
 
-/**
- * serializeAws_json1_1Toolchain
- */
-const se_Toolchain = (input: Toolchain, context: __SerdeContext): any => {
-  return {
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.source != null && { source: se_ToolchainSource(input.source, context) }),
-    ...(input.stackParameters != null && { stackParameters: se_TemplateParameterMap(input.stackParameters, context) }),
-  };
-};
+// se_Toolchain omitted.
 
-/**
- * serializeAws_json1_1ToolchainSource
- */
-const se_ToolchainSource = (input: ToolchainSource, context: __SerdeContext): any => {
-  return {
-    ...(input.s3 != null && { s3: se_S3Location(input.s3, context) }),
-  };
-};
+// se_ToolchainSource omitted.
 
-/**
- * serializeAws_json1_1UntagProjectRequest
- */
-const se_UntagProjectRequest = (input: UntagProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.tags != null && { tags: se_TagKeys(input.tags, context) }),
-  };
-};
+// se_UntagProjectRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateProjectRequest
- */
-const se_UpdateProjectRequest = (input: UpdateProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_UpdateProjectRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateTeamMemberRequest
- */
-const se_UpdateTeamMemberRequest = (input: UpdateTeamMemberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.projectId != null && { projectId: input.projectId }),
-    ...(input.projectRole != null && { projectRole: input.projectRole }),
-    ...(input.remoteAccessAllowed != null && { remoteAccessAllowed: input.remoteAccessAllowed }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_UpdateTeamMemberRequest omitted.
 
-/**
- * serializeAws_json1_1UpdateUserProfileRequest
- */
-const se_UpdateUserProfileRequest = (input: UpdateUserProfileRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.emailAddress != null && { emailAddress: input.emailAddress }),
-    ...(input.sshPublicKey != null && { sshPublicKey: input.sshPublicKey }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_UpdateUserProfileRequest omitted.
 
-/**
- * deserializeAws_json1_1AssociateTeamMemberResult
- */
-const de_AssociateTeamMemberResult = (output: any, context: __SerdeContext): AssociateTeamMemberResult => {
-  return {
-    clientRequestToken: __expectString(output.clientRequestToken),
-  } as any;
-};
+// de_AssociateTeamMemberResult omitted.
 
-/**
- * deserializeAws_json1_1ConcurrentModificationException
- */
-const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
-/**
- * deserializeAws_json1_1CreateProjectResult
- */
-const de_CreateProjectResult = (output: any, context: __SerdeContext): CreateProjectResult => {
-  return {
-    arn: __expectString(output.arn),
-    clientRequestToken: __expectString(output.clientRequestToken),
-    id: __expectString(output.id),
-    projectTemplateId: __expectString(output.projectTemplateId),
-  } as any;
-};
+// de_CreateProjectResult omitted.
 
 /**
  * deserializeAws_json1_1CreateUserProfileResult
  */
 const de_CreateUserProfileResult = (output: any, context: __SerdeContext): CreateUserProfileResult => {
-  return {
-    createdTimestamp:
-      output.createdTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
-        : undefined,
-    displayName: __expectString(output.displayName),
-    emailAddress: __expectString(output.emailAddress),
-    lastModifiedTimestamp:
-      output.lastModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
-        : undefined,
-    sshPublicKey: __expectString(output.sshPublicKey),
-    userArn: __expectString(output.userArn),
-  } as any;
+  return take(output, {
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    emailAddress: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sshPublicKey: __expectString,
+    userArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DeleteProjectResult
- */
-const de_DeleteProjectResult = (output: any, context: __SerdeContext): DeleteProjectResult => {
-  return {
-    projectArn: __expectString(output.projectArn),
-    stackId: __expectString(output.stackId),
-  } as any;
-};
+// de_DeleteProjectResult omitted.
 
-/**
- * deserializeAws_json1_1DeleteUserProfileResult
- */
-const de_DeleteUserProfileResult = (output: any, context: __SerdeContext): DeleteUserProfileResult => {
-  return {
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_DeleteUserProfileResult omitted.
 
 /**
  * deserializeAws_json1_1DescribeProjectResult
  */
 const de_DescribeProjectResult = (output: any, context: __SerdeContext): DescribeProjectResult => {
-  return {
-    arn: __expectString(output.arn),
-    clientRequestToken: __expectString(output.clientRequestToken),
-    createdTimeStamp:
-      output.createdTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimeStamp)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    projectTemplateId: __expectString(output.projectTemplateId),
-    stackId: __expectString(output.stackId),
-    status: output.status != null ? de_ProjectStatus(output.status, context) : undefined,
-  } as any;
+  return take(output, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    createdTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    projectTemplateId: __expectString,
+    stackId: __expectString,
+    status: _json,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1DescribeUserProfileResult
  */
 const de_DescribeUserProfileResult = (output: any, context: __SerdeContext): DescribeUserProfileResult => {
-  return {
-    createdTimestamp:
-      output.createdTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
-        : undefined,
-    displayName: __expectString(output.displayName),
-    emailAddress: __expectString(output.emailAddress),
-    lastModifiedTimestamp:
-      output.lastModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
-        : undefined,
-    sshPublicKey: __expectString(output.sshPublicKey),
-    userArn: __expectString(output.userArn),
-  } as any;
+  return take(output, {
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    emailAddress: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sshPublicKey: __expectString,
+    userArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1DisassociateTeamMemberResult
- */
-const de_DisassociateTeamMemberResult = (output: any, context: __SerdeContext): DisassociateTeamMemberResult => {
-  return {} as any;
-};
+// de_DisassociateTeamMemberResult omitted.
 
-/**
- * deserializeAws_json1_1InvalidNextTokenException
- */
-const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-/**
- * deserializeAws_json1_1InvalidServiceRoleException
- */
-const de_InvalidServiceRoleException = (output: any, context: __SerdeContext): InvalidServiceRoleException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidServiceRoleException omitted.
 
-/**
- * deserializeAws_json1_1LimitExceededException
- */
-const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1ListProjectsResult
- */
-const de_ListProjectsResult = (output: any, context: __SerdeContext): ListProjectsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    projects: output.projects != null ? de_ProjectsList(output.projects, context) : undefined,
-  } as any;
-};
+// de_ListProjectsResult omitted.
 
-/**
- * deserializeAws_json1_1ListResourcesResult
- */
-const de_ListResourcesResult = (output: any, context: __SerdeContext): ListResourcesResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    resources: output.resources != null ? de_ResourcesResult(output.resources, context) : undefined,
-  } as any;
-};
+// de_ListResourcesResult omitted.
 
-/**
- * deserializeAws_json1_1ListTagsForProjectResult
- */
-const de_ListTagsForProjectResult = (output: any, context: __SerdeContext): ListTagsForProjectResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForProjectResult omitted.
 
-/**
- * deserializeAws_json1_1ListTeamMembersResult
- */
-const de_ListTeamMembersResult = (output: any, context: __SerdeContext): ListTeamMembersResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    teamMembers: output.teamMembers != null ? de_TeamMemberResult(output.teamMembers, context) : undefined,
-  } as any;
-};
+// de_ListTeamMembersResult omitted.
 
-/**
- * deserializeAws_json1_1ListUserProfilesResult
- */
-const de_ListUserProfilesResult = (output: any, context: __SerdeContext): ListUserProfilesResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    userProfiles: output.userProfiles != null ? de_UserProfilesList(output.userProfiles, context) : undefined,
-  } as any;
-};
+// de_ListUserProfilesResult omitted.
 
-/**
- * deserializeAws_json1_1ProjectAlreadyExistsException
- */
-const de_ProjectAlreadyExistsException = (output: any, context: __SerdeContext): ProjectAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProjectAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1ProjectConfigurationException
- */
-const de_ProjectConfigurationException = (output: any, context: __SerdeContext): ProjectConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProjectConfigurationException omitted.
 
-/**
- * deserializeAws_json1_1ProjectCreationFailedException
- */
-const de_ProjectCreationFailedException = (output: any, context: __SerdeContext): ProjectCreationFailedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProjectCreationFailedException omitted.
 
-/**
- * deserializeAws_json1_1ProjectNotFoundException
- */
-const de_ProjectNotFoundException = (output: any, context: __SerdeContext): ProjectNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProjectNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1ProjectsList
- */
-const de_ProjectsList = (output: any, context: __SerdeContext): ProjectSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ProjectSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ProjectsList omitted.
 
-/**
- * deserializeAws_json1_1ProjectStatus
- */
-const de_ProjectStatus = (output: any, context: __SerdeContext): ProjectStatus => {
-  return {
-    reason: __expectString(output.reason),
-    state: __expectString(output.state),
-  } as any;
-};
+// de_ProjectStatus omitted.
 
-/**
- * deserializeAws_json1_1ProjectSummary
- */
-const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
-  return {
-    projectArn: __expectString(output.projectArn),
-    projectId: __expectString(output.projectId),
-  } as any;
-};
+// de_ProjectSummary omitted.
 
-/**
- * deserializeAws_json1_1Resource
- */
-const de_Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    id: __expectString(output.id),
-  } as any;
-};
+// de_Resource omitted.
 
-/**
- * deserializeAws_json1_1ResourcesResult
- */
-const de_ResourcesResult = (output: any, context: __SerdeContext): Resource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Resource(entry, context);
-    });
-  return retVal;
-};
+// de_ResourcesResult omitted.
 
-/**
- * deserializeAws_json1_1TagProjectResult
- */
-const de_TagProjectResult = (output: any, context: __SerdeContext): TagProjectResult => {
-  return {
-    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_TagProjectResult omitted.
 
-/**
- * deserializeAws_json1_1Tags
- */
-const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-/**
- * deserializeAws_json1_1TeamMember
- */
-const de_TeamMember = (output: any, context: __SerdeContext): TeamMember => {
-  return {
-    projectRole: __expectString(output.projectRole),
-    remoteAccessAllowed: __expectBoolean(output.remoteAccessAllowed),
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_TeamMember omitted.
 
-/**
- * deserializeAws_json1_1TeamMemberAlreadyAssociatedException
- */
-const de_TeamMemberAlreadyAssociatedException = (
-  output: any,
-  context: __SerdeContext
-): TeamMemberAlreadyAssociatedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TeamMemberAlreadyAssociatedException omitted.
 
-/**
- * deserializeAws_json1_1TeamMemberNotFoundException
- */
-const de_TeamMemberNotFoundException = (output: any, context: __SerdeContext): TeamMemberNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TeamMemberNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1TeamMemberResult
- */
-const de_TeamMemberResult = (output: any, context: __SerdeContext): TeamMember[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_TeamMember(entry, context);
-    });
-  return retVal;
-};
+// de_TeamMemberResult omitted.
 
-/**
- * deserializeAws_json1_1UntagProjectResult
- */
-const de_UntagProjectResult = (output: any, context: __SerdeContext): UntagProjectResult => {
-  return {} as any;
-};
+// de_UntagProjectResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateProjectResult
- */
-const de_UpdateProjectResult = (output: any, context: __SerdeContext): UpdateProjectResult => {
-  return {} as any;
-};
+// de_UpdateProjectResult omitted.
 
-/**
- * deserializeAws_json1_1UpdateTeamMemberResult
- */
-const de_UpdateTeamMemberResult = (output: any, context: __SerdeContext): UpdateTeamMemberResult => {
-  return {
-    projectRole: __expectString(output.projectRole),
-    remoteAccessAllowed: __expectBoolean(output.remoteAccessAllowed),
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_UpdateTeamMemberResult omitted.
 
 /**
  * deserializeAws_json1_1UpdateUserProfileResult
  */
 const de_UpdateUserProfileResult = (output: any, context: __SerdeContext): UpdateUserProfileResult => {
-  return {
-    createdTimestamp:
-      output.createdTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
-        : undefined,
-    displayName: __expectString(output.displayName),
-    emailAddress: __expectString(output.emailAddress),
-    lastModifiedTimestamp:
-      output.lastModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
-        : undefined,
-    sshPublicKey: __expectString(output.sshPublicKey),
-    userArn: __expectString(output.userArn),
-  } as any;
+  return take(output, {
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    emailAddress: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sshPublicKey: __expectString,
+    userArn: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1UserProfileAlreadyExistsException
- */
-const de_UserProfileAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): UserProfileAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserProfileAlreadyExistsException omitted.
 
-/**
- * deserializeAws_json1_1UserProfileNotFoundException
- */
-const de_UserProfileNotFoundException = (output: any, context: __SerdeContext): UserProfileNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserProfileNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1UserProfilesList
- */
-const de_UserProfilesList = (output: any, context: __SerdeContext): UserProfileSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_UserProfileSummary(entry, context);
-    });
-  return retVal;
-};
+// de_UserProfilesList omitted.
 
-/**
- * deserializeAws_json1_1UserProfileSummary
- */
-const de_UserProfileSummary = (output: any, context: __SerdeContext): UserProfileSummary => {
-  return {
-    displayName: __expectString(output.displayName),
-    emailAddress: __expectString(output.emailAddress),
-    sshPublicKey: __expectString(output.sshPublicKey),
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_UserProfileSummary omitted.
 
-/**
- * deserializeAws_json1_1ValidationException
- */
-const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2335,6 +1706,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

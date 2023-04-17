@@ -1,10 +1,9 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectString as __expectString,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -27,9 +26,7 @@ import {
   EC2InstanceUnavailableException,
   InvalidArgsException,
   SendSerialConsoleSSHPublicKeyRequest,
-  SendSerialConsoleSSHPublicKeyResponse,
   SendSSHPublicKeyRequest,
-  SendSSHPublicKeyResponse,
   SerialConsoleAccessDisabledException,
   SerialConsoleSessionLimitExceededException,
   SerialConsoleSessionUnavailableException,
@@ -46,7 +43,7 @@ export const se_SendSerialConsoleSSHPublicKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendSerialConsoleSSHPublicKey");
   let body: any;
-  body = JSON.stringify(se_SendSerialConsoleSSHPublicKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -59,7 +56,7 @@ export const se_SendSSHPublicKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendSSHPublicKey");
   let body: any;
-  body = JSON.stringify(se_SendSSHPublicKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -75,12 +72,12 @@ export const de_SendSerialConsoleSSHPublicKeyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SendSerialConsoleSSHPublicKeyResponse(data, context);
+  contents = _json(data);
   const response: SendSerialConsoleSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -131,10 +128,9 @@ const de_SendSerialConsoleSSHPublicKeyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -152,12 +148,12 @@ export const de_SendSSHPublicKeyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_SendSSHPublicKeyResponse(data, context);
+  contents = _json(data);
   const response: SendSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -196,10 +192,9 @@ const de_SendSSHPublicKeyCommandError = async (
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -210,7 +205,7 @@ const de_SendSSHPublicKeyCommandError = async (
  */
 const de_AuthExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<AuthException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_AuthException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AuthException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -226,7 +221,7 @@ const de_EC2InstanceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<EC2InstanceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EC2InstanceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EC2InstanceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -242,7 +237,7 @@ const de_EC2InstanceStateInvalidExceptionRes = async (
   context: __SerdeContext
 ): Promise<EC2InstanceStateInvalidException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EC2InstanceStateInvalidException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EC2InstanceStateInvalidException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -258,7 +253,7 @@ const de_EC2InstanceTypeInvalidExceptionRes = async (
   context: __SerdeContext
 ): Promise<EC2InstanceTypeInvalidException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EC2InstanceTypeInvalidException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EC2InstanceTypeInvalidException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -274,7 +269,7 @@ const de_EC2InstanceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<EC2InstanceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_EC2InstanceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EC2InstanceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -290,7 +285,7 @@ const de_InvalidArgsExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidArgsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidArgsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArgsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -306,7 +301,7 @@ const de_SerialConsoleAccessDisabledExceptionRes = async (
   context: __SerdeContext
 ): Promise<SerialConsoleAccessDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SerialConsoleAccessDisabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SerialConsoleAccessDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -322,7 +317,7 @@ const de_SerialConsoleSessionLimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<SerialConsoleSessionLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SerialConsoleSessionLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SerialConsoleSessionLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -338,7 +333,7 @@ const de_SerialConsoleSessionUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<SerialConsoleSessionUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_SerialConsoleSessionUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new SerialConsoleSessionUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -351,7 +346,7 @@ const de_SerialConsoleSessionUnavailableExceptionRes = async (
  */
 const de_ServiceExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -364,7 +359,7 @@ const de_ServiceExceptionRes = async (parsedOutput: any, context: __SerdeContext
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -372,165 +367,35 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1SendSerialConsoleSSHPublicKeyRequest
- */
-const se_SendSerialConsoleSSHPublicKeyRequest = (
-  input: SendSerialConsoleSSHPublicKeyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.SSHPublicKey != null && { SSHPublicKey: input.SSHPublicKey }),
-    ...(input.SerialPort != null && { SerialPort: input.SerialPort }),
-  };
-};
+// se_SendSerialConsoleSSHPublicKeyRequest omitted.
 
-/**
- * serializeAws_json1_1SendSSHPublicKeyRequest
- */
-const se_SendSSHPublicKeyRequest = (input: SendSSHPublicKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.InstanceOSUser != null && { InstanceOSUser: input.InstanceOSUser }),
-    ...(input.SSHPublicKey != null && { SSHPublicKey: input.SSHPublicKey }),
-  };
-};
+// se_SendSSHPublicKeyRequest omitted.
 
-/**
- * deserializeAws_json1_1AuthException
- */
-const de_AuthException = (output: any, context: __SerdeContext): AuthException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_AuthException omitted.
 
-/**
- * deserializeAws_json1_1EC2InstanceNotFoundException
- */
-const de_EC2InstanceNotFoundException = (output: any, context: __SerdeContext): EC2InstanceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EC2InstanceNotFoundException omitted.
 
-/**
- * deserializeAws_json1_1EC2InstanceStateInvalidException
- */
-const de_EC2InstanceStateInvalidException = (
-  output: any,
-  context: __SerdeContext
-): EC2InstanceStateInvalidException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EC2InstanceStateInvalidException omitted.
 
-/**
- * deserializeAws_json1_1EC2InstanceTypeInvalidException
- */
-const de_EC2InstanceTypeInvalidException = (output: any, context: __SerdeContext): EC2InstanceTypeInvalidException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EC2InstanceTypeInvalidException omitted.
 
-/**
- * deserializeAws_json1_1EC2InstanceUnavailableException
- */
-const de_EC2InstanceUnavailableException = (output: any, context: __SerdeContext): EC2InstanceUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_EC2InstanceUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1InvalidArgsException
- */
-const de_InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidArgsException omitted.
 
-/**
- * deserializeAws_json1_1SendSerialConsoleSSHPublicKeyResponse
- */
-const de_SendSerialConsoleSSHPublicKeyResponse = (
-  output: any,
-  context: __SerdeContext
-): SendSerialConsoleSSHPublicKeyResponse => {
-  return {
-    RequestId: __expectString(output.RequestId),
-    Success: __expectBoolean(output.Success),
-  } as any;
-};
+// de_SendSerialConsoleSSHPublicKeyResponse omitted.
 
-/**
- * deserializeAws_json1_1SendSSHPublicKeyResponse
- */
-const de_SendSSHPublicKeyResponse = (output: any, context: __SerdeContext): SendSSHPublicKeyResponse => {
-  return {
-    RequestId: __expectString(output.RequestId),
-    Success: __expectBoolean(output.Success),
-  } as any;
-};
+// de_SendSSHPublicKeyResponse omitted.
 
-/**
- * deserializeAws_json1_1SerialConsoleAccessDisabledException
- */
-const de_SerialConsoleAccessDisabledException = (
-  output: any,
-  context: __SerdeContext
-): SerialConsoleAccessDisabledException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_SerialConsoleAccessDisabledException omitted.
 
-/**
- * deserializeAws_json1_1SerialConsoleSessionLimitExceededException
- */
-const de_SerialConsoleSessionLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): SerialConsoleSessionLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_SerialConsoleSessionLimitExceededException omitted.
 
-/**
- * deserializeAws_json1_1SerialConsoleSessionUnavailableException
- */
-const de_SerialConsoleSessionUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): SerialConsoleSessionUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_SerialConsoleSessionUnavailableException omitted.
 
-/**
- * deserializeAws_json1_1ServiceException
- */
-const de_ServiceException = (output: any, context: __SerdeContext): ServiceException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceException omitted.
 
-/**
- * deserializeAws_json1_1ThrottlingException
- */
-const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -552,6 +417,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

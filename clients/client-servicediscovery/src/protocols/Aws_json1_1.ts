@@ -5,14 +5,15 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -77,31 +78,21 @@ import {
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "../commands/UpdateServiceCommand";
 import {
   CreateHttpNamespaceRequest,
-  CreateHttpNamespaceResponse,
   CreatePrivateDnsNamespaceRequest,
-  CreatePrivateDnsNamespaceResponse,
   CreatePublicDnsNamespaceRequest,
-  CreatePublicDnsNamespaceResponse,
   CreateServiceRequest,
   CreateServiceResponse,
   CustomHealthNotFound,
   DeleteNamespaceRequest,
-  DeleteNamespaceResponse,
   DeleteServiceRequest,
-  DeleteServiceResponse,
   DeregisterInstanceRequest,
-  DeregisterInstanceResponse,
   DiscoverInstancesRequest,
-  DiscoverInstancesResponse,
   DnsConfig,
   DnsConfigChange,
-  DnsProperties,
   DnsRecord,
   DuplicateRequest,
   GetInstanceRequest,
-  GetInstanceResponse,
   GetInstancesHealthStatusRequest,
-  GetInstancesHealthStatusResponse,
   GetNamespaceRequest,
   GetNamespaceResponse,
   GetOperationRequest,
@@ -110,35 +101,24 @@ import {
   GetServiceResponse,
   HealthCheckConfig,
   HealthCheckCustomConfig,
-  HealthStatus,
-  HttpInstanceSummary,
   HttpNamespaceChange,
-  HttpProperties,
-  Instance,
   InstanceNotFound,
-  InstanceSummary,
   InvalidInput,
   ListInstancesRequest,
-  ListInstancesResponse,
   ListNamespacesRequest,
   ListNamespacesResponse,
   ListOperationsRequest,
-  ListOperationsResponse,
   ListServicesRequest,
   ListServicesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   Namespace,
   NamespaceAlreadyExists,
   NamespaceFilter,
   NamespaceNotFound,
-  NamespaceProperties,
   NamespaceSummary,
   Operation,
   OperationFilter,
   OperationNotFound,
-  OperationSummary,
-  OperationTargetType,
   PrivateDnsNamespaceChange,
   PrivateDnsNamespaceProperties,
   PrivateDnsNamespacePropertiesChange,
@@ -150,7 +130,6 @@ import {
   PublicDnsPropertiesMutable,
   PublicDnsPropertiesMutableChange,
   RegisterInstanceRequest,
-  RegisterInstanceResponse,
   RequestLimitExceeded,
   ResourceInUse,
   ResourceLimitExceeded,
@@ -165,19 +144,13 @@ import {
   SOAChange,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TooManyTagsException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateHttpNamespaceRequest,
-  UpdateHttpNamespaceResponse,
   UpdateInstanceCustomHealthStatusRequest,
   UpdatePrivateDnsNamespaceRequest,
-  UpdatePrivateDnsNamespaceResponse,
   UpdatePublicDnsNamespaceRequest,
-  UpdatePublicDnsNamespaceResponse,
   UpdateServiceRequest,
-  UpdateServiceResponse,
 } from "../models/models_0";
 import { ServiceDiscoveryServiceException as __BaseException } from "../models/ServiceDiscoveryServiceException";
 
@@ -242,7 +215,7 @@ export const se_DeleteNamespaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteNamespace");
   let body: any;
-  body = JSON.stringify(se_DeleteNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -255,7 +228,7 @@ export const se_DeleteServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteService");
   let body: any;
-  body = JSON.stringify(se_DeleteServiceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -268,7 +241,7 @@ export const se_DeregisterInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterInstance");
   let body: any;
-  body = JSON.stringify(se_DeregisterInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -281,7 +254,7 @@ export const se_DiscoverInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DiscoverInstances");
   let body: any;
-  body = JSON.stringify(se_DiscoverInstancesRequest(input, context));
+  body = JSON.stringify(_json(input));
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data-" + resolvedHostname;
@@ -301,7 +274,7 @@ export const se_GetInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetInstance");
   let body: any;
-  body = JSON.stringify(se_GetInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -314,7 +287,7 @@ export const se_GetInstancesHealthStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetInstancesHealthStatus");
   let body: any;
-  body = JSON.stringify(se_GetInstancesHealthStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -327,7 +300,7 @@ export const se_GetNamespaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetNamespace");
   let body: any;
-  body = JSON.stringify(se_GetNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -340,7 +313,7 @@ export const se_GetOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetOperation");
   let body: any;
-  body = JSON.stringify(se_GetOperationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -353,7 +326,7 @@ export const se_GetServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetService");
   let body: any;
-  body = JSON.stringify(se_GetServiceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -366,7 +339,7 @@ export const se_ListInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListInstances");
   let body: any;
-  body = JSON.stringify(se_ListInstancesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -379,7 +352,7 @@ export const se_ListNamespacesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListNamespaces");
   let body: any;
-  body = JSON.stringify(se_ListNamespacesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -392,7 +365,7 @@ export const se_ListOperationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListOperations");
   let body: any;
-  body = JSON.stringify(se_ListOperationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -405,7 +378,7 @@ export const se_ListServicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListServices");
   let body: any;
-  body = JSON.stringify(se_ListServicesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -418,7 +391,7 @@ export const se_ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -444,7 +417,7 @@ export const se_TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(se_TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -457,7 +430,7 @@ export const se_UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(se_UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -483,7 +456,7 @@ export const se_UpdateInstanceCustomHealthStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateInstanceCustomHealthStatus");
   let body: any;
-  body = JSON.stringify(se_UpdateInstanceCustomHealthStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -522,7 +495,7 @@ export const se_UpdateServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateService");
   let body: any;
-  body = JSON.stringify(se_UpdateServiceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -538,12 +511,12 @@ export const de_CreateHttpNamespaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreateHttpNamespaceResponse(data, context);
+  contents = _json(data);
   const response: CreateHttpNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -576,10 +549,9 @@ const de_CreateHttpNamespaceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -597,12 +569,12 @@ export const de_CreatePrivateDnsNamespaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreatePrivateDnsNamespaceResponse(data, context);
+  contents = _json(data);
   const response: CreatePrivateDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -635,10 +607,9 @@ const de_CreatePrivateDnsNamespaceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -656,12 +627,12 @@ export const de_CreatePublicDnsNamespaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_CreatePublicDnsNamespaceResponse(data, context);
+  contents = _json(data);
   const response: CreatePublicDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -694,10 +665,9 @@ const de_CreatePublicDnsNamespaceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -720,7 +690,7 @@ export const de_CreateServiceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -753,10 +723,9 @@ const de_CreateServiceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -774,12 +743,12 @@ export const de_DeleteNamespaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteNamespaceResponse(data, context);
+  contents = _json(data);
   const response: DeleteNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -809,10 +778,9 @@ const de_DeleteNamespaceCommandError = async (
       throw await de_ResourceInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -830,12 +798,12 @@ export const de_DeleteServiceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeleteServiceResponse(data, context);
+  contents = _json(data);
   const response: DeleteServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -862,10 +830,9 @@ const de_DeleteServiceCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -883,12 +850,12 @@ export const de_DeregisterInstanceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DeregisterInstanceResponse(data, context);
+  contents = _json(data);
   const response: DeregisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -921,10 +888,9 @@ const de_DeregisterInstanceCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -942,12 +908,12 @@ export const de_DiscoverInstancesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_DiscoverInstancesResponse(data, context);
+  contents = _json(data);
   const response: DiscoverInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -977,10 +943,9 @@ const de_DiscoverInstancesCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -998,12 +963,12 @@ export const de_GetInstanceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetInstanceResponse(data, context);
+  contents = _json(data);
   const response: GetInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1030,10 +995,9 @@ const de_GetInstanceCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1051,12 +1015,12 @@ export const de_GetInstancesHealthStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GetInstancesHealthStatusResponse(data, context);
+  contents = _json(data);
   const response: GetInstancesHealthStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1083,10 +1047,9 @@ const de_GetInstancesHealthStatusCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1109,7 +1072,7 @@ export const de_GetNamespaceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1133,10 +1096,9 @@ const de_GetNamespaceCommandError = async (
       throw await de_NamespaceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1159,7 +1121,7 @@ export const de_GetOperationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1183,10 +1145,9 @@ const de_GetOperationCommandError = async (
       throw await de_OperationNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1209,7 +1170,7 @@ export const de_GetServiceCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1233,10 +1194,9 @@ const de_GetServiceCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1254,12 +1214,12 @@ export const de_ListInstancesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListInstancesResponse(data, context);
+  contents = _json(data);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1283,10 +1243,9 @@ const de_ListInstancesCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1309,7 +1268,7 @@ export const de_ListNamespacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1330,10 +1289,9 @@ const de_ListNamespacesCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1351,12 +1309,12 @@ export const de_ListOperationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListOperationsResponse(data, context);
+  contents = _json(data);
   const response: ListOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1377,10 +1335,9 @@ const de_ListOperationsCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1403,7 +1360,7 @@ export const de_ListServicesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1424,10 +1381,9 @@ const de_ListServicesCommandError = async (
       throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1445,12 +1401,12 @@ export const de_ListTagsForResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1474,10 +1430,9 @@ const de_ListTagsForResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1495,12 +1450,12 @@ export const de_RegisterInstanceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_RegisterInstanceResponse(data, context);
+  contents = _json(data);
   const response: RegisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1533,10 +1488,9 @@ const de_RegisterInstanceCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1554,12 +1508,12 @@ export const de_TagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1586,10 +1540,9 @@ const de_TagResourceCommandError = async (
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1607,12 +1560,12 @@ export const de_UntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1636,10 +1589,9 @@ const de_UntagResourceCommandError = async (
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1657,12 +1609,12 @@ export const de_UpdateHttpNamespaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateHttpNamespaceResponse(data, context);
+  contents = _json(data);
   const response: UpdateHttpNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1692,10 +1644,9 @@ const de_UpdateHttpNamespaceCommandError = async (
       throw await de_ResourceInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1715,7 +1666,7 @@ export const de_UpdateInstanceCustomHealthStatusCommand = async (
   const response: UpdateInstanceCustomHealthStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1745,10 +1696,9 @@ const de_UpdateInstanceCustomHealthStatusCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1766,12 +1716,12 @@ export const de_UpdatePrivateDnsNamespaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdatePrivateDnsNamespaceResponse(data, context);
+  contents = _json(data);
   const response: UpdatePrivateDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1801,10 +1751,9 @@ const de_UpdatePrivateDnsNamespaceCommandError = async (
       throw await de_ResourceInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1822,12 +1771,12 @@ export const de_UpdatePublicDnsNamespaceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdatePublicDnsNamespaceResponse(data, context);
+  contents = _json(data);
   const response: UpdatePublicDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1857,10 +1806,9 @@ const de_UpdatePublicDnsNamespaceCommandError = async (
       throw await de_ResourceInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1878,12 +1826,12 @@ export const de_UpdateServiceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_UpdateServiceResponse(data, context);
+  contents = _json(data);
   const response: UpdateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -1910,10 +1858,9 @@ const de_UpdateServiceCommandError = async (
       throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -1927,7 +1874,7 @@ const de_CustomHealthNotFoundRes = async (
   context: __SerdeContext
 ): Promise<CustomHealthNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_CustomHealthNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new CustomHealthNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1940,7 +1887,7 @@ const de_CustomHealthNotFoundRes = async (
  */
 const de_DuplicateRequestRes = async (parsedOutput: any, context: __SerdeContext): Promise<DuplicateRequest> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_DuplicateRequest(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateRequest({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1953,7 +1900,7 @@ const de_DuplicateRequestRes = async (parsedOutput: any, context: __SerdeContext
  */
 const de_InstanceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<InstanceNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InstanceNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new InstanceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1966,7 +1913,7 @@ const de_InstanceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
  */
 const de_InvalidInputRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidInput> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidInput(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInput({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1982,7 +1929,7 @@ const de_NamespaceAlreadyExistsRes = async (
   context: __SerdeContext
 ): Promise<NamespaceAlreadyExists> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NamespaceAlreadyExists(body, context);
+  const deserialized: any = _json(body);
   const exception = new NamespaceAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1995,7 +1942,7 @@ const de_NamespaceAlreadyExistsRes = async (
  */
 const de_NamespaceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<NamespaceNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_NamespaceNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new NamespaceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2008,7 +1955,7 @@ const de_NamespaceNotFoundRes = async (parsedOutput: any, context: __SerdeContex
  */
 const de_OperationNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<OperationNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_OperationNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new OperationNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2024,7 +1971,7 @@ const de_RequestLimitExceededRes = async (
   context: __SerdeContext
 ): Promise<RequestLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_RequestLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2037,7 +1984,7 @@ const de_RequestLimitExceededRes = async (
  */
 const de_ResourceInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<ResourceInUse> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceInUse(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2053,7 +2000,7 @@ const de_ResourceLimitExceededRes = async (
   context: __SerdeContext
 ): Promise<ResourceLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2069,7 +2016,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2085,7 +2032,7 @@ const de_ServiceAlreadyExistsRes = async (
   context: __SerdeContext
 ): Promise<ServiceAlreadyExists> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceAlreadyExists(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2098,7 +2045,7 @@ const de_ServiceAlreadyExistsRes = async (
  */
 const de_ServiceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_ServiceNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2114,7 +2061,7 @@ const de_TooManyTagsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2122,1061 +2069,345 @@ const de_TooManyTagsExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_1Attributes
- */
-const se_Attributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Attributes omitted.
 
 /**
  * serializeAws_json1_1CreateHttpNamespaceRequest
  */
 const se_CreateHttpNamespaceRequest = (input: CreateHttpNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    Name: [],
+    Tags: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1CreatePrivateDnsNamespaceRequest
  */
 const se_CreatePrivateDnsNamespaceRequest = (input: CreatePrivateDnsNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Properties != null && { Properties: se_PrivateDnsNamespaceProperties(input.Properties, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.Vpc != null && { Vpc: input.Vpc }),
-  };
+  return take(input, {
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    Name: [],
+    Properties: _json,
+    Tags: _json,
+    Vpc: [],
+  });
 };
 
 /**
  * serializeAws_json1_1CreatePublicDnsNamespaceRequest
  */
 const se_CreatePublicDnsNamespaceRequest = (input: CreatePublicDnsNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Properties != null && { Properties: se_PublicDnsNamespaceProperties(input.Properties, context) }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
+  return take(input, {
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    Name: [],
+    Properties: _json,
+    Tags: _json,
+  });
 };
 
 /**
  * serializeAws_json1_1CreateServiceRequest
  */
 const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
-  return {
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DnsConfig != null && { DnsConfig: se_DnsConfig(input.DnsConfig, context) }),
-    ...(input.HealthCheckConfig != null && {
-      HealthCheckConfig: se_HealthCheckConfig(input.HealthCheckConfig, context),
-    }),
-    ...(input.HealthCheckCustomConfig != null && {
-      HealthCheckCustomConfig: se_HealthCheckCustomConfig(input.HealthCheckCustomConfig, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NamespaceId != null && { NamespaceId: input.NamespaceId }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+  return take(input, {
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    DnsConfig: _json,
+    HealthCheckConfig: _json,
+    HealthCheckCustomConfig: _json,
+    Name: [],
+    NamespaceId: [],
+    Tags: _json,
+    Type: [],
+  });
 };
 
-/**
- * serializeAws_json1_1DeleteNamespaceRequest
- */
-const se_DeleteNamespaceRequest = (input: DeleteNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DeleteNamespaceRequest omitted.
 
-/**
- * serializeAws_json1_1DeleteServiceRequest
- */
-const se_DeleteServiceRequest = (input: DeleteServiceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DeleteServiceRequest omitted.
 
-/**
- * serializeAws_json1_1DeregisterInstanceRequest
- */
-const se_DeregisterInstanceRequest = (input: DeregisterInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
-};
+// se_DeregisterInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1DiscoverInstancesRequest
- */
-const se_DiscoverInstancesRequest = (input: DiscoverInstancesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HealthStatus != null && { HealthStatus: input.HealthStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NamespaceName != null && { NamespaceName: input.NamespaceName }),
-    ...(input.OptionalParameters != null && { OptionalParameters: se_Attributes(input.OptionalParameters, context) }),
-    ...(input.QueryParameters != null && { QueryParameters: se_Attributes(input.QueryParameters, context) }),
-    ...(input.ServiceName != null && { ServiceName: input.ServiceName }),
-  };
-};
+// se_DiscoverInstancesRequest omitted.
 
-/**
- * serializeAws_json1_1DnsConfig
- */
-const se_DnsConfig = (input: DnsConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DnsRecords != null && { DnsRecords: se_DnsRecordList(input.DnsRecords, context) }),
-    ...(input.NamespaceId != null && { NamespaceId: input.NamespaceId }),
-    ...(input.RoutingPolicy != null && { RoutingPolicy: input.RoutingPolicy }),
-  };
-};
+// se_DnsConfig omitted.
 
-/**
- * serializeAws_json1_1DnsConfigChange
- */
-const se_DnsConfigChange = (input: DnsConfigChange, context: __SerdeContext): any => {
-  return {
-    ...(input.DnsRecords != null && { DnsRecords: se_DnsRecordList(input.DnsRecords, context) }),
-  };
-};
+// se_DnsConfigChange omitted.
 
-/**
- * serializeAws_json1_1DnsRecord
- */
-const se_DnsRecord = (input: DnsRecord, context: __SerdeContext): any => {
-  return {
-    ...(input.TTL != null && { TTL: input.TTL }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_DnsRecord omitted.
 
-/**
- * serializeAws_json1_1DnsRecordList
- */
-const se_DnsRecordList = (input: DnsRecord[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_DnsRecord(entry, context);
-    });
-};
+// se_DnsRecordList omitted.
 
-/**
- * serializeAws_json1_1FilterValues
- */
-const se_FilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilterValues omitted.
 
-/**
- * serializeAws_json1_1GetInstanceRequest
- */
-const se_GetInstanceRequest = (input: GetInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
-};
+// se_GetInstanceRequest omitted.
 
-/**
- * serializeAws_json1_1GetInstancesHealthStatusRequest
- */
-const se_GetInstancesHealthStatusRequest = (input: GetInstancesHealthStatusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Instances != null && { Instances: se_InstanceIdList(input.Instances, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
-};
+// se_GetInstancesHealthStatusRequest omitted.
 
-/**
- * serializeAws_json1_1GetNamespaceRequest
- */
-const se_GetNamespaceRequest = (input: GetNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_GetNamespaceRequest omitted.
 
-/**
- * serializeAws_json1_1GetOperationRequest
- */
-const se_GetOperationRequest = (input: GetOperationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.OperationId != null && { OperationId: input.OperationId }),
-  };
-};
+// se_GetOperationRequest omitted.
 
-/**
- * serializeAws_json1_1GetServiceRequest
- */
-const se_GetServiceRequest = (input: GetServiceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_GetServiceRequest omitted.
 
-/**
- * serializeAws_json1_1HealthCheckConfig
- */
-const se_HealthCheckConfig = (input: HealthCheckConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.FailureThreshold != null && { FailureThreshold: input.FailureThreshold }),
-    ...(input.ResourcePath != null && { ResourcePath: input.ResourcePath }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_HealthCheckConfig omitted.
 
-/**
- * serializeAws_json1_1HealthCheckCustomConfig
- */
-const se_HealthCheckCustomConfig = (input: HealthCheckCustomConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.FailureThreshold != null && { FailureThreshold: input.FailureThreshold }),
-  };
-};
+// se_HealthCheckCustomConfig omitted.
 
-/**
- * serializeAws_json1_1HttpNamespaceChange
- */
-const se_HttpNamespaceChange = (input: HttpNamespaceChange, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-  };
-};
+// se_HttpNamespaceChange omitted.
 
-/**
- * serializeAws_json1_1InstanceIdList
- */
-const se_InstanceIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InstanceIdList omitted.
 
-/**
- * serializeAws_json1_1ListInstancesRequest
- */
-const se_ListInstancesRequest = (input: ListInstancesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
-};
+// se_ListInstancesRequest omitted.
 
-/**
- * serializeAws_json1_1ListNamespacesRequest
- */
-const se_ListNamespacesRequest = (input: ListNamespacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_NamespaceFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListNamespacesRequest omitted.
 
-/**
- * serializeAws_json1_1ListOperationsRequest
- */
-const se_ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_OperationFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListOperationsRequest omitted.
 
-/**
- * serializeAws_json1_1ListServicesRequest
- */
-const se_ListServicesRequest = (input: ListServicesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: se_ServiceFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListServicesRequest omitted.
 
-/**
- * serializeAws_json1_1ListTagsForResourceRequest
- */
-const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-/**
- * serializeAws_json1_1NamespaceFilter
- */
-const se_NamespaceFilter = (input: NamespaceFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition != null && { Condition: input.Condition }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValues(input.Values, context) }),
-  };
-};
+// se_NamespaceFilter omitted.
 
-/**
- * serializeAws_json1_1NamespaceFilters
- */
-const se_NamespaceFilters = (input: NamespaceFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_NamespaceFilter(entry, context);
-    });
-};
+// se_NamespaceFilters omitted.
 
-/**
- * serializeAws_json1_1OperationFilter
- */
-const se_OperationFilter = (input: OperationFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition != null && { Condition: input.Condition }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValues(input.Values, context) }),
-  };
-};
+// se_OperationFilter omitted.
 
-/**
- * serializeAws_json1_1OperationFilters
- */
-const se_OperationFilters = (input: OperationFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_OperationFilter(entry, context);
-    });
-};
+// se_OperationFilters omitted.
 
-/**
- * serializeAws_json1_1PrivateDnsNamespaceChange
- */
-const se_PrivateDnsNamespaceChange = (input: PrivateDnsNamespaceChange, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Properties != null && { Properties: se_PrivateDnsNamespacePropertiesChange(input.Properties, context) }),
-  };
-};
+// se_PrivateDnsNamespaceChange omitted.
 
-/**
- * serializeAws_json1_1PrivateDnsNamespaceProperties
- */
-const se_PrivateDnsNamespaceProperties = (input: PrivateDnsNamespaceProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.DnsProperties != null && { DnsProperties: se_PrivateDnsPropertiesMutable(input.DnsProperties, context) }),
-  };
-};
+// se_PrivateDnsNamespaceProperties omitted.
 
-/**
- * serializeAws_json1_1PrivateDnsNamespacePropertiesChange
- */
-const se_PrivateDnsNamespacePropertiesChange = (
-  input: PrivateDnsNamespacePropertiesChange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DnsProperties != null && {
-      DnsProperties: se_PrivateDnsPropertiesMutableChange(input.DnsProperties, context),
-    }),
-  };
-};
+// se_PrivateDnsNamespacePropertiesChange omitted.
 
-/**
- * serializeAws_json1_1PrivateDnsPropertiesMutable
- */
-const se_PrivateDnsPropertiesMutable = (input: PrivateDnsPropertiesMutable, context: __SerdeContext): any => {
-  return {
-    ...(input.SOA != null && { SOA: se_SOA(input.SOA, context) }),
-  };
-};
+// se_PrivateDnsPropertiesMutable omitted.
 
-/**
- * serializeAws_json1_1PrivateDnsPropertiesMutableChange
- */
-const se_PrivateDnsPropertiesMutableChange = (
-  input: PrivateDnsPropertiesMutableChange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SOA != null && { SOA: se_SOAChange(input.SOA, context) }),
-  };
-};
+// se_PrivateDnsPropertiesMutableChange omitted.
 
-/**
- * serializeAws_json1_1PublicDnsNamespaceChange
- */
-const se_PublicDnsNamespaceChange = (input: PublicDnsNamespaceChange, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Properties != null && { Properties: se_PublicDnsNamespacePropertiesChange(input.Properties, context) }),
-  };
-};
+// se_PublicDnsNamespaceChange omitted.
 
-/**
- * serializeAws_json1_1PublicDnsNamespaceProperties
- */
-const se_PublicDnsNamespaceProperties = (input: PublicDnsNamespaceProperties, context: __SerdeContext): any => {
-  return {
-    ...(input.DnsProperties != null && { DnsProperties: se_PublicDnsPropertiesMutable(input.DnsProperties, context) }),
-  };
-};
+// se_PublicDnsNamespaceProperties omitted.
 
-/**
- * serializeAws_json1_1PublicDnsNamespacePropertiesChange
- */
-const se_PublicDnsNamespacePropertiesChange = (
-  input: PublicDnsNamespacePropertiesChange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DnsProperties != null && {
-      DnsProperties: se_PublicDnsPropertiesMutableChange(input.DnsProperties, context),
-    }),
-  };
-};
+// se_PublicDnsNamespacePropertiesChange omitted.
 
-/**
- * serializeAws_json1_1PublicDnsPropertiesMutable
- */
-const se_PublicDnsPropertiesMutable = (input: PublicDnsPropertiesMutable, context: __SerdeContext): any => {
-  return {
-    ...(input.SOA != null && { SOA: se_SOA(input.SOA, context) }),
-  };
-};
+// se_PublicDnsPropertiesMutable omitted.
 
-/**
- * serializeAws_json1_1PublicDnsPropertiesMutableChange
- */
-const se_PublicDnsPropertiesMutableChange = (input: PublicDnsPropertiesMutableChange, context: __SerdeContext): any => {
-  return {
-    ...(input.SOA != null && { SOA: se_SOAChange(input.SOA, context) }),
-  };
-};
+// se_PublicDnsPropertiesMutableChange omitted.
 
 /**
  * serializeAws_json1_1RegisterInstanceRequest
  */
 const se_RegisterInstanceRequest = (input: RegisterInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: se_Attributes(input.Attributes, context) }),
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
+  return take(input, {
+    Attributes: _json,
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    InstanceId: [],
+    ServiceId: [],
+  });
 };
 
-/**
- * serializeAws_json1_1ServiceChange
- */
-const se_ServiceChange = (input: ServiceChange, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DnsConfig != null && { DnsConfig: se_DnsConfigChange(input.DnsConfig, context) }),
-    ...(input.HealthCheckConfig != null && {
-      HealthCheckConfig: se_HealthCheckConfig(input.HealthCheckConfig, context),
-    }),
-  };
-};
+// se_ServiceChange omitted.
 
-/**
- * serializeAws_json1_1ServiceFilter
- */
-const se_ServiceFilter = (input: ServiceFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition != null && { Condition: input.Condition }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: se_FilterValues(input.Values, context) }),
-  };
-};
+// se_ServiceFilter omitted.
 
-/**
- * serializeAws_json1_1ServiceFilters
- */
-const se_ServiceFilters = (input: ServiceFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ServiceFilter(entry, context);
-    });
-};
+// se_ServiceFilters omitted.
 
-/**
- * serializeAws_json1_1SOA
- */
-const se_SOA = (input: SOA, context: __SerdeContext): any => {
-  return {
-    ...(input.TTL != null && { TTL: input.TTL }),
-  };
-};
+// se_SOA omitted.
 
-/**
- * serializeAws_json1_1SOAChange
- */
-const se_SOAChange = (input: SOAChange, context: __SerdeContext): any => {
-  return {
-    ...(input.TTL != null && { TTL: input.TTL }),
-  };
-};
+// se_SOAChange omitted.
 
-/**
- * serializeAws_json1_1Tag
- */
-const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-/**
- * serializeAws_json1_1TagKeyList
- */
-const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-/**
- * serializeAws_json1_1TagList
- */
-const se_TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-/**
- * serializeAws_json1_1TagResourceRequest
- */
-const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-/**
- * serializeAws_json1_1UntagResourceRequest
- */
-const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateHttpNamespaceRequest
  */
 const se_UpdateHttpNamespaceRequest = (input: UpdateHttpNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Namespace != null && { Namespace: se_HttpNamespaceChange(input.Namespace, context) }),
-    UpdaterRequestId: input.UpdaterRequestId ?? generateIdempotencyToken(),
-  };
+  return take(input, {
+    Id: [],
+    Namespace: _json,
+    UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest
- */
-const se_UpdateInstanceCustomHealthStatusRequest = (
-  input: UpdateInstanceCustomHealthStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_UpdateInstanceCustomHealthStatusRequest omitted.
 
 /**
  * serializeAws_json1_1UpdatePrivateDnsNamespaceRequest
  */
 const se_UpdatePrivateDnsNamespaceRequest = (input: UpdatePrivateDnsNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Namespace != null && { Namespace: se_PrivateDnsNamespaceChange(input.Namespace, context) }),
-    UpdaterRequestId: input.UpdaterRequestId ?? generateIdempotencyToken(),
-  };
+  return take(input, {
+    Id: [],
+    Namespace: _json,
+    UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
 /**
  * serializeAws_json1_1UpdatePublicDnsNamespaceRequest
  */
 const se_UpdatePublicDnsNamespaceRequest = (input: UpdatePublicDnsNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Namespace != null && { Namespace: se_PublicDnsNamespaceChange(input.Namespace, context) }),
-    UpdaterRequestId: input.UpdaterRequestId ?? generateIdempotencyToken(),
-  };
+  return take(input, {
+    Id: [],
+    Namespace: _json,
+    UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
-/**
- * serializeAws_json1_1UpdateServiceRequest
- */
-const se_UpdateServiceRequest = (input: UpdateServiceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Service != null && { Service: se_ServiceChange(input.Service, context) }),
-  };
-};
+// se_UpdateServiceRequest omitted.
 
-/**
- * deserializeAws_json1_1Attributes
- */
-const de_Attributes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Attributes omitted.
 
-/**
- * deserializeAws_json1_1CreateHttpNamespaceResponse
- */
-const de_CreateHttpNamespaceResponse = (output: any, context: __SerdeContext): CreateHttpNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_CreateHttpNamespaceResponse omitted.
 
-/**
- * deserializeAws_json1_1CreatePrivateDnsNamespaceResponse
- */
-const de_CreatePrivateDnsNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): CreatePrivateDnsNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_CreatePrivateDnsNamespaceResponse omitted.
 
-/**
- * deserializeAws_json1_1CreatePublicDnsNamespaceResponse
- */
-const de_CreatePublicDnsNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): CreatePublicDnsNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_CreatePublicDnsNamespaceResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateServiceResponse
  */
 const de_CreateServiceResponse = (output: any, context: __SerdeContext): CreateServiceResponse => {
-  return {
-    Service: output.Service != null ? de_Service(output.Service, context) : undefined,
-  } as any;
+  return take(output, {
+    Service: (_: any) => de_Service(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1CustomHealthNotFound
- */
-const de_CustomHealthNotFound = (output: any, context: __SerdeContext): CustomHealthNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_CustomHealthNotFound omitted.
 
-/**
- * deserializeAws_json1_1DeleteNamespaceResponse
- */
-const de_DeleteNamespaceResponse = (output: any, context: __SerdeContext): DeleteNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_DeleteNamespaceResponse omitted.
 
-/**
- * deserializeAws_json1_1DeleteServiceResponse
- */
-const de_DeleteServiceResponse = (output: any, context: __SerdeContext): DeleteServiceResponse => {
-  return {} as any;
-};
+// de_DeleteServiceResponse omitted.
 
-/**
- * deserializeAws_json1_1DeregisterInstanceResponse
- */
-const de_DeregisterInstanceResponse = (output: any, context: __SerdeContext): DeregisterInstanceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_DeregisterInstanceResponse omitted.
 
-/**
- * deserializeAws_json1_1DiscoverInstancesResponse
- */
-const de_DiscoverInstancesResponse = (output: any, context: __SerdeContext): DiscoverInstancesResponse => {
-  return {
-    Instances: output.Instances != null ? de_HttpInstanceSummaryList(output.Instances, context) : undefined,
-  } as any;
-};
+// de_DiscoverInstancesResponse omitted.
 
-/**
- * deserializeAws_json1_1DnsConfig
- */
-const de_DnsConfig = (output: any, context: __SerdeContext): DnsConfig => {
-  return {
-    DnsRecords: output.DnsRecords != null ? de_DnsRecordList(output.DnsRecords, context) : undefined,
-    NamespaceId: __expectString(output.NamespaceId),
-    RoutingPolicy: __expectString(output.RoutingPolicy),
-  } as any;
-};
+// de_DnsConfig omitted.
 
-/**
- * deserializeAws_json1_1DnsProperties
- */
-const de_DnsProperties = (output: any, context: __SerdeContext): DnsProperties => {
-  return {
-    HostedZoneId: __expectString(output.HostedZoneId),
-    SOA: output.SOA != null ? de_SOA(output.SOA, context) : undefined,
-  } as any;
-};
+// de_DnsProperties omitted.
 
-/**
- * deserializeAws_json1_1DnsRecord
- */
-const de_DnsRecord = (output: any, context: __SerdeContext): DnsRecord => {
-  return {
-    TTL: __expectLong(output.TTL),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_DnsRecord omitted.
 
-/**
- * deserializeAws_json1_1DnsRecordList
- */
-const de_DnsRecordList = (output: any, context: __SerdeContext): DnsRecord[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_DnsRecord(entry, context);
-    });
-  return retVal;
-};
+// de_DnsRecordList omitted.
 
-/**
- * deserializeAws_json1_1DuplicateRequest
- */
-const de_DuplicateRequest = (output: any, context: __SerdeContext): DuplicateRequest => {
-  return {
-    DuplicateOperationId: __expectString(output.DuplicateOperationId),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_DuplicateRequest omitted.
 
-/**
- * deserializeAws_json1_1GetInstanceResponse
- */
-const de_GetInstanceResponse = (output: any, context: __SerdeContext): GetInstanceResponse => {
-  return {
-    Instance: output.Instance != null ? de_Instance(output.Instance, context) : undefined,
-  } as any;
-};
+// de_GetInstanceResponse omitted.
 
-/**
- * deserializeAws_json1_1GetInstancesHealthStatusResponse
- */
-const de_GetInstancesHealthStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): GetInstancesHealthStatusResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Status: output.Status != null ? de_InstanceHealthStatusMap(output.Status, context) : undefined,
-  } as any;
-};
+// de_GetInstancesHealthStatusResponse omitted.
 
 /**
  * deserializeAws_json1_1GetNamespaceResponse
  */
 const de_GetNamespaceResponse = (output: any, context: __SerdeContext): GetNamespaceResponse => {
-  return {
-    Namespace: output.Namespace != null ? de_Namespace(output.Namespace, context) : undefined,
-  } as any;
+  return take(output, {
+    Namespace: (_: any) => de_Namespace(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetOperationResponse
  */
 const de_GetOperationResponse = (output: any, context: __SerdeContext): GetOperationResponse => {
-  return {
-    Operation: output.Operation != null ? de_Operation(output.Operation, context) : undefined,
-  } as any;
+  return take(output, {
+    Operation: (_: any) => de_Operation(_, context),
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1GetServiceResponse
  */
 const de_GetServiceResponse = (output: any, context: __SerdeContext): GetServiceResponse => {
-  return {
-    Service: output.Service != null ? de_Service(output.Service, context) : undefined,
-  } as any;
+  return take(output, {
+    Service: (_: any) => de_Service(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1HealthCheckConfig
- */
-const de_HealthCheckConfig = (output: any, context: __SerdeContext): HealthCheckConfig => {
-  return {
-    FailureThreshold: __expectInt32(output.FailureThreshold),
-    ResourcePath: __expectString(output.ResourcePath),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_HealthCheckConfig omitted.
 
-/**
- * deserializeAws_json1_1HealthCheckCustomConfig
- */
-const de_HealthCheckCustomConfig = (output: any, context: __SerdeContext): HealthCheckCustomConfig => {
-  return {
-    FailureThreshold: __expectInt32(output.FailureThreshold),
-  } as any;
-};
+// de_HealthCheckCustomConfig omitted.
 
-/**
- * deserializeAws_json1_1HttpInstanceSummary
- */
-const de_HttpInstanceSummary = (output: any, context: __SerdeContext): HttpInstanceSummary => {
-  return {
-    Attributes: output.Attributes != null ? de_Attributes(output.Attributes, context) : undefined,
-    HealthStatus: __expectString(output.HealthStatus),
-    InstanceId: __expectString(output.InstanceId),
-    NamespaceName: __expectString(output.NamespaceName),
-    ServiceName: __expectString(output.ServiceName),
-  } as any;
-};
+// de_HttpInstanceSummary omitted.
 
-/**
- * deserializeAws_json1_1HttpInstanceSummaryList
- */
-const de_HttpInstanceSummaryList = (output: any, context: __SerdeContext): HttpInstanceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_HttpInstanceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_HttpInstanceSummaryList omitted.
 
-/**
- * deserializeAws_json1_1HttpProperties
- */
-const de_HttpProperties = (output: any, context: __SerdeContext): HttpProperties => {
-  return {
-    HttpName: __expectString(output.HttpName),
-  } as any;
-};
+// de_HttpProperties omitted.
 
-/**
- * deserializeAws_json1_1Instance
- */
-const de_Instance = (output: any, context: __SerdeContext): Instance => {
-  return {
-    Attributes: output.Attributes != null ? de_Attributes(output.Attributes, context) : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_Instance omitted.
 
-/**
- * deserializeAws_json1_1InstanceHealthStatusMap
- */
-const de_InstanceHealthStatusMap = (output: any, context: __SerdeContext): Record<string, HealthStatus | string> => {
-  return Object.entries(output).reduce((acc: Record<string, HealthStatus | string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_InstanceHealthStatusMap omitted.
 
-/**
- * deserializeAws_json1_1InstanceNotFound
- */
-const de_InstanceNotFound = (output: any, context: __SerdeContext): InstanceNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InstanceNotFound omitted.
 
-/**
- * deserializeAws_json1_1InstanceSummary
- */
-const de_InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
-  return {
-    Attributes: output.Attributes != null ? de_Attributes(output.Attributes, context) : undefined,
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_InstanceSummary omitted.
 
-/**
- * deserializeAws_json1_1InstanceSummaryList
- */
-const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_InstanceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_InstanceSummaryList omitted.
 
-/**
- * deserializeAws_json1_1InvalidInput
- */
-const de_InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidInput omitted.
 
-/**
- * deserializeAws_json1_1ListInstancesResponse
- */
-const de_ListInstancesResponse = (output: any, context: __SerdeContext): ListInstancesResponse => {
-  return {
-    Instances: output.Instances != null ? de_InstanceSummaryList(output.Instances, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListInstancesResponse omitted.
 
 /**
  * deserializeAws_json1_1ListNamespacesResponse
  */
 const de_ListNamespacesResponse = (output: any, context: __SerdeContext): ListNamespacesResponse => {
-  return {
-    Namespaces: output.Namespaces != null ? de_NamespaceSummariesList(output.Namespaces, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Namespaces: (_: any) => de_NamespaceSummariesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListOperationsResponse
- */
-const de_ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Operations: output.Operations != null ? de_OperationSummaryList(output.Operations, context) : undefined,
-  } as any;
-};
+// de_ListOperationsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListServicesResponse
  */
 const de_ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Services: output.Services != null ? de_ServiceSummariesList(output.Services, context) : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    Services: (_: any) => de_ServiceSummariesList(_, context),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ListTagsForResourceResponse
- */
-const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1Namespace
  */
 const de_Namespace = (output: any, context: __SerdeContext): Namespace => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Properties: output.Properties != null ? de_NamespaceProperties(output.Properties, context) : undefined,
-    ServiceCount: __expectInt32(output.ServiceCount),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Properties: _json,
+    ServiceCount: __expectInt32,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1NamespaceAlreadyExists
- */
-const de_NamespaceAlreadyExists = (output: any, context: __SerdeContext): NamespaceAlreadyExists => {
-  return {
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Message: __expectString(output.Message),
-    NamespaceId: __expectString(output.NamespaceId),
-  } as any;
-};
+// de_NamespaceAlreadyExists omitted.
 
-/**
- * deserializeAws_json1_1NamespaceNotFound
- */
-const de_NamespaceNotFound = (output: any, context: __SerdeContext): NamespaceNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_NamespaceNotFound omitted.
 
-/**
- * deserializeAws_json1_1NamespaceProperties
- */
-const de_NamespaceProperties = (output: any, context: __SerdeContext): NamespaceProperties => {
-  return {
-    DnsProperties: output.DnsProperties != null ? de_DnsProperties(output.DnsProperties, context) : undefined,
-    HttpProperties: output.HttpProperties != null ? de_HttpProperties(output.HttpProperties, context) : undefined,
-  } as any;
-};
+// de_NamespaceProperties omitted.
 
 /**
  * deserializeAws_json1_1NamespaceSummariesList
@@ -3185,9 +2416,6 @@ const de_NamespaceSummariesList = (output: any, context: __SerdeContext): Namesp
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_NamespaceSummary(entry, context);
     });
   return retVal;
@@ -3197,176 +2425,75 @@ const de_NamespaceSummariesList = (output: any, context: __SerdeContext): Namesp
  * deserializeAws_json1_1NamespaceSummary
  */
 const de_NamespaceSummary = (output: any, context: __SerdeContext): NamespaceSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Properties: output.Properties != null ? de_NamespaceProperties(output.Properties, context) : undefined,
-    ServiceCount: __expectInt32(output.ServiceCount),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Properties: _json,
+    ServiceCount: __expectInt32,
+    Type: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_1Operation
  */
 const de_Operation = (output: any, context: __SerdeContext): Operation => {
-  return {
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    Id: __expectString(output.Id),
-    Status: __expectString(output.Status),
-    Targets: output.Targets != null ? de_OperationTargetsMap(output.Targets, context) : undefined,
-    Type: __expectString(output.Type),
-    UpdateDate:
-      output.UpdateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDate))) : undefined,
-  } as any;
+  return take(output, {
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorCode: __expectString,
+    ErrorMessage: __expectString,
+    Id: __expectString,
+    Status: __expectString,
+    Targets: _json,
+    Type: __expectString,
+    UpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1OperationNotFound
- */
-const de_OperationNotFound = (output: any, context: __SerdeContext): OperationNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_OperationNotFound omitted.
 
-/**
- * deserializeAws_json1_1OperationSummary
- */
-const de_OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
-  return {
-    Id: __expectString(output.Id),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_OperationSummary omitted.
 
-/**
- * deserializeAws_json1_1OperationSummaryList
- */
-const de_OperationSummaryList = (output: any, context: __SerdeContext): OperationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_OperationSummary(entry, context);
-    });
-  return retVal;
-};
+// de_OperationSummaryList omitted.
 
-/**
- * deserializeAws_json1_1OperationTargetsMap
- */
-const de_OperationTargetsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [OperationTargetType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_OperationTargetsMap omitted.
 
-/**
- * deserializeAws_json1_1RegisterInstanceResponse
- */
-const de_RegisterInstanceResponse = (output: any, context: __SerdeContext): RegisterInstanceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_RegisterInstanceResponse omitted.
 
-/**
- * deserializeAws_json1_1RequestLimitExceeded
- */
-const de_RequestLimitExceeded = (output: any, context: __SerdeContext): RequestLimitExceeded => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_RequestLimitExceeded omitted.
 
-/**
- * deserializeAws_json1_1ResourceInUse
- */
-const de_ResourceInUse = (output: any, context: __SerdeContext): ResourceInUse => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceInUse omitted.
 
-/**
- * deserializeAws_json1_1ResourceLimitExceeded
- */
-const de_ResourceLimitExceeded = (output: any, context: __SerdeContext): ResourceLimitExceeded => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceLimitExceeded omitted.
 
-/**
- * deserializeAws_json1_1ResourceNotFoundException
- */
-const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1Service
  */
 const de_Service = (output: any, context: __SerdeContext): Service => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Description: __expectString(output.Description),
-    DnsConfig: output.DnsConfig != null ? de_DnsConfig(output.DnsConfig, context) : undefined,
-    HealthCheckConfig:
-      output.HealthCheckConfig != null ? de_HealthCheckConfig(output.HealthCheckConfig, context) : undefined,
-    HealthCheckCustomConfig:
-      output.HealthCheckCustomConfig != null
-        ? de_HealthCheckCustomConfig(output.HealthCheckCustomConfig, context)
-        : undefined,
-    Id: __expectString(output.Id),
-    InstanceCount: __expectInt32(output.InstanceCount),
-    Name: __expectString(output.Name),
-    NamespaceId: __expectString(output.NamespaceId),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    Description: __expectString,
+    DnsConfig: _json,
+    HealthCheckConfig: _json,
+    HealthCheckCustomConfig: _json,
+    Id: __expectString,
+    InstanceCount: __expectInt32,
+    Name: __expectString,
+    NamespaceId: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1ServiceAlreadyExists
- */
-const de_ServiceAlreadyExists = (output: any, context: __SerdeContext): ServiceAlreadyExists => {
-  return {
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Message: __expectString(output.Message),
-    ServiceId: __expectString(output.ServiceId),
-  } as any;
-};
+// de_ServiceAlreadyExists omitted.
 
-/**
- * deserializeAws_json1_1ServiceNotFound
- */
-const de_ServiceNotFound = (output: any, context: __SerdeContext): ServiceNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceNotFound omitted.
 
 /**
  * deserializeAws_json1_1ServiceSummariesList
@@ -3375,9 +2502,6 @@ const de_ServiceSummariesList = (output: any, context: __SerdeContext): ServiceS
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return de_ServiceSummary(entry, context);
     });
   return retVal;
@@ -3387,124 +2511,39 @@ const de_ServiceSummariesList = (output: any, context: __SerdeContext): ServiceS
  * deserializeAws_json1_1ServiceSummary
  */
 const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    Description: __expectString(output.Description),
-    DnsConfig: output.DnsConfig != null ? de_DnsConfig(output.DnsConfig, context) : undefined,
-    HealthCheckConfig:
-      output.HealthCheckConfig != null ? de_HealthCheckConfig(output.HealthCheckConfig, context) : undefined,
-    HealthCheckCustomConfig:
-      output.HealthCheckCustomConfig != null
-        ? de_HealthCheckCustomConfig(output.HealthCheckCustomConfig, context)
-        : undefined,
-    Id: __expectString(output.Id),
-    InstanceCount: __expectInt32(output.InstanceCount),
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DnsConfig: _json,
+    HealthCheckConfig: _json,
+    HealthCheckCustomConfig: _json,
+    Id: __expectString,
+    InstanceCount: __expectInt32,
+    Name: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_1SOA
- */
-const de_SOA = (output: any, context: __SerdeContext): SOA => {
-  return {
-    TTL: __expectLong(output.TTL),
-  } as any;
-};
+// de_SOA omitted.
 
-/**
- * deserializeAws_json1_1Tag
- */
-const de_Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-/**
- * deserializeAws_json1_1TagList
- */
-const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-/**
- * deserializeAws_json1_1TagResourceResponse
- */
-const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1TooManyTagsException
- */
-const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceName: __expectString(output.ResourceName),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-/**
- * deserializeAws_json1_1UntagResourceResponse
- */
-const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateHttpNamespaceResponse
- */
-const de_UpdateHttpNamespaceResponse = (output: any, context: __SerdeContext): UpdateHttpNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_UpdateHttpNamespaceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdatePrivateDnsNamespaceResponse
- */
-const de_UpdatePrivateDnsNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdatePrivateDnsNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_UpdatePrivateDnsNamespaceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdatePublicDnsNamespaceResponse
- */
-const de_UpdatePublicDnsNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdatePublicDnsNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_UpdatePublicDnsNamespaceResponse omitted.
 
-/**
- * deserializeAws_json1_1UpdateServiceResponse
- */
-const de_UpdateServiceResponse = (output: any, context: __SerdeContext): UpdateServiceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_UpdateServiceResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3526,6 +2565,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

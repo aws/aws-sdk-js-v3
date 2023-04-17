@@ -1,12 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -41,16 +43,13 @@ import {
 import { AccountServiceException as __BaseException } from "../models/AccountServiceException";
 import {
   AccessDeniedException,
-  AlternateContact,
   ConflictException,
   ContactInformation,
   InternalServerException,
-  Region,
   RegionOptStatus,
   ResourceNotFoundException,
   TooManyRequestsException,
   ValidationException,
-  ValidationExceptionField,
 } from "../models/models_0";
 
 /**
@@ -67,10 +66,12 @@ export const se_DeleteAlternateContactCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteAlternateContact";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AlternateContactType != null && { AlternateContactType: input.AlternateContactType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      AlternateContactType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -95,10 +96,12 @@ export const se_DisableRegionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disableRegion";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.RegionName != null && { RegionName: input.RegionName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      RegionName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -123,10 +126,12 @@ export const se_EnableRegionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/enableRegion";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.RegionName != null && { RegionName: input.RegionName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      RegionName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -151,10 +156,12 @@ export const se_GetAlternateContactCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getAlternateContact";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AlternateContactType != null && { AlternateContactType: input.AlternateContactType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      AlternateContactType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -179,9 +186,11 @@ export const se_GetContactInformationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getContactInformation";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -206,10 +215,12 @@ export const se_GetRegionOptStatusCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getRegionOptStatus";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.RegionName != null && { RegionName: input.RegionName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      RegionName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -234,14 +245,14 @@ export const se_ListRegionsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listRegions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RegionOptStatusContains != null && {
-      RegionOptStatusContains: se_RegionOptStatusList(input.RegionOptStatusContains, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      MaxResults: [],
+      NextToken: [],
+      RegionOptStatusContains: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -266,14 +277,16 @@ export const se_PutAlternateContactCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/putAlternateContact";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.AlternateContactType != null && { AlternateContactType: input.AlternateContactType }),
-    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.PhoneNumber != null && { PhoneNumber: input.PhoneNumber }),
-    ...(input.Title != null && { Title: input.Title }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      AlternateContactType: [],
+      EmailAddress: [],
+      Name: [],
+      PhoneNumber: [],
+      Title: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -298,12 +311,12 @@ export const se_PutContactInformationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/putContactInformation";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.ContactInformation != null && {
-      ContactInformation: se_ContactInformation(input.ContactInformation, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      ContactInformation: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -362,10 +375,9 @@ const de_DeleteAlternateContactCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -418,10 +430,9 @@ const de_DisableRegionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -474,10 +485,9 @@ const de_EnableRegionCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -497,9 +507,10 @@ export const de_GetAlternateContactCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AlternateContact != null) {
-    contents.AlternateContact = de_AlternateContact(data.AlternateContact, context);
-  }
+  const doc = take(data, {
+    AlternateContact: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -533,10 +544,9 @@ const de_GetAlternateContactCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -556,9 +566,10 @@ export const de_GetContactInformationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ContactInformation != null) {
-    contents.ContactInformation = de_ContactInformation(data.ContactInformation, context);
-  }
+  const doc = take(data, {
+    ContactInformation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -592,10 +603,9 @@ const de_GetContactInformationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -615,12 +625,11 @@ export const de_GetRegionOptStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RegionName != null) {
-    contents.RegionName = __expectString(data.RegionName);
-  }
-  if (data.RegionOptStatus != null) {
-    contents.RegionOptStatus = __expectString(data.RegionOptStatus);
-  }
+  const doc = take(data, {
+    RegionName: __expectString,
+    RegionOptStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -651,10 +660,9 @@ const de_GetRegionOptStatusCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -674,12 +682,11 @@ export const de_ListRegionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Regions != null) {
-    contents.Regions = de_RegionOptList(data.Regions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Regions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -710,10 +717,9 @@ const de_ListRegionsCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -763,10 +769,9 @@ const de_PutAlternateContactCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -816,16 +821,15 @@ const de_PutContactInformationCommandError = async (
       throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
  */
@@ -835,9 +839,10 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -851,9 +856,10 @@ const de_AccessDeniedExceptionRes = async (
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -870,9 +876,10 @@ const de_InternalServerExceptionRes = async (
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -889,9 +896,10 @@ const de_ResourceNotFoundExceptionRes = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -908,9 +916,10 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -924,15 +933,12 @@ const de_TooManyRequestsExceptionRes = async (
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList != null) {
-    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason != null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fieldList: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -940,119 +946,21 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * serializeAws_restJson1ContactInformation
- */
-const se_ContactInformation = (input: ContactInformation, context: __SerdeContext): any => {
-  return {
-    ...(input.AddressLine1 != null && { AddressLine1: input.AddressLine1 }),
-    ...(input.AddressLine2 != null && { AddressLine2: input.AddressLine2 }),
-    ...(input.AddressLine3 != null && { AddressLine3: input.AddressLine3 }),
-    ...(input.City != null && { City: input.City }),
-    ...(input.CompanyName != null && { CompanyName: input.CompanyName }),
-    ...(input.CountryCode != null && { CountryCode: input.CountryCode }),
-    ...(input.DistrictOrCounty != null && { DistrictOrCounty: input.DistrictOrCounty }),
-    ...(input.FullName != null && { FullName: input.FullName }),
-    ...(input.PhoneNumber != null && { PhoneNumber: input.PhoneNumber }),
-    ...(input.PostalCode != null && { PostalCode: input.PostalCode }),
-    ...(input.StateOrRegion != null && { StateOrRegion: input.StateOrRegion }),
-    ...(input.WebsiteUrl != null && { WebsiteUrl: input.WebsiteUrl }),
-  };
-};
+// se_ContactInformation omitted.
 
-/**
- * serializeAws_restJson1RegionOptStatusList
- */
-const se_RegionOptStatusList = (input: (RegionOptStatus | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RegionOptStatusList omitted.
 
-/**
- * deserializeAws_restJson1AlternateContact
- */
-const de_AlternateContact = (output: any, context: __SerdeContext): AlternateContact => {
-  return {
-    AlternateContactType: __expectString(output.AlternateContactType),
-    EmailAddress: __expectString(output.EmailAddress),
-    Name: __expectString(output.Name),
-    PhoneNumber: __expectString(output.PhoneNumber),
-    Title: __expectString(output.Title),
-  } as any;
-};
+// de_AlternateContact omitted.
 
-/**
- * deserializeAws_restJson1ContactInformation
- */
-const de_ContactInformation = (output: any, context: __SerdeContext): ContactInformation => {
-  return {
-    AddressLine1: __expectString(output.AddressLine1),
-    AddressLine2: __expectString(output.AddressLine2),
-    AddressLine3: __expectString(output.AddressLine3),
-    City: __expectString(output.City),
-    CompanyName: __expectString(output.CompanyName),
-    CountryCode: __expectString(output.CountryCode),
-    DistrictOrCounty: __expectString(output.DistrictOrCounty),
-    FullName: __expectString(output.FullName),
-    PhoneNumber: __expectString(output.PhoneNumber),
-    PostalCode: __expectString(output.PostalCode),
-    StateOrRegion: __expectString(output.StateOrRegion),
-    WebsiteUrl: __expectString(output.WebsiteUrl),
-  } as any;
-};
+// de_ContactInformation omitted.
 
-/**
- * deserializeAws_restJson1Region
- */
-const de_Region = (output: any, context: __SerdeContext): Region => {
-  return {
-    RegionName: __expectString(output.RegionName),
-    RegionOptStatus: __expectString(output.RegionOptStatus),
-  } as any;
-};
+// de_Region omitted.
 
-/**
- * deserializeAws_restJson1RegionOptList
- */
-const de_RegionOptList = (output: any, context: __SerdeContext): Region[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_Region(entry, context);
-    });
-  return retVal;
-};
+// de_RegionOptList omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionField
- */
-const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-/**
- * deserializeAws_restJson1ValidationExceptionFieldList
- */
-const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return de_ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
