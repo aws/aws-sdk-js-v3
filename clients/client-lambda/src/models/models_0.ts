@@ -1519,6 +1519,7 @@ export const Runtime = {
   provided: "provided",
   providedal2: "provided.al2",
   python27: "python2.7",
+  python310: "python3.10",
   python36: "python3.6",
   python37: "python3.7",
   python38: "python3.8",
