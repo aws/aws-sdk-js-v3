@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { createProxyClient } from "@aws-sdk/smithy-client";
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -56,6 +56,7 @@ const commands = {
   NoInputAndOutputCommand,
   SimpleScalarPropertiesCommand,
 };
+
 export interface JSONRPC10 {
   /**
    * @see {@link EmptyInputAndEmptyOutputCommand}
@@ -208,10 +209,5 @@ export interface JSONRPC10 {
 /**
  * @public
  */
-export class JSONRPC10 extends JSONRPC10Client implements JSONRPC10 {
-  public constructor(config: JSONRPC10ClientConfig) {
-    const client = new JSONRPC10Client(config);
-    const target: any = {};
-    return createProxyClient(target, commands, client);
-  }
-}
+export class JSONRPC10 extends JSONRPC10Client implements JSONRPC10 {}
+createAggregatedClient(commands, JSONRPC10);

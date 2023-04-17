@@ -528,6 +528,7 @@ const commands = {
   UploadPartCopyCommand,
   WriteGetObjectResponseCommand,
 };
+
 export interface S3 {
   /**
    * @see {@link AbortMultipartUploadCommand}
@@ -1980,9 +1981,5 @@ export interface S3 {
  * @public
  * <p></p>
  */
-export class S3 extends S3Client implements S3 {
-  public constructor(config: S3ClientConfig) {
-    super(config);
-    createAggregatedClient(commands, this);
-  }
-}
+export class S3 extends S3Client implements S3 {}
+createAggregatedClient(commands, S3);

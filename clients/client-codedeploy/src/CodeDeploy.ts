@@ -1,7 +1,8 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
-import { CodeDeployClient } from "./CodeDeployClient";
+import { CodeDeployClient, CodeDeployClientConfig } from "./CodeDeployClient";
 import {
   AddTagsToOnPremisesInstancesCommand,
   AddTagsToOnPremisesInstancesCommandInput,
@@ -234,6 +235,830 @@ import {
   UpdateDeploymentGroupCommandOutput,
 } from "./commands/UpdateDeploymentGroupCommand";
 
+const commands = {
+  AddTagsToOnPremisesInstancesCommand,
+  BatchGetApplicationRevisionsCommand,
+  BatchGetApplicationsCommand,
+  BatchGetDeploymentGroupsCommand,
+  BatchGetDeploymentInstancesCommand,
+  BatchGetDeploymentsCommand,
+  BatchGetDeploymentTargetsCommand,
+  BatchGetOnPremisesInstancesCommand,
+  ContinueDeploymentCommand,
+  CreateApplicationCommand,
+  CreateDeploymentCommand,
+  CreateDeploymentConfigCommand,
+  CreateDeploymentGroupCommand,
+  DeleteApplicationCommand,
+  DeleteDeploymentConfigCommand,
+  DeleteDeploymentGroupCommand,
+  DeleteGitHubAccountTokenCommand,
+  DeleteResourcesByExternalIdCommand,
+  DeregisterOnPremisesInstanceCommand,
+  GetApplicationCommand,
+  GetApplicationRevisionCommand,
+  GetDeploymentCommand,
+  GetDeploymentConfigCommand,
+  GetDeploymentGroupCommand,
+  GetDeploymentInstanceCommand,
+  GetDeploymentTargetCommand,
+  GetOnPremisesInstanceCommand,
+  ListApplicationRevisionsCommand,
+  ListApplicationsCommand,
+  ListDeploymentConfigsCommand,
+  ListDeploymentGroupsCommand,
+  ListDeploymentInstancesCommand,
+  ListDeploymentsCommand,
+  ListDeploymentTargetsCommand,
+  ListGitHubAccountTokenNamesCommand,
+  ListOnPremisesInstancesCommand,
+  ListTagsForResourceCommand,
+  PutLifecycleEventHookExecutionStatusCommand,
+  RegisterApplicationRevisionCommand,
+  RegisterOnPremisesInstanceCommand,
+  RemoveTagsFromOnPremisesInstancesCommand,
+  SkipWaitTimeForInstanceTerminationCommand,
+  StopDeploymentCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateApplicationCommand,
+  UpdateDeploymentGroupCommand,
+};
+
+export interface CodeDeploy {
+  /**
+   * @see {@link AddTagsToOnPremisesInstancesCommand}
+   */
+  addTagsToOnPremisesInstances(
+    args: AddTagsToOnPremisesInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddTagsToOnPremisesInstancesCommandOutput>;
+  addTagsToOnPremisesInstances(
+    args: AddTagsToOnPremisesInstancesCommandInput,
+    cb: (err: any, data?: AddTagsToOnPremisesInstancesCommandOutput) => void
+  ): void;
+  addTagsToOnPremisesInstances(
+    args: AddTagsToOnPremisesInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddTagsToOnPremisesInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetApplicationRevisionsCommand}
+   */
+  batchGetApplicationRevisions(
+    args: BatchGetApplicationRevisionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetApplicationRevisionsCommandOutput>;
+  batchGetApplicationRevisions(
+    args: BatchGetApplicationRevisionsCommandInput,
+    cb: (err: any, data?: BatchGetApplicationRevisionsCommandOutput) => void
+  ): void;
+  batchGetApplicationRevisions(
+    args: BatchGetApplicationRevisionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetApplicationRevisionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetApplicationsCommand}
+   */
+  batchGetApplications(
+    args: BatchGetApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetApplicationsCommandOutput>;
+  batchGetApplications(
+    args: BatchGetApplicationsCommandInput,
+    cb: (err: any, data?: BatchGetApplicationsCommandOutput) => void
+  ): void;
+  batchGetApplications(
+    args: BatchGetApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetDeploymentGroupsCommand}
+   */
+  batchGetDeploymentGroups(
+    args: BatchGetDeploymentGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetDeploymentGroupsCommandOutput>;
+  batchGetDeploymentGroups(
+    args: BatchGetDeploymentGroupsCommandInput,
+    cb: (err: any, data?: BatchGetDeploymentGroupsCommandOutput) => void
+  ): void;
+  batchGetDeploymentGroups(
+    args: BatchGetDeploymentGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetDeploymentGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetDeploymentInstancesCommand}
+   */
+  batchGetDeploymentInstances(
+    args: BatchGetDeploymentInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetDeploymentInstancesCommandOutput>;
+  batchGetDeploymentInstances(
+    args: BatchGetDeploymentInstancesCommandInput,
+    cb: (err: any, data?: BatchGetDeploymentInstancesCommandOutput) => void
+  ): void;
+  batchGetDeploymentInstances(
+    args: BatchGetDeploymentInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetDeploymentInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetDeploymentsCommand}
+   */
+  batchGetDeployments(
+    args: BatchGetDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetDeploymentsCommandOutput>;
+  batchGetDeployments(
+    args: BatchGetDeploymentsCommandInput,
+    cb: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
+  ): void;
+  batchGetDeployments(
+    args: BatchGetDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetDeploymentTargetsCommand}
+   */
+  batchGetDeploymentTargets(
+    args: BatchGetDeploymentTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetDeploymentTargetsCommandOutput>;
+  batchGetDeploymentTargets(
+    args: BatchGetDeploymentTargetsCommandInput,
+    cb: (err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void
+  ): void;
+  batchGetDeploymentTargets(
+    args: BatchGetDeploymentTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetOnPremisesInstancesCommand}
+   */
+  batchGetOnPremisesInstances(
+    args: BatchGetOnPremisesInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetOnPremisesInstancesCommandOutput>;
+  batchGetOnPremisesInstances(
+    args: BatchGetOnPremisesInstancesCommandInput,
+    cb: (err: any, data?: BatchGetOnPremisesInstancesCommandOutput) => void
+  ): void;
+  batchGetOnPremisesInstances(
+    args: BatchGetOnPremisesInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetOnPremisesInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ContinueDeploymentCommand}
+   */
+  continueDeployment(
+    args: ContinueDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ContinueDeploymentCommandOutput>;
+  continueDeployment(
+    args: ContinueDeploymentCommandInput,
+    cb: (err: any, data?: ContinueDeploymentCommandOutput) => void
+  ): void;
+  continueDeployment(
+    args: ContinueDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ContinueDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateApplicationCommand}
+   */
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDeploymentCommand}
+   */
+  createDeployment(
+    args: CreateDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDeploymentCommandOutput>;
+  createDeployment(
+    args: CreateDeploymentCommandInput,
+    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
+  ): void;
+  createDeployment(
+    args: CreateDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDeploymentConfigCommand}
+   */
+  createDeploymentConfig(
+    args: CreateDeploymentConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDeploymentConfigCommandOutput>;
+  createDeploymentConfig(
+    args: CreateDeploymentConfigCommandInput,
+    cb: (err: any, data?: CreateDeploymentConfigCommandOutput) => void
+  ): void;
+  createDeploymentConfig(
+    args: CreateDeploymentConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDeploymentConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDeploymentGroupCommand}
+   */
+  createDeploymentGroup(
+    args: CreateDeploymentGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDeploymentGroupCommandOutput>;
+  createDeploymentGroup(
+    args: CreateDeploymentGroupCommandInput,
+    cb: (err: any, data?: CreateDeploymentGroupCommandOutput) => void
+  ): void;
+  createDeploymentGroup(
+    args: CreateDeploymentGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDeploymentGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationCommand}
+   */
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDeploymentConfigCommand}
+   */
+  deleteDeploymentConfig(
+    args: DeleteDeploymentConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeploymentConfigCommandOutput>;
+  deleteDeploymentConfig(
+    args: DeleteDeploymentConfigCommandInput,
+    cb: (err: any, data?: DeleteDeploymentConfigCommandOutput) => void
+  ): void;
+  deleteDeploymentConfig(
+    args: DeleteDeploymentConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeploymentConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDeploymentGroupCommand}
+   */
+  deleteDeploymentGroup(
+    args: DeleteDeploymentGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeploymentGroupCommandOutput>;
+  deleteDeploymentGroup(
+    args: DeleteDeploymentGroupCommandInput,
+    cb: (err: any, data?: DeleteDeploymentGroupCommandOutput) => void
+  ): void;
+  deleteDeploymentGroup(
+    args: DeleteDeploymentGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeploymentGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGitHubAccountTokenCommand}
+   */
+  deleteGitHubAccountToken(
+    args: DeleteGitHubAccountTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGitHubAccountTokenCommandOutput>;
+  deleteGitHubAccountToken(
+    args: DeleteGitHubAccountTokenCommandInput,
+    cb: (err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void
+  ): void;
+  deleteGitHubAccountToken(
+    args: DeleteGitHubAccountTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourcesByExternalIdCommand}
+   */
+  deleteResourcesByExternalId(
+    args: DeleteResourcesByExternalIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcesByExternalIdCommandOutput>;
+  deleteResourcesByExternalId(
+    args: DeleteResourcesByExternalIdCommandInput,
+    cb: (err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void
+  ): void;
+  deleteResourcesByExternalId(
+    args: DeleteResourcesByExternalIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterOnPremisesInstanceCommand}
+   */
+  deregisterOnPremisesInstance(
+    args: DeregisterOnPremisesInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterOnPremisesInstanceCommandOutput>;
+  deregisterOnPremisesInstance(
+    args: DeregisterOnPremisesInstanceCommandInput,
+    cb: (err: any, data?: DeregisterOnPremisesInstanceCommandOutput) => void
+  ): void;
+  deregisterOnPremisesInstance(
+    args: DeregisterOnPremisesInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterOnPremisesInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApplicationCommand}
+   */
+  getApplication(
+    args: GetApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationCommandOutput>;
+  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApplicationRevisionCommand}
+   */
+  getApplicationRevision(
+    args: GetApplicationRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationRevisionCommandOutput>;
+  getApplicationRevision(
+    args: GetApplicationRevisionCommandInput,
+    cb: (err: any, data?: GetApplicationRevisionCommandOutput) => void
+  ): void;
+  getApplicationRevision(
+    args: GetApplicationRevisionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationRevisionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeploymentCommand}
+   */
+  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
+  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeploymentConfigCommand}
+   */
+  getDeploymentConfig(
+    args: GetDeploymentConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentConfigCommandOutput>;
+  getDeploymentConfig(
+    args: GetDeploymentConfigCommandInput,
+    cb: (err: any, data?: GetDeploymentConfigCommandOutput) => void
+  ): void;
+  getDeploymentConfig(
+    args: GetDeploymentConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeploymentGroupCommand}
+   */
+  getDeploymentGroup(
+    args: GetDeploymentGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentGroupCommandOutput>;
+  getDeploymentGroup(
+    args: GetDeploymentGroupCommandInput,
+    cb: (err: any, data?: GetDeploymentGroupCommandOutput) => void
+  ): void;
+  getDeploymentGroup(
+    args: GetDeploymentGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeploymentInstanceCommand}
+   */
+  getDeploymentInstance(
+    args: GetDeploymentInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentInstanceCommandOutput>;
+  getDeploymentInstance(
+    args: GetDeploymentInstanceCommandInput,
+    cb: (err: any, data?: GetDeploymentInstanceCommandOutput) => void
+  ): void;
+  getDeploymentInstance(
+    args: GetDeploymentInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeploymentTargetCommand}
+   */
+  getDeploymentTarget(
+    args: GetDeploymentTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentTargetCommandOutput>;
+  getDeploymentTarget(
+    args: GetDeploymentTargetCommandInput,
+    cb: (err: any, data?: GetDeploymentTargetCommandOutput) => void
+  ): void;
+  getDeploymentTarget(
+    args: GetDeploymentTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOnPremisesInstanceCommand}
+   */
+  getOnPremisesInstance(
+    args: GetOnPremisesInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOnPremisesInstanceCommandOutput>;
+  getOnPremisesInstance(
+    args: GetOnPremisesInstanceCommandInput,
+    cb: (err: any, data?: GetOnPremisesInstanceCommandOutput) => void
+  ): void;
+  getOnPremisesInstance(
+    args: GetOnPremisesInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOnPremisesInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationRevisionsCommand}
+   */
+  listApplicationRevisions(
+    args: ListApplicationRevisionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationRevisionsCommandOutput>;
+  listApplicationRevisions(
+    args: ListApplicationRevisionsCommandInput,
+    cb: (err: any, data?: ListApplicationRevisionsCommandOutput) => void
+  ): void;
+  listApplicationRevisions(
+    args: ListApplicationRevisionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationRevisionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   */
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentConfigsCommand}
+   */
+  listDeploymentConfigs(
+    args: ListDeploymentConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentConfigsCommandOutput>;
+  listDeploymentConfigs(
+    args: ListDeploymentConfigsCommandInput,
+    cb: (err: any, data?: ListDeploymentConfigsCommandOutput) => void
+  ): void;
+  listDeploymentConfigs(
+    args: ListDeploymentConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentGroupsCommand}
+   */
+  listDeploymentGroups(
+    args: ListDeploymentGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentGroupsCommandOutput>;
+  listDeploymentGroups(
+    args: ListDeploymentGroupsCommandInput,
+    cb: (err: any, data?: ListDeploymentGroupsCommandOutput) => void
+  ): void;
+  listDeploymentGroups(
+    args: ListDeploymentGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentInstancesCommand}
+   */
+  listDeploymentInstances(
+    args: ListDeploymentInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentInstancesCommandOutput>;
+  listDeploymentInstances(
+    args: ListDeploymentInstancesCommandInput,
+    cb: (err: any, data?: ListDeploymentInstancesCommandOutput) => void
+  ): void;
+  listDeploymentInstances(
+    args: ListDeploymentInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   */
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentsCommandOutput>;
+  listDeployments(args: ListDeploymentsCommandInput, cb: (err: any, data?: ListDeploymentsCommandOutput) => void): void;
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentTargetsCommand}
+   */
+  listDeploymentTargets(
+    args: ListDeploymentTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentTargetsCommandOutput>;
+  listDeploymentTargets(
+    args: ListDeploymentTargetsCommandInput,
+    cb: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
+  ): void;
+  listDeploymentTargets(
+    args: ListDeploymentTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGitHubAccountTokenNamesCommand}
+   */
+  listGitHubAccountTokenNames(
+    args: ListGitHubAccountTokenNamesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGitHubAccountTokenNamesCommandOutput>;
+  listGitHubAccountTokenNames(
+    args: ListGitHubAccountTokenNamesCommandInput,
+    cb: (err: any, data?: ListGitHubAccountTokenNamesCommandOutput) => void
+  ): void;
+  listGitHubAccountTokenNames(
+    args: ListGitHubAccountTokenNamesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGitHubAccountTokenNamesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOnPremisesInstancesCommand}
+   */
+  listOnPremisesInstances(
+    args: ListOnPremisesInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOnPremisesInstancesCommandOutput>;
+  listOnPremisesInstances(
+    args: ListOnPremisesInstancesCommandInput,
+    cb: (err: any, data?: ListOnPremisesInstancesCommandOutput) => void
+  ): void;
+  listOnPremisesInstances(
+    args: ListOnPremisesInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOnPremisesInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutLifecycleEventHookExecutionStatusCommand}
+   */
+  putLifecycleEventHookExecutionStatus(
+    args: PutLifecycleEventHookExecutionStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput>;
+  putLifecycleEventHookExecutionStatus(
+    args: PutLifecycleEventHookExecutionStatusCommandInput,
+    cb: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
+  ): void;
+  putLifecycleEventHookExecutionStatus(
+    args: PutLifecycleEventHookExecutionStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterApplicationRevisionCommand}
+   */
+  registerApplicationRevision(
+    args: RegisterApplicationRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterApplicationRevisionCommandOutput>;
+  registerApplicationRevision(
+    args: RegisterApplicationRevisionCommandInput,
+    cb: (err: any, data?: RegisterApplicationRevisionCommandOutput) => void
+  ): void;
+  registerApplicationRevision(
+    args: RegisterApplicationRevisionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterApplicationRevisionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterOnPremisesInstanceCommand}
+   */
+  registerOnPremisesInstance(
+    args: RegisterOnPremisesInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterOnPremisesInstanceCommandOutput>;
+  registerOnPremisesInstance(
+    args: RegisterOnPremisesInstanceCommandInput,
+    cb: (err: any, data?: RegisterOnPremisesInstanceCommandOutput) => void
+  ): void;
+  registerOnPremisesInstance(
+    args: RegisterOnPremisesInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterOnPremisesInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveTagsFromOnPremisesInstancesCommand}
+   */
+  removeTagsFromOnPremisesInstances(
+    args: RemoveTagsFromOnPremisesInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput>;
+  removeTagsFromOnPremisesInstances(
+    args: RemoveTagsFromOnPremisesInstancesCommandInput,
+    cb: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
+  ): void;
+  removeTagsFromOnPremisesInstances(
+    args: RemoveTagsFromOnPremisesInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SkipWaitTimeForInstanceTerminationCommand}
+   */
+  skipWaitTimeForInstanceTermination(
+    args: SkipWaitTimeForInstanceTerminationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput>;
+  skipWaitTimeForInstanceTermination(
+    args: SkipWaitTimeForInstanceTerminationCommandInput,
+    cb: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
+  ): void;
+  skipWaitTimeForInstanceTermination(
+    args: SkipWaitTimeForInstanceTerminationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopDeploymentCommand}
+   */
+  stopDeployment(
+    args: StopDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDeploymentCommandOutput>;
+  stopDeployment(args: StopDeploymentCommandInput, cb: (err: any, data?: StopDeploymentCommandOutput) => void): void;
+  stopDeployment(
+    args: StopDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateApplicationCommand}
+   */
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDeploymentGroupCommand}
+   */
+  updateDeploymentGroup(
+    args: UpdateDeploymentGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDeploymentGroupCommandOutput>;
+  updateDeploymentGroup(
+    args: UpdateDeploymentGroupCommandInput,
+    cb: (err: any, data?: UpdateDeploymentGroupCommandOutput) => void
+  ): void;
+  updateDeploymentGroup(
+    args: UpdateDeploymentGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDeploymentGroupCommandOutput) => void
+  ): void;
+}
+
 /**
  * @public
  * <p>CodeDeploy is a deployment service that automates application deployments
@@ -330,1636 +1155,5 @@ import {
  *             </li>
  *          </ul>
  */
-export class CodeDeploy extends CodeDeployClient {
-  /**
-   * @public
-   * <p>Adds tags to on-premises instances.</p>
-   */
-  public addTagsToOnPremisesInstances(
-    args: AddTagsToOnPremisesInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddTagsToOnPremisesInstancesCommandOutput>;
-  public addTagsToOnPremisesInstances(
-    args: AddTagsToOnPremisesInstancesCommandInput,
-    cb: (err: any, data?: AddTagsToOnPremisesInstancesCommandOutput) => void
-  ): void;
-  public addTagsToOnPremisesInstances(
-    args: AddTagsToOnPremisesInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AddTagsToOnPremisesInstancesCommandOutput) => void
-  ): void;
-  public addTagsToOnPremisesInstances(
-    args: AddTagsToOnPremisesInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToOnPremisesInstancesCommandOutput) => void),
-    cb?: (err: any, data?: AddTagsToOnPremisesInstancesCommandOutput) => void
-  ): Promise<AddTagsToOnPremisesInstancesCommandOutput> | void {
-    const command = new AddTagsToOnPremisesInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about one or more application revisions. The maximum number of
-   *             application revisions that can be returned is 25.</p>
-   */
-  public batchGetApplicationRevisions(
-    args: BatchGetApplicationRevisionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetApplicationRevisionsCommandOutput>;
-  public batchGetApplicationRevisions(
-    args: BatchGetApplicationRevisionsCommandInput,
-    cb: (err: any, data?: BatchGetApplicationRevisionsCommandOutput) => void
-  ): void;
-  public batchGetApplicationRevisions(
-    args: BatchGetApplicationRevisionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetApplicationRevisionsCommandOutput) => void
-  ): void;
-  public batchGetApplicationRevisions(
-    args: BatchGetApplicationRevisionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetApplicationRevisionsCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetApplicationRevisionsCommandOutput) => void
-  ): Promise<BatchGetApplicationRevisionsCommandOutput> | void {
-    const command = new BatchGetApplicationRevisionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about one or more applications. The maximum number of applications
-   *             that can be returned is 100.</p>
-   */
-  public batchGetApplications(
-    args: BatchGetApplicationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetApplicationsCommandOutput>;
-  public batchGetApplications(
-    args: BatchGetApplicationsCommandInput,
-    cb: (err: any, data?: BatchGetApplicationsCommandOutput) => void
-  ): void;
-  public batchGetApplications(
-    args: BatchGetApplicationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetApplicationsCommandOutput) => void
-  ): void;
-  public batchGetApplications(
-    args: BatchGetApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetApplicationsCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetApplicationsCommandOutput) => void
-  ): Promise<BatchGetApplicationsCommandOutput> | void {
-    const command = new BatchGetApplicationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about one or more deployment groups.</p>
-   */
-  public batchGetDeploymentGroups(
-    args: BatchGetDeploymentGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetDeploymentGroupsCommandOutput>;
-  public batchGetDeploymentGroups(
-    args: BatchGetDeploymentGroupsCommandInput,
-    cb: (err: any, data?: BatchGetDeploymentGroupsCommandOutput) => void
-  ): void;
-  public batchGetDeploymentGroups(
-    args: BatchGetDeploymentGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetDeploymentGroupsCommandOutput) => void
-  ): void;
-  public batchGetDeploymentGroups(
-    args: BatchGetDeploymentGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDeploymentGroupsCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetDeploymentGroupsCommandOutput) => void
-  ): Promise<BatchGetDeploymentGroupsCommandOutput> | void {
-    const command = new BatchGetDeploymentGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * @deprecated
-   *
-   * <note>
-   *             <p> This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
-   *                 instead. </p>
-   *         </note>
-   *         <p> Returns an array of one or more instances associated with a deployment. This method
-   *             works with EC2/On-premises and Lambda compute platforms. The newer
-   *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms. The maximum
-   *             number of instances that can be returned is 25.</p>
-   */
-  public batchGetDeploymentInstances(
-    args: BatchGetDeploymentInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetDeploymentInstancesCommandOutput>;
-  public batchGetDeploymentInstances(
-    args: BatchGetDeploymentInstancesCommandInput,
-    cb: (err: any, data?: BatchGetDeploymentInstancesCommandOutput) => void
-  ): void;
-  public batchGetDeploymentInstances(
-    args: BatchGetDeploymentInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetDeploymentInstancesCommandOutput) => void
-  ): void;
-  public batchGetDeploymentInstances(
-    args: BatchGetDeploymentInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDeploymentInstancesCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetDeploymentInstancesCommandOutput) => void
-  ): Promise<BatchGetDeploymentInstancesCommandOutput> | void {
-    const command = new BatchGetDeploymentInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about one or more deployments. The maximum number of deployments that
-   *             can be returned is 25.</p>
-   */
-  public batchGetDeployments(
-    args: BatchGetDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetDeploymentsCommandOutput>;
-  public batchGetDeployments(
-    args: BatchGetDeploymentsCommandInput,
-    cb: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
-  ): void;
-  public batchGetDeployments(
-    args: BatchGetDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
-  ): void;
-  public batchGetDeployments(
-    args: BatchGetDeploymentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDeploymentsCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
-  ): Promise<BatchGetDeploymentsCommandOutput> | void {
-    const command = new BatchGetDeploymentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns an array of one or more targets associated with a deployment. This method
-   *             works with all compute types and should be used instead of the deprecated
-   *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
-   *             returned is 25.</p>
-   *         <p> The type of targets returned depends on the deployment's compute platform or
-   *             deployment method: </p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <b>EC2/On-premises</b>: Information about Amazon EC2 instance targets. </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <b>Lambda</b>: Information about
-   *                         Lambda functions targets. </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <b>Amazon ECS</b>: Information about Amazon ECS service targets. </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <b>CloudFormation</b>: Information about
-   *                     targets of blue/green deployments initiated by a CloudFormation stack
-   *                     update.</p>
-   *             </li>
-   *          </ul>
-   */
-  public batchGetDeploymentTargets(
-    args: BatchGetDeploymentTargetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetDeploymentTargetsCommandOutput>;
-  public batchGetDeploymentTargets(
-    args: BatchGetDeploymentTargetsCommandInput,
-    cb: (err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void
-  ): void;
-  public batchGetDeploymentTargets(
-    args: BatchGetDeploymentTargetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void
-  ): void;
-  public batchGetDeploymentTargets(
-    args: BatchGetDeploymentTargetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void
-  ): Promise<BatchGetDeploymentTargetsCommandOutput> | void {
-    const command = new BatchGetDeploymentTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about one or more on-premises instances. The maximum number of
-   *             on-premises instances that can be returned is 25.</p>
-   */
-  public batchGetOnPremisesInstances(
-    args: BatchGetOnPremisesInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetOnPremisesInstancesCommandOutput>;
-  public batchGetOnPremisesInstances(
-    args: BatchGetOnPremisesInstancesCommandInput,
-    cb: (err: any, data?: BatchGetOnPremisesInstancesCommandOutput) => void
-  ): void;
-  public batchGetOnPremisesInstances(
-    args: BatchGetOnPremisesInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetOnPremisesInstancesCommandOutput) => void
-  ): void;
-  public batchGetOnPremisesInstances(
-    args: BatchGetOnPremisesInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetOnPremisesInstancesCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetOnPremisesInstancesCommandOutput) => void
-  ): Promise<BatchGetOnPremisesInstancesCommandOutput> | void {
-    const command = new BatchGetOnPremisesInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>For a blue/green deployment, starts the process of rerouting traffic from instances in
-   *             the original environment to instances in the replacement environment without waiting for
-   *             a specified wait time to elapse. (Traffic rerouting, which is achieved by registering
-   *             instances in the replacement environment with the load balancer, can start as soon as
-   *             all instances have a status of Ready.) </p>
-   */
-  public continueDeployment(
-    args: ContinueDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ContinueDeploymentCommandOutput>;
-  public continueDeployment(
-    args: ContinueDeploymentCommandInput,
-    cb: (err: any, data?: ContinueDeploymentCommandOutput) => void
-  ): void;
-  public continueDeployment(
-    args: ContinueDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ContinueDeploymentCommandOutput) => void
-  ): void;
-  public continueDeployment(
-    args: ContinueDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ContinueDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: ContinueDeploymentCommandOutput) => void
-  ): Promise<ContinueDeploymentCommandOutput> | void {
-    const command = new ContinueDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an application.</p>
-   */
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateApplicationCommandOutput>;
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    cb: (err: any, data?: CreateApplicationCommandOutput) => void
-  ): void;
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateApplicationCommandOutput) => void
-  ): void;
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
-    cb?: (err: any, data?: CreateApplicationCommandOutput) => void
-  ): Promise<CreateApplicationCommandOutput> | void {
-    const command = new CreateApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deploys an application revision through the specified deployment group.</p>
-   */
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDeploymentCommandOutput>;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): void;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): void;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): Promise<CreateDeploymentCommandOutput> | void {
-    const command = new CreateDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Creates a deployment configuration. </p>
-   */
-  public createDeploymentConfig(
-    args: CreateDeploymentConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDeploymentConfigCommandOutput>;
-  public createDeploymentConfig(
-    args: CreateDeploymentConfigCommandInput,
-    cb: (err: any, data?: CreateDeploymentConfigCommandOutput) => void
-  ): void;
-  public createDeploymentConfig(
-    args: CreateDeploymentConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDeploymentConfigCommandOutput) => void
-  ): void;
-  public createDeploymentConfig(
-    args: CreateDeploymentConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentConfigCommandOutput) => void),
-    cb?: (err: any, data?: CreateDeploymentConfigCommandOutput) => void
-  ): Promise<CreateDeploymentConfigCommandOutput> | void {
-    const command = new CreateDeploymentConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a deployment group to which application revisions are deployed.</p>
-   */
-  public createDeploymentGroup(
-    args: CreateDeploymentGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDeploymentGroupCommandOutput>;
-  public createDeploymentGroup(
-    args: CreateDeploymentGroupCommandInput,
-    cb: (err: any, data?: CreateDeploymentGroupCommandOutput) => void
-  ): void;
-  public createDeploymentGroup(
-    args: CreateDeploymentGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDeploymentGroupCommandOutput) => void
-  ): void;
-  public createDeploymentGroup(
-    args: CreateDeploymentGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateDeploymentGroupCommandOutput) => void
-  ): Promise<CreateDeploymentGroupCommandOutput> | void {
-    const command = new CreateDeploymentGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an application.</p>
-   */
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteApplicationCommandOutput>;
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
-  ): void;
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
-  ): void;
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
-  ): Promise<DeleteApplicationCommandOutput> | void {
-    const command = new DeleteApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a deployment configuration.</p>
-   *         <note>
-   *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
-   *                 configurations cannot be deleted.</p>
-   *         </note>
-   */
-  public deleteDeploymentConfig(
-    args: DeleteDeploymentConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDeploymentConfigCommandOutput>;
-  public deleteDeploymentConfig(
-    args: DeleteDeploymentConfigCommandInput,
-    cb: (err: any, data?: DeleteDeploymentConfigCommandOutput) => void
-  ): void;
-  public deleteDeploymentConfig(
-    args: DeleteDeploymentConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDeploymentConfigCommandOutput) => void
-  ): void;
-  public deleteDeploymentConfig(
-    args: DeleteDeploymentConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentConfigCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDeploymentConfigCommandOutput) => void
-  ): Promise<DeleteDeploymentConfigCommandOutput> | void {
-    const command = new DeleteDeploymentConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a deployment group.</p>
-   */
-  public deleteDeploymentGroup(
-    args: DeleteDeploymentGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDeploymentGroupCommandOutput>;
-  public deleteDeploymentGroup(
-    args: DeleteDeploymentGroupCommandInput,
-    cb: (err: any, data?: DeleteDeploymentGroupCommandOutput) => void
-  ): void;
-  public deleteDeploymentGroup(
-    args: DeleteDeploymentGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDeploymentGroupCommandOutput) => void
-  ): void;
-  public deleteDeploymentGroup(
-    args: DeleteDeploymentGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDeploymentGroupCommandOutput) => void
-  ): Promise<DeleteDeploymentGroupCommandOutput> | void {
-    const command = new DeleteDeploymentGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a GitHub account connection.</p>
-   */
-  public deleteGitHubAccountToken(
-    args: DeleteGitHubAccountTokenCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGitHubAccountTokenCommandOutput>;
-  public deleteGitHubAccountToken(
-    args: DeleteGitHubAccountTokenCommandInput,
-    cb: (err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void
-  ): void;
-  public deleteGitHubAccountToken(
-    args: DeleteGitHubAccountTokenCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void
-  ): void;
-  public deleteGitHubAccountToken(
-    args: DeleteGitHubAccountTokenCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void),
-    cb?: (err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void
-  ): Promise<DeleteGitHubAccountTokenCommandOutput> | void {
-    const command = new DeleteGitHubAccountTokenCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes resources linked to an external ID.</p>
-   */
-  public deleteResourcesByExternalId(
-    args: DeleteResourcesByExternalIdCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteResourcesByExternalIdCommandOutput>;
-  public deleteResourcesByExternalId(
-    args: DeleteResourcesByExternalIdCommandInput,
-    cb: (err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void
-  ): void;
-  public deleteResourcesByExternalId(
-    args: DeleteResourcesByExternalIdCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void
-  ): void;
-  public deleteResourcesByExternalId(
-    args: DeleteResourcesByExternalIdCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void),
-    cb?: (err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void
-  ): Promise<DeleteResourcesByExternalIdCommandOutput> | void {
-    const command = new DeleteResourcesByExternalIdCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deregisters an on-premises instance.</p>
-   */
-  public deregisterOnPremisesInstance(
-    args: DeregisterOnPremisesInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterOnPremisesInstanceCommandOutput>;
-  public deregisterOnPremisesInstance(
-    args: DeregisterOnPremisesInstanceCommandInput,
-    cb: (err: any, data?: DeregisterOnPremisesInstanceCommandOutput) => void
-  ): void;
-  public deregisterOnPremisesInstance(
-    args: DeregisterOnPremisesInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterOnPremisesInstanceCommandOutput) => void
-  ): void;
-  public deregisterOnPremisesInstance(
-    args: DeregisterOnPremisesInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterOnPremisesInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterOnPremisesInstanceCommandOutput) => void
-  ): Promise<DeregisterOnPremisesInstanceCommandOutput> | void {
-    const command = new DeregisterOnPremisesInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about an application.</p>
-   */
-  public getApplication(
-    args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetApplicationCommandOutput>;
-  public getApplication(
-    args: GetApplicationCommandInput,
-    cb: (err: any, data?: GetApplicationCommandOutput) => void
-  ): void;
-  public getApplication(
-    args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetApplicationCommandOutput) => void
-  ): void;
-  public getApplication(
-    args: GetApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationCommandOutput) => void),
-    cb?: (err: any, data?: GetApplicationCommandOutput) => void
-  ): Promise<GetApplicationCommandOutput> | void {
-    const command = new GetApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about an application revision.</p>
-   */
-  public getApplicationRevision(
-    args: GetApplicationRevisionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetApplicationRevisionCommandOutput>;
-  public getApplicationRevision(
-    args: GetApplicationRevisionCommandInput,
-    cb: (err: any, data?: GetApplicationRevisionCommandOutput) => void
-  ): void;
-  public getApplicationRevision(
-    args: GetApplicationRevisionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetApplicationRevisionCommandOutput) => void
-  ): void;
-  public getApplicationRevision(
-    args: GetApplicationRevisionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationRevisionCommandOutput) => void),
-    cb?: (err: any, data?: GetApplicationRevisionCommandOutput) => void
-  ): Promise<GetApplicationRevisionCommandOutput> | void {
-    const command = new GetApplicationRevisionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about a deployment.</p>
-   *         <note>
-   *             <p> The <code>content</code> property of the <code>appSpecContent</code> object in
-   *                 the returned revision is always null. Use <code>GetApplicationRevision</code> and
-   *                 the <code>sha256</code> property of the returned <code>appSpecContent</code> object
-   *                 to get the content of the deployment’s AppSpec file. </p>
-   *         </note>
-   */
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeploymentCommandOutput>;
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    cb: (err: any, data?: GetDeploymentCommandOutput) => void
-  ): void;
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDeploymentCommandOutput) => void
-  ): void;
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: GetDeploymentCommandOutput) => void
-  ): Promise<GetDeploymentCommandOutput> | void {
-    const command = new GetDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about a deployment configuration.</p>
-   */
-  public getDeploymentConfig(
-    args: GetDeploymentConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeploymentConfigCommandOutput>;
-  public getDeploymentConfig(
-    args: GetDeploymentConfigCommandInput,
-    cb: (err: any, data?: GetDeploymentConfigCommandOutput) => void
-  ): void;
-  public getDeploymentConfig(
-    args: GetDeploymentConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDeploymentConfigCommandOutput) => void
-  ): void;
-  public getDeploymentConfig(
-    args: GetDeploymentConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetDeploymentConfigCommandOutput) => void
-  ): Promise<GetDeploymentConfigCommandOutput> | void {
-    const command = new GetDeploymentConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about a deployment group.</p>
-   */
-  public getDeploymentGroup(
-    args: GetDeploymentGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeploymentGroupCommandOutput>;
-  public getDeploymentGroup(
-    args: GetDeploymentGroupCommandInput,
-    cb: (err: any, data?: GetDeploymentGroupCommandOutput) => void
-  ): void;
-  public getDeploymentGroup(
-    args: GetDeploymentGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDeploymentGroupCommandOutput) => void
-  ): void;
-  public getDeploymentGroup(
-    args: GetDeploymentGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetDeploymentGroupCommandOutput) => void
-  ): Promise<GetDeploymentGroupCommandOutput> | void {
-    const command = new GetDeploymentGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * @deprecated
-   *
-   * <p>Gets information about an instance as part of a deployment.</p>
-   */
-  public getDeploymentInstance(
-    args: GetDeploymentInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeploymentInstanceCommandOutput>;
-  public getDeploymentInstance(
-    args: GetDeploymentInstanceCommandInput,
-    cb: (err: any, data?: GetDeploymentInstanceCommandOutput) => void
-  ): void;
-  public getDeploymentInstance(
-    args: GetDeploymentInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDeploymentInstanceCommandOutput) => void
-  ): void;
-  public getDeploymentInstance(
-    args: GetDeploymentInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentInstanceCommandOutput) => void),
-    cb?: (err: any, data?: GetDeploymentInstanceCommandOutput) => void
-  ): Promise<GetDeploymentInstanceCommandOutput> | void {
-    const command = new GetDeploymentInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns information about a deployment target. </p>
-   */
-  public getDeploymentTarget(
-    args: GetDeploymentTargetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeploymentTargetCommandOutput>;
-  public getDeploymentTarget(
-    args: GetDeploymentTargetCommandInput,
-    cb: (err: any, data?: GetDeploymentTargetCommandOutput) => void
-  ): void;
-  public getDeploymentTarget(
-    args: GetDeploymentTargetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDeploymentTargetCommandOutput) => void
-  ): void;
-  public getDeploymentTarget(
-    args: GetDeploymentTargetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentTargetCommandOutput) => void),
-    cb?: (err: any, data?: GetDeploymentTargetCommandOutput) => void
-  ): Promise<GetDeploymentTargetCommandOutput> | void {
-    const command = new GetDeploymentTargetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Gets information about an on-premises instance. </p>
-   */
-  public getOnPremisesInstance(
-    args: GetOnPremisesInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetOnPremisesInstanceCommandOutput>;
-  public getOnPremisesInstance(
-    args: GetOnPremisesInstanceCommandInput,
-    cb: (err: any, data?: GetOnPremisesInstanceCommandOutput) => void
-  ): void;
-  public getOnPremisesInstance(
-    args: GetOnPremisesInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetOnPremisesInstanceCommandOutput) => void
-  ): void;
-  public getOnPremisesInstance(
-    args: GetOnPremisesInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOnPremisesInstanceCommandOutput) => void),
-    cb?: (err: any, data?: GetOnPremisesInstanceCommandOutput) => void
-  ): Promise<GetOnPremisesInstanceCommandOutput> | void {
-    const command = new GetOnPremisesInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists information about revisions for an application.</p>
-   */
-  public listApplicationRevisions(
-    args: ListApplicationRevisionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListApplicationRevisionsCommandOutput>;
-  public listApplicationRevisions(
-    args: ListApplicationRevisionsCommandInput,
-    cb: (err: any, data?: ListApplicationRevisionsCommandOutput) => void
-  ): void;
-  public listApplicationRevisions(
-    args: ListApplicationRevisionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListApplicationRevisionsCommandOutput) => void
-  ): void;
-  public listApplicationRevisions(
-    args: ListApplicationRevisionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationRevisionsCommandOutput) => void),
-    cb?: (err: any, data?: ListApplicationRevisionsCommandOutput) => void
-  ): Promise<ListApplicationRevisionsCommandOutput> | void {
-    const command = new ListApplicationRevisionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the applications registered with the IAM user or Amazon Web Services account.</p>
-   */
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListApplicationsCommandOutput>;
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    cb: (err: any, data?: ListApplicationsCommandOutput) => void
-  ): void;
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListApplicationsCommandOutput) => void
-  ): void;
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
-    cb?: (err: any, data?: ListApplicationsCommandOutput) => void
-  ): Promise<ListApplicationsCommandOutput> | void {
-    const command = new ListApplicationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the deployment configurations with the IAM user or Amazon Web Services account.</p>
-   */
-  public listDeploymentConfigs(
-    args: ListDeploymentConfigsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDeploymentConfigsCommandOutput>;
-  public listDeploymentConfigs(
-    args: ListDeploymentConfigsCommandInput,
-    cb: (err: any, data?: ListDeploymentConfigsCommandOutput) => void
-  ): void;
-  public listDeploymentConfigs(
-    args: ListDeploymentConfigsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeploymentConfigsCommandOutput) => void
-  ): void;
-  public listDeploymentConfigs(
-    args: ListDeploymentConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentConfigsCommandOutput) => void),
-    cb?: (err: any, data?: ListDeploymentConfigsCommandOutput) => void
-  ): Promise<ListDeploymentConfigsCommandOutput> | void {
-    const command = new ListDeploymentConfigsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the deployment groups for an application registered with the IAM
-   *             user or Amazon Web Services account.</p>
-   */
-  public listDeploymentGroups(
-    args: ListDeploymentGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDeploymentGroupsCommandOutput>;
-  public listDeploymentGroups(
-    args: ListDeploymentGroupsCommandInput,
-    cb: (err: any, data?: ListDeploymentGroupsCommandOutput) => void
-  ): void;
-  public listDeploymentGroups(
-    args: ListDeploymentGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeploymentGroupsCommandOutput) => void
-  ): void;
-  public listDeploymentGroups(
-    args: ListDeploymentGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListDeploymentGroupsCommandOutput) => void
-  ): Promise<ListDeploymentGroupsCommandOutput> | void {
-    const command = new ListDeploymentGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * @deprecated
-   *
-   * <note>
-   *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because
-   *                 it works with all compute types. <code>ListDeploymentInstances</code> throws an
-   *                 exception if it is used with a compute platform other than EC2/On-premises or
-   *                     Lambda. </p>
-   *         </note>
-   *         <p> Lists the instance for a deployment associated with the IAM user or
-   *                 Amazon Web Services account. </p>
-   */
-  public listDeploymentInstances(
-    args: ListDeploymentInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDeploymentInstancesCommandOutput>;
-  public listDeploymentInstances(
-    args: ListDeploymentInstancesCommandInput,
-    cb: (err: any, data?: ListDeploymentInstancesCommandOutput) => void
-  ): void;
-  public listDeploymentInstances(
-    args: ListDeploymentInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeploymentInstancesCommandOutput) => void
-  ): void;
-  public listDeploymentInstances(
-    args: ListDeploymentInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentInstancesCommandOutput) => void),
-    cb?: (err: any, data?: ListDeploymentInstancesCommandOutput) => void
-  ): Promise<ListDeploymentInstancesCommandOutput> | void {
-    const command = new ListDeploymentInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the deployments in a deployment group for an application registered with the
-   *                 IAM user or Amazon Web Services account.</p>
-   */
-  public listDeployments(
-    args: ListDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDeploymentsCommandOutput>;
-  public listDeployments(
-    args: ListDeploymentsCommandInput,
-    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
-  ): void;
-  public listDeployments(
-    args: ListDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
-  ): void;
-  public listDeployments(
-    args: ListDeploymentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentsCommandOutput) => void),
-    cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
-  ): Promise<ListDeploymentsCommandOutput> | void {
-    const command = new ListDeploymentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns an array of target IDs that are associated a deployment. </p>
-   */
-  public listDeploymentTargets(
-    args: ListDeploymentTargetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDeploymentTargetsCommandOutput>;
-  public listDeploymentTargets(
-    args: ListDeploymentTargetsCommandInput,
-    cb: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
-  ): void;
-  public listDeploymentTargets(
-    args: ListDeploymentTargetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
-  ): void;
-  public listDeploymentTargets(
-    args: ListDeploymentTargetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentTargetsCommandOutput) => void),
-    cb?: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
-  ): Promise<ListDeploymentTargetsCommandOutput> | void {
-    const command = new ListDeploymentTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the names of stored connections to GitHub accounts.</p>
-   */
-  public listGitHubAccountTokenNames(
-    args: ListGitHubAccountTokenNamesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGitHubAccountTokenNamesCommandOutput>;
-  public listGitHubAccountTokenNames(
-    args: ListGitHubAccountTokenNamesCommandInput,
-    cb: (err: any, data?: ListGitHubAccountTokenNamesCommandOutput) => void
-  ): void;
-  public listGitHubAccountTokenNames(
-    args: ListGitHubAccountTokenNamesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGitHubAccountTokenNamesCommandOutput) => void
-  ): void;
-  public listGitHubAccountTokenNames(
-    args: ListGitHubAccountTokenNamesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGitHubAccountTokenNamesCommandOutput) => void),
-    cb?: (err: any, data?: ListGitHubAccountTokenNamesCommandOutput) => void
-  ): Promise<ListGitHubAccountTokenNamesCommandOutput> | void {
-    const command = new ListGitHubAccountTokenNamesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets a list of names for one or more on-premises instances.</p>
-   *         <p>Unless otherwise specified, both registered and deregistered on-premises instance
-   *             names are listed. To list only registered or deregistered on-premises instance names,
-   *             use the registration status parameter.</p>
-   */
-  public listOnPremisesInstances(
-    args: ListOnPremisesInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListOnPremisesInstancesCommandOutput>;
-  public listOnPremisesInstances(
-    args: ListOnPremisesInstancesCommandInput,
-    cb: (err: any, data?: ListOnPremisesInstancesCommandOutput) => void
-  ): void;
-  public listOnPremisesInstances(
-    args: ListOnPremisesInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListOnPremisesInstancesCommandOutput) => void
-  ): void;
-  public listOnPremisesInstances(
-    args: ListOnPremisesInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOnPremisesInstancesCommandOutput) => void),
-    cb?: (err: any, data?: ListOnPremisesInstancesCommandOutput) => void
-  ): Promise<ListOnPremisesInstancesCommandOutput> | void {
-    const command = new ListOnPremisesInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns a list of tags for the resource identified by a specified Amazon Resource
-   *             Name (ARN). Tags are used to organize and categorize your CodeDeploy resources. </p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Sets the result of a Lambda validation function. The function validates
-   *             lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available
-   *             lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>.
-   *             For Amazon ECS deployments, the available lifecycle hooks are
-   *                 <code>BeforeInstall</code>, <code>AfterInstall</code>,
-   *                 <code>AfterAllowTestTraffic</code>, <code>BeforeAllowTraffic</code>, and
-   *                 <code>AfterAllowTraffic</code>. Lambda validation functions return
-   *                 <code>Succeeded</code> or <code>Failed</code>. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks' Section for an Lambda Deployment </a> and
-   *                 <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec 'hooks' Section for an Amazon ECS Deployment</a>.</p>
-   */
-  public putLifecycleEventHookExecutionStatus(
-    args: PutLifecycleEventHookExecutionStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput>;
-  public putLifecycleEventHookExecutionStatus(
-    args: PutLifecycleEventHookExecutionStatusCommandInput,
-    cb: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
-  ): void;
-  public putLifecycleEventHookExecutionStatus(
-    args: PutLifecycleEventHookExecutionStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
-  ): void;
-  public putLifecycleEventHookExecutionStatus(
-    args: PutLifecycleEventHookExecutionStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void),
-    cb?: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
-  ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> | void {
-    const command = new PutLifecycleEventHookExecutionStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers with CodeDeploy a revision for the specified application.</p>
-   */
-  public registerApplicationRevision(
-    args: RegisterApplicationRevisionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterApplicationRevisionCommandOutput>;
-  public registerApplicationRevision(
-    args: RegisterApplicationRevisionCommandInput,
-    cb: (err: any, data?: RegisterApplicationRevisionCommandOutput) => void
-  ): void;
-  public registerApplicationRevision(
-    args: RegisterApplicationRevisionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterApplicationRevisionCommandOutput) => void
-  ): void;
-  public registerApplicationRevision(
-    args: RegisterApplicationRevisionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterApplicationRevisionCommandOutput) => void),
-    cb?: (err: any, data?: RegisterApplicationRevisionCommandOutput) => void
-  ): Promise<RegisterApplicationRevisionCommandOutput> | void {
-    const command = new RegisterApplicationRevisionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers an on-premises instance.</p>
-   *         <note>
-   *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.</p>
-   *         </note>
-   */
-  public registerOnPremisesInstance(
-    args: RegisterOnPremisesInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterOnPremisesInstanceCommandOutput>;
-  public registerOnPremisesInstance(
-    args: RegisterOnPremisesInstanceCommandInput,
-    cb: (err: any, data?: RegisterOnPremisesInstanceCommandOutput) => void
-  ): void;
-  public registerOnPremisesInstance(
-    args: RegisterOnPremisesInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterOnPremisesInstanceCommandOutput) => void
-  ): void;
-  public registerOnPremisesInstance(
-    args: RegisterOnPremisesInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterOnPremisesInstanceCommandOutput) => void),
-    cb?: (err: any, data?: RegisterOnPremisesInstanceCommandOutput) => void
-  ): Promise<RegisterOnPremisesInstanceCommandOutput> | void {
-    const command = new RegisterOnPremisesInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes one or more tags from one or more on-premises instances.</p>
-   */
-  public removeTagsFromOnPremisesInstances(
-    args: RemoveTagsFromOnPremisesInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput>;
-  public removeTagsFromOnPremisesInstances(
-    args: RemoveTagsFromOnPremisesInstancesCommandInput,
-    cb: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
-  ): void;
-  public removeTagsFromOnPremisesInstances(
-    args: RemoveTagsFromOnPremisesInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
-  ): void;
-  public removeTagsFromOnPremisesInstances(
-    args: RemoveTagsFromOnPremisesInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void),
-    cb?: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
-  ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> | void {
-    const command = new RemoveTagsFromOnPremisesInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * @deprecated
-   *
-   * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
-   *             instances immediately after the traffic routing is complete.</p>
-   */
-  public skipWaitTimeForInstanceTermination(
-    args: SkipWaitTimeForInstanceTerminationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput>;
-  public skipWaitTimeForInstanceTermination(
-    args: SkipWaitTimeForInstanceTerminationCommandInput,
-    cb: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
-  ): void;
-  public skipWaitTimeForInstanceTermination(
-    args: SkipWaitTimeForInstanceTerminationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
-  ): void;
-  public skipWaitTimeForInstanceTermination(
-    args: SkipWaitTimeForInstanceTerminationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void),
-    cb?: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
-  ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> | void {
-    const command = new SkipWaitTimeForInstanceTerminationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Attempts to stop an ongoing deployment.</p>
-   */
-  public stopDeployment(
-    args: StopDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopDeploymentCommandOutput>;
-  public stopDeployment(
-    args: StopDeploymentCommandInput,
-    cb: (err: any, data?: StopDeploymentCommandOutput) => void
-  ): void;
-  public stopDeployment(
-    args: StopDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopDeploymentCommandOutput) => void
-  ): void;
-  public stopDeployment(
-    args: StopDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: StopDeploymentCommandOutput) => void
-  ): Promise<StopDeploymentCommandOutput> | void {
-    const command = new StopDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Associates the list of tags in the input <code>Tags</code> parameter with the
-   *             resource identified by the <code>ResourceArn</code> input parameter. </p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Disassociates a resource from a list of tags. The resource is identified by the
-   *                 <code>ResourceArn</code> input parameter. The tags are identified by the list of
-   *             keys in the <code>TagKeys</code> input parameter. </p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Changes the name of an application.</p>
-   */
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateApplicationCommandOutput>;
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
-  ): void;
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
-  ): void;
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
-  ): Promise<UpdateApplicationCommandOutput> | void {
-    const command = new UpdateApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Changes information about a deployment group.</p>
-   */
-  public updateDeploymentGroup(
-    args: UpdateDeploymentGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDeploymentGroupCommandOutput>;
-  public updateDeploymentGroup(
-    args: UpdateDeploymentGroupCommandInput,
-    cb: (err: any, data?: UpdateDeploymentGroupCommandOutput) => void
-  ): void;
-  public updateDeploymentGroup(
-    args: UpdateDeploymentGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDeploymentGroupCommandOutput) => void
-  ): void;
-  public updateDeploymentGroup(
-    args: UpdateDeploymentGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeploymentGroupCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDeploymentGroupCommandOutput) => void
-  ): Promise<UpdateDeploymentGroupCommandOutput> | void {
-    const command = new UpdateDeploymentGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class CodeDeploy extends CodeDeployClient implements CodeDeploy {}
+createAggregatedClient(commands, CodeDeploy);

@@ -165,7 +165,8 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                         if (valueProvider.equals("_ => _")) {
                             writer.write("'$L': [,,`$L`],", wireName, memberName);
                         } else if (isUnaryCall) {
-                            writer.write("'$L': [,$L,`$L`],", wireName, UnaryFunctionCall.toRef(valueExpression), memberName);
+                            writer.write("'$L': [,$L,`$L`],", wireName,
+                                UnaryFunctionCall.toRef(valueExpression), memberName);
                         } else {
                             writer.write("'$L': [,$L,`$L`],", wireName, valueProvider, memberName);
                         }

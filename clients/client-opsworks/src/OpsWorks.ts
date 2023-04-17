@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -311,7 +312,1179 @@ import {
   UpdateVolumeCommandInput,
   UpdateVolumeCommandOutput,
 } from "./commands/UpdateVolumeCommand";
-import { OpsWorksClient } from "./OpsWorksClient";
+import { OpsWorksClient, OpsWorksClientConfig } from "./OpsWorksClient";
+
+const commands = {
+  AssignInstanceCommand,
+  AssignVolumeCommand,
+  AssociateElasticIpCommand,
+  AttachElasticLoadBalancerCommand,
+  CloneStackCommand,
+  CreateAppCommand,
+  CreateDeploymentCommand,
+  CreateInstanceCommand,
+  CreateLayerCommand,
+  CreateStackCommand,
+  CreateUserProfileCommand,
+  DeleteAppCommand,
+  DeleteInstanceCommand,
+  DeleteLayerCommand,
+  DeleteStackCommand,
+  DeleteUserProfileCommand,
+  DeregisterEcsClusterCommand,
+  DeregisterElasticIpCommand,
+  DeregisterInstanceCommand,
+  DeregisterRdsDbInstanceCommand,
+  DeregisterVolumeCommand,
+  DescribeAgentVersionsCommand,
+  DescribeAppsCommand,
+  DescribeCommandsCommand,
+  DescribeDeploymentsCommand,
+  DescribeEcsClustersCommand,
+  DescribeElasticIpsCommand,
+  DescribeElasticLoadBalancersCommand,
+  DescribeInstancesCommand,
+  DescribeLayersCommand,
+  DescribeLoadBasedAutoScalingCommand,
+  DescribeMyUserProfileCommand,
+  DescribeOperatingSystemsCommand,
+  DescribePermissionsCommand,
+  DescribeRaidArraysCommand,
+  DescribeRdsDbInstancesCommand,
+  DescribeServiceErrorsCommand,
+  DescribeStackProvisioningParametersCommand,
+  DescribeStacksCommand,
+  DescribeStackSummaryCommand,
+  DescribeTimeBasedAutoScalingCommand,
+  DescribeUserProfilesCommand,
+  DescribeVolumesCommand,
+  DetachElasticLoadBalancerCommand,
+  DisassociateElasticIpCommand,
+  GetHostnameSuggestionCommand,
+  GrantAccessCommand,
+  ListTagsCommand,
+  RebootInstanceCommand,
+  RegisterEcsClusterCommand,
+  RegisterElasticIpCommand,
+  RegisterInstanceCommand,
+  RegisterRdsDbInstanceCommand,
+  RegisterVolumeCommand,
+  SetLoadBasedAutoScalingCommand,
+  SetPermissionCommand,
+  SetTimeBasedAutoScalingCommand,
+  StartInstanceCommand,
+  StartStackCommand,
+  StopInstanceCommand,
+  StopStackCommand,
+  TagResourceCommand,
+  UnassignInstanceCommand,
+  UnassignVolumeCommand,
+  UntagResourceCommand,
+  UpdateAppCommand,
+  UpdateElasticIpCommand,
+  UpdateInstanceCommand,
+  UpdateLayerCommand,
+  UpdateMyUserProfileCommand,
+  UpdateRdsDbInstanceCommand,
+  UpdateStackCommand,
+  UpdateUserProfileCommand,
+  UpdateVolumeCommand,
+};
+
+export interface OpsWorks {
+  /**
+   * @see {@link AssignInstanceCommand}
+   */
+  assignInstance(
+    args: AssignInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssignInstanceCommandOutput>;
+  assignInstance(args: AssignInstanceCommandInput, cb: (err: any, data?: AssignInstanceCommandOutput) => void): void;
+  assignInstance(
+    args: AssignInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssignInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssignVolumeCommand}
+   */
+  assignVolume(args: AssignVolumeCommandInput, options?: __HttpHandlerOptions): Promise<AssignVolumeCommandOutput>;
+  assignVolume(args: AssignVolumeCommandInput, cb: (err: any, data?: AssignVolumeCommandOutput) => void): void;
+  assignVolume(
+    args: AssignVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssignVolumeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateElasticIpCommand}
+   */
+  associateElasticIp(
+    args: AssociateElasticIpCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateElasticIpCommandOutput>;
+  associateElasticIp(
+    args: AssociateElasticIpCommandInput,
+    cb: (err: any, data?: AssociateElasticIpCommandOutput) => void
+  ): void;
+  associateElasticIp(
+    args: AssociateElasticIpCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateElasticIpCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AttachElasticLoadBalancerCommand}
+   */
+  attachElasticLoadBalancer(
+    args: AttachElasticLoadBalancerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachElasticLoadBalancerCommandOutput>;
+  attachElasticLoadBalancer(
+    args: AttachElasticLoadBalancerCommandInput,
+    cb: (err: any, data?: AttachElasticLoadBalancerCommandOutput) => void
+  ): void;
+  attachElasticLoadBalancer(
+    args: AttachElasticLoadBalancerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachElasticLoadBalancerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CloneStackCommand}
+   */
+  cloneStack(args: CloneStackCommandInput, options?: __HttpHandlerOptions): Promise<CloneStackCommandOutput>;
+  cloneStack(args: CloneStackCommandInput, cb: (err: any, data?: CloneStackCommandOutput) => void): void;
+  cloneStack(
+    args: CloneStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CloneStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAppCommand}
+   */
+  createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
+  createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
+  createApp(
+    args: CreateAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDeploymentCommand}
+   */
+  createDeployment(
+    args: CreateDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDeploymentCommandOutput>;
+  createDeployment(
+    args: CreateDeploymentCommandInput,
+    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
+  ): void;
+  createDeployment(
+    args: CreateDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInstanceCommand}
+   */
+  createInstance(
+    args: CreateInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstanceCommandOutput>;
+  createInstance(args: CreateInstanceCommandInput, cb: (err: any, data?: CreateInstanceCommandOutput) => void): void;
+  createInstance(
+    args: CreateInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLayerCommand}
+   */
+  createLayer(args: CreateLayerCommandInput, options?: __HttpHandlerOptions): Promise<CreateLayerCommandOutput>;
+  createLayer(args: CreateLayerCommandInput, cb: (err: any, data?: CreateLayerCommandOutput) => void): void;
+  createLayer(
+    args: CreateLayerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLayerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStackCommand}
+   */
+  createStack(args: CreateStackCommandInput, options?: __HttpHandlerOptions): Promise<CreateStackCommandOutput>;
+  createStack(args: CreateStackCommandInput, cb: (err: any, data?: CreateStackCommandOutput) => void): void;
+  createStack(
+    args: CreateStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateUserProfileCommand}
+   */
+  createUserProfile(
+    args: CreateUserProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserProfileCommandOutput>;
+  createUserProfile(
+    args: CreateUserProfileCommandInput,
+    cb: (err: any, data?: CreateUserProfileCommandOutput) => void
+  ): void;
+  createUserProfile(
+    args: CreateUserProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAppCommand}
+   */
+  deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
+  deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
+  deleteApp(
+    args: DeleteAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteInstanceCommand}
+   */
+  deleteInstance(
+    args: DeleteInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInstanceCommandOutput>;
+  deleteInstance(args: DeleteInstanceCommandInput, cb: (err: any, data?: DeleteInstanceCommandOutput) => void): void;
+  deleteInstance(
+    args: DeleteInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLayerCommand}
+   */
+  deleteLayer(args: DeleteLayerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLayerCommandOutput>;
+  deleteLayer(args: DeleteLayerCommandInput, cb: (err: any, data?: DeleteLayerCommandOutput) => void): void;
+  deleteLayer(
+    args: DeleteLayerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLayerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteStackCommand}
+   */
+  deleteStack(args: DeleteStackCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStackCommandOutput>;
+  deleteStack(args: DeleteStackCommandInput, cb: (err: any, data?: DeleteStackCommandOutput) => void): void;
+  deleteStack(
+    args: DeleteStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteUserProfileCommand}
+   */
+  deleteUserProfile(
+    args: DeleteUserProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserProfileCommandOutput>;
+  deleteUserProfile(
+    args: DeleteUserProfileCommandInput,
+    cb: (err: any, data?: DeleteUserProfileCommandOutput) => void
+  ): void;
+  deleteUserProfile(
+    args: DeleteUserProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterEcsClusterCommand}
+   */
+  deregisterEcsCluster(
+    args: DeregisterEcsClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterEcsClusterCommandOutput>;
+  deregisterEcsCluster(
+    args: DeregisterEcsClusterCommandInput,
+    cb: (err: any, data?: DeregisterEcsClusterCommandOutput) => void
+  ): void;
+  deregisterEcsCluster(
+    args: DeregisterEcsClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterEcsClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterElasticIpCommand}
+   */
+  deregisterElasticIp(
+    args: DeregisterElasticIpCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterElasticIpCommandOutput>;
+  deregisterElasticIp(
+    args: DeregisterElasticIpCommandInput,
+    cb: (err: any, data?: DeregisterElasticIpCommandOutput) => void
+  ): void;
+  deregisterElasticIp(
+    args: DeregisterElasticIpCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterElasticIpCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterInstanceCommand}
+   */
+  deregisterInstance(
+    args: DeregisterInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterInstanceCommandOutput>;
+  deregisterInstance(
+    args: DeregisterInstanceCommandInput,
+    cb: (err: any, data?: DeregisterInstanceCommandOutput) => void
+  ): void;
+  deregisterInstance(
+    args: DeregisterInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterRdsDbInstanceCommand}
+   */
+  deregisterRdsDbInstance(
+    args: DeregisterRdsDbInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterRdsDbInstanceCommandOutput>;
+  deregisterRdsDbInstance(
+    args: DeregisterRdsDbInstanceCommandInput,
+    cb: (err: any, data?: DeregisterRdsDbInstanceCommandOutput) => void
+  ): void;
+  deregisterRdsDbInstance(
+    args: DeregisterRdsDbInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterRdsDbInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterVolumeCommand}
+   */
+  deregisterVolume(
+    args: DeregisterVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterVolumeCommandOutput>;
+  deregisterVolume(
+    args: DeregisterVolumeCommandInput,
+    cb: (err: any, data?: DeregisterVolumeCommandOutput) => void
+  ): void;
+  deregisterVolume(
+    args: DeregisterVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterVolumeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAgentVersionsCommand}
+   */
+  describeAgentVersions(
+    args: DescribeAgentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAgentVersionsCommandOutput>;
+  describeAgentVersions(
+    args: DescribeAgentVersionsCommandInput,
+    cb: (err: any, data?: DescribeAgentVersionsCommandOutput) => void
+  ): void;
+  describeAgentVersions(
+    args: DescribeAgentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAgentVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAppsCommand}
+   */
+  describeApps(args: DescribeAppsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAppsCommandOutput>;
+  describeApps(args: DescribeAppsCommandInput, cb: (err: any, data?: DescribeAppsCommandOutput) => void): void;
+  describeApps(
+    args: DescribeAppsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCommandsCommand}
+   */
+  describeCommands(
+    args: DescribeCommandsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCommandsCommandOutput>;
+  describeCommands(
+    args: DescribeCommandsCommandInput,
+    cb: (err: any, data?: DescribeCommandsCommandOutput) => void
+  ): void;
+  describeCommands(
+    args: DescribeCommandsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCommandsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDeploymentsCommand}
+   */
+  describeDeployments(
+    args: DescribeDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDeploymentsCommandOutput>;
+  describeDeployments(
+    args: DescribeDeploymentsCommandInput,
+    cb: (err: any, data?: DescribeDeploymentsCommandOutput) => void
+  ): void;
+  describeDeployments(
+    args: DescribeDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEcsClustersCommand}
+   */
+  describeEcsClusters(
+    args: DescribeEcsClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEcsClustersCommandOutput>;
+  describeEcsClusters(
+    args: DescribeEcsClustersCommandInput,
+    cb: (err: any, data?: DescribeEcsClustersCommandOutput) => void
+  ): void;
+  describeEcsClusters(
+    args: DescribeEcsClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEcsClustersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeElasticIpsCommand}
+   */
+  describeElasticIps(
+    args: DescribeElasticIpsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeElasticIpsCommandOutput>;
+  describeElasticIps(
+    args: DescribeElasticIpsCommandInput,
+    cb: (err: any, data?: DescribeElasticIpsCommandOutput) => void
+  ): void;
+  describeElasticIps(
+    args: DescribeElasticIpsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeElasticIpsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeElasticLoadBalancersCommand}
+   */
+  describeElasticLoadBalancers(
+    args: DescribeElasticLoadBalancersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeElasticLoadBalancersCommandOutput>;
+  describeElasticLoadBalancers(
+    args: DescribeElasticLoadBalancersCommandInput,
+    cb: (err: any, data?: DescribeElasticLoadBalancersCommandOutput) => void
+  ): void;
+  describeElasticLoadBalancers(
+    args: DescribeElasticLoadBalancersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeElasticLoadBalancersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstancesCommand}
+   */
+  describeInstances(
+    args: DescribeInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstancesCommandOutput>;
+  describeInstances(
+    args: DescribeInstancesCommandInput,
+    cb: (err: any, data?: DescribeInstancesCommandOutput) => void
+  ): void;
+  describeInstances(
+    args: DescribeInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLayersCommand}
+   */
+  describeLayers(
+    args: DescribeLayersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLayersCommandOutput>;
+  describeLayers(args: DescribeLayersCommandInput, cb: (err: any, data?: DescribeLayersCommandOutput) => void): void;
+  describeLayers(
+    args: DescribeLayersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLayersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLoadBasedAutoScalingCommand}
+   */
+  describeLoadBasedAutoScaling(
+    args: DescribeLoadBasedAutoScalingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLoadBasedAutoScalingCommandOutput>;
+  describeLoadBasedAutoScaling(
+    args: DescribeLoadBasedAutoScalingCommandInput,
+    cb: (err: any, data?: DescribeLoadBasedAutoScalingCommandOutput) => void
+  ): void;
+  describeLoadBasedAutoScaling(
+    args: DescribeLoadBasedAutoScalingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLoadBasedAutoScalingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMyUserProfileCommand}
+   */
+  describeMyUserProfile(
+    args: DescribeMyUserProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMyUserProfileCommandOutput>;
+  describeMyUserProfile(
+    args: DescribeMyUserProfileCommandInput,
+    cb: (err: any, data?: DescribeMyUserProfileCommandOutput) => void
+  ): void;
+  describeMyUserProfile(
+    args: DescribeMyUserProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMyUserProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeOperatingSystemsCommand}
+   */
+  describeOperatingSystems(
+    args: DescribeOperatingSystemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOperatingSystemsCommandOutput>;
+  describeOperatingSystems(
+    args: DescribeOperatingSystemsCommandInput,
+    cb: (err: any, data?: DescribeOperatingSystemsCommandOutput) => void
+  ): void;
+  describeOperatingSystems(
+    args: DescribeOperatingSystemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOperatingSystemsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePermissionsCommand}
+   */
+  describePermissions(
+    args: DescribePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePermissionsCommandOutput>;
+  describePermissions(
+    args: DescribePermissionsCommandInput,
+    cb: (err: any, data?: DescribePermissionsCommandOutput) => void
+  ): void;
+  describePermissions(
+    args: DescribePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRaidArraysCommand}
+   */
+  describeRaidArrays(
+    args: DescribeRaidArraysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRaidArraysCommandOutput>;
+  describeRaidArrays(
+    args: DescribeRaidArraysCommandInput,
+    cb: (err: any, data?: DescribeRaidArraysCommandOutput) => void
+  ): void;
+  describeRaidArrays(
+    args: DescribeRaidArraysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRaidArraysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRdsDbInstancesCommand}
+   */
+  describeRdsDbInstances(
+    args: DescribeRdsDbInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRdsDbInstancesCommandOutput>;
+  describeRdsDbInstances(
+    args: DescribeRdsDbInstancesCommandInput,
+    cb: (err: any, data?: DescribeRdsDbInstancesCommandOutput) => void
+  ): void;
+  describeRdsDbInstances(
+    args: DescribeRdsDbInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRdsDbInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeServiceErrorsCommand}
+   */
+  describeServiceErrors(
+    args: DescribeServiceErrorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServiceErrorsCommandOutput>;
+  describeServiceErrors(
+    args: DescribeServiceErrorsCommandInput,
+    cb: (err: any, data?: DescribeServiceErrorsCommandOutput) => void
+  ): void;
+  describeServiceErrors(
+    args: DescribeServiceErrorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServiceErrorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeStackProvisioningParametersCommand}
+   */
+  describeStackProvisioningParameters(
+    args: DescribeStackProvisioningParametersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStackProvisioningParametersCommandOutput>;
+  describeStackProvisioningParameters(
+    args: DescribeStackProvisioningParametersCommandInput,
+    cb: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
+  ): void;
+  describeStackProvisioningParameters(
+    args: DescribeStackProvisioningParametersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeStacksCommand}
+   */
+  describeStacks(
+    args: DescribeStacksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStacksCommandOutput>;
+  describeStacks(args: DescribeStacksCommandInput, cb: (err: any, data?: DescribeStacksCommandOutput) => void): void;
+  describeStacks(
+    args: DescribeStacksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStacksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeStackSummaryCommand}
+   */
+  describeStackSummary(
+    args: DescribeStackSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStackSummaryCommandOutput>;
+  describeStackSummary(
+    args: DescribeStackSummaryCommandInput,
+    cb: (err: any, data?: DescribeStackSummaryCommandOutput) => void
+  ): void;
+  describeStackSummary(
+    args: DescribeStackSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStackSummaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTimeBasedAutoScalingCommand}
+   */
+  describeTimeBasedAutoScaling(
+    args: DescribeTimeBasedAutoScalingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTimeBasedAutoScalingCommandOutput>;
+  describeTimeBasedAutoScaling(
+    args: DescribeTimeBasedAutoScalingCommandInput,
+    cb: (err: any, data?: DescribeTimeBasedAutoScalingCommandOutput) => void
+  ): void;
+  describeTimeBasedAutoScaling(
+    args: DescribeTimeBasedAutoScalingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTimeBasedAutoScalingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeUserProfilesCommand}
+   */
+  describeUserProfiles(
+    args: DescribeUserProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUserProfilesCommandOutput>;
+  describeUserProfiles(
+    args: DescribeUserProfilesCommandInput,
+    cb: (err: any, data?: DescribeUserProfilesCommandOutput) => void
+  ): void;
+  describeUserProfiles(
+    args: DescribeUserProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUserProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeVolumesCommand}
+   */
+  describeVolumes(
+    args: DescribeVolumesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVolumesCommandOutput>;
+  describeVolumes(args: DescribeVolumesCommandInput, cb: (err: any, data?: DescribeVolumesCommandOutput) => void): void;
+  describeVolumes(
+    args: DescribeVolumesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVolumesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DetachElasticLoadBalancerCommand}
+   */
+  detachElasticLoadBalancer(
+    args: DetachElasticLoadBalancerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachElasticLoadBalancerCommandOutput>;
+  detachElasticLoadBalancer(
+    args: DetachElasticLoadBalancerCommandInput,
+    cb: (err: any, data?: DetachElasticLoadBalancerCommandOutput) => void
+  ): void;
+  detachElasticLoadBalancer(
+    args: DetachElasticLoadBalancerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachElasticLoadBalancerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateElasticIpCommand}
+   */
+  disassociateElasticIp(
+    args: DisassociateElasticIpCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateElasticIpCommandOutput>;
+  disassociateElasticIp(
+    args: DisassociateElasticIpCommandInput,
+    cb: (err: any, data?: DisassociateElasticIpCommandOutput) => void
+  ): void;
+  disassociateElasticIp(
+    args: DisassociateElasticIpCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateElasticIpCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetHostnameSuggestionCommand}
+   */
+  getHostnameSuggestion(
+    args: GetHostnameSuggestionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHostnameSuggestionCommandOutput>;
+  getHostnameSuggestion(
+    args: GetHostnameSuggestionCommandInput,
+    cb: (err: any, data?: GetHostnameSuggestionCommandOutput) => void
+  ): void;
+  getHostnameSuggestion(
+    args: GetHostnameSuggestionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetHostnameSuggestionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GrantAccessCommand}
+   */
+  grantAccess(args: GrantAccessCommandInput, options?: __HttpHandlerOptions): Promise<GrantAccessCommandOutput>;
+  grantAccess(args: GrantAccessCommandInput, cb: (err: any, data?: GrantAccessCommandOutput) => void): void;
+  grantAccess(
+    args: GrantAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GrantAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsCommand}
+   */
+  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
+    args: ListTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RebootInstanceCommand}
+   */
+  rebootInstance(
+    args: RebootInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootInstanceCommandOutput>;
+  rebootInstance(args: RebootInstanceCommandInput, cb: (err: any, data?: RebootInstanceCommandOutput) => void): void;
+  rebootInstance(
+    args: RebootInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterEcsClusterCommand}
+   */
+  registerEcsCluster(
+    args: RegisterEcsClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterEcsClusterCommandOutput>;
+  registerEcsCluster(
+    args: RegisterEcsClusterCommandInput,
+    cb: (err: any, data?: RegisterEcsClusterCommandOutput) => void
+  ): void;
+  registerEcsCluster(
+    args: RegisterEcsClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterEcsClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterElasticIpCommand}
+   */
+  registerElasticIp(
+    args: RegisterElasticIpCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterElasticIpCommandOutput>;
+  registerElasticIp(
+    args: RegisterElasticIpCommandInput,
+    cb: (err: any, data?: RegisterElasticIpCommandOutput) => void
+  ): void;
+  registerElasticIp(
+    args: RegisterElasticIpCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterElasticIpCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterInstanceCommand}
+   */
+  registerInstance(
+    args: RegisterInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterInstanceCommandOutput>;
+  registerInstance(
+    args: RegisterInstanceCommandInput,
+    cb: (err: any, data?: RegisterInstanceCommandOutput) => void
+  ): void;
+  registerInstance(
+    args: RegisterInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterRdsDbInstanceCommand}
+   */
+  registerRdsDbInstance(
+    args: RegisterRdsDbInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterRdsDbInstanceCommandOutput>;
+  registerRdsDbInstance(
+    args: RegisterRdsDbInstanceCommandInput,
+    cb: (err: any, data?: RegisterRdsDbInstanceCommandOutput) => void
+  ): void;
+  registerRdsDbInstance(
+    args: RegisterRdsDbInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterRdsDbInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterVolumeCommand}
+   */
+  registerVolume(
+    args: RegisterVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterVolumeCommandOutput>;
+  registerVolume(args: RegisterVolumeCommandInput, cb: (err: any, data?: RegisterVolumeCommandOutput) => void): void;
+  registerVolume(
+    args: RegisterVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterVolumeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetLoadBasedAutoScalingCommand}
+   */
+  setLoadBasedAutoScaling(
+    args: SetLoadBasedAutoScalingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetLoadBasedAutoScalingCommandOutput>;
+  setLoadBasedAutoScaling(
+    args: SetLoadBasedAutoScalingCommandInput,
+    cb: (err: any, data?: SetLoadBasedAutoScalingCommandOutput) => void
+  ): void;
+  setLoadBasedAutoScaling(
+    args: SetLoadBasedAutoScalingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetLoadBasedAutoScalingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetPermissionCommand}
+   */
+  setPermission(args: SetPermissionCommandInput, options?: __HttpHandlerOptions): Promise<SetPermissionCommandOutput>;
+  setPermission(args: SetPermissionCommandInput, cb: (err: any, data?: SetPermissionCommandOutput) => void): void;
+  setPermission(
+    args: SetPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetPermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetTimeBasedAutoScalingCommand}
+   */
+  setTimeBasedAutoScaling(
+    args: SetTimeBasedAutoScalingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetTimeBasedAutoScalingCommandOutput>;
+  setTimeBasedAutoScaling(
+    args: SetTimeBasedAutoScalingCommandInput,
+    cb: (err: any, data?: SetTimeBasedAutoScalingCommandOutput) => void
+  ): void;
+  setTimeBasedAutoScaling(
+    args: SetTimeBasedAutoScalingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetTimeBasedAutoScalingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartInstanceCommand}
+   */
+  startInstance(args: StartInstanceCommandInput, options?: __HttpHandlerOptions): Promise<StartInstanceCommandOutput>;
+  startInstance(args: StartInstanceCommandInput, cb: (err: any, data?: StartInstanceCommandOutput) => void): void;
+  startInstance(
+    args: StartInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartStackCommand}
+   */
+  startStack(args: StartStackCommandInput, options?: __HttpHandlerOptions): Promise<StartStackCommandOutput>;
+  startStack(args: StartStackCommandInput, cb: (err: any, data?: StartStackCommandOutput) => void): void;
+  startStack(
+    args: StartStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopInstanceCommand}
+   */
+  stopInstance(args: StopInstanceCommandInput, options?: __HttpHandlerOptions): Promise<StopInstanceCommandOutput>;
+  stopInstance(args: StopInstanceCommandInput, cb: (err: any, data?: StopInstanceCommandOutput) => void): void;
+  stopInstance(
+    args: StopInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopStackCommand}
+   */
+  stopStack(args: StopStackCommandInput, options?: __HttpHandlerOptions): Promise<StopStackCommandOutput>;
+  stopStack(args: StopStackCommandInput, cb: (err: any, data?: StopStackCommandOutput) => void): void;
+  stopStack(
+    args: StopStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UnassignInstanceCommand}
+   */
+  unassignInstance(
+    args: UnassignInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnassignInstanceCommandOutput>;
+  unassignInstance(
+    args: UnassignInstanceCommandInput,
+    cb: (err: any, data?: UnassignInstanceCommandOutput) => void
+  ): void;
+  unassignInstance(
+    args: UnassignInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnassignInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UnassignVolumeCommand}
+   */
+  unassignVolume(
+    args: UnassignVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnassignVolumeCommandOutput>;
+  unassignVolume(args: UnassignVolumeCommandInput, cb: (err: any, data?: UnassignVolumeCommandOutput) => void): void;
+  unassignVolume(
+    args: UnassignVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnassignVolumeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAppCommand}
+   */
+  updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
+  updateApp(args: UpdateAppCommandInput, cb: (err: any, data?: UpdateAppCommandOutput) => void): void;
+  updateApp(
+    args: UpdateAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateElasticIpCommand}
+   */
+  updateElasticIp(
+    args: UpdateElasticIpCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateElasticIpCommandOutput>;
+  updateElasticIp(args: UpdateElasticIpCommandInput, cb: (err: any, data?: UpdateElasticIpCommandOutput) => void): void;
+  updateElasticIp(
+    args: UpdateElasticIpCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateElasticIpCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateInstanceCommand}
+   */
+  updateInstance(
+    args: UpdateInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInstanceCommandOutput>;
+  updateInstance(args: UpdateInstanceCommandInput, cb: (err: any, data?: UpdateInstanceCommandOutput) => void): void;
+  updateInstance(
+    args: UpdateInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLayerCommand}
+   */
+  updateLayer(args: UpdateLayerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLayerCommandOutput>;
+  updateLayer(args: UpdateLayerCommandInput, cb: (err: any, data?: UpdateLayerCommandOutput) => void): void;
+  updateLayer(
+    args: UpdateLayerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLayerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMyUserProfileCommand}
+   */
+  updateMyUserProfile(
+    args: UpdateMyUserProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMyUserProfileCommandOutput>;
+  updateMyUserProfile(
+    args: UpdateMyUserProfileCommandInput,
+    cb: (err: any, data?: UpdateMyUserProfileCommandOutput) => void
+  ): void;
+  updateMyUserProfile(
+    args: UpdateMyUserProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMyUserProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRdsDbInstanceCommand}
+   */
+  updateRdsDbInstance(
+    args: UpdateRdsDbInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRdsDbInstanceCommandOutput>;
+  updateRdsDbInstance(
+    args: UpdateRdsDbInstanceCommandInput,
+    cb: (err: any, data?: UpdateRdsDbInstanceCommandOutput) => void
+  ): void;
+  updateRdsDbInstance(
+    args: UpdateRdsDbInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRdsDbInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateStackCommand}
+   */
+  updateStack(args: UpdateStackCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStackCommandOutput>;
+  updateStack(args: UpdateStackCommandInput, cb: (err: any, data?: UpdateStackCommandOutput) => void): void;
+  updateStack(
+    args: UpdateStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateUserProfileCommand}
+   */
+  updateUserProfile(
+    args: UpdateUserProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserProfileCommandOutput>;
+  updateUserProfile(
+    args: UpdateUserProfileCommandInput,
+    cb: (err: any, data?: UpdateUserProfileCommandOutput) => void
+  ): void;
+  updateUserProfile(
+    args: UpdateUserProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateVolumeCommand}
+   */
+  updateVolume(args: UpdateVolumeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateVolumeCommandOutput>;
+  updateVolume(args: UpdateVolumeCommandInput, cb: (err: any, data?: UpdateVolumeCommandOutput) => void): void;
+  updateVolume(
+    args: UpdateVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVolumeCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -431,2817 +1604,5 @@ import { OpsWorksClient } from "./OpsWorksClient";
  *             <p>You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend migrating your existing Linux stacks to Chef 12 as soon as possible.</p>
  *          </note>
  */
-export class OpsWorks extends OpsWorksClient {
-  /**
-   * @public
-   * <p>Assign a registered instance to a layer.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can assign registered on-premises instances to any layer type.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can assign registered Amazon EC2 instances only to custom layers.</p>
-   *             </li>
-   *             <li>
-   *                <p>You cannot use this action with instances that were created with AWS OpsWorks Stacks.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an AWS Identity and Access Management
-   *       (IAM) user must have a Manage permissions
-   *       level for the stack or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public assignInstance(
-    args: AssignInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssignInstanceCommandOutput>;
-  public assignInstance(
-    args: AssignInstanceCommandInput,
-    cb: (err: any, data?: AssignInstanceCommandOutput) => void
-  ): void;
-  public assignInstance(
-    args: AssignInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssignInstanceCommandOutput) => void
-  ): void;
-  public assignInstance(
-    args: AssignInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignInstanceCommandOutput) => void),
-    cb?: (err: any, data?: AssignInstanceCommandOutput) => void
-  ): Promise<AssignInstanceCommandOutput> | void {
-    const command = new AssignInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Assigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must
-   *       first be registered with the stack by calling <a>RegisterVolume</a>. After you register the
-   *       volume, you must call <a>UpdateVolume</a> to specify a mount point before calling
-   *         <code>AssignVolume</code>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public assignVolume(
-    args: AssignVolumeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssignVolumeCommandOutput>;
-  public assignVolume(args: AssignVolumeCommandInput, cb: (err: any, data?: AssignVolumeCommandOutput) => void): void;
-  public assignVolume(
-    args: AssignVolumeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssignVolumeCommandOutput) => void
-  ): void;
-  public assignVolume(
-    args: AssignVolumeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignVolumeCommandOutput) => void),
-    cb?: (err: any, data?: AssignVolumeCommandOutput) => void
-  ): Promise<AssignVolumeCommandOutput> | void {
-    const command = new AssignVolumeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates one of the stack's registered Elastic IP addresses with a specified instance. The
-   *       address must first be registered with the stack by calling <a>RegisterElasticIp</a>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
-   *         Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public associateElasticIp(
-    args: AssociateElasticIpCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateElasticIpCommandOutput>;
-  public associateElasticIp(
-    args: AssociateElasticIpCommandInput,
-    cb: (err: any, data?: AssociateElasticIpCommandOutput) => void
-  ): void;
-  public associateElasticIp(
-    args: AssociateElasticIpCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateElasticIpCommandOutput) => void
-  ): void;
-  public associateElasticIp(
-    args: AssociateElasticIpCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateElasticIpCommandOutput) => void),
-    cb?: (err: any, data?: AssociateElasticIpCommandOutput) => void
-  ): Promise<AssociateElasticIpCommandOutput> | void {
-    const command = new AssociateElasticIpCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks Stacks does not support
-   *           Application Load Balancer. You can only use Classic Load Balancer with AWS OpsWorks Stacks.
-   *           For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html">Elastic Load
-   *         Balancing</a>.</p>
-   *          <note>
-   *             <p>You must create the Elastic Load Balancing instance separately, by using the Elastic Load Balancing console, API, or CLI. For
-   *         more information, see <a href="https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/Welcome.html"> Elastic
-   *           Load Balancing Developer Guide</a>.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public attachElasticLoadBalancer(
-    args: AttachElasticLoadBalancerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AttachElasticLoadBalancerCommandOutput>;
-  public attachElasticLoadBalancer(
-    args: AttachElasticLoadBalancerCommandInput,
-    cb: (err: any, data?: AttachElasticLoadBalancerCommandOutput) => void
-  ): void;
-  public attachElasticLoadBalancer(
-    args: AttachElasticLoadBalancerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AttachElasticLoadBalancerCommandOutput) => void
-  ): void;
-  public attachElasticLoadBalancer(
-    args: AttachElasticLoadBalancerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachElasticLoadBalancerCommandOutput) => void),
-    cb?: (err: any, data?: AttachElasticLoadBalancerCommandOutput) => void
-  ): Promise<AttachElasticLoadBalancerCommandOutput> | void {
-    const command = new AttachElasticLoadBalancerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a clone of a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html">Clone a
-   *         Stack</a>. By default, all parameters are set to the values used by the parent stack.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
-   *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public cloneStack(args: CloneStackCommandInput, options?: __HttpHandlerOptions): Promise<CloneStackCommandOutput>;
-  public cloneStack(args: CloneStackCommandInput, cb: (err: any, data?: CloneStackCommandOutput) => void): void;
-  public cloneStack(
-    args: CloneStackCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CloneStackCommandOutput) => void
-  ): void;
-  public cloneStack(
-    args: CloneStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CloneStackCommandOutput) => void),
-    cb?: (err: any, data?: CloneStackCommandOutput) => void
-  ): Promise<CloneStackCommandOutput> | void {
-    const command = new CloneStackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an app for a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Creating
-   *       Apps</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
-  public createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
-  public createApp(
-    args: CreateAppCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAppCommandOutput) => void
-  ): void;
-  public createApp(
-    args: CreateAppCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
-    cb?: (err: any, data?: CreateAppCommandOutput) => void
-  ): Promise<CreateAppCommandOutput> | void {
-    const command = new CreateAppCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Runs deployment or stack commands. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html">Deploying
-   *         Apps</a> and <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html">Run Stack Commands</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Deploy or Manage
-   *       permissions level for the stack, or an attached policy that explicitly grants permissions. For
-   *       more information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDeploymentCommandOutput>;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): void;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): void;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): Promise<CreateDeploymentCommandOutput> | void {
-    const command = new CreateDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an instance in a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html">Adding an
-   *         Instance to a Layer</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public createInstance(
-    args: CreateInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateInstanceCommandOutput>;
-  public createInstance(
-    args: CreateInstanceCommandInput,
-    cb: (err: any, data?: CreateInstanceCommandOutput) => void
-  ): void;
-  public createInstance(
-    args: CreateInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateInstanceCommandOutput) => void
-  ): void;
-  public createInstance(
-    args: CreateInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstanceCommandOutput) => void),
-    cb?: (err: any, data?: CreateInstanceCommandOutput) => void
-  ): Promise<CreateInstanceCommandOutput> | void {
-    const command = new CreateInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a layer. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html">How to
-   *         Create a Layer</a>.</p>
-   *          <note>
-   *             <p>You should use <b>CreateLayer</b> for noncustom layer types such as PHP App Server only if the stack
-   *         does not have an existing layer of that type. A stack can have at most one instance of each
-   *         noncustom layer; if you attempt to create a second instance, <b>CreateLayer</b> fails. A
-   *         stack can have an arbitrary number of custom layers, so you can call <b>CreateLayer</b> as
-   *         many times as you like for that layer type.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public createLayer(args: CreateLayerCommandInput, options?: __HttpHandlerOptions): Promise<CreateLayerCommandOutput>;
-  public createLayer(args: CreateLayerCommandInput, cb: (err: any, data?: CreateLayerCommandOutput) => void): void;
-  public createLayer(
-    args: CreateLayerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLayerCommandOutput) => void
-  ): void;
-  public createLayer(
-    args: CreateLayerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLayerCommandOutput) => void),
-    cb?: (err: any, data?: CreateLayerCommandOutput) => void
-  ): Promise<CreateLayerCommandOutput> | void {
-    const command = new CreateLayerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html">Create a New
-   *         Stack</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
-   *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public createStack(args: CreateStackCommandInput, options?: __HttpHandlerOptions): Promise<CreateStackCommandOutput>;
-  public createStack(args: CreateStackCommandInput, cb: (err: any, data?: CreateStackCommandOutput) => void): void;
-  public createStack(
-    args: CreateStackCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateStackCommandOutput) => void
-  ): void;
-  public createStack(
-    args: CreateStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackCommandOutput) => void),
-    cb?: (err: any, data?: CreateStackCommandOutput) => void
-  ): Promise<CreateStackCommandOutput> | void {
-    const command = new CreateStackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new user profile.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
-   *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public createUserProfile(
-    args: CreateUserProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateUserProfileCommandOutput>;
-  public createUserProfile(
-    args: CreateUserProfileCommandInput,
-    cb: (err: any, data?: CreateUserProfileCommandOutput) => void
-  ): void;
-  public createUserProfile(
-    args: CreateUserProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateUserProfileCommandOutput) => void
-  ): void;
-  public createUserProfile(
-    args: CreateUserProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserProfileCommandOutput) => void),
-    cb?: (err: any, data?: CreateUserProfileCommandOutput) => void
-  ): Promise<CreateUserProfileCommandOutput> | void {
-    const command = new CreateUserProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a specified app.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
-  public deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
-  public deleteApp(
-    args: DeleteAppCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAppCommandOutput) => void
-  ): void;
-  public deleteApp(
-    args: DeleteAppCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAppCommandOutput) => void
-  ): Promise<DeleteAppCommandOutput> | void {
-    const command = new DeleteAppCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a specified instance, which terminates the associated Amazon EC2 instance. You must stop an instance before you can delete it.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html">Deleting
-   *         Instances</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public deleteInstance(
-    args: DeleteInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteInstanceCommandOutput>;
-  public deleteInstance(
-    args: DeleteInstanceCommandInput,
-    cb: (err: any, data?: DeleteInstanceCommandOutput) => void
-  ): void;
-  public deleteInstance(
-    args: DeleteInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteInstanceCommandOutput) => void
-  ): void;
-  public deleteInstance(
-    args: DeleteInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DeleteInstanceCommandOutput) => void
-  ): Promise<DeleteInstanceCommandOutput> | void {
-    const command = new DeleteInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a specified layer. You must first stop and then delete all associated instances or
-   *       unassign registered instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html">How to
-   *         Delete a Layer</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public deleteLayer(args: DeleteLayerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLayerCommandOutput>;
-  public deleteLayer(args: DeleteLayerCommandInput, cb: (err: any, data?: DeleteLayerCommandOutput) => void): void;
-  public deleteLayer(
-    args: DeleteLayerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteLayerCommandOutput) => void
-  ): void;
-  public deleteLayer(
-    args: DeleteLayerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLayerCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLayerCommandOutput) => void
-  ): Promise<DeleteLayerCommandOutput> | void {
-    const command = new DeleteLayerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a specified stack. You must first delete all instances, layers, and apps or
-   *       deregister registered instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html">Shut Down a
-   *         Stack</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public deleteStack(args: DeleteStackCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStackCommandOutput>;
-  public deleteStack(args: DeleteStackCommandInput, cb: (err: any, data?: DeleteStackCommandOutput) => void): void;
-  public deleteStack(
-    args: DeleteStackCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteStackCommandOutput) => void
-  ): void;
-  public deleteStack(
-    args: DeleteStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackCommandOutput) => void),
-    cb?: (err: any, data?: DeleteStackCommandOutput) => void
-  ): Promise<DeleteStackCommandOutput> | void {
-    const command = new DeleteStackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a user profile.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
-   *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public deleteUserProfile(
-    args: DeleteUserProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserProfileCommandOutput>;
-  public deleteUserProfile(
-    args: DeleteUserProfileCommandInput,
-    cb: (err: any, data?: DeleteUserProfileCommandOutput) => void
-  ): void;
-  public deleteUserProfile(
-    args: DeleteUserProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteUserProfileCommandOutput) => void
-  ): void;
-  public deleteUserProfile(
-    args: DeleteUserProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserProfileCommandOutput) => void),
-    cb?: (err: any, data?: DeleteUserProfileCommandOutput) => void
-  ): Promise<DeleteUserProfileCommandOutput> | void {
-    const command = new DeleteUserProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deregisters a specified Amazon ECS cluster from a stack.
-   *       For more information, see
-   *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete">
-   *         Resource Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see
-   *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html</a>.</p>
-   */
-  public deregisterEcsCluster(
-    args: DeregisterEcsClusterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterEcsClusterCommandOutput>;
-  public deregisterEcsCluster(
-    args: DeregisterEcsClusterCommandInput,
-    cb: (err: any, data?: DeregisterEcsClusterCommandOutput) => void
-  ): void;
-  public deregisterEcsCluster(
-    args: DeregisterEcsClusterCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterEcsClusterCommandOutput) => void
-  ): void;
-  public deregisterEcsCluster(
-    args: DeregisterEcsClusterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterEcsClusterCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterEcsClusterCommandOutput) => void
-  ): Promise<DeregisterEcsClusterCommandOutput> | void {
-    const command = new DeregisterEcsClusterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deregisters a specified Elastic IP address. The address can then be registered by another
-   *       stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public deregisterElasticIp(
-    args: DeregisterElasticIpCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterElasticIpCommandOutput>;
-  public deregisterElasticIp(
-    args: DeregisterElasticIpCommandInput,
-    cb: (err: any, data?: DeregisterElasticIpCommandOutput) => void
-  ): void;
-  public deregisterElasticIp(
-    args: DeregisterElasticIpCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterElasticIpCommandOutput) => void
-  ): void;
-  public deregisterElasticIp(
-    args: DeregisterElasticIpCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterElasticIpCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterElasticIpCommandOutput) => void
-  ): Promise<DeregisterElasticIpCommandOutput> | void {
-    const command = new DeregisterElasticIpCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deregister a registered Amazon EC2 or on-premises instance. This action removes the
-   *           instance from the stack and returns it to your control. This action cannot be used with
-   *           instances that were created with AWS OpsWorks Stacks.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public deregisterInstance(
-    args: DeregisterInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterInstanceCommandOutput>;
-  public deregisterInstance(
-    args: DeregisterInstanceCommandInput,
-    cb: (err: any, data?: DeregisterInstanceCommandOutput) => void
-  ): void;
-  public deregisterInstance(
-    args: DeregisterInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterInstanceCommandOutput) => void
-  ): void;
-  public deregisterInstance(
-    args: DeregisterInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterInstanceCommandOutput) => void
-  ): Promise<DeregisterInstanceCommandOutput> | void {
-    const command = new DeregisterInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deregisters an Amazon RDS instance.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public deregisterRdsDbInstance(
-    args: DeregisterRdsDbInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterRdsDbInstanceCommandOutput>;
-  public deregisterRdsDbInstance(
-    args: DeregisterRdsDbInstanceCommandInput,
-    cb: (err: any, data?: DeregisterRdsDbInstanceCommandOutput) => void
-  ): void;
-  public deregisterRdsDbInstance(
-    args: DeregisterRdsDbInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterRdsDbInstanceCommandOutput) => void
-  ): void;
-  public deregisterRdsDbInstance(
-    args: DeregisterRdsDbInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterRdsDbInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterRdsDbInstanceCommandOutput) => void
-  ): Promise<DeregisterRdsDbInstanceCommandOutput> | void {
-    const command = new DeregisterRdsDbInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more
-   *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
-   *         Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public deregisterVolume(
-    args: DeregisterVolumeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterVolumeCommandOutput>;
-  public deregisterVolume(
-    args: DeregisterVolumeCommandInput,
-    cb: (err: any, data?: DeregisterVolumeCommandOutput) => void
-  ): void;
-  public deregisterVolume(
-    args: DeregisterVolumeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterVolumeCommandOutput) => void
-  ): void;
-  public deregisterVolume(
-    args: DeregisterVolumeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterVolumeCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterVolumeCommandOutput) => void
-  ): Promise<DeregisterVolumeCommandOutput> | void {
-    const command = new DeregisterVolumeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack ID or a
-   *     configuration manager. <code>DescribeAgentVersions</code> returns a list of available
-   *     agent versions for the specified stack or configuration manager.</p>
-   */
-  public describeAgentVersions(
-    args: DescribeAgentVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAgentVersionsCommandOutput>;
-  public describeAgentVersions(
-    args: DescribeAgentVersionsCommandInput,
-    cb: (err: any, data?: DescribeAgentVersionsCommandOutput) => void
-  ): void;
-  public describeAgentVersions(
-    args: DescribeAgentVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAgentVersionsCommandOutput) => void
-  ): void;
-  public describeAgentVersions(
-    args: DescribeAgentVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAgentVersionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAgentVersionsCommandOutput) => void
-  ): Promise<DescribeAgentVersionsCommandOutput> | void {
-    const command = new DescribeAgentVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Requests a description of a specified set of apps.</p>
-   *          <note>
-   *             <p>This call accepts only one resource-identifying parameter.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeApps(
-    args: DescribeAppsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAppsCommandOutput>;
-  public describeApps(args: DescribeAppsCommandInput, cb: (err: any, data?: DescribeAppsCommandOutput) => void): void;
-  public describeApps(
-    args: DescribeAppsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAppsCommandOutput) => void
-  ): void;
-  public describeApps(
-    args: DescribeAppsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAppsCommandOutput) => void
-  ): Promise<DescribeAppsCommandOutput> | void {
-    const command = new DescribeAppsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the results of specified commands.</p>
-   *          <note>
-   *             <p>This call accepts only one resource-identifying parameter.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeCommands(
-    args: DescribeCommandsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeCommandsCommandOutput>;
-  public describeCommands(
-    args: DescribeCommandsCommandInput,
-    cb: (err: any, data?: DescribeCommandsCommandOutput) => void
-  ): void;
-  public describeCommands(
-    args: DescribeCommandsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeCommandsCommandOutput) => void
-  ): void;
-  public describeCommands(
-    args: DescribeCommandsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCommandsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeCommandsCommandOutput) => void
-  ): Promise<DescribeCommandsCommandOutput> | void {
-    const command = new DescribeCommandsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Requests a description of a specified set of deployments.</p>
-   *          <note>
-   *             <p>This call accepts only one resource-identifying parameter.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeDeployments(
-    args: DescribeDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDeploymentsCommandOutput>;
-  public describeDeployments(
-    args: DescribeDeploymentsCommandInput,
-    cb: (err: any, data?: DescribeDeploymentsCommandOutput) => void
-  ): void;
-  public describeDeployments(
-    args: DescribeDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDeploymentsCommandOutput) => void
-  ): void;
-  public describeDeployments(
-    args: DescribeDeploymentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeploymentsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDeploymentsCommandOutput) => void
-  ): Promise<DescribeDeploymentsCommandOutput> | void {
-    const command = new DescribeDeploymentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID,
-   *     you can use the <code>MaxResults</code> and <code>NextToken</code> parameters to paginate the
-   *     response. However, AWS OpsWorks Stacks currently supports only one cluster per layer, so the result
-   *     set has a maximum of one element.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack or an attached policy that explicitly grants
-   *       permission. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   *          <p>This call accepts only one resource-identifying parameter.</p>
-   */
-  public describeEcsClusters(
-    args: DescribeEcsClustersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEcsClustersCommandOutput>;
-  public describeEcsClusters(
-    args: DescribeEcsClustersCommandInput,
-    cb: (err: any, data?: DescribeEcsClustersCommandOutput) => void
-  ): void;
-  public describeEcsClusters(
-    args: DescribeEcsClustersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEcsClustersCommandOutput) => void
-  ): void;
-  public describeEcsClusters(
-    args: DescribeEcsClustersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEcsClustersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEcsClustersCommandOutput) => void
-  ): Promise<DescribeEcsClustersCommandOutput> | void {
-    const command = new DescribeEcsClustersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP addresses</a>.</p>
-   *          <note>
-   *             <p>This call accepts only one resource-identifying parameter.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeElasticIps(
-    args: DescribeElasticIpsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeElasticIpsCommandOutput>;
-  public describeElasticIps(
-    args: DescribeElasticIpsCommandInput,
-    cb: (err: any, data?: DescribeElasticIpsCommandOutput) => void
-  ): void;
-  public describeElasticIps(
-    args: DescribeElasticIpsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeElasticIpsCommandOutput) => void
-  ): void;
-  public describeElasticIps(
-    args: DescribeElasticIpsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeElasticIpsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeElasticIpsCommandOutput) => void
-  ): Promise<DescribeElasticIpsCommandOutput> | void {
-    const command = new DescribeElasticIpsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes a stack's Elastic Load Balancing instances.</p>
-   *          <note>
-   *             <p>This call accepts only one resource-identifying parameter.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeElasticLoadBalancers(
-    args: DescribeElasticLoadBalancersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeElasticLoadBalancersCommandOutput>;
-  public describeElasticLoadBalancers(
-    args: DescribeElasticLoadBalancersCommandInput,
-    cb: (err: any, data?: DescribeElasticLoadBalancersCommandOutput) => void
-  ): void;
-  public describeElasticLoadBalancers(
-    args: DescribeElasticLoadBalancersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeElasticLoadBalancersCommandOutput) => void
-  ): void;
-  public describeElasticLoadBalancers(
-    args: DescribeElasticLoadBalancersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeElasticLoadBalancersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeElasticLoadBalancersCommandOutput) => void
-  ): Promise<DescribeElasticLoadBalancersCommandOutput> | void {
-    const command = new DescribeElasticLoadBalancersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Requests a description of a set of instances.</p>
-   *          <note>
-   *             <p>This call accepts only one resource-identifying parameter.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeInstances(
-    args: DescribeInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInstancesCommandOutput>;
-  public describeInstances(
-    args: DescribeInstancesCommandInput,
-    cb: (err: any, data?: DescribeInstancesCommandOutput) => void
-  ): void;
-  public describeInstances(
-    args: DescribeInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInstancesCommandOutput) => void
-  ): void;
-  public describeInstances(
-    args: DescribeInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstancesCommandOutput) => void
-  ): Promise<DescribeInstancesCommandOutput> | void {
-    const command = new DescribeInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Requests a description of one or more layers in a specified stack.</p>
-   *          <note>
-   *             <p>This call accepts only one resource-identifying parameter.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeLayers(
-    args: DescribeLayersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLayersCommandOutput>;
-  public describeLayers(
-    args: DescribeLayersCommandInput,
-    cb: (err: any, data?: DescribeLayersCommandOutput) => void
-  ): void;
-  public describeLayers(
-    args: DescribeLayersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLayersCommandOutput) => void
-  ): void;
-  public describeLayers(
-    args: DescribeLayersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLayersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLayersCommandOutput) => void
-  ): Promise<DescribeLayersCommandOutput> | void {
-    const command = new DescribeLayersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes load-based auto scaling configurations for specified layers.</p>
-   *          <note>
-   *             <p>You must specify at least one of the parameters.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeLoadBasedAutoScaling(
-    args: DescribeLoadBasedAutoScalingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLoadBasedAutoScalingCommandOutput>;
-  public describeLoadBasedAutoScaling(
-    args: DescribeLoadBasedAutoScalingCommandInput,
-    cb: (err: any, data?: DescribeLoadBasedAutoScalingCommandOutput) => void
-  ): void;
-  public describeLoadBasedAutoScaling(
-    args: DescribeLoadBasedAutoScalingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLoadBasedAutoScalingCommandOutput) => void
-  ): void;
-  public describeLoadBasedAutoScaling(
-    args: DescribeLoadBasedAutoScalingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoadBasedAutoScalingCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLoadBasedAutoScalingCommandOutput) => void
-  ): Promise<DescribeLoadBasedAutoScalingCommandOutput> | void {
-    const command = new DescribeLoadBasedAutoScalingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes a user's SSH information.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
-   *       enabled or an attached policy that explicitly grants permissions. For more information about user
-   *       permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeMyUserProfile(
-    args: DescribeMyUserProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMyUserProfileCommandOutput>;
-  public describeMyUserProfile(
-    args: DescribeMyUserProfileCommandInput,
-    cb: (err: any, data?: DescribeMyUserProfileCommandOutput) => void
-  ): void;
-  public describeMyUserProfile(
-    args: DescribeMyUserProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMyUserProfileCommandOutput) => void
-  ): void;
-  public describeMyUserProfile(
-    args: DescribeMyUserProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMyUserProfileCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMyUserProfileCommandOutput) => void
-  ): Promise<DescribeMyUserProfileCommandOutput> | void {
-    const command = new DescribeMyUserProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
-   */
-  public describeOperatingSystems(
-    args: DescribeOperatingSystemsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeOperatingSystemsCommandOutput>;
-  public describeOperatingSystems(
-    args: DescribeOperatingSystemsCommandInput,
-    cb: (err: any, data?: DescribeOperatingSystemsCommandOutput) => void
-  ): void;
-  public describeOperatingSystems(
-    args: DescribeOperatingSystemsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeOperatingSystemsCommandOutput) => void
-  ): void;
-  public describeOperatingSystems(
-    args: DescribeOperatingSystemsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOperatingSystemsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeOperatingSystemsCommandOutput) => void
-  ): Promise<DescribeOperatingSystemsCommandOutput> | void {
-    const command = new DescribeOperatingSystemsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the permissions for a specified stack.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describePermissions(
-    args: DescribePermissionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribePermissionsCommandOutput>;
-  public describePermissions(
-    args: DescribePermissionsCommandInput,
-    cb: (err: any, data?: DescribePermissionsCommandOutput) => void
-  ): void;
-  public describePermissions(
-    args: DescribePermissionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribePermissionsCommandOutput) => void
-  ): void;
-  public describePermissions(
-    args: DescribePermissionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePermissionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribePermissionsCommandOutput) => void
-  ): Promise<DescribePermissionsCommandOutput> | void {
-    const command = new DescribePermissionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describe an instance's RAID arrays.</p>
-   *          <note>
-   *             <p>This call accepts only one resource-identifying parameter.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeRaidArrays(
-    args: DescribeRaidArraysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeRaidArraysCommandOutput>;
-  public describeRaidArrays(
-    args: DescribeRaidArraysCommandInput,
-    cb: (err: any, data?: DescribeRaidArraysCommandOutput) => void
-  ): void;
-  public describeRaidArrays(
-    args: DescribeRaidArraysCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeRaidArraysCommandOutput) => void
-  ): void;
-  public describeRaidArrays(
-    args: DescribeRaidArraysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRaidArraysCommandOutput) => void),
-    cb?: (err: any, data?: DescribeRaidArraysCommandOutput) => void
-  ): Promise<DescribeRaidArraysCommandOutput> | void {
-    const command = new DescribeRaidArraysCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes Amazon RDS instances.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   *          <p>This call accepts only one resource-identifying parameter.</p>
-   */
-  public describeRdsDbInstances(
-    args: DescribeRdsDbInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeRdsDbInstancesCommandOutput>;
-  public describeRdsDbInstances(
-    args: DescribeRdsDbInstancesCommandInput,
-    cb: (err: any, data?: DescribeRdsDbInstancesCommandOutput) => void
-  ): void;
-  public describeRdsDbInstances(
-    args: DescribeRdsDbInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeRdsDbInstancesCommandOutput) => void
-  ): void;
-  public describeRdsDbInstances(
-    args: DescribeRdsDbInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRdsDbInstancesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeRdsDbInstancesCommandOutput) => void
-  ): Promise<DescribeRdsDbInstancesCommandOutput> | void {
-    const command = new DescribeRdsDbInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes AWS OpsWorks Stacks service errors.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   *          <p>This call accepts only one resource-identifying parameter.</p>
-   */
-  public describeServiceErrors(
-    args: DescribeServiceErrorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeServiceErrorsCommandOutput>;
-  public describeServiceErrors(
-    args: DescribeServiceErrorsCommandInput,
-    cb: (err: any, data?: DescribeServiceErrorsCommandOutput) => void
-  ): void;
-  public describeServiceErrors(
-    args: DescribeServiceErrorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeServiceErrorsCommandOutput) => void
-  ): void;
-  public describeServiceErrors(
-    args: DescribeServiceErrorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServiceErrorsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeServiceErrorsCommandOutput) => void
-  ): Promise<DescribeServiceErrorsCommandOutput> | void {
-    const command = new DescribeServiceErrorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Requests a description of a stack's provisioning parameters.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeStackProvisioningParameters(
-    args: DescribeStackProvisioningParametersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStackProvisioningParametersCommandOutput>;
-  public describeStackProvisioningParameters(
-    args: DescribeStackProvisioningParametersCommandInput,
-    cb: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
-  ): void;
-  public describeStackProvisioningParameters(
-    args: DescribeStackProvisioningParametersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
-  ): void;
-  public describeStackProvisioningParameters(
-    args: DescribeStackProvisioningParametersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
-  ): Promise<DescribeStackProvisioningParametersCommandOutput> | void {
-    const command = new DescribeStackProvisioningParametersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Requests a description of one or more stacks.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeStacks(
-    args: DescribeStacksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStacksCommandOutput>;
-  public describeStacks(
-    args: DescribeStacksCommandInput,
-    cb: (err: any, data?: DescribeStacksCommandOutput) => void
-  ): void;
-  public describeStacks(
-    args: DescribeStacksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStacksCommandOutput) => void
-  ): void;
-  public describeStacks(
-    args: DescribeStacksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStacksCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStacksCommandOutput) => void
-  ): Promise<DescribeStacksCommandOutput> | void {
-    const command = new DescribeStacksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the number of layers and apps in a specified stack, and the number of instances in
-   *       each state, such as <code>running_setup</code> or <code>online</code>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeStackSummary(
-    args: DescribeStackSummaryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStackSummaryCommandOutput>;
-  public describeStackSummary(
-    args: DescribeStackSummaryCommandInput,
-    cb: (err: any, data?: DescribeStackSummaryCommandOutput) => void
-  ): void;
-  public describeStackSummary(
-    args: DescribeStackSummaryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStackSummaryCommandOutput) => void
-  ): void;
-  public describeStackSummary(
-    args: DescribeStackSummaryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackSummaryCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStackSummaryCommandOutput) => void
-  ): Promise<DescribeStackSummaryCommandOutput> | void {
-    const command = new DescribeStackSummaryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes time-based auto scaling configurations for specified instances.</p>
-   *          <note>
-   *             <p>You must specify at least one of the parameters.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeTimeBasedAutoScaling(
-    args: DescribeTimeBasedAutoScalingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTimeBasedAutoScalingCommandOutput>;
-  public describeTimeBasedAutoScaling(
-    args: DescribeTimeBasedAutoScalingCommandInput,
-    cb: (err: any, data?: DescribeTimeBasedAutoScalingCommandOutput) => void
-  ): void;
-  public describeTimeBasedAutoScaling(
-    args: DescribeTimeBasedAutoScalingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTimeBasedAutoScalingCommandOutput) => void
-  ): void;
-  public describeTimeBasedAutoScaling(
-    args: DescribeTimeBasedAutoScalingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTimeBasedAutoScalingCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTimeBasedAutoScalingCommandOutput) => void
-  ): Promise<DescribeTimeBasedAutoScalingCommandOutput> | void {
-    const command = new DescribeTimeBasedAutoScalingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describe specified users.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
-   *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeUserProfiles(
-    args: DescribeUserProfilesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeUserProfilesCommandOutput>;
-  public describeUserProfiles(
-    args: DescribeUserProfilesCommandInput,
-    cb: (err: any, data?: DescribeUserProfilesCommandOutput) => void
-  ): void;
-  public describeUserProfiles(
-    args: DescribeUserProfilesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeUserProfilesCommandOutput) => void
-  ): void;
-  public describeUserProfiles(
-    args: DescribeUserProfilesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserProfilesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUserProfilesCommandOutput) => void
-  ): Promise<DescribeUserProfilesCommandOutput> | void {
-    const command = new DescribeUserProfilesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes an instance's Amazon EBS volumes.</p>
-   *          <note>
-   *             <p>This call accepts only one resource-identifying parameter.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
-   *       Manage permissions level for the stack, or an attached policy that explicitly grants
-   *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public describeVolumes(
-    args: DescribeVolumesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeVolumesCommandOutput>;
-  public describeVolumes(
-    args: DescribeVolumesCommandInput,
-    cb: (err: any, data?: DescribeVolumesCommandOutput) => void
-  ): void;
-  public describeVolumes(
-    args: DescribeVolumesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeVolumesCommandOutput) => void
-  ): void;
-  public describeVolumes(
-    args: DescribeVolumesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVolumesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeVolumesCommandOutput) => void
-  ): Promise<DescribeVolumesCommandOutput> | void {
-    const command = new DescribeVolumesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Detaches a specified Elastic Load Balancing instance from its layer.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public detachElasticLoadBalancer(
-    args: DetachElasticLoadBalancerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DetachElasticLoadBalancerCommandOutput>;
-  public detachElasticLoadBalancer(
-    args: DetachElasticLoadBalancerCommandInput,
-    cb: (err: any, data?: DetachElasticLoadBalancerCommandOutput) => void
-  ): void;
-  public detachElasticLoadBalancer(
-    args: DetachElasticLoadBalancerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DetachElasticLoadBalancerCommandOutput) => void
-  ): void;
-  public detachElasticLoadBalancer(
-    args: DetachElasticLoadBalancerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachElasticLoadBalancerCommandOutput) => void),
-    cb?: (err: any, data?: DetachElasticLoadBalancerCommandOutput) => void
-  ): Promise<DetachElasticLoadBalancerCommandOutput> | void {
-    const command = new DetachElasticLoadBalancerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates an Elastic IP address from its instance. The address remains registered with
-   *       the stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public disassociateElasticIp(
-    args: DisassociateElasticIpCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateElasticIpCommandOutput>;
-  public disassociateElasticIp(
-    args: DisassociateElasticIpCommandInput,
-    cb: (err: any, data?: DisassociateElasticIpCommandOutput) => void
-  ): void;
-  public disassociateElasticIp(
-    args: DisassociateElasticIpCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateElasticIpCommandOutput) => void
-  ): void;
-  public disassociateElasticIp(
-    args: DisassociateElasticIpCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateElasticIpCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateElasticIpCommandOutput) => void
-  ): Promise<DisassociateElasticIpCommandOutput> | void {
-    const command = new DisassociateElasticIpCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets a generated host name for the specified layer, based on the current host name theme.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public getHostnameSuggestion(
-    args: GetHostnameSuggestionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetHostnameSuggestionCommandOutput>;
-  public getHostnameSuggestion(
-    args: GetHostnameSuggestionCommandInput,
-    cb: (err: any, data?: GetHostnameSuggestionCommandOutput) => void
-  ): void;
-  public getHostnameSuggestion(
-    args: GetHostnameSuggestionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetHostnameSuggestionCommandOutput) => void
-  ): void;
-  public getHostnameSuggestion(
-    args: GetHostnameSuggestionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostnameSuggestionCommandOutput) => void),
-    cb?: (err: any, data?: GetHostnameSuggestionCommandOutput) => void
-  ): Promise<GetHostnameSuggestionCommandOutput> | void {
-    const command = new GetHostnameSuggestionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <note>
-   *             <p>This action can be used only with Windows stacks.</p>
-   *          </note>
-   *          <p>Grants RDP access to a Windows instance for a specified time period.</p>
-   */
-  public grantAccess(args: GrantAccessCommandInput, options?: __HttpHandlerOptions): Promise<GrantAccessCommandOutput>;
-  public grantAccess(args: GrantAccessCommandInput, cb: (err: any, data?: GrantAccessCommandOutput) => void): void;
-  public grantAccess(
-    args: GrantAccessCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GrantAccessCommandOutput) => void
-  ): void;
-  public grantAccess(
-    args: GrantAccessCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GrantAccessCommandOutput) => void),
-    cb?: (err: any, data?: GrantAccessCommandOutput) => void
-  ): Promise<GrantAccessCommandOutput> | void {
-    const command = new GrantAccessCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of tags that are applied to the specified stack or layer.</p>
-   */
-  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
-  public listTags(
-    args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
-  ): void;
-  public listTags(
-    args: ListTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsCommandOutput) => void
-  ): Promise<ListTagsCommandOutput> | void {
-    const command = new ListTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Reboots a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
-   *         Stopping, and Rebooting Instances</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public rebootInstance(
-    args: RebootInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RebootInstanceCommandOutput>;
-  public rebootInstance(
-    args: RebootInstanceCommandInput,
-    cb: (err: any, data?: RebootInstanceCommandOutput) => void
-  ): void;
-  public rebootInstance(
-    args: RebootInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RebootInstanceCommandOutput) => void
-  ): void;
-  public rebootInstance(
-    args: RebootInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootInstanceCommandOutput) => void),
-    cb?: (err: any, data?: RebootInstanceCommandOutput) => void
-  ): Promise<RebootInstanceCommandOutput> | void {
-    const command = new RebootInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers a specified Amazon ECS cluster with a stack. You can register only one
-   *       cluster with a stack. A cluster can be registered with only one stack.
-   *       For more information, see
-   *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html">
-   *       Resource Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see
-   *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">
-   *       Managing User Permissions</a>.</p>
-   */
-  public registerEcsCluster(
-    args: RegisterEcsClusterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterEcsClusterCommandOutput>;
-  public registerEcsCluster(
-    args: RegisterEcsClusterCommandInput,
-    cb: (err: any, data?: RegisterEcsClusterCommandOutput) => void
-  ): void;
-  public registerEcsCluster(
-    args: RegisterEcsClusterCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterEcsClusterCommandOutput) => void
-  ): void;
-  public registerEcsCluster(
-    args: RegisterEcsClusterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterEcsClusterCommandOutput) => void),
-    cb?: (err: any, data?: RegisterEcsClusterCommandOutput) => void
-  ): Promise<RegisterEcsClusterCommandOutput> | void {
-    const command = new RegisterEcsClusterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers an Elastic IP address with a specified stack. An address can be registered with
-   *       only one stack at a time. If the address is already registered, you must first deregister it
-   *       by calling <a>DeregisterElasticIp</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public registerElasticIp(
-    args: RegisterElasticIpCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterElasticIpCommandOutput>;
-  public registerElasticIp(
-    args: RegisterElasticIpCommandInput,
-    cb: (err: any, data?: RegisterElasticIpCommandOutput) => void
-  ): void;
-  public registerElasticIp(
-    args: RegisterElasticIpCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterElasticIpCommandOutput) => void
-  ): void;
-  public registerElasticIp(
-    args: RegisterElasticIpCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterElasticIpCommandOutput) => void),
-    cb?: (err: any, data?: RegisterElasticIpCommandOutput) => void
-  ): Promise<RegisterElasticIpCommandOutput> | void {
-    const command = new RegisterElasticIpCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.</p>
-   *          <note>
-   *             <p>We do not recommend using this action to register instances. The complete registration
-   *       operation includes two tasks: installing the AWS OpsWorks Stacks agent on the instance, and registering
-   *       the instance with the stack. <code>RegisterInstance</code> handles only the second step. You
-   *       should instead use the AWS CLI <code>register</code> command, which performs the entire
-   *       registration operation. For more information,
-   *       see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html">
-   *       Registering an Instance with an AWS OpsWorks Stacks Stack</a>.</p>
-   *          </note>
-   *          <p>Registered instances have the same requirements as instances that are created by using the <a>CreateInstance</a> API.
-   *       For example, registered instances must be running a supported Linux-based operating system, and they must have a supported instance
-   *       type. For more information about requirements for instances that you want to register, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register-registering-preparer.html">
-   *           Preparing the Instance</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public registerInstance(
-    args: RegisterInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterInstanceCommandOutput>;
-  public registerInstance(
-    args: RegisterInstanceCommandInput,
-    cb: (err: any, data?: RegisterInstanceCommandOutput) => void
-  ): void;
-  public registerInstance(
-    args: RegisterInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterInstanceCommandOutput) => void
-  ): void;
-  public registerInstance(
-    args: RegisterInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterInstanceCommandOutput) => void),
-    cb?: (err: any, data?: RegisterInstanceCommandOutput) => void
-  ): Promise<RegisterInstanceCommandOutput> | void {
-    const command = new RegisterInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers an Amazon RDS instance with a stack.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public registerRdsDbInstance(
-    args: RegisterRdsDbInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterRdsDbInstanceCommandOutput>;
-  public registerRdsDbInstance(
-    args: RegisterRdsDbInstanceCommandInput,
-    cb: (err: any, data?: RegisterRdsDbInstanceCommandOutput) => void
-  ): void;
-  public registerRdsDbInstance(
-    args: RegisterRdsDbInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterRdsDbInstanceCommandOutput) => void
-  ): void;
-  public registerRdsDbInstance(
-    args: RegisterRdsDbInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterRdsDbInstanceCommandOutput) => void),
-    cb?: (err: any, data?: RegisterRdsDbInstanceCommandOutput) => void
-  ): Promise<RegisterRdsDbInstanceCommandOutput> | void {
-    const command = new RegisterRdsDbInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one
-   *       stack at a time. If the volume is already registered, you must first deregister it by calling
-   *         <a>DeregisterVolume</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public registerVolume(
-    args: RegisterVolumeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterVolumeCommandOutput>;
-  public registerVolume(
-    args: RegisterVolumeCommandInput,
-    cb: (err: any, data?: RegisterVolumeCommandOutput) => void
-  ): void;
-  public registerVolume(
-    args: RegisterVolumeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterVolumeCommandOutput) => void
-  ): void;
-  public registerVolume(
-    args: RegisterVolumeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterVolumeCommandOutput) => void),
-    cb?: (err: any, data?: RegisterVolumeCommandOutput) => void
-  ): Promise<RegisterVolumeCommandOutput> | void {
-    const command = new RegisterVolumeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Specify the load-based auto scaling configuration for a specified layer. For more
-   *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
-   *         Load with Time-based and Load-based Instances</a>.</p>
-   *          <note>
-   *             <p>To use load-based auto scaling, you must create a set of load-based auto scaling instances. Load-based auto scaling operates only on the instances from that set, so you must ensure that you have created enough instances to handle the maximum anticipated load.</p>
-   *          </note>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public setLoadBasedAutoScaling(
-    args: SetLoadBasedAutoScalingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetLoadBasedAutoScalingCommandOutput>;
-  public setLoadBasedAutoScaling(
-    args: SetLoadBasedAutoScalingCommandInput,
-    cb: (err: any, data?: SetLoadBasedAutoScalingCommandOutput) => void
-  ): void;
-  public setLoadBasedAutoScaling(
-    args: SetLoadBasedAutoScalingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetLoadBasedAutoScalingCommandOutput) => void
-  ): void;
-  public setLoadBasedAutoScaling(
-    args: SetLoadBasedAutoScalingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetLoadBasedAutoScalingCommandOutput) => void),
-    cb?: (err: any, data?: SetLoadBasedAutoScalingCommandOutput) => void
-  ): Promise<SetLoadBasedAutoScalingCommandOutput> | void {
-    const command = new SetLoadBasedAutoScalingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Specifies a user's permissions. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html">Security and
-   *         Permissions</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public setPermission(
-    args: SetPermissionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetPermissionCommandOutput>;
-  public setPermission(
-    args: SetPermissionCommandInput,
-    cb: (err: any, data?: SetPermissionCommandOutput) => void
-  ): void;
-  public setPermission(
-    args: SetPermissionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetPermissionCommandOutput) => void
-  ): void;
-  public setPermission(
-    args: SetPermissionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetPermissionCommandOutput) => void),
-    cb?: (err: any, data?: SetPermissionCommandOutput) => void
-  ): Promise<SetPermissionCommandOutput> | void {
-    const command = new SetPermissionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Specify the time-based auto scaling configuration for a specified instance. For more
-   *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
-   *         Load with Time-based and Load-based Instances</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public setTimeBasedAutoScaling(
-    args: SetTimeBasedAutoScalingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetTimeBasedAutoScalingCommandOutput>;
-  public setTimeBasedAutoScaling(
-    args: SetTimeBasedAutoScalingCommandInput,
-    cb: (err: any, data?: SetTimeBasedAutoScalingCommandOutput) => void
-  ): void;
-  public setTimeBasedAutoScaling(
-    args: SetTimeBasedAutoScalingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetTimeBasedAutoScalingCommandOutput) => void
-  ): void;
-  public setTimeBasedAutoScaling(
-    args: SetTimeBasedAutoScalingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetTimeBasedAutoScalingCommandOutput) => void),
-    cb?: (err: any, data?: SetTimeBasedAutoScalingCommandOutput) => void
-  ): Promise<SetTimeBasedAutoScalingCommandOutput> | void {
-    const command = new SetTimeBasedAutoScalingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
-   *         Stopping, and Rebooting Instances</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public startInstance(
-    args: StartInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartInstanceCommandOutput>;
-  public startInstance(
-    args: StartInstanceCommandInput,
-    cb: (err: any, data?: StartInstanceCommandOutput) => void
-  ): void;
-  public startInstance(
-    args: StartInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartInstanceCommandOutput) => void
-  ): void;
-  public startInstance(
-    args: StartInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartInstanceCommandOutput) => void),
-    cb?: (err: any, data?: StartInstanceCommandOutput) => void
-  ): Promise<StartInstanceCommandOutput> | void {
-    const command = new StartInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts a stack's instances.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public startStack(args: StartStackCommandInput, options?: __HttpHandlerOptions): Promise<StartStackCommandOutput>;
-  public startStack(args: StartStackCommandInput, cb: (err: any, data?: StartStackCommandOutput) => void): void;
-  public startStack(
-    args: StartStackCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartStackCommandOutput) => void
-  ): void;
-  public startStack(
-    args: StartStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartStackCommandOutput) => void),
-    cb?: (err: any, data?: StartStackCommandOutput) => void
-  ): Promise<StartStackCommandOutput> | void {
-    const command = new StartStackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Stops a specified instance. When you stop a standard instance, the data disappears and must
-   *       be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without
-   *       losing data. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
-   *         Stopping, and Rebooting Instances</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public stopInstance(
-    args: StopInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopInstanceCommandOutput>;
-  public stopInstance(args: StopInstanceCommandInput, cb: (err: any, data?: StopInstanceCommandOutput) => void): void;
-  public stopInstance(
-    args: StopInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopInstanceCommandOutput) => void
-  ): void;
-  public stopInstance(
-    args: StopInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopInstanceCommandOutput) => void),
-    cb?: (err: any, data?: StopInstanceCommandOutput) => void
-  ): Promise<StopInstanceCommandOutput> | void {
-    const command = new StopInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Stops a specified stack.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public stopStack(args: StopStackCommandInput, options?: __HttpHandlerOptions): Promise<StopStackCommandOutput>;
-  public stopStack(args: StopStackCommandInput, cb: (err: any, data?: StopStackCommandOutput) => void): void;
-  public stopStack(
-    args: StopStackCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopStackCommandOutput) => void
-  ): void;
-  public stopStack(
-    args: StopStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopStackCommandOutput) => void),
-    cb?: (err: any, data?: StopStackCommandOutput) => void
-  ): Promise<StopStackCommandOutput> | void {
-    const command = new StopStackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks Stacks. For more information about how tagging works, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html">Tags</a> in the AWS OpsWorks User Guide.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Unassigns a registered instance from all layers that are using the instance.
-   *           The instance remains in the stack as an unassigned instance, and can be assigned to
-   *           another layer as needed. You cannot use this action with instances that were created
-   *           with AWS OpsWorks Stacks.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must
-   *           have a Manage permissions level for the stack or an attached policy that explicitly
-   *           grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public unassignInstance(
-    args: UnassignInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UnassignInstanceCommandOutput>;
-  public unassignInstance(
-    args: UnassignInstanceCommandInput,
-    cb: (err: any, data?: UnassignInstanceCommandOutput) => void
-  ): void;
-  public unassignInstance(
-    args: UnassignInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UnassignInstanceCommandOutput) => void
-  ): void;
-  public unassignInstance(
-    args: UnassignInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignInstanceCommandOutput) => void),
-    cb?: (err: any, data?: UnassignInstanceCommandOutput) => void
-  ): Promise<UnassignInstanceCommandOutput> | void {
-    const command = new UnassignInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more
-   *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
-   *         Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public unassignVolume(
-    args: UnassignVolumeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UnassignVolumeCommandOutput>;
-  public unassignVolume(
-    args: UnassignVolumeCommandInput,
-    cb: (err: any, data?: UnassignVolumeCommandOutput) => void
-  ): void;
-  public unassignVolume(
-    args: UnassignVolumeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UnassignVolumeCommandOutput) => void
-  ): void;
-  public unassignVolume(
-    args: UnassignVolumeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignVolumeCommandOutput) => void),
-    cb?: (err: any, data?: UnassignVolumeCommandOutput) => void
-  ): Promise<UnassignVolumeCommandOutput> | void {
-    const command = new UnassignVolumeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes tags from a specified stack or layer.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a specified app.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Deploy or Manage
-   *       permissions level for the stack, or an attached policy that explicitly grants permissions. For
-   *       more information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
-  public updateApp(args: UpdateAppCommandInput, cb: (err: any, data?: UpdateAppCommandOutput) => void): void;
-  public updateApp(
-    args: UpdateAppCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAppCommandOutput) => void
-  ): void;
-  public updateApp(
-    args: UpdateAppCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAppCommandOutput) => void
-  ): Promise<UpdateAppCommandOutput> | void {
-    const command = new UpdateAppCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a registered Elastic IP address's name. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public updateElasticIp(
-    args: UpdateElasticIpCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateElasticIpCommandOutput>;
-  public updateElasticIp(
-    args: UpdateElasticIpCommandInput,
-    cb: (err: any, data?: UpdateElasticIpCommandOutput) => void
-  ): void;
-  public updateElasticIp(
-    args: UpdateElasticIpCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateElasticIpCommandOutput) => void
-  ): void;
-  public updateElasticIp(
-    args: UpdateElasticIpCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateElasticIpCommandOutput) => void),
-    cb?: (err: any, data?: UpdateElasticIpCommandOutput) => void
-  ): Promise<UpdateElasticIpCommandOutput> | void {
-    const command = new UpdateElasticIpCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a specified instance.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public updateInstance(
-    args: UpdateInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateInstanceCommandOutput>;
-  public updateInstance(
-    args: UpdateInstanceCommandInput,
-    cb: (err: any, data?: UpdateInstanceCommandOutput) => void
-  ): void;
-  public updateInstance(
-    args: UpdateInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateInstanceCommandOutput) => void
-  ): void;
-  public updateInstance(
-    args: UpdateInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInstanceCommandOutput) => void),
-    cb?: (err: any, data?: UpdateInstanceCommandOutput) => void
-  ): Promise<UpdateInstanceCommandOutput> | void {
-    const command = new UpdateInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a specified layer.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public updateLayer(args: UpdateLayerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLayerCommandOutput>;
-  public updateLayer(args: UpdateLayerCommandInput, cb: (err: any, data?: UpdateLayerCommandOutput) => void): void;
-  public updateLayer(
-    args: UpdateLayerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateLayerCommandOutput) => void
-  ): void;
-  public updateLayer(
-    args: UpdateLayerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLayerCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLayerCommandOutput) => void
-  ): Promise<UpdateLayerCommandOutput> | void {
-    const command = new UpdateLayerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a user's SSH public key.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
-   *       enabled or an attached policy that explicitly grants permissions. For more information about user
-   *       permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public updateMyUserProfile(
-    args: UpdateMyUserProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateMyUserProfileCommandOutput>;
-  public updateMyUserProfile(
-    args: UpdateMyUserProfileCommandInput,
-    cb: (err: any, data?: UpdateMyUserProfileCommandOutput) => void
-  ): void;
-  public updateMyUserProfile(
-    args: UpdateMyUserProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateMyUserProfileCommandOutput) => void
-  ): void;
-  public updateMyUserProfile(
-    args: UpdateMyUserProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMyUserProfileCommandOutput) => void),
-    cb?: (err: any, data?: UpdateMyUserProfileCommandOutput) => void
-  ): Promise<UpdateMyUserProfileCommandOutput> | void {
-    const command = new UpdateMyUserProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an Amazon RDS instance.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public updateRdsDbInstance(
-    args: UpdateRdsDbInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateRdsDbInstanceCommandOutput>;
-  public updateRdsDbInstance(
-    args: UpdateRdsDbInstanceCommandInput,
-    cb: (err: any, data?: UpdateRdsDbInstanceCommandOutput) => void
-  ): void;
-  public updateRdsDbInstance(
-    args: UpdateRdsDbInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateRdsDbInstanceCommandOutput) => void
-  ): void;
-  public updateRdsDbInstance(
-    args: UpdateRdsDbInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRdsDbInstanceCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRdsDbInstanceCommandOutput) => void
-  ): Promise<UpdateRdsDbInstanceCommandOutput> | void {
-    const command = new UpdateRdsDbInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a specified stack.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public updateStack(args: UpdateStackCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStackCommandOutput>;
-  public updateStack(args: UpdateStackCommandInput, cb: (err: any, data?: UpdateStackCommandOutput) => void): void;
-  public updateStack(
-    args: UpdateStackCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateStackCommandOutput) => void
-  ): void;
-  public updateStack(
-    args: UpdateStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackCommandOutput) => void),
-    cb?: (err: any, data?: UpdateStackCommandOutput) => void
-  ): Promise<UpdateStackCommandOutput> | void {
-    const command = new UpdateStackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a specified user profile.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
-   *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public updateUserProfile(
-    args: UpdateUserProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateUserProfileCommandOutput>;
-  public updateUserProfile(
-    args: UpdateUserProfileCommandInput,
-    cb: (err: any, data?: UpdateUserProfileCommandOutput) => void
-  ): void;
-  public updateUserProfile(
-    args: UpdateUserProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateUserProfileCommandOutput) => void
-  ): void;
-  public updateUserProfile(
-    args: UpdateUserProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserProfileCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserProfileCommandOutput) => void
-  ): Promise<UpdateUserProfileCommandOutput> | void {
-    const command = new UpdateUserProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an Amazon EBS volume's name or mount point. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
-   *          <p>
-   *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-   *       level for the stack, or an attached policy that explicitly grants permissions. For more
-   *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
-   *         Permissions</a>.</p>
-   */
-  public updateVolume(
-    args: UpdateVolumeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateVolumeCommandOutput>;
-  public updateVolume(args: UpdateVolumeCommandInput, cb: (err: any, data?: UpdateVolumeCommandOutput) => void): void;
-  public updateVolume(
-    args: UpdateVolumeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateVolumeCommandOutput) => void
-  ): void;
-  public updateVolume(
-    args: UpdateVolumeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVolumeCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVolumeCommandOutput) => void
-  ): Promise<UpdateVolumeCommandOutput> | void {
-    const command = new UpdateVolumeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class OpsWorks extends OpsWorksClient implements OpsWorks {}
+createAggregatedClient(commands, OpsWorks);

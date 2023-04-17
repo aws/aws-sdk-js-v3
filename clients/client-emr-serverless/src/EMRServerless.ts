@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -60,7 +61,240 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
-import { EMRServerlessClient } from "./EMRServerlessClient";
+import { EMRServerlessClient, EMRServerlessClientConfig } from "./EMRServerlessClient";
+
+const commands = {
+  CancelJobRunCommand,
+  CreateApplicationCommand,
+  DeleteApplicationCommand,
+  GetApplicationCommand,
+  GetDashboardForJobRunCommand,
+  GetJobRunCommand,
+  ListApplicationsCommand,
+  ListJobRunsCommand,
+  ListTagsForResourceCommand,
+  StartApplicationCommand,
+  StartJobRunCommand,
+  StopApplicationCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateApplicationCommand,
+};
+
+export interface EMRServerless {
+  /**
+   * @see {@link CancelJobRunCommand}
+   */
+  cancelJobRun(args: CancelJobRunCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobRunCommandOutput>;
+  cancelJobRun(args: CancelJobRunCommandInput, cb: (err: any, data?: CancelJobRunCommandOutput) => void): void;
+  cancelJobRun(
+    args: CancelJobRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelJobRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateApplicationCommand}
+   */
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationCommand}
+   */
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApplicationCommand}
+   */
+  getApplication(
+    args: GetApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationCommandOutput>;
+  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDashboardForJobRunCommand}
+   */
+  getDashboardForJobRun(
+    args: GetDashboardForJobRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDashboardForJobRunCommandOutput>;
+  getDashboardForJobRun(
+    args: GetDashboardForJobRunCommandInput,
+    cb: (err: any, data?: GetDashboardForJobRunCommandOutput) => void
+  ): void;
+  getDashboardForJobRun(
+    args: GetDashboardForJobRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDashboardForJobRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetJobRunCommand}
+   */
+  getJobRun(args: GetJobRunCommandInput, options?: __HttpHandlerOptions): Promise<GetJobRunCommandOutput>;
+  getJobRun(args: GetJobRunCommandInput, cb: (err: any, data?: GetJobRunCommandOutput) => void): void;
+  getJobRun(
+    args: GetJobRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJobRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   */
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListJobRunsCommand}
+   */
+  listJobRuns(args: ListJobRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobRunsCommandOutput>;
+  listJobRuns(args: ListJobRunsCommandInput, cb: (err: any, data?: ListJobRunsCommandOutput) => void): void;
+  listJobRuns(
+    args: ListJobRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobRunsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartApplicationCommand}
+   */
+  startApplication(
+    args: StartApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartApplicationCommandOutput>;
+  startApplication(
+    args: StartApplicationCommandInput,
+    cb: (err: any, data?: StartApplicationCommandOutput) => void
+  ): void;
+  startApplication(
+    args: StartApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartJobRunCommand}
+   */
+  startJobRun(args: StartJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StartJobRunCommandOutput>;
+  startJobRun(args: StartJobRunCommandInput, cb: (err: any, data?: StartJobRunCommandOutput) => void): void;
+  startJobRun(
+    args: StartJobRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartJobRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopApplicationCommand}
+   */
+  stopApplication(
+    args: StopApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopApplicationCommandOutput>;
+  stopApplication(args: StopApplicationCommandInput, cb: (err: any, data?: StopApplicationCommandOutput) => void): void;
+  stopApplication(
+    args: StopApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateApplicationCommand}
+   */
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -87,480 +321,5 @@ import { EMRServerlessClient } from "./EMRServerlessClient";
  *             </li>
  *          </ul>
  */
-export class EMRServerless extends EMRServerlessClient {
-  /**
-   * @public
-   * <p>Cancels a job run.</p>
-   */
-  public cancelJobRun(
-    args: CancelJobRunCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelJobRunCommandOutput>;
-  public cancelJobRun(args: CancelJobRunCommandInput, cb: (err: any, data?: CancelJobRunCommandOutput) => void): void;
-  public cancelJobRun(
-    args: CancelJobRunCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelJobRunCommandOutput) => void
-  ): void;
-  public cancelJobRun(
-    args: CancelJobRunCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobRunCommandOutput) => void),
-    cb?: (err: any, data?: CancelJobRunCommandOutput) => void
-  ): Promise<CancelJobRunCommandOutput> | void {
-    const command = new CancelJobRunCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an application.</p>
-   */
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateApplicationCommandOutput>;
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    cb: (err: any, data?: CreateApplicationCommandOutput) => void
-  ): void;
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateApplicationCommandOutput) => void
-  ): void;
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
-    cb?: (err: any, data?: CreateApplicationCommandOutput) => void
-  ): Promise<CreateApplicationCommandOutput> | void {
-    const command = new CreateApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an application. An application has to be in a stopped or created state in order
-   *          to be deleted.</p>
-   */
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteApplicationCommandOutput>;
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
-  ): void;
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
-  ): void;
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
-  ): Promise<DeleteApplicationCommandOutput> | void {
-    const command = new DeleteApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Displays detailed information about a specified application.</p>
-   */
-  public getApplication(
-    args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetApplicationCommandOutput>;
-  public getApplication(
-    args: GetApplicationCommandInput,
-    cb: (err: any, data?: GetApplicationCommandOutput) => void
-  ): void;
-  public getApplication(
-    args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetApplicationCommandOutput) => void
-  ): void;
-  public getApplication(
-    args: GetApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationCommandOutput) => void),
-    cb?: (err: any, data?: GetApplicationCommandOutput) => void
-  ): Promise<GetApplicationCommandOutput> | void {
-    const command = new GetApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a URL to access the job run dashboard. The generated URL is valid for one hour,
-   *          after which you must invoke the API again to generate a new URL.</p>
-   */
-  public getDashboardForJobRun(
-    args: GetDashboardForJobRunCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDashboardForJobRunCommandOutput>;
-  public getDashboardForJobRun(
-    args: GetDashboardForJobRunCommandInput,
-    cb: (err: any, data?: GetDashboardForJobRunCommandOutput) => void
-  ): void;
-  public getDashboardForJobRun(
-    args: GetDashboardForJobRunCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDashboardForJobRunCommandOutput) => void
-  ): void;
-  public getDashboardForJobRun(
-    args: GetDashboardForJobRunCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDashboardForJobRunCommandOutput) => void),
-    cb?: (err: any, data?: GetDashboardForJobRunCommandOutput) => void
-  ): Promise<GetDashboardForJobRunCommandOutput> | void {
-    const command = new GetDashboardForJobRunCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Displays detailed information about a job run.</p>
-   */
-  public getJobRun(args: GetJobRunCommandInput, options?: __HttpHandlerOptions): Promise<GetJobRunCommandOutput>;
-  public getJobRun(args: GetJobRunCommandInput, cb: (err: any, data?: GetJobRunCommandOutput) => void): void;
-  public getJobRun(
-    args: GetJobRunCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetJobRunCommandOutput) => void
-  ): void;
-  public getJobRun(
-    args: GetJobRunCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobRunCommandOutput) => void),
-    cb?: (err: any, data?: GetJobRunCommandOutput) => void
-  ): Promise<GetJobRunCommandOutput> | void {
-    const command = new GetJobRunCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists applications based on a set of parameters.</p>
-   */
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListApplicationsCommandOutput>;
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    cb: (err: any, data?: ListApplicationsCommandOutput) => void
-  ): void;
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListApplicationsCommandOutput) => void
-  ): void;
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
-    cb?: (err: any, data?: ListApplicationsCommandOutput) => void
-  ): Promise<ListApplicationsCommandOutput> | void {
-    const command = new ListApplicationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists job runs based on a set of parameters.</p>
-   */
-  public listJobRuns(args: ListJobRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobRunsCommandOutput>;
-  public listJobRuns(args: ListJobRunsCommandInput, cb: (err: any, data?: ListJobRunsCommandOutput) => void): void;
-  public listJobRuns(
-    args: ListJobRunsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJobRunsCommandOutput) => void
-  ): void;
-  public listJobRuns(
-    args: ListJobRunsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobRunsCommandOutput) => void),
-    cb?: (err: any, data?: ListJobRunsCommandOutput) => void
-  ): Promise<ListJobRunsCommandOutput> | void {
-    const command = new ListJobRunsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the tags assigned to the resources.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts a specified application and initializes initial capacity if configured.</p>
-   */
-  public startApplication(
-    args: StartApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartApplicationCommandOutput>;
-  public startApplication(
-    args: StartApplicationCommandInput,
-    cb: (err: any, data?: StartApplicationCommandOutput) => void
-  ): void;
-  public startApplication(
-    args: StartApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartApplicationCommandOutput) => void
-  ): void;
-  public startApplication(
-    args: StartApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartApplicationCommandOutput) => void),
-    cb?: (err: any, data?: StartApplicationCommandOutput) => void
-  ): Promise<StartApplicationCommandOutput> | void {
-    const command = new StartApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts a job run.</p>
-   */
-  public startJobRun(args: StartJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StartJobRunCommandOutput>;
-  public startJobRun(args: StartJobRunCommandInput, cb: (err: any, data?: StartJobRunCommandOutput) => void): void;
-  public startJobRun(
-    args: StartJobRunCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartJobRunCommandOutput) => void
-  ): void;
-  public startJobRun(
-    args: StartJobRunCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartJobRunCommandOutput) => void),
-    cb?: (err: any, data?: StartJobRunCommandOutput) => void
-  ): Promise<StartJobRunCommandOutput> | void {
-    const command = new StartJobRunCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Stops a specified application and releases initial capacity if configured. All scheduled
-   *          and running jobs must be completed or cancelled before stopping an application.</p>
-   */
-  public stopApplication(
-    args: StopApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopApplicationCommandOutput>;
-  public stopApplication(
-    args: StopApplicationCommandInput,
-    cb: (err: any, data?: StopApplicationCommandOutput) => void
-  ): void;
-  public stopApplication(
-    args: StopApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopApplicationCommandOutput) => void
-  ): void;
-  public stopApplication(
-    args: StopApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopApplicationCommandOutput) => void),
-    cb?: (err: any, data?: StopApplicationCommandOutput) => void
-  ): Promise<StopApplicationCommandOutput> | void {
-    const command = new StopApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services
-   *          resource. Each tag consists of a key and an optional value, both of which you define. Tags
-   *          enable you to categorize your Amazon Web Services resources by attributes such as purpose,
-   *          owner, or environment. When you have many resources of the same type, you can quickly
-   *          identify a specific resource based on the tags you've assigned to it. </p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes tags from resources.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a specified application. An application has to be in a stopped or created state
-   *          in order to be updated.</p>
-   */
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateApplicationCommandOutput>;
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
-  ): void;
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
-  ): void;
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
-  ): Promise<UpdateApplicationCommandOutput> | void {
-    const command = new UpdateApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class EMRServerless extends EMRServerlessClient implements EMRServerless {}
+createAggregatedClient(commands, EMRServerless);

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { createProxyClient } from "@aws-sdk/smithy-client";
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -526,6 +526,7 @@ const commands = {
   TimestampFormatHeadersCommand,
   UnitInputAndOutputCommand,
 };
+
 export interface RestJsonProtocol {
   /**
    * @see {@link AllQueryStringTypesCommand}
@@ -1945,10 +1946,5 @@ export interface RestJsonProtocol {
  * @public
  * A REST JSON service that sends JSON requests and responses.
  */
-export class RestJsonProtocol extends RestJsonProtocolClient implements RestJsonProtocol {
-  public constructor(config: RestJsonProtocolClientConfig) {
-    const client = new RestJsonProtocolClient(config);
-    const target: any = {};
-    return createProxyClient(target, commands, client);
-  }
-}
+export class RestJsonProtocol extends RestJsonProtocolClient implements RestJsonProtocol {}
+createAggregatedClient(commands, RestJsonProtocol);

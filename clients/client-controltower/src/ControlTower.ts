@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -21,7 +22,75 @@ import {
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
 } from "./commands/ListEnabledControlsCommand";
-import { ControlTowerClient } from "./ControlTowerClient";
+import { ControlTowerClient, ControlTowerClientConfig } from "./ControlTowerClient";
+
+const commands = {
+  DisableControlCommand,
+  EnableControlCommand,
+  GetControlOperationCommand,
+  ListEnabledControlsCommand,
+};
+
+export interface ControlTower {
+  /**
+   * @see {@link DisableControlCommand}
+   */
+  disableControl(
+    args: DisableControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableControlCommandOutput>;
+  disableControl(args: DisableControlCommandInput, cb: (err: any, data?: DisableControlCommandOutput) => void): void;
+  disableControl(
+    args: DisableControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableControlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableControlCommand}
+   */
+  enableControl(args: EnableControlCommandInput, options?: __HttpHandlerOptions): Promise<EnableControlCommandOutput>;
+  enableControl(args: EnableControlCommandInput, cb: (err: any, data?: EnableControlCommandOutput) => void): void;
+  enableControl(
+    args: EnableControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableControlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetControlOperationCommand}
+   */
+  getControlOperation(
+    args: GetControlOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetControlOperationCommandOutput>;
+  getControlOperation(
+    args: GetControlOperationCommandInput,
+    cb: (err: any, data?: GetControlOperationCommandOutput) => void
+  ): void;
+  getControlOperation(
+    args: GetControlOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetControlOperationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnabledControlsCommand}
+   */
+  listEnabledControls(
+    args: ListEnabledControlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnabledControlsCommandOutput>;
+  listEnabledControls(
+    args: ListEnabledControlsCommandInput,
+    cb: (err: any, data?: ListEnabledControlsCommandOutput) => void
+  ): void;
+  listEnabledControls(
+    args: ListEnabledControlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnabledControlsCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -97,143 +166,5 @@ import { ControlTowerClient } from "./ControlTowerClient";
  *          </p>
  *          <p>AWS Control Tower supports AWS CloudTrail, a service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. By using information collected by CloudTrail, you can determine which requests the AWS Control Tower service received, who made the request and when, and so on. For more about AWS Control Tower and its support for CloudTrail, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/logging-using-cloudtrail.html">Logging AWS Control Tower Actions with AWS CloudTrail</a> in the AWS Control Tower User Guide. To learn more about CloudTrail, including how to turn it on and find your log files, see the AWS CloudTrail User Guide.</p>
  */
-export class ControlTower extends ControlTowerClient {
-  /**
-   * @public
-   * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS resources on the specified
-   *         organizational unit and the accounts it contains. The resources will vary according to the
-   *         control that you specify.</p>
-   */
-  public disableControl(
-    args: DisableControlCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisableControlCommandOutput>;
-  public disableControl(
-    args: DisableControlCommandInput,
-    cb: (err: any, data?: DisableControlCommandOutput) => void
-  ): void;
-  public disableControl(
-    args: DisableControlCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisableControlCommandOutput) => void
-  ): void;
-  public disableControl(
-    args: DisableControlCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableControlCommandOutput) => void),
-    cb?: (err: any, data?: DisableControlCommandOutput) => void
-  ): Promise<DisableControlCommandOutput> | void {
-    const command = new DisableControlCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>This API call activates a control. It starts an asynchronous operation that creates AWS resources on the specified
-   *       organizational unit and the accounts it contains. The resources created will vary according to
-   *       the control that you specify.</p>
-   */
-  public enableControl(
-    args: EnableControlCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EnableControlCommandOutput>;
-  public enableControl(
-    args: EnableControlCommandInput,
-    cb: (err: any, data?: EnableControlCommandOutput) => void
-  ): void;
-  public enableControl(
-    args: EnableControlCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: EnableControlCommandOutput) => void
-  ): void;
-  public enableControl(
-    args: EnableControlCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableControlCommandOutput) => void),
-    cb?: (err: any, data?: EnableControlCommandOutput) => void
-  ): Promise<EnableControlCommandOutput> | void {
-    const command = new EnableControlCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the status of a particular <code>EnableControl</code> or
-   *         <code>DisableControl</code> operation. Displays a message in case of error.
-   *       Details for an operation are available for 90 days.</p>
-   */
-  public getControlOperation(
-    args: GetControlOperationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetControlOperationCommandOutput>;
-  public getControlOperation(
-    args: GetControlOperationCommandInput,
-    cb: (err: any, data?: GetControlOperationCommandOutput) => void
-  ): void;
-  public getControlOperation(
-    args: GetControlOperationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetControlOperationCommandOutput) => void
-  ): void;
-  public getControlOperation(
-    args: GetControlOperationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetControlOperationCommandOutput) => void),
-    cb?: (err: any, data?: GetControlOperationCommandOutput) => void
-  ): Promise<GetControlOperationCommandOutput> | void {
-    const command = new GetControlOperationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the controls enabled by AWS Control Tower on the specified organizational unit and
-   *       the accounts it contains.</p>
-   */
-  public listEnabledControls(
-    args: ListEnabledControlsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListEnabledControlsCommandOutput>;
-  public listEnabledControls(
-    args: ListEnabledControlsCommandInput,
-    cb: (err: any, data?: ListEnabledControlsCommandOutput) => void
-  ): void;
-  public listEnabledControls(
-    args: ListEnabledControlsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListEnabledControlsCommandOutput) => void
-  ): void;
-  public listEnabledControls(
-    args: ListEnabledControlsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnabledControlsCommandOutput) => void),
-    cb?: (err: any, data?: ListEnabledControlsCommandOutput) => void
-  ): Promise<ListEnabledControlsCommandOutput> | void {
-    const command = new ListEnabledControlsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class ControlTower extends ControlTowerClient implements ControlTower {}
+createAggregatedClient(commands, ControlTower);

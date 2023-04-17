@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { createProxyClient } from "@aws-sdk/smithy-client";
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -318,6 +318,7 @@ const commands = {
   XmlTimestampsCommand,
   XmlUnionsCommand,
 };
+
 export interface RestXmlProtocol {
   /**
    * @see {@link AllQueryStringTypesCommand}
@@ -1177,10 +1178,5 @@ export interface RestXmlProtocol {
  * @public
  * A REST XML service that sends XML requests and responses.
  */
-export class RestXmlProtocol extends RestXmlProtocolClient implements RestXmlProtocol {
-  public constructor(config: RestXmlProtocolClientConfig) {
-    const client = new RestXmlProtocolClient(config);
-    const target: any = {};
-    return createProxyClient(target, commands, client);
-  }
-}
+export class RestXmlProtocol extends RestXmlProtocolClient implements RestXmlProtocol {}
+createAggregatedClient(commands, RestXmlProtocol);

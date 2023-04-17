@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { createProxyClient } from "@aws-sdk/smithy-client";
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -82,6 +82,7 @@ const commands = {
   PutAndGetInlineDocumentsCommand,
   SimpleScalarPropertiesCommand,
 };
+
 export interface JsonProtocol {
   /**
    * @see {@link DatetimeOffsetsCommand}
@@ -301,10 +302,5 @@ export interface JsonProtocol {
 /**
  * @public
  */
-export class JsonProtocol extends JsonProtocolClient implements JsonProtocol {
-  public constructor(config: JsonProtocolClientConfig) {
-    const client = new JsonProtocolClient(config);
-    const target: any = {};
-    return createProxyClient(target, commands, client);
-  }
-}
+export class JsonProtocol extends JsonProtocolClient implements JsonProtocol {}
+createAggregatedClient(commands, JsonProtocol);

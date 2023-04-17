@@ -1,7 +1,8 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
-import { ApiGatewayV2Client } from "./ApiGatewayV2Client";
+import { ApiGatewayV2Client, ApiGatewayV2ClientConfig } from "./ApiGatewayV2Client";
 import { CreateApiCommand, CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
 import {
   CreateApiMappingCommand,
@@ -255,2221 +256,1082 @@ import {
   UpdateVpcLinkCommandOutput,
 } from "./commands/UpdateVpcLinkCommand";
 
-/**
- * @public
- * <p>Amazon API Gateway V2</p>
- */
-export class ApiGatewayV2 extends ApiGatewayV2Client {
+const commands = {
+  CreateApiCommand,
+  CreateApiMappingCommand,
+  CreateAuthorizerCommand,
+  CreateDeploymentCommand,
+  CreateDomainNameCommand,
+  CreateIntegrationCommand,
+  CreateIntegrationResponseCommand,
+  CreateModelCommand,
+  CreateRouteCommand,
+  CreateRouteResponseCommand,
+  CreateStageCommand,
+  CreateVpcLinkCommand,
+  DeleteAccessLogSettingsCommand,
+  DeleteApiCommand,
+  DeleteApiMappingCommand,
+  DeleteAuthorizerCommand,
+  DeleteCorsConfigurationCommand,
+  DeleteDeploymentCommand,
+  DeleteDomainNameCommand,
+  DeleteIntegrationCommand,
+  DeleteIntegrationResponseCommand,
+  DeleteModelCommand,
+  DeleteRouteCommand,
+  DeleteRouteRequestParameterCommand,
+  DeleteRouteResponseCommand,
+  DeleteRouteSettingsCommand,
+  DeleteStageCommand,
+  DeleteVpcLinkCommand,
+  ExportApiCommand,
+  GetApiCommand,
+  GetApiMappingCommand,
+  GetApiMappingsCommand,
+  GetApisCommand,
+  GetAuthorizerCommand,
+  GetAuthorizersCommand,
+  GetDeploymentCommand,
+  GetDeploymentsCommand,
+  GetDomainNameCommand,
+  GetDomainNamesCommand,
+  GetIntegrationCommand,
+  GetIntegrationResponseCommand,
+  GetIntegrationResponsesCommand,
+  GetIntegrationsCommand,
+  GetModelCommand,
+  GetModelsCommand,
+  GetModelTemplateCommand,
+  GetRouteCommand,
+  GetRouteResponseCommand,
+  GetRouteResponsesCommand,
+  GetRoutesCommand,
+  GetStageCommand,
+  GetStagesCommand,
+  GetTagsCommand,
+  GetVpcLinkCommand,
+  GetVpcLinksCommand,
+  ImportApiCommand,
+  ReimportApiCommand,
+  ResetAuthorizersCacheCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateApiCommand,
+  UpdateApiMappingCommand,
+  UpdateAuthorizerCommand,
+  UpdateDeploymentCommand,
+  UpdateDomainNameCommand,
+  UpdateIntegrationCommand,
+  UpdateIntegrationResponseCommand,
+  UpdateModelCommand,
+  UpdateRouteCommand,
+  UpdateRouteResponseCommand,
+  UpdateStageCommand,
+  UpdateVpcLinkCommand,
+};
+
+export interface ApiGatewayV2 {
   /**
-   * @public
-   * <p>Creates an Api resource.</p>
+   * @see {@link CreateApiCommand}
    */
-  public createApi(args: CreateApiCommandInput, options?: __HttpHandlerOptions): Promise<CreateApiCommandOutput>;
-  public createApi(args: CreateApiCommandInput, cb: (err: any, data?: CreateApiCommandOutput) => void): void;
-  public createApi(
+  createApi(args: CreateApiCommandInput, options?: __HttpHandlerOptions): Promise<CreateApiCommandOutput>;
+  createApi(args: CreateApiCommandInput, cb: (err: any, data?: CreateApiCommandOutput) => void): void;
+  createApi(
     args: CreateApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateApiCommandOutput) => void
   ): void;
-  public createApi(
-    args: CreateApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApiCommandOutput) => void),
-    cb?: (err: any, data?: CreateApiCommandOutput) => void
-  ): Promise<CreateApiCommandOutput> | void {
-    const command = new CreateApiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates an API mapping.</p>
+   * @see {@link CreateApiMappingCommand}
    */
-  public createApiMapping(
+  createApiMapping(
     args: CreateApiMappingCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateApiMappingCommandOutput>;
-  public createApiMapping(
+  createApiMapping(
     args: CreateApiMappingCommandInput,
     cb: (err: any, data?: CreateApiMappingCommandOutput) => void
   ): void;
-  public createApiMapping(
+  createApiMapping(
     args: CreateApiMappingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateApiMappingCommandOutput) => void
   ): void;
-  public createApiMapping(
-    args: CreateApiMappingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApiMappingCommandOutput) => void),
-    cb?: (err: any, data?: CreateApiMappingCommandOutput) => void
-  ): Promise<CreateApiMappingCommandOutput> | void {
-    const command = new CreateApiMappingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates an Authorizer for an API.</p>
+   * @see {@link CreateAuthorizerCommand}
    */
-  public createAuthorizer(
+  createAuthorizer(
     args: CreateAuthorizerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAuthorizerCommandOutput>;
-  public createAuthorizer(
+  createAuthorizer(
     args: CreateAuthorizerCommandInput,
     cb: (err: any, data?: CreateAuthorizerCommandOutput) => void
   ): void;
-  public createAuthorizer(
+  createAuthorizer(
     args: CreateAuthorizerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAuthorizerCommandOutput) => void
   ): void;
-  public createAuthorizer(
-    args: CreateAuthorizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAuthorizerCommandOutput) => void),
-    cb?: (err: any, data?: CreateAuthorizerCommandOutput) => void
-  ): Promise<CreateAuthorizerCommandOutput> | void {
-    const command = new CreateAuthorizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates a Deployment for an API.</p>
+   * @see {@link CreateDeploymentCommand}
    */
-  public createDeployment(
+  createDeployment(
     args: CreateDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDeploymentCommandOutput>;
-  public createDeployment(
+  createDeployment(
     args: CreateDeploymentCommandInput,
     cb: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): void;
-  public createDeployment(
+  createDeployment(
     args: CreateDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): void;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): Promise<CreateDeploymentCommandOutput> | void {
-    const command = new CreateDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates a domain name.</p>
+   * @see {@link CreateDomainNameCommand}
    */
-  public createDomainName(
+  createDomainName(
     args: CreateDomainNameCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDomainNameCommandOutput>;
-  public createDomainName(
+  createDomainName(
     args: CreateDomainNameCommandInput,
     cb: (err: any, data?: CreateDomainNameCommandOutput) => void
   ): void;
-  public createDomainName(
+  createDomainName(
     args: CreateDomainNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDomainNameCommandOutput) => void
   ): void;
-  public createDomainName(
-    args: CreateDomainNameCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainNameCommandOutput) => void),
-    cb?: (err: any, data?: CreateDomainNameCommandOutput) => void
-  ): Promise<CreateDomainNameCommandOutput> | void {
-    const command = new CreateDomainNameCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates an Integration.</p>
+   * @see {@link CreateIntegrationCommand}
    */
-  public createIntegration(
+  createIntegration(
     args: CreateIntegrationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateIntegrationCommandOutput>;
-  public createIntegration(
+  createIntegration(
     args: CreateIntegrationCommandInput,
     cb: (err: any, data?: CreateIntegrationCommandOutput) => void
   ): void;
-  public createIntegration(
+  createIntegration(
     args: CreateIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIntegrationCommandOutput) => void
   ): void;
-  public createIntegration(
-    args: CreateIntegrationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIntegrationCommandOutput) => void),
-    cb?: (err: any, data?: CreateIntegrationCommandOutput) => void
-  ): Promise<CreateIntegrationCommandOutput> | void {
-    const command = new CreateIntegrationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates an IntegrationResponses.</p>
+   * @see {@link CreateIntegrationResponseCommand}
    */
-  public createIntegrationResponse(
+  createIntegrationResponse(
     args: CreateIntegrationResponseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateIntegrationResponseCommandOutput>;
-  public createIntegrationResponse(
+  createIntegrationResponse(
     args: CreateIntegrationResponseCommandInput,
     cb: (err: any, data?: CreateIntegrationResponseCommandOutput) => void
   ): void;
-  public createIntegrationResponse(
+  createIntegrationResponse(
     args: CreateIntegrationResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIntegrationResponseCommandOutput) => void
   ): void;
-  public createIntegrationResponse(
-    args: CreateIntegrationResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIntegrationResponseCommandOutput) => void),
-    cb?: (err: any, data?: CreateIntegrationResponseCommandOutput) => void
-  ): Promise<CreateIntegrationResponseCommandOutput> | void {
-    const command = new CreateIntegrationResponseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates a Model for an API.</p>
+   * @see {@link CreateModelCommand}
    */
-  public createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
-  public createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
-  public createModel(
+  createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
+  createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
+  createModel(
     args: CreateModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateModelCommandOutput) => void
   ): void;
-  public createModel(
-    args: CreateModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelCommandOutput) => void),
-    cb?: (err: any, data?: CreateModelCommandOutput) => void
-  ): Promise<CreateModelCommandOutput> | void {
-    const command = new CreateModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates a Route for an API.</p>
+   * @see {@link CreateRouteCommand}
    */
-  public createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
-  public createRoute(args: CreateRouteCommandInput, cb: (err: any, data?: CreateRouteCommandOutput) => void): void;
-  public createRoute(
+  createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
+  createRoute(args: CreateRouteCommandInput, cb: (err: any, data?: CreateRouteCommandOutput) => void): void;
+  createRoute(
     args: CreateRouteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRouteCommandOutput) => void
   ): void;
-  public createRoute(
-    args: CreateRouteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteCommandOutput) => void),
-    cb?: (err: any, data?: CreateRouteCommandOutput) => void
-  ): Promise<CreateRouteCommandOutput> | void {
-    const command = new CreateRouteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates a RouteResponse for a Route.</p>
+   * @see {@link CreateRouteResponseCommand}
    */
-  public createRouteResponse(
+  createRouteResponse(
     args: CreateRouteResponseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRouteResponseCommandOutput>;
-  public createRouteResponse(
+  createRouteResponse(
     args: CreateRouteResponseCommandInput,
     cb: (err: any, data?: CreateRouteResponseCommandOutput) => void
   ): void;
-  public createRouteResponse(
+  createRouteResponse(
     args: CreateRouteResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRouteResponseCommandOutput) => void
   ): void;
-  public createRouteResponse(
-    args: CreateRouteResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteResponseCommandOutput) => void),
-    cb?: (err: any, data?: CreateRouteResponseCommandOutput) => void
-  ): Promise<CreateRouteResponseCommandOutput> | void {
-    const command = new CreateRouteResponseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates a Stage for an API.</p>
+   * @see {@link CreateStageCommand}
    */
-  public createStage(args: CreateStageCommandInput, options?: __HttpHandlerOptions): Promise<CreateStageCommandOutput>;
-  public createStage(args: CreateStageCommandInput, cb: (err: any, data?: CreateStageCommandOutput) => void): void;
-  public createStage(
+  createStage(args: CreateStageCommandInput, options?: __HttpHandlerOptions): Promise<CreateStageCommandOutput>;
+  createStage(args: CreateStageCommandInput, cb: (err: any, data?: CreateStageCommandOutput) => void): void;
+  createStage(
     args: CreateStageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateStageCommandOutput) => void
   ): void;
-  public createStage(
-    args: CreateStageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStageCommandOutput) => void),
-    cb?: (err: any, data?: CreateStageCommandOutput) => void
-  ): Promise<CreateStageCommandOutput> | void {
-    const command = new CreateStageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates a VPC link.</p>
+   * @see {@link CreateVpcLinkCommand}
    */
-  public createVpcLink(
-    args: CreateVpcLinkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateVpcLinkCommandOutput>;
-  public createVpcLink(
-    args: CreateVpcLinkCommandInput,
-    cb: (err: any, data?: CreateVpcLinkCommandOutput) => void
-  ): void;
-  public createVpcLink(
+  createVpcLink(args: CreateVpcLinkCommandInput, options?: __HttpHandlerOptions): Promise<CreateVpcLinkCommandOutput>;
+  createVpcLink(args: CreateVpcLinkCommandInput, cb: (err: any, data?: CreateVpcLinkCommandOutput) => void): void;
+  createVpcLink(
     args: CreateVpcLinkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVpcLinkCommandOutput) => void
   ): void;
-  public createVpcLink(
-    args: CreateVpcLinkCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcLinkCommandOutput) => void),
-    cb?: (err: any, data?: CreateVpcLinkCommandOutput) => void
-  ): Promise<CreateVpcLinkCommandOutput> | void {
-    const command = new CreateVpcLinkCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes the AccessLogSettings for a Stage. To disable access logging for a Stage, delete its AccessLogSettings.</p>
+   * @see {@link DeleteAccessLogSettingsCommand}
    */
-  public deleteAccessLogSettings(
+  deleteAccessLogSettings(
     args: DeleteAccessLogSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAccessLogSettingsCommandOutput>;
-  public deleteAccessLogSettings(
+  deleteAccessLogSettings(
     args: DeleteAccessLogSettingsCommandInput,
     cb: (err: any, data?: DeleteAccessLogSettingsCommandOutput) => void
   ): void;
-  public deleteAccessLogSettings(
+  deleteAccessLogSettings(
     args: DeleteAccessLogSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAccessLogSettingsCommandOutput) => void
   ): void;
-  public deleteAccessLogSettings(
-    args: DeleteAccessLogSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessLogSettingsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAccessLogSettingsCommandOutput) => void
-  ): Promise<DeleteAccessLogSettingsCommandOutput> | void {
-    const command = new DeleteAccessLogSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes an Api resource.</p>
+   * @see {@link DeleteApiCommand}
    */
-  public deleteApi(args: DeleteApiCommandInput, options?: __HttpHandlerOptions): Promise<DeleteApiCommandOutput>;
-  public deleteApi(args: DeleteApiCommandInput, cb: (err: any, data?: DeleteApiCommandOutput) => void): void;
-  public deleteApi(
+  deleteApi(args: DeleteApiCommandInput, options?: __HttpHandlerOptions): Promise<DeleteApiCommandOutput>;
+  deleteApi(args: DeleteApiCommandInput, cb: (err: any, data?: DeleteApiCommandOutput) => void): void;
+  deleteApi(
     args: DeleteApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteApiCommandOutput) => void
   ): void;
-  public deleteApi(
-    args: DeleteApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApiCommandOutput) => void),
-    cb?: (err: any, data?: DeleteApiCommandOutput) => void
-  ): Promise<DeleteApiCommandOutput> | void {
-    const command = new DeleteApiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes an API mapping.</p>
+   * @see {@link DeleteApiMappingCommand}
    */
-  public deleteApiMapping(
+  deleteApiMapping(
     args: DeleteApiMappingCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteApiMappingCommandOutput>;
-  public deleteApiMapping(
+  deleteApiMapping(
     args: DeleteApiMappingCommandInput,
     cb: (err: any, data?: DeleteApiMappingCommandOutput) => void
   ): void;
-  public deleteApiMapping(
+  deleteApiMapping(
     args: DeleteApiMappingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteApiMappingCommandOutput) => void
   ): void;
-  public deleteApiMapping(
-    args: DeleteApiMappingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApiMappingCommandOutput) => void),
-    cb?: (err: any, data?: DeleteApiMappingCommandOutput) => void
-  ): Promise<DeleteApiMappingCommandOutput> | void {
-    const command = new DeleteApiMappingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes an Authorizer.</p>
+   * @see {@link DeleteAuthorizerCommand}
    */
-  public deleteAuthorizer(
+  deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAuthorizerCommandOutput>;
-  public deleteAuthorizer(
+  deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
     cb: (err: any, data?: DeleteAuthorizerCommandOutput) => void
   ): void;
-  public deleteAuthorizer(
+  deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAuthorizerCommandOutput) => void
   ): void;
-  public deleteAuthorizer(
-    args: DeleteAuthorizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAuthorizerCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAuthorizerCommandOutput) => void
-  ): Promise<DeleteAuthorizerCommandOutput> | void {
-    const command = new DeleteAuthorizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a CORS configuration.</p>
+   * @see {@link DeleteCorsConfigurationCommand}
    */
-  public deleteCorsConfiguration(
+  deleteCorsConfiguration(
     args: DeleteCorsConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteCorsConfigurationCommandOutput>;
-  public deleteCorsConfiguration(
+  deleteCorsConfiguration(
     args: DeleteCorsConfigurationCommandInput,
     cb: (err: any, data?: DeleteCorsConfigurationCommandOutput) => void
   ): void;
-  public deleteCorsConfiguration(
+  deleteCorsConfiguration(
     args: DeleteCorsConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCorsConfigurationCommandOutput) => void
   ): void;
-  public deleteCorsConfiguration(
-    args: DeleteCorsConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCorsConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteCorsConfigurationCommandOutput) => void
-  ): Promise<DeleteCorsConfigurationCommandOutput> | void {
-    const command = new DeleteCorsConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a Deployment.</p>
+   * @see {@link DeleteDeploymentCommand}
    */
-  public deleteDeployment(
+  deleteDeployment(
     args: DeleteDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDeploymentCommandOutput>;
-  public deleteDeployment(
+  deleteDeployment(
     args: DeleteDeploymentCommandInput,
     cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
   ): void;
-  public deleteDeployment(
+  deleteDeployment(
     args: DeleteDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
   ): void;
-  public deleteDeployment(
-    args: DeleteDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDeploymentCommandOutput) => void
-  ): Promise<DeleteDeploymentCommandOutput> | void {
-    const command = new DeleteDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a domain name.</p>
+   * @see {@link DeleteDomainNameCommand}
    */
-  public deleteDomainName(
+  deleteDomainName(
     args: DeleteDomainNameCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDomainNameCommandOutput>;
-  public deleteDomainName(
+  deleteDomainName(
     args: DeleteDomainNameCommandInput,
     cb: (err: any, data?: DeleteDomainNameCommandOutput) => void
   ): void;
-  public deleteDomainName(
+  deleteDomainName(
     args: DeleteDomainNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDomainNameCommandOutput) => void
   ): void;
-  public deleteDomainName(
-    args: DeleteDomainNameCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainNameCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDomainNameCommandOutput) => void
-  ): Promise<DeleteDomainNameCommandOutput> | void {
-    const command = new DeleteDomainNameCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes an Integration.</p>
+   * @see {@link DeleteIntegrationCommand}
    */
-  public deleteIntegration(
+  deleteIntegration(
     args: DeleteIntegrationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteIntegrationCommandOutput>;
-  public deleteIntegration(
+  deleteIntegration(
     args: DeleteIntegrationCommandInput,
     cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
-  public deleteIntegration(
+  deleteIntegration(
     args: DeleteIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
-  public deleteIntegration(
-    args: DeleteIntegrationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIntegrationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteIntegrationCommandOutput) => void
-  ): Promise<DeleteIntegrationCommandOutput> | void {
-    const command = new DeleteIntegrationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes an IntegrationResponses.</p>
+   * @see {@link DeleteIntegrationResponseCommand}
    */
-  public deleteIntegrationResponse(
+  deleteIntegrationResponse(
     args: DeleteIntegrationResponseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteIntegrationResponseCommandOutput>;
-  public deleteIntegrationResponse(
+  deleteIntegrationResponse(
     args: DeleteIntegrationResponseCommandInput,
     cb: (err: any, data?: DeleteIntegrationResponseCommandOutput) => void
   ): void;
-  public deleteIntegrationResponse(
+  deleteIntegrationResponse(
     args: DeleteIntegrationResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIntegrationResponseCommandOutput) => void
   ): void;
-  public deleteIntegrationResponse(
-    args: DeleteIntegrationResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIntegrationResponseCommandOutput) => void),
-    cb?: (err: any, data?: DeleteIntegrationResponseCommandOutput) => void
-  ): Promise<DeleteIntegrationResponseCommandOutput> | void {
-    const command = new DeleteIntegrationResponseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a Model.</p>
+   * @see {@link DeleteModelCommand}
    */
-  public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
-  public deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
-  public deleteModel(
+  deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
+  deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
+  deleteModel(
     args: DeleteModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteModelCommandOutput) => void
   ): void;
-  public deleteModel(
-    args: DeleteModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteModelCommandOutput) => void
-  ): Promise<DeleteModelCommandOutput> | void {
-    const command = new DeleteModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a Route.</p>
+   * @see {@link DeleteRouteCommand}
    */
-  public deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
-  public deleteRoute(args: DeleteRouteCommandInput, cb: (err: any, data?: DeleteRouteCommandOutput) => void): void;
-  public deleteRoute(
+  deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
+  deleteRoute(args: DeleteRouteCommandInput, cb: (err: any, data?: DeleteRouteCommandOutput) => void): void;
+  deleteRoute(
     args: DeleteRouteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRouteCommandOutput) => void
   ): void;
-  public deleteRoute(
-    args: DeleteRouteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRouteCommandOutput) => void
-  ): Promise<DeleteRouteCommandOutput> | void {
-    const command = new DeleteRouteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a route request parameter.</p>
+   * @see {@link DeleteRouteRequestParameterCommand}
    */
-  public deleteRouteRequestParameter(
+  deleteRouteRequestParameter(
     args: DeleteRouteRequestParameterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRouteRequestParameterCommandOutput>;
-  public deleteRouteRequestParameter(
+  deleteRouteRequestParameter(
     args: DeleteRouteRequestParameterCommandInput,
     cb: (err: any, data?: DeleteRouteRequestParameterCommandOutput) => void
   ): void;
-  public deleteRouteRequestParameter(
+  deleteRouteRequestParameter(
     args: DeleteRouteRequestParameterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRouteRequestParameterCommandOutput) => void
   ): void;
-  public deleteRouteRequestParameter(
-    args: DeleteRouteRequestParameterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteRequestParameterCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRouteRequestParameterCommandOutput) => void
-  ): Promise<DeleteRouteRequestParameterCommandOutput> | void {
-    const command = new DeleteRouteRequestParameterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a RouteResponse.</p>
+   * @see {@link DeleteRouteResponseCommand}
    */
-  public deleteRouteResponse(
+  deleteRouteResponse(
     args: DeleteRouteResponseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRouteResponseCommandOutput>;
-  public deleteRouteResponse(
+  deleteRouteResponse(
     args: DeleteRouteResponseCommandInput,
     cb: (err: any, data?: DeleteRouteResponseCommandOutput) => void
   ): void;
-  public deleteRouteResponse(
+  deleteRouteResponse(
     args: DeleteRouteResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRouteResponseCommandOutput) => void
   ): void;
-  public deleteRouteResponse(
-    args: DeleteRouteResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteResponseCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRouteResponseCommandOutput) => void
-  ): Promise<DeleteRouteResponseCommandOutput> | void {
-    const command = new DeleteRouteResponseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes the RouteSettings for a stage.</p>
+   * @see {@link DeleteRouteSettingsCommand}
    */
-  public deleteRouteSettings(
+  deleteRouteSettings(
     args: DeleteRouteSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRouteSettingsCommandOutput>;
-  public deleteRouteSettings(
+  deleteRouteSettings(
     args: DeleteRouteSettingsCommandInput,
     cb: (err: any, data?: DeleteRouteSettingsCommandOutput) => void
   ): void;
-  public deleteRouteSettings(
+  deleteRouteSettings(
     args: DeleteRouteSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRouteSettingsCommandOutput) => void
   ): void;
-  public deleteRouteSettings(
-    args: DeleteRouteSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteSettingsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRouteSettingsCommandOutput) => void
-  ): Promise<DeleteRouteSettingsCommandOutput> | void {
-    const command = new DeleteRouteSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a Stage.</p>
+   * @see {@link DeleteStageCommand}
    */
-  public deleteStage(args: DeleteStageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStageCommandOutput>;
-  public deleteStage(args: DeleteStageCommandInput, cb: (err: any, data?: DeleteStageCommandOutput) => void): void;
-  public deleteStage(
+  deleteStage(args: DeleteStageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStageCommandOutput>;
+  deleteStage(args: DeleteStageCommandInput, cb: (err: any, data?: DeleteStageCommandOutput) => void): void;
+  deleteStage(
     args: DeleteStageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteStageCommandOutput) => void
   ): void;
-  public deleteStage(
-    args: DeleteStageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStageCommandOutput) => void),
-    cb?: (err: any, data?: DeleteStageCommandOutput) => void
-  ): Promise<DeleteStageCommandOutput> | void {
-    const command = new DeleteStageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a VPC link.</p>
+   * @see {@link DeleteVpcLinkCommand}
    */
-  public deleteVpcLink(
-    args: DeleteVpcLinkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVpcLinkCommandOutput>;
-  public deleteVpcLink(
-    args: DeleteVpcLinkCommandInput,
-    cb: (err: any, data?: DeleteVpcLinkCommandOutput) => void
-  ): void;
-  public deleteVpcLink(
+  deleteVpcLink(args: DeleteVpcLinkCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVpcLinkCommandOutput>;
+  deleteVpcLink(args: DeleteVpcLinkCommandInput, cb: (err: any, data?: DeleteVpcLinkCommandOutput) => void): void;
+  deleteVpcLink(
     args: DeleteVpcLinkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVpcLinkCommandOutput) => void
   ): void;
-  public deleteVpcLink(
-    args: DeleteVpcLinkCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcLinkCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVpcLinkCommandOutput) => void
-  ): Promise<DeleteVpcLinkCommandOutput> | void {
-    const command = new DeleteVpcLinkCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
+   * @see {@link ExportApiCommand}
    */
-  public exportApi(args: ExportApiCommandInput, options?: __HttpHandlerOptions): Promise<ExportApiCommandOutput>;
-  public exportApi(args: ExportApiCommandInput, cb: (err: any, data?: ExportApiCommandOutput) => void): void;
-  public exportApi(
+  exportApi(args: ExportApiCommandInput, options?: __HttpHandlerOptions): Promise<ExportApiCommandOutput>;
+  exportApi(args: ExportApiCommandInput, cb: (err: any, data?: ExportApiCommandOutput) => void): void;
+  exportApi(
     args: ExportApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExportApiCommandOutput) => void
   ): void;
-  public exportApi(
-    args: ExportApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportApiCommandOutput) => void),
-    cb?: (err: any, data?: ExportApiCommandOutput) => void
-  ): Promise<ExportApiCommandOutput> | void {
-    const command = new ExportApiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets an Api resource.</p>
+   * @see {@link GetApiCommand}
    */
-  public getApi(args: GetApiCommandInput, options?: __HttpHandlerOptions): Promise<GetApiCommandOutput>;
-  public getApi(args: GetApiCommandInput, cb: (err: any, data?: GetApiCommandOutput) => void): void;
-  public getApi(
+  getApi(args: GetApiCommandInput, options?: __HttpHandlerOptions): Promise<GetApiCommandOutput>;
+  getApi(args: GetApiCommandInput, cb: (err: any, data?: GetApiCommandOutput) => void): void;
+  getApi(
     args: GetApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApiCommandOutput) => void
   ): void;
-  public getApi(
-    args: GetApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiCommandOutput) => void),
-    cb?: (err: any, data?: GetApiCommandOutput) => void
-  ): Promise<GetApiCommandOutput> | void {
-    const command = new GetApiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets an API mapping.</p>
+   * @see {@link GetApiMappingCommand}
    */
-  public getApiMapping(
-    args: GetApiMappingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetApiMappingCommandOutput>;
-  public getApiMapping(
-    args: GetApiMappingCommandInput,
-    cb: (err: any, data?: GetApiMappingCommandOutput) => void
-  ): void;
-  public getApiMapping(
+  getApiMapping(args: GetApiMappingCommandInput, options?: __HttpHandlerOptions): Promise<GetApiMappingCommandOutput>;
+  getApiMapping(args: GetApiMappingCommandInput, cb: (err: any, data?: GetApiMappingCommandOutput) => void): void;
+  getApiMapping(
     args: GetApiMappingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApiMappingCommandOutput) => void
   ): void;
-  public getApiMapping(
-    args: GetApiMappingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiMappingCommandOutput) => void),
-    cb?: (err: any, data?: GetApiMappingCommandOutput) => void
-  ): Promise<GetApiMappingCommandOutput> | void {
-    const command = new GetApiMappingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets API mappings.</p>
+   * @see {@link GetApiMappingsCommand}
    */
-  public getApiMappings(
+  getApiMappings(
     args: GetApiMappingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApiMappingsCommandOutput>;
-  public getApiMappings(
-    args: GetApiMappingsCommandInput,
-    cb: (err: any, data?: GetApiMappingsCommandOutput) => void
-  ): void;
-  public getApiMappings(
+  getApiMappings(args: GetApiMappingsCommandInput, cb: (err: any, data?: GetApiMappingsCommandOutput) => void): void;
+  getApiMappings(
     args: GetApiMappingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApiMappingsCommandOutput) => void
   ): void;
-  public getApiMappings(
-    args: GetApiMappingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiMappingsCommandOutput) => void),
-    cb?: (err: any, data?: GetApiMappingsCommandOutput) => void
-  ): Promise<GetApiMappingsCommandOutput> | void {
-    const command = new GetApiMappingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a collection of Api resources.</p>
+   * @see {@link GetApisCommand}
    */
-  public getApis(args: GetApisCommandInput, options?: __HttpHandlerOptions): Promise<GetApisCommandOutput>;
-  public getApis(args: GetApisCommandInput, cb: (err: any, data?: GetApisCommandOutput) => void): void;
-  public getApis(
+  getApis(args: GetApisCommandInput, options?: __HttpHandlerOptions): Promise<GetApisCommandOutput>;
+  getApis(args: GetApisCommandInput, cb: (err: any, data?: GetApisCommandOutput) => void): void;
+  getApis(
     args: GetApisCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApisCommandOutput) => void
   ): void;
-  public getApis(
-    args: GetApisCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApisCommandOutput) => void),
-    cb?: (err: any, data?: GetApisCommandOutput) => void
-  ): Promise<GetApisCommandOutput> | void {
-    const command = new GetApisCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets an Authorizer.</p>
+   * @see {@link GetAuthorizerCommand}
    */
-  public getAuthorizer(
-    args: GetAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAuthorizerCommandOutput>;
-  public getAuthorizer(
-    args: GetAuthorizerCommandInput,
-    cb: (err: any, data?: GetAuthorizerCommandOutput) => void
-  ): void;
-  public getAuthorizer(
+  getAuthorizer(args: GetAuthorizerCommandInput, options?: __HttpHandlerOptions): Promise<GetAuthorizerCommandOutput>;
+  getAuthorizer(args: GetAuthorizerCommandInput, cb: (err: any, data?: GetAuthorizerCommandOutput) => void): void;
+  getAuthorizer(
     args: GetAuthorizerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAuthorizerCommandOutput) => void
   ): void;
-  public getAuthorizer(
-    args: GetAuthorizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAuthorizerCommandOutput) => void),
-    cb?: (err: any, data?: GetAuthorizerCommandOutput) => void
-  ): Promise<GetAuthorizerCommandOutput> | void {
-    const command = new GetAuthorizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets the Authorizers for an API.</p>
+   * @see {@link GetAuthorizersCommand}
    */
-  public getAuthorizers(
+  getAuthorizers(
     args: GetAuthorizersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAuthorizersCommandOutput>;
-  public getAuthorizers(
-    args: GetAuthorizersCommandInput,
-    cb: (err: any, data?: GetAuthorizersCommandOutput) => void
-  ): void;
-  public getAuthorizers(
+  getAuthorizers(args: GetAuthorizersCommandInput, cb: (err: any, data?: GetAuthorizersCommandOutput) => void): void;
+  getAuthorizers(
     args: GetAuthorizersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAuthorizersCommandOutput) => void
   ): void;
-  public getAuthorizers(
-    args: GetAuthorizersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAuthorizersCommandOutput) => void),
-    cb?: (err: any, data?: GetAuthorizersCommandOutput) => void
-  ): Promise<GetAuthorizersCommandOutput> | void {
-    const command = new GetAuthorizersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a Deployment.</p>
+   * @see {@link GetDeploymentCommand}
    */
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeploymentCommandOutput>;
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    cb: (err: any, data?: GetDeploymentCommandOutput) => void
-  ): void;
-  public getDeployment(
+  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
+  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
     args: GetDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDeploymentCommandOutput) => void
   ): void;
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: GetDeploymentCommandOutput) => void
-  ): Promise<GetDeploymentCommandOutput> | void {
-    const command = new GetDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets the Deployments for an API.</p>
+   * @see {@link GetDeploymentsCommand}
    */
-  public getDeployments(
+  getDeployments(
     args: GetDeploymentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDeploymentsCommandOutput>;
-  public getDeployments(
-    args: GetDeploymentsCommandInput,
-    cb: (err: any, data?: GetDeploymentsCommandOutput) => void
-  ): void;
-  public getDeployments(
+  getDeployments(args: GetDeploymentsCommandInput, cb: (err: any, data?: GetDeploymentsCommandOutput) => void): void;
+  getDeployments(
     args: GetDeploymentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDeploymentsCommandOutput) => void
   ): void;
-  public getDeployments(
-    args: GetDeploymentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentsCommandOutput) => void),
-    cb?: (err: any, data?: GetDeploymentsCommandOutput) => void
-  ): Promise<GetDeploymentsCommandOutput> | void {
-    const command = new GetDeploymentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a domain name.</p>
+   * @see {@link GetDomainNameCommand}
    */
-  public getDomainName(
-    args: GetDomainNameCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDomainNameCommandOutput>;
-  public getDomainName(
-    args: GetDomainNameCommandInput,
-    cb: (err: any, data?: GetDomainNameCommandOutput) => void
-  ): void;
-  public getDomainName(
+  getDomainName(args: GetDomainNameCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainNameCommandOutput>;
+  getDomainName(args: GetDomainNameCommandInput, cb: (err: any, data?: GetDomainNameCommandOutput) => void): void;
+  getDomainName(
     args: GetDomainNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDomainNameCommandOutput) => void
   ): void;
-  public getDomainName(
-    args: GetDomainNameCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainNameCommandOutput) => void),
-    cb?: (err: any, data?: GetDomainNameCommandOutput) => void
-  ): Promise<GetDomainNameCommandOutput> | void {
-    const command = new GetDomainNameCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets the domain names for an AWS account.</p>
+   * @see {@link GetDomainNamesCommand}
    */
-  public getDomainNames(
+  getDomainNames(
     args: GetDomainNamesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDomainNamesCommandOutput>;
-  public getDomainNames(
-    args: GetDomainNamesCommandInput,
-    cb: (err: any, data?: GetDomainNamesCommandOutput) => void
-  ): void;
-  public getDomainNames(
+  getDomainNames(args: GetDomainNamesCommandInput, cb: (err: any, data?: GetDomainNamesCommandOutput) => void): void;
+  getDomainNames(
     args: GetDomainNamesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDomainNamesCommandOutput) => void
   ): void;
-  public getDomainNames(
-    args: GetDomainNamesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainNamesCommandOutput) => void),
-    cb?: (err: any, data?: GetDomainNamesCommandOutput) => void
-  ): Promise<GetDomainNamesCommandOutput> | void {
-    const command = new GetDomainNamesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets an Integration.</p>
+   * @see {@link GetIntegrationCommand}
    */
-  public getIntegration(
+  getIntegration(
     args: GetIntegrationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetIntegrationCommandOutput>;
-  public getIntegration(
-    args: GetIntegrationCommandInput,
-    cb: (err: any, data?: GetIntegrationCommandOutput) => void
-  ): void;
-  public getIntegration(
+  getIntegration(args: GetIntegrationCommandInput, cb: (err: any, data?: GetIntegrationCommandOutput) => void): void;
+  getIntegration(
     args: GetIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIntegrationCommandOutput) => void
   ): void;
-  public getIntegration(
-    args: GetIntegrationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationCommandOutput) => void),
-    cb?: (err: any, data?: GetIntegrationCommandOutput) => void
-  ): Promise<GetIntegrationCommandOutput> | void {
-    const command = new GetIntegrationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets an IntegrationResponses.</p>
+   * @see {@link GetIntegrationResponseCommand}
    */
-  public getIntegrationResponse(
+  getIntegrationResponse(
     args: GetIntegrationResponseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetIntegrationResponseCommandOutput>;
-  public getIntegrationResponse(
+  getIntegrationResponse(
     args: GetIntegrationResponseCommandInput,
     cb: (err: any, data?: GetIntegrationResponseCommandOutput) => void
   ): void;
-  public getIntegrationResponse(
+  getIntegrationResponse(
     args: GetIntegrationResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIntegrationResponseCommandOutput) => void
   ): void;
-  public getIntegrationResponse(
-    args: GetIntegrationResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationResponseCommandOutput) => void),
-    cb?: (err: any, data?: GetIntegrationResponseCommandOutput) => void
-  ): Promise<GetIntegrationResponseCommandOutput> | void {
-    const command = new GetIntegrationResponseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets the IntegrationResponses for an Integration.</p>
+   * @see {@link GetIntegrationResponsesCommand}
    */
-  public getIntegrationResponses(
+  getIntegrationResponses(
     args: GetIntegrationResponsesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetIntegrationResponsesCommandOutput>;
-  public getIntegrationResponses(
+  getIntegrationResponses(
     args: GetIntegrationResponsesCommandInput,
     cb: (err: any, data?: GetIntegrationResponsesCommandOutput) => void
   ): void;
-  public getIntegrationResponses(
+  getIntegrationResponses(
     args: GetIntegrationResponsesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIntegrationResponsesCommandOutput) => void
   ): void;
-  public getIntegrationResponses(
-    args: GetIntegrationResponsesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationResponsesCommandOutput) => void),
-    cb?: (err: any, data?: GetIntegrationResponsesCommandOutput) => void
-  ): Promise<GetIntegrationResponsesCommandOutput> | void {
-    const command = new GetIntegrationResponsesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets the Integrations for an API.</p>
+   * @see {@link GetIntegrationsCommand}
    */
-  public getIntegrations(
+  getIntegrations(
     args: GetIntegrationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetIntegrationsCommandOutput>;
-  public getIntegrations(
-    args: GetIntegrationsCommandInput,
-    cb: (err: any, data?: GetIntegrationsCommandOutput) => void
-  ): void;
-  public getIntegrations(
+  getIntegrations(args: GetIntegrationsCommandInput, cb: (err: any, data?: GetIntegrationsCommandOutput) => void): void;
+  getIntegrations(
     args: GetIntegrationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIntegrationsCommandOutput) => void
   ): void;
-  public getIntegrations(
-    args: GetIntegrationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationsCommandOutput) => void),
-    cb?: (err: any, data?: GetIntegrationsCommandOutput) => void
-  ): Promise<GetIntegrationsCommandOutput> | void {
-    const command = new GetIntegrationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a Model.</p>
+   * @see {@link GetModelCommand}
    */
-  public getModel(args: GetModelCommandInput, options?: __HttpHandlerOptions): Promise<GetModelCommandOutput>;
-  public getModel(args: GetModelCommandInput, cb: (err: any, data?: GetModelCommandOutput) => void): void;
-  public getModel(
+  getModel(args: GetModelCommandInput, options?: __HttpHandlerOptions): Promise<GetModelCommandOutput>;
+  getModel(args: GetModelCommandInput, cb: (err: any, data?: GetModelCommandOutput) => void): void;
+  getModel(
     args: GetModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetModelCommandOutput) => void
   ): void;
-  public getModel(
-    args: GetModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelCommandOutput) => void),
-    cb?: (err: any, data?: GetModelCommandOutput) => void
-  ): Promise<GetModelCommandOutput> | void {
-    const command = new GetModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets the Models for an API.</p>
+   * @see {@link GetModelsCommand}
    */
-  public getModels(args: GetModelsCommandInput, options?: __HttpHandlerOptions): Promise<GetModelsCommandOutput>;
-  public getModels(args: GetModelsCommandInput, cb: (err: any, data?: GetModelsCommandOutput) => void): void;
-  public getModels(
+  getModels(args: GetModelsCommandInput, options?: __HttpHandlerOptions): Promise<GetModelsCommandOutput>;
+  getModels(args: GetModelsCommandInput, cb: (err: any, data?: GetModelsCommandOutput) => void): void;
+  getModels(
     args: GetModelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetModelsCommandOutput) => void
   ): void;
-  public getModels(
-    args: GetModelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelsCommandOutput) => void),
-    cb?: (err: any, data?: GetModelsCommandOutput) => void
-  ): Promise<GetModelsCommandOutput> | void {
-    const command = new GetModelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a model template.</p>
+   * @see {@link GetModelTemplateCommand}
    */
-  public getModelTemplate(
+  getModelTemplate(
     args: GetModelTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetModelTemplateCommandOutput>;
-  public getModelTemplate(
+  getModelTemplate(
     args: GetModelTemplateCommandInput,
     cb: (err: any, data?: GetModelTemplateCommandOutput) => void
   ): void;
-  public getModelTemplate(
+  getModelTemplate(
     args: GetModelTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetModelTemplateCommandOutput) => void
   ): void;
-  public getModelTemplate(
-    args: GetModelTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetModelTemplateCommandOutput) => void
-  ): Promise<GetModelTemplateCommandOutput> | void {
-    const command = new GetModelTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a Route.</p>
+   * @see {@link GetRouteCommand}
    */
-  public getRoute(args: GetRouteCommandInput, options?: __HttpHandlerOptions): Promise<GetRouteCommandOutput>;
-  public getRoute(args: GetRouteCommandInput, cb: (err: any, data?: GetRouteCommandOutput) => void): void;
-  public getRoute(
+  getRoute(args: GetRouteCommandInput, options?: __HttpHandlerOptions): Promise<GetRouteCommandOutput>;
+  getRoute(args: GetRouteCommandInput, cb: (err: any, data?: GetRouteCommandOutput) => void): void;
+  getRoute(
     args: GetRouteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRouteCommandOutput) => void
   ): void;
-  public getRoute(
-    args: GetRouteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRouteCommandOutput) => void),
-    cb?: (err: any, data?: GetRouteCommandOutput) => void
-  ): Promise<GetRouteCommandOutput> | void {
-    const command = new GetRouteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a RouteResponse.</p>
+   * @see {@link GetRouteResponseCommand}
    */
-  public getRouteResponse(
+  getRouteResponse(
     args: GetRouteResponseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRouteResponseCommandOutput>;
-  public getRouteResponse(
+  getRouteResponse(
     args: GetRouteResponseCommandInput,
     cb: (err: any, data?: GetRouteResponseCommandOutput) => void
   ): void;
-  public getRouteResponse(
+  getRouteResponse(
     args: GetRouteResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRouteResponseCommandOutput) => void
   ): void;
-  public getRouteResponse(
-    args: GetRouteResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRouteResponseCommandOutput) => void),
-    cb?: (err: any, data?: GetRouteResponseCommandOutput) => void
-  ): Promise<GetRouteResponseCommandOutput> | void {
-    const command = new GetRouteResponseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets the RouteResponses for a Route.</p>
+   * @see {@link GetRouteResponsesCommand}
    */
-  public getRouteResponses(
+  getRouteResponses(
     args: GetRouteResponsesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRouteResponsesCommandOutput>;
-  public getRouteResponses(
+  getRouteResponses(
     args: GetRouteResponsesCommandInput,
     cb: (err: any, data?: GetRouteResponsesCommandOutput) => void
   ): void;
-  public getRouteResponses(
+  getRouteResponses(
     args: GetRouteResponsesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRouteResponsesCommandOutput) => void
   ): void;
-  public getRouteResponses(
-    args: GetRouteResponsesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRouteResponsesCommandOutput) => void),
-    cb?: (err: any, data?: GetRouteResponsesCommandOutput) => void
-  ): Promise<GetRouteResponsesCommandOutput> | void {
-    const command = new GetRouteResponsesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets the Routes for an API.</p>
+   * @see {@link GetRoutesCommand}
    */
-  public getRoutes(args: GetRoutesCommandInput, options?: __HttpHandlerOptions): Promise<GetRoutesCommandOutput>;
-  public getRoutes(args: GetRoutesCommandInput, cb: (err: any, data?: GetRoutesCommandOutput) => void): void;
-  public getRoutes(
+  getRoutes(args: GetRoutesCommandInput, options?: __HttpHandlerOptions): Promise<GetRoutesCommandOutput>;
+  getRoutes(args: GetRoutesCommandInput, cb: (err: any, data?: GetRoutesCommandOutput) => void): void;
+  getRoutes(
     args: GetRoutesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRoutesCommandOutput) => void
   ): void;
-  public getRoutes(
-    args: GetRoutesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoutesCommandOutput) => void),
-    cb?: (err: any, data?: GetRoutesCommandOutput) => void
-  ): Promise<GetRoutesCommandOutput> | void {
-    const command = new GetRoutesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a Stage.</p>
+   * @see {@link GetStageCommand}
    */
-  public getStage(args: GetStageCommandInput, options?: __HttpHandlerOptions): Promise<GetStageCommandOutput>;
-  public getStage(args: GetStageCommandInput, cb: (err: any, data?: GetStageCommandOutput) => void): void;
-  public getStage(
+  getStage(args: GetStageCommandInput, options?: __HttpHandlerOptions): Promise<GetStageCommandOutput>;
+  getStage(args: GetStageCommandInput, cb: (err: any, data?: GetStageCommandOutput) => void): void;
+  getStage(
     args: GetStageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetStageCommandOutput) => void
   ): void;
-  public getStage(
-    args: GetStageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStageCommandOutput) => void),
-    cb?: (err: any, data?: GetStageCommandOutput) => void
-  ): Promise<GetStageCommandOutput> | void {
-    const command = new GetStageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets the Stages for an API.</p>
+   * @see {@link GetStagesCommand}
    */
-  public getStages(args: GetStagesCommandInput, options?: __HttpHandlerOptions): Promise<GetStagesCommandOutput>;
-  public getStages(args: GetStagesCommandInput, cb: (err: any, data?: GetStagesCommandOutput) => void): void;
-  public getStages(
+  getStages(args: GetStagesCommandInput, options?: __HttpHandlerOptions): Promise<GetStagesCommandOutput>;
+  getStages(args: GetStagesCommandInput, cb: (err: any, data?: GetStagesCommandOutput) => void): void;
+  getStages(
     args: GetStagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetStagesCommandOutput) => void
   ): void;
-  public getStages(
-    args: GetStagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStagesCommandOutput) => void),
-    cb?: (err: any, data?: GetStagesCommandOutput) => void
-  ): Promise<GetStagesCommandOutput> | void {
-    const command = new GetStagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a collection of Tag resources.</p>
+   * @see {@link GetTagsCommand}
    */
-  public getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
-  public getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
-  public getTags(
+  getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
+  getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
+  getTags(
     args: GetTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTagsCommandOutput) => void
   ): void;
-  public getTags(
-    args: GetTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagsCommandOutput) => void),
-    cb?: (err: any, data?: GetTagsCommandOutput) => void
-  ): Promise<GetTagsCommandOutput> | void {
-    const command = new GetTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a VPC link.</p>
+   * @see {@link GetVpcLinkCommand}
    */
-  public getVpcLink(args: GetVpcLinkCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinkCommandOutput>;
-  public getVpcLink(args: GetVpcLinkCommandInput, cb: (err: any, data?: GetVpcLinkCommandOutput) => void): void;
-  public getVpcLink(
+  getVpcLink(args: GetVpcLinkCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinkCommandOutput>;
+  getVpcLink(args: GetVpcLinkCommandInput, cb: (err: any, data?: GetVpcLinkCommandOutput) => void): void;
+  getVpcLink(
     args: GetVpcLinkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVpcLinkCommandOutput) => void
   ): void;
-  public getVpcLink(
-    args: GetVpcLinkCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVpcLinkCommandOutput) => void),
-    cb?: (err: any, data?: GetVpcLinkCommandOutput) => void
-  ): Promise<GetVpcLinkCommandOutput> | void {
-    const command = new GetVpcLinkCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Gets a collection of VPC links.</p>
+   * @see {@link GetVpcLinksCommand}
    */
-  public getVpcLinks(args: GetVpcLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinksCommandOutput>;
-  public getVpcLinks(args: GetVpcLinksCommandInput, cb: (err: any, data?: GetVpcLinksCommandOutput) => void): void;
-  public getVpcLinks(
+  getVpcLinks(args: GetVpcLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinksCommandOutput>;
+  getVpcLinks(args: GetVpcLinksCommandInput, cb: (err: any, data?: GetVpcLinksCommandOutput) => void): void;
+  getVpcLinks(
     args: GetVpcLinksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVpcLinksCommandOutput) => void
   ): void;
-  public getVpcLinks(
-    args: GetVpcLinksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVpcLinksCommandOutput) => void),
-    cb?: (err: any, data?: GetVpcLinksCommandOutput) => void
-  ): Promise<GetVpcLinksCommandOutput> | void {
-    const command = new GetVpcLinksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Imports an API.</p>
+   * @see {@link ImportApiCommand}
    */
-  public importApi(args: ImportApiCommandInput, options?: __HttpHandlerOptions): Promise<ImportApiCommandOutput>;
-  public importApi(args: ImportApiCommandInput, cb: (err: any, data?: ImportApiCommandOutput) => void): void;
-  public importApi(
+  importApi(args: ImportApiCommandInput, options?: __HttpHandlerOptions): Promise<ImportApiCommandOutput>;
+  importApi(args: ImportApiCommandInput, cb: (err: any, data?: ImportApiCommandOutput) => void): void;
+  importApi(
     args: ImportApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportApiCommandOutput) => void
   ): void;
-  public importApi(
-    args: ImportApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportApiCommandOutput) => void),
-    cb?: (err: any, data?: ImportApiCommandOutput) => void
-  ): Promise<ImportApiCommandOutput> | void {
-    const command = new ImportApiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Puts an Api resource.</p>
+   * @see {@link ReimportApiCommand}
    */
-  public reimportApi(args: ReimportApiCommandInput, options?: __HttpHandlerOptions): Promise<ReimportApiCommandOutput>;
-  public reimportApi(args: ReimportApiCommandInput, cb: (err: any, data?: ReimportApiCommandOutput) => void): void;
-  public reimportApi(
+  reimportApi(args: ReimportApiCommandInput, options?: __HttpHandlerOptions): Promise<ReimportApiCommandOutput>;
+  reimportApi(args: ReimportApiCommandInput, cb: (err: any, data?: ReimportApiCommandOutput) => void): void;
+  reimportApi(
     args: ReimportApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ReimportApiCommandOutput) => void
   ): void;
-  public reimportApi(
-    args: ReimportApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReimportApiCommandOutput) => void),
-    cb?: (err: any, data?: ReimportApiCommandOutput) => void
-  ): Promise<ReimportApiCommandOutput> | void {
-    const command = new ReimportApiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.</p>
+   * @see {@link ResetAuthorizersCacheCommand}
    */
-  public resetAuthorizersCache(
+  resetAuthorizersCache(
     args: ResetAuthorizersCacheCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ResetAuthorizersCacheCommandOutput>;
-  public resetAuthorizersCache(
+  resetAuthorizersCache(
     args: ResetAuthorizersCacheCommandInput,
     cb: (err: any, data?: ResetAuthorizersCacheCommandOutput) => void
   ): void;
-  public resetAuthorizersCache(
+  resetAuthorizersCache(
     args: ResetAuthorizersCacheCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ResetAuthorizersCacheCommandOutput) => void
   ): void;
-  public resetAuthorizersCache(
-    args: ResetAuthorizersCacheCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetAuthorizersCacheCommandOutput) => void),
-    cb?: (err: any, data?: ResetAuthorizersCacheCommandOutput) => void
-  ): Promise<ResetAuthorizersCacheCommandOutput> | void {
-    const command = new ResetAuthorizersCacheCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Creates a new Tag resource to represent a tag.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Deletes a Tag.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates an Api resource.</p>
+   * @see {@link UpdateApiCommand}
    */
-  public updateApi(args: UpdateApiCommandInput, options?: __HttpHandlerOptions): Promise<UpdateApiCommandOutput>;
-  public updateApi(args: UpdateApiCommandInput, cb: (err: any, data?: UpdateApiCommandOutput) => void): void;
-  public updateApi(
+  updateApi(args: UpdateApiCommandInput, options?: __HttpHandlerOptions): Promise<UpdateApiCommandOutput>;
+  updateApi(args: UpdateApiCommandInput, cb: (err: any, data?: UpdateApiCommandOutput) => void): void;
+  updateApi(
     args: UpdateApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApiCommandOutput) => void
   ): void;
-  public updateApi(
-    args: UpdateApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApiCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApiCommandOutput) => void
-  ): Promise<UpdateApiCommandOutput> | void {
-    const command = new UpdateApiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>The API mapping.</p>
+   * @see {@link UpdateApiMappingCommand}
    */
-  public updateApiMapping(
+  updateApiMapping(
     args: UpdateApiMappingCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateApiMappingCommandOutput>;
-  public updateApiMapping(
+  updateApiMapping(
     args: UpdateApiMappingCommandInput,
     cb: (err: any, data?: UpdateApiMappingCommandOutput) => void
   ): void;
-  public updateApiMapping(
+  updateApiMapping(
     args: UpdateApiMappingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApiMappingCommandOutput) => void
   ): void;
-  public updateApiMapping(
-    args: UpdateApiMappingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApiMappingCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApiMappingCommandOutput) => void
-  ): Promise<UpdateApiMappingCommandOutput> | void {
-    const command = new UpdateApiMappingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates an Authorizer.</p>
+   * @see {@link UpdateAuthorizerCommand}
    */
-  public updateAuthorizer(
+  updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAuthorizerCommandOutput>;
-  public updateAuthorizer(
+  updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
     cb: (err: any, data?: UpdateAuthorizerCommandOutput) => void
   ): void;
-  public updateAuthorizer(
+  updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAuthorizerCommandOutput) => void
   ): void;
-  public updateAuthorizer(
-    args: UpdateAuthorizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAuthorizerCommandOutput) => void
-  ): Promise<UpdateAuthorizerCommandOutput> | void {
-    const command = new UpdateAuthorizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates a Deployment.</p>
+   * @see {@link UpdateDeploymentCommand}
    */
-  public updateDeployment(
+  updateDeployment(
     args: UpdateDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDeploymentCommandOutput>;
-  public updateDeployment(
+  updateDeployment(
     args: UpdateDeploymentCommandInput,
     cb: (err: any, data?: UpdateDeploymentCommandOutput) => void
   ): void;
-  public updateDeployment(
+  updateDeployment(
     args: UpdateDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDeploymentCommandOutput) => void
   ): void;
-  public updateDeployment(
-    args: UpdateDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDeploymentCommandOutput) => void
-  ): Promise<UpdateDeploymentCommandOutput> | void {
-    const command = new UpdateDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates a domain name.</p>
+   * @see {@link UpdateDomainNameCommand}
    */
-  public updateDomainName(
+  updateDomainName(
     args: UpdateDomainNameCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDomainNameCommandOutput>;
-  public updateDomainName(
+  updateDomainName(
     args: UpdateDomainNameCommandInput,
     cb: (err: any, data?: UpdateDomainNameCommandOutput) => void
   ): void;
-  public updateDomainName(
+  updateDomainName(
     args: UpdateDomainNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDomainNameCommandOutput) => void
   ): void;
-  public updateDomainName(
-    args: UpdateDomainNameCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainNameCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDomainNameCommandOutput) => void
-  ): Promise<UpdateDomainNameCommandOutput> | void {
-    const command = new UpdateDomainNameCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates an Integration.</p>
+   * @see {@link UpdateIntegrationCommand}
    */
-  public updateIntegration(
+  updateIntegration(
     args: UpdateIntegrationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateIntegrationCommandOutput>;
-  public updateIntegration(
+  updateIntegration(
     args: UpdateIntegrationCommandInput,
     cb: (err: any, data?: UpdateIntegrationCommandOutput) => void
   ): void;
-  public updateIntegration(
+  updateIntegration(
     args: UpdateIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIntegrationCommandOutput) => void
   ): void;
-  public updateIntegration(
-    args: UpdateIntegrationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIntegrationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateIntegrationCommandOutput) => void
-  ): Promise<UpdateIntegrationCommandOutput> | void {
-    const command = new UpdateIntegrationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates an IntegrationResponses.</p>
+   * @see {@link UpdateIntegrationResponseCommand}
    */
-  public updateIntegrationResponse(
+  updateIntegrationResponse(
     args: UpdateIntegrationResponseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateIntegrationResponseCommandOutput>;
-  public updateIntegrationResponse(
+  updateIntegrationResponse(
     args: UpdateIntegrationResponseCommandInput,
     cb: (err: any, data?: UpdateIntegrationResponseCommandOutput) => void
   ): void;
-  public updateIntegrationResponse(
+  updateIntegrationResponse(
     args: UpdateIntegrationResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIntegrationResponseCommandOutput) => void
   ): void;
-  public updateIntegrationResponse(
-    args: UpdateIntegrationResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIntegrationResponseCommandOutput) => void),
-    cb?: (err: any, data?: UpdateIntegrationResponseCommandOutput) => void
-  ): Promise<UpdateIntegrationResponseCommandOutput> | void {
-    const command = new UpdateIntegrationResponseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates a Model.</p>
+   * @see {@link UpdateModelCommand}
    */
-  public updateModel(args: UpdateModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateModelCommandOutput>;
-  public updateModel(args: UpdateModelCommandInput, cb: (err: any, data?: UpdateModelCommandOutput) => void): void;
-  public updateModel(
+  updateModel(args: UpdateModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateModelCommandOutput>;
+  updateModel(args: UpdateModelCommandInput, cb: (err: any, data?: UpdateModelCommandOutput) => void): void;
+  updateModel(
     args: UpdateModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateModelCommandOutput) => void
   ): void;
-  public updateModel(
-    args: UpdateModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateModelCommandOutput) => void
-  ): Promise<UpdateModelCommandOutput> | void {
-    const command = new UpdateModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates a Route.</p>
+   * @see {@link UpdateRouteCommand}
    */
-  public updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;
-  public updateRoute(args: UpdateRouteCommandInput, cb: (err: any, data?: UpdateRouteCommandOutput) => void): void;
-  public updateRoute(
+  updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;
+  updateRoute(args: UpdateRouteCommandInput, cb: (err: any, data?: UpdateRouteCommandOutput) => void): void;
+  updateRoute(
     args: UpdateRouteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRouteCommandOutput) => void
   ): void;
-  public updateRoute(
-    args: UpdateRouteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRouteCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRouteCommandOutput) => void
-  ): Promise<UpdateRouteCommandOutput> | void {
-    const command = new UpdateRouteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates a RouteResponse.</p>
+   * @see {@link UpdateRouteResponseCommand}
    */
-  public updateRouteResponse(
+  updateRouteResponse(
     args: UpdateRouteResponseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRouteResponseCommandOutput>;
-  public updateRouteResponse(
+  updateRouteResponse(
     args: UpdateRouteResponseCommandInput,
     cb: (err: any, data?: UpdateRouteResponseCommandOutput) => void
   ): void;
-  public updateRouteResponse(
+  updateRouteResponse(
     args: UpdateRouteResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRouteResponseCommandOutput) => void
   ): void;
-  public updateRouteResponse(
-    args: UpdateRouteResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRouteResponseCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRouteResponseCommandOutput) => void
-  ): Promise<UpdateRouteResponseCommandOutput> | void {
-    const command = new UpdateRouteResponseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates a Stage.</p>
+   * @see {@link UpdateStageCommand}
    */
-  public updateStage(args: UpdateStageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStageCommandOutput>;
-  public updateStage(args: UpdateStageCommandInput, cb: (err: any, data?: UpdateStageCommandOutput) => void): void;
-  public updateStage(
+  updateStage(args: UpdateStageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStageCommandOutput>;
+  updateStage(args: UpdateStageCommandInput, cb: (err: any, data?: UpdateStageCommandOutput) => void): void;
+  updateStage(
     args: UpdateStageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStageCommandOutput) => void
   ): void;
-  public updateStage(
-    args: UpdateStageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStageCommandOutput) => void),
-    cb?: (err: any, data?: UpdateStageCommandOutput) => void
-  ): Promise<UpdateStageCommandOutput> | void {
-    const command = new UpdateStageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * @public
-   * <p>Updates a VPC link.</p>
+   * @see {@link UpdateVpcLinkCommand}
    */
-  public updateVpcLink(
-    args: UpdateVpcLinkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateVpcLinkCommandOutput>;
-  public updateVpcLink(
-    args: UpdateVpcLinkCommandInput,
-    cb: (err: any, data?: UpdateVpcLinkCommandOutput) => void
-  ): void;
-  public updateVpcLink(
+  updateVpcLink(args: UpdateVpcLinkCommandInput, options?: __HttpHandlerOptions): Promise<UpdateVpcLinkCommandOutput>;
+  updateVpcLink(args: UpdateVpcLinkCommandInput, cb: (err: any, data?: UpdateVpcLinkCommandOutput) => void): void;
+  updateVpcLink(
     args: UpdateVpcLinkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVpcLinkCommandOutput) => void
   ): void;
-  public updateVpcLink(
-    args: UpdateVpcLinkCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVpcLinkCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVpcLinkCommandOutput) => void
-  ): Promise<UpdateVpcLinkCommandOutput> | void {
-    const command = new UpdateVpcLinkCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>Amazon API Gateway V2</p>
+ */
+export class ApiGatewayV2 extends ApiGatewayV2Client implements ApiGatewayV2 {}
+createAggregatedClient(commands, ApiGatewayV2);

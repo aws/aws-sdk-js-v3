@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { createProxyClient } from "@aws-sdk/smithy-client";
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -170,6 +170,7 @@ const commands = {
   XmlNamespacesCommand,
   XmlTimestampsCommand,
 };
+
 export interface QueryProtocol {
   /**
    * @see {@link DatetimeOffsetsCommand}
@@ -636,10 +637,5 @@ export interface QueryProtocol {
  * @public
  * A query service that sends query requests and XML responses.
  */
-export class QueryProtocol extends QueryProtocolClient implements QueryProtocol {
-  public constructor(config: QueryProtocolClientConfig) {
-    const client = new QueryProtocolClient(config);
-    const target: any = {};
-    return createProxyClient(target, commands, client);
-  }
-}
+export class QueryProtocol extends QueryProtocolClient implements QueryProtocol {}
+createAggregatedClient(commands, QueryProtocol);

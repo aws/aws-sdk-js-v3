@@ -2,13 +2,14 @@
 import { EchoServiceClient, EchoServiceClientConfig } from "./EchoServiceClient";
 import { EchoCommand, EchoCommandInput, EchoCommandOutput } from "./commands/EchoCommand";
 import { LengthCommand, LengthCommandInput, LengthCommandOutput } from "./commands/LengthCommand";
-import { createProxyClient } from "@aws-sdk/smithy-client";
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 const commands = {
   EchoCommand,
   LengthCommand,
 };
+
 export interface EchoService {
   /**
    * @see {@link EchoCommand}
@@ -32,10 +33,5 @@ export interface EchoService {
 /**
  * @public
  */
-export class EchoService extends EchoServiceClient implements EchoService {
-  public constructor(config: EchoServiceClientConfig) {
-    super(config);
-    const target: any = {};
-    return createProxyClient(target, commands, this);
-  }
-}
+export class EchoService extends EchoServiceClient implements EchoService {}
+createAggregatedClient(commands, EchoService);

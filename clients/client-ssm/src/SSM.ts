@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -679,7 +680,2379 @@ import {
   UpdateServiceSettingCommandInput,
   UpdateServiceSettingCommandOutput,
 } from "./commands/UpdateServiceSettingCommand";
-import { SSMClient } from "./SSMClient";
+import { SSMClient, SSMClientConfig } from "./SSMClient";
+
+const commands = {
+  AddTagsToResourceCommand,
+  AssociateOpsItemRelatedItemCommand,
+  CancelCommandCommand,
+  CancelMaintenanceWindowExecutionCommand,
+  CreateActivationCommand,
+  CreateAssociationCommand,
+  CreateAssociationBatchCommand,
+  CreateDocumentCommand,
+  CreateMaintenanceWindowCommand,
+  CreateOpsItemCommand,
+  CreateOpsMetadataCommand,
+  CreatePatchBaselineCommand,
+  CreateResourceDataSyncCommand,
+  DeleteActivationCommand,
+  DeleteAssociationCommand,
+  DeleteDocumentCommand,
+  DeleteInventoryCommand,
+  DeleteMaintenanceWindowCommand,
+  DeleteOpsMetadataCommand,
+  DeleteParameterCommand,
+  DeleteParametersCommand,
+  DeletePatchBaselineCommand,
+  DeleteResourceDataSyncCommand,
+  DeleteResourcePolicyCommand,
+  DeregisterManagedInstanceCommand,
+  DeregisterPatchBaselineForPatchGroupCommand,
+  DeregisterTargetFromMaintenanceWindowCommand,
+  DeregisterTaskFromMaintenanceWindowCommand,
+  DescribeActivationsCommand,
+  DescribeAssociationCommand,
+  DescribeAssociationExecutionsCommand,
+  DescribeAssociationExecutionTargetsCommand,
+  DescribeAutomationExecutionsCommand,
+  DescribeAutomationStepExecutionsCommand,
+  DescribeAvailablePatchesCommand,
+  DescribeDocumentCommand,
+  DescribeDocumentPermissionCommand,
+  DescribeEffectiveInstanceAssociationsCommand,
+  DescribeEffectivePatchesForPatchBaselineCommand,
+  DescribeInstanceAssociationsStatusCommand,
+  DescribeInstanceInformationCommand,
+  DescribeInstancePatchesCommand,
+  DescribeInstancePatchStatesCommand,
+  DescribeInstancePatchStatesForPatchGroupCommand,
+  DescribeInventoryDeletionsCommand,
+  DescribeMaintenanceWindowExecutionsCommand,
+  DescribeMaintenanceWindowExecutionTaskInvocationsCommand,
+  DescribeMaintenanceWindowExecutionTasksCommand,
+  DescribeMaintenanceWindowsCommand,
+  DescribeMaintenanceWindowScheduleCommand,
+  DescribeMaintenanceWindowsForTargetCommand,
+  DescribeMaintenanceWindowTargetsCommand,
+  DescribeMaintenanceWindowTasksCommand,
+  DescribeOpsItemsCommand,
+  DescribeParametersCommand,
+  DescribePatchBaselinesCommand,
+  DescribePatchGroupsCommand,
+  DescribePatchGroupStateCommand,
+  DescribePatchPropertiesCommand,
+  DescribeSessionsCommand,
+  DisassociateOpsItemRelatedItemCommand,
+  GetAutomationExecutionCommand,
+  GetCalendarStateCommand,
+  GetCommandInvocationCommand,
+  GetConnectionStatusCommand,
+  GetDefaultPatchBaselineCommand,
+  GetDeployablePatchSnapshotForInstanceCommand,
+  GetDocumentCommand,
+  GetInventoryCommand,
+  GetInventorySchemaCommand,
+  GetMaintenanceWindowCommand,
+  GetMaintenanceWindowExecutionCommand,
+  GetMaintenanceWindowExecutionTaskCommand,
+  GetMaintenanceWindowExecutionTaskInvocationCommand,
+  GetMaintenanceWindowTaskCommand,
+  GetOpsItemCommand,
+  GetOpsMetadataCommand,
+  GetOpsSummaryCommand,
+  GetParameterCommand,
+  GetParameterHistoryCommand,
+  GetParametersCommand,
+  GetParametersByPathCommand,
+  GetPatchBaselineCommand,
+  GetPatchBaselineForPatchGroupCommand,
+  GetResourcePoliciesCommand,
+  GetServiceSettingCommand,
+  LabelParameterVersionCommand,
+  ListAssociationsCommand,
+  ListAssociationVersionsCommand,
+  ListCommandInvocationsCommand,
+  ListCommandsCommand,
+  ListComplianceItemsCommand,
+  ListComplianceSummariesCommand,
+  ListDocumentMetadataHistoryCommand,
+  ListDocumentsCommand,
+  ListDocumentVersionsCommand,
+  ListInventoryEntriesCommand,
+  ListOpsItemEventsCommand,
+  ListOpsItemRelatedItemsCommand,
+  ListOpsMetadataCommand,
+  ListResourceComplianceSummariesCommand,
+  ListResourceDataSyncCommand,
+  ListTagsForResourceCommand,
+  ModifyDocumentPermissionCommand,
+  PutComplianceItemsCommand,
+  PutInventoryCommand,
+  PutParameterCommand,
+  PutResourcePolicyCommand,
+  RegisterDefaultPatchBaselineCommand,
+  RegisterPatchBaselineForPatchGroupCommand,
+  RegisterTargetWithMaintenanceWindowCommand,
+  RegisterTaskWithMaintenanceWindowCommand,
+  RemoveTagsFromResourceCommand,
+  ResetServiceSettingCommand,
+  ResumeSessionCommand,
+  SendAutomationSignalCommand,
+  SendCommandCommand,
+  StartAssociationsOnceCommand,
+  StartAutomationExecutionCommand,
+  StartChangeRequestExecutionCommand,
+  StartSessionCommand,
+  StopAutomationExecutionCommand,
+  TerminateSessionCommand,
+  UnlabelParameterVersionCommand,
+  UpdateAssociationCommand,
+  UpdateAssociationStatusCommand,
+  UpdateDocumentCommand,
+  UpdateDocumentDefaultVersionCommand,
+  UpdateDocumentMetadataCommand,
+  UpdateMaintenanceWindowCommand,
+  UpdateMaintenanceWindowTargetCommand,
+  UpdateMaintenanceWindowTaskCommand,
+  UpdateManagedInstanceRoleCommand,
+  UpdateOpsItemCommand,
+  UpdateOpsMetadataCommand,
+  UpdatePatchBaselineCommand,
+  UpdateResourceDataSyncCommand,
+  UpdateServiceSettingCommand,
+};
+
+export interface SSM {
+  /**
+   * @see {@link AddTagsToResourceCommand}
+   */
+  addTagsToResource(
+    args: AddTagsToResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddTagsToResourceCommandOutput>;
+  addTagsToResource(
+    args: AddTagsToResourceCommandInput,
+    cb: (err: any, data?: AddTagsToResourceCommandOutput) => void
+  ): void;
+  addTagsToResource(
+    args: AddTagsToResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddTagsToResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateOpsItemRelatedItemCommand}
+   */
+  associateOpsItemRelatedItem(
+    args: AssociateOpsItemRelatedItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateOpsItemRelatedItemCommandOutput>;
+  associateOpsItemRelatedItem(
+    args: AssociateOpsItemRelatedItemCommandInput,
+    cb: (err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void
+  ): void;
+  associateOpsItemRelatedItem(
+    args: AssociateOpsItemRelatedItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelCommandCommand}
+   */
+  cancelCommand(args: CancelCommandCommandInput, options?: __HttpHandlerOptions): Promise<CancelCommandCommandOutput>;
+  cancelCommand(args: CancelCommandCommandInput, cb: (err: any, data?: CancelCommandCommandOutput) => void): void;
+  cancelCommand(
+    args: CancelCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelCommandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelMaintenanceWindowExecutionCommand}
+   */
+  cancelMaintenanceWindowExecution(
+    args: CancelMaintenanceWindowExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelMaintenanceWindowExecutionCommandOutput>;
+  cancelMaintenanceWindowExecution(
+    args: CancelMaintenanceWindowExecutionCommandInput,
+    cb: (err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void
+  ): void;
+  cancelMaintenanceWindowExecution(
+    args: CancelMaintenanceWindowExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateActivationCommand}
+   */
+  createActivation(
+    args: CreateActivationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateActivationCommandOutput>;
+  createActivation(
+    args: CreateActivationCommandInput,
+    cb: (err: any, data?: CreateActivationCommandOutput) => void
+  ): void;
+  createActivation(
+    args: CreateActivationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateActivationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAssociationCommand}
+   */
+  createAssociation(
+    args: CreateAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAssociationCommandOutput>;
+  createAssociation(
+    args: CreateAssociationCommandInput,
+    cb: (err: any, data?: CreateAssociationCommandOutput) => void
+  ): void;
+  createAssociation(
+    args: CreateAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAssociationBatchCommand}
+   */
+  createAssociationBatch(
+    args: CreateAssociationBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAssociationBatchCommandOutput>;
+  createAssociationBatch(
+    args: CreateAssociationBatchCommandInput,
+    cb: (err: any, data?: CreateAssociationBatchCommandOutput) => void
+  ): void;
+  createAssociationBatch(
+    args: CreateAssociationBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAssociationBatchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDocumentCommand}
+   */
+  createDocument(
+    args: CreateDocumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDocumentCommandOutput>;
+  createDocument(args: CreateDocumentCommandInput, cb: (err: any, data?: CreateDocumentCommandOutput) => void): void;
+  createDocument(
+    args: CreateDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMaintenanceWindowCommand}
+   */
+  createMaintenanceWindow(
+    args: CreateMaintenanceWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMaintenanceWindowCommandOutput>;
+  createMaintenanceWindow(
+    args: CreateMaintenanceWindowCommandInput,
+    cb: (err: any, data?: CreateMaintenanceWindowCommandOutput) => void
+  ): void;
+  createMaintenanceWindow(
+    args: CreateMaintenanceWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMaintenanceWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateOpsItemCommand}
+   */
+  createOpsItem(args: CreateOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<CreateOpsItemCommandOutput>;
+  createOpsItem(args: CreateOpsItemCommandInput, cb: (err: any, data?: CreateOpsItemCommandOutput) => void): void;
+  createOpsItem(
+    args: CreateOpsItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOpsItemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateOpsMetadataCommand}
+   */
+  createOpsMetadata(
+    args: CreateOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOpsMetadataCommandOutput>;
+  createOpsMetadata(
+    args: CreateOpsMetadataCommandInput,
+    cb: (err: any, data?: CreateOpsMetadataCommandOutput) => void
+  ): void;
+  createOpsMetadata(
+    args: CreateOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOpsMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePatchBaselineCommand}
+   */
+  createPatchBaseline(
+    args: CreatePatchBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePatchBaselineCommandOutput>;
+  createPatchBaseline(
+    args: CreatePatchBaselineCommandInput,
+    cb: (err: any, data?: CreatePatchBaselineCommandOutput) => void
+  ): void;
+  createPatchBaseline(
+    args: CreatePatchBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePatchBaselineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateResourceDataSyncCommand}
+   */
+  createResourceDataSync(
+    args: CreateResourceDataSyncCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResourceDataSyncCommandOutput>;
+  createResourceDataSync(
+    args: CreateResourceDataSyncCommandInput,
+    cb: (err: any, data?: CreateResourceDataSyncCommandOutput) => void
+  ): void;
+  createResourceDataSync(
+    args: CreateResourceDataSyncCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResourceDataSyncCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteActivationCommand}
+   */
+  deleteActivation(
+    args: DeleteActivationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteActivationCommandOutput>;
+  deleteActivation(
+    args: DeleteActivationCommandInput,
+    cb: (err: any, data?: DeleteActivationCommandOutput) => void
+  ): void;
+  deleteActivation(
+    args: DeleteActivationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteActivationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAssociationCommand}
+   */
+  deleteAssociation(
+    args: DeleteAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssociationCommandOutput>;
+  deleteAssociation(
+    args: DeleteAssociationCommandInput,
+    cb: (err: any, data?: DeleteAssociationCommandOutput) => void
+  ): void;
+  deleteAssociation(
+    args: DeleteAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDocumentCommand}
+   */
+  deleteDocument(
+    args: DeleteDocumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDocumentCommandOutput>;
+  deleteDocument(args: DeleteDocumentCommandInput, cb: (err: any, data?: DeleteDocumentCommandOutput) => void): void;
+  deleteDocument(
+    args: DeleteDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteInventoryCommand}
+   */
+  deleteInventory(
+    args: DeleteInventoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInventoryCommandOutput>;
+  deleteInventory(args: DeleteInventoryCommandInput, cb: (err: any, data?: DeleteInventoryCommandOutput) => void): void;
+  deleteInventory(
+    args: DeleteInventoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInventoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMaintenanceWindowCommand}
+   */
+  deleteMaintenanceWindow(
+    args: DeleteMaintenanceWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMaintenanceWindowCommandOutput>;
+  deleteMaintenanceWindow(
+    args: DeleteMaintenanceWindowCommandInput,
+    cb: (err: any, data?: DeleteMaintenanceWindowCommandOutput) => void
+  ): void;
+  deleteMaintenanceWindow(
+    args: DeleteMaintenanceWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMaintenanceWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteOpsMetadataCommand}
+   */
+  deleteOpsMetadata(
+    args: DeleteOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOpsMetadataCommandOutput>;
+  deleteOpsMetadata(
+    args: DeleteOpsMetadataCommandInput,
+    cb: (err: any, data?: DeleteOpsMetadataCommandOutput) => void
+  ): void;
+  deleteOpsMetadata(
+    args: DeleteOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOpsMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteParameterCommand}
+   */
+  deleteParameter(
+    args: DeleteParameterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteParameterCommandOutput>;
+  deleteParameter(args: DeleteParameterCommandInput, cb: (err: any, data?: DeleteParameterCommandOutput) => void): void;
+  deleteParameter(
+    args: DeleteParameterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteParameterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteParametersCommand}
+   */
+  deleteParameters(
+    args: DeleteParametersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteParametersCommandOutput>;
+  deleteParameters(
+    args: DeleteParametersCommandInput,
+    cb: (err: any, data?: DeleteParametersCommandOutput) => void
+  ): void;
+  deleteParameters(
+    args: DeleteParametersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteParametersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePatchBaselineCommand}
+   */
+  deletePatchBaseline(
+    args: DeletePatchBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePatchBaselineCommandOutput>;
+  deletePatchBaseline(
+    args: DeletePatchBaselineCommandInput,
+    cb: (err: any, data?: DeletePatchBaselineCommandOutput) => void
+  ): void;
+  deletePatchBaseline(
+    args: DeletePatchBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePatchBaselineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourceDataSyncCommand}
+   */
+  deleteResourceDataSync(
+    args: DeleteResourceDataSyncCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourceDataSyncCommandOutput>;
+  deleteResourceDataSync(
+    args: DeleteResourceDataSyncCommandInput,
+    cb: (err: any, data?: DeleteResourceDataSyncCommandOutput) => void
+  ): void;
+  deleteResourceDataSync(
+    args: DeleteResourceDataSyncCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourceDataSyncCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterManagedInstanceCommand}
+   */
+  deregisterManagedInstance(
+    args: DeregisterManagedInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterManagedInstanceCommandOutput>;
+  deregisterManagedInstance(
+    args: DeregisterManagedInstanceCommandInput,
+    cb: (err: any, data?: DeregisterManagedInstanceCommandOutput) => void
+  ): void;
+  deregisterManagedInstance(
+    args: DeregisterManagedInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterManagedInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterPatchBaselineForPatchGroupCommand}
+   */
+  deregisterPatchBaselineForPatchGroup(
+    args: DeregisterPatchBaselineForPatchGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput>;
+  deregisterPatchBaselineForPatchGroup(
+    args: DeregisterPatchBaselineForPatchGroupCommandInput,
+    cb: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
+  ): void;
+  deregisterPatchBaselineForPatchGroup(
+    args: DeregisterPatchBaselineForPatchGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterTargetFromMaintenanceWindowCommand}
+   */
+  deregisterTargetFromMaintenanceWindow(
+    args: DeregisterTargetFromMaintenanceWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput>;
+  deregisterTargetFromMaintenanceWindow(
+    args: DeregisterTargetFromMaintenanceWindowCommandInput,
+    cb: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
+  ): void;
+  deregisterTargetFromMaintenanceWindow(
+    args: DeregisterTargetFromMaintenanceWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterTaskFromMaintenanceWindowCommand}
+   */
+  deregisterTaskFromMaintenanceWindow(
+    args: DeregisterTaskFromMaintenanceWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput>;
+  deregisterTaskFromMaintenanceWindow(
+    args: DeregisterTaskFromMaintenanceWindowCommandInput,
+    cb: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
+  ): void;
+  deregisterTaskFromMaintenanceWindow(
+    args: DeregisterTaskFromMaintenanceWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeActivationsCommand}
+   */
+  describeActivations(
+    args: DescribeActivationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeActivationsCommandOutput>;
+  describeActivations(
+    args: DescribeActivationsCommandInput,
+    cb: (err: any, data?: DescribeActivationsCommandOutput) => void
+  ): void;
+  describeActivations(
+    args: DescribeActivationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeActivationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssociationCommand}
+   */
+  describeAssociation(
+    args: DescribeAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssociationCommandOutput>;
+  describeAssociation(
+    args: DescribeAssociationCommandInput,
+    cb: (err: any, data?: DescribeAssociationCommandOutput) => void
+  ): void;
+  describeAssociation(
+    args: DescribeAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssociationExecutionsCommand}
+   */
+  describeAssociationExecutions(
+    args: DescribeAssociationExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssociationExecutionsCommandOutput>;
+  describeAssociationExecutions(
+    args: DescribeAssociationExecutionsCommandInput,
+    cb: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
+  ): void;
+  describeAssociationExecutions(
+    args: DescribeAssociationExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssociationExecutionTargetsCommand}
+   */
+  describeAssociationExecutionTargets(
+    args: DescribeAssociationExecutionTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssociationExecutionTargetsCommandOutput>;
+  describeAssociationExecutionTargets(
+    args: DescribeAssociationExecutionTargetsCommandInput,
+    cb: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
+  ): void;
+  describeAssociationExecutionTargets(
+    args: DescribeAssociationExecutionTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAutomationExecutionsCommand}
+   */
+  describeAutomationExecutions(
+    args: DescribeAutomationExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAutomationExecutionsCommandOutput>;
+  describeAutomationExecutions(
+    args: DescribeAutomationExecutionsCommandInput,
+    cb: (err: any, data?: DescribeAutomationExecutionsCommandOutput) => void
+  ): void;
+  describeAutomationExecutions(
+    args: DescribeAutomationExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAutomationExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAutomationStepExecutionsCommand}
+   */
+  describeAutomationStepExecutions(
+    args: DescribeAutomationStepExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAutomationStepExecutionsCommandOutput>;
+  describeAutomationStepExecutions(
+    args: DescribeAutomationStepExecutionsCommandInput,
+    cb: (err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void
+  ): void;
+  describeAutomationStepExecutions(
+    args: DescribeAutomationStepExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAvailablePatchesCommand}
+   */
+  describeAvailablePatches(
+    args: DescribeAvailablePatchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAvailablePatchesCommandOutput>;
+  describeAvailablePatches(
+    args: DescribeAvailablePatchesCommandInput,
+    cb: (err: any, data?: DescribeAvailablePatchesCommandOutput) => void
+  ): void;
+  describeAvailablePatches(
+    args: DescribeAvailablePatchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAvailablePatchesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDocumentCommand}
+   */
+  describeDocument(
+    args: DescribeDocumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDocumentCommandOutput>;
+  describeDocument(
+    args: DescribeDocumentCommandInput,
+    cb: (err: any, data?: DescribeDocumentCommandOutput) => void
+  ): void;
+  describeDocument(
+    args: DescribeDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDocumentPermissionCommand}
+   */
+  describeDocumentPermission(
+    args: DescribeDocumentPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDocumentPermissionCommandOutput>;
+  describeDocumentPermission(
+    args: DescribeDocumentPermissionCommandInput,
+    cb: (err: any, data?: DescribeDocumentPermissionCommandOutput) => void
+  ): void;
+  describeDocumentPermission(
+    args: DescribeDocumentPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDocumentPermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEffectiveInstanceAssociationsCommand}
+   */
+  describeEffectiveInstanceAssociations(
+    args: DescribeEffectiveInstanceAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput>;
+  describeEffectiveInstanceAssociations(
+    args: DescribeEffectiveInstanceAssociationsCommandInput,
+    cb: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
+  ): void;
+  describeEffectiveInstanceAssociations(
+    args: DescribeEffectiveInstanceAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEffectivePatchesForPatchBaselineCommand}
+   */
+  describeEffectivePatchesForPatchBaseline(
+    args: DescribeEffectivePatchesForPatchBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput>;
+  describeEffectivePatchesForPatchBaseline(
+    args: DescribeEffectivePatchesForPatchBaselineCommandInput,
+    cb: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
+  ): void;
+  describeEffectivePatchesForPatchBaseline(
+    args: DescribeEffectivePatchesForPatchBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstanceAssociationsStatusCommand}
+   */
+  describeInstanceAssociationsStatus(
+    args: DescribeInstanceAssociationsStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceAssociationsStatusCommandOutput>;
+  describeInstanceAssociationsStatus(
+    args: DescribeInstanceAssociationsStatusCommandInput,
+    cb: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
+  ): void;
+  describeInstanceAssociationsStatus(
+    args: DescribeInstanceAssociationsStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstanceInformationCommand}
+   */
+  describeInstanceInformation(
+    args: DescribeInstanceInformationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceInformationCommandOutput>;
+  describeInstanceInformation(
+    args: DescribeInstanceInformationCommandInput,
+    cb: (err: any, data?: DescribeInstanceInformationCommandOutput) => void
+  ): void;
+  describeInstanceInformation(
+    args: DescribeInstanceInformationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceInformationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstancePatchesCommand}
+   */
+  describeInstancePatches(
+    args: DescribeInstancePatchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstancePatchesCommandOutput>;
+  describeInstancePatches(
+    args: DescribeInstancePatchesCommandInput,
+    cb: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
+  ): void;
+  describeInstancePatches(
+    args: DescribeInstancePatchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstancePatchStatesCommand}
+   */
+  describeInstancePatchStates(
+    args: DescribeInstancePatchStatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstancePatchStatesCommandOutput>;
+  describeInstancePatchStates(
+    args: DescribeInstancePatchStatesCommandInput,
+    cb: (err: any, data?: DescribeInstancePatchStatesCommandOutput) => void
+  ): void;
+  describeInstancePatchStates(
+    args: DescribeInstancePatchStatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstancePatchStatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstancePatchStatesForPatchGroupCommand}
+   */
+  describeInstancePatchStatesForPatchGroup(
+    args: DescribeInstancePatchStatesForPatchGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput>;
+  describeInstancePatchStatesForPatchGroup(
+    args: DescribeInstancePatchStatesForPatchGroupCommandInput,
+    cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
+  ): void;
+  describeInstancePatchStatesForPatchGroup(
+    args: DescribeInstancePatchStatesForPatchGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInventoryDeletionsCommand}
+   */
+  describeInventoryDeletions(
+    args: DescribeInventoryDeletionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInventoryDeletionsCommandOutput>;
+  describeInventoryDeletions(
+    args: DescribeInventoryDeletionsCommandInput,
+    cb: (err: any, data?: DescribeInventoryDeletionsCommandOutput) => void
+  ): void;
+  describeInventoryDeletions(
+    args: DescribeInventoryDeletionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInventoryDeletionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowExecutionsCommand}
+   */
+  describeMaintenanceWindowExecutions(
+    args: DescribeMaintenanceWindowExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput>;
+  describeMaintenanceWindowExecutions(
+    args: DescribeMaintenanceWindowExecutionsCommandInput,
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
+  ): void;
+  describeMaintenanceWindowExecutions(
+    args: DescribeMaintenanceWindowExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommand}
+   */
+  describeMaintenanceWindowExecutionTaskInvocations(
+    args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput>;
+  describeMaintenanceWindowExecutionTaskInvocations(
+    args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
+  ): void;
+  describeMaintenanceWindowExecutionTaskInvocations(
+    args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowExecutionTasksCommand}
+   */
+  describeMaintenanceWindowExecutionTasks(
+    args: DescribeMaintenanceWindowExecutionTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput>;
+  describeMaintenanceWindowExecutionTasks(
+    args: DescribeMaintenanceWindowExecutionTasksCommandInput,
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
+  ): void;
+  describeMaintenanceWindowExecutionTasks(
+    args: DescribeMaintenanceWindowExecutionTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowsCommand}
+   */
+  describeMaintenanceWindows(
+    args: DescribeMaintenanceWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowsCommandOutput>;
+  describeMaintenanceWindows(
+    args: DescribeMaintenanceWindowsCommandInput,
+    cb: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
+  ): void;
+  describeMaintenanceWindows(
+    args: DescribeMaintenanceWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowScheduleCommand}
+   */
+  describeMaintenanceWindowSchedule(
+    args: DescribeMaintenanceWindowScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowScheduleCommandOutput>;
+  describeMaintenanceWindowSchedule(
+    args: DescribeMaintenanceWindowScheduleCommandInput,
+    cb: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
+  ): void;
+  describeMaintenanceWindowSchedule(
+    args: DescribeMaintenanceWindowScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowsForTargetCommand}
+   */
+  describeMaintenanceWindowsForTarget(
+    args: DescribeMaintenanceWindowsForTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput>;
+  describeMaintenanceWindowsForTarget(
+    args: DescribeMaintenanceWindowsForTargetCommandInput,
+    cb: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
+  ): void;
+  describeMaintenanceWindowsForTarget(
+    args: DescribeMaintenanceWindowsForTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowTargetsCommand}
+   */
+  describeMaintenanceWindowTargets(
+    args: DescribeMaintenanceWindowTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowTargetsCommandOutput>;
+  describeMaintenanceWindowTargets(
+    args: DescribeMaintenanceWindowTargetsCommandInput,
+    cb: (err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void
+  ): void;
+  describeMaintenanceWindowTargets(
+    args: DescribeMaintenanceWindowTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowTasksCommand}
+   */
+  describeMaintenanceWindowTasks(
+    args: DescribeMaintenanceWindowTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMaintenanceWindowTasksCommandOutput>;
+  describeMaintenanceWindowTasks(
+    args: DescribeMaintenanceWindowTasksCommandInput,
+    cb: (err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void
+  ): void;
+  describeMaintenanceWindowTasks(
+    args: DescribeMaintenanceWindowTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeOpsItemsCommand}
+   */
+  describeOpsItems(
+    args: DescribeOpsItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOpsItemsCommandOutput>;
+  describeOpsItems(
+    args: DescribeOpsItemsCommandInput,
+    cb: (err: any, data?: DescribeOpsItemsCommandOutput) => void
+  ): void;
+  describeOpsItems(
+    args: DescribeOpsItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOpsItemsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeParametersCommand}
+   */
+  describeParameters(
+    args: DescribeParametersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeParametersCommandOutput>;
+  describeParameters(
+    args: DescribeParametersCommandInput,
+    cb: (err: any, data?: DescribeParametersCommandOutput) => void
+  ): void;
+  describeParameters(
+    args: DescribeParametersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeParametersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePatchBaselinesCommand}
+   */
+  describePatchBaselines(
+    args: DescribePatchBaselinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePatchBaselinesCommandOutput>;
+  describePatchBaselines(
+    args: DescribePatchBaselinesCommandInput,
+    cb: (err: any, data?: DescribePatchBaselinesCommandOutput) => void
+  ): void;
+  describePatchBaselines(
+    args: DescribePatchBaselinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePatchBaselinesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePatchGroupsCommand}
+   */
+  describePatchGroups(
+    args: DescribePatchGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePatchGroupsCommandOutput>;
+  describePatchGroups(
+    args: DescribePatchGroupsCommandInput,
+    cb: (err: any, data?: DescribePatchGroupsCommandOutput) => void
+  ): void;
+  describePatchGroups(
+    args: DescribePatchGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePatchGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePatchGroupStateCommand}
+   */
+  describePatchGroupState(
+    args: DescribePatchGroupStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePatchGroupStateCommandOutput>;
+  describePatchGroupState(
+    args: DescribePatchGroupStateCommandInput,
+    cb: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
+  ): void;
+  describePatchGroupState(
+    args: DescribePatchGroupStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePatchPropertiesCommand}
+   */
+  describePatchProperties(
+    args: DescribePatchPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePatchPropertiesCommandOutput>;
+  describePatchProperties(
+    args: DescribePatchPropertiesCommandInput,
+    cb: (err: any, data?: DescribePatchPropertiesCommandOutput) => void
+  ): void;
+  describePatchProperties(
+    args: DescribePatchPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePatchPropertiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSessionsCommand}
+   */
+  describeSessions(
+    args: DescribeSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSessionsCommandOutput>;
+  describeSessions(
+    args: DescribeSessionsCommandInput,
+    cb: (err: any, data?: DescribeSessionsCommandOutput) => void
+  ): void;
+  describeSessions(
+    args: DescribeSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateOpsItemRelatedItemCommand}
+   */
+  disassociateOpsItemRelatedItem(
+    args: DisassociateOpsItemRelatedItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateOpsItemRelatedItemCommandOutput>;
+  disassociateOpsItemRelatedItem(
+    args: DisassociateOpsItemRelatedItemCommandInput,
+    cb: (err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void
+  ): void;
+  disassociateOpsItemRelatedItem(
+    args: DisassociateOpsItemRelatedItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutomationExecutionCommand}
+   */
+  getAutomationExecution(
+    args: GetAutomationExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomationExecutionCommandOutput>;
+  getAutomationExecution(
+    args: GetAutomationExecutionCommandInput,
+    cb: (err: any, data?: GetAutomationExecutionCommandOutput) => void
+  ): void;
+  getAutomationExecution(
+    args: GetAutomationExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomationExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCalendarStateCommand}
+   */
+  getCalendarState(
+    args: GetCalendarStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalendarStateCommandOutput>;
+  getCalendarState(
+    args: GetCalendarStateCommandInput,
+    cb: (err: any, data?: GetCalendarStateCommandOutput) => void
+  ): void;
+  getCalendarState(
+    args: GetCalendarStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalendarStateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCommandInvocationCommand}
+   */
+  getCommandInvocation(
+    args: GetCommandInvocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommandInvocationCommandOutput>;
+  getCommandInvocation(
+    args: GetCommandInvocationCommandInput,
+    cb: (err: any, data?: GetCommandInvocationCommandOutput) => void
+  ): void;
+  getCommandInvocation(
+    args: GetCommandInvocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCommandInvocationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectionStatusCommand}
+   */
+  getConnectionStatus(
+    args: GetConnectionStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionStatusCommandOutput>;
+  getConnectionStatus(
+    args: GetConnectionStatusCommandInput,
+    cb: (err: any, data?: GetConnectionStatusCommandOutput) => void
+  ): void;
+  getConnectionStatus(
+    args: GetConnectionStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectionStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDefaultPatchBaselineCommand}
+   */
+  getDefaultPatchBaseline(
+    args: GetDefaultPatchBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDefaultPatchBaselineCommandOutput>;
+  getDefaultPatchBaseline(
+    args: GetDefaultPatchBaselineCommandInput,
+    cb: (err: any, data?: GetDefaultPatchBaselineCommandOutput) => void
+  ): void;
+  getDefaultPatchBaseline(
+    args: GetDefaultPatchBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDefaultPatchBaselineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeployablePatchSnapshotForInstanceCommand}
+   */
+  getDeployablePatchSnapshotForInstance(
+    args: GetDeployablePatchSnapshotForInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput>;
+  getDeployablePatchSnapshotForInstance(
+    args: GetDeployablePatchSnapshotForInstanceCommandInput,
+    cb: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
+  ): void;
+  getDeployablePatchSnapshotForInstance(
+    args: GetDeployablePatchSnapshotForInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDocumentCommand}
+   */
+  getDocument(args: GetDocumentCommandInput, options?: __HttpHandlerOptions): Promise<GetDocumentCommandOutput>;
+  getDocument(args: GetDocumentCommandInput, cb: (err: any, data?: GetDocumentCommandOutput) => void): void;
+  getDocument(
+    args: GetDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInventoryCommand}
+   */
+  getInventory(args: GetInventoryCommandInput, options?: __HttpHandlerOptions): Promise<GetInventoryCommandOutput>;
+  getInventory(args: GetInventoryCommandInput, cb: (err: any, data?: GetInventoryCommandOutput) => void): void;
+  getInventory(
+    args: GetInventoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInventoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInventorySchemaCommand}
+   */
+  getInventorySchema(
+    args: GetInventorySchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInventorySchemaCommandOutput>;
+  getInventorySchema(
+    args: GetInventorySchemaCommandInput,
+    cb: (err: any, data?: GetInventorySchemaCommandOutput) => void
+  ): void;
+  getInventorySchema(
+    args: GetInventorySchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInventorySchemaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMaintenanceWindowCommand}
+   */
+  getMaintenanceWindow(
+    args: GetMaintenanceWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMaintenanceWindowCommandOutput>;
+  getMaintenanceWindow(
+    args: GetMaintenanceWindowCommandInput,
+    cb: (err: any, data?: GetMaintenanceWindowCommandOutput) => void
+  ): void;
+  getMaintenanceWindow(
+    args: GetMaintenanceWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMaintenanceWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMaintenanceWindowExecutionCommand}
+   */
+  getMaintenanceWindowExecution(
+    args: GetMaintenanceWindowExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMaintenanceWindowExecutionCommandOutput>;
+  getMaintenanceWindowExecution(
+    args: GetMaintenanceWindowExecutionCommandInput,
+    cb: (err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void
+  ): void;
+  getMaintenanceWindowExecution(
+    args: GetMaintenanceWindowExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMaintenanceWindowExecutionTaskCommand}
+   */
+  getMaintenanceWindowExecutionTask(
+    args: GetMaintenanceWindowExecutionTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMaintenanceWindowExecutionTaskCommandOutput>;
+  getMaintenanceWindowExecutionTask(
+    args: GetMaintenanceWindowExecutionTaskCommandInput,
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
+  ): void;
+  getMaintenanceWindowExecutionTask(
+    args: GetMaintenanceWindowExecutionTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMaintenanceWindowExecutionTaskInvocationCommand}
+   */
+  getMaintenanceWindowExecutionTaskInvocation(
+    args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput>;
+  getMaintenanceWindowExecutionTaskInvocation(
+    args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
+  ): void;
+  getMaintenanceWindowExecutionTaskInvocation(
+    args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMaintenanceWindowTaskCommand}
+   */
+  getMaintenanceWindowTask(
+    args: GetMaintenanceWindowTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMaintenanceWindowTaskCommandOutput>;
+  getMaintenanceWindowTask(
+    args: GetMaintenanceWindowTaskCommandInput,
+    cb: (err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void
+  ): void;
+  getMaintenanceWindowTask(
+    args: GetMaintenanceWindowTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOpsItemCommand}
+   */
+  getOpsItem(args: GetOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<GetOpsItemCommandOutput>;
+  getOpsItem(args: GetOpsItemCommandInput, cb: (err: any, data?: GetOpsItemCommandOutput) => void): void;
+  getOpsItem(
+    args: GetOpsItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOpsItemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOpsMetadataCommand}
+   */
+  getOpsMetadata(
+    args: GetOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOpsMetadataCommandOutput>;
+  getOpsMetadata(args: GetOpsMetadataCommandInput, cb: (err: any, data?: GetOpsMetadataCommandOutput) => void): void;
+  getOpsMetadata(
+    args: GetOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOpsMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOpsSummaryCommand}
+   */
+  getOpsSummary(args: GetOpsSummaryCommandInput, options?: __HttpHandlerOptions): Promise<GetOpsSummaryCommandOutput>;
+  getOpsSummary(args: GetOpsSummaryCommandInput, cb: (err: any, data?: GetOpsSummaryCommandOutput) => void): void;
+  getOpsSummary(
+    args: GetOpsSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOpsSummaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetParameterCommand}
+   */
+  getParameter(args: GetParameterCommandInput, options?: __HttpHandlerOptions): Promise<GetParameterCommandOutput>;
+  getParameter(args: GetParameterCommandInput, cb: (err: any, data?: GetParameterCommandOutput) => void): void;
+  getParameter(
+    args: GetParameterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetParameterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetParameterHistoryCommand}
+   */
+  getParameterHistory(
+    args: GetParameterHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetParameterHistoryCommandOutput>;
+  getParameterHistory(
+    args: GetParameterHistoryCommandInput,
+    cb: (err: any, data?: GetParameterHistoryCommandOutput) => void
+  ): void;
+  getParameterHistory(
+    args: GetParameterHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetParameterHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetParametersCommand}
+   */
+  getParameters(args: GetParametersCommandInput, options?: __HttpHandlerOptions): Promise<GetParametersCommandOutput>;
+  getParameters(args: GetParametersCommandInput, cb: (err: any, data?: GetParametersCommandOutput) => void): void;
+  getParameters(
+    args: GetParametersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetParametersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetParametersByPathCommand}
+   */
+  getParametersByPath(
+    args: GetParametersByPathCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetParametersByPathCommandOutput>;
+  getParametersByPath(
+    args: GetParametersByPathCommandInput,
+    cb: (err: any, data?: GetParametersByPathCommandOutput) => void
+  ): void;
+  getParametersByPath(
+    args: GetParametersByPathCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetParametersByPathCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPatchBaselineCommand}
+   */
+  getPatchBaseline(
+    args: GetPatchBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPatchBaselineCommandOutput>;
+  getPatchBaseline(
+    args: GetPatchBaselineCommandInput,
+    cb: (err: any, data?: GetPatchBaselineCommandOutput) => void
+  ): void;
+  getPatchBaseline(
+    args: GetPatchBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPatchBaselineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPatchBaselineForPatchGroupCommand}
+   */
+  getPatchBaselineForPatchGroup(
+    args: GetPatchBaselineForPatchGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPatchBaselineForPatchGroupCommandOutput>;
+  getPatchBaselineForPatchGroup(
+    args: GetPatchBaselineForPatchGroupCommandInput,
+    cb: (err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void
+  ): void;
+  getPatchBaselineForPatchGroup(
+    args: GetPatchBaselineForPatchGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePoliciesCommand}
+   */
+  getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePoliciesCommandOutput>;
+  getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+  getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetServiceSettingCommand}
+   */
+  getServiceSetting(
+    args: GetServiceSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceSettingCommandOutput>;
+  getServiceSetting(
+    args: GetServiceSettingCommandInput,
+    cb: (err: any, data?: GetServiceSettingCommandOutput) => void
+  ): void;
+  getServiceSetting(
+    args: GetServiceSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceSettingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link LabelParameterVersionCommand}
+   */
+  labelParameterVersion(
+    args: LabelParameterVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<LabelParameterVersionCommandOutput>;
+  labelParameterVersion(
+    args: LabelParameterVersionCommandInput,
+    cb: (err: any, data?: LabelParameterVersionCommandOutput) => void
+  ): void;
+  labelParameterVersion(
+    args: LabelParameterVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: LabelParameterVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssociationsCommand}
+   */
+  listAssociations(
+    args: ListAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociationsCommandOutput>;
+  listAssociations(
+    args: ListAssociationsCommandInput,
+    cb: (err: any, data?: ListAssociationsCommandOutput) => void
+  ): void;
+  listAssociations(
+    args: ListAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssociationVersionsCommand}
+   */
+  listAssociationVersions(
+    args: ListAssociationVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociationVersionsCommandOutput>;
+  listAssociationVersions(
+    args: ListAssociationVersionsCommandInput,
+    cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
+  ): void;
+  listAssociationVersions(
+    args: ListAssociationVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCommandInvocationsCommand}
+   */
+  listCommandInvocations(
+    args: ListCommandInvocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCommandInvocationsCommandOutput>;
+  listCommandInvocations(
+    args: ListCommandInvocationsCommandInput,
+    cb: (err: any, data?: ListCommandInvocationsCommandOutput) => void
+  ): void;
+  listCommandInvocations(
+    args: ListCommandInvocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCommandInvocationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCommandsCommand}
+   */
+  listCommands(args: ListCommandsCommandInput, options?: __HttpHandlerOptions): Promise<ListCommandsCommandOutput>;
+  listCommands(args: ListCommandsCommandInput, cb: (err: any, data?: ListCommandsCommandOutput) => void): void;
+  listCommands(
+    args: ListCommandsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCommandsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComplianceItemsCommand}
+   */
+  listComplianceItems(
+    args: ListComplianceItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComplianceItemsCommandOutput>;
+  listComplianceItems(
+    args: ListComplianceItemsCommandInput,
+    cb: (err: any, data?: ListComplianceItemsCommandOutput) => void
+  ): void;
+  listComplianceItems(
+    args: ListComplianceItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComplianceItemsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComplianceSummariesCommand}
+   */
+  listComplianceSummaries(
+    args: ListComplianceSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComplianceSummariesCommandOutput>;
+  listComplianceSummaries(
+    args: ListComplianceSummariesCommandInput,
+    cb: (err: any, data?: ListComplianceSummariesCommandOutput) => void
+  ): void;
+  listComplianceSummaries(
+    args: ListComplianceSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComplianceSummariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDocumentMetadataHistoryCommand}
+   */
+  listDocumentMetadataHistory(
+    args: ListDocumentMetadataHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDocumentMetadataHistoryCommandOutput>;
+  listDocumentMetadataHistory(
+    args: ListDocumentMetadataHistoryCommandInput,
+    cb: (err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void
+  ): void;
+  listDocumentMetadataHistory(
+    args: ListDocumentMetadataHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDocumentsCommand}
+   */
+  listDocuments(args: ListDocumentsCommandInput, options?: __HttpHandlerOptions): Promise<ListDocumentsCommandOutput>;
+  listDocuments(args: ListDocumentsCommandInput, cb: (err: any, data?: ListDocumentsCommandOutput) => void): void;
+  listDocuments(
+    args: ListDocumentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDocumentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDocumentVersionsCommand}
+   */
+  listDocumentVersions(
+    args: ListDocumentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDocumentVersionsCommandOutput>;
+  listDocumentVersions(
+    args: ListDocumentVersionsCommandInput,
+    cb: (err: any, data?: ListDocumentVersionsCommandOutput) => void
+  ): void;
+  listDocumentVersions(
+    args: ListDocumentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDocumentVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInventoryEntriesCommand}
+   */
+  listInventoryEntries(
+    args: ListInventoryEntriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInventoryEntriesCommandOutput>;
+  listInventoryEntries(
+    args: ListInventoryEntriesCommandInput,
+    cb: (err: any, data?: ListInventoryEntriesCommandOutput) => void
+  ): void;
+  listInventoryEntries(
+    args: ListInventoryEntriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInventoryEntriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOpsItemEventsCommand}
+   */
+  listOpsItemEvents(
+    args: ListOpsItemEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOpsItemEventsCommandOutput>;
+  listOpsItemEvents(
+    args: ListOpsItemEventsCommandInput,
+    cb: (err: any, data?: ListOpsItemEventsCommandOutput) => void
+  ): void;
+  listOpsItemEvents(
+    args: ListOpsItemEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOpsItemEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOpsItemRelatedItemsCommand}
+   */
+  listOpsItemRelatedItems(
+    args: ListOpsItemRelatedItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOpsItemRelatedItemsCommandOutput>;
+  listOpsItemRelatedItems(
+    args: ListOpsItemRelatedItemsCommandInput,
+    cb: (err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void
+  ): void;
+  listOpsItemRelatedItems(
+    args: ListOpsItemRelatedItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOpsMetadataCommand}
+   */
+  listOpsMetadata(
+    args: ListOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOpsMetadataCommandOutput>;
+  listOpsMetadata(args: ListOpsMetadataCommandInput, cb: (err: any, data?: ListOpsMetadataCommandOutput) => void): void;
+  listOpsMetadata(
+    args: ListOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOpsMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourceComplianceSummariesCommand}
+   */
+  listResourceComplianceSummaries(
+    args: ListResourceComplianceSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceComplianceSummariesCommandOutput>;
+  listResourceComplianceSummaries(
+    args: ListResourceComplianceSummariesCommandInput,
+    cb: (err: any, data?: ListResourceComplianceSummariesCommandOutput) => void
+  ): void;
+  listResourceComplianceSummaries(
+    args: ListResourceComplianceSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceComplianceSummariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourceDataSyncCommand}
+   */
+  listResourceDataSync(
+    args: ListResourceDataSyncCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceDataSyncCommandOutput>;
+  listResourceDataSync(
+    args: ListResourceDataSyncCommandInput,
+    cb: (err: any, data?: ListResourceDataSyncCommandOutput) => void
+  ): void;
+  listResourceDataSync(
+    args: ListResourceDataSyncCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceDataSyncCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyDocumentPermissionCommand}
+   */
+  modifyDocumentPermission(
+    args: ModifyDocumentPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyDocumentPermissionCommandOutput>;
+  modifyDocumentPermission(
+    args: ModifyDocumentPermissionCommandInput,
+    cb: (err: any, data?: ModifyDocumentPermissionCommandOutput) => void
+  ): void;
+  modifyDocumentPermission(
+    args: ModifyDocumentPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyDocumentPermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutComplianceItemsCommand}
+   */
+  putComplianceItems(
+    args: PutComplianceItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutComplianceItemsCommandOutput>;
+  putComplianceItems(
+    args: PutComplianceItemsCommandInput,
+    cb: (err: any, data?: PutComplianceItemsCommandOutput) => void
+  ): void;
+  putComplianceItems(
+    args: PutComplianceItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutComplianceItemsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutInventoryCommand}
+   */
+  putInventory(args: PutInventoryCommandInput, options?: __HttpHandlerOptions): Promise<PutInventoryCommandOutput>;
+  putInventory(args: PutInventoryCommandInput, cb: (err: any, data?: PutInventoryCommandOutput) => void): void;
+  putInventory(
+    args: PutInventoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutInventoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutParameterCommand}
+   */
+  putParameter(args: PutParameterCommandInput, options?: __HttpHandlerOptions): Promise<PutParameterCommandOutput>;
+  putParameter(args: PutParameterCommandInput, cb: (err: any, data?: PutParameterCommandOutput) => void): void;
+  putParameter(
+    args: PutParameterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutParameterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterDefaultPatchBaselineCommand}
+   */
+  registerDefaultPatchBaseline(
+    args: RegisterDefaultPatchBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterDefaultPatchBaselineCommandOutput>;
+  registerDefaultPatchBaseline(
+    args: RegisterDefaultPatchBaselineCommandInput,
+    cb: (err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void
+  ): void;
+  registerDefaultPatchBaseline(
+    args: RegisterDefaultPatchBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterPatchBaselineForPatchGroupCommand}
+   */
+  registerPatchBaselineForPatchGroup(
+    args: RegisterPatchBaselineForPatchGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterPatchBaselineForPatchGroupCommandOutput>;
+  registerPatchBaselineForPatchGroup(
+    args: RegisterPatchBaselineForPatchGroupCommandInput,
+    cb: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
+  ): void;
+  registerPatchBaselineForPatchGroup(
+    args: RegisterPatchBaselineForPatchGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterTargetWithMaintenanceWindowCommand}
+   */
+  registerTargetWithMaintenanceWindow(
+    args: RegisterTargetWithMaintenanceWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput>;
+  registerTargetWithMaintenanceWindow(
+    args: RegisterTargetWithMaintenanceWindowCommandInput,
+    cb: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
+  ): void;
+  registerTargetWithMaintenanceWindow(
+    args: RegisterTargetWithMaintenanceWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterTaskWithMaintenanceWindowCommand}
+   */
+  registerTaskWithMaintenanceWindow(
+    args: RegisterTaskWithMaintenanceWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput>;
+  registerTaskWithMaintenanceWindow(
+    args: RegisterTaskWithMaintenanceWindowCommandInput,
+    cb: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
+  ): void;
+  registerTaskWithMaintenanceWindow(
+    args: RegisterTaskWithMaintenanceWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveTagsFromResourceCommand}
+   */
+  removeTagsFromResource(
+    args: RemoveTagsFromResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTagsFromResourceCommandOutput>;
+  removeTagsFromResource(
+    args: RemoveTagsFromResourceCommandInput,
+    cb: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
+  ): void;
+  removeTagsFromResource(
+    args: RemoveTagsFromResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResetServiceSettingCommand}
+   */
+  resetServiceSetting(
+    args: ResetServiceSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetServiceSettingCommandOutput>;
+  resetServiceSetting(
+    args: ResetServiceSettingCommandInput,
+    cb: (err: any, data?: ResetServiceSettingCommandOutput) => void
+  ): void;
+  resetServiceSetting(
+    args: ResetServiceSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetServiceSettingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResumeSessionCommand}
+   */
+  resumeSession(args: ResumeSessionCommandInput, options?: __HttpHandlerOptions): Promise<ResumeSessionCommandOutput>;
+  resumeSession(args: ResumeSessionCommandInput, cb: (err: any, data?: ResumeSessionCommandOutput) => void): void;
+  resumeSession(
+    args: ResumeSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResumeSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendAutomationSignalCommand}
+   */
+  sendAutomationSignal(
+    args: SendAutomationSignalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendAutomationSignalCommandOutput>;
+  sendAutomationSignal(
+    args: SendAutomationSignalCommandInput,
+    cb: (err: any, data?: SendAutomationSignalCommandOutput) => void
+  ): void;
+  sendAutomationSignal(
+    args: SendAutomationSignalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendAutomationSignalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendCommandCommand}
+   */
+  sendCommand(args: SendCommandCommandInput, options?: __HttpHandlerOptions): Promise<SendCommandCommandOutput>;
+  sendCommand(args: SendCommandCommandInput, cb: (err: any, data?: SendCommandCommandOutput) => void): void;
+  sendCommand(
+    args: SendCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendCommandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAssociationsOnceCommand}
+   */
+  startAssociationsOnce(
+    args: StartAssociationsOnceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAssociationsOnceCommandOutput>;
+  startAssociationsOnce(
+    args: StartAssociationsOnceCommandInput,
+    cb: (err: any, data?: StartAssociationsOnceCommandOutput) => void
+  ): void;
+  startAssociationsOnce(
+    args: StartAssociationsOnceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAssociationsOnceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAutomationExecutionCommand}
+   */
+  startAutomationExecution(
+    args: StartAutomationExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAutomationExecutionCommandOutput>;
+  startAutomationExecution(
+    args: StartAutomationExecutionCommandInput,
+    cb: (err: any, data?: StartAutomationExecutionCommandOutput) => void
+  ): void;
+  startAutomationExecution(
+    args: StartAutomationExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAutomationExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartChangeRequestExecutionCommand}
+   */
+  startChangeRequestExecution(
+    args: StartChangeRequestExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartChangeRequestExecutionCommandOutput>;
+  startChangeRequestExecution(
+    args: StartChangeRequestExecutionCommandInput,
+    cb: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
+  ): void;
+  startChangeRequestExecution(
+    args: StartChangeRequestExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSessionCommand}
+   */
+  startSession(args: StartSessionCommandInput, options?: __HttpHandlerOptions): Promise<StartSessionCommandOutput>;
+  startSession(args: StartSessionCommandInput, cb: (err: any, data?: StartSessionCommandOutput) => void): void;
+  startSession(
+    args: StartSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopAutomationExecutionCommand}
+   */
+  stopAutomationExecution(
+    args: StopAutomationExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopAutomationExecutionCommandOutput>;
+  stopAutomationExecution(
+    args: StopAutomationExecutionCommandInput,
+    cb: (err: any, data?: StopAutomationExecutionCommandOutput) => void
+  ): void;
+  stopAutomationExecution(
+    args: StopAutomationExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopAutomationExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TerminateSessionCommand}
+   */
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateSessionCommandOutput>;
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
+  ): void;
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UnlabelParameterVersionCommand}
+   */
+  unlabelParameterVersion(
+    args: UnlabelParameterVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnlabelParameterVersionCommandOutput>;
+  unlabelParameterVersion(
+    args: UnlabelParameterVersionCommandInput,
+    cb: (err: any, data?: UnlabelParameterVersionCommandOutput) => void
+  ): void;
+  unlabelParameterVersion(
+    args: UnlabelParameterVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnlabelParameterVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssociationCommand}
+   */
+  updateAssociation(
+    args: UpdateAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssociationCommandOutput>;
+  updateAssociation(
+    args: UpdateAssociationCommandInput,
+    cb: (err: any, data?: UpdateAssociationCommandOutput) => void
+  ): void;
+  updateAssociation(
+    args: UpdateAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssociationStatusCommand}
+   */
+  updateAssociationStatus(
+    args: UpdateAssociationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssociationStatusCommandOutput>;
+  updateAssociationStatus(
+    args: UpdateAssociationStatusCommandInput,
+    cb: (err: any, data?: UpdateAssociationStatusCommandOutput) => void
+  ): void;
+  updateAssociationStatus(
+    args: UpdateAssociationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssociationStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDocumentCommand}
+   */
+  updateDocument(
+    args: UpdateDocumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDocumentCommandOutput>;
+  updateDocument(args: UpdateDocumentCommandInput, cb: (err: any, data?: UpdateDocumentCommandOutput) => void): void;
+  updateDocument(
+    args: UpdateDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDocumentDefaultVersionCommand}
+   */
+  updateDocumentDefaultVersion(
+    args: UpdateDocumentDefaultVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDocumentDefaultVersionCommandOutput>;
+  updateDocumentDefaultVersion(
+    args: UpdateDocumentDefaultVersionCommandInput,
+    cb: (err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void
+  ): void;
+  updateDocumentDefaultVersion(
+    args: UpdateDocumentDefaultVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDocumentMetadataCommand}
+   */
+  updateDocumentMetadata(
+    args: UpdateDocumentMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDocumentMetadataCommandOutput>;
+  updateDocumentMetadata(
+    args: UpdateDocumentMetadataCommandInput,
+    cb: (err: any, data?: UpdateDocumentMetadataCommandOutput) => void
+  ): void;
+  updateDocumentMetadata(
+    args: UpdateDocumentMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDocumentMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMaintenanceWindowCommand}
+   */
+  updateMaintenanceWindow(
+    args: UpdateMaintenanceWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMaintenanceWindowCommandOutput>;
+  updateMaintenanceWindow(
+    args: UpdateMaintenanceWindowCommandInput,
+    cb: (err: any, data?: UpdateMaintenanceWindowCommandOutput) => void
+  ): void;
+  updateMaintenanceWindow(
+    args: UpdateMaintenanceWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMaintenanceWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMaintenanceWindowTargetCommand}
+   */
+  updateMaintenanceWindowTarget(
+    args: UpdateMaintenanceWindowTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMaintenanceWindowTargetCommandOutput>;
+  updateMaintenanceWindowTarget(
+    args: UpdateMaintenanceWindowTargetCommandInput,
+    cb: (err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void
+  ): void;
+  updateMaintenanceWindowTarget(
+    args: UpdateMaintenanceWindowTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMaintenanceWindowTaskCommand}
+   */
+  updateMaintenanceWindowTask(
+    args: UpdateMaintenanceWindowTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMaintenanceWindowTaskCommandOutput>;
+  updateMaintenanceWindowTask(
+    args: UpdateMaintenanceWindowTaskCommandInput,
+    cb: (err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void
+  ): void;
+  updateMaintenanceWindowTask(
+    args: UpdateMaintenanceWindowTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateManagedInstanceRoleCommand}
+   */
+  updateManagedInstanceRole(
+    args: UpdateManagedInstanceRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateManagedInstanceRoleCommandOutput>;
+  updateManagedInstanceRole(
+    args: UpdateManagedInstanceRoleCommandInput,
+    cb: (err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void
+  ): void;
+  updateManagedInstanceRole(
+    args: UpdateManagedInstanceRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateOpsItemCommand}
+   */
+  updateOpsItem(args: UpdateOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<UpdateOpsItemCommandOutput>;
+  updateOpsItem(args: UpdateOpsItemCommandInput, cb: (err: any, data?: UpdateOpsItemCommandOutput) => void): void;
+  updateOpsItem(
+    args: UpdateOpsItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOpsItemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateOpsMetadataCommand}
+   */
+  updateOpsMetadata(
+    args: UpdateOpsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOpsMetadataCommandOutput>;
+  updateOpsMetadata(
+    args: UpdateOpsMetadataCommandInput,
+    cb: (err: any, data?: UpdateOpsMetadataCommandOutput) => void
+  ): void;
+  updateOpsMetadata(
+    args: UpdateOpsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOpsMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePatchBaselineCommand}
+   */
+  updatePatchBaseline(
+    args: UpdatePatchBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePatchBaselineCommandOutput>;
+  updatePatchBaseline(
+    args: UpdatePatchBaselineCommandInput,
+    cb: (err: any, data?: UpdatePatchBaselineCommandOutput) => void
+  ): void;
+  updatePatchBaseline(
+    args: UpdatePatchBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePatchBaselineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResourceDataSyncCommand}
+   */
+  updateResourceDataSync(
+    args: UpdateResourceDataSyncCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResourceDataSyncCommandOutput>;
+  updateResourceDataSync(
+    args: UpdateResourceDataSyncCommandInput,
+    cb: (err: any, data?: UpdateResourceDataSyncCommandOutput) => void
+  ): void;
+  updateResourceDataSync(
+    args: UpdateResourceDataSyncCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResourceDataSyncCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateServiceSettingCommand}
+   */
+  updateServiceSetting(
+    args: UpdateServiceSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceSettingCommandOutput>;
+  updateServiceSetting(
+    args: UpdateServiceSettingCommandInput,
+    cb: (err: any, data?: UpdateServiceSettingCommandOutput) => void
+  ): void;
+  updateServiceSetting(
+    args: UpdateServiceSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateServiceSettingCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -720,5177 +3093,5 @@ import { SSMClient } from "./SSMClient";
  *             </li>
  *          </ul>
  */
-export class SSM extends SSMClient {
-  /**
-   * @public
-   * <p>Adds or overwrites one or more tags for the specified resource. <i>Tags</i>
-   *    are metadata that you can assign to your automations, documents, managed nodes, maintenance
-   *    windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your
-   *    resources in different ways, for example, by purpose, owner, or environment. Each tag consists of
-   *    a key and an optional value, both of which you define. For example, you could define a set of
-   *    tags for your account's managed nodes that helps you track each node's owner and stack level. For
-   *    example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Key=Owner,Value=DbAdmin</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Key=Owner,Value=SysAdmin</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Key=Owner,Value=Dev</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Key=Stack,Value=Production</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Key=Stack,Value=Pre-Production</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Key=Stack,Value=Test</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Most resources can have a maximum of 50 tags. Automations can have a maximum of 5
-   *    tags.</p>
-   *          <p>We recommend that you devise a set of tag keys that meets your needs for each resource type.
-   *    Using a consistent set of tag keys makes it easier for you to manage your resources. You can
-   *    search and filter the resources based on the tags you add. Tags don't have any semantic meaning
-   *    to and are interpreted strictly as a string of characters.</p>
-   *          <p>For more information about using tags with Amazon Elastic Compute Cloud (Amazon EC2) instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
-   *     resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  public addTagsToResource(
-    args: AddTagsToResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddTagsToResourceCommandOutput>;
-  public addTagsToResource(
-    args: AddTagsToResourceCommandInput,
-    cb: (err: any, data?: AddTagsToResourceCommandOutput) => void
-  ): void;
-  public addTagsToResource(
-    args: AddTagsToResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AddTagsToResourceCommandOutput) => void
-  ): void;
-  public addTagsToResource(
-    args: AddTagsToResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
-    cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
-  ): Promise<AddTagsToResourceCommandOutput> | void {
-    const command = new AddTagsToResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an
-   *    Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are capabilities of
-   *    Amazon Web Services Systems Manager.</p>
-   */
-  public associateOpsItemRelatedItem(
-    args: AssociateOpsItemRelatedItemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateOpsItemRelatedItemCommandOutput>;
-  public associateOpsItemRelatedItem(
-    args: AssociateOpsItemRelatedItemCommandInput,
-    cb: (err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void
-  ): void;
-  public associateOpsItemRelatedItem(
-    args: AssociateOpsItemRelatedItemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void
-  ): void;
-  public associateOpsItemRelatedItem(
-    args: AssociateOpsItemRelatedItemCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void),
-    cb?: (err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void
-  ): Promise<AssociateOpsItemRelatedItemCommandOutput> | void {
-    const command = new AssociateOpsItemRelatedItemCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the
-   *    command will be terminated and the underlying process stopped.</p>
-   */
-  public cancelCommand(
-    args: CancelCommandCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelCommandCommandOutput>;
-  public cancelCommand(
-    args: CancelCommandCommandInput,
-    cb: (err: any, data?: CancelCommandCommandOutput) => void
-  ): void;
-  public cancelCommand(
-    args: CancelCommandCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelCommandCommandOutput) => void
-  ): void;
-  public cancelCommand(
-    args: CancelCommandCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelCommandCommandOutput) => void),
-    cb?: (err: any, data?: CancelCommandCommandOutput) => void
-  ): Promise<CancelCommandCommandOutput> | void {
-    const command = new CancelCommandCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
-   *    the window that haven't already starting running. Tasks already in progress will continue to
-   *    completion.</p>
-   */
-  public cancelMaintenanceWindowExecution(
-    args: CancelMaintenanceWindowExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelMaintenanceWindowExecutionCommandOutput>;
-  public cancelMaintenanceWindowExecution(
-    args: CancelMaintenanceWindowExecutionCommandInput,
-    cb: (err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void
-  ): void;
-  public cancelMaintenanceWindowExecution(
-    args: CancelMaintenanceWindowExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void
-  ): void;
-  public cancelMaintenanceWindowExecution(
-    args: CancelMaintenanceWindowExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void),
-    cb?: (err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void
-  ): Promise<CancelMaintenanceWindowExecutionCommandOutput> | void {
-    const command = new CancelMaintenanceWindowExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Generates an activation code and activation ID you can use to register your on-premises
-   *    servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with
-   *    Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and
-   *    ID when installing SSM Agent on machines in your hybrid environment. For more information about
-   *    requirements for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting up
-   *     Amazon Web Services Systems Manager for hybrid environments</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
-   *          <note>
-   *             <p>Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are
-   *     configured for Systems Manager are all called <i>managed nodes</i>.</p>
-   *          </note>
-   */
-  public createActivation(
-    args: CreateActivationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateActivationCommandOutput>;
-  public createActivation(
-    args: CreateActivationCommandInput,
-    cb: (err: any, data?: CreateActivationCommandOutput) => void
-  ): void;
-  public createActivation(
-    args: CreateActivationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateActivationCommandOutput) => void
-  ): void;
-  public createActivation(
-    args: CreateActivationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateActivationCommandOutput) => void),
-    cb?: (err: any, data?: CreateActivationCommandOutput) => void
-  ): Promise<CreateActivationCommandOutput> | void {
-    const command = new CreateActivationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>A State Manager association defines the state that you want to maintain on your managed
-   *    nodes. For example, an association can specify that anti-virus software must be installed and
-   *    running on your managed nodes, or that certain ports must be closed. For static targets, the
-   *    association specifies a schedule for when the configuration is reapplied. For dynamic targets,
-   *    such as an Amazon Web Services resource group or an Amazon Web Services autoscaling group, State Manager, a capability of
-   *    Amazon Web Services Systems Manager applies the configuration when new managed nodes are added to the group. The
-   *    association also specifies actions to take when applying the configuration. For example, an
-   *    association for anti-virus software might run once a day. If the software isn't installed, then
-   *    State Manager installs it. If the software is installed, but the service isn't running, then the
-   *    association might instruct State Manager to start the service. </p>
-   */
-  public createAssociation(
-    args: CreateAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAssociationCommandOutput>;
-  public createAssociation(
-    args: CreateAssociationCommandInput,
-    cb: (err: any, data?: CreateAssociationCommandOutput) => void
-  ): void;
-  public createAssociation(
-    args: CreateAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAssociationCommandOutput) => void
-  ): void;
-  public createAssociation(
-    args: CreateAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssociationCommandOutput) => void),
-    cb?: (err: any, data?: CreateAssociationCommandOutput) => void
-  ): Promise<CreateAssociationCommandOutput> | void {
-    const command = new CreateAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
-   *    or targets.</p>
-   *          <p>When you associate a document with one or more managed nodes using IDs or tags, Amazon Web Services Systems Manager
-   *    Agent (SSM Agent) running on the managed node processes the document and configures the node as
-   *    specified.</p>
-   *          <p>If you associate a document with a managed node that already has an associated document, the
-   *    system returns the AssociationAlreadyExists exception.</p>
-   */
-  public createAssociationBatch(
-    args: CreateAssociationBatchCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAssociationBatchCommandOutput>;
-  public createAssociationBatch(
-    args: CreateAssociationBatchCommandInput,
-    cb: (err: any, data?: CreateAssociationBatchCommandOutput) => void
-  ): void;
-  public createAssociationBatch(
-    args: CreateAssociationBatchCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAssociationBatchCommandOutput) => void
-  ): void;
-  public createAssociationBatch(
-    args: CreateAssociationBatchCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssociationBatchCommandOutput) => void),
-    cb?: (err: any, data?: CreateAssociationBatchCommandOutput) => void
-  ): Promise<CreateAssociationBatchCommandOutput> | void {
-    const command = new CreateAssociationBatchCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs
-   *    on your managed nodes. For more information about SSM documents, including information about
-   *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">Amazon Web Services Systems Manager Documents</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   */
-  public createDocument(
-    args: CreateDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDocumentCommandOutput>;
-  public createDocument(
-    args: CreateDocumentCommandInput,
-    cb: (err: any, data?: CreateDocumentCommandOutput) => void
-  ): void;
-  public createDocument(
-    args: CreateDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDocumentCommandOutput) => void
-  ): void;
-  public createDocument(
-    args: CreateDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDocumentCommandOutput) => void),
-    cb?: (err: any, data?: CreateDocumentCommandOutput) => void
-  ): Promise<CreateDocumentCommandOutput> | void {
-    const command = new CreateDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new maintenance window.</p>
-   *          <note>
-   *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
-   *     maintenance window based on the time it begins. No maintenance window tasks are permitted to
-   *     start after the resulting endtime minus the number of hours you specify for <code>Cutoff</code>.
-   *     For example, if the maintenance window starts at 3 PM, the duration is three hours, and the
-   *     value you specify for <code>Cutoff</code> is one hour, no maintenance window tasks can start
-   *     after 5 PM.</p>
-   *          </note>
-   */
-  public createMaintenanceWindow(
-    args: CreateMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateMaintenanceWindowCommandOutput>;
-  public createMaintenanceWindow(
-    args: CreateMaintenanceWindowCommandInput,
-    cb: (err: any, data?: CreateMaintenanceWindowCommandOutput) => void
-  ): void;
-  public createMaintenanceWindow(
-    args: CreateMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateMaintenanceWindowCommandOutput) => void
-  ): void;
-  public createMaintenanceWindow(
-    args: CreateMaintenanceWindowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMaintenanceWindowCommandOutput) => void),
-    cb?: (err: any, data?: CreateMaintenanceWindowCommandOutput) => void
-  ): Promise<CreateMaintenanceWindowCommandOutput> | void {
-    const command = new CreateMaintenanceWindowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new OpsItem. You must have permission in Identity and Access Management (IAM) to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
-   *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
-   *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
-   *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">Amazon Web Services Systems Manager OpsCenter</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
-   */
-  public createOpsItem(
-    args: CreateOpsItemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateOpsItemCommandOutput>;
-  public createOpsItem(
-    args: CreateOpsItemCommandInput,
-    cb: (err: any, data?: CreateOpsItemCommandOutput) => void
-  ): void;
-  public createOpsItem(
-    args: CreateOpsItemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateOpsItemCommandOutput) => void
-  ): void;
-  public createOpsItem(
-    args: CreateOpsItemCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOpsItemCommandOutput) => void),
-    cb?: (err: any, data?: CreateOpsItemCommandOutput) => void
-  ): Promise<CreateOpsItemCommandOutput> | void {
-    const command = new CreateOpsItemCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>If you create a new application in Application Manager, Amazon Web Services Systems Manager calls this API operation to specify
-   *    information about the new application, including the application type.</p>
-   */
-  public createOpsMetadata(
-    args: CreateOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateOpsMetadataCommandOutput>;
-  public createOpsMetadata(
-    args: CreateOpsMetadataCommandInput,
-    cb: (err: any, data?: CreateOpsMetadataCommandOutput) => void
-  ): void;
-  public createOpsMetadata(
-    args: CreateOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateOpsMetadataCommandOutput) => void
-  ): void;
-  public createOpsMetadata(
-    args: CreateOpsMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOpsMetadataCommandOutput) => void),
-    cb?: (err: any, data?: CreateOpsMetadataCommandOutput) => void
-  ): Promise<CreateOpsMetadataCommandOutput> | void {
-    const command = new CreateOpsMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a patch baseline.</p>
-   *          <note>
-   *             <p>For information about valid key-value pairs in <code>PatchFilters</code> for each supported
-   *     operating system type, see <a>PatchFilter</a>.</p>
-   *          </note>
-   */
-  public createPatchBaseline(
-    args: CreatePatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreatePatchBaselineCommandOutput>;
-  public createPatchBaseline(
-    args: CreatePatchBaselineCommandInput,
-    cb: (err: any, data?: CreatePatchBaselineCommandOutput) => void
-  ): void;
-  public createPatchBaseline(
-    args: CreatePatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePatchBaselineCommandOutput) => void
-  ): void;
-  public createPatchBaseline(
-    args: CreatePatchBaselineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePatchBaselineCommandOutput) => void),
-    cb?: (err: any, data?: CreatePatchBaselineCommandOutput) => void
-  ): Promise<CreatePatchBaselineCommandOutput> | void {
-    const command = new CreatePatchBaselineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>A resource data sync helps you view data from multiple sources in a single location.
-   *    Amazon Web Services Systems Manager offers two types of resource data sync: <code>SyncToDestination</code> and
-   *     <code>SyncFromSource</code>.</p>
-   *          <p>You can configure Systems Manager Inventory to use the <code>SyncToDestination</code> type to
-   *    synchronize Inventory data from multiple Amazon Web Services Regions to a single Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring resource data
-   *     sync for Inventory</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   *          <p>You can configure Systems Manager Explorer to use the <code>SyncFromSource</code> type to synchronize
-   *    operational work items (OpsItems) and operational data (OpsData) from multiple Amazon Web Services Regions to a
-   *    single Amazon S3 bucket. This type can synchronize OpsItems and OpsData from multiple
-   *    Amazon Web Services accounts and Amazon Web Services Regions or <code>EntireOrganization</code> by using Organizations. For more
-   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager
-   *     Explorer to display data from multiple accounts and Regions</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   *          <p>A resource data sync is an asynchronous operation that returns immediately. After a
-   *    successful initial sync is completed, the system continuously syncs data. To check the status of
-   *    a sync, use the <a>ListResourceDataSync</a>.</p>
-   *          <note>
-   *             <p>By default, data isn't encrypted in Amazon S3. We strongly recommend that you
-   *     enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you
-   *     secure access to the Amazon S3 bucket by creating a restrictive bucket policy. </p>
-   *          </note>
-   */
-  public createResourceDataSync(
-    args: CreateResourceDataSyncCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateResourceDataSyncCommandOutput>;
-  public createResourceDataSync(
-    args: CreateResourceDataSyncCommandInput,
-    cb: (err: any, data?: CreateResourceDataSyncCommandOutput) => void
-  ): void;
-  public createResourceDataSync(
-    args: CreateResourceDataSyncCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateResourceDataSyncCommandOutput) => void
-  ): void;
-  public createResourceDataSync(
-    args: CreateResourceDataSyncCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceDataSyncCommandOutput) => void),
-    cb?: (err: any, data?: CreateResourceDataSyncCommandOutput) => void
-  ): Promise<CreateResourceDataSyncCommandOutput> | void {
-    const command = new CreateResourceDataSyncCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an activation. You aren't required to delete an activation. If you delete an
-   *    activation, you can no longer use it to register additional managed nodes. Deleting an activation
-   *    doesn't de-register managed nodes. You must manually de-register managed nodes.</p>
-   */
-  public deleteActivation(
-    args: DeleteActivationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteActivationCommandOutput>;
-  public deleteActivation(
-    args: DeleteActivationCommandInput,
-    cb: (err: any, data?: DeleteActivationCommandOutput) => void
-  ): void;
-  public deleteActivation(
-    args: DeleteActivationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteActivationCommandOutput) => void
-  ): void;
-  public deleteActivation(
-    args: DeleteActivationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteActivationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteActivationCommandOutput) => void
-  ): Promise<DeleteActivationCommandOutput> | void {
-    const command = new DeleteActivationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified managed
-   *    node. If you created the association by using the <code>Targets</code> parameter, then you must
-   *    delete the association by using the association ID.</p>
-   *          <p>When you disassociate a document from a managed node, it doesn't change the configuration of
-   *    the node. To change the configuration state of a managed node after you disassociate a document,
-   *    you must create a new document with the desired configuration and associate it with the
-   *    node.</p>
-   */
-  public deleteAssociation(
-    args: DeleteAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAssociationCommandOutput>;
-  public deleteAssociation(
-    args: DeleteAssociationCommandInput,
-    cb: (err: any, data?: DeleteAssociationCommandOutput) => void
-  ): void;
-  public deleteAssociation(
-    args: DeleteAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAssociationCommandOutput) => void
-  ): void;
-  public deleteAssociation(
-    args: DeleteAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssociationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAssociationCommandOutput) => void
-  ): Promise<DeleteAssociationCommandOutput> | void {
-    const command = new DeleteAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the
-   *    document.</p>
-   *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all managed nodes that are associated with the document.</p>
-   */
-  public deleteDocument(
-    args: DeleteDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDocumentCommandOutput>;
-  public deleteDocument(
-    args: DeleteDocumentCommandInput,
-    cb: (err: any, data?: DeleteDocumentCommandOutput) => void
-  ): void;
-  public deleteDocument(
-    args: DeleteDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDocumentCommandOutput) => void
-  ): void;
-  public deleteDocument(
-    args: DeleteDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDocumentCommandOutput) => void
-  ): Promise<DeleteDocumentCommandOutput> | void {
-    const command = new DeleteDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete a custom inventory type or the data associated with a custom Inventory type. Deleting
-   *    a custom inventory type is also referred to as deleting a custom inventory schema.</p>
-   */
-  public deleteInventory(
-    args: DeleteInventoryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteInventoryCommandOutput>;
-  public deleteInventory(
-    args: DeleteInventoryCommandInput,
-    cb: (err: any, data?: DeleteInventoryCommandOutput) => void
-  ): void;
-  public deleteInventory(
-    args: DeleteInventoryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteInventoryCommandOutput) => void
-  ): void;
-  public deleteInventory(
-    args: DeleteInventoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInventoryCommandOutput) => void),
-    cb?: (err: any, data?: DeleteInventoryCommandOutput) => void
-  ): Promise<DeleteInventoryCommandOutput> | void {
-    const command = new DeleteInventoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a maintenance window.</p>
-   */
-  public deleteMaintenanceWindow(
-    args: DeleteMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteMaintenanceWindowCommandOutput>;
-  public deleteMaintenanceWindow(
-    args: DeleteMaintenanceWindowCommandInput,
-    cb: (err: any, data?: DeleteMaintenanceWindowCommandOutput) => void
-  ): void;
-  public deleteMaintenanceWindow(
-    args: DeleteMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteMaintenanceWindowCommandOutput) => void
-  ): void;
-  public deleteMaintenanceWindow(
-    args: DeleteMaintenanceWindowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMaintenanceWindowCommandOutput) => void),
-    cb?: (err: any, data?: DeleteMaintenanceWindowCommandOutput) => void
-  ): Promise<DeleteMaintenanceWindowCommandOutput> | void {
-    const command = new DeleteMaintenanceWindowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete OpsMetadata related to an application.</p>
-   */
-  public deleteOpsMetadata(
-    args: DeleteOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteOpsMetadataCommandOutput>;
-  public deleteOpsMetadata(
-    args: DeleteOpsMetadataCommandInput,
-    cb: (err: any, data?: DeleteOpsMetadataCommandOutput) => void
-  ): void;
-  public deleteOpsMetadata(
-    args: DeleteOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteOpsMetadataCommandOutput) => void
-  ): void;
-  public deleteOpsMetadata(
-    args: DeleteOpsMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOpsMetadataCommandOutput) => void),
-    cb?: (err: any, data?: DeleteOpsMetadataCommandOutput) => void
-  ): Promise<DeleteOpsMetadataCommandOutput> | void {
-    const command = new DeleteOpsMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete a parameter from the system. After deleting a parameter, wait for at least 30 seconds
-   *    to create a parameter with the same name.</p>
-   */
-  public deleteParameter(
-    args: DeleteParameterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteParameterCommandOutput>;
-  public deleteParameter(
-    args: DeleteParameterCommandInput,
-    cb: (err: any, data?: DeleteParameterCommandOutput) => void
-  ): void;
-  public deleteParameter(
-    args: DeleteParameterCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteParameterCommandOutput) => void
-  ): void;
-  public deleteParameter(
-    args: DeleteParameterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParameterCommandOutput) => void),
-    cb?: (err: any, data?: DeleteParameterCommandOutput) => void
-  ): Promise<DeleteParameterCommandOutput> | void {
-    const command = new DeleteParameterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
-   *    create a parameter with the same name.</p>
-   */
-  public deleteParameters(
-    args: DeleteParametersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteParametersCommandOutput>;
-  public deleteParameters(
-    args: DeleteParametersCommandInput,
-    cb: (err: any, data?: DeleteParametersCommandOutput) => void
-  ): void;
-  public deleteParameters(
-    args: DeleteParametersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteParametersCommandOutput) => void
-  ): void;
-  public deleteParameters(
-    args: DeleteParametersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParametersCommandOutput) => void),
-    cb?: (err: any, data?: DeleteParametersCommandOutput) => void
-  ): Promise<DeleteParametersCommandOutput> | void {
-    const command = new DeleteParametersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a patch baseline.</p>
-   */
-  public deletePatchBaseline(
-    args: DeletePatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePatchBaselineCommandOutput>;
-  public deletePatchBaseline(
-    args: DeletePatchBaselineCommandInput,
-    cb: (err: any, data?: DeletePatchBaselineCommandOutput) => void
-  ): void;
-  public deletePatchBaseline(
-    args: DeletePatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePatchBaselineCommandOutput) => void
-  ): void;
-  public deletePatchBaseline(
-    args: DeletePatchBaselineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePatchBaselineCommandOutput) => void),
-    cb?: (err: any, data?: DeletePatchBaselineCommandOutput) => void
-  ): Promise<DeletePatchBaselineCommandOutput> | void {
-    const command = new DeletePatchBaselineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a resource data sync configuration. After the configuration is deleted, changes to
-   *    data on managed nodes are no longer synced to or from the target. Deleting a sync configuration
-   *    doesn't delete data.</p>
-   */
-  public deleteResourceDataSync(
-    args: DeleteResourceDataSyncCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteResourceDataSyncCommandOutput>;
-  public deleteResourceDataSync(
-    args: DeleteResourceDataSyncCommandInput,
-    cb: (err: any, data?: DeleteResourceDataSyncCommandOutput) => void
-  ): void;
-  public deleteResourceDataSync(
-    args: DeleteResourceDataSyncCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteResourceDataSyncCommandOutput) => void
-  ): void;
-  public deleteResourceDataSync(
-    args: DeleteResourceDataSyncCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceDataSyncCommandOutput) => void),
-    cb?: (err: any, data?: DeleteResourceDataSyncCommandOutput) => void
-  ): Promise<DeleteResourceDataSyncCommandOutput> | void {
-    const command = new DeleteResourceDataSyncCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a Systems Manager resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources. Currently,
-   *     <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies. The
-   *    resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact with
-   *    OpsCenter operational work items (OpsItems).</p>
-   */
-  public deleteResourcePolicy(
-    args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteResourcePolicyCommandOutput>;
-  public deleteResourcePolicy(
-    args: DeleteResourcePolicyCommandInput,
-    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
-  ): void;
-  public deleteResourcePolicy(
-    args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
-  ): void;
-  public deleteResourcePolicy(
-    args: DeleteResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
-  ): Promise<DeleteResourcePolicyCommandOutput> | void {
-    const command = new DeleteResourcePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes the server or virtual machine from the list of registered servers. You can
-   *    reregister the node again at any time. If you don't plan to use Run Command on the server, we
-   *    suggest uninstalling SSM Agent first.</p>
-   */
-  public deregisterManagedInstance(
-    args: DeregisterManagedInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterManagedInstanceCommandOutput>;
-  public deregisterManagedInstance(
-    args: DeregisterManagedInstanceCommandInput,
-    cb: (err: any, data?: DeregisterManagedInstanceCommandOutput) => void
-  ): void;
-  public deregisterManagedInstance(
-    args: DeregisterManagedInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterManagedInstanceCommandOutput) => void
-  ): void;
-  public deregisterManagedInstance(
-    args: DeregisterManagedInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterManagedInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterManagedInstanceCommandOutput) => void
-  ): Promise<DeregisterManagedInstanceCommandOutput> | void {
-    const command = new DeregisterManagedInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a patch group from a patch baseline.</p>
-   */
-  public deregisterPatchBaselineForPatchGroup(
-    args: DeregisterPatchBaselineForPatchGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput>;
-  public deregisterPatchBaselineForPatchGroup(
-    args: DeregisterPatchBaselineForPatchGroupCommandInput,
-    cb: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
-  ): void;
-  public deregisterPatchBaselineForPatchGroup(
-    args: DeregisterPatchBaselineForPatchGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
-  ): void;
-  public deregisterPatchBaselineForPatchGroup(
-    args: DeregisterPatchBaselineForPatchGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
-  ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> | void {
-    const command = new DeregisterPatchBaselineForPatchGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a target from a maintenance window.</p>
-   */
-  public deregisterTargetFromMaintenanceWindow(
-    args: DeregisterTargetFromMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput>;
-  public deregisterTargetFromMaintenanceWindow(
-    args: DeregisterTargetFromMaintenanceWindowCommandInput,
-    cb: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
-  ): void;
-  public deregisterTargetFromMaintenanceWindow(
-    args: DeregisterTargetFromMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
-  ): void;
-  public deregisterTargetFromMaintenanceWindow(
-    args: DeregisterTargetFromMaintenanceWindowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
-  ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput> | void {
-    const command = new DeregisterTargetFromMaintenanceWindowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a task from a maintenance window.</p>
-   */
-  public deregisterTaskFromMaintenanceWindow(
-    args: DeregisterTaskFromMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput>;
-  public deregisterTaskFromMaintenanceWindow(
-    args: DeregisterTaskFromMaintenanceWindowCommandInput,
-    cb: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
-  ): void;
-  public deregisterTaskFromMaintenanceWindow(
-    args: DeregisterTaskFromMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
-  ): void;
-  public deregisterTaskFromMaintenanceWindow(
-    args: DeregisterTaskFromMaintenanceWindowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
-  ): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput> | void {
-    const command = new DeregisterTaskFromMaintenanceWindowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes details about the activation, such as the date and time the activation was
-   *    created, its expiration date, the Identity and Access Management (IAM) role assigned to
-   *    the managed nodes in the activation, and the number of nodes registered by using this
-   *    activation.</p>
-   */
-  public describeActivations(
-    args: DescribeActivationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeActivationsCommandOutput>;
-  public describeActivations(
-    args: DescribeActivationsCommandInput,
-    cb: (err: any, data?: DescribeActivationsCommandOutput) => void
-  ): void;
-  public describeActivations(
-    args: DescribeActivationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeActivationsCommandOutput) => void
-  ): void;
-  public describeActivations(
-    args: DescribeActivationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeActivationsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeActivationsCommandOutput) => void
-  ): Promise<DescribeActivationsCommandOutput> | void {
-    const command = new DescribeActivationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the association for the specified target or managed node. If you created the
-   *    association by using the <code>Targets</code> parameter, then you must retrieve the association
-   *    by using the association ID.</p>
-   */
-  public describeAssociation(
-    args: DescribeAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAssociationCommandOutput>;
-  public describeAssociation(
-    args: DescribeAssociationCommandInput,
-    cb: (err: any, data?: DescribeAssociationCommandOutput) => void
-  ): void;
-  public describeAssociation(
-    args: DescribeAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAssociationCommandOutput) => void
-  ): void;
-  public describeAssociation(
-    args: DescribeAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssociationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAssociationCommandOutput) => void
-  ): Promise<DescribeAssociationCommandOutput> | void {
-    const command = new DescribeAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Views all executions for a specific association ID. </p>
-   */
-  public describeAssociationExecutions(
-    args: DescribeAssociationExecutionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAssociationExecutionsCommandOutput>;
-  public describeAssociationExecutions(
-    args: DescribeAssociationExecutionsCommandInput,
-    cb: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
-  ): void;
-  public describeAssociationExecutions(
-    args: DescribeAssociationExecutionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
-  ): void;
-  public describeAssociationExecutions(
-    args: DescribeAssociationExecutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssociationExecutionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
-  ): Promise<DescribeAssociationExecutionsCommandOutput> | void {
-    const command = new DescribeAssociationExecutionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Views information about a specific execution of a specific association.</p>
-   */
-  public describeAssociationExecutionTargets(
-    args: DescribeAssociationExecutionTargetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAssociationExecutionTargetsCommandOutput>;
-  public describeAssociationExecutionTargets(
-    args: DescribeAssociationExecutionTargetsCommandInput,
-    cb: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
-  ): void;
-  public describeAssociationExecutionTargets(
-    args: DescribeAssociationExecutionTargetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
-  ): void;
-  public describeAssociationExecutionTargets(
-    args: DescribeAssociationExecutionTargetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
-  ): Promise<DescribeAssociationExecutionTargetsCommandOutput> | void {
-    const command = new DescribeAssociationExecutionTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Provides details about all active and terminated Automation executions.</p>
-   */
-  public describeAutomationExecutions(
-    args: DescribeAutomationExecutionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAutomationExecutionsCommandOutput>;
-  public describeAutomationExecutions(
-    args: DescribeAutomationExecutionsCommandInput,
-    cb: (err: any, data?: DescribeAutomationExecutionsCommandOutput) => void
-  ): void;
-  public describeAutomationExecutions(
-    args: DescribeAutomationExecutionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAutomationExecutionsCommandOutput) => void
-  ): void;
-  public describeAutomationExecutions(
-    args: DescribeAutomationExecutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutomationExecutionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAutomationExecutionsCommandOutput) => void
-  ): Promise<DescribeAutomationExecutionsCommandOutput> | void {
-    const command = new DescribeAutomationExecutionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Information about all active and terminated step executions in an Automation
-   *    workflow.</p>
-   */
-  public describeAutomationStepExecutions(
-    args: DescribeAutomationStepExecutionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAutomationStepExecutionsCommandOutput>;
-  public describeAutomationStepExecutions(
-    args: DescribeAutomationStepExecutionsCommandInput,
-    cb: (err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void
-  ): void;
-  public describeAutomationStepExecutions(
-    args: DescribeAutomationStepExecutionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void
-  ): void;
-  public describeAutomationStepExecutions(
-    args: DescribeAutomationStepExecutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void
-  ): Promise<DescribeAutomationStepExecutionsCommandOutput> | void {
-    const command = new DescribeAutomationStepExecutionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all patches eligible to be included in a patch baseline.</p>
-   */
-  public describeAvailablePatches(
-    args: DescribeAvailablePatchesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAvailablePatchesCommandOutput>;
-  public describeAvailablePatches(
-    args: DescribeAvailablePatchesCommandInput,
-    cb: (err: any, data?: DescribeAvailablePatchesCommandOutput) => void
-  ): void;
-  public describeAvailablePatches(
-    args: DescribeAvailablePatchesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAvailablePatchesCommandOutput) => void
-  ): void;
-  public describeAvailablePatches(
-    args: DescribeAvailablePatchesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAvailablePatchesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAvailablePatchesCommandOutput) => void
-  ): Promise<DescribeAvailablePatchesCommandOutput> | void {
-    const command = new DescribeAvailablePatchesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the specified Amazon Web Services Systems Manager document (SSM document).</p>
-   */
-  public describeDocument(
-    args: DescribeDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDocumentCommandOutput>;
-  public describeDocument(
-    args: DescribeDocumentCommandInput,
-    cb: (err: any, data?: DescribeDocumentCommandOutput) => void
-  ): void;
-  public describeDocument(
-    args: DescribeDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDocumentCommandOutput) => void
-  ): void;
-  public describeDocument(
-    args: DescribeDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDocumentCommandOutput) => void
-  ): Promise<DescribeDocumentCommandOutput> | void {
-    const command = new DescribeDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the permissions for a Amazon Web Services Systems Manager document (SSM document). If you created the
-   *    document, you are the owner. If a document is shared, it can either be shared privately (by
-   *    specifying a user's Amazon Web Services account ID) or publicly (<i>All</i>). </p>
-   */
-  public describeDocumentPermission(
-    args: DescribeDocumentPermissionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDocumentPermissionCommandOutput>;
-  public describeDocumentPermission(
-    args: DescribeDocumentPermissionCommandInput,
-    cb: (err: any, data?: DescribeDocumentPermissionCommandOutput) => void
-  ): void;
-  public describeDocumentPermission(
-    args: DescribeDocumentPermissionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDocumentPermissionCommandOutput) => void
-  ): void;
-  public describeDocumentPermission(
-    args: DescribeDocumentPermissionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentPermissionCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDocumentPermissionCommandOutput) => void
-  ): Promise<DescribeDocumentPermissionCommandOutput> | void {
-    const command = new DescribeDocumentPermissionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>All associations for the managed node(s).</p>
-   */
-  public describeEffectiveInstanceAssociations(
-    args: DescribeEffectiveInstanceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput>;
-  public describeEffectiveInstanceAssociations(
-    args: DescribeEffectiveInstanceAssociationsCommandInput,
-    cb: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
-  ): void;
-  public describeEffectiveInstanceAssociations(
-    args: DescribeEffectiveInstanceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
-  ): void;
-  public describeEffectiveInstanceAssociations(
-    args: DescribeEffectiveInstanceAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
-  ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> | void {
-    const command = new DescribeEffectiveInstanceAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
-   *    patch baseline. Applies to patch baselines for Windows only.</p>
-   */
-  public describeEffectivePatchesForPatchBaseline(
-    args: DescribeEffectivePatchesForPatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput>;
-  public describeEffectivePatchesForPatchBaseline(
-    args: DescribeEffectivePatchesForPatchBaselineCommandInput,
-    cb: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
-  ): void;
-  public describeEffectivePatchesForPatchBaseline(
-    args: DescribeEffectivePatchesForPatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
-  ): void;
-  public describeEffectivePatchesForPatchBaseline(
-    args: DescribeEffectivePatchesForPatchBaselineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
-  ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput> | void {
-    const command = new DescribeEffectivePatchesForPatchBaselineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>The status of the associations for the managed node(s).</p>
-   */
-  public describeInstanceAssociationsStatus(
-    args: DescribeInstanceAssociationsStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInstanceAssociationsStatusCommandOutput>;
-  public describeInstanceAssociationsStatus(
-    args: DescribeInstanceAssociationsStatusCommandInput,
-    cb: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
-  ): void;
-  public describeInstanceAssociationsStatus(
-    args: DescribeInstanceAssociationsStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
-  ): void;
-  public describeInstanceAssociationsStatus(
-    args: DescribeInstanceAssociationsStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
-  ): Promise<DescribeInstanceAssociationsStatusCommandOutput> | void {
-    const command = new DescribeInstanceAssociationsStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes one or more of your managed nodes, including information about the operating
-   *    system platform, the version of SSM Agent installed on the managed node, node status, and so
-   *    on.</p>
-   *          <p>If you specify one or more managed node IDs, it returns information for those managed nodes.
-   *    If you don't specify node IDs, it returns information for all your managed nodes. If you specify
-   *    a node ID that isn't valid or a node that you don't own, you receive an error.</p>
-   *          <note>
-   *             <p>The <code>IamRole</code> field for this API operation is the Identity and Access Management
-   *      (IAM) role assigned to on-premises managed nodes. This call doesn't return the
-   *      IAM role for EC2 instances.</p>
-   *          </note>
-   */
-  public describeInstanceInformation(
-    args: DescribeInstanceInformationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInstanceInformationCommandOutput>;
-  public describeInstanceInformation(
-    args: DescribeInstanceInformationCommandInput,
-    cb: (err: any, data?: DescribeInstanceInformationCommandOutput) => void
-  ): void;
-  public describeInstanceInformation(
-    args: DescribeInstanceInformationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInstanceInformationCommandOutput) => void
-  ): void;
-  public describeInstanceInformation(
-    args: DescribeInstanceInformationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceInformationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstanceInformationCommandOutput) => void
-  ): Promise<DescribeInstanceInformationCommandOutput> | void {
-    const command = new DescribeInstanceInformationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about the patches on the specified managed node and their state
-   *    relative to the patch baseline being used for the node.</p>
-   */
-  public describeInstancePatches(
-    args: DescribeInstancePatchesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInstancePatchesCommandOutput>;
-  public describeInstancePatches(
-    args: DescribeInstancePatchesCommandInput,
-    cb: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
-  ): void;
-  public describeInstancePatches(
-    args: DescribeInstancePatchesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
-  ): void;
-  public describeInstancePatches(
-    args: DescribeInstancePatchesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancePatchesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
-  ): Promise<DescribeInstancePatchesCommandOutput> | void {
-    const command = new DescribeInstancePatchesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the high-level patch state of one or more managed nodes.</p>
-   */
-  public describeInstancePatchStates(
-    args: DescribeInstancePatchStatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInstancePatchStatesCommandOutput>;
-  public describeInstancePatchStates(
-    args: DescribeInstancePatchStatesCommandInput,
-    cb: (err: any, data?: DescribeInstancePatchStatesCommandOutput) => void
-  ): void;
-  public describeInstancePatchStates(
-    args: DescribeInstancePatchStatesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInstancePatchStatesCommandOutput) => void
-  ): void;
-  public describeInstancePatchStates(
-    args: DescribeInstancePatchStatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancePatchStatesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstancePatchStatesCommandOutput) => void
-  ): Promise<DescribeInstancePatchStatesCommandOutput> | void {
-    const command = new DescribeInstancePatchStatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
-   *    group.</p>
-   */
-  public describeInstancePatchStatesForPatchGroup(
-    args: DescribeInstancePatchStatesForPatchGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput>;
-  public describeInstancePatchStatesForPatchGroup(
-    args: DescribeInstancePatchStatesForPatchGroupCommandInput,
-    cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
-  ): void;
-  public describeInstancePatchStatesForPatchGroup(
-    args: DescribeInstancePatchStatesForPatchGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
-  ): void;
-  public describeInstancePatchStatesForPatchGroup(
-    args: DescribeInstancePatchStatesForPatchGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
-  ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput> | void {
-    const command = new DescribeInstancePatchStatesForPatchGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes a specific delete inventory operation.</p>
-   */
-  public describeInventoryDeletions(
-    args: DescribeInventoryDeletionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInventoryDeletionsCommandOutput>;
-  public describeInventoryDeletions(
-    args: DescribeInventoryDeletionsCommandInput,
-    cb: (err: any, data?: DescribeInventoryDeletionsCommandOutput) => void
-  ): void;
-  public describeInventoryDeletions(
-    args: DescribeInventoryDeletionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInventoryDeletionsCommandOutput) => void
-  ): void;
-  public describeInventoryDeletions(
-    args: DescribeInventoryDeletionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInventoryDeletionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInventoryDeletionsCommandOutput) => void
-  ): Promise<DescribeInventoryDeletionsCommandOutput> | void {
-    const command = new DescribeInventoryDeletionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the executions of a maintenance window. This includes information about when the
-   *    maintenance window was scheduled to be active, and information about tasks registered and run
-   *    with the maintenance window.</p>
-   */
-  public describeMaintenanceWindowExecutions(
-    args: DescribeMaintenanceWindowExecutionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput>;
-  public describeMaintenanceWindowExecutions(
-    args: DescribeMaintenanceWindowExecutionsCommandInput,
-    cb: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowExecutions(
-    args: DescribeMaintenanceWindowExecutionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowExecutions(
-    args: DescribeMaintenanceWindowExecutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
-  ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowExecutionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the individual task executions (one per target) for a particular task run as part
-   *    of a maintenance window execution.</p>
-   */
-  public describeMaintenanceWindowExecutionTaskInvocations(
-    args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput>;
-  public describeMaintenanceWindowExecutionTaskInvocations(
-    args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowExecutionTaskInvocations(
-    args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowExecutionTaskInvocations(
-    args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
-  ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowExecutionTaskInvocationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>For a given maintenance window execution, lists the tasks that were run.</p>
-   */
-  public describeMaintenanceWindowExecutionTasks(
-    args: DescribeMaintenanceWindowExecutionTasksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput>;
-  public describeMaintenanceWindowExecutionTasks(
-    args: DescribeMaintenanceWindowExecutionTasksCommandInput,
-    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowExecutionTasks(
-    args: DescribeMaintenanceWindowExecutionTasksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowExecutionTasks(
-    args: DescribeMaintenanceWindowExecutionTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
-  ): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowExecutionTasksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the maintenance windows in an Amazon Web Services account.</p>
-   */
-  public describeMaintenanceWindows(
-    args: DescribeMaintenanceWindowsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowsCommandOutput>;
-  public describeMaintenanceWindows(
-    args: DescribeMaintenanceWindowsCommandInput,
-    cb: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindows(
-    args: DescribeMaintenanceWindowsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindows(
-    args: DescribeMaintenanceWindowsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
-  ): Promise<DescribeMaintenanceWindowsCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about upcoming executions of a maintenance window.</p>
-   */
-  public describeMaintenanceWindowSchedule(
-    args: DescribeMaintenanceWindowScheduleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowScheduleCommandOutput>;
-  public describeMaintenanceWindowSchedule(
-    args: DescribeMaintenanceWindowScheduleCommandInput,
-    cb: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowSchedule(
-    args: DescribeMaintenanceWindowScheduleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowSchedule(
-    args: DescribeMaintenanceWindowScheduleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
-  ): Promise<DescribeMaintenanceWindowScheduleCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowScheduleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about the maintenance window targets or tasks that a managed node is
-   *    associated with.</p>
-   */
-  public describeMaintenanceWindowsForTarget(
-    args: DescribeMaintenanceWindowsForTargetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput>;
-  public describeMaintenanceWindowsForTarget(
-    args: DescribeMaintenanceWindowsForTargetCommandInput,
-    cb: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowsForTarget(
-    args: DescribeMaintenanceWindowsForTargetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowsForTarget(
-    args: DescribeMaintenanceWindowsForTargetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
-  ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowsForTargetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the targets registered with the maintenance window.</p>
-   */
-  public describeMaintenanceWindowTargets(
-    args: DescribeMaintenanceWindowTargetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowTargetsCommandOutput>;
-  public describeMaintenanceWindowTargets(
-    args: DescribeMaintenanceWindowTargetsCommandInput,
-    cb: (err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowTargets(
-    args: DescribeMaintenanceWindowTargetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowTargets(
-    args: DescribeMaintenanceWindowTargetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void
-  ): Promise<DescribeMaintenanceWindowTargetsCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the tasks in a maintenance window.</p>
-   *          <note>
-   *             <p>For maintenance window tasks without a specified target, you can't supply values for
-   *      <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system inserts a
-   *     placeholder value of <code>1</code>, which may be reported in the response to this command.
-   *     These values don't affect the running of your task and can be ignored.</p>
-   *          </note>
-   */
-  public describeMaintenanceWindowTasks(
-    args: DescribeMaintenanceWindowTasksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMaintenanceWindowTasksCommandOutput>;
-  public describeMaintenanceWindowTasks(
-    args: DescribeMaintenanceWindowTasksCommandInput,
-    cb: (err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowTasks(
-    args: DescribeMaintenanceWindowTasksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void
-  ): void;
-  public describeMaintenanceWindowTasks(
-    args: DescribeMaintenanceWindowTasksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void
-  ): Promise<DescribeMaintenanceWindowTasksCommandOutput> | void {
-    const command = new DescribeMaintenanceWindowTasksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Query a set of OpsItems. You must have permission in Identity and Access Management (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
-   *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
-   *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
-   *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
-   */
-  public describeOpsItems(
-    args: DescribeOpsItemsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeOpsItemsCommandOutput>;
-  public describeOpsItems(
-    args: DescribeOpsItemsCommandInput,
-    cb: (err: any, data?: DescribeOpsItemsCommandOutput) => void
-  ): void;
-  public describeOpsItems(
-    args: DescribeOpsItemsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeOpsItemsCommandOutput) => void
-  ): void;
-  public describeOpsItems(
-    args: DescribeOpsItemsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOpsItemsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeOpsItemsCommandOutput) => void
-  ): Promise<DescribeOpsItemsCommandOutput> | void {
-    const command = new DescribeOpsItemsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get information about a parameter.</p>
-   *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
-   *    in the request, the response includes information up to the limit specified. The number of items
-   *    returned, however, can be between zero and the value of <code>MaxResults</code>. If the service
-   *    reaches an internal limit while processing the results, it stops the operation and returns the
-   *    matching values up to that point and a <code>NextToken</code>. You can specify the
-   *     <code>NextToken</code> in a subsequent call to get the next set of results.</p>
-   *          <important>
-   *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must
-   *     also update the key alias the parameter uses to reference KMS. Otherwise,
-   *      <code>DescribeParameters</code> retrieves whatever the original key alias was
-   *     referencing.</p>
-   *          </important>
-   */
-  public describeParameters(
-    args: DescribeParametersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeParametersCommandOutput>;
-  public describeParameters(
-    args: DescribeParametersCommandInput,
-    cb: (err: any, data?: DescribeParametersCommandOutput) => void
-  ): void;
-  public describeParameters(
-    args: DescribeParametersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeParametersCommandOutput) => void
-  ): void;
-  public describeParameters(
-    args: DescribeParametersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeParametersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeParametersCommandOutput) => void
-  ): Promise<DescribeParametersCommandOutput> | void {
-    const command = new DescribeParametersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the patch baselines in your Amazon Web Services account.</p>
-   */
-  public describePatchBaselines(
-    args: DescribePatchBaselinesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribePatchBaselinesCommandOutput>;
-  public describePatchBaselines(
-    args: DescribePatchBaselinesCommandInput,
-    cb: (err: any, data?: DescribePatchBaselinesCommandOutput) => void
-  ): void;
-  public describePatchBaselines(
-    args: DescribePatchBaselinesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribePatchBaselinesCommandOutput) => void
-  ): void;
-  public describePatchBaselines(
-    args: DescribePatchBaselinesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePatchBaselinesCommandOutput) => void),
-    cb?: (err: any, data?: DescribePatchBaselinesCommandOutput) => void
-  ): Promise<DescribePatchBaselinesCommandOutput> | void {
-    const command = new DescribePatchBaselinesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all patch groups that have been registered with patch baselines.</p>
-   */
-  public describePatchGroups(
-    args: DescribePatchGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribePatchGroupsCommandOutput>;
-  public describePatchGroups(
-    args: DescribePatchGroupsCommandInput,
-    cb: (err: any, data?: DescribePatchGroupsCommandOutput) => void
-  ): void;
-  public describePatchGroups(
-    args: DescribePatchGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribePatchGroupsCommandOutput) => void
-  ): void;
-  public describePatchGroups(
-    args: DescribePatchGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePatchGroupsCommandOutput) => void),
-    cb?: (err: any, data?: DescribePatchGroupsCommandOutput) => void
-  ): Promise<DescribePatchGroupsCommandOutput> | void {
-    const command = new DescribePatchGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns high-level aggregated patch compliance state information for a patch group.</p>
-   */
-  public describePatchGroupState(
-    args: DescribePatchGroupStateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribePatchGroupStateCommandOutput>;
-  public describePatchGroupState(
-    args: DescribePatchGroupStateCommandInput,
-    cb: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
-  ): void;
-  public describePatchGroupState(
-    args: DescribePatchGroupStateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
-  ): void;
-  public describePatchGroupState(
-    args: DescribePatchGroupStateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePatchGroupStateCommandOutput) => void),
-    cb?: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
-  ): Promise<DescribePatchGroupStateCommandOutput> | void {
-    const command = new DescribePatchGroupStateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the properties of available patches organized by product, product family,
-   *    classification, severity, and other properties of available patches. You can use the reported
-   *    properties in the filters you specify in requests for operations such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>
-   *          <p>The following section lists the properties that can be used in filters for each major
-   *    operating system type:</p>
-   *          <dl>
-   *             <dt>AMAZON_LINUX</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
-   *        <code>SEVERITY</code>
-   *                </p>
-   *             </dd>
-   *             <dt>AMAZON_LINUX_2</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
-   *        <code>SEVERITY</code>
-   *                </p>
-   *             </dd>
-   *             <dt>CENTOS</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
-   *        <code>SEVERITY</code>
-   *                </p>
-   *             </dd>
-   *             <dt>DEBIAN</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>PRIORITY</code>
-   *                </p>
-   *             </dd>
-   *             <dt>MACOS</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code>
-   *                </p>
-   *             </dd>
-   *             <dt>ORACLE_LINUX</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
-   *        <code>SEVERITY</code>
-   *                </p>
-   *             </dd>
-   *             <dt>REDHAT_ENTERPRISE_LINUX</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
-   *        <code>SEVERITY</code>
-   *                </p>
-   *             </dd>
-   *             <dt>SUSE</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
-   *        <code>SEVERITY</code>
-   *                </p>
-   *             </dd>
-   *             <dt>UBUNTU</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>PRIORITY</code>
-   *                </p>
-   *             </dd>
-   *             <dt>WINDOWS</dt>
-   *             <dd>
-   *                <p>Valid properties: <code>PRODUCT</code> | <code>PRODUCT_FAMILY</code> |
-   *        <code>CLASSIFICATION</code> | <code>MSRC_SEVERITY</code>
-   *                </p>
-   *             </dd>
-   *          </dl>
-   */
-  public describePatchProperties(
-    args: DescribePatchPropertiesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribePatchPropertiesCommandOutput>;
-  public describePatchProperties(
-    args: DescribePatchPropertiesCommandInput,
-    cb: (err: any, data?: DescribePatchPropertiesCommandOutput) => void
-  ): void;
-  public describePatchProperties(
-    args: DescribePatchPropertiesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribePatchPropertiesCommandOutput) => void
-  ): void;
-  public describePatchProperties(
-    args: DescribePatchPropertiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePatchPropertiesCommandOutput) => void),
-    cb?: (err: any, data?: DescribePatchPropertiesCommandOutput) => void
-  ): Promise<DescribePatchPropertiesCommandOutput> | void {
-    const command = new DescribePatchPropertiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
-   *    sessions from the past 30 days.</p>
-   */
-  public describeSessions(
-    args: DescribeSessionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeSessionsCommandOutput>;
-  public describeSessions(
-    args: DescribeSessionsCommandInput,
-    cb: (err: any, data?: DescribeSessionsCommandOutput) => void
-  ): void;
-  public describeSessions(
-    args: DescribeSessionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeSessionsCommandOutput) => void
-  ): void;
-  public describeSessions(
-    args: DescribeSessionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSessionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSessionsCommandOutput) => void
-  ): Promise<DescribeSessionsCommandOutput> | void {
-    const command = new DescribeSessionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the association between an OpsItem and a related item. For example, this API
-   *    operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a capability of
-   *    Amazon Web Services Systems Manager.</p>
-   */
-  public disassociateOpsItemRelatedItem(
-    args: DisassociateOpsItemRelatedItemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateOpsItemRelatedItemCommandOutput>;
-  public disassociateOpsItemRelatedItem(
-    args: DisassociateOpsItemRelatedItemCommandInput,
-    cb: (err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void
-  ): void;
-  public disassociateOpsItemRelatedItem(
-    args: DisassociateOpsItemRelatedItemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void
-  ): void;
-  public disassociateOpsItemRelatedItem(
-    args: DisassociateOpsItemRelatedItemCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void
-  ): Promise<DisassociateOpsItemRelatedItemCommandOutput> | void {
-    const command = new DisassociateOpsItemRelatedItemCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get detailed information about a particular Automation execution.</p>
-   */
-  public getAutomationExecution(
-    args: GetAutomationExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAutomationExecutionCommandOutput>;
-  public getAutomationExecution(
-    args: GetAutomationExecutionCommandInput,
-    cb: (err: any, data?: GetAutomationExecutionCommandOutput) => void
-  ): void;
-  public getAutomationExecution(
-    args: GetAutomationExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAutomationExecutionCommandOutput) => void
-  ): void;
-  public getAutomationExecution(
-    args: GetAutomationExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAutomationExecutionCommandOutput) => void),
-    cb?: (err: any, data?: GetAutomationExecutionCommandOutput) => void
-  ): Promise<GetAutomationExecutionCommandOutput> | void {
-    const command = new GetAutomationExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the state of a Amazon Web Services Systems Manager change calendar at the current time or a specified time. If
-   *    you specify a time, <code>GetCalendarState</code> returns the state of the calendar at that
-   *    specific time, and returns the next time that the change calendar state will transition. If you
-   *    don't specify a time, <code>GetCalendarState</code> uses the current time. Change Calendar
-   *    entries have two possible states: <code>OPEN</code> or <code>CLOSED</code>.</p>
-   *          <p>If you specify more than one calendar in a request, the command returns the status of
-   *     <code>OPEN</code> only if all calendars in the request are open. If one or more calendars in the
-   *    request are closed, the status returned is <code>CLOSED</code>.</p>
-   *          <p>For more information about Change Calendar, a capability of Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">Amazon Web Services Systems Manager Change Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   */
-  public getCalendarState(
-    args: GetCalendarStateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCalendarStateCommandOutput>;
-  public getCalendarState(
-    args: GetCalendarStateCommandInput,
-    cb: (err: any, data?: GetCalendarStateCommandOutput) => void
-  ): void;
-  public getCalendarState(
-    args: GetCalendarStateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCalendarStateCommandOutput) => void
-  ): void;
-  public getCalendarState(
-    args: GetCalendarStateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCalendarStateCommandOutput) => void),
-    cb?: (err: any, data?: GetCalendarStateCommandOutput) => void
-  ): Promise<GetCalendarStateCommandOutput> | void {
-    const command = new GetCalendarStateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns detailed information about command execution for an invocation or plugin.</p>
-   *          <p>
-   *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
-   *    To get the command execution status on a specific managed node, use <a>ListCommandInvocations</a>. To get the command execution status across managed nodes,
-   *    use <a>ListCommands</a>.</p>
-   */
-  public getCommandInvocation(
-    args: GetCommandInvocationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCommandInvocationCommandOutput>;
-  public getCommandInvocation(
-    args: GetCommandInvocationCommandInput,
-    cb: (err: any, data?: GetCommandInvocationCommandOutput) => void
-  ): void;
-  public getCommandInvocation(
-    args: GetCommandInvocationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCommandInvocationCommandOutput) => void
-  ): void;
-  public getCommandInvocation(
-    args: GetCommandInvocationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommandInvocationCommandOutput) => void),
-    cb?: (err: any, data?: GetCommandInvocationCommandOutput) => void
-  ): Promise<GetCommandInvocationCommandOutput> | void {
-    const command = new GetCommandInvocationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the Session Manager connection status for a managed node to determine whether it is running
-   *    and ready to receive Session Manager connections.</p>
-   */
-  public getConnectionStatus(
-    args: GetConnectionStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetConnectionStatusCommandOutput>;
-  public getConnectionStatus(
-    args: GetConnectionStatusCommandInput,
-    cb: (err: any, data?: GetConnectionStatusCommandOutput) => void
-  ): void;
-  public getConnectionStatus(
-    args: GetConnectionStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetConnectionStatusCommandOutput) => void
-  ): void;
-  public getConnectionStatus(
-    args: GetConnectionStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionStatusCommandOutput) => void),
-    cb?: (err: any, data?: GetConnectionStatusCommandOutput) => void
-  ): Promise<GetConnectionStatusCommandOutput> | void {
-    const command = new GetConnectionStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
-   *    baselines. For example, you can create a default patch baseline for each operating system.</p>
-   *          <p>If you don't specify an operating system value, the default patch baseline for Windows is
-   *    returned.</p>
-   */
-  public getDefaultPatchBaseline(
-    args: GetDefaultPatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDefaultPatchBaselineCommandOutput>;
-  public getDefaultPatchBaseline(
-    args: GetDefaultPatchBaselineCommandInput,
-    cb: (err: any, data?: GetDefaultPatchBaselineCommandOutput) => void
-  ): void;
-  public getDefaultPatchBaseline(
-    args: GetDefaultPatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDefaultPatchBaselineCommandOutput) => void
-  ): void;
-  public getDefaultPatchBaseline(
-    args: GetDefaultPatchBaselineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDefaultPatchBaselineCommandOutput) => void),
-    cb?: (err: any, data?: GetDefaultPatchBaselineCommandOutput) => void
-  ): Promise<GetDefaultPatchBaselineCommandOutput> | void {
-    const command = new GetDefaultPatchBaselineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the current snapshot for the patch baseline the managed node uses. This API is
-   *    primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document (SSM document).</p>
-   *          <note>
-   *             <p>If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid
-   *     this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a capability of
-   *     Amazon Web Services Systems Manager, with an SSM document that enables you to target a managed node with a script or
-   *     command. For example, run the command using the <code>AWS-RunShellScript</code> document or the
-   *      <code>AWS-RunPowerShellScript</code> document.</p>
-   *          </note>
-   */
-  public getDeployablePatchSnapshotForInstance(
-    args: GetDeployablePatchSnapshotForInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput>;
-  public getDeployablePatchSnapshotForInstance(
-    args: GetDeployablePatchSnapshotForInstanceCommandInput,
-    cb: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
-  ): void;
-  public getDeployablePatchSnapshotForInstance(
-    args: GetDeployablePatchSnapshotForInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
-  ): void;
-  public getDeployablePatchSnapshotForInstance(
-    args: GetDeployablePatchSnapshotForInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void),
-    cb?: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
-  ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> | void {
-    const command = new GetDeployablePatchSnapshotForInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the contents of the specified Amazon Web Services Systems Manager document (SSM document).</p>
-   */
-  public getDocument(args: GetDocumentCommandInput, options?: __HttpHandlerOptions): Promise<GetDocumentCommandOutput>;
-  public getDocument(args: GetDocumentCommandInput, cb: (err: any, data?: GetDocumentCommandOutput) => void): void;
-  public getDocument(
-    args: GetDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDocumentCommandOutput) => void
-  ): void;
-  public getDocument(
-    args: GetDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentCommandOutput) => void),
-    cb?: (err: any, data?: GetDocumentCommandOutput) => void
-  ): Promise<GetDocumentCommandOutput> | void {
-    const command = new GetDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code>
-   *    or <code>Terminated</code>.</p>
-   */
-  public getInventory(
-    args: GetInventoryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetInventoryCommandOutput>;
-  public getInventory(args: GetInventoryCommandInput, cb: (err: any, data?: GetInventoryCommandOutput) => void): void;
-  public getInventory(
-    args: GetInventoryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetInventoryCommandOutput) => void
-  ): void;
-  public getInventory(
-    args: GetInventoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInventoryCommandOutput) => void),
-    cb?: (err: any, data?: GetInventoryCommandOutput) => void
-  ): Promise<GetInventoryCommandOutput> | void {
-    const command = new GetInventoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Return a list of inventory type names for the account, or return a list of attribute names
-   *    for a specific Inventory item type.</p>
-   */
-  public getInventorySchema(
-    args: GetInventorySchemaCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetInventorySchemaCommandOutput>;
-  public getInventorySchema(
-    args: GetInventorySchemaCommandInput,
-    cb: (err: any, data?: GetInventorySchemaCommandOutput) => void
-  ): void;
-  public getInventorySchema(
-    args: GetInventorySchemaCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetInventorySchemaCommandOutput) => void
-  ): void;
-  public getInventorySchema(
-    args: GetInventorySchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInventorySchemaCommandOutput) => void),
-    cb?: (err: any, data?: GetInventorySchemaCommandOutput) => void
-  ): Promise<GetInventorySchemaCommandOutput> | void {
-    const command = new GetInventorySchemaCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a maintenance window.</p>
-   */
-  public getMaintenanceWindow(
-    args: GetMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMaintenanceWindowCommandOutput>;
-  public getMaintenanceWindow(
-    args: GetMaintenanceWindowCommandInput,
-    cb: (err: any, data?: GetMaintenanceWindowCommandOutput) => void
-  ): void;
-  public getMaintenanceWindow(
-    args: GetMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMaintenanceWindowCommandOutput) => void
-  ): void;
-  public getMaintenanceWindow(
-    args: GetMaintenanceWindowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMaintenanceWindowCommandOutput) => void),
-    cb?: (err: any, data?: GetMaintenanceWindowCommandOutput) => void
-  ): Promise<GetMaintenanceWindowCommandOutput> | void {
-    const command = new GetMaintenanceWindowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves details about a specific a maintenance window execution.</p>
-   */
-  public getMaintenanceWindowExecution(
-    args: GetMaintenanceWindowExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMaintenanceWindowExecutionCommandOutput>;
-  public getMaintenanceWindowExecution(
-    args: GetMaintenanceWindowExecutionCommandInput,
-    cb: (err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void
-  ): void;
-  public getMaintenanceWindowExecution(
-    args: GetMaintenanceWindowExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void
-  ): void;
-  public getMaintenanceWindowExecution(
-    args: GetMaintenanceWindowExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void),
-    cb?: (err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void
-  ): Promise<GetMaintenanceWindowExecutionCommandOutput> | void {
-    const command = new GetMaintenanceWindowExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the details about a specific task run as part of a maintenance window
-   *    execution.</p>
-   */
-  public getMaintenanceWindowExecutionTask(
-    args: GetMaintenanceWindowExecutionTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMaintenanceWindowExecutionTaskCommandOutput>;
-  public getMaintenanceWindowExecutionTask(
-    args: GetMaintenanceWindowExecutionTaskCommandInput,
-    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
-  ): void;
-  public getMaintenanceWindowExecutionTask(
-    args: GetMaintenanceWindowExecutionTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
-  ): void;
-  public getMaintenanceWindowExecutionTask(
-    args: GetMaintenanceWindowExecutionTaskCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void),
-    cb?: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
-  ): Promise<GetMaintenanceWindowExecutionTaskCommandOutput> | void {
-    const command = new GetMaintenanceWindowExecutionTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a specific task running on a specific target.</p>
-   */
-  public getMaintenanceWindowExecutionTaskInvocation(
-    args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput>;
-  public getMaintenanceWindowExecutionTaskInvocation(
-    args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
-  ): void;
-  public getMaintenanceWindowExecutionTaskInvocation(
-    args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
-  ): void;
-  public getMaintenanceWindowExecutionTaskInvocation(
-    args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void),
-    cb?: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
-  ): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput> | void {
-    const command = new GetMaintenanceWindowExecutionTaskInvocationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the details of a maintenance window task.</p>
-   *          <note>
-   *             <p>For maintenance window tasks without a specified target, you can't supply values for
-   *      <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system inserts a
-   *     placeholder value of <code>1</code>, which may be reported in the response to this command.
-   *     These values don't affect the running of your task and can be ignored.</p>
-   *          </note>
-   *          <p>To retrieve a list of tasks in a maintenance window, instead use the <a>DescribeMaintenanceWindowTasks</a> command.</p>
-   */
-  public getMaintenanceWindowTask(
-    args: GetMaintenanceWindowTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMaintenanceWindowTaskCommandOutput>;
-  public getMaintenanceWindowTask(
-    args: GetMaintenanceWindowTaskCommandInput,
-    cb: (err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void
-  ): void;
-  public getMaintenanceWindowTask(
-    args: GetMaintenanceWindowTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void
-  ): void;
-  public getMaintenanceWindowTask(
-    args: GetMaintenanceWindowTaskCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void),
-    cb?: (err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void
-  ): Promise<GetMaintenanceWindowTaskCommandOutput> | void {
-    const command = new GetMaintenanceWindowTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get information about an OpsItem by using the ID. You must have permission in Identity and Access Management (IAM) to view information about an OpsItem. For more information,
-   *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
-   *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
-   *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
-   *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
-   */
-  public getOpsItem(args: GetOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<GetOpsItemCommandOutput>;
-  public getOpsItem(args: GetOpsItemCommandInput, cb: (err: any, data?: GetOpsItemCommandOutput) => void): void;
-  public getOpsItem(
-    args: GetOpsItemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetOpsItemCommandOutput) => void
-  ): void;
-  public getOpsItem(
-    args: GetOpsItemCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpsItemCommandOutput) => void),
-    cb?: (err: any, data?: GetOpsItemCommandOutput) => void
-  ): Promise<GetOpsItemCommandOutput> | void {
-    const command = new GetOpsItemCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>View operational metadata related to an application in Application Manager.</p>
-   */
-  public getOpsMetadata(
-    args: GetOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetOpsMetadataCommandOutput>;
-  public getOpsMetadata(
-    args: GetOpsMetadataCommandInput,
-    cb: (err: any, data?: GetOpsMetadataCommandOutput) => void
-  ): void;
-  public getOpsMetadata(
-    args: GetOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetOpsMetadataCommandOutput) => void
-  ): void;
-  public getOpsMetadata(
-    args: GetOpsMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpsMetadataCommandOutput) => void),
-    cb?: (err: any, data?: GetOpsMetadataCommandOutput) => void
-  ): Promise<GetOpsMetadataCommandOutput> | void {
-    const command = new GetOpsMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>View a summary of operations metadata (OpsData) based on specified filters and aggregators.
-   *    OpsData can include information about Amazon Web Services Systems Manager OpsCenter operational workitems (OpsItems) as
-   *    well as information about any Amazon Web Services resource or service configured to report OpsData to Amazon Web Services Systems Manager
-   *    Explorer. </p>
-   */
-  public getOpsSummary(
-    args: GetOpsSummaryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetOpsSummaryCommandOutput>;
-  public getOpsSummary(
-    args: GetOpsSummaryCommandInput,
-    cb: (err: any, data?: GetOpsSummaryCommandOutput) => void
-  ): void;
-  public getOpsSummary(
-    args: GetOpsSummaryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetOpsSummaryCommandOutput) => void
-  ): void;
-  public getOpsSummary(
-    args: GetOpsSummaryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpsSummaryCommandOutput) => void),
-    cb?: (err: any, data?: GetOpsSummaryCommandOutput) => void
-  ): Promise<GetOpsSummaryCommandOutput> | void {
-    const command = new GetOpsSummaryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get information about a single parameter by specifying the parameter name.</p>
-   *          <note>
-   *             <p>To get information about more than one parameter at a time, use the <a>GetParameters</a> operation.</p>
-   *          </note>
-   */
-  public getParameter(
-    args: GetParameterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetParameterCommandOutput>;
-  public getParameter(args: GetParameterCommandInput, cb: (err: any, data?: GetParameterCommandOutput) => void): void;
-  public getParameter(
-    args: GetParameterCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetParameterCommandOutput) => void
-  ): void;
-  public getParameter(
-    args: GetParameterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParameterCommandOutput) => void),
-    cb?: (err: any, data?: GetParameterCommandOutput) => void
-  ): Promise<GetParameterCommandOutput> | void {
-    const command = new GetParameterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the history of all changes to a parameter.</p>
-   *          <important>
-   *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must
-   *     also update the key alias the parameter uses to reference KMS. Otherwise,
-   *      <code>GetParameterHistory</code> retrieves whatever the original key alias was
-   *     referencing.</p>
-   *          </important>
-   */
-  public getParameterHistory(
-    args: GetParameterHistoryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetParameterHistoryCommandOutput>;
-  public getParameterHistory(
-    args: GetParameterHistoryCommandInput,
-    cb: (err: any, data?: GetParameterHistoryCommandOutput) => void
-  ): void;
-  public getParameterHistory(
-    args: GetParameterHistoryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetParameterHistoryCommandOutput) => void
-  ): void;
-  public getParameterHistory(
-    args: GetParameterHistoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParameterHistoryCommandOutput) => void),
-    cb?: (err: any, data?: GetParameterHistoryCommandOutput) => void
-  ): Promise<GetParameterHistoryCommandOutput> | void {
-    const command = new GetParameterHistoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get information about one or more parameters by specifying multiple parameter names.</p>
-   *          <note>
-   *             <p>To get information about a single parameter, you can use the <a>GetParameter</a>
-   *     operation instead.</p>
-   *          </note>
-   */
-  public getParameters(
-    args: GetParametersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetParametersCommandOutput>;
-  public getParameters(
-    args: GetParametersCommandInput,
-    cb: (err: any, data?: GetParametersCommandOutput) => void
-  ): void;
-  public getParameters(
-    args: GetParametersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetParametersCommandOutput) => void
-  ): void;
-  public getParameters(
-    args: GetParametersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParametersCommandOutput) => void),
-    cb?: (err: any, data?: GetParametersCommandOutput) => void
-  ): Promise<GetParametersCommandOutput> | void {
-    const command = new GetParametersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieve information about one or more parameters in a specific hierarchy. </p>
-   *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
-   *    in the request, the response includes information up to the limit specified. The number of items
-   *    returned, however, can be between zero and the value of <code>MaxResults</code>. If the service
-   *    reaches an internal limit while processing the results, it stops the operation and returns the
-   *    matching values up to that point and a <code>NextToken</code>. You can specify the
-   *     <code>NextToken</code> in a subsequent call to get the next set of results.</p>
-   */
-  public getParametersByPath(
-    args: GetParametersByPathCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetParametersByPathCommandOutput>;
-  public getParametersByPath(
-    args: GetParametersByPathCommandInput,
-    cb: (err: any, data?: GetParametersByPathCommandOutput) => void
-  ): void;
-  public getParametersByPath(
-    args: GetParametersByPathCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetParametersByPathCommandOutput) => void
-  ): void;
-  public getParametersByPath(
-    args: GetParametersByPathCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParametersByPathCommandOutput) => void),
-    cb?: (err: any, data?: GetParametersByPathCommandOutput) => void
-  ): Promise<GetParametersByPathCommandOutput> | void {
-    const command = new GetParametersByPathCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a patch baseline.</p>
-   */
-  public getPatchBaseline(
-    args: GetPatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPatchBaselineCommandOutput>;
-  public getPatchBaseline(
-    args: GetPatchBaselineCommandInput,
-    cb: (err: any, data?: GetPatchBaselineCommandOutput) => void
-  ): void;
-  public getPatchBaseline(
-    args: GetPatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPatchBaselineCommandOutput) => void
-  ): void;
-  public getPatchBaseline(
-    args: GetPatchBaselineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPatchBaselineCommandOutput) => void),
-    cb?: (err: any, data?: GetPatchBaselineCommandOutput) => void
-  ): Promise<GetPatchBaselineCommandOutput> | void {
-    const command = new GetPatchBaselineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>
-   */
-  public getPatchBaselineForPatchGroup(
-    args: GetPatchBaselineForPatchGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPatchBaselineForPatchGroupCommandOutput>;
-  public getPatchBaselineForPatchGroup(
-    args: GetPatchBaselineForPatchGroupCommandInput,
-    cb: (err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void
-  ): void;
-  public getPatchBaselineForPatchGroup(
-    args: GetPatchBaselineForPatchGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void
-  ): void;
-  public getPatchBaselineForPatchGroup(
-    args: GetPatchBaselineForPatchGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void
-  ): Promise<GetPatchBaselineForPatchGroupCommandOutput> | void {
-    const command = new GetPatchBaselineForPatchGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns an array of the <code>Policy</code> object.</p>
-   */
-  public getResourcePolicies(
-    args: GetResourcePoliciesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResourcePoliciesCommandOutput>;
-  public getResourcePolicies(
-    args: GetResourcePoliciesCommandInput,
-    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
-  ): void;
-  public getResourcePolicies(
-    args: GetResourcePoliciesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
-  ): void;
-  public getResourcePolicies(
-    args: GetResourcePoliciesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePoliciesCommandOutput) => void),
-    cb?: (err: any, data?: GetResourcePoliciesCommandOutput) => void
-  ): Promise<GetResourcePoliciesCommandOutput> | void {
-    const command = new GetResourcePoliciesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
-   *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
-   *    Amazon Web Services service charges money to the account based on feature or service usage, then the Amazon Web Services
-   *    service team might create a default setting of <code>false</code>. This means the user can't use
-   *    this feature unless they change the setting to <code>true</code> and intentionally opt in for a
-   *    paid feature.</p>
-   *          <p>Services map a <code>SettingId</code> object to a setting value. Amazon Web Services services teams define
-   *    the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>,
-   *    but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code>
-   *    permission for the setting. Use the <a>UpdateServiceSetting</a> API operation to
-   *    change the default setting. Or use the <a>ResetServiceSetting</a> to change the value
-   *    back to the original value defined by the Amazon Web Services service team.</p>
-   *          <p>Query the current service setting for the Amazon Web Services account. </p>
-   */
-  public getServiceSetting(
-    args: GetServiceSettingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetServiceSettingCommandOutput>;
-  public getServiceSetting(
-    args: GetServiceSettingCommandInput,
-    cb: (err: any, data?: GetServiceSettingCommandOutput) => void
-  ): void;
-  public getServiceSetting(
-    args: GetServiceSettingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetServiceSettingCommandOutput) => void
-  ): void;
-  public getServiceSetting(
-    args: GetServiceSettingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceSettingCommandOutput) => void),
-    cb?: (err: any, data?: GetServiceSettingCommandOutput) => void
-  ): Promise<GetServiceSettingCommandOutput> | void {
-    const command = new GetServiceSettingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>A parameter label is a user-defined alias to help you manage different versions of a
-   *    parameter. When you modify a parameter, Amazon Web Services Systems Manager automatically saves a new version and
-   *    increments the version number by one. A label can help you remember the purpose of a parameter
-   *    when there are multiple versions. </p>
-   *          <p>Parameter labels have the following requirements and restrictions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>A version of a parameter can have a maximum of 10 labels.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can't attach the same label to different versions of the same parameter. For example,
-   *      if version 1 has the label Production, then you can't attach Production to version 2.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can move a label from one version of a parameter to another.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can't create a label when you create a new parameter. You must attach a label to a
-   *      specific version of a parameter.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you no longer want to use a parameter label, then you can either delete it or move it
-   *      to a different version of a parameter.</p>
-   *             </li>
-   *             <li>
-   *                <p>A label can have a maximum of 100 characters.</p>
-   *             </li>
-   *             <li>
-   *                <p>Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or
-   *      underscores (_).</p>
-   *             </li>
-   *             <li>
-   *                <p>Labels can't begin with a number, "<code>aws</code>" or "<code>ssm</code>" (not case
-   *      sensitive). If a label fails to meet these requirements, then the label isn't associated with a
-   *      parameter and the system displays it in the list of InvalidLabels.</p>
-   *             </li>
-   *          </ul>
-   */
-  public labelParameterVersion(
-    args: LabelParameterVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<LabelParameterVersionCommandOutput>;
-  public labelParameterVersion(
-    args: LabelParameterVersionCommandInput,
-    cb: (err: any, data?: LabelParameterVersionCommandOutput) => void
-  ): void;
-  public labelParameterVersion(
-    args: LabelParameterVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: LabelParameterVersionCommandOutput) => void
-  ): void;
-  public labelParameterVersion(
-    args: LabelParameterVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LabelParameterVersionCommandOutput) => void),
-    cb?: (err: any, data?: LabelParameterVersionCommandOutput) => void
-  ): Promise<LabelParameterVersionCommandOutput> | void {
-    const command = new LabelParameterVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You
-   *    can limit the results to a specific State Manager association document or managed node by
-   *    specifying a filter. State Manager is a capability of Amazon Web Services Systems Manager.</p>
-   */
-  public listAssociations(
-    args: ListAssociationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAssociationsCommandOutput>;
-  public listAssociations(
-    args: ListAssociationsCommandInput,
-    cb: (err: any, data?: ListAssociationsCommandOutput) => void
-  ): void;
-  public listAssociations(
-    args: ListAssociationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAssociationsCommandOutput) => void
-  ): void;
-  public listAssociations(
-    args: ListAssociationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: ListAssociationsCommandOutput) => void
-  ): Promise<ListAssociationsCommandOutput> | void {
-    const command = new ListAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves all versions of an association for a specific association ID.</p>
-   */
-  public listAssociationVersions(
-    args: ListAssociationVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAssociationVersionsCommandOutput>;
-  public listAssociationVersions(
-    args: ListAssociationVersionsCommandInput,
-    cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
-  ): void;
-  public listAssociationVersions(
-    args: ListAssociationVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
-  ): void;
-  public listAssociationVersions(
-    args: ListAssociationVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociationVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListAssociationVersionsCommandOutput) => void
-  ): Promise<ListAssociationVersionsCommandOutput> | void {
-    const command = new ListAssociationVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to
-   *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
-   *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
-   *    created for each requested managed node ID. <code>ListCommandInvocations</code> provide status
-   *    about command execution.</p>
-   */
-  public listCommandInvocations(
-    args: ListCommandInvocationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListCommandInvocationsCommandOutput>;
-  public listCommandInvocations(
-    args: ListCommandInvocationsCommandInput,
-    cb: (err: any, data?: ListCommandInvocationsCommandOutput) => void
-  ): void;
-  public listCommandInvocations(
-    args: ListCommandInvocationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListCommandInvocationsCommandOutput) => void
-  ): void;
-  public listCommandInvocations(
-    args: ListCommandInvocationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCommandInvocationsCommandOutput) => void),
-    cb?: (err: any, data?: ListCommandInvocationsCommandOutput) => void
-  ): Promise<ListCommandInvocationsCommandOutput> | void {
-    const command = new ListCommandInvocationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the commands requested by users of the Amazon Web Services account.</p>
-   */
-  public listCommands(
-    args: ListCommandsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListCommandsCommandOutput>;
-  public listCommands(args: ListCommandsCommandInput, cb: (err: any, data?: ListCommandsCommandOutput) => void): void;
-  public listCommands(
-    args: ListCommandsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListCommandsCommandOutput) => void
-  ): void;
-  public listCommands(
-    args: ListCommandsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCommandsCommandOutput) => void),
-    cb?: (err: any, data?: ListCommandsCommandOutput) => void
-  ): Promise<ListCommandsCommandOutput> | void {
-    const command = new ListCommandsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>For a specified resource ID, this API operation returns a list of compliance statuses for
-   *    different resource types. Currently, you can only specify one resource ID per call. List results
-   *    depend on the criteria specified in the filter.</p>
-   */
-  public listComplianceItems(
-    args: ListComplianceItemsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListComplianceItemsCommandOutput>;
-  public listComplianceItems(
-    args: ListComplianceItemsCommandInput,
-    cb: (err: any, data?: ListComplianceItemsCommandOutput) => void
-  ): void;
-  public listComplianceItems(
-    args: ListComplianceItemsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListComplianceItemsCommandOutput) => void
-  ): void;
-  public listComplianceItems(
-    args: ListComplianceItemsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComplianceItemsCommandOutput) => void),
-    cb?: (err: any, data?: ListComplianceItemsCommandOutput) => void
-  ): Promise<ListComplianceItemsCommandOutput> | void {
-    const command = new ListComplianceItemsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
-   *    example, this call can return State Manager associations, patches, or custom compliance types
-   *    according to the filter criteria that you specify.</p>
-   */
-  public listComplianceSummaries(
-    args: ListComplianceSummariesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListComplianceSummariesCommandOutput>;
-  public listComplianceSummaries(
-    args: ListComplianceSummariesCommandInput,
-    cb: (err: any, data?: ListComplianceSummariesCommandOutput) => void
-  ): void;
-  public listComplianceSummaries(
-    args: ListComplianceSummariesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListComplianceSummariesCommandOutput) => void
-  ): void;
-  public listComplianceSummaries(
-    args: ListComplianceSummariesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComplianceSummariesCommandOutput) => void),
-    cb?: (err: any, data?: ListComplianceSummariesCommandOutput) => void
-  ): Promise<ListComplianceSummariesCommandOutput> | void {
-    const command = new ListComplianceSummariesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Information about approval reviews for a version of a change template in Change Manager.</p>
-   */
-  public listDocumentMetadataHistory(
-    args: ListDocumentMetadataHistoryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDocumentMetadataHistoryCommandOutput>;
-  public listDocumentMetadataHistory(
-    args: ListDocumentMetadataHistoryCommandInput,
-    cb: (err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void
-  ): void;
-  public listDocumentMetadataHistory(
-    args: ListDocumentMetadataHistoryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void
-  ): void;
-  public listDocumentMetadataHistory(
-    args: ListDocumentMetadataHistoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void),
-    cb?: (err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void
-  ): Promise<ListDocumentMetadataHistoryCommandOutput> | void {
-    const command = new ListDocumentMetadataHistoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns all Systems Manager (SSM) documents in the current Amazon Web Services account and Amazon Web Services Region. You can
-   *    limit the results of this request by using a filter.</p>
-   */
-  public listDocuments(
-    args: ListDocumentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDocumentsCommandOutput>;
-  public listDocuments(
-    args: ListDocumentsCommandInput,
-    cb: (err: any, data?: ListDocumentsCommandOutput) => void
-  ): void;
-  public listDocuments(
-    args: ListDocumentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDocumentsCommandOutput) => void
-  ): void;
-  public listDocuments(
-    args: ListDocumentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentsCommandOutput) => void),
-    cb?: (err: any, data?: ListDocumentsCommandOutput) => void
-  ): Promise<ListDocumentsCommandOutput> | void {
-    const command = new ListDocumentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List all versions for a document.</p>
-   */
-  public listDocumentVersions(
-    args: ListDocumentVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDocumentVersionsCommandOutput>;
-  public listDocumentVersions(
-    args: ListDocumentVersionsCommandInput,
-    cb: (err: any, data?: ListDocumentVersionsCommandOutput) => void
-  ): void;
-  public listDocumentVersions(
-    args: ListDocumentVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDocumentVersionsCommandOutput) => void
-  ): void;
-  public listDocumentVersions(
-    args: ListDocumentVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListDocumentVersionsCommandOutput) => void
-  ): Promise<ListDocumentVersionsCommandOutput> | void {
-    const command = new ListDocumentVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>A list of inventory items returned by the request.</p>
-   */
-  public listInventoryEntries(
-    args: ListInventoryEntriesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListInventoryEntriesCommandOutput>;
-  public listInventoryEntries(
-    args: ListInventoryEntriesCommandInput,
-    cb: (err: any, data?: ListInventoryEntriesCommandOutput) => void
-  ): void;
-  public listInventoryEntries(
-    args: ListInventoryEntriesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListInventoryEntriesCommandOutput) => void
-  ): void;
-  public listInventoryEntries(
-    args: ListInventoryEntriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInventoryEntriesCommandOutput) => void),
-    cb?: (err: any, data?: ListInventoryEntriesCommandOutput) => void
-  ): Promise<ListInventoryEntriesCommandOutput> | void {
-    const command = new ListInventoryEntriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of all OpsItem events in the current Amazon Web Services Region and Amazon Web Services account. You can
-   *    limit the results to events associated with specific OpsItems by specifying a filter.</p>
-   */
-  public listOpsItemEvents(
-    args: ListOpsItemEventsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListOpsItemEventsCommandOutput>;
-  public listOpsItemEvents(
-    args: ListOpsItemEventsCommandInput,
-    cb: (err: any, data?: ListOpsItemEventsCommandOutput) => void
-  ): void;
-  public listOpsItemEvents(
-    args: ListOpsItemEventsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListOpsItemEventsCommandOutput) => void
-  ): void;
-  public listOpsItemEvents(
-    args: ListOpsItemEventsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOpsItemEventsCommandOutput) => void),
-    cb?: (err: any, data?: ListOpsItemEventsCommandOutput) => void
-  ): Promise<ListOpsItemEventsCommandOutput> | void {
-    const command = new ListOpsItemEventsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a
-   *    capability of Amazon Web Services Systems Manager.</p>
-   */
-  public listOpsItemRelatedItems(
-    args: ListOpsItemRelatedItemsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListOpsItemRelatedItemsCommandOutput>;
-  public listOpsItemRelatedItems(
-    args: ListOpsItemRelatedItemsCommandInput,
-    cb: (err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void
-  ): void;
-  public listOpsItemRelatedItems(
-    args: ListOpsItemRelatedItemsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void
-  ): void;
-  public listOpsItemRelatedItems(
-    args: ListOpsItemRelatedItemsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void),
-    cb?: (err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void
-  ): Promise<ListOpsItemRelatedItemsCommandOutput> | void {
-    const command = new ListOpsItemRelatedItemsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Amazon Web Services Systems Manager calls this API operation when displaying all Application Manager OpsMetadata objects or
-   *    blobs.</p>
-   */
-  public listOpsMetadata(
-    args: ListOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListOpsMetadataCommandOutput>;
-  public listOpsMetadata(
-    args: ListOpsMetadataCommandInput,
-    cb: (err: any, data?: ListOpsMetadataCommandOutput) => void
-  ): void;
-  public listOpsMetadata(
-    args: ListOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListOpsMetadataCommandOutput) => void
-  ): void;
-  public listOpsMetadata(
-    args: ListOpsMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOpsMetadataCommandOutput) => void),
-    cb?: (err: any, data?: ListOpsMetadataCommandOutput) => void
-  ): Promise<ListOpsMetadataCommandOutput> | void {
-    const command = new ListOpsMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a resource-level summary count. The summary includes information about compliant and
-   *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
-   *    criteria you specify.</p>
-   */
-  public listResourceComplianceSummaries(
-    args: ListResourceComplianceSummariesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResourceComplianceSummariesCommandOutput>;
-  public listResourceComplianceSummaries(
-    args: ListResourceComplianceSummariesCommandInput,
-    cb: (err: any, data?: ListResourceComplianceSummariesCommandOutput) => void
-  ): void;
-  public listResourceComplianceSummaries(
-    args: ListResourceComplianceSummariesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResourceComplianceSummariesCommandOutput) => void
-  ): void;
-  public listResourceComplianceSummaries(
-    args: ListResourceComplianceSummariesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceComplianceSummariesCommandOutput) => void),
-    cb?: (err: any, data?: ListResourceComplianceSummariesCommandOutput) => void
-  ): Promise<ListResourceComplianceSummariesCommandOutput> | void {
-    const command = new ListResourceComplianceSummariesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists your resource data sync configurations. Includes information about the last time a
-   *    sync attempted to start, the last sync status, and the last time a sync successfully
-   *    completed.</p>
-   *          <p>The number of sync configurations might be too large to return using a single call to
-   *     <code>ListResourceDataSync</code>. You can limit the number of sync configurations returned by
-   *    using the <code>MaxResults</code> parameter. To determine whether there are more sync
-   *    configurations to list, check the value of <code>NextToken</code> in the output. If there are
-   *    more sync configurations to list, you can request them by specifying the <code>NextToken</code>
-   *    returned in the call to the parameter of a subsequent call. </p>
-   */
-  public listResourceDataSync(
-    args: ListResourceDataSyncCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResourceDataSyncCommandOutput>;
-  public listResourceDataSync(
-    args: ListResourceDataSyncCommandInput,
-    cb: (err: any, data?: ListResourceDataSyncCommandOutput) => void
-  ): void;
-  public listResourceDataSync(
-    args: ListResourceDataSyncCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResourceDataSyncCommandOutput) => void
-  ): void;
-  public listResourceDataSync(
-    args: ListResourceDataSyncCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceDataSyncCommandOutput) => void),
-    cb?: (err: any, data?: ListResourceDataSyncCommandOutput) => void
-  ): Promise<ListResourceDataSyncCommandOutput> | void {
-    const command = new ListResourceDataSyncCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of the tags assigned to the specified resource.</p>
-   *          <p>For information about the ID format for each supported resource type, see <a>AddTagsToResource</a>.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
-   *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
-   *    you share a document publicly, you must specify <i>All</i> as the account
-   *    ID.</p>
-   */
-  public modifyDocumentPermission(
-    args: ModifyDocumentPermissionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ModifyDocumentPermissionCommandOutput>;
-  public modifyDocumentPermission(
-    args: ModifyDocumentPermissionCommandInput,
-    cb: (err: any, data?: ModifyDocumentPermissionCommandOutput) => void
-  ): void;
-  public modifyDocumentPermission(
-    args: ModifyDocumentPermissionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ModifyDocumentPermissionCommandOutput) => void
-  ): void;
-  public modifyDocumentPermission(
-    args: ModifyDocumentPermissionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDocumentPermissionCommandOutput) => void),
-    cb?: (err: any, data?: ModifyDocumentPermissionCommandOutput) => void
-  ): Promise<ModifyDocumentPermissionCommandOutput> | void {
-    const command = new ModifyDocumentPermissionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers a compliance type and other compliance details on a designated resource. This
-   *    operation lets you register custom compliance details with a resource. This call overwrites
-   *    existing compliance information on the resource, so you must provide a full list of compliance
-   *    items each time that you send the request.</p>
-   *          <p>ComplianceType can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>ExecutionId: The execution ID when the patch, association, or custom compliance item was
-   *      applied.</p>
-   *             </li>
-   *             <li>
-   *                <p>ExecutionType: Specify patch, association, or Custom:<code>string</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ExecutionTime. The time the patch, association, or custom compliance item was applied to
-   *      the managed node.</p>
-   *             </li>
-   *             <li>
-   *                <p>Id: The patch, association, or custom compliance ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>Title: A title.</p>
-   *             </li>
-   *             <li>
-   *                <p>Status: The status of the compliance item. For example, <code>approved</code> for patches,
-   *      or <code>Failed</code> for associations.</p>
-   *             </li>
-   *             <li>
-   *                <p>Severity: A patch severity. For example, <code>Critical</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>DocumentName: An SSM document name. For example, <code>AWS-RunPatchBaseline</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>DocumentVersion: An SSM document version number. For example, 4.</p>
-   *             </li>
-   *             <li>
-   *                <p>Classification: A patch classification. For example, <code>security updates</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>PatchBaselineId: A patch baseline ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>PatchSeverity: A patch severity. For example, <code>Critical</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>PatchState: A patch state. For example, <code>InstancesWithFailedPatches</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>PatchGroup: The name of a patch group.</p>
-   *             </li>
-   *             <li>
-   *                <p>InstalledTime: The time the association, patch, or custom compliance item was applied to
-   *      the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'</p>
-   *             </li>
-   *          </ul>
-   */
-  public putComplianceItems(
-    args: PutComplianceItemsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutComplianceItemsCommandOutput>;
-  public putComplianceItems(
-    args: PutComplianceItemsCommandInput,
-    cb: (err: any, data?: PutComplianceItemsCommandOutput) => void
-  ): void;
-  public putComplianceItems(
-    args: PutComplianceItemsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutComplianceItemsCommandOutput) => void
-  ): void;
-  public putComplianceItems(
-    args: PutComplianceItemsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutComplianceItemsCommandOutput) => void),
-    cb?: (err: any, data?: PutComplianceItemsCommandOutput) => void
-  ): Promise<PutComplianceItemsCommandOutput> | void {
-    const command = new PutComplianceItemsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an
-   *    inventory item, if it doesn't already exist, or updates an inventory item, if it does
-   *    exist.</p>
-   */
-  public putInventory(
-    args: PutInventoryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutInventoryCommandOutput>;
-  public putInventory(args: PutInventoryCommandInput, cb: (err: any, data?: PutInventoryCommandOutput) => void): void;
-  public putInventory(
-    args: PutInventoryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutInventoryCommandOutput) => void
-  ): void;
-  public putInventory(
-    args: PutInventoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInventoryCommandOutput) => void),
-    cb?: (err: any, data?: PutInventoryCommandOutput) => void
-  ): Promise<PutInventoryCommandOutput> | void {
-    const command = new PutInventoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Add a parameter to the system.</p>
-   */
-  public putParameter(
-    args: PutParameterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutParameterCommandOutput>;
-  public putParameter(args: PutParameterCommandInput, cb: (err: any, data?: PutParameterCommandOutput) => void): void;
-  public putParameter(
-    args: PutParameterCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutParameterCommandOutput) => void
-  ): void;
-  public putParameter(
-    args: PutParameterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutParameterCommandOutput) => void),
-    cb?: (err: any, data?: PutParameterCommandOutput) => void
-  ): Promise<PutParameterCommandOutput> | void {
-    const command = new PutParameterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates or updates a Systems Manager resource policy. A resource policy helps you to define the
-   *     IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources.
-   *    Currently, <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies.
-   *    The resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact
-   *    with OpsCenter operational work items (OpsItems).</p>
-   */
-  public putResourcePolicy(
-    args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutResourcePolicyCommandOutput>;
-  public putResourcePolicy(
-    args: PutResourcePolicyCommandInput,
-    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
-  ): void;
-  public putResourcePolicy(
-    args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
-  ): void;
-  public putResourcePolicy(
-    args: PutResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
-  ): Promise<PutResourcePolicyCommandOutput> | void {
-    const command = new PutResourcePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Defines the default patch baseline for the relevant operating system.</p>
-   *          <p>To reset the Amazon Web Services-predefined patch baseline as the default, specify the full patch baseline
-   *    Amazon Resource Name (ARN) as the baseline ID value. For example, for CentOS, specify
-   *     <code>arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed</code> instead of
-   *     <code>pb-0574b43a65ea646ed</code>.</p>
-   */
-  public registerDefaultPatchBaseline(
-    args: RegisterDefaultPatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterDefaultPatchBaselineCommandOutput>;
-  public registerDefaultPatchBaseline(
-    args: RegisterDefaultPatchBaselineCommandInput,
-    cb: (err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void
-  ): void;
-  public registerDefaultPatchBaseline(
-    args: RegisterDefaultPatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void
-  ): void;
-  public registerDefaultPatchBaseline(
-    args: RegisterDefaultPatchBaselineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void),
-    cb?: (err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void
-  ): Promise<RegisterDefaultPatchBaselineCommandOutput> | void {
-    const command = new RegisterDefaultPatchBaselineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers a patch baseline for a patch group.</p>
-   */
-  public registerPatchBaselineForPatchGroup(
-    args: RegisterPatchBaselineForPatchGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterPatchBaselineForPatchGroupCommandOutput>;
-  public registerPatchBaselineForPatchGroup(
-    args: RegisterPatchBaselineForPatchGroupCommandInput,
-    cb: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
-  ): void;
-  public registerPatchBaselineForPatchGroup(
-    args: RegisterPatchBaselineForPatchGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
-  ): void;
-  public registerPatchBaselineForPatchGroup(
-    args: RegisterPatchBaselineForPatchGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void),
-    cb?: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
-  ): Promise<RegisterPatchBaselineForPatchGroupCommandOutput> | void {
-    const command = new RegisterPatchBaselineForPatchGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers a target with a maintenance window.</p>
-   */
-  public registerTargetWithMaintenanceWindow(
-    args: RegisterTargetWithMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput>;
-  public registerTargetWithMaintenanceWindow(
-    args: RegisterTargetWithMaintenanceWindowCommandInput,
-    cb: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
-  ): void;
-  public registerTargetWithMaintenanceWindow(
-    args: RegisterTargetWithMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
-  ): void;
-  public registerTargetWithMaintenanceWindow(
-    args: RegisterTargetWithMaintenanceWindowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void),
-    cb?: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
-  ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput> | void {
-    const command = new RegisterTargetWithMaintenanceWindowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds a new task to a maintenance window.</p>
-   */
-  public registerTaskWithMaintenanceWindow(
-    args: RegisterTaskWithMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput>;
-  public registerTaskWithMaintenanceWindow(
-    args: RegisterTaskWithMaintenanceWindowCommandInput,
-    cb: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
-  ): void;
-  public registerTaskWithMaintenanceWindow(
-    args: RegisterTaskWithMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
-  ): void;
-  public registerTaskWithMaintenanceWindow(
-    args: RegisterTaskWithMaintenanceWindowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void),
-    cb?: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
-  ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput> | void {
-    const command = new RegisterTaskWithMaintenanceWindowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes tag keys from the specified resource.</p>
-   */
-  public removeTagsFromResource(
-    args: RemoveTagsFromResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RemoveTagsFromResourceCommandOutput>;
-  public removeTagsFromResource(
-    args: RemoveTagsFromResourceCommandInput,
-    cb: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
-  ): void;
-  public removeTagsFromResource(
-    args: RemoveTagsFromResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
-  ): void;
-  public removeTagsFromResource(
-    args: RemoveTagsFromResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
-    cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
-  ): Promise<RemoveTagsFromResourceCommandOutput> | void {
-    const command = new RemoveTagsFromResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
-   *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
-   *    Amazon Web Services service charges money to the account based on feature or service usage, then the Amazon Web Services
-   *    service team might create a default setting of "false". This means the user can't use this
-   *    feature unless they change the setting to "true" and intentionally opt in for a paid
-   *    feature.</p>
-   *          <p>Services map a <code>SettingId</code> object to a setting value. Amazon Web Services services teams define
-   *    the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>,
-   *    but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code>
-   *    permission for the setting. Use the <a>GetServiceSetting</a> API operation to view the
-   *    current value. Use the <a>UpdateServiceSetting</a> API operation to change the default
-   *    setting. </p>
-   *          <p>Reset the service setting for the account to the default value as provisioned by the Amazon Web Services
-   *    service team. </p>
-   */
-  public resetServiceSetting(
-    args: ResetServiceSettingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ResetServiceSettingCommandOutput>;
-  public resetServiceSetting(
-    args: ResetServiceSettingCommandInput,
-    cb: (err: any, data?: ResetServiceSettingCommandOutput) => void
-  ): void;
-  public resetServiceSetting(
-    args: ResetServiceSettingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ResetServiceSettingCommandOutput) => void
-  ): void;
-  public resetServiceSetting(
-    args: ResetServiceSettingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetServiceSettingCommandOutput) => void),
-    cb?: (err: any, data?: ResetServiceSettingCommandOutput) => void
-  ): Promise<ResetServiceSettingCommandOutput> | void {
-    const command = new ResetServiceSettingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Reconnects a session to a managed node after it has been disconnected. Connections can be
-   *    resumed for disconnected sessions, but not terminated sessions.</p>
-   *          <note>
-   *             <p>This command is primarily for use by client machines to automatically reconnect during
-   *     intermittent network issues. It isn't intended for any other use.</p>
-   *          </note>
-   */
-  public resumeSession(
-    args: ResumeSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ResumeSessionCommandOutput>;
-  public resumeSession(
-    args: ResumeSessionCommandInput,
-    cb: (err: any, data?: ResumeSessionCommandOutput) => void
-  ): void;
-  public resumeSession(
-    args: ResumeSessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ResumeSessionCommandOutput) => void
-  ): void;
-  public resumeSession(
-    args: ResumeSessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeSessionCommandOutput) => void),
-    cb?: (err: any, data?: ResumeSessionCommandOutput) => void
-  ): Promise<ResumeSessionCommandOutput> | void {
-    const command = new ResumeSessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sends a signal to an Automation execution to change the current behavior or status of the
-   *    execution. </p>
-   */
-  public sendAutomationSignal(
-    args: SendAutomationSignalCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendAutomationSignalCommandOutput>;
-  public sendAutomationSignal(
-    args: SendAutomationSignalCommandInput,
-    cb: (err: any, data?: SendAutomationSignalCommandOutput) => void
-  ): void;
-  public sendAutomationSignal(
-    args: SendAutomationSignalCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SendAutomationSignalCommandOutput) => void
-  ): void;
-  public sendAutomationSignal(
-    args: SendAutomationSignalCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendAutomationSignalCommandOutput) => void),
-    cb?: (err: any, data?: SendAutomationSignalCommandOutput) => void
-  ): Promise<SendAutomationSignalCommandOutput> | void {
-    const command = new SendAutomationSignalCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Runs commands on one or more managed nodes.</p>
-   */
-  public sendCommand(args: SendCommandCommandInput, options?: __HttpHandlerOptions): Promise<SendCommandCommandOutput>;
-  public sendCommand(args: SendCommandCommandInput, cb: (err: any, data?: SendCommandCommandOutput) => void): void;
-  public sendCommand(
-    args: SendCommandCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SendCommandCommandOutput) => void
-  ): void;
-  public sendCommand(
-    args: SendCommandCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendCommandCommandOutput) => void),
-    cb?: (err: any, data?: SendCommandCommandOutput) => void
-  ): Promise<SendCommandCommandOutput> | void {
-    const command = new SendCommandCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Runs an association immediately and only one time. This operation can be helpful when
-   *    troubleshooting associations.</p>
-   */
-  public startAssociationsOnce(
-    args: StartAssociationsOnceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartAssociationsOnceCommandOutput>;
-  public startAssociationsOnce(
-    args: StartAssociationsOnceCommandInput,
-    cb: (err: any, data?: StartAssociationsOnceCommandOutput) => void
-  ): void;
-  public startAssociationsOnce(
-    args: StartAssociationsOnceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartAssociationsOnceCommandOutput) => void
-  ): void;
-  public startAssociationsOnce(
-    args: StartAssociationsOnceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAssociationsOnceCommandOutput) => void),
-    cb?: (err: any, data?: StartAssociationsOnceCommandOutput) => void
-  ): Promise<StartAssociationsOnceCommandOutput> | void {
-    const command = new StartAssociationsOnceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Initiates execution of an Automation runbook.</p>
-   */
-  public startAutomationExecution(
-    args: StartAutomationExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartAutomationExecutionCommandOutput>;
-  public startAutomationExecution(
-    args: StartAutomationExecutionCommandInput,
-    cb: (err: any, data?: StartAutomationExecutionCommandOutput) => void
-  ): void;
-  public startAutomationExecution(
-    args: StartAutomationExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartAutomationExecutionCommandOutput) => void
-  ): void;
-  public startAutomationExecution(
-    args: StartAutomationExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAutomationExecutionCommandOutput) => void),
-    cb?: (err: any, data?: StartAutomationExecutionCommandOutput) => void
-  ): Promise<StartAutomationExecutionCommandOutput> | void {
-    const command = new StartAutomationExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a change request for Change Manager. The Automation runbooks specified in the
-   *    change request run only after all required approvals for the change request have been
-   *    received.</p>
-   */
-  public startChangeRequestExecution(
-    args: StartChangeRequestExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartChangeRequestExecutionCommandOutput>;
-  public startChangeRequestExecution(
-    args: StartChangeRequestExecutionCommandInput,
-    cb: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
-  ): void;
-  public startChangeRequestExecution(
-    args: StartChangeRequestExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
-  ): void;
-  public startChangeRequestExecution(
-    args: StartChangeRequestExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartChangeRequestExecutionCommandOutput) => void),
-    cb?: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
-  ): Promise<StartChangeRequestExecutionCommandOutput> | void {
-    const command = new StartChangeRequestExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Initiates a connection to a target (for example, a managed node) for a Session Manager session.
-   *    Returns a URL and token that can be used to open a WebSocket connection for sending input and
-   *    receiving outputs.</p>
-   *          <note>
-   *             <p>Amazon Web Services CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager
-   *     plugin to be installed on the client machine making the call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
-   *      the Session Manager plugin for the Amazon Web Services CLI</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   *             <p>Amazon Web Services Tools for PowerShell usage: Start-SSMSession isn't currently supported by Amazon Web Services Tools
-   *     for PowerShell on Windows local machines.</p>
-   *          </note>
-   */
-  public startSession(
-    args: StartSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartSessionCommandOutput>;
-  public startSession(args: StartSessionCommandInput, cb: (err: any, data?: StartSessionCommandOutput) => void): void;
-  public startSession(
-    args: StartSessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartSessionCommandOutput) => void
-  ): void;
-  public startSession(
-    args: StartSessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSessionCommandOutput) => void),
-    cb?: (err: any, data?: StartSessionCommandOutput) => void
-  ): Promise<StartSessionCommandOutput> | void {
-    const command = new StartSessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Stop an Automation that is currently running.</p>
-   */
-  public stopAutomationExecution(
-    args: StopAutomationExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopAutomationExecutionCommandOutput>;
-  public stopAutomationExecution(
-    args: StopAutomationExecutionCommandInput,
-    cb: (err: any, data?: StopAutomationExecutionCommandOutput) => void
-  ): void;
-  public stopAutomationExecution(
-    args: StopAutomationExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopAutomationExecutionCommandOutput) => void
-  ): void;
-  public stopAutomationExecution(
-    args: StopAutomationExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopAutomationExecutionCommandOutput) => void),
-    cb?: (err: any, data?: StopAutomationExecutionCommandOutput) => void
-  ): Promise<StopAutomationExecutionCommandOutput> | void {
-    const command = new StopAutomationExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Permanently ends a session and closes the data connection between the Session Manager client and
-   *    SSM Agent on the managed node. A terminated session can't be resumed.</p>
-   */
-  public terminateSession(
-    args: TerminateSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TerminateSessionCommandOutput>;
-  public terminateSession(
-    args: TerminateSessionCommandInput,
-    cb: (err: any, data?: TerminateSessionCommandOutput) => void
-  ): void;
-  public terminateSession(
-    args: TerminateSessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TerminateSessionCommandOutput) => void
-  ): void;
-  public terminateSession(
-    args: TerminateSessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateSessionCommandOutput) => void),
-    cb?: (err: any, data?: TerminateSessionCommandOutput) => void
-  ): Promise<TerminateSessionCommandOutput> | void {
-    const command = new TerminateSessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Remove a label or labels from a parameter.</p>
-   */
-  public unlabelParameterVersion(
-    args: UnlabelParameterVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UnlabelParameterVersionCommandOutput>;
-  public unlabelParameterVersion(
-    args: UnlabelParameterVersionCommandInput,
-    cb: (err: any, data?: UnlabelParameterVersionCommandOutput) => void
-  ): void;
-  public unlabelParameterVersion(
-    args: UnlabelParameterVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UnlabelParameterVersionCommandOutput) => void
-  ): void;
-  public unlabelParameterVersion(
-    args: UnlabelParameterVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnlabelParameterVersionCommandOutput) => void),
-    cb?: (err: any, data?: UnlabelParameterVersionCommandOutput) => void
-  ): Promise<UnlabelParameterVersionCommandOutput> | void {
-    const command = new UnlabelParameterVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an association. You can update the association name and version, the document
-   *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you
-   *    call <code>UpdateAssociation</code>, the system removes all optional parameters from the request
-   *    and overwrites the association with null values for those parameters. This is by design. You must
-   *    specify all optional parameters in the call, even if you are not changing the parameters. This
-   *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
-   *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
-   *    parameters required for your <code>UpdateAssociation</code> call.</p>
-   *          <p>In order to call this API operation, a user, group, or role must be granted permission to
-   *    call the <a>DescribeAssociation</a> API operation. If you don't have permission to
-   *    call <code>DescribeAssociation</code>, then you receive the following error: <code>An error
-   *     occurred (AccessDeniedException) when calling the UpdateAssociation operation: User:
-   *     <user_arn> isn't authorized to perform: ssm:DescribeAssociation on resource:
-   *     <resource_arn></code>
-   *          </p>
-   *          <important>
-   *             <p>When you update an association, the association immediately runs against the specified
-   *     targets. You can add the <code>ApplyOnlyAtCronInterval</code> parameter to run the association
-   *     during the next schedule run.</p>
-   *          </important>
-   */
-  public updateAssociation(
-    args: UpdateAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAssociationCommandOutput>;
-  public updateAssociation(
-    args: UpdateAssociationCommandInput,
-    cb: (err: any, data?: UpdateAssociationCommandOutput) => void
-  ): void;
-  public updateAssociation(
-    args: UpdateAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAssociationCommandOutput) => void
-  ): void;
-  public updateAssociation(
-    args: UpdateAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssociationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAssociationCommandOutput) => void
-  ): Promise<UpdateAssociationCommandOutput> | void {
-    const command = new UpdateAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the status of the Amazon Web Services Systems Manager document (SSM document) associated with the specified
-   *    managed node.</p>
-   *          <p>
-   *             <code>UpdateAssociationStatus</code> is primarily used by the Amazon Web Services Systems Manager Agent (SSM Agent) to
-   *    report status updates about your associations and is only used for associations created with the
-   *     <code>InstanceId</code> legacy parameter.</p>
-   */
-  public updateAssociationStatus(
-    args: UpdateAssociationStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAssociationStatusCommandOutput>;
-  public updateAssociationStatus(
-    args: UpdateAssociationStatusCommandInput,
-    cb: (err: any, data?: UpdateAssociationStatusCommandOutput) => void
-  ): void;
-  public updateAssociationStatus(
-    args: UpdateAssociationStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAssociationStatusCommandOutput) => void
-  ): void;
-  public updateAssociationStatus(
-    args: UpdateAssociationStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssociationStatusCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAssociationStatusCommandOutput) => void
-  ): Promise<UpdateAssociationStatusCommandOutput> | void {
-    const command = new UpdateAssociationStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates one or more values for an SSM document.</p>
-   */
-  public updateDocument(
-    args: UpdateDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDocumentCommandOutput>;
-  public updateDocument(
-    args: UpdateDocumentCommandInput,
-    cb: (err: any, data?: UpdateDocumentCommandOutput) => void
-  ): void;
-  public updateDocument(
-    args: UpdateDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDocumentCommandOutput) => void
-  ): void;
-  public updateDocument(
-    args: UpdateDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDocumentCommandOutput) => void
-  ): Promise<UpdateDocumentCommandOutput> | void {
-    const command = new UpdateDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Set the default version of a document. </p>
-   *          <note>
-   *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
-   *     the association unless you previously specifed the <code>apply-only-at-cron-interval</code>
-   *     parameter.</p>
-   *          </note>
-   */
-  public updateDocumentDefaultVersion(
-    args: UpdateDocumentDefaultVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDocumentDefaultVersionCommandOutput>;
-  public updateDocumentDefaultVersion(
-    args: UpdateDocumentDefaultVersionCommandInput,
-    cb: (err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void
-  ): void;
-  public updateDocumentDefaultVersion(
-    args: UpdateDocumentDefaultVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void
-  ): void;
-  public updateDocumentDefaultVersion(
-    args: UpdateDocumentDefaultVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void
-  ): Promise<UpdateDocumentDefaultVersionCommandOutput> | void {
-    const command = new UpdateDocumentDefaultVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates information related to approval reviews for a specific version of a change template
-   *    in Change Manager.</p>
-   */
-  public updateDocumentMetadata(
-    args: UpdateDocumentMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDocumentMetadataCommandOutput>;
-  public updateDocumentMetadata(
-    args: UpdateDocumentMetadataCommandInput,
-    cb: (err: any, data?: UpdateDocumentMetadataCommandOutput) => void
-  ): void;
-  public updateDocumentMetadata(
-    args: UpdateDocumentMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDocumentMetadataCommandOutput) => void
-  ): void;
-  public updateDocumentMetadata(
-    args: UpdateDocumentMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentMetadataCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDocumentMetadataCommandOutput) => void
-  ): Promise<UpdateDocumentMetadataCommandOutput> | void {
-    const command = new UpdateDocumentMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an existing maintenance window. Only specified parameters are modified.</p>
-   *          <note>
-   *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
-   *     maintenance window based on the time it begins. No maintenance window tasks are permitted to
-   *     start after the resulting endtime minus the number of hours you specify for <code>Cutoff</code>.
-   *     For example, if the maintenance window starts at 3 PM, the duration is three hours, and the
-   *     value you specify for <code>Cutoff</code> is one hour, no maintenance window tasks can start
-   *     after 5 PM.</p>
-   *          </note>
-   */
-  public updateMaintenanceWindow(
-    args: UpdateMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateMaintenanceWindowCommandOutput>;
-  public updateMaintenanceWindow(
-    args: UpdateMaintenanceWindowCommandInput,
-    cb: (err: any, data?: UpdateMaintenanceWindowCommandOutput) => void
-  ): void;
-  public updateMaintenanceWindow(
-    args: UpdateMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateMaintenanceWindowCommandOutput) => void
-  ): void;
-  public updateMaintenanceWindow(
-    args: UpdateMaintenanceWindowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMaintenanceWindowCommandOutput) => void),
-    cb?: (err: any, data?: UpdateMaintenanceWindowCommandOutput) => void
-  ): Promise<UpdateMaintenanceWindowCommandOutput> | void {
-    const command = new UpdateMaintenanceWindowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Modifies the target of an existing maintenance window. You
-   *    can change the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Name</p>
-   *             </li>
-   *             <li>
-   *                <p>Description</p>
-   *             </li>
-   *             <li>
-   *                <p>Owner</p>
-   *             </li>
-   *             <li>
-   *                <p>IDs for an ID target</p>
-   *             </li>
-   *             <li>
-   *                <p>Tags for a Tag target</p>
-   *             </li>
-   *             <li>
-   *                <p>From any supported tag type to another. The three supported tag types are ID target, Tag
-   *      target, and resource group. For more information, see <a>Target</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>If a parameter is null, then the corresponding field isn't modified.</p>
-   *          </note>
-   */
-  public updateMaintenanceWindowTarget(
-    args: UpdateMaintenanceWindowTargetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateMaintenanceWindowTargetCommandOutput>;
-  public updateMaintenanceWindowTarget(
-    args: UpdateMaintenanceWindowTargetCommandInput,
-    cb: (err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void
-  ): void;
-  public updateMaintenanceWindowTarget(
-    args: UpdateMaintenanceWindowTargetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void
-  ): void;
-  public updateMaintenanceWindowTarget(
-    args: UpdateMaintenanceWindowTargetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void),
-    cb?: (err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void
-  ): Promise<UpdateMaintenanceWindowTargetCommandOutput> | void {
-    const command = new UpdateMaintenanceWindowTargetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Modifies a task assigned to a maintenance window. You can't change the task type, but you
-   *    can change the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TaskARN</code>. For example, you can change a <code>RUN_COMMAND</code> task from
-   *       <code>AWS-RunPowerShellScript</code> to <code>AWS-RunShellScript</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ServiceRoleArn</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TaskInvocationParameters</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Priority</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MaxConcurrency</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MaxErrors</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>One or more targets must be specified for maintenance window Run Command-type tasks.
-   *     Depending on the task, targets are optional for other maintenance window task types (Automation,
-   *      Lambda, and Step Functions). For more information about running tasks
-   *     that don't specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
-   *      maintenance window tasks without targets</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   *          </note>
-   *          <p>If the value for a parameter in <code>UpdateMaintenanceWindowTask</code> is null, then the
-   *    corresponding field isn't modified. If you set <code>Replace</code> to true, then all fields
-   *    required by the <a>RegisterTaskWithMaintenanceWindow</a> operation are required for
-   *    this request. Optional fields that aren't specified are set to null.</p>
-   *          <important>
-   *             <p>When you update a maintenance window task that has options specified in
-   *      <code>TaskInvocationParameters</code>, you must provide again all the
-   *      <code>TaskInvocationParameters</code> values that you want to retain. The values you don't
-   *     specify again are removed. For example, suppose that when you registered a Run Command task, you
-   *     specified <code>TaskInvocationParameters</code> values for <code>Comment</code>,
-   *      <code>NotificationConfig</code>, and <code>OutputS3BucketName</code>. If you update the
-   *     maintenance window task and specify only a different <code>OutputS3BucketName</code> value, the
-   *     values for <code>Comment</code> and <code>NotificationConfig</code> are removed.</p>
-   *          </important>
-   */
-  public updateMaintenanceWindowTask(
-    args: UpdateMaintenanceWindowTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateMaintenanceWindowTaskCommandOutput>;
-  public updateMaintenanceWindowTask(
-    args: UpdateMaintenanceWindowTaskCommandInput,
-    cb: (err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void
-  ): void;
-  public updateMaintenanceWindowTask(
-    args: UpdateMaintenanceWindowTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void
-  ): void;
-  public updateMaintenanceWindowTask(
-    args: UpdateMaintenanceWindowTaskCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void),
-    cb?: (err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void
-  ): Promise<UpdateMaintenanceWindowTaskCommandOutput> | void {
-    const command = new UpdateMaintenanceWindowTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Changes the Identity and Access Management (IAM) role that is assigned to the
-   *    on-premises server, edge device, or virtual machines (VM). IAM roles are first
-   *    assigned to these hybrid nodes during the activation process. For more information, see <a>CreateActivation</a>.</p>
-   */
-  public updateManagedInstanceRole(
-    args: UpdateManagedInstanceRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateManagedInstanceRoleCommandOutput>;
-  public updateManagedInstanceRole(
-    args: UpdateManagedInstanceRoleCommandInput,
-    cb: (err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void
-  ): void;
-  public updateManagedInstanceRole(
-    args: UpdateManagedInstanceRoleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void
-  ): void;
-  public updateManagedInstanceRole(
-    args: UpdateManagedInstanceRoleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void),
-    cb?: (err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void
-  ): Promise<UpdateManagedInstanceRoleCommandOutput> | void {
-    const command = new UpdateManagedInstanceRoleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Edit or change an OpsItem. You must have permission in Identity and Access Management (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
-   *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
-   *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
-   *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
-   */
-  public updateOpsItem(
-    args: UpdateOpsItemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateOpsItemCommandOutput>;
-  public updateOpsItem(
-    args: UpdateOpsItemCommandInput,
-    cb: (err: any, data?: UpdateOpsItemCommandOutput) => void
-  ): void;
-  public updateOpsItem(
-    args: UpdateOpsItemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateOpsItemCommandOutput) => void
-  ): void;
-  public updateOpsItem(
-    args: UpdateOpsItemCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOpsItemCommandOutput) => void),
-    cb?: (err: any, data?: UpdateOpsItemCommandOutput) => void
-  ): Promise<UpdateOpsItemCommandOutput> | void {
-    const command = new UpdateOpsItemCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Amazon Web Services Systems Manager calls this API operation when you edit OpsMetadata in Application Manager.</p>
-   */
-  public updateOpsMetadata(
-    args: UpdateOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateOpsMetadataCommandOutput>;
-  public updateOpsMetadata(
-    args: UpdateOpsMetadataCommandInput,
-    cb: (err: any, data?: UpdateOpsMetadataCommandOutput) => void
-  ): void;
-  public updateOpsMetadata(
-    args: UpdateOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateOpsMetadataCommandOutput) => void
-  ): void;
-  public updateOpsMetadata(
-    args: UpdateOpsMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOpsMetadataCommandOutput) => void),
-    cb?: (err: any, data?: UpdateOpsMetadataCommandOutput) => void
-  ): Promise<UpdateOpsMetadataCommandOutput> | void {
-    const command = new UpdateOpsMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Modifies an existing patch baseline. Fields not specified in the request are left
-   *    unchanged.</p>
-   *          <note>
-   *             <p>For information about valid key-value pairs in <code>PatchFilters</code> for each supported
-   *     operating system type, see <a>PatchFilter</a>.</p>
-   *          </note>
-   */
-  public updatePatchBaseline(
-    args: UpdatePatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePatchBaselineCommandOutput>;
-  public updatePatchBaseline(
-    args: UpdatePatchBaselineCommandInput,
-    cb: (err: any, data?: UpdatePatchBaselineCommandOutput) => void
-  ): void;
-  public updatePatchBaseline(
-    args: UpdatePatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePatchBaselineCommandOutput) => void
-  ): void;
-  public updatePatchBaseline(
-    args: UpdatePatchBaselineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePatchBaselineCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePatchBaselineCommandOutput) => void
-  ): Promise<UpdatePatchBaselineCommandOutput> | void {
-    const command = new UpdatePatchBaselineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update a resource data sync. After you create a resource data sync for a Region, you can't
-   *    change the account options for that sync. For example, if you create a sync in the us-east-2
-   *    (Ohio) Region and you choose the <code>Include only the current account</code> option, you can't
-   *    edit that sync later and choose the <code>Include all accounts from my Organizations
-   *     configuration</code> option. Instead, you must delete the first resource data sync, and create a
-   *    new one.</p>
-   *          <note>
-   *             <p>This API operation only supports a resource data sync that was created with a
-   *     SyncFromSource <code>SyncType</code>.</p>
-   *          </note>
-   */
-  public updateResourceDataSync(
-    args: UpdateResourceDataSyncCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateResourceDataSyncCommandOutput>;
-  public updateResourceDataSync(
-    args: UpdateResourceDataSyncCommandInput,
-    cb: (err: any, data?: UpdateResourceDataSyncCommandOutput) => void
-  ): void;
-  public updateResourceDataSync(
-    args: UpdateResourceDataSyncCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateResourceDataSyncCommandOutput) => void
-  ): void;
-  public updateResourceDataSync(
-    args: UpdateResourceDataSyncCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceDataSyncCommandOutput) => void),
-    cb?: (err: any, data?: UpdateResourceDataSyncCommandOutput) => void
-  ): Promise<UpdateResourceDataSyncCommandOutput> | void {
-    const command = new UpdateResourceDataSyncCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
-   *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
-   *    Amazon Web Services service charges money to the account based on feature or service usage, then the Amazon Web Services
-   *    service team might create a default setting of "false". This means the user can't use this
-   *    feature unless they change the setting to "true" and intentionally opt in for a paid
-   *    feature.</p>
-   *          <p>Services map a <code>SettingId</code> object to a setting value. Amazon Web Services services teams define
-   *    the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>,
-   *    but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code>
-   *    permission for the setting. Use the <a>GetServiceSetting</a> API operation to view the
-   *    current value. Or, use the <a>ResetServiceSetting</a> to change the value back to the
-   *    original value defined by the Amazon Web Services service team.</p>
-   *          <p>Update the service setting for the account. </p>
-   */
-  public updateServiceSetting(
-    args: UpdateServiceSettingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateServiceSettingCommandOutput>;
-  public updateServiceSetting(
-    args: UpdateServiceSettingCommandInput,
-    cb: (err: any, data?: UpdateServiceSettingCommandOutput) => void
-  ): void;
-  public updateServiceSetting(
-    args: UpdateServiceSettingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateServiceSettingCommandOutput) => void
-  ): void;
-  public updateServiceSetting(
-    args: UpdateServiceSettingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceSettingCommandOutput) => void),
-    cb?: (err: any, data?: UpdateServiceSettingCommandOutput) => void
-  ): Promise<UpdateServiceSettingCommandOutput> | void {
-    const command = new UpdateServiceSettingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class SSM extends SSMClient implements SSM {}
+createAggregatedClient(commands, SSM);

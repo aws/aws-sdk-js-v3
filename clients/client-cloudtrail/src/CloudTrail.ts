@@ -1,7 +1,8 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
-import { CloudTrailClient } from "./CloudTrailClient";
+import { CloudTrailClient, CloudTrailClientConfig } from "./CloudTrailClient";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import {
@@ -155,6 +156,647 @@ import {
 } from "./commands/UpdateEventDataStoreCommand";
 import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
 
+const commands = {
+  AddTagsCommand,
+  CancelQueryCommand,
+  CreateChannelCommand,
+  CreateEventDataStoreCommand,
+  CreateTrailCommand,
+  DeleteChannelCommand,
+  DeleteEventDataStoreCommand,
+  DeleteResourcePolicyCommand,
+  DeleteTrailCommand,
+  DeregisterOrganizationDelegatedAdminCommand,
+  DescribeQueryCommand,
+  DescribeTrailsCommand,
+  GetChannelCommand,
+  GetEventDataStoreCommand,
+  GetEventSelectorsCommand,
+  GetImportCommand,
+  GetInsightSelectorsCommand,
+  GetQueryResultsCommand,
+  GetResourcePolicyCommand,
+  GetTrailCommand,
+  GetTrailStatusCommand,
+  ListChannelsCommand,
+  ListEventDataStoresCommand,
+  ListImportFailuresCommand,
+  ListImportsCommand,
+  ListPublicKeysCommand,
+  ListQueriesCommand,
+  ListTagsCommand,
+  ListTrailsCommand,
+  LookupEventsCommand,
+  PutEventSelectorsCommand,
+  PutInsightSelectorsCommand,
+  PutResourcePolicyCommand,
+  RegisterOrganizationDelegatedAdminCommand,
+  RemoveTagsCommand,
+  RestoreEventDataStoreCommand,
+  StartImportCommand,
+  StartLoggingCommand,
+  StartQueryCommand,
+  StopImportCommand,
+  StopLoggingCommand,
+  UpdateChannelCommand,
+  UpdateEventDataStoreCommand,
+  UpdateTrailCommand,
+};
+
+export interface CloudTrail {
+  /**
+   * @see {@link AddTagsCommand}
+   */
+  addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
+  addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
+  addTags(
+    args: AddTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelQueryCommand}
+   */
+  cancelQuery(args: CancelQueryCommandInput, options?: __HttpHandlerOptions): Promise<CancelQueryCommandOutput>;
+  cancelQuery(args: CancelQueryCommandInput, cb: (err: any, data?: CancelQueryCommandOutput) => void): void;
+  cancelQuery(
+    args: CancelQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelCommand}
+   */
+  createChannel(args: CreateChannelCommandInput, options?: __HttpHandlerOptions): Promise<CreateChannelCommandOutput>;
+  createChannel(args: CreateChannelCommandInput, cb: (err: any, data?: CreateChannelCommandOutput) => void): void;
+  createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEventDataStoreCommand}
+   */
+  createEventDataStore(
+    args: CreateEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventDataStoreCommandOutput>;
+  createEventDataStore(
+    args: CreateEventDataStoreCommandInput,
+    cb: (err: any, data?: CreateEventDataStoreCommandOutput) => void
+  ): void;
+  createEventDataStore(
+    args: CreateEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventDataStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTrailCommand}
+   */
+  createTrail(args: CreateTrailCommandInput, options?: __HttpHandlerOptions): Promise<CreateTrailCommandOutput>;
+  createTrail(args: CreateTrailCommandInput, cb: (err: any, data?: CreateTrailCommandOutput) => void): void;
+  createTrail(
+    args: CreateTrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTrailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelCommand}
+   */
+  deleteChannel(args: DeleteChannelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteChannelCommandOutput>;
+  deleteChannel(args: DeleteChannelCommandInput, cb: (err: any, data?: DeleteChannelCommandOutput) => void): void;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEventDataStoreCommand}
+   */
+  deleteEventDataStore(
+    args: DeleteEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventDataStoreCommandOutput>;
+  deleteEventDataStore(
+    args: DeleteEventDataStoreCommandInput,
+    cb: (err: any, data?: DeleteEventDataStoreCommandOutput) => void
+  ): void;
+  deleteEventDataStore(
+    args: DeleteEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventDataStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTrailCommand}
+   */
+  deleteTrail(args: DeleteTrailCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTrailCommandOutput>;
+  deleteTrail(args: DeleteTrailCommandInput, cb: (err: any, data?: DeleteTrailCommandOutput) => void): void;
+  deleteTrail(
+    args: DeleteTrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTrailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterOrganizationDelegatedAdminCommand}
+   */
+  deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput>;
+  deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    cb: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  deregisterOrganizationDelegatedAdmin(
+    args: DeregisterOrganizationDelegatedAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeQueryCommand}
+   */
+  describeQuery(args: DescribeQueryCommandInput, options?: __HttpHandlerOptions): Promise<DescribeQueryCommandOutput>;
+  describeQuery(args: DescribeQueryCommandInput, cb: (err: any, data?: DescribeQueryCommandOutput) => void): void;
+  describeQuery(
+    args: DescribeQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTrailsCommand}
+   */
+  describeTrails(
+    args: DescribeTrailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrailsCommandOutput>;
+  describeTrails(args: DescribeTrailsCommandInput, cb: (err: any, data?: DescribeTrailsCommandOutput) => void): void;
+  describeTrails(
+    args: DescribeTrailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetChannelCommand}
+   */
+  getChannel(args: GetChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelCommandOutput>;
+  getChannel(args: GetChannelCommandInput, cb: (err: any, data?: GetChannelCommandOutput) => void): void;
+  getChannel(
+    args: GetChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventDataStoreCommand}
+   */
+  getEventDataStore(
+    args: GetEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventDataStoreCommandOutput>;
+  getEventDataStore(
+    args: GetEventDataStoreCommandInput,
+    cb: (err: any, data?: GetEventDataStoreCommandOutput) => void
+  ): void;
+  getEventDataStore(
+    args: GetEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventDataStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventSelectorsCommand}
+   */
+  getEventSelectors(
+    args: GetEventSelectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventSelectorsCommandOutput>;
+  getEventSelectors(
+    args: GetEventSelectorsCommandInput,
+    cb: (err: any, data?: GetEventSelectorsCommandOutput) => void
+  ): void;
+  getEventSelectors(
+    args: GetEventSelectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventSelectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetImportCommand}
+   */
+  getImport(args: GetImportCommandInput, options?: __HttpHandlerOptions): Promise<GetImportCommandOutput>;
+  getImport(args: GetImportCommandInput, cb: (err: any, data?: GetImportCommandOutput) => void): void;
+  getImport(
+    args: GetImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInsightSelectorsCommand}
+   */
+  getInsightSelectors(
+    args: GetInsightSelectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightSelectorsCommandOutput>;
+  getInsightSelectors(
+    args: GetInsightSelectorsCommandInput,
+    cb: (err: any, data?: GetInsightSelectorsCommandOutput) => void
+  ): void;
+  getInsightSelectors(
+    args: GetInsightSelectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightSelectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueryResultsCommand}
+   */
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryResultsCommandOutput>;
+  getQueryResults(args: GetQueryResultsCommandInput, cb: (err: any, data?: GetQueryResultsCommandOutput) => void): void;
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTrailCommand}
+   */
+  getTrail(args: GetTrailCommandInput, options?: __HttpHandlerOptions): Promise<GetTrailCommandOutput>;
+  getTrail(args: GetTrailCommandInput, cb: (err: any, data?: GetTrailCommandOutput) => void): void;
+  getTrail(
+    args: GetTrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTrailStatusCommand}
+   */
+  getTrailStatus(
+    args: GetTrailStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTrailStatusCommandOutput>;
+  getTrailStatus(args: GetTrailStatusCommandInput, cb: (err: any, data?: GetTrailStatusCommandOutput) => void): void;
+  getTrailStatus(
+    args: GetTrailStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrailStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   */
+  listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
+  listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEventDataStoresCommand}
+   */
+  listEventDataStores(
+    args: ListEventDataStoresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventDataStoresCommandOutput>;
+  listEventDataStores(
+    args: ListEventDataStoresCommandInput,
+    cb: (err: any, data?: ListEventDataStoresCommandOutput) => void
+  ): void;
+  listEventDataStores(
+    args: ListEventDataStoresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventDataStoresCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListImportFailuresCommand}
+   */
+  listImportFailures(
+    args: ListImportFailuresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportFailuresCommandOutput>;
+  listImportFailures(
+    args: ListImportFailuresCommandInput,
+    cb: (err: any, data?: ListImportFailuresCommandOutput) => void
+  ): void;
+  listImportFailures(
+    args: ListImportFailuresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportFailuresCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListImportsCommand}
+   */
+  listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
+  listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
+  listImports(
+    args: ListImportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPublicKeysCommand}
+   */
+  listPublicKeys(
+    args: ListPublicKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPublicKeysCommandOutput>;
+  listPublicKeys(args: ListPublicKeysCommandInput, cb: (err: any, data?: ListPublicKeysCommandOutput) => void): void;
+  listPublicKeys(
+    args: ListPublicKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPublicKeysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQueriesCommand}
+   */
+  listQueries(args: ListQueriesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueriesCommandOutput>;
+  listQueries(args: ListQueriesCommandInput, cb: (err: any, data?: ListQueriesCommandOutput) => void): void;
+  listQueries(
+    args: ListQueriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsCommand}
+   */
+  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
+    args: ListTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTrailsCommand}
+   */
+  listTrails(args: ListTrailsCommandInput, options?: __HttpHandlerOptions): Promise<ListTrailsCommandOutput>;
+  listTrails(args: ListTrailsCommandInput, cb: (err: any, data?: ListTrailsCommandOutput) => void): void;
+  listTrails(
+    args: ListTrailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTrailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link LookupEventsCommand}
+   */
+  lookupEvents(args: LookupEventsCommandInput, options?: __HttpHandlerOptions): Promise<LookupEventsCommandOutput>;
+  lookupEvents(args: LookupEventsCommandInput, cb: (err: any, data?: LookupEventsCommandOutput) => void): void;
+  lookupEvents(
+    args: LookupEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: LookupEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutEventSelectorsCommand}
+   */
+  putEventSelectors(
+    args: PutEventSelectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEventSelectorsCommandOutput>;
+  putEventSelectors(
+    args: PutEventSelectorsCommandInput,
+    cb: (err: any, data?: PutEventSelectorsCommandOutput) => void
+  ): void;
+  putEventSelectors(
+    args: PutEventSelectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutEventSelectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutInsightSelectorsCommand}
+   */
+  putInsightSelectors(
+    args: PutInsightSelectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutInsightSelectorsCommandOutput>;
+  putInsightSelectors(
+    args: PutInsightSelectorsCommandInput,
+    cb: (err: any, data?: PutInsightSelectorsCommandOutput) => void
+  ): void;
+  putInsightSelectors(
+    args: PutInsightSelectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutInsightSelectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterOrganizationDelegatedAdminCommand}
+   */
+  registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterOrganizationDelegatedAdminCommandOutput>;
+  registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    cb: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+  registerOrganizationDelegatedAdmin(
+    args: RegisterOrganizationDelegatedAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveTagsCommand}
+   */
+  removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
+  removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestoreEventDataStoreCommand}
+   */
+  restoreEventDataStore(
+    args: RestoreEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreEventDataStoreCommandOutput>;
+  restoreEventDataStore(
+    args: RestoreEventDataStoreCommandInput,
+    cb: (err: any, data?: RestoreEventDataStoreCommandOutput) => void
+  ): void;
+  restoreEventDataStore(
+    args: RestoreEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreEventDataStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartImportCommand}
+   */
+  startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
+  startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
+  startImport(
+    args: StartImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartLoggingCommand}
+   */
+  startLogging(args: StartLoggingCommandInput, options?: __HttpHandlerOptions): Promise<StartLoggingCommandOutput>;
+  startLogging(args: StartLoggingCommandInput, cb: (err: any, data?: StartLoggingCommandOutput) => void): void;
+  startLogging(
+    args: StartLoggingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartLoggingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartQueryCommand}
+   */
+  startQuery(args: StartQueryCommandInput, options?: __HttpHandlerOptions): Promise<StartQueryCommandOutput>;
+  startQuery(args: StartQueryCommandInput, cb: (err: any, data?: StartQueryCommandOutput) => void): void;
+  startQuery(
+    args: StartQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopImportCommand}
+   */
+  stopImport(args: StopImportCommandInput, options?: __HttpHandlerOptions): Promise<StopImportCommandOutput>;
+  stopImport(args: StopImportCommandInput, cb: (err: any, data?: StopImportCommandOutput) => void): void;
+  stopImport(
+    args: StopImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopImportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopLoggingCommand}
+   */
+  stopLogging(args: StopLoggingCommandInput, options?: __HttpHandlerOptions): Promise<StopLoggingCommandOutput>;
+  stopLogging(args: StopLoggingCommandInput, cb: (err: any, data?: StopLoggingCommandOutput) => void): void;
+  stopLogging(
+    args: StopLoggingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopLoggingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelCommand}
+   */
+  updateChannel(args: UpdateChannelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateChannelCommandOutput>;
+  updateChannel(args: UpdateChannelCommandInput, cb: (err: any, data?: UpdateChannelCommandOutput) => void): void;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEventDataStoreCommand}
+   */
+  updateEventDataStore(
+    args: UpdateEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventDataStoreCommandOutput>;
+  updateEventDataStore(
+    args: UpdateEventDataStoreCommandInput,
+    cb: (err: any, data?: UpdateEventDataStoreCommandOutput) => void
+  ): void;
+  updateEventDataStore(
+    args: UpdateEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventDataStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTrailCommand}
+   */
+  updateTrail(args: UpdateTrailCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTrailCommandOutput>;
+  updateTrail(args: UpdateTrailCommandInput, cb: (err: any, data?: UpdateTrailCommandOutput) => void): void;
+  updateTrail(
+    args: UpdateTrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTrailCommandOutput) => void
+  ): void;
+}
+
 /**
  * @public
  * <fullname>CloudTrail</fullname>
@@ -174,1581 +816,5 @@ import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput }
  *          <p>See the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">CloudTrail
  *             User Guide</a> for information about the data that is included with each Amazon Web Services API call listed in the log files.</p>
  */
-export class CloudTrail extends CloudTrailClient {
-  /**
-   * @public
-   * <p>Adds one or more tags to a trail, event data store, or channel, up to a limit of 50. Overwrites an
-   *          existing tag's value when a new value is specified for an existing tag key. Tag key names
-   *          must be unique; you cannot have two keys with the same name but different
-   *          values. If you specify a key without a value, the tag will be created with the specified
-   *          key and a value of null. You can tag a trail or event data store that applies to all
-   *             Amazon Web Services Regions only from the Region in which the trail or event data store
-   *          was created (also known as its home region).</p>
-   */
-  public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
-  public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
-  public addTags(
-    args: AddTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AddTagsCommandOutput) => void
-  ): void;
-  public addTags(
-    args: AddTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
-    cb?: (err: any, data?: AddTagsCommandOutput) => void
-  ): Promise<AddTagsCommandOutput> | void {
-    const command = new AddTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Cancels a query if the query is not in a terminated state, such as
-   *             <code>CANCELLED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
-   *             <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
-   *          The ID of the query that you want to cancel is also required. When you run
-   *             <code>CancelQuery</code>, the query status might show as <code>CANCELLED</code> even if
-   *          the operation is not yet finished.</p>
-   */
-  public cancelQuery(args: CancelQueryCommandInput, options?: __HttpHandlerOptions): Promise<CancelQueryCommandOutput>;
-  public cancelQuery(args: CancelQueryCommandInput, cb: (err: any, data?: CancelQueryCommandOutput) => void): void;
-  public cancelQuery(
-    args: CancelQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelQueryCommandOutput) => void
-  ): void;
-  public cancelQuery(
-    args: CancelQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelQueryCommandOutput) => void),
-    cb?: (err: any, data?: CancelQueryCommandOutput) => void
-  ): Promise<CancelQueryCommandOutput> | void {
-    const command = new CancelQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a channel for CloudTrail to ingest events from a partner or external source.
-   *          After you create a channel, a CloudTrail Lake event data store can log events
-   *       from the partner or source that you specify.</p>
-   */
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelCommandOutput>;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelCommandOutput) => void
-  ): Promise<CreateChannelCommandOutput> | void {
-    const command = new CreateChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new event data store.</p>
-   */
-  public createEventDataStore(
-    args: CreateEventDataStoreCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateEventDataStoreCommandOutput>;
-  public createEventDataStore(
-    args: CreateEventDataStoreCommandInput,
-    cb: (err: any, data?: CreateEventDataStoreCommandOutput) => void
-  ): void;
-  public createEventDataStore(
-    args: CreateEventDataStoreCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateEventDataStoreCommandOutput) => void
-  ): void;
-  public createEventDataStore(
-    args: CreateEventDataStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventDataStoreCommandOutput) => void),
-    cb?: (err: any, data?: CreateEventDataStoreCommandOutput) => void
-  ): Promise<CreateEventDataStoreCommandOutput> | void {
-    const command = new CreateEventDataStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
-   *          </p>
-   */
-  public createTrail(args: CreateTrailCommandInput, options?: __HttpHandlerOptions): Promise<CreateTrailCommandOutput>;
-  public createTrail(args: CreateTrailCommandInput, cb: (err: any, data?: CreateTrailCommandOutput) => void): void;
-  public createTrail(
-    args: CreateTrailCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTrailCommandOutput) => void
-  ): void;
-  public createTrail(
-    args: CreateTrailCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrailCommandOutput) => void),
-    cb?: (err: any, data?: CreateTrailCommandOutput) => void
-  ): Promise<CreateTrailCommandOutput> | void {
-    const command = new CreateTrailCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a channel.</p>
-   */
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelCommandOutput>;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    cb: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): void;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): void;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): Promise<DeleteChannelCommandOutput> | void {
-    const command = new DeleteChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an
-   *          event data store ARN. After you run <code>DeleteEventDataStore</code>, the event data store
-   *          enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait
-   *          period of seven days. <code>TerminationProtectionEnabled</code> must be set to
-   *             <code>False</code> on the event data store; this operation cannot work if
-   *             <code>TerminationProtectionEnabled</code> is <code>True</code>.</p>
-   *          <p>After you run <code>DeleteEventDataStore</code> on an event data store, you cannot run
-   *             <code>ListQueries</code>, <code>DescribeQuery</code>, or <code>GetQueryResults</code> on
-   *          queries that are using an event data store in a <code>PENDING_DELETION</code> state. An
-   *          event data store in the <code>PENDING_DELETION</code> state does not incur costs.</p>
-   */
-  public deleteEventDataStore(
-    args: DeleteEventDataStoreCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteEventDataStoreCommandOutput>;
-  public deleteEventDataStore(
-    args: DeleteEventDataStoreCommandInput,
-    cb: (err: any, data?: DeleteEventDataStoreCommandOutput) => void
-  ): void;
-  public deleteEventDataStore(
-    args: DeleteEventDataStoreCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteEventDataStoreCommandOutput) => void
-  ): void;
-  public deleteEventDataStore(
-    args: DeleteEventDataStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventDataStoreCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEventDataStoreCommandOutput) => void
-  ): Promise<DeleteEventDataStoreCommandOutput> | void {
-    const command = new DeleteEventDataStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   *          Deletes the resource-based policy attached to the CloudTrail channel.
-   *       </p>
-   */
-  public deleteResourcePolicy(
-    args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteResourcePolicyCommandOutput>;
-  public deleteResourcePolicy(
-    args: DeleteResourcePolicyCommandInput,
-    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
-  ): void;
-  public deleteResourcePolicy(
-    args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
-  ): void;
-  public deleteResourcePolicy(
-    args: DeleteResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
-  ): Promise<DeleteResourcePolicyCommandOutput> | void {
-    const command = new DeleteResourcePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a trail. This operation must be called from the region in which the trail was
-   *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
-   *          in other regions) of a trail that is enabled in all regions.</p>
-   */
-  public deleteTrail(args: DeleteTrailCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTrailCommandOutput>;
-  public deleteTrail(args: DeleteTrailCommandInput, cb: (err: any, data?: DeleteTrailCommandOutput) => void): void;
-  public deleteTrail(
-    args: DeleteTrailCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteTrailCommandOutput) => void
-  ): void;
-  public deleteTrail(
-    args: DeleteTrailCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrailCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTrailCommandOutput) => void
-  ): Promise<DeleteTrailCommandOutput> | void {
-    const command = new DeleteTrailCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes CloudTrail delegated administrator permissions from a member account in
-   *          an organization.</p>
-   */
-  public deregisterOrganizationDelegatedAdmin(
-    args: DeregisterOrganizationDelegatedAdminCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput>;
-  public deregisterOrganizationDelegatedAdmin(
-    args: DeregisterOrganizationDelegatedAdminCommandInput,
-    cb: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
-  ): void;
-  public deregisterOrganizationDelegatedAdmin(
-    args: DeregisterOrganizationDelegatedAdminCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
-  ): void;
-  public deregisterOrganizationDelegatedAdmin(
-    args: DeregisterOrganizationDelegatedAdminCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterOrganizationDelegatedAdminCommandOutput) => void
-  ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> | void {
-    const command = new DeregisterOrganizationDelegatedAdminCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata about a query, including query run time in milliseconds, number of
-   *          events scanned and matched, and query status. You must specify an ARN for
-   *             <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
-   */
-  public describeQuery(
-    args: DescribeQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeQueryCommandOutput>;
-  public describeQuery(
-    args: DescribeQueryCommandInput,
-    cb: (err: any, data?: DescribeQueryCommandOutput) => void
-  ): void;
-  public describeQuery(
-    args: DescribeQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeQueryCommandOutput) => void
-  ): void;
-  public describeQuery(
-    args: DescribeQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQueryCommandOutput) => void),
-    cb?: (err: any, data?: DescribeQueryCommandOutput) => void
-  ): Promise<DescribeQueryCommandOutput> | void {
-    const command = new DescribeQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves settings for one or more trails associated with the current region for your
-   *          account.</p>
-   */
-  public describeTrails(
-    args: DescribeTrailsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTrailsCommandOutput>;
-  public describeTrails(
-    args: DescribeTrailsCommandInput,
-    cb: (err: any, data?: DescribeTrailsCommandOutput) => void
-  ): void;
-  public describeTrails(
-    args: DescribeTrailsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTrailsCommandOutput) => void
-  ): void;
-  public describeTrails(
-    args: DescribeTrailsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrailsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTrailsCommandOutput) => void
-  ): Promise<DescribeTrailsCommandOutput> | void {
-    const command = new DescribeTrailsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns information about a specific channel.
-   *       </p>
-   */
-  public getChannel(args: GetChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelCommandOutput>;
-  public getChannel(args: GetChannelCommandInput, cb: (err: any, data?: GetChannelCommandOutput) => void): void;
-  public getChannel(
-    args: GetChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetChannelCommandOutput) => void
-  ): void;
-  public getChannel(
-    args: GetChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetChannelCommandOutput) => void
-  ): Promise<GetChannelCommandOutput> | void {
-    const command = new GetChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns information about an event data store specified as either an ARN or the ID
-   *          portion of the ARN.</p>
-   */
-  public getEventDataStore(
-    args: GetEventDataStoreCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetEventDataStoreCommandOutput>;
-  public getEventDataStore(
-    args: GetEventDataStoreCommandInput,
-    cb: (err: any, data?: GetEventDataStoreCommandOutput) => void
-  ): void;
-  public getEventDataStore(
-    args: GetEventDataStoreCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetEventDataStoreCommandOutput) => void
-  ): void;
-  public getEventDataStore(
-    args: GetEventDataStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventDataStoreCommandOutput) => void),
-    cb?: (err: any, data?: GetEventDataStoreCommandOutput) => void
-  ): Promise<GetEventDataStoreCommandOutput> | void {
-    const command = new GetEventDataStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the settings for the event selectors that you configured for your trail. The
-   *          information returned for your event selectors includes the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If your event selector includes read-only events, write-only events, or all
-   *                events. This applies to both management events and data events.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your event selector includes management events.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your event selector includes data events, the resources on which you are
-   *                logging data events.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information about logging management and data events, see the following topics
-   *          in the <i>CloudTrail User Guide</i>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails </a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails </a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  public getEventSelectors(
-    args: GetEventSelectorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetEventSelectorsCommandOutput>;
-  public getEventSelectors(
-    args: GetEventSelectorsCommandInput,
-    cb: (err: any, data?: GetEventSelectorsCommandOutput) => void
-  ): void;
-  public getEventSelectors(
-    args: GetEventSelectorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetEventSelectorsCommandOutput) => void
-  ): void;
-  public getEventSelectors(
-    args: GetEventSelectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventSelectorsCommandOutput) => void),
-    cb?: (err: any, data?: GetEventSelectorsCommandOutput) => void
-  ): Promise<GetEventSelectorsCommandOutput> | void {
-    const command = new GetEventSelectorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns information about a specific import. </p>
-   */
-  public getImport(args: GetImportCommandInput, options?: __HttpHandlerOptions): Promise<GetImportCommandOutput>;
-  public getImport(args: GetImportCommandInput, cb: (err: any, data?: GetImportCommandOutput) => void): void;
-  public getImport(
-    args: GetImportCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetImportCommandOutput) => void
-  ): void;
-  public getImport(
-    args: GetImportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportCommandOutput) => void),
-    cb?: (err: any, data?: GetImportCommandOutput) => void
-  ): Promise<GetImportCommandOutput> | void {
-    const command = new GetImportCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the settings for the Insights event selectors that you configured for your
-   *          trail. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
-   *          is enabled on the trail, and if it is, which insight types are enabled. If you run
-   *             <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled,
-   *          the operation throws the exception <code>InsightNotEnabledException</code>
-   *          </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights Events for Trails </a> in the <i>CloudTrail User Guide</i>.</p>
-   */
-  public getInsightSelectors(
-    args: GetInsightSelectorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetInsightSelectorsCommandOutput>;
-  public getInsightSelectors(
-    args: GetInsightSelectorsCommandInput,
-    cb: (err: any, data?: GetInsightSelectorsCommandOutput) => void
-  ): void;
-  public getInsightSelectors(
-    args: GetInsightSelectorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetInsightSelectorsCommandOutput) => void
-  ): void;
-  public getInsightSelectors(
-    args: GetInsightSelectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightSelectorsCommandOutput) => void),
-    cb?: (err: any, data?: GetInsightSelectorsCommandOutput) => void
-  ): Promise<GetInsightSelectorsCommandOutput> | void {
-    const command = new GetInsightSelectorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
-   *          returned by the <code>StartQuery</code> operation, and an ARN for
-   *             <code>EventDataStore</code>.</p>
-   */
-  public getQueryResults(
-    args: GetQueryResultsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetQueryResultsCommandOutput>;
-  public getQueryResults(
-    args: GetQueryResultsCommandInput,
-    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
-  ): void;
-  public getQueryResults(
-    args: GetQueryResultsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
-  ): void;
-  public getQueryResults(
-    args: GetQueryResultsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryResultsCommandOutput) => void),
-    cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
-  ): Promise<GetQueryResultsCommandOutput> | void {
-    const command = new GetQueryResultsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   *          Retrieves the JSON text of the resource-based policy document attached to the CloudTrail channel.
-   *       </p>
-   */
-  public getResourcePolicy(
-    args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResourcePolicyCommandOutput>;
-  public getResourcePolicy(
-    args: GetResourcePolicyCommandInput,
-    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
-  ): void;
-  public getResourcePolicy(
-    args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
-  ): void;
-  public getResourcePolicy(
-    args: GetResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
-  ): Promise<GetResourcePolicyCommandOutput> | void {
-    const command = new GetResourcePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns settings information for a specified trail.</p>
-   */
-  public getTrail(args: GetTrailCommandInput, options?: __HttpHandlerOptions): Promise<GetTrailCommandOutput>;
-  public getTrail(args: GetTrailCommandInput, cb: (err: any, data?: GetTrailCommandOutput) => void): void;
-  public getTrail(
-    args: GetTrailCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetTrailCommandOutput) => void
-  ): void;
-  public getTrail(
-    args: GetTrailCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrailCommandOutput) => void),
-    cb?: (err: any, data?: GetTrailCommandOutput) => void
-  ): Promise<GetTrailCommandOutput> | void {
-    const command = new GetTrailCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a JSON-formatted list of information about the specified trail. Fields include
-   *          information on delivery errors, Amazon SNS and Amazon S3 errors, and start
-   *          and stop logging times for each trail. This operation returns trail status from a single
-   *          region. To return trail status from all regions, you must call the operation on each
-   *          region.</p>
-   */
-  public getTrailStatus(
-    args: GetTrailStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTrailStatusCommandOutput>;
-  public getTrailStatus(
-    args: GetTrailStatusCommandInput,
-    cb: (err: any, data?: GetTrailStatusCommandOutput) => void
-  ): void;
-  public getTrailStatus(
-    args: GetTrailStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetTrailStatusCommandOutput) => void
-  ): void;
-  public getTrailStatus(
-    args: GetTrailStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrailStatusCommandOutput) => void),
-    cb?: (err: any, data?: GetTrailStatusCommandOutput) => void
-  ): Promise<GetTrailStatusCommandOutput> | void {
-    const command = new GetTrailStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Lists the channels in the current account, and their source names.
-   *       </p>
-   */
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelsCommandOutput>;
-  public listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelsCommandOutput) => void
-  ): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelsCommandOutput) => void
-  ): Promise<ListChannelsCommandOutput> | void {
-    const command = new ListChannelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns information about all event data stores in the account, in the current
-   *          region.</p>
-   */
-  public listEventDataStores(
-    args: ListEventDataStoresCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListEventDataStoresCommandOutput>;
-  public listEventDataStores(
-    args: ListEventDataStoresCommandInput,
-    cb: (err: any, data?: ListEventDataStoresCommandOutput) => void
-  ): void;
-  public listEventDataStores(
-    args: ListEventDataStoresCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListEventDataStoresCommandOutput) => void
-  ): void;
-  public listEventDataStores(
-    args: ListEventDataStoresCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventDataStoresCommandOutput) => void),
-    cb?: (err: any, data?: ListEventDataStoresCommandOutput) => void
-  ): Promise<ListEventDataStoresCommandOutput> | void {
-    const command = new ListEventDataStoresCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns a list of failures for the specified import. </p>
-   */
-  public listImportFailures(
-    args: ListImportFailuresCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListImportFailuresCommandOutput>;
-  public listImportFailures(
-    args: ListImportFailuresCommandInput,
-    cb: (err: any, data?: ListImportFailuresCommandOutput) => void
-  ): void;
-  public listImportFailures(
-    args: ListImportFailuresCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListImportFailuresCommandOutput) => void
-  ): void;
-  public listImportFailures(
-    args: ListImportFailuresCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportFailuresCommandOutput) => void),
-    cb?: (err: any, data?: ListImportFailuresCommandOutput) => void
-  ): Promise<ListImportFailuresCommandOutput> | void {
-    const command = new ListImportFailuresCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns information on all imports, or a select set of imports by
-   *             <code>ImportStatus</code> or <code>Destination</code>. </p>
-   */
-  public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
-  public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
-  public listImports(
-    args: ListImportsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListImportsCommandOutput) => void
-  ): void;
-  public listImports(
-    args: ListImportsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportsCommandOutput) => void),
-    cb?: (err: any, data?: ListImportsCommandOutput) => void
-  ): Promise<ListImportsCommandOutput> | void {
-    const command = new ListImportsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns all public keys whose private keys were used to sign the digest files within the
-   *          specified time range. The public key is needed to validate digest files that were signed
-   *          with its corresponding private key.</p>
-   *          <note>
-   *             <p>CloudTrail uses different private and public key pairs per region. Each digest
-   *             file is signed with a private key unique to its region. When you validate a digest file
-   *             from a specific region, you must look in the same region for its corresponding public
-   *             key.</p>
-   *          </note>
-   */
-  public listPublicKeys(
-    args: ListPublicKeysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPublicKeysCommandOutput>;
-  public listPublicKeys(
-    args: ListPublicKeysCommandInput,
-    cb: (err: any, data?: ListPublicKeysCommandOutput) => void
-  ): void;
-  public listPublicKeys(
-    args: ListPublicKeysCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPublicKeysCommandOutput) => void
-  ): void;
-  public listPublicKeys(
-    args: ListPublicKeysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPublicKeysCommandOutput) => void),
-    cb?: (err: any, data?: ListPublicKeysCommandOutput) => void
-  ): Promise<ListPublicKeysCommandOutput> | void {
-    const command = new ListPublicKeysCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of queries and query statuses for the past seven days. You must specify
-   *          an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
-   *          you can specify a time range, formatted as timestamps, by adding <code>StartTime</code> and
-   *             <code>EndTime</code> parameters, and a <code>QueryStatus</code> value. Valid values for
-   *             <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
-   *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
-   *             <code>CANCELLED</code>.</p>
-   */
-  public listQueries(args: ListQueriesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueriesCommandOutput>;
-  public listQueries(args: ListQueriesCommandInput, cb: (err: any, data?: ListQueriesCommandOutput) => void): void;
-  public listQueries(
-    args: ListQueriesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListQueriesCommandOutput) => void
-  ): void;
-  public listQueries(
-    args: ListQueriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueriesCommandOutput) => void),
-    cb?: (err: any, data?: ListQueriesCommandOutput) => void
-  ): Promise<ListQueriesCommandOutput> | void {
-    const command = new ListQueriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the tags for the trail, event data store, or channel in the current region.</p>
-   */
-  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
-  public listTags(
-    args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
-  ): void;
-  public listTags(
-    args: ListTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsCommandOutput) => void
-  ): Promise<ListTagsCommandOutput> | void {
-    const command = new ListTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists trails that are in the current account.</p>
-   */
-  public listTrails(args: ListTrailsCommandInput, options?: __HttpHandlerOptions): Promise<ListTrailsCommandOutput>;
-  public listTrails(args: ListTrailsCommandInput, cb: (err: any, data?: ListTrailsCommandOutput) => void): void;
-  public listTrails(
-    args: ListTrailsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTrailsCommandOutput) => void
-  ): void;
-  public listTrails(
-    args: ListTrailsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrailsCommandOutput) => void),
-    cb?: (err: any, data?: ListTrailsCommandOutput) => void
-  ): Promise<ListTrailsCommandOutput> | void {
-    const command = new ListTrailsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management events</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail Insights events</a> that are captured by CloudTrail.
-   *          You can look up events that occurred in a region within the last 90 days. Lookup supports
-   *          the following attributes for management events:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Amazon Web Services access key</p>
-   *             </li>
-   *             <li>
-   *                <p>Event ID</p>
-   *             </li>
-   *             <li>
-   *                <p>Event name</p>
-   *             </li>
-   *             <li>
-   *                <p>Event source</p>
-   *             </li>
-   *             <li>
-   *                <p>Read only</p>
-   *             </li>
-   *             <li>
-   *                <p>Resource name</p>
-   *             </li>
-   *             <li>
-   *                <p>Resource type</p>
-   *             </li>
-   *             <li>
-   *                <p>User name</p>
-   *             </li>
-   *          </ul>
-   *          <p>Lookup supports the following attributes for Insights events:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Event ID</p>
-   *             </li>
-   *             <li>
-   *                <p>Event name</p>
-   *             </li>
-   *             <li>
-   *                <p>Event source</p>
-   *             </li>
-   *          </ul>
-   *          <p>All attributes are optional. The default number of results returned is 50, with a
-   *          maximum of 50 possible. The response includes a token that you can use to get the next page
-   *          of results.</p>
-   *          <important>
-   *             <p>The rate of lookup requests is limited to two per second, per account, per region. If
-   *             this limit is exceeded, a throttling error occurs.</p>
-   *          </important>
-   */
-  public lookupEvents(
-    args: LookupEventsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<LookupEventsCommandOutput>;
-  public lookupEvents(args: LookupEventsCommandInput, cb: (err: any, data?: LookupEventsCommandOutput) => void): void;
-  public lookupEvents(
-    args: LookupEventsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: LookupEventsCommandOutput) => void
-  ): void;
-  public lookupEvents(
-    args: LookupEventsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LookupEventsCommandOutput) => void),
-    cb?: (err: any, data?: LookupEventsCommandOutput) => void
-  ): Promise<LookupEventsCommandOutput> | void {
-    const command = new LookupEventsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Configures an event selector or advanced event selectors for your trail. Use event
-   *          selectors or advanced event selectors to specify management and data event settings for
-   *          your trail. By default, trails created without specific event selectors are configured to
-   *          log all read and write management events, and no data events.</p>
-   *          <p>When an event occurs in your account, CloudTrail evaluates the event selectors or
-   *          advanced event selectors in all trails. For each trail, if the event matches any event
-   *          selector, the trail processes and logs the event. If the event doesn't match any event
-   *          selector, the trail doesn't log the event.</p>
-   *          <p>Example</p>
-   *          <ol>
-   *             <li>
-   *                <p>You create an event selector for a trail and specify that you want write-only
-   *                events.</p>
-   *             </li>
-   *             <li>
-   *                <p>The EC2 <code>GetConsoleOutput</code> and <code>RunInstances</code> API operations
-   *                occur in your account.</p>
-   *             </li>
-   *             <li>
-   *                <p>CloudTrail evaluates whether the events match your event selectors.</p>
-   *             </li>
-   *             <li>
-   *                <p>The <code>RunInstances</code> is a write-only event and it matches your event
-   *                selector. The trail logs the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>The <code>GetConsoleOutput</code> is a read-only event that doesn't match your
-   *                event selector. The trail doesn't log the event. </p>
-   *             </li>
-   *          </ol>
-   *          <p>The <code>PutEventSelectors</code> operation must be called from the region in which the
-   *          trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is
-   *          thrown.</p>
-   *          <p>You can configure up to five event selectors for each trail. For more information, see
-   *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails </a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
-   *             data events for trails </a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a> in the <i>CloudTrail User
-   *          Guide</i>.</p>
-   *          <p>You can add advanced event selectors, and conditions for your advanced event selectors,
-   *          up to a maximum of 500 values for all conditions and selectors on a trail. You can use
-   *          either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If
-   *          you apply <code>AdvancedEventSelectors</code> to a trail, any existing
-   *             <code>EventSelectors</code> are overwritten. For more information about advanced event
-   *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails</a> in the <i>CloudTrail User Guide</i>.</p>
-   */
-  public putEventSelectors(
-    args: PutEventSelectorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutEventSelectorsCommandOutput>;
-  public putEventSelectors(
-    args: PutEventSelectorsCommandInput,
-    cb: (err: any, data?: PutEventSelectorsCommandOutput) => void
-  ): void;
-  public putEventSelectors(
-    args: PutEventSelectorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutEventSelectorsCommandOutput) => void
-  ): void;
-  public putEventSelectors(
-    args: PutEventSelectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventSelectorsCommandOutput) => void),
-    cb?: (err: any, data?: PutEventSelectorsCommandOutput) => void
-  ): Promise<PutEventSelectorsCommandOutput> | void {
-    const command = new PutEventSelectorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lets you enable Insights event logging by specifying the Insights selectors that you
-   *          want to enable on an existing trail. You also use <code>PutInsightSelectors</code> to turn
-   *          off Insights event logging, by passing an empty list of insight types. The valid Insights
-   *          event types in this release are <code>ApiErrorRateInsight</code> and
-   *             <code>ApiCallRateInsight</code>.</p>
-   */
-  public putInsightSelectors(
-    args: PutInsightSelectorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutInsightSelectorsCommandOutput>;
-  public putInsightSelectors(
-    args: PutInsightSelectorsCommandInput,
-    cb: (err: any, data?: PutInsightSelectorsCommandOutput) => void
-  ): void;
-  public putInsightSelectors(
-    args: PutInsightSelectorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutInsightSelectorsCommandOutput) => void
-  ): void;
-  public putInsightSelectors(
-    args: PutInsightSelectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInsightSelectorsCommandOutput) => void),
-    cb?: (err: any, data?: PutInsightSelectorsCommandOutput) => void
-  ): Promise<PutInsightSelectorsCommandOutput> | void {
-    const command = new PutInsightSelectorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   *          Attaches a resource-based permission policy to a CloudTrail channel that is used for an integration with an event source outside of Amazon Web Services. For more information about resource-based policies, see
-   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail resource-based policy examples</a>
-   *          in the <i>CloudTrail User Guide</i>.
-   *       </p>
-   */
-  public putResourcePolicy(
-    args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutResourcePolicyCommandOutput>;
-  public putResourcePolicy(
-    args: PutResourcePolicyCommandInput,
-    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
-  ): void;
-  public putResourcePolicy(
-    args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
-  ): void;
-  public putResourcePolicy(
-    args: PutResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
-  ): Promise<PutResourcePolicyCommandOutput> | void {
-    const command = new PutResourcePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Registers an organization’s member account as the CloudTrail delegated
-   *          administrator.</p>
-   */
-  public registerOrganizationDelegatedAdmin(
-    args: RegisterOrganizationDelegatedAdminCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterOrganizationDelegatedAdminCommandOutput>;
-  public registerOrganizationDelegatedAdmin(
-    args: RegisterOrganizationDelegatedAdminCommandInput,
-    cb: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
-  ): void;
-  public registerOrganizationDelegatedAdmin(
-    args: RegisterOrganizationDelegatedAdminCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
-  ): void;
-  public registerOrganizationDelegatedAdmin(
-    args: RegisterOrganizationDelegatedAdminCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void),
-    cb?: (err: any, data?: RegisterOrganizationDelegatedAdminCommandOutput) => void
-  ): Promise<RegisterOrganizationDelegatedAdminCommandOutput> | void {
-    const command = new RegisterOrganizationDelegatedAdminCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes the specified tags from a trail, event data store, or channel.</p>
-   */
-  public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
-  public removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RemoveTagsCommandOutput) => void
-  ): void;
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
-    cb?: (err: any, data?: RemoveTagsCommandOutput) => void
-  ): Promise<RemoveTagsCommandOutput> | void {
-    const command = new RemoveTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which
-   *          accepts an event data store ARN. You can only restore a deleted event data store within the
-   *          seven-day wait period after deletion. Restoring an event data store can take several
-   *          minutes, depending on the size of the event data store.</p>
-   */
-  public restoreEventDataStore(
-    args: RestoreEventDataStoreCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RestoreEventDataStoreCommandOutput>;
-  public restoreEventDataStore(
-    args: RestoreEventDataStoreCommandInput,
-    cb: (err: any, data?: RestoreEventDataStoreCommandOutput) => void
-  ): void;
-  public restoreEventDataStore(
-    args: RestoreEventDataStoreCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RestoreEventDataStoreCommandOutput) => void
-  ): void;
-  public restoreEventDataStore(
-    args: RestoreEventDataStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreEventDataStoreCommandOutput) => void),
-    cb?: (err: any, data?: RestoreEventDataStoreCommandOutput) => void
-  ): Promise<RestoreEventDataStoreCommandOutput> | void {
-    const command = new RestoreEventDataStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Starts an import of logged trail events from a source S3 bucket to a destination event
-   *          data store. By default, CloudTrail only imports events contained in the S3 bucket's
-   *                <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services
-   *          services. If you want to import CloudTrail events contained in another prefix, you
-   *          must include the prefix in the <code>S3LocationUri</code>. For more considerations about
-   *          importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>. </p>
-   *          <p> When you start a new import, the <code>Destinations</code> and
-   *             <code>ImportSource</code> parameters are required. Before starting a new import, disable
-   *          any access control lists (ACLs) attached to the source S3 bucket. For more information
-   *          about disabling ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of
-   *             objects and disabling ACLs for your bucket</a>. </p>
-   *          <p> When you retry an import, the <code>ImportID</code> parameter is required. </p>
-   *          <note>
-   *             <p> If the destination event data store is for an organization, you must use the
-   *             management account to import trail events. You cannot use the delegated administrator
-   *             account for the organization. </p>
-   *          </note>
-   */
-  public startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
-  public startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
-  public startImport(
-    args: StartImportCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartImportCommandOutput) => void
-  ): void;
-  public startImport(
-    args: StartImportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportCommandOutput) => void),
-    cb?: (err: any, data?: StartImportCommandOutput) => void
-  ): Promise<StartImportCommandOutput> | void {
-    const command = new StartImportCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail.
-   *          For a trail that is enabled in all regions, this operation must be called from the region
-   *          in which the trail was created. This operation cannot be called on the shadow trails
-   *          (replicated trails in other regions) of a trail that is enabled in all regions.</p>
-   */
-  public startLogging(
-    args: StartLoggingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartLoggingCommandOutput>;
-  public startLogging(args: StartLoggingCommandInput, cb: (err: any, data?: StartLoggingCommandOutput) => void): void;
-  public startLogging(
-    args: StartLoggingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartLoggingCommandOutput) => void
-  ): void;
-  public startLogging(
-    args: StartLoggingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartLoggingCommandOutput) => void),
-    cb?: (err: any, data?: StartLoggingCommandOutput) => void
-  ): Promise<StartLoggingCommandOutput> | void {
-    const command = new StartLoggingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts a CloudTrail Lake query. The required <code>QueryStatement</code>
-   *          parameter provides your SQL query, enclosed in single quotation marks. Use the optional
-   *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
-   *          bucket.</p>
-   */
-  public startQuery(args: StartQueryCommandInput, options?: __HttpHandlerOptions): Promise<StartQueryCommandOutput>;
-  public startQuery(args: StartQueryCommandInput, cb: (err: any, data?: StartQueryCommandOutput) => void): void;
-  public startQuery(
-    args: StartQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartQueryCommandOutput) => void
-  ): void;
-  public startQuery(
-    args: StartQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartQueryCommandOutput) => void),
-    cb?: (err: any, data?: StartQueryCommandOutput) => void
-  ): Promise<StartQueryCommandOutput> | void {
-    const command = new StartQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Stops a specified import. </p>
-   */
-  public stopImport(args: StopImportCommandInput, options?: __HttpHandlerOptions): Promise<StopImportCommandOutput>;
-  public stopImport(args: StopImportCommandInput, cb: (err: any, data?: StopImportCommandOutput) => void): void;
-  public stopImport(
-    args: StopImportCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopImportCommandOutput) => void
-  ): void;
-  public stopImport(
-    args: StopImportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopImportCommandOutput) => void),
-    cb?: (err: any, data?: StopImportCommandOutput) => void
-  ): Promise<StopImportCommandOutput> | void {
-    const command = new StopImportCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the
-   *          specified trail. Under most circumstances, there is no need to use this action. You can
-   *          update a trail without stopping it first. This action is the only way to stop recording.
-   *          For a trail enabled in all regions, this operation must be called from the region in which
-   *          the trail was created, or an <code>InvalidHomeRegionException</code> will occur. This
-   *          operation cannot be called on the shadow trails (replicated trails in other regions) of a
-   *          trail enabled in all regions.</p>
-   */
-  public stopLogging(args: StopLoggingCommandInput, options?: __HttpHandlerOptions): Promise<StopLoggingCommandOutput>;
-  public stopLogging(args: StopLoggingCommandInput, cb: (err: any, data?: StopLoggingCommandOutput) => void): void;
-  public stopLogging(
-    args: StopLoggingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopLoggingCommandOutput) => void
-  ): void;
-  public stopLogging(
-    args: StopLoggingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopLoggingCommandOutput) => void),
-    cb?: (err: any, data?: StopLoggingCommandOutput) => void
-  ): Promise<StopLoggingCommandOutput> | void {
-    const command = new StopLoggingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a channel specified by a required channel ARN or UUID.</p>
-   */
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelCommandOutput>;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): Promise<UpdateChannelCommandOutput> | void {
-    const command = new UpdateChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
-   *          the ID portion of the ARN. Other parameters are optional, but at least one optional
-   *          parameter must be specified, or CloudTrail throws an error.
-   *             <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and
-   *          2557. By default, <code>TerminationProtection</code> is enabled.</p>
-   *          <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code>
-   *          includes or excludes management and data events in your event data store. For more
-   *          information about <code>AdvancedEventSelectors</code>, see <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>. </p>
-   *          <p> For event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
-   *             <code>AdvancedEventSelectors</code> includes events of that type in your event data
-   *          store.</p>
-   */
-  public updateEventDataStore(
-    args: UpdateEventDataStoreCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateEventDataStoreCommandOutput>;
-  public updateEventDataStore(
-    args: UpdateEventDataStoreCommandInput,
-    cb: (err: any, data?: UpdateEventDataStoreCommandOutput) => void
-  ): void;
-  public updateEventDataStore(
-    args: UpdateEventDataStoreCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateEventDataStoreCommandOutput) => void
-  ): void;
-  public updateEventDataStore(
-    args: UpdateEventDataStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEventDataStoreCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEventDataStoreCommandOutput) => void
-  ): Promise<UpdateEventDataStoreCommandOutput> | void {
-    const command = new UpdateEventDataStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates trail settings that control what events you are logging, and how to handle log
-   *          files. Changes to a trail do not require stopping the CloudTrail service. Use this
-   *          action to designate an existing bucket for log delivery. If the existing bucket has
-   *          previously been a target for CloudTrail log files, an IAM policy
-   *          exists for the bucket. <code>UpdateTrail</code> must be called from the region in which the
-   *          trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.</p>
-   */
-  public updateTrail(args: UpdateTrailCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTrailCommandOutput>;
-  public updateTrail(args: UpdateTrailCommandInput, cb: (err: any, data?: UpdateTrailCommandOutput) => void): void;
-  public updateTrail(
-    args: UpdateTrailCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateTrailCommandOutput) => void
-  ): void;
-  public updateTrail(
-    args: UpdateTrailCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrailCommandOutput) => void),
-    cb?: (err: any, data?: UpdateTrailCommandOutput) => void
-  ): Promise<UpdateTrailCommandOutput> | void {
-    const command = new UpdateTrailCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class CloudTrail extends CloudTrailClient implements CloudTrail {}
+createAggregatedClient(commands, CloudTrail);

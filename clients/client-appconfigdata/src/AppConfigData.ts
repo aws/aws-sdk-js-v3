@@ -1,7 +1,8 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
-import { AppConfigDataClient } from "./AppConfigDataClient";
+import { AppConfigDataClient, AppConfigDataClientConfig } from "./AppConfigDataClient";
 import {
   GetLatestConfigurationCommand,
   GetLatestConfigurationCommandInput,
@@ -12,6 +13,47 @@ import {
   StartConfigurationSessionCommandInput,
   StartConfigurationSessionCommandOutput,
 } from "./commands/StartConfigurationSessionCommand";
+
+const commands = {
+  GetLatestConfigurationCommand,
+  StartConfigurationSessionCommand,
+};
+
+export interface AppConfigData {
+  /**
+   * @see {@link GetLatestConfigurationCommand}
+   */
+  getLatestConfiguration(
+    args: GetLatestConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLatestConfigurationCommandOutput>;
+  getLatestConfiguration(
+    args: GetLatestConfigurationCommandInput,
+    cb: (err: any, data?: GetLatestConfigurationCommandOutput) => void
+  ): void;
+  getLatestConfiguration(
+    args: GetLatestConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLatestConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartConfigurationSessionCommand}
+   */
+  startConfigurationSession(
+    args: StartConfigurationSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartConfigurationSessionCommandOutput>;
+  startConfigurationSession(
+    args: StartConfigurationSessionCommandInput,
+    cb: (err: any, data?: StartConfigurationSessionCommandOutput) => void
+  ): void;
+  startConfigurationSession(
+    args: StartConfigurationSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartConfigurationSessionCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -75,93 +117,5 @@ import {
  *             <code>GetLatestConfiguration</code> API actions, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
  *             configuration</a> in the <i>AppConfig User Guide</i>.</p>
  */
-export class AppConfigData extends AppConfigDataClient {
-  /**
-   * @public
-   * <p>Retrieves the latest deployed configuration. This API may return empty configuration
-   *          data if the client already has the latest version. For more information about this API
-   *          action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
-   *             configuration</a> in the <i>AppConfig User Guide</i>. </p>
-   *          <important>
-   *             <p>Note the following important information.</p>
-   *             <ul>
-   *                <li>
-   *                   <p>Each configuration token is only valid for one call to
-   *                      <code>GetLatestConfiguration</code>. The <code>GetLatestConfiguration</code>
-   *                   response includes a <code>NextPollConfigurationToken</code> that should always
-   *                   replace the token used for the just-completed call in preparation for the next
-   *                   one. </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>GetLatestConfiguration</code> is a priced call. For more information, see
-   *                      <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.</p>
-   *                </li>
-   *             </ul>
-   *          </important>
-   */
-  public getLatestConfiguration(
-    args: GetLatestConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLatestConfigurationCommandOutput>;
-  public getLatestConfiguration(
-    args: GetLatestConfigurationCommandInput,
-    cb: (err: any, data?: GetLatestConfigurationCommandOutput) => void
-  ): void;
-  public getLatestConfiguration(
-    args: GetLatestConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLatestConfigurationCommandOutput) => void
-  ): void;
-  public getLatestConfiguration(
-    args: GetLatestConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLatestConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetLatestConfigurationCommandOutput) => void
-  ): Promise<GetLatestConfigurationCommandOutput> | void {
-    const command = new GetLatestConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts a configuration session used to retrieve a deployed configuration. For more
-   *          information about this API action and to view example CLI commands that show how to use
-   *          it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
-   *             configuration</a> in the <i>AppConfig User Guide</i>. </p>
-   */
-  public startConfigurationSession(
-    args: StartConfigurationSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartConfigurationSessionCommandOutput>;
-  public startConfigurationSession(
-    args: StartConfigurationSessionCommandInput,
-    cb: (err: any, data?: StartConfigurationSessionCommandOutput) => void
-  ): void;
-  public startConfigurationSession(
-    args: StartConfigurationSessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartConfigurationSessionCommandOutput) => void
-  ): void;
-  public startConfigurationSession(
-    args: StartConfigurationSessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartConfigurationSessionCommandOutput) => void),
-    cb?: (err: any, data?: StartConfigurationSessionCommandOutput) => void
-  ): Promise<StartConfigurationSessionCommandOutput> | void {
-    const command = new StartConfigurationSessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class AppConfigData extends AppConfigDataClient implements AppConfigData {}
+createAggregatedClient(commands, AppConfigData);

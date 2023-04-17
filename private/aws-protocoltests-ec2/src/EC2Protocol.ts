@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { createProxyClient } from "@aws-sdk/smithy-client";
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -130,6 +130,7 @@ const commands = {
   XmlNamespacesCommand,
   XmlTimestampsCommand,
 };
+
 export interface EC2Protocol {
   /**
    * @see {@link DatetimeOffsetsCommand}
@@ -484,10 +485,5 @@ export interface EC2Protocol {
  * @public
  * An EC2 query service that sends query requests and XML responses.
  */
-export class EC2Protocol extends EC2ProtocolClient implements EC2Protocol {
-  public constructor(config: EC2ProtocolClientConfig) {
-    const client = new EC2ProtocolClient(config);
-    const target: any = {};
-    return createProxyClient(target, commands, client);
-  }
-}
+export class EC2Protocol extends EC2ProtocolClient implements EC2Protocol {}
+createAggregatedClient(commands, EC2Protocol);

@@ -25,16 +25,23 @@ locations.clients = join(locations.root, "clients");
     const clientPkgJsonLocation = join(clientLocation, "package.json");
     const pkg = require(clientPkgJsonLocation);
 
+    if (packs.length >= 20) {
+      await Promise.all(packs);
+      packs.length = 0;
+    }
+
     packs.push(
       (async () => {
-        writeFileSync(clientPkgJsonLocation, JSON.stringify({ ...pkg, files: "dist-cjs" }, null, 2), "utf-8");
+        writeFileSync(clientPkgJsonLocation, JSON.stringify({ ...pkg, files: ["dist-cjs"] }, null, 2), "utf-8");
 
-        spawnProcess("npm", ["pack"], {
+        await spawnProcess("npm", ["pack"], {
           cwd: clientLocation,
         });
 
         writeFileSync(clientPkgJsonLocation, JSON.stringify(pkg, null, 2), "utf-8");
-      })()
+      })().catch((e) => {
+        console.error("error in " + clientFolderName, e);
+      })
     );
   }
 
@@ -50,12 +57,12 @@ locations.clients = join(locations.root, "clients");
     }
   }
 
+  for (const packFile of packFiles) {
+    rmSync(packFile);
+  }
+
   assert(6_000_000 < bytes, "byte count expected to be more than 6 million");
   assert(bytes < 20_000_000, "byte count expected to be less than 20 million");
 
   console.log("all clients dist-cjs total bytes:", bytes);
-
-  for (const packFile of packFiles) {
-    rmSync(packFile);
-  }
 })();

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -342,2598 +343,1187 @@ import {
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
-import { IoTSiteWiseClient } from "./IoTSiteWiseClient";
+import { IoTSiteWiseClient, IoTSiteWiseClientConfig } from "./IoTSiteWiseClient";
+
+const commands = {
+  AssociateAssetsCommand,
+  AssociateTimeSeriesToAssetPropertyCommand,
+  BatchAssociateProjectAssetsCommand,
+  BatchDisassociateProjectAssetsCommand,
+  BatchGetAssetPropertyAggregatesCommand,
+  BatchGetAssetPropertyValueCommand,
+  BatchGetAssetPropertyValueHistoryCommand,
+  BatchPutAssetPropertyValueCommand,
+  CreateAccessPolicyCommand,
+  CreateAssetCommand,
+  CreateAssetModelCommand,
+  CreateBulkImportJobCommand,
+  CreateDashboardCommand,
+  CreateGatewayCommand,
+  CreatePortalCommand,
+  CreateProjectCommand,
+  DeleteAccessPolicyCommand,
+  DeleteAssetCommand,
+  DeleteAssetModelCommand,
+  DeleteDashboardCommand,
+  DeleteGatewayCommand,
+  DeletePortalCommand,
+  DeleteProjectCommand,
+  DeleteTimeSeriesCommand,
+  DescribeAccessPolicyCommand,
+  DescribeAssetCommand,
+  DescribeAssetModelCommand,
+  DescribeAssetPropertyCommand,
+  DescribeBulkImportJobCommand,
+  DescribeDashboardCommand,
+  DescribeDefaultEncryptionConfigurationCommand,
+  DescribeGatewayCommand,
+  DescribeGatewayCapabilityConfigurationCommand,
+  DescribeLoggingOptionsCommand,
+  DescribePortalCommand,
+  DescribeProjectCommand,
+  DescribeStorageConfigurationCommand,
+  DescribeTimeSeriesCommand,
+  DisassociateAssetsCommand,
+  DisassociateTimeSeriesFromAssetPropertyCommand,
+  GetAssetPropertyAggregatesCommand,
+  GetAssetPropertyValueCommand,
+  GetAssetPropertyValueHistoryCommand,
+  GetInterpolatedAssetPropertyValuesCommand,
+  ListAccessPoliciesCommand,
+  ListAssetModelPropertiesCommand,
+  ListAssetModelsCommand,
+  ListAssetPropertiesCommand,
+  ListAssetRelationshipsCommand,
+  ListAssetsCommand,
+  ListAssociatedAssetsCommand,
+  ListBulkImportJobsCommand,
+  ListDashboardsCommand,
+  ListGatewaysCommand,
+  ListPortalsCommand,
+  ListProjectAssetsCommand,
+  ListProjectsCommand,
+  ListTagsForResourceCommand,
+  ListTimeSeriesCommand,
+  PutDefaultEncryptionConfigurationCommand,
+  PutLoggingOptionsCommand,
+  PutStorageConfigurationCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAccessPolicyCommand,
+  UpdateAssetCommand,
+  UpdateAssetModelCommand,
+  UpdateAssetPropertyCommand,
+  UpdateDashboardCommand,
+  UpdateGatewayCommand,
+  UpdateGatewayCapabilityConfigurationCommand,
+  UpdatePortalCommand,
+  UpdateProjectCommand,
+};
+
+export interface IoTSiteWise {
+  /**
+   * @see {@link AssociateAssetsCommand}
+   */
+  associateAssets(
+    args: AssociateAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateAssetsCommandOutput>;
+  associateAssets(args: AssociateAssetsCommandInput, cb: (err: any, data?: AssociateAssetsCommandOutput) => void): void;
+  associateAssets(
+    args: AssociateAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateTimeSeriesToAssetPropertyCommand}
+   */
+  associateTimeSeriesToAssetProperty(
+    args: AssociateTimeSeriesToAssetPropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput>;
+  associateTimeSeriesToAssetProperty(
+    args: AssociateTimeSeriesToAssetPropertyCommandInput,
+    cb: (err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void
+  ): void;
+  associateTimeSeriesToAssetProperty(
+    args: AssociateTimeSeriesToAssetPropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchAssociateProjectAssetsCommand}
+   */
+  batchAssociateProjectAssets(
+    args: BatchAssociateProjectAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchAssociateProjectAssetsCommandOutput>;
+  batchAssociateProjectAssets(
+    args: BatchAssociateProjectAssetsCommandInput,
+    cb: (err: any, data?: BatchAssociateProjectAssetsCommandOutput) => void
+  ): void;
+  batchAssociateProjectAssets(
+    args: BatchAssociateProjectAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAssociateProjectAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDisassociateProjectAssetsCommand}
+   */
+  batchDisassociateProjectAssets(
+    args: BatchDisassociateProjectAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDisassociateProjectAssetsCommandOutput>;
+  batchDisassociateProjectAssets(
+    args: BatchDisassociateProjectAssetsCommandInput,
+    cb: (err: any, data?: BatchDisassociateProjectAssetsCommandOutput) => void
+  ): void;
+  batchDisassociateProjectAssets(
+    args: BatchDisassociateProjectAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDisassociateProjectAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetAssetPropertyAggregatesCommand}
+   */
+  batchGetAssetPropertyAggregates(
+    args: BatchGetAssetPropertyAggregatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetAssetPropertyAggregatesCommandOutput>;
+  batchGetAssetPropertyAggregates(
+    args: BatchGetAssetPropertyAggregatesCommandInput,
+    cb: (err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void
+  ): void;
+  batchGetAssetPropertyAggregates(
+    args: BatchGetAssetPropertyAggregatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetAssetPropertyValueCommand}
+   */
+  batchGetAssetPropertyValue(
+    args: BatchGetAssetPropertyValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetAssetPropertyValueCommandOutput>;
+  batchGetAssetPropertyValue(
+    args: BatchGetAssetPropertyValueCommandInput,
+    cb: (err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void
+  ): void;
+  batchGetAssetPropertyValue(
+    args: BatchGetAssetPropertyValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetAssetPropertyValueHistoryCommand}
+   */
+  batchGetAssetPropertyValueHistory(
+    args: BatchGetAssetPropertyValueHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetAssetPropertyValueHistoryCommandOutput>;
+  batchGetAssetPropertyValueHistory(
+    args: BatchGetAssetPropertyValueHistoryCommandInput,
+    cb: (err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void
+  ): void;
+  batchGetAssetPropertyValueHistory(
+    args: BatchGetAssetPropertyValueHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchPutAssetPropertyValueCommand}
+   */
+  batchPutAssetPropertyValue(
+    args: BatchPutAssetPropertyValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchPutAssetPropertyValueCommandOutput>;
+  batchPutAssetPropertyValue(
+    args: BatchPutAssetPropertyValueCommandInput,
+    cb: (err: any, data?: BatchPutAssetPropertyValueCommandOutput) => void
+  ): void;
+  batchPutAssetPropertyValue(
+    args: BatchPutAssetPropertyValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchPutAssetPropertyValueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccessPolicyCommand}
+   */
+  createAccessPolicy(
+    args: CreateAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessPolicyCommandOutput>;
+  createAccessPolicy(
+    args: CreateAccessPolicyCommandInput,
+    cb: (err: any, data?: CreateAccessPolicyCommandOutput) => void
+  ): void;
+  createAccessPolicy(
+    args: CreateAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAssetCommand}
+   */
+  createAsset(args: CreateAssetCommandInput, options?: __HttpHandlerOptions): Promise<CreateAssetCommandOutput>;
+  createAsset(args: CreateAssetCommandInput, cb: (err: any, data?: CreateAssetCommandOutput) => void): void;
+  createAsset(
+    args: CreateAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAssetModelCommand}
+   */
+  createAssetModel(
+    args: CreateAssetModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAssetModelCommandOutput>;
+  createAssetModel(
+    args: CreateAssetModelCommandInput,
+    cb: (err: any, data?: CreateAssetModelCommandOutput) => void
+  ): void;
+  createAssetModel(
+    args: CreateAssetModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAssetModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateBulkImportJobCommand}
+   */
+  createBulkImportJob(
+    args: CreateBulkImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBulkImportJobCommandOutput>;
+  createBulkImportJob(
+    args: CreateBulkImportJobCommandInput,
+    cb: (err: any, data?: CreateBulkImportJobCommandOutput) => void
+  ): void;
+  createBulkImportJob(
+    args: CreateBulkImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBulkImportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDashboardCommand}
+   */
+  createDashboard(
+    args: CreateDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDashboardCommandOutput>;
+  createDashboard(args: CreateDashboardCommandInput, cb: (err: any, data?: CreateDashboardCommandOutput) => void): void;
+  createDashboard(
+    args: CreateDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateGatewayCommand}
+   */
+  createGateway(args: CreateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<CreateGatewayCommandOutput>;
+  createGateway(args: CreateGatewayCommandInput, cb: (err: any, data?: CreateGatewayCommandOutput) => void): void;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePortalCommand}
+   */
+  createPortal(args: CreatePortalCommandInput, options?: __HttpHandlerOptions): Promise<CreatePortalCommandOutput>;
+  createPortal(args: CreatePortalCommandInput, cb: (err: any, data?: CreatePortalCommandOutput) => void): void;
+  createPortal(
+    args: CreatePortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProjectCommand}
+   */
+  createProject(args: CreateProjectCommandInput, options?: __HttpHandlerOptions): Promise<CreateProjectCommandOutput>;
+  createProject(args: CreateProjectCommandInput, cb: (err: any, data?: CreateProjectCommandOutput) => void): void;
+  createProject(
+    args: CreateProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessPolicyCommand}
+   */
+  deleteAccessPolicy(
+    args: DeleteAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessPolicyCommandOutput>;
+  deleteAccessPolicy(
+    args: DeleteAccessPolicyCommandInput,
+    cb: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
+  ): void;
+  deleteAccessPolicy(
+    args: DeleteAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAssetCommand}
+   */
+  deleteAsset(args: DeleteAssetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAssetCommandOutput>;
+  deleteAsset(args: DeleteAssetCommandInput, cb: (err: any, data?: DeleteAssetCommandOutput) => void): void;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAssetModelCommand}
+   */
+  deleteAssetModel(
+    args: DeleteAssetModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetModelCommandOutput>;
+  deleteAssetModel(
+    args: DeleteAssetModelCommandInput,
+    cb: (err: any, data?: DeleteAssetModelCommandOutput) => void
+  ): void;
+  deleteAssetModel(
+    args: DeleteAssetModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDashboardCommand}
+   */
+  deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDashboardCommandOutput>;
+  deleteDashboard(args: DeleteDashboardCommandInput, cb: (err: any, data?: DeleteDashboardCommandOutput) => void): void;
+  deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGatewayCommand}
+   */
+  deleteGateway(args: DeleteGatewayCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGatewayCommandOutput>;
+  deleteGateway(args: DeleteGatewayCommandInput, cb: (err: any, data?: DeleteGatewayCommandOutput) => void): void;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePortalCommand}
+   */
+  deletePortal(args: DeletePortalCommandInput, options?: __HttpHandlerOptions): Promise<DeletePortalCommandOutput>;
+  deletePortal(args: DeletePortalCommandInput, cb: (err: any, data?: DeletePortalCommandOutput) => void): void;
+  deletePortal(
+    args: DeletePortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProjectCommand}
+   */
+  deleteProject(args: DeleteProjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProjectCommandOutput>;
+  deleteProject(args: DeleteProjectCommandInput, cb: (err: any, data?: DeleteProjectCommandOutput) => void): void;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTimeSeriesCommand}
+   */
+  deleteTimeSeries(
+    args: DeleteTimeSeriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTimeSeriesCommandOutput>;
+  deleteTimeSeries(
+    args: DeleteTimeSeriesCommandInput,
+    cb: (err: any, data?: DeleteTimeSeriesCommandOutput) => void
+  ): void;
+  deleteTimeSeries(
+    args: DeleteTimeSeriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTimeSeriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAccessPolicyCommand}
+   */
+  describeAccessPolicy(
+    args: DescribeAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccessPolicyCommandOutput>;
+  describeAccessPolicy(
+    args: DescribeAccessPolicyCommandInput,
+    cb: (err: any, data?: DescribeAccessPolicyCommandOutput) => void
+  ): void;
+  describeAccessPolicy(
+    args: DescribeAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssetCommand}
+   */
+  describeAsset(args: DescribeAssetCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAssetCommandOutput>;
+  describeAsset(args: DescribeAssetCommandInput, cb: (err: any, data?: DescribeAssetCommandOutput) => void): void;
+  describeAsset(
+    args: DescribeAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssetModelCommand}
+   */
+  describeAssetModel(
+    args: DescribeAssetModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssetModelCommandOutput>;
+  describeAssetModel(
+    args: DescribeAssetModelCommandInput,
+    cb: (err: any, data?: DescribeAssetModelCommandOutput) => void
+  ): void;
+  describeAssetModel(
+    args: DescribeAssetModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssetModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssetPropertyCommand}
+   */
+  describeAssetProperty(
+    args: DescribeAssetPropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssetPropertyCommandOutput>;
+  describeAssetProperty(
+    args: DescribeAssetPropertyCommandInput,
+    cb: (err: any, data?: DescribeAssetPropertyCommandOutput) => void
+  ): void;
+  describeAssetProperty(
+    args: DescribeAssetPropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssetPropertyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBulkImportJobCommand}
+   */
+  describeBulkImportJob(
+    args: DescribeBulkImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBulkImportJobCommandOutput>;
+  describeBulkImportJob(
+    args: DescribeBulkImportJobCommandInput,
+    cb: (err: any, data?: DescribeBulkImportJobCommandOutput) => void
+  ): void;
+  describeBulkImportJob(
+    args: DescribeBulkImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBulkImportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDashboardCommand}
+   */
+  describeDashboard(
+    args: DescribeDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDashboardCommandOutput>;
+  describeDashboard(
+    args: DescribeDashboardCommandInput,
+    cb: (err: any, data?: DescribeDashboardCommandOutput) => void
+  ): void;
+  describeDashboard(
+    args: DescribeDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDefaultEncryptionConfigurationCommand}
+   */
+  describeDefaultEncryptionConfiguration(
+    args: DescribeDefaultEncryptionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDefaultEncryptionConfigurationCommandOutput>;
+  describeDefaultEncryptionConfiguration(
+    args: DescribeDefaultEncryptionConfigurationCommandInput,
+    cb: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+  describeDefaultEncryptionConfiguration(
+    args: DescribeDefaultEncryptionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeGatewayCommand}
+   */
+  describeGateway(
+    args: DescribeGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGatewayCommandOutput>;
+  describeGateway(args: DescribeGatewayCommandInput, cb: (err: any, data?: DescribeGatewayCommandOutput) => void): void;
+  describeGateway(
+    args: DescribeGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeGatewayCapabilityConfigurationCommand}
+   */
+  describeGatewayCapabilityConfiguration(
+    args: DescribeGatewayCapabilityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGatewayCapabilityConfigurationCommandOutput>;
+  describeGatewayCapabilityConfiguration(
+    args: DescribeGatewayCapabilityConfigurationCommandInput,
+    cb: (err: any, data?: DescribeGatewayCapabilityConfigurationCommandOutput) => void
+  ): void;
+  describeGatewayCapabilityConfiguration(
+    args: DescribeGatewayCapabilityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGatewayCapabilityConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLoggingOptionsCommand}
+   */
+  describeLoggingOptions(
+    args: DescribeLoggingOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLoggingOptionsCommandOutput>;
+  describeLoggingOptions(
+    args: DescribeLoggingOptionsCommandInput,
+    cb: (err: any, data?: DescribeLoggingOptionsCommandOutput) => void
+  ): void;
+  describeLoggingOptions(
+    args: DescribeLoggingOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLoggingOptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePortalCommand}
+   */
+  describePortal(
+    args: DescribePortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePortalCommandOutput>;
+  describePortal(args: DescribePortalCommandInput, cb: (err: any, data?: DescribePortalCommandOutput) => void): void;
+  describePortal(
+    args: DescribePortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeProjectCommand}
+   */
+  describeProject(
+    args: DescribeProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProjectCommandOutput>;
+  describeProject(args: DescribeProjectCommandInput, cb: (err: any, data?: DescribeProjectCommandOutput) => void): void;
+  describeProject(
+    args: DescribeProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProjectCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeStorageConfigurationCommand}
+   */
+  describeStorageConfiguration(
+    args: DescribeStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStorageConfigurationCommandOutput>;
+  describeStorageConfiguration(
+    args: DescribeStorageConfigurationCommandInput,
+    cb: (err: any, data?: DescribeStorageConfigurationCommandOutput) => void
+  ): void;
+  describeStorageConfiguration(
+    args: DescribeStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStorageConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTimeSeriesCommand}
+   */
+  describeTimeSeries(
+    args: DescribeTimeSeriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTimeSeriesCommandOutput>;
+  describeTimeSeries(
+    args: DescribeTimeSeriesCommandInput,
+    cb: (err: any, data?: DescribeTimeSeriesCommandOutput) => void
+  ): void;
+  describeTimeSeries(
+    args: DescribeTimeSeriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTimeSeriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateAssetsCommand}
+   */
+  disassociateAssets(
+    args: DisassociateAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateAssetsCommandOutput>;
+  disassociateAssets(
+    args: DisassociateAssetsCommandInput,
+    cb: (err: any, data?: DisassociateAssetsCommandOutput) => void
+  ): void;
+  disassociateAssets(
+    args: DisassociateAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateTimeSeriesFromAssetPropertyCommand}
+   */
+  disassociateTimeSeriesFromAssetProperty(
+    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput>;
+  disassociateTimeSeriesFromAssetProperty(
+    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
+    cb: (err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void
+  ): void;
+  disassociateTimeSeriesFromAssetProperty(
+    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssetPropertyAggregatesCommand}
+   */
+  getAssetPropertyAggregates(
+    args: GetAssetPropertyAggregatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetPropertyAggregatesCommandOutput>;
+  getAssetPropertyAggregates(
+    args: GetAssetPropertyAggregatesCommandInput,
+    cb: (err: any, data?: GetAssetPropertyAggregatesCommandOutput) => void
+  ): void;
+  getAssetPropertyAggregates(
+    args: GetAssetPropertyAggregatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetPropertyAggregatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssetPropertyValueCommand}
+   */
+  getAssetPropertyValue(
+    args: GetAssetPropertyValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetPropertyValueCommandOutput>;
+  getAssetPropertyValue(
+    args: GetAssetPropertyValueCommandInput,
+    cb: (err: any, data?: GetAssetPropertyValueCommandOutput) => void
+  ): void;
+  getAssetPropertyValue(
+    args: GetAssetPropertyValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetPropertyValueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssetPropertyValueHistoryCommand}
+   */
+  getAssetPropertyValueHistory(
+    args: GetAssetPropertyValueHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetPropertyValueHistoryCommandOutput>;
+  getAssetPropertyValueHistory(
+    args: GetAssetPropertyValueHistoryCommandInput,
+    cb: (err: any, data?: GetAssetPropertyValueHistoryCommandOutput) => void
+  ): void;
+  getAssetPropertyValueHistory(
+    args: GetAssetPropertyValueHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetPropertyValueHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInterpolatedAssetPropertyValuesCommand}
+   */
+  getInterpolatedAssetPropertyValues(
+    args: GetInterpolatedAssetPropertyValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInterpolatedAssetPropertyValuesCommandOutput>;
+  getInterpolatedAssetPropertyValues(
+    args: GetInterpolatedAssetPropertyValuesCommandInput,
+    cb: (err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void
+  ): void;
+  getInterpolatedAssetPropertyValues(
+    args: GetInterpolatedAssetPropertyValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccessPoliciesCommand}
+   */
+  listAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessPoliciesCommandOutput>;
+  listAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
+  ): void;
+  listAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetModelPropertiesCommand}
+   */
+  listAssetModelProperties(
+    args: ListAssetModelPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetModelPropertiesCommandOutput>;
+  listAssetModelProperties(
+    args: ListAssetModelPropertiesCommandInput,
+    cb: (err: any, data?: ListAssetModelPropertiesCommandOutput) => void
+  ): void;
+  listAssetModelProperties(
+    args: ListAssetModelPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetModelPropertiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetModelsCommand}
+   */
+  listAssetModels(
+    args: ListAssetModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetModelsCommandOutput>;
+  listAssetModels(args: ListAssetModelsCommandInput, cb: (err: any, data?: ListAssetModelsCommandOutput) => void): void;
+  listAssetModels(
+    args: ListAssetModelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetModelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetPropertiesCommand}
+   */
+  listAssetProperties(
+    args: ListAssetPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetPropertiesCommandOutput>;
+  listAssetProperties(
+    args: ListAssetPropertiesCommandInput,
+    cb: (err: any, data?: ListAssetPropertiesCommandOutput) => void
+  ): void;
+  listAssetProperties(
+    args: ListAssetPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetPropertiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetRelationshipsCommand}
+   */
+  listAssetRelationships(
+    args: ListAssetRelationshipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetRelationshipsCommandOutput>;
+  listAssetRelationships(
+    args: ListAssetRelationshipsCommandInput,
+    cb: (err: any, data?: ListAssetRelationshipsCommandOutput) => void
+  ): void;
+  listAssetRelationships(
+    args: ListAssetRelationshipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetRelationshipsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetsCommand}
+   */
+  listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
+  listAssets(args: ListAssetsCommandInput, cb: (err: any, data?: ListAssetsCommandOutput) => void): void;
+  listAssets(
+    args: ListAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssociatedAssetsCommand}
+   */
+  listAssociatedAssets(
+    args: ListAssociatedAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociatedAssetsCommandOutput>;
+  listAssociatedAssets(
+    args: ListAssociatedAssetsCommandInput,
+    cb: (err: any, data?: ListAssociatedAssetsCommandOutput) => void
+  ): void;
+  listAssociatedAssets(
+    args: ListAssociatedAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociatedAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBulkImportJobsCommand}
+   */
+  listBulkImportJobs(
+    args: ListBulkImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBulkImportJobsCommandOutput>;
+  listBulkImportJobs(
+    args: ListBulkImportJobsCommandInput,
+    cb: (err: any, data?: ListBulkImportJobsCommandOutput) => void
+  ): void;
+  listBulkImportJobs(
+    args: ListBulkImportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBulkImportJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDashboardsCommand}
+   */
+  listDashboards(
+    args: ListDashboardsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDashboardsCommandOutput>;
+  listDashboards(args: ListDashboardsCommandInput, cb: (err: any, data?: ListDashboardsCommandOutput) => void): void;
+  listDashboards(
+    args: ListDashboardsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDashboardsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGatewaysCommand}
+   */
+  listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
+  listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGatewaysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPortalsCommand}
+   */
+  listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
+  listPortals(args: ListPortalsCommandInput, cb: (err: any, data?: ListPortalsCommandOutput) => void): void;
+  listPortals(
+    args: ListPortalsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPortalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProjectAssetsCommand}
+   */
+  listProjectAssets(
+    args: ListProjectAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProjectAssetsCommandOutput>;
+  listProjectAssets(
+    args: ListProjectAssetsCommandInput,
+    cb: (err: any, data?: ListProjectAssetsCommandOutput) => void
+  ): void;
+  listProjectAssets(
+    args: ListProjectAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProjectAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   */
+  listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
+  listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTimeSeriesCommand}
+   */
+  listTimeSeries(
+    args: ListTimeSeriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTimeSeriesCommandOutput>;
+  listTimeSeries(args: ListTimeSeriesCommandInput, cb: (err: any, data?: ListTimeSeriesCommandOutput) => void): void;
+  listTimeSeries(
+    args: ListTimeSeriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTimeSeriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutDefaultEncryptionConfigurationCommand}
+   */
+  putDefaultEncryptionConfiguration(
+    args: PutDefaultEncryptionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDefaultEncryptionConfigurationCommandOutput>;
+  putDefaultEncryptionConfiguration(
+    args: PutDefaultEncryptionConfigurationCommandInput,
+    cb: (err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+  putDefaultEncryptionConfiguration(
+    args: PutDefaultEncryptionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutLoggingOptionsCommand}
+   */
+  putLoggingOptions(
+    args: PutLoggingOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutLoggingOptionsCommandOutput>;
+  putLoggingOptions(
+    args: PutLoggingOptionsCommandInput,
+    cb: (err: any, data?: PutLoggingOptionsCommandOutput) => void
+  ): void;
+  putLoggingOptions(
+    args: PutLoggingOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutLoggingOptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutStorageConfigurationCommand}
+   */
+  putStorageConfiguration(
+    args: PutStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutStorageConfigurationCommandOutput>;
+  putStorageConfiguration(
+    args: PutStorageConfigurationCommandInput,
+    cb: (err: any, data?: PutStorageConfigurationCommandOutput) => void
+  ): void;
+  putStorageConfiguration(
+    args: PutStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutStorageConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccessPolicyCommand}
+   */
+  updateAccessPolicy(
+    args: UpdateAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccessPolicyCommandOutput>;
+  updateAccessPolicy(
+    args: UpdateAccessPolicyCommandInput,
+    cb: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
+  ): void;
+  updateAccessPolicy(
+    args: UpdateAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssetCommand}
+   */
+  updateAsset(args: UpdateAssetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAssetCommandOutput>;
+  updateAsset(args: UpdateAssetCommandInput, cb: (err: any, data?: UpdateAssetCommandOutput) => void): void;
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssetModelCommand}
+   */
+  updateAssetModel(
+    args: UpdateAssetModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetModelCommandOutput>;
+  updateAssetModel(
+    args: UpdateAssetModelCommandInput,
+    cb: (err: any, data?: UpdateAssetModelCommandOutput) => void
+  ): void;
+  updateAssetModel(
+    args: UpdateAssetModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssetModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssetPropertyCommand}
+   */
+  updateAssetProperty(
+    args: UpdateAssetPropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetPropertyCommandOutput>;
+  updateAssetProperty(
+    args: UpdateAssetPropertyCommandInput,
+    cb: (err: any, data?: UpdateAssetPropertyCommandOutput) => void
+  ): void;
+  updateAssetProperty(
+    args: UpdateAssetPropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssetPropertyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDashboardCommand}
+   */
+  updateDashboard(
+    args: UpdateDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDashboardCommandOutput>;
+  updateDashboard(args: UpdateDashboardCommandInput, cb: (err: any, data?: UpdateDashboardCommandOutput) => void): void;
+  updateDashboard(
+    args: UpdateDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGatewayCommand}
+   */
+  updateGateway(args: UpdateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGatewayCommandOutput>;
+  updateGateway(args: UpdateGatewayCommandInput, cb: (err: any, data?: UpdateGatewayCommandOutput) => void): void;
+  updateGateway(
+    args: UpdateGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGatewayCapabilityConfigurationCommand}
+   */
+  updateGatewayCapabilityConfiguration(
+    args: UpdateGatewayCapabilityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput>;
+  updateGatewayCapabilityConfiguration(
+    args: UpdateGatewayCapabilityConfigurationCommandInput,
+    cb: (err: any, data?: UpdateGatewayCapabilityConfigurationCommandOutput) => void
+  ): void;
+  updateGatewayCapabilityConfiguration(
+    args: UpdateGatewayCapabilityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGatewayCapabilityConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePortalCommand}
+   */
+  updatePortal(args: UpdatePortalCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePortalCommandOutput>;
+  updatePortal(args: UpdatePortalCommandInput, cb: (err: any, data?: UpdatePortalCommandOutput) => void): void;
+  updatePortal(
+    args: UpdatePortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProjectCommand}
+   */
+  updateProject(args: UpdateProjectCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProjectCommandOutput>;
+  updateProject(args: UpdateProjectCommandInput, cb: (err: any, data?: UpdateProjectCommandOutput) => void): void;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
  * <p>Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web Services service that connects <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">Industrial Internet of Things (IIoT)</a> devices to the power of the Amazon Web Services Cloud. For more information, see the
  *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/">IoT SiteWise User Guide</a>. For information about IoT SiteWise quotas, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
-export class IoTSiteWise extends IoTSiteWiseClient {
-  /**
-   * @public
-   * <p>Associates a child asset with the given parent asset through a hierarchy defined in the
-   *       parent asset's model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating assets</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public associateAssets(
-    args: AssociateAssetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateAssetsCommandOutput>;
-  public associateAssets(
-    args: AssociateAssetsCommandInput,
-    cb: (err: any, data?: AssociateAssetsCommandOutput) => void
-  ): void;
-  public associateAssets(
-    args: AssociateAssetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateAssetsCommandOutput) => void
-  ): void;
-  public associateAssets(
-    args: AssociateAssetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateAssetsCommandOutput) => void),
-    cb?: (err: any, data?: AssociateAssetsCommandOutput) => void
-  ): Promise<AssociateAssetsCommandOutput> | void {
-    const command = new AssociateAssetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates a time series (data stream) with an asset property.</p>
-   */
-  public associateTimeSeriesToAssetProperty(
-    args: AssociateTimeSeriesToAssetPropertyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput>;
-  public associateTimeSeriesToAssetProperty(
-    args: AssociateTimeSeriesToAssetPropertyCommandInput,
-    cb: (err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void
-  ): void;
-  public associateTimeSeriesToAssetProperty(
-    args: AssociateTimeSeriesToAssetPropertyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void
-  ): void;
-  public associateTimeSeriesToAssetProperty(
-    args: AssociateTimeSeriesToAssetPropertyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void),
-    cb?: (err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void
-  ): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput> | void {
-    const command = new AssociateTimeSeriesToAssetPropertyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates a group (batch) of assets with an IoT SiteWise Monitor project.</p>
-   */
-  public batchAssociateProjectAssets(
-    args: BatchAssociateProjectAssetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchAssociateProjectAssetsCommandOutput>;
-  public batchAssociateProjectAssets(
-    args: BatchAssociateProjectAssetsCommandInput,
-    cb: (err: any, data?: BatchAssociateProjectAssetsCommandOutput) => void
-  ): void;
-  public batchAssociateProjectAssets(
-    args: BatchAssociateProjectAssetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchAssociateProjectAssetsCommandOutput) => void
-  ): void;
-  public batchAssociateProjectAssets(
-    args: BatchAssociateProjectAssetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchAssociateProjectAssetsCommandOutput) => void),
-    cb?: (err: any, data?: BatchAssociateProjectAssetsCommandOutput) => void
-  ): Promise<BatchAssociateProjectAssetsCommandOutput> | void {
-    const command = new BatchAssociateProjectAssetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.</p>
-   */
-  public batchDisassociateProjectAssets(
-    args: BatchDisassociateProjectAssetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchDisassociateProjectAssetsCommandOutput>;
-  public batchDisassociateProjectAssets(
-    args: BatchDisassociateProjectAssetsCommandInput,
-    cb: (err: any, data?: BatchDisassociateProjectAssetsCommandOutput) => void
-  ): void;
-  public batchDisassociateProjectAssets(
-    args: BatchDisassociateProjectAssetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchDisassociateProjectAssetsCommandOutput) => void
-  ): void;
-  public batchDisassociateProjectAssets(
-    args: BatchDisassociateProjectAssetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDisassociateProjectAssetsCommandOutput) => void),
-    cb?: (err: any, data?: BatchDisassociateProjectAssetsCommandOutput) => void
-  ): Promise<BatchDisassociateProjectAssetsCommandOutput> | void {
-    const command = new BatchDisassociateProjectAssetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset
-   *       properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying aggregates</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public batchGetAssetPropertyAggregates(
-    args: BatchGetAssetPropertyAggregatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetAssetPropertyAggregatesCommandOutput>;
-  public batchGetAssetPropertyAggregates(
-    args: BatchGetAssetPropertyAggregatesCommandInput,
-    cb: (err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void
-  ): void;
-  public batchGetAssetPropertyAggregates(
-    args: BatchGetAssetPropertyAggregatesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void
-  ): void;
-  public batchGetAssetPropertyAggregates(
-    args: BatchGetAssetPropertyAggregatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void
-  ): Promise<BatchGetAssetPropertyAggregatesCommandOutput> | void {
-    const command = new BatchGetAssetPropertyAggregatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the current value for one or more asset properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
-   *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public batchGetAssetPropertyValue(
-    args: BatchGetAssetPropertyValueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetAssetPropertyValueCommandOutput>;
-  public batchGetAssetPropertyValue(
-    args: BatchGetAssetPropertyValueCommandInput,
-    cb: (err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void
-  ): void;
-  public batchGetAssetPropertyValue(
-    args: BatchGetAssetPropertyValueCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void
-  ): void;
-  public batchGetAssetPropertyValue(
-    args: BatchGetAssetPropertyValueCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void
-  ): Promise<BatchGetAssetPropertyValueCommandOutput> | void {
-    const command = new BatchGetAssetPropertyValueCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the historical values for one or more asset properties. For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public batchGetAssetPropertyValueHistory(
-    args: BatchGetAssetPropertyValueHistoryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetAssetPropertyValueHistoryCommandOutput>;
-  public batchGetAssetPropertyValueHistory(
-    args: BatchGetAssetPropertyValueHistoryCommandInput,
-    cb: (err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void
-  ): void;
-  public batchGetAssetPropertyValueHistory(
-    args: BatchGetAssetPropertyValueHistoryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void
-  ): void;
-  public batchGetAssetPropertyValueHistory(
-    args: BatchGetAssetPropertyValueHistoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void
-  ): Promise<BatchGetAssetPropertyValueHistoryCommandOutput> | void {
-    const command = new BatchGetAssetPropertyValueHistoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value
-   *       (TQV) data point. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting data using the API</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   *          <p>To identify an asset property, you must specify one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
-   *             </li>
-   *             <li>
-   *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
-   *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <important>
-   *             <p>With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp of no more
-   *         than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise rejects timestamps
-   *         outside of the inclusive range of [-7 days, +10 minutes] and returns a
-   *           <code>TimestampOutOfRangeException</code> error.</p>
-   *             <p>For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
-   *         TQV has a different quality. For example, if you store a TQV <code>\{T1, GOOD, V1\}</code>,
-   *         then storing <code>\{T1, GOOD, V2\}</code> replaces the existing TQV.</p>
-   *          </important>
-   *          <p>IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.
-   *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue authorization</a> in the
-   *       <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public batchPutAssetPropertyValue(
-    args: BatchPutAssetPropertyValueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchPutAssetPropertyValueCommandOutput>;
-  public batchPutAssetPropertyValue(
-    args: BatchPutAssetPropertyValueCommandInput,
-    cb: (err: any, data?: BatchPutAssetPropertyValueCommandOutput) => void
-  ): void;
-  public batchPutAssetPropertyValue(
-    args: BatchPutAssetPropertyValueCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchPutAssetPropertyValueCommandOutput) => void
-  ): void;
-  public batchPutAssetPropertyValue(
-    args: BatchPutAssetPropertyValueCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchPutAssetPropertyValueCommandOutput) => void),
-    cb?: (err: any, data?: BatchPutAssetPropertyValueCommandOutput) => void
-  ): Promise<BatchPutAssetPropertyValueCommandOutput> | void {
-    const command = new BatchPutAssetPropertyValueCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
-   *       IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p>
-   */
-  public createAccessPolicy(
-    args: CreateAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAccessPolicyCommandOutput>;
-  public createAccessPolicy(
-    args: CreateAccessPolicyCommandInput,
-    cb: (err: any, data?: CreateAccessPolicyCommandOutput) => void
-  ): void;
-  public createAccessPolicy(
-    args: CreateAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAccessPolicyCommandOutput) => void
-  ): void;
-  public createAccessPolicy(
-    args: CreateAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessPolicyCommandOutput) => void),
-    cb?: (err: any, data?: CreateAccessPolicyCommandOutput) => void
-  ): Promise<CreateAccessPolicyCommandOutput> | void {
-    const command = new CreateAccessPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating assets</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public createAsset(args: CreateAssetCommandInput, options?: __HttpHandlerOptions): Promise<CreateAssetCommandOutput>;
-  public createAsset(args: CreateAssetCommandInput, cb: (err: any, data?: CreateAssetCommandOutput) => void): void;
-  public createAsset(
-    args: CreateAssetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAssetCommandOutput) => void
-  ): void;
-  public createAsset(
-    args: CreateAssetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssetCommandOutput) => void),
-    cb?: (err: any, data?: CreateAssetCommandOutput) => void
-  ): Promise<CreateAssetCommandOutput> | void {
-    const command = new CreateAssetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an asset model from specified property and hierarchy definitions. You create
-   *       assets from asset models. With asset models, you can easily create assets of the same type
-   *       that have standardized definitions. Each asset created from a model inherits the asset model's
-   *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining asset models</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public createAssetModel(
-    args: CreateAssetModelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAssetModelCommandOutput>;
-  public createAssetModel(
-    args: CreateAssetModelCommandInput,
-    cb: (err: any, data?: CreateAssetModelCommandOutput) => void
-  ): void;
-  public createAssetModel(
-    args: CreateAssetModelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAssetModelCommandOutput) => void
-  ): void;
-  public createAssetModel(
-    args: CreateAssetModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssetModelCommandOutput) => void),
-    cb?: (err: any, data?: CreateAssetModelCommandOutput) => void
-  ): Promise<CreateAssetModelCommandOutput> | void {
-    const command = new CreateAssetModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
-   *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
-   *          <important>
-   *             <p>You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk import job. For
-   *         more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
-   *          </important>
-   */
-  public createBulkImportJob(
-    args: CreateBulkImportJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateBulkImportJobCommandOutput>;
-  public createBulkImportJob(
-    args: CreateBulkImportJobCommandInput,
-    cb: (err: any, data?: CreateBulkImportJobCommandOutput) => void
-  ): void;
-  public createBulkImportJob(
-    args: CreateBulkImportJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateBulkImportJobCommandOutput) => void
-  ): void;
-  public createBulkImportJob(
-    args: CreateBulkImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBulkImportJobCommandOutput) => void),
-    cb?: (err: any, data?: CreateBulkImportJobCommandOutput) => void
-  ): Promise<CreateBulkImportJobCommandOutput> | void {
-    const command = new CreateBulkImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a dashboard in an IoT SiteWise Monitor project.</p>
-   */
-  public createDashboard(
-    args: CreateDashboardCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDashboardCommandOutput>;
-  public createDashboard(
-    args: CreateDashboardCommandInput,
-    cb: (err: any, data?: CreateDashboardCommandOutput) => void
-  ): void;
-  public createDashboard(
-    args: CreateDashboardCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDashboardCommandOutput) => void
-  ): void;
-  public createDashboard(
-    args: CreateDashboardCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDashboardCommandOutput) => void),
-    cb?: (err: any, data?: CreateDashboardCommandOutput) => void
-  ): Promise<CreateDashboardCommandOutput> | void {
-    const command = new CreateDashboardCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams
-   *       from local servers to IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a gateway</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public createGateway(
-    args: CreateGatewayCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGatewayCommandOutput>;
-  public createGateway(
-    args: CreateGatewayCommandInput,
-    cb: (err: any, data?: CreateGatewayCommandOutput) => void
-  ): void;
-  public createGateway(
-    args: CreateGatewayCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateGatewayCommandOutput) => void
-  ): void;
-  public createGateway(
-    args: CreateGatewayCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGatewayCommandOutput) => void),
-    cb?: (err: any, data?: CreateGatewayCommandOutput) => void
-  ): Promise<CreateGatewayCommandOutput> | void {
-    const command = new CreateGatewayCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM
-   *       to authenticate portal users and manage user permissions.</p>
-   *          <note>
-   *             <p>Before you can sign in to a new portal, you must add at least one identity to that
-   *         portal. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins">Adding or removing portal
-   *           administrators</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   *          </note>
-   */
-  public createPortal(
-    args: CreatePortalCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreatePortalCommandOutput>;
-  public createPortal(args: CreatePortalCommandInput, cb: (err: any, data?: CreatePortalCommandOutput) => void): void;
-  public createPortal(
-    args: CreatePortalCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePortalCommandOutput) => void
-  ): void;
-  public createPortal(
-    args: CreatePortalCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePortalCommandOutput) => void),
-    cb?: (err: any, data?: CreatePortalCommandOutput) => void
-  ): Promise<CreatePortalCommandOutput> | void {
-    const command = new CreatePortalCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a project in the specified portal.</p>
-   *          <note>
-   *             <p>Make sure that the project name and description don't contain confidential
-   *         information.</p>
-   *          </note>
-   */
-  public createProject(
-    args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateProjectCommandOutput>;
-  public createProject(
-    args: CreateProjectCommandInput,
-    cb: (err: any, data?: CreateProjectCommandOutput) => void
-  ): void;
-  public createProject(
-    args: CreateProjectCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateProjectCommandOutput) => void
-  ): void;
-  public createProject(
-    args: CreateProjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
-    cb?: (err: any, data?: CreateProjectCommandOutput) => void
-  ): Promise<CreateProjectCommandOutput> | void {
-    const command = new CreateProjectCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an access policy that grants the specified identity access to the specified
-   *       IoT SiteWise Monitor resource. You can use this operation to revoke access to an IoT SiteWise Monitor
-   *       resource.</p>
-   */
-  public deleteAccessPolicy(
-    args: DeleteAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAccessPolicyCommandOutput>;
-  public deleteAccessPolicy(
-    args: DeleteAccessPolicyCommandInput,
-    cb: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
-  ): void;
-  public deleteAccessPolicy(
-    args: DeleteAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
-  ): void;
-  public deleteAccessPolicy(
-    args: DeleteAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessPolicyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
-  ): Promise<DeleteAccessPolicyCommandOutput> | void {
-    const command = new DeleteAccessPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an asset. This action can't be undone. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and
-   *         models</a> in the <i>IoT SiteWise User Guide</i>. </p>
-   *          <note>
-   *             <p>You can't delete an asset that's associated to another asset. For more information, see
-   *           <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html">DisassociateAssets</a>.</p>
-   *          </note>
-   */
-  public deleteAsset(args: DeleteAssetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAssetCommandOutput>;
-  public deleteAsset(args: DeleteAssetCommandInput, cb: (err: any, data?: DeleteAssetCommandOutput) => void): void;
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAssetCommandOutput) => void
-  ): void;
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAssetCommandOutput) => void
-  ): Promise<DeleteAssetCommandOutput> | void {
-    const command = new DeleteAssetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an asset model. This action can't be undone. You must delete all assets created
-   *       from an asset model before you can delete the model. Also, you can't delete an asset model if
-   *       a parent asset model exists that contains a property formula expression that depends on the
-   *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and models</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public deleteAssetModel(
-    args: DeleteAssetModelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAssetModelCommandOutput>;
-  public deleteAssetModel(
-    args: DeleteAssetModelCommandInput,
-    cb: (err: any, data?: DeleteAssetModelCommandOutput) => void
-  ): void;
-  public deleteAssetModel(
-    args: DeleteAssetModelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAssetModelCommandOutput) => void
-  ): void;
-  public deleteAssetModel(
-    args: DeleteAssetModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssetModelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAssetModelCommandOutput) => void
-  ): Promise<DeleteAssetModelCommandOutput> | void {
-    const command = new DeleteAssetModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a dashboard from IoT SiteWise Monitor.</p>
-   */
-  public deleteDashboard(
-    args: DeleteDashboardCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDashboardCommandOutput>;
-  public deleteDashboard(
-    args: DeleteDashboardCommandInput,
-    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
-  ): void;
-  public deleteDashboard(
-    args: DeleteDashboardCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
-  ): void;
-  public deleteDashboard(
-    args: DeleteDashboardCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDashboardCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDashboardCommandOutput) => void
-  ): Promise<DeleteDashboardCommandOutput> | void {
-    const command = new DeleteDashboardCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the gateway's files remain
-   *       in your gateway's file system.</p>
-   */
-  public deleteGateway(
-    args: DeleteGatewayCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGatewayCommandOutput>;
-  public deleteGateway(
-    args: DeleteGatewayCommandInput,
-    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
-  ): void;
-  public deleteGateway(
-    args: DeleteGatewayCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
-  ): void;
-  public deleteGateway(
-    args: DeleteGatewayCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGatewayCommandOutput) => void),
-    cb?: (err: any, data?: DeleteGatewayCommandOutput) => void
-  ): Promise<DeleteGatewayCommandOutput> | void {
-    const command = new DeleteGatewayCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a portal from IoT SiteWise Monitor.</p>
-   */
-  public deletePortal(
-    args: DeletePortalCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePortalCommandOutput>;
-  public deletePortal(args: DeletePortalCommandInput, cb: (err: any, data?: DeletePortalCommandOutput) => void): void;
-  public deletePortal(
-    args: DeletePortalCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePortalCommandOutput) => void
-  ): void;
-  public deletePortal(
-    args: DeletePortalCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePortalCommandOutput) => void),
-    cb?: (err: any, data?: DeletePortalCommandOutput) => void
-  ): Promise<DeletePortalCommandOutput> | void {
-    const command = new DeletePortalCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a project from IoT SiteWise Monitor.</p>
-   */
-  public deleteProject(
-    args: DeleteProjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteProjectCommandOutput>;
-  public deleteProject(
-    args: DeleteProjectCommandInput,
-    cb: (err: any, data?: DeleteProjectCommandOutput) => void
-  ): void;
-  public deleteProject(
-    args: DeleteProjectCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteProjectCommandOutput) => void
-  ): void;
-  public deleteProject(
-    args: DeleteProjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
-    cb?: (err: any, data?: DeleteProjectCommandOutput) => void
-  ): Promise<DeleteProjectCommandOutput> | void {
-    const command = new DeleteProjectCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a time series (data stream). If you delete a time series that's associated with an
-   *       asset property, the asset property still exists, but the time series will no longer be
-   *       associated with this asset property.</p>
-   *          <p>To identify a time series, do one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the time series isn't associated with an asset property,
-   *           specify the <code>alias</code> of the time series.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the time series is associated with an asset property,
-   *           specify one of the following: </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The <code>alias</code> of the time series.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The <code>assetId</code> and <code>propertyId</code> that identifies the asset property.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   */
-  public deleteTimeSeries(
-    args: DeleteTimeSeriesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTimeSeriesCommandOutput>;
-  public deleteTimeSeries(
-    args: DeleteTimeSeriesCommandInput,
-    cb: (err: any, data?: DeleteTimeSeriesCommandOutput) => void
-  ): void;
-  public deleteTimeSeries(
-    args: DeleteTimeSeriesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteTimeSeriesCommandOutput) => void
-  ): void;
-  public deleteTimeSeries(
-    args: DeleteTimeSeriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTimeSeriesCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTimeSeriesCommandOutput) => void
-  ): Promise<DeleteTimeSeriesCommandOutput> | void {
-    const command = new DeleteTimeSeriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes an access policy, which specifies an identity's access to an IoT SiteWise Monitor portal or
-   *       project.</p>
-   */
-  public describeAccessPolicy(
-    args: DescribeAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAccessPolicyCommandOutput>;
-  public describeAccessPolicy(
-    args: DescribeAccessPolicyCommandInput,
-    cb: (err: any, data?: DescribeAccessPolicyCommandOutput) => void
-  ): void;
-  public describeAccessPolicy(
-    args: DescribeAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAccessPolicyCommandOutput) => void
-  ): void;
-  public describeAccessPolicy(
-    args: DescribeAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccessPolicyCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAccessPolicyCommandOutput) => void
-  ): Promise<DescribeAccessPolicyCommandOutput> | void {
-    const command = new DescribeAccessPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about an asset.</p>
-   */
-  public describeAsset(
-    args: DescribeAssetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAssetCommandOutput>;
-  public describeAsset(
-    args: DescribeAssetCommandInput,
-    cb: (err: any, data?: DescribeAssetCommandOutput) => void
-  ): void;
-  public describeAsset(
-    args: DescribeAssetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAssetCommandOutput) => void
-  ): void;
-  public describeAsset(
-    args: DescribeAssetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssetCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAssetCommandOutput) => void
-  ): Promise<DescribeAssetCommandOutput> | void {
-    const command = new DescribeAssetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about an asset model.</p>
-   */
-  public describeAssetModel(
-    args: DescribeAssetModelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAssetModelCommandOutput>;
-  public describeAssetModel(
-    args: DescribeAssetModelCommandInput,
-    cb: (err: any, data?: DescribeAssetModelCommandOutput) => void
-  ): void;
-  public describeAssetModel(
-    args: DescribeAssetModelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAssetModelCommandOutput) => void
-  ): void;
-  public describeAssetModel(
-    args: DescribeAssetModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssetModelCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAssetModelCommandOutput) => void
-  ): Promise<DescribeAssetModelCommandOutput> | void {
-    const command = new DescribeAssetModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about an asset property.</p>
-   *          <note>
-   *             <p>When you call this operation for an attribute property, this response includes the
-   *         default attribute value that you define in the asset model. If you update the default value
-   *         in the model, this operation's response includes the new default value.</p>
-   *          </note>
-   *          <p>This operation doesn't return the value of the asset property. To get the value of an
-   *       asset property, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html">GetAssetPropertyValue</a>.</p>
-   */
-  public describeAssetProperty(
-    args: DescribeAssetPropertyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAssetPropertyCommandOutput>;
-  public describeAssetProperty(
-    args: DescribeAssetPropertyCommandInput,
-    cb: (err: any, data?: DescribeAssetPropertyCommandOutput) => void
-  ): void;
-  public describeAssetProperty(
-    args: DescribeAssetPropertyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAssetPropertyCommandOutput) => void
-  ): void;
-  public describeAssetProperty(
-    args: DescribeAssetPropertyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssetPropertyCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAssetPropertyCommandOutput) => void
-  ): Promise<DescribeAssetPropertyCommandOutput> | void {
-    const command = new DescribeAssetPropertyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a bulk import job request. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
-   *         a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
-   */
-  public describeBulkImportJob(
-    args: DescribeBulkImportJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeBulkImportJobCommandOutput>;
-  public describeBulkImportJob(
-    args: DescribeBulkImportJobCommandInput,
-    cb: (err: any, data?: DescribeBulkImportJobCommandOutput) => void
-  ): void;
-  public describeBulkImportJob(
-    args: DescribeBulkImportJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeBulkImportJobCommandOutput) => void
-  ): void;
-  public describeBulkImportJob(
-    args: DescribeBulkImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBulkImportJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeBulkImportJobCommandOutput) => void
-  ): Promise<DescribeBulkImportJobCommandOutput> | void {
-    const command = new DescribeBulkImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a dashboard.</p>
-   */
-  public describeDashboard(
-    args: DescribeDashboardCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDashboardCommandOutput>;
-  public describeDashboard(
-    args: DescribeDashboardCommandInput,
-    cb: (err: any, data?: DescribeDashboardCommandOutput) => void
-  ): void;
-  public describeDashboard(
-    args: DescribeDashboardCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDashboardCommandOutput) => void
-  ): void;
-  public describeDashboard(
-    args: DescribeDashboardCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDashboardCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDashboardCommandOutput) => void
-  ): Promise<DescribeDashboardCommandOutput> | void {
-    const command = new DescribeDashboardCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about the default encryption configuration for the Amazon Web Services account in
-   *       the default or specified Region. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public describeDefaultEncryptionConfiguration(
-    args: DescribeDefaultEncryptionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDefaultEncryptionConfigurationCommandOutput>;
-  public describeDefaultEncryptionConfiguration(
-    args: DescribeDefaultEncryptionConfigurationCommandInput,
-    cb: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
-  ): void;
-  public describeDefaultEncryptionConfiguration(
-    args: DescribeDefaultEncryptionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
-  ): void;
-  public describeDefaultEncryptionConfiguration(
-    args: DescribeDefaultEncryptionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
-  ): Promise<DescribeDefaultEncryptionConfigurationCommandOutput> | void {
-    const command = new DescribeDefaultEncryptionConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a gateway.</p>
-   */
-  public describeGateway(
-    args: DescribeGatewayCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeGatewayCommandOutput>;
-  public describeGateway(
-    args: DescribeGatewayCommandInput,
-    cb: (err: any, data?: DescribeGatewayCommandOutput) => void
-  ): void;
-  public describeGateway(
-    args: DescribeGatewayCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeGatewayCommandOutput) => void
-  ): void;
-  public describeGateway(
-    args: DescribeGatewayCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGatewayCommandOutput) => void),
-    cb?: (err: any, data?: DescribeGatewayCommandOutput) => void
-  ): Promise<DescribeGatewayCommandOutput> | void {
-    const command = new DescribeGatewayCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a gateway capability configuration.
-   *       Each gateway capability defines data sources for a gateway. A capability configuration
-   *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
-   *       the IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To
-   *       list all capability configurations for a gateway, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.</p>
-   */
-  public describeGatewayCapabilityConfiguration(
-    args: DescribeGatewayCapabilityConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeGatewayCapabilityConfigurationCommandOutput>;
-  public describeGatewayCapabilityConfiguration(
-    args: DescribeGatewayCapabilityConfigurationCommandInput,
-    cb: (err: any, data?: DescribeGatewayCapabilityConfigurationCommandOutput) => void
-  ): void;
-  public describeGatewayCapabilityConfiguration(
-    args: DescribeGatewayCapabilityConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeGatewayCapabilityConfigurationCommandOutput) => void
-  ): void;
-  public describeGatewayCapabilityConfiguration(
-    args: DescribeGatewayCapabilityConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGatewayCapabilityConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeGatewayCapabilityConfigurationCommandOutput) => void
-  ): Promise<DescribeGatewayCapabilityConfigurationCommandOutput> | void {
-    const command = new DescribeGatewayCapabilityConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the current IoT SiteWise logging options.</p>
-   */
-  public describeLoggingOptions(
-    args: DescribeLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLoggingOptionsCommandOutput>;
-  public describeLoggingOptions(
-    args: DescribeLoggingOptionsCommandInput,
-    cb: (err: any, data?: DescribeLoggingOptionsCommandOutput) => void
-  ): void;
-  public describeLoggingOptions(
-    args: DescribeLoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLoggingOptionsCommandOutput) => void
-  ): void;
-  public describeLoggingOptions(
-    args: DescribeLoggingOptionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoggingOptionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLoggingOptionsCommandOutput) => void
-  ): Promise<DescribeLoggingOptionsCommandOutput> | void {
-    const command = new DescribeLoggingOptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a portal.</p>
-   */
-  public describePortal(
-    args: DescribePortalCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribePortalCommandOutput>;
-  public describePortal(
-    args: DescribePortalCommandInput,
-    cb: (err: any, data?: DescribePortalCommandOutput) => void
-  ): void;
-  public describePortal(
-    args: DescribePortalCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribePortalCommandOutput) => void
-  ): void;
-  public describePortal(
-    args: DescribePortalCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePortalCommandOutput) => void),
-    cb?: (err: any, data?: DescribePortalCommandOutput) => void
-  ): Promise<DescribePortalCommandOutput> | void {
-    const command = new DescribePortalCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a project.</p>
-   */
-  public describeProject(
-    args: DescribeProjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeProjectCommandOutput>;
-  public describeProject(
-    args: DescribeProjectCommandInput,
-    cb: (err: any, data?: DescribeProjectCommandOutput) => void
-  ): void;
-  public describeProject(
-    args: DescribeProjectCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeProjectCommandOutput) => void
-  ): void;
-  public describeProject(
-    args: DescribeProjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProjectCommandOutput) => void),
-    cb?: (err: any, data?: DescribeProjectCommandOutput) => void
-  ): Promise<DescribeProjectCommandOutput> | void {
-    const command = new DescribeProjectCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about the storage configuration for IoT SiteWise.</p>
-   */
-  public describeStorageConfiguration(
-    args: DescribeStorageConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStorageConfigurationCommandOutput>;
-  public describeStorageConfiguration(
-    args: DescribeStorageConfigurationCommandInput,
-    cb: (err: any, data?: DescribeStorageConfigurationCommandOutput) => void
-  ): void;
-  public describeStorageConfiguration(
-    args: DescribeStorageConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStorageConfigurationCommandOutput) => void
-  ): void;
-  public describeStorageConfiguration(
-    args: DescribeStorageConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStorageConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStorageConfigurationCommandOutput) => void
-  ): Promise<DescribeStorageConfigurationCommandOutput> | void {
-    const command = new DescribeStorageConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a time series (data stream).</p>
-   *          <p>To identify a time series, do one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the time series isn't associated with an asset property,
-   *           specify the <code>alias</code> of the time series.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the time series is associated with an asset property,
-   *           specify one of the following: </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The <code>alias</code> of the time series.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The <code>assetId</code> and <code>propertyId</code> that identifies the asset property.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   */
-  public describeTimeSeries(
-    args: DescribeTimeSeriesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTimeSeriesCommandOutput>;
-  public describeTimeSeries(
-    args: DescribeTimeSeriesCommandInput,
-    cb: (err: any, data?: DescribeTimeSeriesCommandOutput) => void
-  ): void;
-  public describeTimeSeries(
-    args: DescribeTimeSeriesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTimeSeriesCommandOutput) => void
-  ): void;
-  public describeTimeSeries(
-    args: DescribeTimeSeriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTimeSeriesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTimeSeriesCommandOutput) => void
-  ): Promise<DescribeTimeSeriesCommandOutput> | void {
-    const command = new DescribeTimeSeriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates a child asset from the given parent asset through a hierarchy defined in the
-   *       parent asset's model.</p>
-   */
-  public disassociateAssets(
-    args: DisassociateAssetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateAssetsCommandOutput>;
-  public disassociateAssets(
-    args: DisassociateAssetsCommandInput,
-    cb: (err: any, data?: DisassociateAssetsCommandOutput) => void
-  ): void;
-  public disassociateAssets(
-    args: DisassociateAssetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateAssetsCommandOutput) => void
-  ): void;
-  public disassociateAssets(
-    args: DisassociateAssetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateAssetsCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateAssetsCommandOutput) => void
-  ): Promise<DisassociateAssetsCommandOutput> | void {
-    const command = new DisassociateAssetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates a time series (data stream) from an asset property.</p>
-   */
-  public disassociateTimeSeriesFromAssetProperty(
-    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput>;
-  public disassociateTimeSeriesFromAssetProperty(
-    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
-    cb: (err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void
-  ): void;
-  public disassociateTimeSeriesFromAssetProperty(
-    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void
-  ): void;
-  public disassociateTimeSeriesFromAssetProperty(
-    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void
-  ): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput> | void {
-    const command = new DisassociateTimeSeriesFromAssetPropertyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
-   *         aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   *          <p>To identify an asset property, you must specify one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
-   *             </li>
-   *             <li>
-   *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
-   *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  public getAssetPropertyAggregates(
-    args: GetAssetPropertyAggregatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAssetPropertyAggregatesCommandOutput>;
-  public getAssetPropertyAggregates(
-    args: GetAssetPropertyAggregatesCommandInput,
-    cb: (err: any, data?: GetAssetPropertyAggregatesCommandOutput) => void
-  ): void;
-  public getAssetPropertyAggregates(
-    args: GetAssetPropertyAggregatesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAssetPropertyAggregatesCommandOutput) => void
-  ): void;
-  public getAssetPropertyAggregates(
-    args: GetAssetPropertyAggregatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssetPropertyAggregatesCommandOutput) => void),
-    cb?: (err: any, data?: GetAssetPropertyAggregatesCommandOutput) => void
-  ): Promise<GetAssetPropertyAggregatesCommandOutput> | void {
-    const command = new GetAssetPropertyAggregatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets an asset property's current value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
-   *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   *          <p>To identify an asset property, you must specify one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
-   *             </li>
-   *             <li>
-   *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
-   *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  public getAssetPropertyValue(
-    args: GetAssetPropertyValueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAssetPropertyValueCommandOutput>;
-  public getAssetPropertyValue(
-    args: GetAssetPropertyValueCommandInput,
-    cb: (err: any, data?: GetAssetPropertyValueCommandOutput) => void
-  ): void;
-  public getAssetPropertyValue(
-    args: GetAssetPropertyValueCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAssetPropertyValueCommandOutput) => void
-  ): void;
-  public getAssetPropertyValue(
-    args: GetAssetPropertyValueCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssetPropertyValueCommandOutput) => void),
-    cb?: (err: any, data?: GetAssetPropertyValueCommandOutput) => void
-  ): Promise<GetAssetPropertyValueCommandOutput> | void {
-    const command = new GetAssetPropertyValueCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the history of an asset property's values. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
-   *         historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   *          <p>To identify an asset property, you must specify one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
-   *             </li>
-   *             <li>
-   *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
-   *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  public getAssetPropertyValueHistory(
-    args: GetAssetPropertyValueHistoryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAssetPropertyValueHistoryCommandOutput>;
-  public getAssetPropertyValueHistory(
-    args: GetAssetPropertyValueHistoryCommandInput,
-    cb: (err: any, data?: GetAssetPropertyValueHistoryCommandOutput) => void
-  ): void;
-  public getAssetPropertyValueHistory(
-    args: GetAssetPropertyValueHistoryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAssetPropertyValueHistoryCommandOutput) => void
-  ): void;
-  public getAssetPropertyValueHistory(
-    args: GetAssetPropertyValueHistoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssetPropertyValueHistoryCommandOutput) => void),
-    cb?: (err: any, data?: GetAssetPropertyValueHistoryCommandOutput) => void
-  ): Promise<GetAssetPropertyValueHistoryCommandOutput> | void {
-    const command = new GetAssetPropertyValueHistoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get interpolated values for an asset property for a specified time interval, during a
-   *       period of time. If your time series is missing data points during the specified time interval,
-   *       you can use interpolation to estimate the missing data.</p>
-   *          <p>For example, you can use this operation to return the interpolated temperature values for
-   *       a wind turbine every 24 hours over a duration of 7 days.</p>
-   *          <p>To identify an asset property, you must specify one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
-   *             </li>
-   *             <li>
-   *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
-   *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  public getInterpolatedAssetPropertyValues(
-    args: GetInterpolatedAssetPropertyValuesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetInterpolatedAssetPropertyValuesCommandOutput>;
-  public getInterpolatedAssetPropertyValues(
-    args: GetInterpolatedAssetPropertyValuesCommandInput,
-    cb: (err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void
-  ): void;
-  public getInterpolatedAssetPropertyValues(
-    args: GetInterpolatedAssetPropertyValuesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void
-  ): void;
-  public getInterpolatedAssetPropertyValues(
-    args: GetInterpolatedAssetPropertyValuesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void),
-    cb?: (err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void
-  ): Promise<GetInterpolatedAssetPropertyValuesCommandOutput> | void {
-    const command = new GetInterpolatedAssetPropertyValuesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of access policies for an identity (an IAM Identity Center user, an IAM Identity Center
-   *       group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
-   */
-  public listAccessPolicies(
-    args: ListAccessPoliciesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAccessPoliciesCommandOutput>;
-  public listAccessPolicies(
-    args: ListAccessPoliciesCommandInput,
-    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
-  ): void;
-  public listAccessPolicies(
-    args: ListAccessPoliciesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
-  ): void;
-  public listAccessPolicies(
-    args: ListAccessPoliciesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessPoliciesCommandOutput) => void),
-    cb?: (err: any, data?: ListAccessPoliciesCommandOutput) => void
-  ): Promise<ListAccessPoliciesCommandOutput> | void {
-    const command = new ListAccessPoliciesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of properties associated with an asset model.
-   *       If you update properties associated with the model before you finish listing all the properties,
-   *         you need to start all over again.</p>
-   */
-  public listAssetModelProperties(
-    args: ListAssetModelPropertiesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAssetModelPropertiesCommandOutput>;
-  public listAssetModelProperties(
-    args: ListAssetModelPropertiesCommandInput,
-    cb: (err: any, data?: ListAssetModelPropertiesCommandOutput) => void
-  ): void;
-  public listAssetModelProperties(
-    args: ListAssetModelPropertiesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAssetModelPropertiesCommandOutput) => void
-  ): void;
-  public listAssetModelProperties(
-    args: ListAssetModelPropertiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetModelPropertiesCommandOutput) => void),
-    cb?: (err: any, data?: ListAssetModelPropertiesCommandOutput) => void
-  ): Promise<ListAssetModelPropertiesCommandOutput> | void {
-    const command = new ListAssetModelPropertiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of summaries of all asset models.</p>
-   */
-  public listAssetModels(
-    args: ListAssetModelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAssetModelsCommandOutput>;
-  public listAssetModels(
-    args: ListAssetModelsCommandInput,
-    cb: (err: any, data?: ListAssetModelsCommandOutput) => void
-  ): void;
-  public listAssetModels(
-    args: ListAssetModelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAssetModelsCommandOutput) => void
-  ): void;
-  public listAssetModels(
-    args: ListAssetModelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetModelsCommandOutput) => void),
-    cb?: (err: any, data?: ListAssetModelsCommandOutput) => void
-  ): Promise<ListAssetModelsCommandOutput> | void {
-    const command = new ListAssetModelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of properties associated with an asset.
-   *       If you update properties associated with the model before you finish listing all the properties,
-   *         you need to start all over again.</p>
-   */
-  public listAssetProperties(
-    args: ListAssetPropertiesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAssetPropertiesCommandOutput>;
-  public listAssetProperties(
-    args: ListAssetPropertiesCommandInput,
-    cb: (err: any, data?: ListAssetPropertiesCommandOutput) => void
-  ): void;
-  public listAssetProperties(
-    args: ListAssetPropertiesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAssetPropertiesCommandOutput) => void
-  ): void;
-  public listAssetProperties(
-    args: ListAssetPropertiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetPropertiesCommandOutput) => void),
-    cb?: (err: any, data?: ListAssetPropertiesCommandOutput) => void
-  ): Promise<ListAssetPropertiesCommandOutput> | void {
-    const command = new ListAssetPropertiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of asset relationships for an asset. You can use this operation
-   *       to identify an asset's root asset and all associated assets between that asset and its
-   *       root.</p>
-   */
-  public listAssetRelationships(
-    args: ListAssetRelationshipsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAssetRelationshipsCommandOutput>;
-  public listAssetRelationships(
-    args: ListAssetRelationshipsCommandInput,
-    cb: (err: any, data?: ListAssetRelationshipsCommandOutput) => void
-  ): void;
-  public listAssetRelationships(
-    args: ListAssetRelationshipsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAssetRelationshipsCommandOutput) => void
-  ): void;
-  public listAssetRelationships(
-    args: ListAssetRelationshipsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetRelationshipsCommandOutput) => void),
-    cb?: (err: any, data?: ListAssetRelationshipsCommandOutput) => void
-  ): Promise<ListAssetRelationshipsCommandOutput> | void {
-    const command = new ListAssetRelationshipsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of asset summaries.</p>
-   *          <p>You can use this operation to do the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>List assets based on a specific asset model.</p>
-   *             </li>
-   *             <li>
-   *                <p>List top-level assets.</p>
-   *             </li>
-   *          </ul>
-   *          <p>You can't use this operation to list all assets. To retrieve summaries for all of your
-   *       assets, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html">ListAssetModels</a> to get all of your asset model IDs. Then, use ListAssets to get all
-   *       assets for each asset model.</p>
-   */
-  public listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
-  public listAssets(args: ListAssetsCommandInput, cb: (err: any, data?: ListAssetsCommandOutput) => void): void;
-  public listAssets(
-    args: ListAssetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAssetsCommandOutput) => void
-  ): void;
-  public listAssets(
-    args: ListAssetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetsCommandOutput) => void),
-    cb?: (err: any, data?: ListAssetsCommandOutput) => void
-  ): Promise<ListAssetsCommandOutput> | void {
-    const command = new ListAssetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of associated assets.</p>
-   *          <p>You can use this operation to do the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>List child assets associated to a parent asset by a hierarchy that you specify.</p>
-   *             </li>
-   *             <li>
-   *                <p>List an asset's parent asset.</p>
-   *             </li>
-   *          </ul>
-   */
-  public listAssociatedAssets(
-    args: ListAssociatedAssetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAssociatedAssetsCommandOutput>;
-  public listAssociatedAssets(
-    args: ListAssociatedAssetsCommandInput,
-    cb: (err: any, data?: ListAssociatedAssetsCommandOutput) => void
-  ): void;
-  public listAssociatedAssets(
-    args: ListAssociatedAssetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAssociatedAssetsCommandOutput) => void
-  ): void;
-  public listAssociatedAssets(
-    args: ListAssociatedAssetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociatedAssetsCommandOutput) => void),
-    cb?: (err: any, data?: ListAssociatedAssetsCommandOutput) => void
-  ): Promise<ListAssociatedAssetsCommandOutput> | void {
-    const command = new ListAssociatedAssetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of bulk import job requests. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List bulk
-   *         import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public listBulkImportJobs(
-    args: ListBulkImportJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBulkImportJobsCommandOutput>;
-  public listBulkImportJobs(
-    args: ListBulkImportJobsCommandInput,
-    cb: (err: any, data?: ListBulkImportJobsCommandOutput) => void
-  ): void;
-  public listBulkImportJobs(
-    args: ListBulkImportJobsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListBulkImportJobsCommandOutput) => void
-  ): void;
-  public listBulkImportJobs(
-    args: ListBulkImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBulkImportJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListBulkImportJobsCommandOutput) => void
-  ): Promise<ListBulkImportJobsCommandOutput> | void {
-    const command = new ListBulkImportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.</p>
-   */
-  public listDashboards(
-    args: ListDashboardsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDashboardsCommandOutput>;
-  public listDashboards(
-    args: ListDashboardsCommandInput,
-    cb: (err: any, data?: ListDashboardsCommandOutput) => void
-  ): void;
-  public listDashboards(
-    args: ListDashboardsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDashboardsCommandOutput) => void
-  ): void;
-  public listDashboards(
-    args: ListDashboardsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDashboardsCommandOutput) => void),
-    cb?: (err: any, data?: ListDashboardsCommandOutput) => void
-  ): Promise<ListDashboardsCommandOutput> | void {
-    const command = new ListDashboardsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of gateways.</p>
-   */
-  public listGateways(
-    args: ListGatewaysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGatewaysCommandOutput>;
-  public listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
-  public listGateways(
-    args: ListGatewaysCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGatewaysCommandOutput) => void
-  ): void;
-  public listGateways(
-    args: ListGatewaysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGatewaysCommandOutput) => void),
-    cb?: (err: any, data?: ListGatewaysCommandOutput) => void
-  ): Promise<ListGatewaysCommandOutput> | void {
-    const command = new ListGatewaysCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of IoT SiteWise Monitor portals.</p>
-   */
-  public listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
-  public listPortals(args: ListPortalsCommandInput, cb: (err: any, data?: ListPortalsCommandOutput) => void): void;
-  public listPortals(
-    args: ListPortalsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPortalsCommandOutput) => void
-  ): void;
-  public listPortals(
-    args: ListPortalsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPortalsCommandOutput) => void),
-    cb?: (err: any, data?: ListPortalsCommandOutput) => void
-  ): Promise<ListPortalsCommandOutput> | void {
-    const command = new ListPortalsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of assets associated with an IoT SiteWise Monitor project.</p>
-   */
-  public listProjectAssets(
-    args: ListProjectAssetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListProjectAssetsCommandOutput>;
-  public listProjectAssets(
-    args: ListProjectAssetsCommandInput,
-    cb: (err: any, data?: ListProjectAssetsCommandOutput) => void
-  ): void;
-  public listProjectAssets(
-    args: ListProjectAssetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListProjectAssetsCommandOutput) => void
-  ): void;
-  public listProjectAssets(
-    args: ListProjectAssetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectAssetsCommandOutput) => void),
-    cb?: (err: any, data?: ListProjectAssetsCommandOutput) => void
-  ): Promise<ListProjectAssetsCommandOutput> | void {
-    const command = new ListProjectAssetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of projects for an IoT SiteWise Monitor portal.</p>
-   */
-  public listProjects(
-    args: ListProjectsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListProjectsCommandOutput>;
-  public listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
-  public listProjects(
-    args: ListProjectsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListProjectsCommandOutput) => void
-  ): void;
-  public listProjects(
-    args: ListProjectsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
-    cb?: (err: any, data?: ListProjectsCommandOutput) => void
-  ): Promise<ListProjectsCommandOutput> | void {
-    const command = new ListProjectsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the list of tags for an IoT SiteWise resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a paginated list of time series (data streams).</p>
-   */
-  public listTimeSeries(
-    args: ListTimeSeriesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTimeSeriesCommandOutput>;
-  public listTimeSeries(
-    args: ListTimeSeriesCommandInput,
-    cb: (err: any, data?: ListTimeSeriesCommandOutput) => void
-  ): void;
-  public listTimeSeries(
-    args: ListTimeSeriesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTimeSeriesCommandOutput) => void
-  ): void;
-  public listTimeSeries(
-    args: ListTimeSeriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTimeSeriesCommandOutput) => void),
-    cb?: (err: any, data?: ListTimeSeriesCommandOutput) => void
-  ): Promise<ListTimeSeriesCommandOutput> | void {
-    const command = new ListTimeSeriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in
-   *       the <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public putDefaultEncryptionConfiguration(
-    args: PutDefaultEncryptionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutDefaultEncryptionConfigurationCommandOutput>;
-  public putDefaultEncryptionConfiguration(
-    args: PutDefaultEncryptionConfigurationCommandInput,
-    cb: (err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void
-  ): void;
-  public putDefaultEncryptionConfiguration(
-    args: PutDefaultEncryptionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void
-  ): void;
-  public putDefaultEncryptionConfiguration(
-    args: PutDefaultEncryptionConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void
-  ): Promise<PutDefaultEncryptionConfigurationCommandOutput> | void {
-    const command = new PutDefaultEncryptionConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sets logging options for IoT SiteWise.</p>
-   */
-  public putLoggingOptions(
-    args: PutLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutLoggingOptionsCommandOutput>;
-  public putLoggingOptions(
-    args: PutLoggingOptionsCommandInput,
-    cb: (err: any, data?: PutLoggingOptionsCommandOutput) => void
-  ): void;
-  public putLoggingOptions(
-    args: PutLoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutLoggingOptionsCommandOutput) => void
-  ): void;
-  public putLoggingOptions(
-    args: PutLoggingOptionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLoggingOptionsCommandOutput) => void),
-    cb?: (err: any, data?: PutLoggingOptionsCommandOutput) => void
-  ): Promise<PutLoggingOptionsCommandOutput> | void {
-    const command = new PutLoggingOptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Configures storage settings for IoT SiteWise.</p>
-   */
-  public putStorageConfiguration(
-    args: PutStorageConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutStorageConfigurationCommandOutput>;
-  public putStorageConfiguration(
-    args: PutStorageConfigurationCommandInput,
-    cb: (err: any, data?: PutStorageConfigurationCommandOutput) => void
-  ): void;
-  public putStorageConfiguration(
-    args: PutStorageConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutStorageConfigurationCommandOutput) => void
-  ): void;
-  public putStorageConfiguration(
-    args: PutStorageConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutStorageConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutStorageConfigurationCommandOutput) => void
-  ): Promise<PutStorageConfigurationCommandOutput> | void {
-    const command = new PutStorageConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds tags to an IoT SiteWise resource. If a tag already exists for the resource, this operation
-   *       updates the tag's value.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a tag from an IoT SiteWise resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an existing access policy that specifies an identity's access to an IoT SiteWise Monitor
-   *       portal or project resource.</p>
-   */
-  public updateAccessPolicy(
-    args: UpdateAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAccessPolicyCommandOutput>;
-  public updateAccessPolicy(
-    args: UpdateAccessPolicyCommandInput,
-    cb: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
-  ): void;
-  public updateAccessPolicy(
-    args: UpdateAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
-  ): void;
-  public updateAccessPolicy(
-    args: UpdateAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccessPolicyCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
-  ): Promise<UpdateAccessPolicyCommandOutput> | void {
-    const command = new UpdateAccessPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   */
-  public updateAsset(args: UpdateAssetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAssetCommandOutput>;
-  public updateAsset(args: UpdateAssetCommandInput, cb: (err: any, data?: UpdateAssetCommandOutput) => void): void;
-  public updateAsset(
-    args: UpdateAssetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAssetCommandOutput) => void
-  ): void;
-  public updateAsset(
-    args: UpdateAssetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssetCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAssetCommandOutput) => void
-  ): Promise<UpdateAssetCommandOutput> | void {
-    const command = new UpdateAssetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an asset model and all of the assets that were created from the model. Each asset
-   *       created from the model inherits the updated asset model's property and hierarchy definitions.
-   *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   *          <important>
-   *             <p>This operation overwrites the existing model with the provided model. To avoid deleting
-   *         your asset model's properties or hierarchies, you must include their IDs and definitions in
-   *         the updated asset model payload. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a>.</p>
-   *             <p>If you remove a property from an asset model, IoT SiteWise deletes all previous data for that
-   *         property. If you remove a hierarchy definition from an asset model, IoT SiteWise disassociates every
-   *         asset associated with that hierarchy. You can't change the type or data type of an existing
-   *         property.</p>
-   *          </important>
-   */
-  public updateAssetModel(
-    args: UpdateAssetModelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAssetModelCommandOutput>;
-  public updateAssetModel(
-    args: UpdateAssetModelCommandInput,
-    cb: (err: any, data?: UpdateAssetModelCommandOutput) => void
-  ): void;
-  public updateAssetModel(
-    args: UpdateAssetModelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAssetModelCommandOutput) => void
-  ): void;
-  public updateAssetModel(
-    args: UpdateAssetModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssetModelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAssetModelCommandOutput) => void
-  ): Promise<UpdateAssetModelCommandOutput> | void {
-    const command = new UpdateAssetModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an asset property's alias and notification state.</p>
-   *          <important>
-   *             <p>This operation overwrites the property's existing alias and notification state. To keep
-   *         your existing property's alias or notification state, you must include the existing values
-   *         in the UpdateAssetProperty request. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html">DescribeAssetProperty</a>.</p>
-   *          </important>
-   */
-  public updateAssetProperty(
-    args: UpdateAssetPropertyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAssetPropertyCommandOutput>;
-  public updateAssetProperty(
-    args: UpdateAssetPropertyCommandInput,
-    cb: (err: any, data?: UpdateAssetPropertyCommandOutput) => void
-  ): void;
-  public updateAssetProperty(
-    args: UpdateAssetPropertyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAssetPropertyCommandOutput) => void
-  ): void;
-  public updateAssetProperty(
-    args: UpdateAssetPropertyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssetPropertyCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAssetPropertyCommandOutput) => void
-  ): Promise<UpdateAssetPropertyCommandOutput> | void {
-    const command = new UpdateAssetPropertyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an IoT SiteWise Monitor dashboard.</p>
-   */
-  public updateDashboard(
-    args: UpdateDashboardCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDashboardCommandOutput>;
-  public updateDashboard(
-    args: UpdateDashboardCommandInput,
-    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
-  ): void;
-  public updateDashboard(
-    args: UpdateDashboardCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
-  ): void;
-  public updateDashboard(
-    args: UpdateDashboardCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDashboardCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDashboardCommandOutput) => void
-  ): Promise<UpdateDashboardCommandOutput> | void {
-    const command = new UpdateDashboardCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a gateway's name.</p>
-   */
-  public updateGateway(
-    args: UpdateGatewayCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGatewayCommandOutput>;
-  public updateGateway(
-    args: UpdateGatewayCommandInput,
-    cb: (err: any, data?: UpdateGatewayCommandOutput) => void
-  ): void;
-  public updateGateway(
-    args: UpdateGatewayCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateGatewayCommandOutput) => void
-  ): void;
-  public updateGateway(
-    args: UpdateGatewayCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGatewayCommandOutput) => void),
-    cb?: (err: any, data?: UpdateGatewayCommandOutput) => void
-  ): Promise<UpdateGatewayCommandOutput> | void {
-    const command = new UpdateGatewayCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a gateway capability configuration or defines a new capability configuration.
-   *       Each gateway capability defines data sources for a gateway. A capability configuration
-   *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
-   *       the IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To
-   *       list all capability configurations for a gateway, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.</p>
-   */
-  public updateGatewayCapabilityConfiguration(
-    args: UpdateGatewayCapabilityConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput>;
-  public updateGatewayCapabilityConfiguration(
-    args: UpdateGatewayCapabilityConfigurationCommandInput,
-    cb: (err: any, data?: UpdateGatewayCapabilityConfigurationCommandOutput) => void
-  ): void;
-  public updateGatewayCapabilityConfiguration(
-    args: UpdateGatewayCapabilityConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateGatewayCapabilityConfigurationCommandOutput) => void
-  ): void;
-  public updateGatewayCapabilityConfiguration(
-    args: UpdateGatewayCapabilityConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGatewayCapabilityConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateGatewayCapabilityConfigurationCommandOutput) => void
-  ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> | void {
-    const command = new UpdateGatewayCapabilityConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an IoT SiteWise Monitor portal.</p>
-   */
-  public updatePortal(
-    args: UpdatePortalCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePortalCommandOutput>;
-  public updatePortal(args: UpdatePortalCommandInput, cb: (err: any, data?: UpdatePortalCommandOutput) => void): void;
-  public updatePortal(
-    args: UpdatePortalCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePortalCommandOutput) => void
-  ): void;
-  public updatePortal(
-    args: UpdatePortalCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePortalCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePortalCommandOutput) => void
-  ): Promise<UpdatePortalCommandOutput> | void {
-    const command = new UpdatePortalCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an IoT SiteWise Monitor project.</p>
-   */
-  public updateProject(
-    args: UpdateProjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateProjectCommandOutput>;
-  public updateProject(
-    args: UpdateProjectCommandInput,
-    cb: (err: any, data?: UpdateProjectCommandOutput) => void
-  ): void;
-  public updateProject(
-    args: UpdateProjectCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateProjectCommandOutput) => void
-  ): void;
-  public updateProject(
-    args: UpdateProjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
-    cb?: (err: any, data?: UpdateProjectCommandOutput) => void
-  ): Promise<UpdateProjectCommandOutput> | void {
-    const command = new UpdateProjectCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class IoTSiteWise extends IoTSiteWiseClient implements IoTSiteWise {}
+createAggregatedClient(commands, IoTSiteWise);

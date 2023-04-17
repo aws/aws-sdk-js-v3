@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -21,7 +22,87 @@ import {
   PutReportDefinitionCommandInput,
   PutReportDefinitionCommandOutput,
 } from "./commands/PutReportDefinitionCommand";
-import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClient";
+import {
+  CostAndUsageReportServiceClient,
+  CostAndUsageReportServiceClientConfig,
+} from "./CostAndUsageReportServiceClient";
+
+const commands = {
+  DeleteReportDefinitionCommand,
+  DescribeReportDefinitionsCommand,
+  ModifyReportDefinitionCommand,
+  PutReportDefinitionCommand,
+};
+
+export interface CostAndUsageReportService {
+  /**
+   * @see {@link DeleteReportDefinitionCommand}
+   */
+  deleteReportDefinition(
+    args: DeleteReportDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteReportDefinitionCommandOutput>;
+  deleteReportDefinition(
+    args: DeleteReportDefinitionCommandInput,
+    cb: (err: any, data?: DeleteReportDefinitionCommandOutput) => void
+  ): void;
+  deleteReportDefinition(
+    args: DeleteReportDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteReportDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeReportDefinitionsCommand}
+   */
+  describeReportDefinitions(
+    args: DescribeReportDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReportDefinitionsCommandOutput>;
+  describeReportDefinitions(
+    args: DescribeReportDefinitionsCommandInput,
+    cb: (err: any, data?: DescribeReportDefinitionsCommandOutput) => void
+  ): void;
+  describeReportDefinitions(
+    args: DescribeReportDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReportDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyReportDefinitionCommand}
+   */
+  modifyReportDefinition(
+    args: ModifyReportDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyReportDefinitionCommandOutput>;
+  modifyReportDefinition(
+    args: ModifyReportDefinitionCommandInput,
+    cb: (err: any, data?: ModifyReportDefinitionCommandOutput) => void
+  ): void;
+  modifyReportDefinition(
+    args: ModifyReportDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyReportDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutReportDefinitionCommand}
+   */
+  putReportDefinition(
+    args: PutReportDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutReportDefinitionCommandOutput>;
+  putReportDefinition(
+    args: PutReportDefinitionCommandInput,
+    cb: (err: any, data?: PutReportDefinitionCommandOutput) => void
+  ): void;
+  putReportDefinition(
+    args: PutReportDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutReportDefinitionCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -44,136 +125,5 @@ import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClie
  *             </li>
  *          </ul>
  */
-export class CostAndUsageReportService extends CostAndUsageReportServiceClient {
-  /**
-   * @public
-   * <p>Deletes the specified report.</p>
-   */
-  public deleteReportDefinition(
-    args: DeleteReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteReportDefinitionCommandOutput>;
-  public deleteReportDefinition(
-    args: DeleteReportDefinitionCommandInput,
-    cb: (err: any, data?: DeleteReportDefinitionCommandOutput) => void
-  ): void;
-  public deleteReportDefinition(
-    args: DeleteReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteReportDefinitionCommandOutput) => void
-  ): void;
-  public deleteReportDefinition(
-    args: DeleteReportDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReportDefinitionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteReportDefinitionCommandOutput) => void
-  ): Promise<DeleteReportDefinitionCommandOutput> | void {
-    const command = new DeleteReportDefinitionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the AWS Cost and Usage reports available to this account.</p>
-   */
-  public describeReportDefinitions(
-    args: DescribeReportDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeReportDefinitionsCommandOutput>;
-  public describeReportDefinitions(
-    args: DescribeReportDefinitionsCommandInput,
-    cb: (err: any, data?: DescribeReportDefinitionsCommandOutput) => void
-  ): void;
-  public describeReportDefinitions(
-    args: DescribeReportDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeReportDefinitionsCommandOutput) => void
-  ): void;
-  public describeReportDefinitions(
-    args: DescribeReportDefinitionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReportDefinitionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReportDefinitionsCommandOutput) => void
-  ): Promise<DescribeReportDefinitionsCommandOutput> | void {
-    const command = new DescribeReportDefinitionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Allows you to programatically update your report preferences.</p>
-   */
-  public modifyReportDefinition(
-    args: ModifyReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ModifyReportDefinitionCommandOutput>;
-  public modifyReportDefinition(
-    args: ModifyReportDefinitionCommandInput,
-    cb: (err: any, data?: ModifyReportDefinitionCommandOutput) => void
-  ): void;
-  public modifyReportDefinition(
-    args: ModifyReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ModifyReportDefinitionCommandOutput) => void
-  ): void;
-  public modifyReportDefinition(
-    args: ModifyReportDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyReportDefinitionCommandOutput) => void),
-    cb?: (err: any, data?: ModifyReportDefinitionCommandOutput) => void
-  ): Promise<ModifyReportDefinitionCommandOutput> | void {
-    const command = new ModifyReportDefinitionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new report using the description that you provide.</p>
-   */
-  public putReportDefinition(
-    args: PutReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutReportDefinitionCommandOutput>;
-  public putReportDefinition(
-    args: PutReportDefinitionCommandInput,
-    cb: (err: any, data?: PutReportDefinitionCommandOutput) => void
-  ): void;
-  public putReportDefinition(
-    args: PutReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutReportDefinitionCommandOutput) => void
-  ): void;
-  public putReportDefinition(
-    args: PutReportDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutReportDefinitionCommandOutput) => void),
-    cb?: (err: any, data?: PutReportDefinitionCommandOutput) => void
-  ): Promise<PutReportDefinitionCommandOutput> | void {
-    const command = new PutReportDefinitionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class CostAndUsageReportService extends CostAndUsageReportServiceClient implements CostAndUsageReportService {}
+createAggregatedClient(commands, CostAndUsageReportService);
