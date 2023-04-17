@@ -139,8 +139,7 @@ export interface S3Config {
 
 /**
  * @public
- * <p>Configuration information for other locations that you choose to publish Amazon CloudWatch Internet Monitor internet measurements to, such as Amazon S3.
- * 			The measurements are also published to Amazon CloudWatch Logs.</p>
+ * <p>Publish internet measurements to an Amazon S3 bucket in addition to CloudWatch Logs.</p>
  */
 export interface InternetMeasurementsLogDelivery {
   /**
@@ -187,12 +186,17 @@ export interface CreateMonitorInput {
    *          <p>To learn more, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value
    * 		</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
-  MaxCityNetworksToMonitor: number | undefined;
+  MaxCityNetworksToMonitor?: number;
 
   /**
-   * <p>Publish internet measurements for Internet Monitor to another location, such as an Amazon S3 bucket. The measurements are also published to Amazon CloudWatch Logs.</p>
+   * <p>Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.</p>
    */
   InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+
+  /**
+   * <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.</p>
+   */
+  TrafficPercentageToMonitor?: number;
 }
 
 /**
@@ -740,12 +744,17 @@ export interface GetMonitorOutput {
    *          <p>To learn more, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value
    * 		</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
-  MaxCityNetworksToMonitor: number | undefined;
+  MaxCityNetworksToMonitor?: number;
 
   /**
    * <p>Publish internet measurements for Internet Monitor to another location, such as an Amazon S3 bucket. The measurements are also published to Amazon CloudWatch Logs.</p>
    */
   InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+
+  /**
+   * <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.</p>
+   */
+  TrafficPercentageToMonitor?: number;
 }
 
 /**
@@ -1069,6 +1078,11 @@ export interface UpdateMonitorInput {
    * <p>Publish internet measurements for Internet Monitor to another location, such as an Amazon S3 bucket. The measurements are also published to Amazon CloudWatch Logs.</p>
    */
   InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+
+  /**
+   * <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.</p>
+   */
+  TrafficPercentageToMonitor?: number;
 }
 
 /**

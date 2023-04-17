@@ -54,7 +54,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   MaxCityNetworksToMonitor: Number("int"), // required
+ *   MaxCityNetworksToMonitor: Number("int"),
  *   InternetMeasurementsLogDelivery: { // InternetMeasurementsLogDelivery
  *     S3Config: { // S3Config
  *       BucketName: "STRING_VALUE",
@@ -62,6 +62,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  *       LogDeliveryStatus: "STRING_VALUE",
  *     },
  *   },
+ *   TrafficPercentageToMonitor: Number("int"),
  * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);

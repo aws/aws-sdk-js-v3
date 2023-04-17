@@ -61,6 +61,7 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  *       LogDeliveryStatus: "STRING_VALUE",
  *     },
  *   },
+ *   TrafficPercentageToMonitor: Number("int"),
  * };
  * const command = new UpdateMonitorCommand(input);
  * const response = await client.send(command);

@@ -80,6 +80,7 @@ export const se_CreateMonitorCommand = async (
       MonitorName: [],
       Resources: (_) => _json(_),
       Tags: (_) => _json(_),
+      TrafficPercentageToMonitor: [],
     })
   );
   return new __HttpRequest({
@@ -337,6 +338,7 @@ export const se_UpdateMonitorCommand = async (
       ResourcesToAdd: (_) => _json(_),
       ResourcesToRemove: (_) => _json(_),
       Status: [],
+      TrafficPercentageToMonitor: [],
     })
   );
   return new __HttpRequest({
@@ -556,6 +558,7 @@ export const de_GetMonitorCommand = async (
     Resources: _json,
     Status: __expectString,
     Tags: _json,
+    TrafficPercentageToMonitor: __expectInt32,
   });
   Object.assign(contents, doc);
   return contents;
