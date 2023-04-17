@@ -1700,6 +1700,16 @@ export interface LoRaWANServiceProfile {
    * <p>The DrMax value.</p>
    */
   DrMax?: number;
+
+  /**
+   * <p>The PRAllowed value that describes whether passive roaming is allowed.</p>
+   */
+  PrAllowed?: boolean;
+
+  /**
+   * <p>The RAAllowed value that describes whether roaming activation is allowed.</p>
+   */
+  RaAllowed?: boolean;
 }
 
 /**
@@ -2020,6 +2030,11 @@ export interface LoRaWANGateway {
    * <p>Beaconing object information, which consists of the data rate and frequency parameters.</p>
    */
   Beaconing?: Beaconing;
+
+  /**
+   * <p>The MaxEIRP value.</p>
+   */
+  MaxEirp?: number;
 }
 
 /**
@@ -3642,6 +3657,11 @@ export interface LoRaWANMulticastSession {
    * <p>How long before a multicast group session is to timeout.</p>
    */
   SessionTimeout?: number;
+
+  /**
+   * <p>The PingSlotPeriod value.</p>
+   */
+  PingSlotPeriod?: number;
 }
 
 /**

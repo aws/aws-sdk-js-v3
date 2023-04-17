@@ -1369,6 +1369,11 @@ export interface UpdateWirelessGatewayRequest {
    * <p>A list of NetId values that are used by LoRa gateways to filter the uplink frames.</p>
    */
   NetIdFilters?: string[];
+
+  /**
+   * <p>The MaxEIRP value.</p>
+   */
+  MaxEirp?: number;
 }
 
 /**

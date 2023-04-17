@@ -62,6 +62,7 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  *         Number("int"),
  *       ],
  *     },
+ *     MaxEirp: Number("float"),
  *   },
  *   Tags: [ // TagList
  *     { // Tag

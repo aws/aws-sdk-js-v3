@@ -46,6 +46,7 @@ export interface StartMulticastGroupSessionCommandOutput extends StartMulticastG
  *     DlFreq: Number("int"),
  *     SessionStartTime: new Date("TIMESTAMP"),
  *     SessionTimeout: Number("int"),
+ *     PingSlotPeriod: Number("int"),
  *   },
  * };
  * const command = new StartMulticastGroupSessionCommand(input);

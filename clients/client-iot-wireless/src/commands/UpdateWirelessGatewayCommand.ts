@@ -51,6 +51,7 @@ export interface UpdateWirelessGatewayCommandOutput extends UpdateWirelessGatewa
  *   NetIdFilters: [ // NetIdFilters
  *     "STRING_VALUE",
  *   ],
+ *   MaxEirp: Number("float"),
  * };
  * const command = new UpdateWirelessGatewayCommand(input);
  * const response = await client.send(command);

@@ -45,6 +45,8 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  *     AddGwMetadata: true || false,
  *     DrMin: Number("int"),
  *     DrMax: Number("int"),
+ *     PrAllowed: true || false,
+ *     RaAllowed: true || false,
  *   },
  *   Tags: [ // TagList
  *     { // Tag

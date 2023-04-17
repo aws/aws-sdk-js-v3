@@ -489,6 +489,7 @@ import {
   UpdateAbpV1_0_x,
   UpdateAbpV1_1,
   UpdateFPorts,
+  WirelessGatewayStatistics,
   WirelessMetadata,
 } from "../models/models_1";
 
@@ -994,7 +995,7 @@ export const se_CreateWirelessGatewayCommand = async (
     take(input, {
       ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
       Description: [],
-      LoRaWAN: (_) => _json(_),
+      LoRaWAN: (_) => se_LoRaWANGateway(_, context),
       Name: [],
       Tags: (_) => _json(_),
     })
@@ -3758,6 +3759,7 @@ export const se_UpdateWirelessGatewayCommand = async (
     take(input, {
       Description: [],
       JoinEuiFilters: (_) => _json(_),
+      MaxEirp: (_) => __serializeFloat(_),
       Name: [],
       NetIdFilters: (_) => _json(_),
     })
@@ -7247,7 +7249,7 @@ export const de_GetWirelessGatewayCommand = async (
     Arn: __expectString,
     Description: __expectString,
     Id: __expectString,
-    LoRaWAN: _json,
+    LoRaWAN: (_) => de_LoRaWANGateway(_, context),
     Name: __expectString,
     ThingArn: __expectString,
     ThingName: __expectString,
@@ -8491,7 +8493,7 @@ export const de_ListWirelessGatewaysCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    WirelessGatewayList: _json,
+    WirelessGatewayList: (_) => de_WirelessGatewayStatisticsList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -10441,7 +10443,20 @@ const se_Gnss = (input: Gnss, context: __SerdeContext): any => {
 
 // se_LoRaWANFuotaTask omitted.
 
-// se_LoRaWANGateway omitted.
+/**
+ * serializeAws_restJson1LoRaWANGateway
+ */
+const se_LoRaWANGateway = (input: LoRaWANGateway, context: __SerdeContext): any => {
+  return take(input, {
+    Beaconing: _json,
+    GatewayEui: [],
+    JoinEuiFilters: _json,
+    MaxEirp: __serializeFloat,
+    NetIdFilters: _json,
+    RfRegion: [],
+    SubBands: _json,
+  });
+};
 
 // se_LoRaWANGatewayVersion omitted.
 
@@ -10460,6 +10475,7 @@ const se_LoRaWANMulticastSession = (input: LoRaWANMulticastSession, context: __S
   return take(input, {
     DlDr: [],
     DlFreq: [],
+    PingSlotPeriod: [],
     SessionStartTime: (_) => _.toISOString().split(".")[0] + "Z",
     SessionTimeout: [],
   });
@@ -10801,7 +10817,20 @@ const de_LoRaWANFuotaTaskGetInfo = (output: any, context: __SerdeContext): LoRaW
   }) as any;
 };
 
-// de_LoRaWANGateway omitted.
+/**
+ * deserializeAws_restJson1LoRaWANGateway
+ */
+const de_LoRaWANGateway = (output: any, context: __SerdeContext): LoRaWANGateway => {
+  return take(output, {
+    Beaconing: _json,
+    GatewayEui: __expectString,
+    JoinEuiFilters: _json,
+    MaxEirp: __limitedParseFloat32,
+    NetIdFilters: _json,
+    RfRegion: __expectString,
+    SubBands: _json,
+  }) as any;
+};
 
 // de_LoRaWANGatewayCurrentVersion omitted.
 
@@ -10847,6 +10876,7 @@ const de_LoRaWANMulticastSession = (output: any, context: __SerdeContext): LoRaW
   return take(output, {
     DlDr: __expectInt32,
     DlFreq: __expectInt32,
+    PingSlotPeriod: __expectInt32,
     SessionStartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     SessionTimeout: __expectInt32,
   }) as any;
@@ -11005,9 +11035,31 @@ const de_WirelessDeviceImportTaskList = (output: any, context: __SerdeContext): 
 
 // de_WirelessGatewayLogOptionList omitted.
 
-// de_WirelessGatewayStatistics omitted.
+/**
+ * deserializeAws_restJson1WirelessGatewayStatistics
+ */
+const de_WirelessGatewayStatistics = (output: any, context: __SerdeContext): WirelessGatewayStatistics => {
+  return take(output, {
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LastUplinkReceivedAt: __expectString,
+    LoRaWAN: (_: any) => de_LoRaWANGateway(_, context),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_WirelessGatewayStatisticsList omitted.
+/**
+ * deserializeAws_restJson1WirelessGatewayStatisticsList
+ */
+const de_WirelessGatewayStatisticsList = (output: any, context: __SerdeContext): WirelessGatewayStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WirelessGatewayStatistics(entry, context);
+    });
+  return retVal;
+};
 
 // de_WirelessGatewayTaskDefinitionList omitted.
 
