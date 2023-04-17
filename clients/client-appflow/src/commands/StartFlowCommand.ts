@@ -42,6 +42,7 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * const client = new AppflowClient(config);
  * const input = { // StartFlowRequest
  *   flowName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new StartFlowCommand(input);
  * const response = await client.send(command);

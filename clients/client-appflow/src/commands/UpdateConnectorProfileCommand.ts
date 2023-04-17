@@ -271,6 +271,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *       },
  *     },
  *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateConnectorProfileCommand(input);
  * const response = await client.send(command);

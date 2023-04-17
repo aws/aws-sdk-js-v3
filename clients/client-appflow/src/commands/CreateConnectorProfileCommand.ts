@@ -278,6 +278,7 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  *       },
  *     },
  *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateConnectorProfileCommand(input);
  * const response = await client.send(command);

@@ -313,6 +313,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       tablePrefix: "STRING_VALUE", // required
  *     },
  *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateFlowCommand(input);
  * const response = await client.send(command);

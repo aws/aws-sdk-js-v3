@@ -50,6 +50,7 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  *       lambdaArn: "STRING_VALUE", // required
  *     },
  *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new RegisterConnectorCommand(input);
  * const response = await client.send(command);

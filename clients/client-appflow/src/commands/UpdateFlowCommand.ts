@@ -305,6 +305,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *       tablePrefix: "STRING_VALUE", // required
  *     },
  *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateFlowCommand(input);
  * const response = await client.send(command);

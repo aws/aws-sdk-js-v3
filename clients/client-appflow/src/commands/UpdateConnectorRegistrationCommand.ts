@@ -61,6 +61,7 @@ export interface UpdateConnectorRegistrationCommandOutput
  *       lambdaArn: "STRING_VALUE", // required
  *     },
  *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateConnectorRegistrationCommand(input);
  * const response = await client.send(command);

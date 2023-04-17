@@ -23,6 +23,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   CreateConnectorProfileCommandInput,
@@ -219,6 +220,7 @@ export const se_CreateConnectorProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
       connectionMode: [],
       connectorLabel: [],
       connectorProfileConfig: (_) => _json(_),
@@ -253,6 +255,7 @@ export const se_CreateFlowCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
       description: [],
       destinationFlowConfigList: (_) => _json(_),
       flowName: [],
@@ -658,6 +661,7 @@ export const se_RegisterConnectorCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
       connectorLabel: [],
       connectorProvisioningConfig: (_) => _json(_),
       connectorProvisioningType: [],
@@ -690,6 +694,7 @@ export const se_StartFlowCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
       flowName: [],
     })
   );
@@ -839,6 +844,7 @@ export const se_UpdateConnectorProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
       connectionMode: [],
       connectorProfileConfig: (_) => _json(_),
       connectorProfileName: [],
@@ -871,6 +877,7 @@ export const se_UpdateConnectorRegistrationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
       connectorLabel: [],
       connectorProvisioningConfig: (_) => _json(_),
       description: [],
@@ -902,6 +909,7 @@ export const se_UpdateFlowCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      clientToken: (_) => _ ?? generateIdempotencyToken(),
       description: [],
       destinationFlowConfigList: (_) => _json(_),
       flowName: [],
